@@ -14,18 +14,10 @@ markdown: kramdown
 highlighter: rouge
 
 collections:
-  # ci:
-  #   output: true
-  #   permalink: /ci/:path/
-  # ac:
-  #   output: true
-  #   permalink: /ac/:path/
 
 header_pages:
   - index.md
-  # - pages/ac.md
-  # - pages/ci.md
-  # - pages/about.md
+  - pages/about.md
 
 plugins:
   - jekyll-git-metadata
