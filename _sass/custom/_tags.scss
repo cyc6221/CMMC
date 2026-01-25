@@ -1,0 +1,51 @@
+/* Tags page */
+.tags-page {
+  margin-top: 8px;
+}
+
+.tags-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 18px;
+}
+
+.tag-btn {
+  appearance: none;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #111827;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, transform .05s ease;
+}
+
+.tag-btn:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.tag-btn:active {
+  transform: translateY(1px);
+}
+
+/* 綠燈 active */
+.tag-btn.is-active {
+  background: #16a34a;      /* green */
+  border-color: #16a34a;
+  color: #ffffff;
+}
+
+.tags-hint {
+  padding: 10px 12px;
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+  color: #6b7280;
+  margin: 0 0 16px;
+}
+
+.articles-list.is-hidden {
+  display: none;
+}
