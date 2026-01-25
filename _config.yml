@@ -22,11 +22,11 @@ collections:
   #   permalink: /ac/:path/
 
 header_pages:
-  # - index.md
+  - index.md
   # - pages/ac.md
   # - pages/ci.md
   # - pages/about.md
 
 plugins:
-  # - jekyll-git-metadata
-  # - jekyll-sitemap
+  - jekyll-git-metadata
+  - jekyll-sitemap
