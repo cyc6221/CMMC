@@ -1,0 +1,32 @@
+title: "CMMC — Cryptography Makes Me Cry"
+description: "Study notes on modern cryptography."
+theme: minima
+
+url: "https://cyc6221.github.io"
+baseurl: "/cmmc"
+
+# Author info
+# author: cyc6221
+author: CY
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+collections:
+  # ci:
+  #   output: true
+  #   permalink: /ci/:path/
+  # ac:
+  #   output: true
+  #   permalink: /ac/:path/
+
+header_pages:
+  # - index.md
+  # - pages/ac.md
+  # - pages/ci.md
+  # - pages/about.md
+
+plugins:
+  # - jekyll-git-metadata
+  # - jekyll-sitemap
