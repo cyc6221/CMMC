@@ -2,7 +2,7 @@
 layout: page
 title: My First Article
 date: 2026-01-25
-tags: 
+tags: [cryptography]
 ---
 
 Hello World!
