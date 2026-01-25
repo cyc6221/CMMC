@@ -11,7 +11,8 @@ toc: false
 {% assign all_tags = "" | split: "" %}
 {% for d in docs %}
   {% for t in d.tags %}
-    {% assign all_tags = all_tags | push: t %}
+    {% capture t_str %}{{ t }}{% endcapture %}
+    {% assign all_tags = all_tags | push: t_str %}
   {% endfor %}
 {% endfor %}
 {% assign all_tags = all_tags | uniq | sort %}
@@ -19,8 +20,9 @@ toc: false
 <div class="tags-page">
   <div class="tags-bar" id="tagsBar" aria-label="Tags">
     {% for t in all_tags %}
-      {% assign tid = t | slugify %}
-      <button class="tag-btn" type="button" data-tag="{{ tid }}">#{{ t }}</button>
+      {% capture t_str %}{{ t }}{% endcapture %}
+      {% assign tid = t_str | slugify %}
+      <button class="tag-btn" type="button" data-tag="{{ tid }}">#{{ t_str }}</button>
     {% endfor %}
   </div>
 
@@ -33,7 +35,9 @@ toc: false
       {% assign atags = "" | split: "" %}
       {% if a.tags %}
         {% for t in a.tags %}
-          {% assign atags = atags | push: (t | slugify) %}
+          {% capture t_str %}{{ t }}{% endcapture %}
+          {% assign tid = t_str | slugify %}
+          {% assign atags = atags | push: tid %}
         {% endfor %}
       {% endif %}
 
@@ -59,9 +63,7 @@ toc: false
   const buttons = Array.from(bar.querySelectorAll('.tag-btn'));
 
   function setActive(tag) {
-    buttons.forEach(btn => {
-      btn.classList.toggle('is-active', btn.dataset.tag === tag);
-    });
+    buttons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.tag === tag));
   }
 
   function filter(tag) {
@@ -96,18 +98,13 @@ toc: false
     return h || null;
   }
 
-  // 點按鈕 -> 更新 hash（可分享連結 /tags/#cryptography）
   bar.addEventListener('click', (e) => {
     const btn = e.target.closest('.tag-btn');
     if (!btn) return;
-    const tag = btn.dataset.tag;
-    location.hash = tag;
+    location.hash = btn.dataset.tag;
   });
 
-  // hash 改變（含返回鍵）
   window.addEventListener('hashchange', () => filter(getHashTag()));
-
-  // 初始：若 URL 有 hash 就顯示；否則不顯示
   filter(getHashTag());
 })();
 </script>
