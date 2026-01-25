@@ -22,6 +22,7 @@ header_pages:
   - index.md
   - pages/about.md
   - pages/articles.md
+  - pages/tags.md
 
 plugins:
   - jekyll-git-metadata
