@@ -1,22 +1,73 @@
+/* Title 下方的 meta 列：date + tags */
 .page-submeta {
-  margin-top: 8px;
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   align-items: center;
-  color: #6b7280;
+  gap: 10px 12px;
   font-size: 14px;
+  line-height: 1.4;
+  color: #6b7280; /* slate-500 */
 }
 
+/* 日期：更像資訊文字，而不是按鈕 */
 .page-date {
-  padding: 2px 8px;
-  border: 1px solid #e5e7eb;
-  border-radius: 999px;
-  background: #f9fafb;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #6b7280;
 }
 
+/* 日期前的圓點分隔（視覺更整齊） */
+.page-date::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #d1d5db; /* gray-300 */
+  display: inline-block;
+}
+
+/* tags 容器 */
 .page-tags {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   gap: 8px;
+  align-items: center;
+}
+
+/* tags 按鈕化（乾淨、細緻） */
+.page-tags .tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;   /* gray-200 */
+  background: #ffffff;
+  color: #111827;              /* gray-900 */
+  text-decoration: none;
+  font-size: 13px;
+  transition: background .15s ease, border-color .15s ease, transform .05s ease;
+}
+
+.page-tags .tag:hover {
+  background: #f9fafb;         /* gray-50 */
+  border-color: #d1d5db;       /* gray-300 */
+}
+
+.page-tags .tag:active {
+  transform: translateY(1px);
+}
+
+/* 小螢幕：不要擠在一行 */
+@media (max-width: 520px) {
+  .page-submeta {
+    gap: 8px 10px;
+  }
+  .page-date::before {
+    display: none;
+  }
 }
