@@ -49,3 +49,25 @@
 .articles-list.is-hidden {
   display: none;
 }
+
+//////////////////////////////
+
+/* Clear button distinct style */
+.tag-btn--clear {
+  margin-left: 6px;
+  border-style: dashed;
+  background: #fff;
+  color: #6b7280;
+}
+
+.tag-btn--clear:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* Clear 不要變綠（即使誤加 is-active） */
+.tag-btn--clear.is-active {
+  background: #fff;
+  border-color: #e5e7eb;
+  color: #6b7280;
+}

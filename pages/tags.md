@@ -24,6 +24,8 @@ toc: false
       {% assign tid = t_str | slugify %}
       <button class="tag-btn" type="button" data-tag="{{ tid }}">#{{ t_str }}</button>
     {% endfor %}
+
+    <button class="tag-btn tag-btn--clear" type="button" data-clear="1">Clear</button>
   </div>
 
   <div class="tags-hint" id="tagsHint">
@@ -120,18 +122,28 @@ toc: false
 
   // 點按鈕：可多選、可取消
   bar.addEventListener('click', (e) => {
+    const clearBtn = e.target.closest('[data-clear="1"]');
+    if (clearBtn) {
+      const empty = new Set();
+      writeHash(empty);
+      filter(empty);
+      return;
+    }
+
     const btn = e.target.closest('.tag-btn');
     if (!btn) return;
 
     const selected = parseHash();
     const tag = btn.dataset.tag;
+    if (!tag) return; // 避免 Clear 被當成 tag
 
-    if (selected.has(tag)) selected.delete(tag);  // 再點一次取消
-    else selected.add(tag);                       // 新增多選
+    if (selected.has(tag)) selected.delete(tag);
+    else selected.add(tag);
 
     writeHash(selected);
     filter(selected);
   });
+
 
   // 支援返回鍵 / 直接貼 hash
   window.addEventListener('hashchange', () => filter(parseHash()));
