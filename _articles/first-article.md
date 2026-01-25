@@ -7,8 +7,6 @@ tags: [cryptography]
 
 Hello World!
 
-Date: 2026-01-25
-
 這是第一篇文章。
 
 密碼學的英文是 Cryptography。
