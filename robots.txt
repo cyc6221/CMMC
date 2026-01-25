@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cyc6221.github.io/CMMC/sitemap.xml
