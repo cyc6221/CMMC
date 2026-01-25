@@ -14,10 +14,14 @@ markdown: kramdown
 highlighter: rouge
 
 collections:
+  articles:
+    output: true
+    permalink: /articles/:name/
 
 header_pages:
   - index.md
   - pages/about.md
+  - pages/articles.md
 
 plugins:
   - jekyll-git-metadata
