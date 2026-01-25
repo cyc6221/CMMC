@@ -62,49 +62,81 @@ toc: false
   const items = Array.from(list.querySelectorAll('.articles-item'));
   const buttons = Array.from(bar.querySelectorAll('.tag-btn'));
 
-  function setActive(tag) {
-    buttons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.tag === tag));
+  // --- hash 格式：/tags/#cryptography,number-theory
+  function parseHash() {
+    const h = (location.hash || '').replace(/^#/, '').trim();
+    if (!h) return new Set();
+    return new Set(h.split(',').map(s => s.trim()).filter(Boolean));
   }
 
-  function filter(tag) {
-    if (!tag) {
-      setActive(null);
+  function writeHash(selected) {
+    const arr = Array.from(selected);
+    if (arr.length === 0) {
+      history.replaceState(null, '', location.pathname + location.search);
+      return;
+    }
+    location.hash = arr.join(',');
+  }
+
+  function setActive(selected) {
+    buttons.forEach(btn => {
+      btn.classList.toggle('is-active', selected.has(btn.dataset.tag));
+    });
+  }
+
+  function filter(selected) {
+    if (!selected || selected.size === 0) {
+      setActive(new Set());
+      hint.textContent = '請先選擇一個或多個 tag 才會顯示文章。';
       hint.style.display = '';
       list.classList.add('is-hidden');
       return;
     }
 
-    setActive(tag);
+    setActive(selected);
     hint.style.display = 'none';
     list.classList.remove('is-hidden');
 
     let shown = 0;
     items.forEach(li => {
       const tags = (li.dataset.tags || '').split(/\s+/).filter(Boolean);
-      const ok = tags.includes(tag);
+
+      // OR（任一符合就顯示）
+      const ok = tags.some(t => selected.has(t));
+
+      // AND（全部符合才顯示）=> 若你要 AND，把上面一行改成下面這行：
+      // const ok = Array.from(selected).every(t => tags.includes(t));
+
       li.style.display = ok ? '' : 'none';
       if (ok) shown++;
     });
 
     if (shown === 0) {
-      hint.textContent = '此 tag 目前沒有文章。';
+      hint.textContent = '目前選取的 tag 組合沒有文章。';
       hint.style.display = '';
       list.classList.add('is-hidden');
     }
   }
 
-  function getHashTag() {
-    const h = (location.hash || '').replace(/^#/, '').trim();
-    return h || null;
-  }
-
+  // 點按鈕：可多選、可取消
   bar.addEventListener('click', (e) => {
     const btn = e.target.closest('.tag-btn');
     if (!btn) return;
-    location.hash = btn.dataset.tag;
+
+    const selected = parseHash();
+    const tag = btn.dataset.tag;
+
+    if (selected.has(tag)) selected.delete(tag);  // 再點一次取消
+    else selected.add(tag);                       // 新增多選
+
+    writeHash(selected);
+    filter(selected);
   });
 
-  window.addEventListener('hashchange', () => filter(getHashTag()));
-  filter(getHashTag());
+  // 支援返回鍵 / 直接貼 hash
+  window.addEventListener('hashchange', () => filter(parseHash()));
+
+  // 初始
+  filter(parseHash());
 })();
 </script>
