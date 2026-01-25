@@ -1,0 +1,62 @@
+details.chap-toggle {
+  margin: 0.25rem 0 0.75rem 0;
+}
+
+/* summary：左連結 + 右按鈕 */
+details.chap-toggle > summary.chap-toggle__summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+}
+
+/* 移除瀏覽器預設 marker */
+details.chap-toggle > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 左邊章節連結樣式 */
+details.chap-toggle .chap-toggle__link {
+  text-decoration: none;
+}
+
+/* 右邊三角按鈕 */
+details.chap-toggle .chap-toggle__btn {
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  opacity: 0.8;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+/* 按鈕顯示三角形（關） */
+details.chap-toggle .chap-toggle__btn::before {
+  content: "▸";
+  font-size: 32px;      /* 三角形大小 */
+}
+
+/* 展開狀態（三角往下） */
+details.chap-toggle[open] .chap-toggle__btn::before {
+  content: "▾";
+}
+
+/* hover */
+details.chap-toggle .chap-toggle__btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  opacity: 1;
+}
+
+/* 內層清單 */
+details.chap-toggle .chap-toggle__list {
+  margin: 6px 0 0 0;
+  padding-left: 24px;
+}
+details.chap-toggle .chap-toggle__list li {
+  margin: 12px 0;
+}

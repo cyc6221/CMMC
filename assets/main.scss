@@ -1,0 +1,23 @@
+---
+---
+
+@import "minima";
+
+/* custom modules */
+@import "custom/toc";
+@import "custom/math-blocks";
+@import "custom/toggle";
+
+hr {
+  /* 外觀 */
+  border: 0;                     /* 移除預設樣式 */
+  border-top: 3px solid #d0d0d0;  /* 粗細/樣式/顏色 */
+
+  /* 尺寸與對齊 */
+  width: 100%;                   /* 長度：可改 60% 等 */
+  margin: 24px auto;             /* 上下間距；auto 可置中（搭配非 100% 寬時） */
+
+  /* 可選：避免某些瀏覽器陰影/高度干擾 */
+  height: 0;
+  background: transparent;
+}

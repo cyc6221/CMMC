@@ -1,0 +1,76 @@
+/* 只有有 TOC 的頁面才變寬 */
+body.has-toc .wrapper {
+  max-width: 1100px; /* 可改 1200/1280 */
+}
+
+/* 兩欄布局：文章維持舒服寬度，TOC 放旁邊 */
+body.has-toc .page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 780px) 260px; /* 文章寬 + TOC 寬 */
+  gap: 28px;
+  justify-content: center;
+}
+
+body.has-toc #page-content {
+  min-width: 0;
+}
+
+/* TOC 固定視窗滾動 */
+body.has-toc .page-toc {
+  position: sticky;
+  top: 90px; /* 依 header 高度調 */
+  height: fit-content;
+  padding: 12px 12px;
+  border-left: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+/* 長標題自動換行，避免把欄位撐爆 */
+body.has-toc .page-toc__link {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* 小螢幕改單欄 */
+@media (max-width: 1024px) {
+  body.has-toc .wrapper {
+    max-width: 800px;
+  }
+  body.has-toc .page-layout {
+    grid-template-columns: 1fr;
+  }
+  body.has-toc .page-toc {
+    position: static;
+    border-left: none;
+    padding: 0;
+  }
+}
+
+/* 把「圓點」拿掉（變成沒有 bullet 的清單） */
+body.has-toc .page-toc__list {
+  list-style: none;
+  padding-left: 0;
+}
+
+body.has-toc .page-toc__item {
+  margin: 8px 0;
+}
+
+/* 改成「左側有細條指示 active」的樣式（更像文件側欄） */
+body.has-toc .page-toc__item {
+  margin: 4px 0;
+}
+
+body.has-toc .page-toc__link {
+  display: block;
+  padding: 4px 8px;
+  border-left: 2px solid transparent;
+  color: #2563eb;
+}
+
+body.has-toc .page-toc__link.is-active {
+  border-left-color: #2563eb;
+  background: rgba(37, 99, 235, 0.06);
+  color: #111827;
+  font-weight: 600;
+}

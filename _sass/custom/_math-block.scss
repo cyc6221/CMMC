@@ -1,0 +1,66 @@
+/* === Math Blocks (Definition / Theorem / Proof / Example / Remark / Algorithm) === */
+
+.definition,
+.theorem,
+.proof,
+.example,
+.remark,
+.algorithm {
+  margin: 1.5em 0;
+  padding: 1em 1.2em;
+  border-left: 4px solid;
+  background: #f3f4f6;          /* 加深 */
+  border: 1px solid #e5e7eb;    /* 增加外框 */
+  border-left-width: 4px;       /* 確保左邊仍然較粗 */
+  border-radius: 8px;           /* 可選 */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06); /* 可選 */
+}
+
+/* Definition */
+.definition {
+  border-color: #166534;
+}
+
+/* Theorem */
+.theorem {
+  border-color: #1e3a8a;
+  font-style: italic;
+}
+
+/* Proof */
+.proof {
+  border-color: #7e22ce;
+  /* font-style: italic; */
+}
+
+.proof .qed {
+  float: right;
+  font-size: 1.2em;
+}
+
+/* Example */
+.example {
+  border-color: #6b7280;
+}
+
+/* Remark */
+.remark {
+  border-color: #f97316;
+}
+
+/* Algorithm */
+.algorithm {
+  border-color: #0f766e; /* teal */
+  /* font-style: italic; */ /* 需要斜體就打開 */
+}
+
+/* Title inside blocks */
+.definition strong,
+.theorem strong,
+.proof strong,
+.example strong,
+.remark strong,
+.algorithm strong {
+  display: block;
+  margin-bottom: 0.5em;
+}
