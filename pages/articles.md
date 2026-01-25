@@ -12,6 +12,7 @@ toc: false
     flex-wrap:wrap;
     align-items:center;
     margin: 1rem 0 1.25rem;
+    justify-content: center;
   }
   .articles-controls .group{
     display:flex;
@@ -44,7 +45,7 @@ toc: false
     background: rgba(16,185,129,.18);
     font-weight: 700;
   }
-  /* minimia 按鈕預設可能有樣式，保守一點 */
+
   .pill button{
     all: unset;
     cursor:pointer;
@@ -103,7 +104,6 @@ toc: false
     const params = new URLSearchParams(window.location.search);
     params.set('sort', sort);
     params.set('order', order);
-    // 直接重整（你要的行為）
     window.location.href = window.location.pathname + '?' + params.toString();
   }
 
