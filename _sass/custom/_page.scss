@@ -1,0 +1,22 @@
+.page-submeta {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.page-date {
+  padding: 2px 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #f9fafb;
+}
+
+.page-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
