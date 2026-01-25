@@ -1,0 +1,46 @@
+.articles-list{
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: grid;
+  gap: .75rem;
+}
+
+.articles-item{
+  border: 1px solid rgba(127,127,127,.28);
+  background: rgba(127,127,127,.06);
+  border-radius: 14px;
+  padding: .9rem 1rem;
+  transition: transform .08s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.articles-item:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+  border-color: rgba(127,127,127,.45);
+  background: rgba(127,127,127,.09);
+}
+
+.articles-link{
+  display: inline-block;
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.articles-link:hover{
+  text-decoration: underline;
+}
+
+.articles-meta{
+  margin-top: .25rem;
+  font-size: .85rem;
+  opacity: .75;
+}
+
+/* 可選：在寬螢幕時變成兩欄 */
+@media (min-width: 900px){
+  .articles-list{
+    grid-template-columns: 1fr 1fr;
+  }
+}

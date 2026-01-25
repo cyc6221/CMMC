@@ -75,14 +75,15 @@ toc: false
   </div>
 </div>
 
-<ul id="articlesList">
+<ul id="articlesList" class="articles-list">
   {% for a in site.articles %}
     <li
+      class="articles-item"
       data-title="{{ a.title | escape }}"
       data-date="{% if a.date %}{{ a.date | date: '%Y-%m-%d' }}{% else %}{% endif %}"
     >
-      <a href="{{ a.url | relative_url }}">{{ a.title }}</a>
-      {% if a.date %}<small> — {{ a.date | date: "%Y-%m-%d" }}</small>{% endif %}
+      <a class="articles-link" href="{{ a.url | relative_url }}">{{ a.title }}</a>
+      {% if a.date %}<div class="articles-meta">{{ a.date | date: "%Y-%m-%d" }}</div>{% endif %}
     </li>
   {% endfor %}
 </ul>
