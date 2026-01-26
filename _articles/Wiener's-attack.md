@@ -89,7 +89,7 @@ $$
 $$
 \left|\alpha - \frac{p}{q}\right|\le \frac{1}{2q^2},
 $$
-那麼 $\frac{p}{q}$ 一定是 $\alpha$ 的某個 convergent（出現在連分數展開的收斂子序列中）。
+那麼 $\frac{p}{q}$ 一定是 $\alpha$ 的某個 convergent（出現在連分數展開的 convergents 序列中）。
 
 <div class="remark">
 
@@ -100,6 +100,188 @@ $$
 then $\frac{p}{q}$ is a convergent of the continued fraction expansion of $\alpha$.
 
 </div>
+
+## Attack
+
+Assume RSA modulus
+$$
+N = pq, \qquad q < p < 2q
+$$
+
+Assume decryption exponent $d$ is small (attacker knows that)
+$$
+d < \frac13 N^{1/4}.
+$$
+
+The encryption exponent $e$ satisfies
+$$
+ed \equiv 1 \pmod{\varphi(N)},
+\qquad \varphi(N) = (p-1)(q-1).
+$$
+
+Assume
+$$
+1 < e < \varphi(N)
+$$
+
+### First
+
+There is an integer $k$ such that
+$$
+ed - k\varphi(N) = 1.
+$$
+
+兩邊同除 $d\varphi(N)$ 得
+$$
+\left|\frac{e}{\varphi(N)}-\frac{k}{d}\right|=\frac{1}{d\varphi(N)}.
+$$
+
+Moreover, $\gcd(k,d)=1$ since any common divisor of $k$ and $d$ must divide $ed-k\varphi(N)=1$.
+
+### Second
+
+1. $\varphi(N)=(p-1)(q-1)=pq-(p+q)+1=N-(p+q)+1$
+
+2. $N-\varphi(N)=p+q-1$
+
+3. $q < p < 2q \Rightarrow p + q < 3q$
+
+4. $N = p q \ge q^2 \Rightarrow q \le \sqrt N$
+
+5. $p + q - 1 < p + q < 3 q \le 3 \sqrt N$
+
+6. Hence,
+
+$$
+|N - \varphi(N)| = | p + q -1 | < 3 \sqrt N.
+$$
+
+利用這個誤差界，可以估計
+$$
+\begin{aligned}
+\left|\frac{e}{N}-\frac{k}{d}\right|
+&= \left|\frac{ed-Nk}{dN}\right| \\
+&= \left|\frac{ed-k\varphi(N)-k(N-\varphi(N))}{dN}\right| \\
+&= \left|\frac{1-k(N-\varphi(N))}{dN}\right| \\
+&\le \frac{1+k|N-\varphi(N)|}{dN} \\
+&< \frac{1+3k\sqrt{N}}{dN}
+= \frac{1}{dN}+\frac{3k}{d\sqrt{N}}
+\end{aligned}
+$$
+
+### Third
+
+因為$e < \varphi(N)$, 所以
+$$
+k=\frac{ed-1}{\varphi(N)} < \frac{ed}{\varphi(N)} < d,
+$$
+
+因此$ k < d$。再由假設$d < \frac13 N^{1/4}$，得到
+$$
+k < d < \frac13 N^{1/4}.
+$$
+
+從前面已推得誤差界得知
+$$
+\left|\frac{e}{N}-\frac{k}{d}\right|
+< \frac{1}{dN} + \frac{3k}{d\sqrt N}.
+$$
+代入 $k<\frac13 N^{1/4}$，得
+$$
+\frac{3k}{d\sqrt N}
+\le \frac{3\cdot \frac13 N^{1/4}}{d\sqrt N}
+= \frac{1}{dN^{1/4}}.
+$$
+又由 $d<\frac13N^{1/4}$ 得 $N^{1/4}>3d$，因此
+$$
+\frac{1}{dN^{1/4}}<\frac{1}{3d^2}.
+$$
+另外 $N^{1/4}>3d \Rightarrow N>(3d)^4=81d^4$，所以
+$$
+\frac{1}{dN}<\frac{1}{81d^5}\le \frac{1}{6d^2}\qquad(d\ge 1).
+$$
+因此
+$$
+\left|\frac{e}{N}-\frac{k}{d}\right|
+<\frac{1}{6d^2}+\frac{1}{3d^2}
+=\frac{1}{2d^2}.
+$$
+
+### Fourth
+
+<div class="remark">
+
+連分數 continued fractions 的重要性質是：
+
+若對實數 $\alpha$ 與有理數 $\frac{p}{q}$（$q>0$），滿足
+$$
+\left|\alpha-\frac{p}{q}\right| < \frac{1}{2q^2},
+$$
+則 $\frac{p}{q}$ 必定是 $\alpha$ 的某個 convergent。
+
+</div>
+
+令
+$$
+\alpha=\frac{e}{N}.
+$$
+
+由上一步我們已得到關鍵不等式
+$$
+|\alpha-\frac{k}{d}| =
+|\frac{e}{N}-\frac{k}{d}| <
+\frac{1}{2d^2}.
+$$
+
+因此可知 $\frac{k}{d}$ 必定出現在 $\frac{e}{N}$ 的連分數 convergents 之中。
+
+i.e., **只要對 $\frac{e}{N}$ 做 continued fraction expansion，逐一枚舉每個 convergent 的分母，就一定會遇到正確的 $d$。**
+
+### Fifth
+
+對 $\dfrac{e}{N}$ 的連分數展開會產生一串 convergents
+$$
+\frac{k_1}{d_1},\ \frac{k_2}{d_2},\ \dots
+$$
+其中某一個會是正確的
+$$
+\frac{k}{d}.
+$$
+因此我們可以對每個 convergent（把分母當作候選 $d$）做回推驗證，檢查它是否真能形成正確 RSA 私鑰。
+
+<div class="algorithm">
+
+<strong> Algorithm. </strong>
+
+<ol>
+    <li> Compute the continued fraction expansion of \( \dfrac{e}{N} \). </li>
+    <li> For each convergent \( \dfrac{k_i}{d_i} \), treat \( d_i \) as a candidate private exponent. </li>
+    <li> Verify by checking, for several random \( m \) with \( \gcd(m, N) = 1 \),
+    \[
+        (m^e)^{d_i} \equiv m \pmod N.
+    \]
+    If it holds for multiple \( m \), accept \( d_i \) as the correct private exponent \( d \). </li>
+</ol>
+
+</div>
+
+### Complexity
+
+連分數的 convergents 數量大約是 $ O(\log N)$, 因此枚舉候選並逐一驗證的成本很低；整體攻擊相當快速。
+
+<div class="remark">
+
+<strong> Conclusion. </strong>
+
+If
+$$
+d < \frac{1}{3}N^{1/4}
+$$
+then \(d \) can be recovered efficiently via Wiener's attack using continued fractions.
+
+</div>
+
+---
 
 <div class="example">
 
