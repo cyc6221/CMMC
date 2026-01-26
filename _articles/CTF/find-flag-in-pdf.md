@@ -19,10 +19,14 @@ pdftotext target.pdf - | grep -iE "flag"
 有些題目會把 flag 藏在 PDF 的中繼資料（例如作者、標題、註解、自訂欄位）。
 
 * `exiftool`：看更完整的 metadata
-* `pdfinfo`：看頁數、加密狀態、建立工具、版本等基本資訊
 
 ```bash
 exiftool target.pdf
+```
+
+* `pdfinfo`：看頁數、加密狀態、建立工具、版本等基本資訊
+
+```bash
 pdfinfo target.pdf
 ```
 
