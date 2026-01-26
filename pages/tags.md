@@ -22,7 +22,7 @@ toc: false
     {% for t in all_tags %}
       {% capture t_str %}{{ t }}{% endcapture %}
       {% assign tid = t_str | slugify %}
-      <button class="tag-btn" type="button" data-tag="{{ tid }}">#{{ t_str }}</button>
+      <button class="tag-btn" type="button" data-tag="{{ tid }}">{{ t_str }}</button>
     {% endfor %}
 
     <button class="tag-btn tag-btn--clear" type="button" data-clear="1">Clear</button>
@@ -143,7 +143,6 @@ toc: false
     writeHash(selected);
     filter(selected);
   });
-
 
   // 支援返回鍵 / 直接貼 hash
   window.addEventListener('hashchange', () => filter(parseHash()));

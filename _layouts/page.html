@@ -18,7 +18,7 @@ layout: default
             {% for tag in page.tags %}
               {% capture tag_str %}{{ tag }}{% endcapture %}
               {% assign tag_id = tag_str | slugify %}
-              <a class="tag" href="{{ '/tags/#' | append: tag_id | relative_url }}">#{{ tag_str }}</a>
+              <a class="tag" href="{{ '/tags/#' | append: tag_id | relative_url }}">{{ tag_str }}</a>
             {% endfor %}
           </span>
         {% endif %}
