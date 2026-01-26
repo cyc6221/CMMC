@@ -36,7 +36,7 @@ Hence, one should avoid choosing such small \(d\). <br>
 
 接著對每個 $i \ge 0$，定義：
 $$
-a_i = \lfloor \alpha_i \rfloor,\qquad
+a_i = \lfloor \alpha_i \rfloor,\quad
 \alpha_{i+1} = \frac{1}{\alpha_i-a_i}.
 $$
 
@@ -103,7 +103,7 @@ then $\frac{p}{q}$ is a convergent of the continued fraction expansion of $\alph
 
 ## Attack
 
-* Assume RSA modulus $N = pq, \qquad q < p < 2q$
+* Assume RSA modulus $N = pq, \quad q < p < 2q$
 
 * Assume decryption exponent $d$ is small (attacker knows that) $d < \frac13 N^{1/4}.$
 
@@ -167,19 +167,22 @@ $$
 $$
 k=\frac{ed-1}{\varphi(N)} < \frac{ed}{\varphi(N)} < d,
 $$
+因此$ k < d$。
 
-因此$ k < d$。再由假設$d < \frac13 N^{1/4}$，得到
+再由假設$d < \frac13 N^{1/4}$，得到
 $$
 k < d < \frac13 N^{1/4}.
 $$
 
 從前面已推得誤差界得知
+
 $$
 \left|\frac{e}{N}-\frac{k}{d}\right|
 < \frac{1}{dN} + \frac{3k}{d\sqrt N}.
 $$
 
 代入 $k<\frac13 N^{1/4}$，得
+
 $$
 \frac{3k}{d\sqrt N}
 \le \frac{3\cdot \frac13 N^{1/4}}{d\sqrt N}
@@ -193,7 +196,7 @@ $$
 
 另外 $N^{1/4}>3d \Rightarrow N>(3d)^4=81d^4$，所以
 $$
-\frac{1}{dN}<\frac{1}{81d^5}\le \frac{1}{6d^2}\qquad(d\ge 1).
+\frac{1}{dN}<\frac{1}{81d^5}\le \frac{1}{6d^2}\quad(d\ge 1).
 $$
 
 因此
@@ -285,23 +288,23 @@ then \(d \) can be recovered efficiently via Wiener's attack using continued fra
 
 Suppose RSA modulus
 $$
-N = 9 449 868 410 449
+N = 9, 449, 868, 410, 449
 $$
 
 and public exponent
 $$
-e = 6 792 605 526 025
+e = 6, 792, 605, 526, 025
 $$
 
 <div class="remark">
 
 在這個範例中
 $$
-N = 9,449,868,410,449,\qquad q = 1,234,577,\qquad p = 7,654,337.
+N = 9, 449, 868, 410, 449, \quad q = 1, 234, 577, \quad p = 7, 654, 337
 $$
-可見 $p>2q$，因此 **不符合** 前面假設的 $q<p<2q$（balanced primes）。
+可見 $p > 2q$，因此不符合前面假設的 $q < p < 2q$（balanced primes）。 <br>
 
-不過 Wiener attack 的流程仍可照常進行；$q<p<2q$ 只是用來推導誤差界並「保證成功」的充分條件，在此例中即使不滿足也仍然成功。
+不過 Wiener attack 的流程仍可照常進行； $q < p < 2q$ 只是用來推導誤差界並「保證成功」的充分條件，在此例中即使不滿足也仍然成功。
 
 </div>
 
@@ -332,7 +335,7 @@ $$
 接著依序檢查每個 convergent 的分母是否可能是私鑰指數 \(d\)。
 由於第 \(7\) 個 convergent 的分母為 \(569\)，且符合 \(d<584\)，因此得到
 $$
-d = 569,
+d = 569
 $$
 也就是第 \(7\) 個 convergent 的分母。
 
