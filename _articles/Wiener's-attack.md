@@ -101,6 +101,53 @@ then $\frac{p}{q}$ is a convergent of the continued fraction expansion of $\alph
 
 </div>
 
+<div class="example">
+
+<strong>Example.</strong>
+
+Suppose RSA modulus
+$$
+N = 9 449 868 410 449
+$$
+
+and public exponent
+$$
+e = 6 792 605 526 025
+$$
+
+已知解密指數滿足
+$$
+d < \frac{1}{3}N^{1/4} \approx 584.
+$$
+
+計算
+$$
+\alpha=\frac{e}{N}
+$$
+的 continued fraction expansion
+
+列出 convergents：
+$$
+1,
+\ \frac{2}{3},
+\ \frac{3}{4},
+\ \frac{5}{7},
+\ \frac{18}{25},
+\ \frac{23}{32},
+\ \frac{409}{569},
+\ \frac{1659}{2308},
+\ \dots
+$$
+
+接著依序檢查每個 convergent 的分母是否可能是私鑰指數 \(d\)。
+由於第 \(7\) 個 convergent 的分母為 \(569\)，且符合 \(d<584\)，因此得到
+$$
+d = 569,
+$$
+也就是第 \(7\) 個 convergent 的分母。
+
+</div>
+
 ## References
 
 - Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 17. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
