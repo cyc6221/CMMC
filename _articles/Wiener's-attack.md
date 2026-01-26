@@ -80,7 +80,7 @@ $$
 
 </div>
 
-<div class="theorem>
+<div class="theorem">
 
 <strong> Fact 2: 分母 $q_i$ 成長很快 </strong>
 
@@ -344,3 +344,5 @@ $$
 ## References
 
 - Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 17. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
+
+- Wikipedia, *Wiener’s attack*. [https://en.wikipedia.org/wiki/Wiener%27s_attack](https://en.wikipedia.org/wiki/Wiener%27s_attack)
