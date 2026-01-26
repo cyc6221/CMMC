@@ -1,4 +1,4 @@
-/* meta row under title */
+/* one-row meta under title */
 .page-submeta {
   margin-top: 8px;
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #6b7280; /* gray */
+  color: #6b7280;
 }
 
 .page-submeta .meta-item {
@@ -20,25 +20,35 @@
   margin: 0 2px;
 }
 
-.page-submeta .ico {
-  width: 14px;
-  height: 14px;
+/* ICON SIZE FIX (core) */
+.page-submeta .meta-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  line-height: 0;
+  flex: 0 0 16px;
+}
+
+.page-submeta .meta-ico .ico {
+  width: 16px;
+  height: 16px;
   fill: currentColor;
 }
 
-/* tags pills */
-.page-tags {
-  margin-top: 10px;
-  display: flex;
+/* tags pills inline */
+.page-submeta .meta-tags {
+  display: inline-flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+  align-items: center;
 }
 
-.page-tags .tag-pill {
+.page-submeta .tag-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
+  padding: 4px 10px;
   border: 1px solid #e5e7eb;
   border-radius: 999px;
   background: #f9fafb;
@@ -49,18 +59,11 @@
   transition: background .15s ease, border-color .15s ease, transform .05s ease;
 }
 
-.page-tags .tag-pill:hover {
-  background: #ffffff;
+.page-submeta .tag-pill:hover {
+  background: #fff;
   border-color: #d1d5db;
 }
 
-.page-tags .tag-pill:active {
+.page-submeta .tag-pill:active {
   transform: translateY(1px);
-}
-
-.page-tags .tag-ico .ico {
-  width: 14px;
-  height: 14px;
-  fill: currentColor;
-  color: #6b7280;
 }
