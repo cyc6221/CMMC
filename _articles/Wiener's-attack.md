@@ -103,26 +103,13 @@ then $\frac{p}{q}$ is a convergent of the continued fraction expansion of $\alph
 
 ## Attack
 
-Assume RSA modulus
-$$
-N = pq, \qquad q < p < 2q
-$$
+* Assume RSA modulus $N = pq, \qquad q < p < 2q$
 
-Assume decryption exponent $d$ is small (attacker knows that)
-$$
-d < \frac13 N^{1/4}.
-$$
+* Assume decryption exponent $d$ is small (attacker knows that) $d < \frac13 N^{1/4}.$
 
-The encryption exponent $e$ satisfies
-$$
-ed \equiv 1 \pmod{\varphi(N)},
-\qquad \varphi(N) = (p-1)(q-1).
-$$
+* The encryption exponent $e$ satisfies $ed \equiv 1 \pmod{\varphi(N)}, \quad \varphi(N) = (p-1)(q-1).$
 
-Assume
-$$
-1 < e < \varphi(N)
-$$
+* Assume $1 < e < \varphi(N)$
 
 ### First
 
@@ -156,7 +143,10 @@ $$
 |N - \varphi(N)| = | p + q -1 | < 3 \sqrt N.
 $$
 
+<div class="definition">
+
 利用這個誤差界，可以估計
+
 $$
 \begin{aligned}
 \left|\frac{e}{N}-\frac{k}{d}\right|
@@ -168,6 +158,8 @@ $$
 = \frac{1}{dN}+\frac{3k}{d\sqrt{N}}
 \end{aligned}
 $$
+
+</div>
 
 ### Third
 
@@ -186,20 +178,24 @@ $$
 \left|\frac{e}{N}-\frac{k}{d}\right|
 < \frac{1}{dN} + \frac{3k}{d\sqrt N}.
 $$
+
 代入 $k<\frac13 N^{1/4}$，得
 $$
 \frac{3k}{d\sqrt N}
 \le \frac{3\cdot \frac13 N^{1/4}}{d\sqrt N}
 = \frac{1}{dN^{1/4}}.
 $$
+
 又由 $d<\frac13N^{1/4}$ 得 $N^{1/4}>3d$，因此
 $$
 \frac{1}{dN^{1/4}}<\frac{1}{3d^2}.
 $$
+
 另外 $N^{1/4}>3d \Rightarrow N>(3d)^4=81d^4$，所以
 $$
 \frac{1}{dN}<\frac{1}{81d^5}\le \frac{1}{6d^2}\qquad(d\ge 1).
 $$
+
 因此
 $$
 \left|\frac{e}{N}-\frac{k}{d}\right|
@@ -235,7 +231,7 @@ $$
 
 因此可知 $\frac{k}{d}$ 必定出現在 $\frac{e}{N}$ 的連分數 convergents 之中。
 
-i.e., **只要對 $\frac{e}{N}$ 做 continued fraction expansion，逐一枚舉每個 convergent 的分母，就一定會遇到正確的 $d$。**
+i.e., **對 $\frac{e}{N}$ 做 continued fraction expansion，逐一枚舉每個 convergent 的分母，就一定會遇到正確的 $d$。**
 
 ### Fifth
 
