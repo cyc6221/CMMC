@@ -25,9 +25,9 @@ Hence, one should avoid choosing such small \(d\). <br>
 
 </div>
 
-## 連分數（continued fractions）
+## Continued Fractions 連分數
 
-### continued fraction expansion
+### continued fraction expansion 連分數展開
 
 給定一個實數 $\alpha \in \mathbb{R}$，令
 
@@ -69,19 +69,27 @@ The integers $a_0, a_1, a_2, \dots$ are called the continued fraction expansion 
 
 </div>
 
-### Fact 1: $\gcd(p_i,q_i)=1$
+<div class="theorem">
+
+<strong> Fact 1: $\gcd(p_i,q_i)=1$ </strong>
 
 每個 convergent $\frac{p_i}{q_i}$ 都是**最簡分數**（分子分母互質）：
 $$
 \gcd(p_i,q_i)=1\quad \forall i.
 $$
 
-### Fact 2: 分母 $q_i$ 成長很快
+</div>
+
+<div class="theorem>
+
+<strong> Fact 2: 分母 $q_i$ 成長很快 </strong>
 
 $$
 q_i=a_i q_{i-1}+q_{i-2} \ge q_{i-1} +q_{i-2}
 $$
 因此 $q_i$ 至少以 Fibonacci 速度成長（近似指數成長）。分母越來越大，所以 convergents 的近似也越來越精細。
+
+</div>
 
 ### 重要結果
 
@@ -313,11 +321,7 @@ $$
 d < \frac{1}{3}N^{1/4} \approx 584.
 $$
 
-計算
-$$
-\alpha=\frac{e}{N}
-$$
-的 continued fraction expansion
+計算 $\alpha=\frac{e}{N}$ 的 continued fraction expansion
 
 列出 convergents：
 $$
@@ -333,11 +337,7 @@ $$
 $$
 
 接著依序檢查每個 convergent 的分母是否可能是私鑰指數 \(d\)。
-由於第 \(7\) 個 convergent 的分母為 \(569\)，且符合 \(d<584\)，因此得到
-$$
-d = 569
-$$
-也就是第 \(7\) 個 convergent 的分母。
+由於第 \(7\) 個 convergent 的分母為 \(569\)，且符合 \(d<584\)，因此得到 $d = 569$ 也就是第 \(7\) 個 convergent 的分母。
 
 </div>
 
