@@ -5,38 +5,56 @@ layout: default
 <article class="page">
 
   <header class="page-header">
-    <h1 class="page-title">{{ page.title }}</h1>
+    {% assign publish_time = page.published | default: page.date %}
+    {% assign update_time = page.last_updated %}
 
-    {% if page.date or page.tags %}
+    {% if publish_time or update_time %}
       <div class="page-submeta">
-        {% if page.date %}
-          <span class="page-date">{{ page.date | date: "%Y-%m-%d" }}</span>
+        {% if publish_time %}
+          <span class="meta-item">
+            <span class="meta-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="ico" role="img" focusable="false">
+                <path d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1.5A2.5 2.5 0 0 1 22 6.5v14A2.5 2.5 0 0 1 19.5 23h-15A2.5 2.5 0 0 1 2 20.5v-14A2.5 2.5 0 0 1 4.5 4H6V3a1 1 0 0 1 1-1Zm12.5 7H4.5a.5.5 0 0 0-.5.5v11a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-.5-.5ZM6 6h12V5H6v1Z"/>
+              </svg>
+            </span>
+            發表於 {{ publish_time | date: "%Y-%m-%d" }}
+          </span>
         {% endif %}
 
-        {% if page.tags %}
-          <span class="page-tags">
-            {% for tag in page.tags %}
-              {% capture tag_str %}{{ tag }}{% endcapture %}
-              {% assign tag_id = tag_str | slugify %}
-              <a class="tag" href="{{ '/tags/#' | append: tag_id | relative_url }}">{{ tag_str }}</a>
-            {% endfor %}
+        {% if publish_time and update_time %}
+          <span class="meta-sep" aria-hidden="true">|</span>
+        {% endif %}
+
+        {% if update_time %}
+          <span class="meta-item">
+            <span class="meta-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="ico" role="img" focusable="false">
+                <path d="M9 16.2 4.8 12a1 1 0 1 1 1.4-1.4L9 13.4l8.8-8.8a1 1 0 1 1 1.4 1.4l-9.5 9.5a1 1 0 0 1-1.4 0Z"/>
+              </svg>
+            </span>
+            更新於 {{ update_time | date: "%Y-%m-%d" }}
           </span>
         {% endif %}
       </div>
     {% endif %}
 
-    {% if page.type == "chapter" or page.type == "section" %}
-      <p class="page-meta">
-        {% if page.published %}
-          Published: {{ page.published | date: "%Y-%m-%d" }}
-        {% endif %}
-
-        {% if page.last_updated %}
-          {% if page.date %} | {% endif %}
-          Last updated: {{ page.last_updated | date: "%Y-%m-%d" }}
-        {% endif %}
-      </p>
+    {% if page.tags %}
+      <div class="page-tags">
+        {% for tag in page.tags %}
+          {% capture tag_str %}{{ tag }}{% endcapture %}
+          {% assign tag_id = tag_str | slugify %}
+          <a class="tag-pill" href="{{ '/tags/#' | append: tag_id | relative_url }}">
+            <span class="tag-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="ico" role="img" focusable="false">
+                <path d="M20.6 13.6 13.6 20.6a2 2 0 0 1-2.8 0L3 12.8V3h9.8l7.8 7.8a2 2 0 0 1 0 2.8ZM7.5 7.5A1.5 1.5 0 1 0 7.5 4.5a1.5 1.5 0 0 0 0 3Z"/>
+              </svg>
+            </span>
+            {{ tag_str }}
+          </a>
+        {% endfor %}
+      </div>
     {% endif %}
+
   </header>
 
   {% if page.toc != false %}

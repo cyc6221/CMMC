@@ -2,6 +2,7 @@
 layout: page
 title: Wiener's Attack on RSA
 date: 2026-01-26
+last_updated: 2026-01-26
 tags: [attack, RSA]
 ---
 
