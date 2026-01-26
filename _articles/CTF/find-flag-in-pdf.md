@@ -3,7 +3,7 @@ layout: page
 title: Find the Flag in a PDF
 date: 2026-01-26
 last_updated: 2026-01-26
-tags: [CTF]
+tags: [CTF, Forensics]
 ---
 
 ## Find `flag` from extracted text
@@ -50,3 +50,7 @@ strings -n 6 target.pdf | grep -iE "flag"
 ```bash
 grep -aoiE "flag" target.pdf
 ```
+
+## Practice
+
+- [Riddle Registry](https://play.picoctf.org/practice/challenge/530) — Easy — picoCTF
