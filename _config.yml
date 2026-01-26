@@ -16,7 +16,7 @@ highlighter: rouge
 collections:
   articles:
     output: true
-    permalink: /articles/:name/
+    permalink: /articles/:path/
 
 header_pages:
   - index.md
