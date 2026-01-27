@@ -2,7 +2,7 @@
 layout: page
 title: Wiener's Attack on RSA
 date: 2026-01-26
-last_updated: 2026-01-26
+last_updated: 2026-01-27
 tags: [attack, RSA]
 ---
 
@@ -345,4 +345,8 @@ $$
 
 - Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 17. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
 
-- Wikipedia, *Wiener’s attack*. [https://en.wikipedia.org/wiki/Wiener%27s_attack](https://en.wikipedia.org/wiki/Wiener%27s_attack)
+- Wikipedia, [*Wiener’s attack*](https://en.wikipedia.org/wiki/Wiener%27s_attack).
+
+- CryptoHack, [*Wiener’s attack*](https://cryptohack.gitbook.io/cryptobook/untitled/low-private-component-attacks/wieners-attack).
+
+- HasegawaAzusa, [*wiener attack 笔记*](https://hasegawaazusa.github.io/wiener-attack.html#%E7%BB%B4%E7%BA%B3%E6%94%BB%E5%87%BB-wiener-attack)
