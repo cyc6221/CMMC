@@ -60,3 +60,18 @@ details.chap-toggle .chap-toggle__list {
 details.chap-toggle .chap-toggle__list li {
   margin: 12px 0;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* 讓整個 site header 置頂 */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff; /* 重要：不然滑動時背景可能透明 */
+}
+
+/* 可選：滑動時更清楚 */
+.site-header {
+  box-shadow: 0 1px 0 rgba(0,0,0,.06);
+}
