@@ -11,7 +11,7 @@
     {% include mathjax.html %}
   </head>
 
-  <body class="{% if page.toc != false and page.layout == 'page' %}has-toc{% endif %}">
+  <body id="top" class="{% if page.toc != false and page.layout == 'page' %}has-toc{% endif %}">
     {% include header.html %}
 
     <main class="page-content" aria-label="Content">
@@ -24,5 +24,22 @@
 
     <script src="{{ '/assets/js/page-toc.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/chapters-toggle.js' | relative_url }}"></script>
+
+    <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
+
+    <script>
+      (function () {
+        const btn = document.querySelector('.back-to-top');
+        if (!btn) return;
+
+        const toggle = () => {
+          if (window.scrollY > 300) btn.classList.add('is-visible');
+          else btn.classList.remove('is-visible');
+        };
+
+        window.addEventListener('scroll', toggle, { passive: true });
+        toggle();
+      })();
+    </script>
   </body>
 </html>
