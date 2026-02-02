@@ -71,15 +71,18 @@ $$
 
 <div class="algorithm">
 
+<strong> Setup </strong>
+
 LLL algorithm 會同時維護：
 
 <ul>
-    <li>目前的 lattice basis $B=\{b_1,\dots,b_m\}$</li>
-    <li>對應的 <strong>Gram–Schmidt orthogonalization (GSO)</strong> 向量 $B^*=\{b_1^*,\dots,b_m^*\}$</li>
-    <li>一個指標 $k$（從 $k=2$ 開始）用來檢查與修正第 $k$ 個向量</li>
+    <li>目前的 lattice basis $B = \{ b_1, \dots, b_m \}$</li>
+    <li>對應的 <em>Gram–Schmidt orthogonalization (GSO)</em> 向量 $B^* = \{ b_1^*, \dots, b_m^* \}$</li>
+    <li>指標 $k$（從 $k=2$ 開始）用來檢查與修正第 $k$ 個向量</li>
 </ul>
 
 <strong> Initialize </strong>
+
 設定 $k=2$，並計算目前 basis 的 GSO（得到 $B^*$ 與係數 $\mu_{i,j}$）。
 
 <strong> Steps </strong>
@@ -93,38 +96,29 @@ LLL algorithm 會同時維護：
         $$
         就對 basis 做整數線性調整（等價於把 $b_k$ 減去合適的整數倍 $b_j$），直到對所有 $j < k$ 都滿足
         $$
-        |\mu_{k,j}|\le \frac12.
+        |\mu_{k,j}| \le \frac12.
         $$
         目的：把 $b_k$ 在前面方向上的投影縮小，避免係數過大造成向量冗長。
     </li>
     <li>
-        <strong> Lovász condition check for 條件 (B) </strong>
-        檢查相鄰兩個向量（第 $k-1$ 與第 $k$）是否滿足
+        <strong> Lovász condition check </strong>
+        檢查相鄰兩個向量（第 $k-1$ 與第 $k$）是否滿足條件 (B)：
         $$
         \|b_k^*\|^2 \;\ge\; \left(\frac34-\mu_{k,k-1}^2\right)\,\|b_{k-1}^*\|^2.
         $$
         <ul>
-        <li>
-            若不滿足：swap 兩個向量
-            $$
-            b_k \leftrightarrow b_{k-1},
-            $$
-            並令
-            $$
-            k \leftarrow \max(k-1,\,2).
-            $$
-        </li>
-        <li>
-            若滿足：令
-            $$
-            k \leftarrow k+1.
-            $$
-        </li>
+            <li> 若不滿足：swap 兩個向量 $b_k \leftrightarrow b_{k-1}$, 並令 $k \leftarrow \max(k-1, 2)$. </li>
+            <li> 若滿足：令 $k \leftarrow k+1$. </li>
         </ul>
     </li>
 </ol>
 
 <strong>Termination</strong>
-當 $k=m$ 且後續不再觸發 swap 時，演算法終止。可以證明 swap 次數有上界，因此演算法一定會 terminate。終止時得到的 basis 同時滿足條件 (A) 與 (B)，因此必然是 <em>LLL-reduced basis</em>。
+
+當 $k=m$ 且後續不再觸發 swap 時，演算法終止。
+
+<strong>Note.</strong>
+
+可以證明 swap 次數有上界，因此演算法一定會 terminate。終止時得到的 basis 同時滿足條件 (A) 與 (B)，因此必然是 <em>LLL-reduced basis</em>。
 
 </div>
