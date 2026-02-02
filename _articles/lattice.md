@@ -3,7 +3,7 @@ layout: page
 title: Lattice
 date: 2026-02-02
 last_updated: 2026-02-02
-tags: [lattice, math]
+tags: [Lattice, math]
 ---
 
 ## Before lattice
@@ -113,7 +113,7 @@ $$
 |\det(B')| = |\det(B)|.
 $$
 
-也就是說，basis matrix 的 determinant 的絕對值不依賴於選擇哪一組 basis，是 lattice 的一個 **invariant**。
+basis matrix 的 determinant 的絕對值不依賴於選擇哪一組 basis，是 lattice 的一個 **invariant**。
 
 ### Discriminant of a Lattice
 
@@ -133,13 +133,11 @@ $$
 \det(B^TB)=\det(B^T)\det(B)=(\det(B))^2,
 $$
 
-因此
+因此，在 full-rank 的情況下，discriminant 就等於 basis matrix determinant 的絕對值。
 
 $$
 \Delta = |\det(B)|.
 $$
-
-在 full-rank 的情況下，discriminant 就等於 basis matrix determinant 的絕對值。
 
 <!-- --- -->
 
@@ -170,6 +168,8 @@ $$
 $$
 
 這表示每個基底向量在先前基底方向上的投影不會過大，使得基底不會過度傾斜，幾何上更「接近正交」。
+
+<!-- --- -->
 
 ## References
 

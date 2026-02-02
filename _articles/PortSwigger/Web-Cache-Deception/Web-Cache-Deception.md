@@ -3,7 +3,7 @@ layout: page
 title: Web Cache Deception
 date: 2026-02-02
 last_updated: 2026-02-02
-tags: [PortSwigger, WCD, Caching, CDN, Web Security]
+tags: [PortSwigger, WCD, caching, CDN, Web Security]
 ---
 
 參考 PortSwigger 的 [Web cache deception（Learning path）](https://portswigger.net/web-security/learning-paths/web-cache-deception) 與 [Web cache deception](https://portswigger.net/web-security/web-cache-deception) 整理。

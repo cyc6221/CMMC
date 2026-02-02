@@ -3,7 +3,7 @@ layout: page
 title: Web Cache Deception Payload Cheatsheet
 date: 2026-02-02
 last_updated: 2026-02-02
-tags: [PortSwigger, WCD, Caching, CDN, Web Security]
+tags: [PortSwigger, WCD, caching, CDN, Web Security]
 ---
 
 ## How to use
