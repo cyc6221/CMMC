@@ -32,7 +32,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 ### 快取的基本概念
 
-- Web cache（常見於 **CDN**、反向代理、邊緣節點）位於使用者與 origin server 之間：
+- Web cache（常見於 **CDN**、反向代理、邊緣節點）位於 user 與 origin server 之間：
   - **Cache hit**：快取已有副本 → 直接回覆（快）
   - **Cache miss**：快取沒有 → 轉發到 origin → 拿到回應後再決定是否存入快取
 - CDN（Content Delivery Network）是一群分散的邊緣伺服器，把靜態內容快取到離使用者更近的地方，降低延遲、減輕 origin 負載。  
@@ -98,9 +98,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
     </li>
   </ol>
 
-  <blockquote>
     判斷成功的關鍵：相同 URL 對不同使用者本應回不同內容，但實際上攻擊者拿到的是受害者的回應副本（且有 cache hit/age 等證據佐證）。
-  </blockquote>
 </div>
 
 ### Using a cache buster
@@ -149,22 +147,25 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
   - Origin（REST）可能只路由到 `/user/123/profile`，忽略尾端 `wcd.css`
   - Cache（傳統）可能把整段當「檔案路徑」，看到 `.css` 就當可快取資源 → 可能觸發快取
 
-- **實務測法（概念）**
-  1. 在動態 endpoint 後加任意段：`/api/orders/123/foo`  
-     → 看 origin 是否仍回同內容（表示路由容錯/抽象）
-  2. 再加副檔名：`/api/orders/123/foo.js`  
-     → 看 cache 指標是否出現（`X-Cache` / `Age` 是否 hit、遞增）
+<div class="algorithm">
+  <ol>
+    <li>先打 baseline：<code>/api/orders/123</code>，記錄 <code>Status</code>、<code>Body</code>、<code>Cache-Control</code>、<code>Content-Type</code>。</li>
+    <li>在 endpoint 後加任意段：<code>/api/orders/123/anything</code>，比對回應是否與 baseline 相同。</li>
+    <li>再加副檔名：<code>/api/orders/123/anything.css</code>（也可試 <code>.js</code>），觀察 <code>Age</code>、<code>X-Cache</code>/<code>CF-Cache-Status</code>、<code>Cache-Control</code>、<code>Content-Type</code>。</li>
+    <li>同一路徑重複請求 2 次：看第 2 次是否變成 HIT、<code>Age</code> 是否增加。</li>
+  </ol>
+</div>
 
 ### Delimiter discrepancies
 
-- **Delimiter 是什麼？**（URL 中有「分隔/解析意義」的字元）
+- **Delimiter（URL 中有「分隔／解析意義」的字元）**
   - `?`：分隔 query string
   - `;`：有些框架用於 matrix variables
   - `#`：fragment（通常不會送到 server）
   - `.`：部分框架用於格式/副檔名選擇（例：Rails）
 
-- **核心概念：origin 截斷、cache 不截斷（或反之）**
-  - 例（概念）：`...;aaa.js`
+- **💡 origin 截斷、cache 不截斷（或反之）**
+  - 例：`...;aaa.js`
     - Cache：把 `;aaa.js` 當 path 一部分，看到 `.js` → 依靜態資源規則快取
     - Origin：把 `;` 當 delimiter → 截斷回動態 endpoint → 回敏感內容
 
@@ -174,15 +175,25 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 ### Delimiter decoding discrepancies
 
-- **核心概念**：Cache 與 origin 對 `%xx` 的解碼順序/行為不一致
+- 💡 Cache 與 origin 對 `%xx` 的解碼順序/行為不一致
   - Origin 先 decode → 把解碼後字元當 delimiter → 截斷/改路由
   - Cache 不 decode（或反過來）→ 仍把整段當 path → 可能吃到副檔名/路徑規則而快取
 
-- **常見 `%xx`**
-  - `%23` → `#`
-  - `%3f` → `?`
+* **常見 `%xx`**
 
-- **例（概念）**：`/profile%23wcd.css`
+| `%xx` | 字元 | `%xx` | 字元 | `%xx` | 字元 | `%xx` | 字元 |
+| ----- | --- | ----- | --- | ----- | --- | ----- | --- |
+| `%20` | 空白 | `%21` | `!` | `%22` | `"` | `%23` | `#` |
+| `%24` | `$` | `%25` | `%` | `%26` | `&` | `%27` | `'` |
+| `%28` | `(` | `%29` | `)` | `%2a` | `*` | `%2b` | `+` |
+| `%2c` | `,` | `%2d` | `-` | `%2e` | `.` | `%2f` | `/` |
+| `%3a` | `:` | `%3b` | `;` | `%3c` | `<` | `%3d` | `=` |
+| `%3e` | `>` | `%3f` | `?` | `%40` | `@` | `%5b` | `[` |
+| `%5c` | `\` | `%5d` | `]` | `%5e` | `^` | `%5f` | `_` |
+| `%60` | `` ` `` | `%7b` | `{` | `%7c` | `\|` | `%7d` | `}` |
+| `%7e` | `~` | | | | | | |
+
+- 例：`/profile%23wcd.css`
   - Origin decode → 變成 `/profile#wcd.css` → 可能只處理 `/profile`
   - Cache 不 decode → 視為 `/profile%23wcd.css`，結尾 `.css` → 可能被快取
 
@@ -192,41 +203,57 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 把 URL 開頭做成 `/assets/...` / `/static/...`，以命中「前綴快取規則」。  
 但 origin 透過解析/正規化後，實際回到動態端點內容。
-
-> 此類常與 path traversal / normalization discrepancy 結合。
+此類常與 path traversal / normalization discrepancy 結合。
 
 ### Normalization discrepancies
 
-- **Normalization 是什麼？**把 URL path 轉成標準形式，可能包含：
+- **Normalization（URL path 正規化）**：將 URL path 轉成標準形式，可能包含：
   - decode：`%2f` → `/`
   - dot-segments 正規化：處理 `../`、`./`
 
-- **例（概念）**：`/static/..%2fprofile`
+- 例：`/static/..%2fprofile`
   - Origin：decode + resolve → `/profile`（走動態 profile）
   - Cache：不 decode / 不 resolve → 仍視為 `/static/..%2fprofile`（字面上以 `/static` 開頭 → 可能套用快取規則）
 
 ### Detecting normalization by the origin server
 
-- **Why often use POST?**  
-  目標是觀察 **origin 對路徑的 decode / normalize / routing 行為**，而不是測快取是否命中。  
-  因此常用 `POST`（或在 request 加上 `Cache-Control: no-store`）來降低「被快取結果干擾判讀」的機率。
+常用 `POST` 的原因是：我們要觀察的是 **origin 對路徑的 decode / normalize / routing 行為**，而不是在測快取是否命中；因此用 `POST`（或在 request 加上 `Cache-Control: no-store`）可以降低回應被快取命中而干擾判讀的機率。
 
-- **概念測法**
-  - 選定目標端點（例：`/profile`），再構造一個「看起來不同、但可能被 origin 正規化回同一路由」的變形路徑  
-    例：`/aaa/..%2fprofile`（或其他 dot-segment / encoding 變形）
-  - 對比兩者回應：
-    - 若變形路徑回應內容/狀態碼與 `/profile` 一致 → origin 可能做了 decode + dot-segment resolve（或等效的路由正規化）
-    - 若回 `404`、redirect 到不同位置、或內容明顯不同 → origin 可能沒有做該正規化（或行為不同）
+<div class="algorithm">
+  <ol>
+    <li>選定目標端點（例：<code>/profile</code>）。</li>
+    <li>構造「看起來不同、但可能被 origin 正規化回同一路由」的變形路徑（dot-segment / encoding 變形）。例：<code>/aaa/..%2fprofile</code>。</li>
+    <li>分別請求 <code>/profile</code> 與 <code>/aaa/..%2fprofile</code>。</li>
+    <li>對比兩者的 <code>Status</code>、<code>Location</code>（若有 redirect）、與回應內容（或關鍵欄位）。</li>
+    <li>
+      判讀結果：
+      <ul>
+        <li>若內容/狀態碼一致 → origin 可能做了 decode + dot-segment resolve（或等效路由正規化）。</li>
+        <li>若 404 / redirect 到不同位置 / 內容明顯不同 → origin 可能未做該正規化或行為不同。</li>
+      </ul>
+    </li>
+  </ol>
+</div>
 
-- **小提醒**
-  - 瀏覽器/部分 client 可能會先在本地處理 `../`，導致請求送不到想測的原始字串；因此 dot-segment 相關片段通常需要用 **URL-encoding**（如 `%2f`）包起來再測
+<div class="remark">
+  <strong>Tips</strong>
+  <ul>
+    <li>可搭配 Burp 的 Comparer 工具，比對兩次回應的差異。</li>
+    <li>若回應內容有動態部分（如 CSRF token、時間戳等），可聚焦比對關鍵欄位或用正則忽略動態部分。</li>
+  </ul>
+</div>
+
+<div class="remark">
+    <strong> Note </strong>
+    瀏覽器/部分 client 可能會先在本地處理 <code>../</code>，導致請求送不到想測的原始字串；因此 dot-segment 相關片段通常需要用 <b>URL-encoding</b>（如 <code>%2f</code>）包起來再測。
+</div>
 
 ### Detecting normalization by the cache server
 
 - **前置**：先找一個「確定會被快取」的靜態資源（例：`/assets/js/app.js`），再改 URL 觀察 `X-Cache/Age` 是否仍 hit。
 
 - **在前面加任意段**
-  - 測：`/aaa/..%2fassets/js/app.js`
+  - 測試：`/aaa/..%2fassets/js/app.js`
   - 不再快取 → cache 可能不 normalize（沒還原回 `/assets/...`）
   - 仍快取 → cache 可能 normalize 回 `/assets/...`
 
@@ -237,7 +264,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 - **避免誤判：確認是否真的是「前綴規則」**
   - 因為命中可能其實是「副檔名規則」在快取（例如 `.js`）
-  - 可測：`GET /assets/aaa`（任意字串）
+  - 測試：`GET /assets/aaa`（任意字串）
     - 若仍快取 → 比較能支持存在 `/assets` 前綴規則
     - 若 404 且不快取 → 不一定能否定（很多 cache 不快取 404）
 
@@ -247,7 +274,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 - **Case A：origin normalize、cache 不 normalize**
   - 前提：origin 會 resolve encoded dot-segments；cache 只看字面 path 套規則
-  - Payload 結構：`/<static-prefix>/..%2f<dynamic-path>`
+  - Payload：`/<static-prefix>/..%2f<dynamic-path>`
   - 例：`/assets/..%2fprofile`
     - Cache：視為 `/assets/..%2fprofile` → 命中 `/assets` 前綴規則 → 可能快取
     - Origin：normalize → `/profile` → 回動態內容
@@ -257,7 +284,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
   - 通常要搭配 **delimiter discrepancy**
     - Origin：遇 delimiter 截斷 → 回到動態 endpoint
     - Cache：不截斷（或行為不同）→ 仍 normalize 後半段、命中靜態規則 → 快取
-  - 概念 payload：`/profile;<encoded-traversal-to-static>`
+  - payload：`/profile;<encoded-traversal-to-static>`
     - Cache：不做 delimiter 截斷，normalize → `/static/...` → 快取
     - Origin：在 delimiter 截斷 → `/profile` → 回動態內容
   - 注意：某些字元（如 `#`）瀏覽器端不會送出；必要時用 encoded 版本或選可到達 cache/origin 的 delimiter
@@ -266,9 +293,9 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 ## File name cache rules
 
-- **概念**：cache 可能對特定檔名做精準快取規則（例：`index.html`、`robots.txt`、`favicon.ico`）
-- **怎麼測**：`GET /index.html`、`GET /robots.txt`… 觀察 `X-Cache` / `Age` 是否命中
-- **搭配 normalization discrepancy（概念測法）**
+- 💡 cache 可能對特定檔名做精準快取規則（例：`index.html`、`robots.txt`、`favicon.ico`）
+- 測試：`GET /index.html`、`GET /robots.txt`… 觀察 `X-Cache` / `Age` 是否命中
+- **搭配 normalization discrepancy**
   - 用全編碼 traversal 讓 cache 可能 normalize 成 `/index.html`
   - 例：`/profile%2f%2e%2e%2findex.html`
     - 若被快取 → cache 可能 normalize → 命中檔名規則
