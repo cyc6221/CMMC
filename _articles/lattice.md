@@ -170,3 +170,7 @@ $$
 $$
 
 這表示每個基底向量在先前基底方向上的投影不會過大，使得基底不會過度傾斜，幾何上更「接近正交」。
+
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 17. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
