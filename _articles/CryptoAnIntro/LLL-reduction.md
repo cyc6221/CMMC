@@ -2,8 +2,8 @@
 layout: page
 title: LLL reduction
 date: 2026-02-02
-last_updated: 2026-02-02
-tags: [Lattice, math, algorithms]
+last_updated: 2026-02-03
+tags: [Lattice, lattice-cryptography, LA, SVP, algorithms]
 ---
 
 ## Definition
