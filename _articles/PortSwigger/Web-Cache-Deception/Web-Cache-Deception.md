@@ -8,8 +8,6 @@ tags: [PortSwigger, WCD, Caching, CDN, Web Security]
 
 參考 PortSwigger 的 [Web Cache Deception](https://portswigger.net/web-security/learning-paths/web-cache-deception) Learning Paths 整理。
 
-</div>
-
 <div class="remark">
   <strong>Learning Paths</strong>
   <ol>
@@ -26,7 +24,7 @@ tags: [PortSwigger, WCD, Caching, CDN, Web Security]
   </ol>
 </div>
 
----
+<!-- --- -->
 
 ## Overview
 
@@ -70,7 +68,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
    - `index.html`
    - `favicon.ico`
 
----
+<!-- --- -->
 
 ## Constructing a web cache deception attack
 
@@ -111,8 +109,8 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 - **How**：URL 加每次不同的 query（例：`?cb=RANDOM`）。
 - **Pitfall（Param Miner: Add dynamic cachebuster）**：在要觀察 **hit** 的階段若每次自動改 URL → cache key 每次都變 → 永遠像 **miss**。
 - **Rule**：
-  - 探測/枚舉：✅ 可用 buster（避免舊快取干擾）
-  - 驗證是否能 hit：❌ 關掉自動 buster，固定同一 URL 重送
+  - 探測/枚舉：可用 buster（避免舊快取干擾）
+  - 驗證是否能 hit：關掉自動 buster，固定同一 URL 重送
 
 ### Detecting cached responses
 
@@ -133,7 +131,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 - **Look at response time**
   - 同一 request 明顯變快，可能是 hit（仍建議搭配 headers 一起確認）
 
----
+<!-- --- -->
 
 ## Exploiting static extension cache rules
 
@@ -188,7 +186,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
   - Origin decode → 變成 `/profile#wcd.css` → 可能只處理 `/profile`
   - Cache 不 decode → 視為 `/profile%23wcd.css`，結尾 `.css` → 可能被快取
 
----
+<!-- --- -->
 
 ## Exploiting static directory cache rules
 
@@ -197,7 +195,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 > 此類常與 path traversal / normalization discrepancy 結合。
 
-### Normalization discrepancies（正規化差異）
+### Normalization discrepancies
 
 - **Normalization 是什麼？**把 URL path 轉成標準形式，可能包含：
   - decode：`%2f` → `/`
@@ -243,7 +241,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
     - 若仍快取 → 比較能支持存在 `/assets` 前綴規則
     - 若 404 且不快取 → 不一定能否定（很多 cache 不快取 404）
 
----
+<!-- --- -->
 
 ### Exploiting normalization discrepancies
 
@@ -264,7 +262,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
     - Origin：在 delimiter 截斷 → `/profile` → 回動態內容
   - 注意：某些字元（如 `#`）瀏覽器端不會送出；必要時用 encoded 版本或選可到達 cache/origin 的 delimiter
 
----
+<!-- --- -->
 
 ## File name cache rules
 
@@ -277,7 +275,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
     - 若不快取 → cache 可能不 decode/resolve（或順序不同）
 - **可利用型態**：多半較容易利用「cache 會 normalize、origin 不會」（檔名規則需要精準匹配）
 
----
+<!-- --- -->
 
 ## Preventing web cache deception vulnerabilities
 
