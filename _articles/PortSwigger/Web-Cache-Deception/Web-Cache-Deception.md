@@ -6,7 +6,7 @@ last_updated: 2026-02-02
 tags: [PortSwigger, WCD, Caching, CDN, Web Security]
 ---
 
-參考 PortSwigger 的 [Web Cache Deception](https://portswigger.net/web-security/learning-paths/web-cache-deception) Learning Paths 整理。
+參考 PortSwigger 的 [Web cache deception（Learning path）](https://portswigger.net/web-security/learning-paths/web-cache-deception) 與 [Web cache deception](https://portswigger.net/web-security/web-cache-deception) 整理。
 
 <div class="remark">
   <strong>Learning Paths</strong>
@@ -164,7 +164,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
   - `#`：fragment（通常不會送到 server）
   - `.`：部分框架用於格式/副檔名選擇（例：Rails）
 
-- **💡 origin 截斷、cache 不截斷（或反之）**
+- **origin 截斷、cache 不截斷（或反之）**
   - 例：`...;aaa.js`
     - Cache：把 `;aaa.js` 當 path 一部分，看到 `.js` → 依靜態資源規則快取
     - Origin：把 `;` 當 delimiter → 截斷回動態 endpoint → 回敏感內容
@@ -175,7 +175,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 ### Delimiter decoding discrepancies
 
-- 💡 Cache 與 origin 對 `%xx` 的解碼順序/行為不一致
+- Cache 與 origin 對 `%xx` 的解碼順序/行為不一致
   - Origin 先 decode → 把解碼後字元當 delimiter → 截斷/改路由
   - Cache 不 decode（或反過來）→ 仍把整段當 path → 可能吃到副檔名/路徑規則而快取
 
@@ -193,14 +193,14 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 | `%3f` | `?` | `%40` | `@` | `%5b` | `[` |
 | `%5c` | `\` | `%5d` | `]` | `%5e` | `^` |
 | `%5f` | `_` | `%60` | `` ` `` | `%7b` | `{` |
-| `%7c` | `\|` | `%7d` | `}` | `%7e` | `~` |
+| `%7c` | `|` | `%7d` | `}` | `%7e` | `~` |
 
 - 例：`/profile%23wcd.css`
   - Origin decode → 變成 `/profile#wcd.css` → 可能只處理 `/profile`
   - Cache 不 decode → 視為 `/profile%23wcd.css`，結尾 `.css` → 可能被快取
 
 <div class="remark">
-  <strong>WCD delimiter list</strong><br>
+  <strong>WCD delimiter list</strong>
   <a href="https://portswigger.net/web-security/web-cache-deception/wcd-lab-delimiter-list" target="_blank" rel="noopener noreferrer">
     Web cache deception lab delimiter list
   </a>
@@ -294,7 +294,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 ## File name cache rules
 
-- 💡 cache 可能對特定檔名做精準快取規則（例：`index.html`、`robots.txt`、`favicon.ico`）
+- cache 可能對特定檔名做精準快取規則（例：`index.html`、`robots.txt`、`favicon.ico`）
 - 測試：`GET /index.html`、`GET /robots.txt`… 觀察 `X-Cache` / `Age` 是否命中
 - **搭配 normalization discrepancy**
   - 用全編碼 traversal 讓 cache 可能 normalize 成 `/index.html`
