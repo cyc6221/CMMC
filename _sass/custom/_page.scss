@@ -93,3 +93,8 @@
   /* 錨點跳轉避免被固定導覽列遮住（不需要可刪） */
   h2, h3 { scroll-margin-top: 90px; }
 }
+
+/* 永遠顯示右側捲軸 */
+html {
+  overflow-y: scroll;
+}
