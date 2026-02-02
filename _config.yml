@@ -6,8 +6,9 @@ url: "https://cyc6221.github.io"
 baseurl: "/CMMC"
 
 # Author info
-# author: cyc6221
 author: CY
+email: s24343162@gmail.com
+github_username: cyc6221
 
 # Build settings
 markdown: kramdown
