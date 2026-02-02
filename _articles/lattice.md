@@ -10,26 +10,9 @@ tags: [lattice, math]
 
 先了解下列內容：
 
-* **vector**
-  * **linear combination**
-  * **span**, **subspace**
-  * **basis**, **dimension**
-  * **linearly independent**
-  * **rank**
-  * **basis matrix**
-  * **determinant**
-* **inner product**
-  * **inner product**
-  * **norm**, **distance**, **length**
-  * **orthogonality**, **pairwise orthogonal**
-  * **orthonormal basis**
-  * **projection**
-  * **Triangle Inequality**, **Cauchy–Schwarz inequality**
-  * **Gram matrix**
-* **orthogonalization**
-  * **Gram–Schmidt process**
-  * **QR decomposition**
-  * **least squares**
+- **vector** (linear combination, span, subspace, basis, dimension, linearly independent, rank, basis matrix, determinant)
+- **inner product** (norm, distance, length, orthogonality, pairwise orthogonal, orthonormal basis, projection, Triangle Inequality, Cauchy–Schwarz inequality, Gram matrix)
+- **orthogonalization** (Gram–Schmidt process, QR decomposition, least squares)
 
 <!-- --- -->
 
@@ -99,8 +82,8 @@ discreteness 帶來一個關鍵差異：在 lattice 中，除了 zero vector 以
 
 ## Changing a Lattice Basis
 
-給定一個 lattice $L$ 的 basis matrix $B$，我們常會想找「更好」的 basis（例如向量更短、更接近正交）。  
-但 lattice 的換基底不能像 vector space 一樣用任意實數線性變換，否則會改變由整數線性組合生成的點集。
+給定一個 lattice $L$ 的 basis matrix $B$，進一步會想找「更好」的 basis（例如向量更短、更接近正交）。
+但 lattice 的換基底不能像 vector space 一樣用任意實數線性變換，否則會改變由**整數**線性組合生成的點集。
 
 lattice 允許的換基底形式是
 
@@ -108,7 +91,7 @@ $$
 B' = BU,
 $$
 
-其中 $U$ 必須是 **unimodular integer matrix**，也就是 $U$ 的元素皆為整數且
+其中 $U$ 必須是 **unimodular integer matrix**，也就是 $U$ 的元素皆為**整數**且
 
 $$
 \det(U)=\pm 1.
@@ -160,27 +143,25 @@ $$
 
 <!-- --- -->
 
-## Orthogonal Bases and Gram–Schmidt in Lattices
+## Orthogonal Bases in Lattices
 
-給定一個 lattice $L$，直覺上會想問：是否存在一組 **orthogonal basis**？一般而言答案是否定的。
+給定一個 lattice $L$，直覺上會想問：是否存在一組 **orthogonal basis**？答案是否定的。
 
 原因在於 lattice 的換基底必須維持「整數線性組合所生成的點集」不變。lattice 的 basis change 只能使用整數係數（對應到 unimodular integer matrix），因此不能任意做含有非整數係數的線性變換。
 
 ### Why Gram–Schmidt Does Not Preserve the Lattice
 
-**Gram–Schmidt process** 可以把一組向量正交化，得到新的向量系統。  
-但在過程中會出現投影係數 $\mu_{i,j}$；即使起始的 basis vectors 都是整數向量，$\mu_{i,j}$ 幾乎總會是非整數。
-
-因此：
+**Gram–Schmidt process** 可以把一組向量正交化，得到新的向量系統。
+但在過程中會出現投影係數 $\mu_{i,j}$，即使起始的 basis vectors 都是整數向量，$\mu_{i,j}$ 幾乎都會是非整數。
 
 - Gram–Schmidt 產生的向量仍然張成同一個 **vector subspace**
 - 但通常不再生成同一個 **lattice**
 
-換句話說，它保留了「線性空間」但破壞了「整數結構」，因為 lattice 不允許用 non-integer coefficients 來做換基底。
+它保留了「線性空間」但破壞了「整數結構」，因為 lattice 不允許用 non-integer coefficients 來做換基底。
 
 ### Aim for “Nearly Orthogonal” Bases
 
-雖然一般不存在真正的 orthogonal lattice basis，但可以追求「接近正交」的基底。  
+雖然一般不存在真正的 orthogonal lattice basis，但可以追求「接近正交」的基底。
 一個常見的目標是讓 Gram–Schmidt 的係數滿足
 
 $$
