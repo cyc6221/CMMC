@@ -8,21 +8,22 @@ tags: [PortSwigger, WCD, Caching, CDN, Web Security]
 
 參考 PortSwigger 的 [Web Cache Deception](https://portswigger.net/web-security/learning-paths/web-cache-deception) Learning Paths 整理。
 
+</div>
+
 <div class="remark">
-
-<strong> Learning Paths </strong>
-
-1. Web caches
-2. Constructing a web cache deception attack
-3. Exploiting static extension cache rules
-4. Using path mapping discrepancies
-5. Using delimiter discrepancies
-6. Using delimiter decoding discrepancies
-7. Exploiting static directory cache rules
-8. Using normalization discrepancies
-9. Exploiting file name cache rules
-10. Preventing vulnerabilities
-
+  <strong>Learning Paths</strong>
+  <ol>
+    <li>Web caches</li>
+    <li>Constructing a web cache deception attack</li>
+    <li>Exploiting static extension cache rules</li>
+    <li>Using path mapping discrepancies</li>
+    <li>Using delimiter discrepancies</li>
+    <li>Using delimiter decoding discrepancies</li>
+    <li>Exploiting static directory cache rules</li>
+    <li>Using normalization discrepancies</li>
+    <li>Exploiting file name cache rules</li>
+    <li>Preventing vulnerabilities</li>
+  </ol>
 </div>
 
 ---
@@ -78,13 +79,13 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
   <ol>
     <li>
-      鎖定一個<strong>動態且含敏感資料</strong>的端點（如 <code>/my-account</code>、訂單頁、API key 頁），確認「不同登入者」回應內容確實不同。
+      鎖定一個<span style="font-weight: bold;">動態且含敏感資料</span>的端點（如 <code>/my-account</code>、訂單頁、API key 頁），確認「不同登入者」回應內容確實不同。
     </li>
     <li>
-      找出一種可造成<strong>cache 與 origin 解析不一致</strong>的 URL 變形方式，目標是讓：
+      找出一種可造成<span style="font-weight: bold;">cache 與 origin 解析不一致</span>的 URL 變形方式，目標是讓：
       <ul>
-        <li><strong>Origin</strong>：仍路由到同一個動態端點並回傳個人化內容</li>
-        <li><strong>Cache</strong>：把它當成可快取資源（常見：看起來像靜態副檔名、或含特殊分隔符）</li>
+        <li><span style="font-weight: bold;">Origin</span>：仍路由到同一個動態端點並回傳個人化內容</li>
+        <li><span style="font-weight: bold;">Cache</span>：把它當成可快取資源（常見：看起來像靜態副檔名、或含特殊分隔符）</li>
       </ul>
       例：<code>/my-account/anything.css</code>、<code>/my-account;anything.css</code>、<code>/my-account%23anything.css</code>（依實際站點規則調整）。
     </li>
@@ -92,10 +93,10 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
       用 Burp 反覆請求該變形 URL，觀察是否出現快取跡象（如 <code>X-Cache: hit</code>、<code>Age</code> 增加、回應時間明顯變快），以確認「此 URL 會被快取」。
     </li>
     <li>
-      觸發<strong>受害者在登入狀態</strong>下請求該 URL，使其個人化回應被 cache 以該 URL 的 cache key 寫入共享快取（即完成 cache poisoning/priming）。
+      觸發<span style="font-weight: bold;">受害者在登入狀態</span>下請求該 URL，使其個人化回應被 cache 以該 URL 的 cache key 寫入共享快取（即完成 cache poisoning/priming）。
     </li>
     <li>
-      攻擊者再以<strong>完全相同的 URL</strong>（同一路徑、同樣的變形字串）請求一次，若 cache 命中則直接回傳先前被存下的受害者回應，進而取得敏感資料。
+      攻擊者再以<span style="font-weight: bold;">完全相同的 URL</span>（同一路徑、同樣的變形字串）請求一次，若 cache 命中則直接回傳先前被存下的受害者回應，進而取得敏感資料。
     </li>
   </ol>
 
@@ -265,7 +266,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 ---
 
-## File name cache rules（檔名規則）
+## File name cache rules
 
 - **概念**：cache 可能對特定檔名做精準快取規則（例：`index.html`、`robots.txt`、`favicon.ico`）
 - **怎麼測**：`GET /index.html`、`GET /robots.txt`… 觀察 `X-Cache` / `Age` 是否命中
