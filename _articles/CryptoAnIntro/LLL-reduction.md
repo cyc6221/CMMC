@@ -50,10 +50,10 @@ $$
 
 * LLL algorithm 可以在 **polynomial time** 內把任意 lattice basis reduce 成 LLL-reduced basis
 
-* LLL reduce 後的第一個向量 (b_1) 通常會變得很短，並在長度上接近 **shortest non-zero vector**。
+* LLL reduce 後的第一個向量 $b_1$ 通常會變得很短，並在長度上接近 **shortest non-zero vector**
 
-  * LLL 可視為一種對 **SVP approximation** 具有明確理論保證的演算法。
-  * $2^{(m-1)/2}$ 只是 **worst-case bound**
+  * LLL 可視為一種對 **SVP approximation** 具有明確理論保證的演算法
+  * $2^{(m-1)/2}$ 是 **worst-case bound**
   * 實務上，對許多「合理維度」的 lattice，LLL 跑完後的 $b_1$ 常常會非常接近、甚至剛好等於最短向量（作者：經驗談）
 
 $$
@@ -78,7 +78,7 @@ LLL algorithm 會同時維護：
 <ul>
     <li>目前的 lattice basis $B = \{ b_1, \dots, b_m \}$</li>
     <li>對應的 <em>Gram–Schmidt orthogonalization (GSO)</em> 向量 $B^* = \{ b_1^*, \dots, b_m^* \}$</li>
-    <li>指標 $k$（從 $k=2$ 開始）用來檢查與修正第 $k$ 個向量</li>
+    <li>指標 $k$ ：用來檢查與修正第 $k$ 個向量，從 $k=2$ 開始</li>
 </ul>
 
 <strong> Initialize </strong>
