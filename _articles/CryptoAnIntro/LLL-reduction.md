@@ -104,7 +104,7 @@ LLL algorithm 會同時維護：
         <strong> Lovász condition check </strong>
         檢查相鄰兩個向量（第 $k-1$ 與第 $k$）是否滿足條件 (B)：
         $$
-        \|b_k^*\|^2 \;\ge\; \left(\frac34-\mu_{k,k-1}^2\right)\,\|b_{k-1}^*\|^2.
+        \|b_k^*\|^2 \ge \left(\frac34-\mu_{k,k-1}^2\right)\,\|b_{k-1}^*\|^2.
         $$
         <ul>
             <li> 若不滿足：swap 兩個向量 $b_k \leftrightarrow b_{k-1}$, 並令 $k \leftarrow \max(k-1, 2)$. </li>
