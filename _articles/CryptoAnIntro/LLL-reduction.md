@@ -12,53 +12,60 @@ tags: [Lattice, math, algorithms]
 
 <strong>Definition (LLL-reduced basis).</strong>
 
-Let $L \subset \mathbb{R}^n$ be a lattice, and let $B={b_1,\dots,b_m}$ be an ordered basis of $L$.
+Let $L \subset \mathbb{R}^n$ be a lattice, and let $B = {b_1, \dots, b_m}$ be an ordered basis of $L$.
 
-Let ${b_1^*,\dots,b_m^*}$ be the associated <em>Gram–Schmidt orthogonalization</em> (GSO) of $B$, defined by
+Let ${b_1^*, \dots, b_m^*}$ be the associated <em>Gram–Schmidt orthogonalization</em> (GSO) of $B$, defined by
 
 $$
-b_i^* ;=; b_i ;-; \sum_{j=1}^{i-1}\mu_{i,j} b_j^*, \quad (1\le i\le m),
+b_i^* = b_i - \sum_{j=1}^{i-1} \mu_{i,j} b_j^*,
+\quad (1\le i\le m),
 $$
 
 where the <em>Gram–Schmidt coefficients</em> are
 
 $$
-\mu_{i,j} ;=; \frac{\langle b_i,, b_j^*\rangle}{\langle b_j^*,, b_j^*\rangle}, \quad (1\le j<i\le m).
+\mu_{i,j} = \frac{\langle b_i, b_j^* \rangle}{\langle b_j^*, b_j^* \rangle},
+\quad (1 \le j < i \le m).
 $$
 
 The basis $B$ is called <em>LLL-reduced</em> (with parameter $\delta=\tfrac{3}{4}$) if it satisfies:
 
-<strong>(A) Size reduction:</strong> for all $1\le j<i\le m$,
+<strong>(A) Size reduction:</strong>
 
 $$
-|\mu_{i,j}|\le \frac{1}{2}.
+\forall \ 1 \le j < i \le m, \quad
+| \mu_{i,j} | \le \frac{1}{2}.
 $$
 
-<strong>(B) Lovász condition:</strong> for all $2\le i\le m$,
+<strong>(B) Lovász condition:</strong>
 
 $$
-|b_i^*|^2 ;\ge; \left(\frac{3}{4}-\mu_{i,i-1}^2\right),|b_{i-1}^*|^2.
+\forall \ 1 < i \le m, \quad
+\| b_i^* \|^2 \ge \left( \frac{3}{4} - \mu_{i,i-1}^2 \right) \| b_{i-1}^* \|^2.
 $$
 
 </div>
 
 ### The importance of LLL-reduced basis
 
-* LLL algorithm 可以在 **polynomial time** 內把任意 lattice basis 約化成 LLL-reduced basis（效率可保證）。
-* 約化後的第一個向量 $b_1$ 會很短，且接近 **shortest non-zero vector**（最短非零向量）的長度：對所有非零 $x\in L$，
-  $$
-  |b_1|\le 2^{(m-1)/2},|x|.
-  $$
-  這代表 LLL 提供一個對 **SVP approximation**（Shortest Vector Problem 的近似）有理論保證的解。
-* 另外也有一個用 lattice 的 **determinant**（體積）表示的界。若 $\Delta=\det(L)$，則
-  $$
-  |b_1|\le 2^{m/4},\Delta^{1/m}.
-  $$
-  直覺上 $\Delta^{1/m}$ 是 lattice 的「平均尺度」，而 LLL 保證找到的第一向量不會離這個尺度太遠（乘上一個指數因子）。
+* LLL algorithm 可以在 **polynomial time** 內把任意 lattice basis reduce 成 LLL-reduced basis
 
-### Worst-case vs. practice
+* LLL reduce 後的第一個向量 (b_1) 通常會變得很短，並在長度上接近 **shortest non-zero vector**。
 
-上面界中的常數 $2^{(m-1)/2}$ 是 **worst-case bound**。實務上對很多「合理維度」的 lattice，跑完 LLL 之後，第一個向量 $b_1$ 經常會非常接近甚至等於 lattice 的最短向量（但這不是理論必然，只是經驗現象）。
+  * LLL 可視為一種對 **SVP approximation** 具有明確理論保證的演算法。
+  * $2^{(m-1)/2}$ 只是 **worst-case bound**
+  * 實務上，對許多「合理維度」的 lattice，LLL 跑完後的 $b_1$ 常常會非常接近、甚至剛好等於最短向量（作者：經驗談）
+
+$$
+\forall \ x \in L, \quad x \ne 0, \quad
+\| b_1 \| \le 2^{(m-1)/2} \| x \|.
+$$
+
+* 若令 $\Delta = \det(L)$，則 LLL 保證能找到一個長度至多為 $2^{m/4} \Delta ^{1/m}$ 的第一向量，也就是其大小不會偏離 lattice 的「平均尺度」 $\Delta^{1/m}$ 太多（僅差一個指數因子）。
+
+$$
+\| b_1 \| \le 2^{m/4} \Delta^{1/m}.
+$$
 
 ## LLL algorithm
 
