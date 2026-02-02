@@ -8,7 +8,7 @@ tags: [PortSwigger, WCD, Caching, CDN, Web Security]
 
 參考 PortSwigger 的 [Web cache deception（Learning path）](https://portswigger.net/web-security/learning-paths/web-cache-deception) 與 [Web cache deception](https://portswigger.net/web-security/web-cache-deception) 整理。
 
-<div class="remark">
+<div class="definition">
   <strong>Learning Paths</strong>
   <ol>
     <li>Web caches</li>
@@ -72,7 +72,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 ## Constructing a web cache deception attack
 
-<div class="remark">
+<div class="algorithm">
   <strong>Attack flow</strong>
 
   <ol>
