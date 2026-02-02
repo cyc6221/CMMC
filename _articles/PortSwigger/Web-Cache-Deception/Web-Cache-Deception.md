@@ -199,6 +199,13 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
   - Origin decode → 變成 `/profile#wcd.css` → 可能只處理 `/profile`
   - Cache 不 decode → 視為 `/profile%23wcd.css`，結尾 `.css` → 可能被快取
 
+<div class="remark">
+  <strong>WCD delimiter list</strong><br>
+  <a href="https://portswigger.net/web-security/web-cache-deception/wcd-lab-delimiter-list" target="_blank" rel="noopener noreferrer">
+    Web cache deception lab delimiter list
+  </a>
+</div>
+
 <!-- --- -->
 
 ## Exploiting static directory cache rules
@@ -314,3 +321,9 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
   - 統一 decode / normalize 行為（dot-segment、encoded `/` 等）
   - 避免容錯路由讓多種 path 取到同一敏感內容
   - 限制或一致化 delimiter（如 `;`, `.` 等）處理
+
+## References
+
+* [Web cache deception（Learning path）](https://portswigger.net/web-security/learning-paths/web-cache-deception)
+* [Web cache deception](https://portswigger.net/web-security/web-cache-deception)
+* [Web cache deception lab delimiter list](https://portswigger.net/web-security/web-cache-deception/wcd-lab-delimiter-list)
