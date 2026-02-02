@@ -95,6 +95,8 @@ discreteness 帶來一個關鍵差異：在 lattice 中，除了 zero vector 以
 
 相對地，在 low dimension 時，這類問題往往較容易處理：維度小時可以依靠幾何直觀，搭配較直接的 search 或 reduction 方法有效求解。
 
+<!-- --- -->
+
 ## Changing a Lattice Basis
 
 給定一個 lattice $L$ 的 basis matrix $B$，我們常會想找「更好」的 basis（例如向量更短、更接近正交）。  
@@ -110,7 +112,7 @@ $$
 $$
 這確保新基底仍然生成同一個 lattice（只是重新排列/重組基底向量）。
 
-## Determinant as an Invariant
+### Determinant as an Invariant
 
 由於
 $$
@@ -122,7 +124,7 @@ $$
 $$
 也就是說，basis matrix 的 determinant 的絕對值不依賴於選擇哪一組 basis，是 lattice 的一個 **invariant**。
 
-## Discriminant of a Lattice
+### Discriminant of a Lattice
 
 對一般情況（$B$ 不一定是 square matrix），定義 lattice 的 **discriminant** 為
 $$
@@ -130,7 +132,7 @@ $$
 $$
 這個量只依賴 lattice 本身，不會因為換基底而改變。
 
-## Full-Rank Case
+### Full-Rank Case
 
 若 $L$ 是 **full-rank lattice**（等價於 $B$ 是 square matrix），則
 $$
@@ -141,3 +143,36 @@ $$
 \Delta = |\det(B)|.
 $$
 在 full-rank 的情況下，discriminant 就等於 basis matrix determinant 的絕對值。
+
+<!-- --- -->
+
+## Orthogonal Bases and Gram–Schmidt in Lattices
+
+給定一個 lattice $L$，直覺上會想問：是否存在一組 **orthogonal basis**？  
+一般而言答案是否定的。
+
+原因在於 lattice 的換基底必須維持「整數線性組合所生成的點集」不變。lattice 的 basis change 只能使用整數係數（對應到 unimodular integer matrix），因此不能任意做含有非整數係數的線性變換。
+
+### Why Gram–Schmidt Does Not Preserve the Lattice
+
+**Gram–Schmidt process** 可以把一組向量正交化，得到新的向量系統。  
+但在過程中會出現投影係數 $\mu_{i,j}$；即使起始的 basis vectors 都是整數向量，$\mu_{i,j}$ 幾乎總會是非整數。
+
+因此：
+
+- Gram–Schmidt 產生的向量仍然張成同一個 **vector subspace**
+- 但通常不再生成同一個 **lattice**
+
+換句話說，它保留了「線性空間」但破壞了「整數結構」，因為 lattice 不允許用 non-integer coefficients 來做換基底。
+
+### Aim for “Nearly Orthogonal” Bases
+
+雖然一般不存在真正的 orthogonal lattice basis，但可以追求「接近正交」的基底。  
+一個常見的目標是讓 Gram–Schmidt 的係數滿足
+
+$$
+|\mu_{i,j}| \le \frac{1}{2}
+\quad \text{for } 1 \le j < i \le n.
+$$
+
+這表示每個基底向量在先前基底方向上的投影不會過大，使得基底不會過度傾斜，幾何上更「接近正交」。
