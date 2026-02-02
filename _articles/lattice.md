@@ -51,7 +51,7 @@ tags: [lattice, math]
 </div>
 
 <div class="example">
-  <strong>Example（例子）.</strong>
+  <strong>Example.</strong>
   考慮由兩個向量生成的格點集合 $L \subseteq \mathbb{R}^2$：
   $$
     b_1=\begin{pmatrix}2\\0\end{pmatrix},\qquad
@@ -71,5 +71,26 @@ tags: [lattice, math]
     \begin{pmatrix}2x+y\\y\end{pmatrix}\quad (x,y\in\mathbb{Z})
   $$
   的平面點集合。
-  直觀上：你只能用整數倍數去「走」$b_1$ 和 $b_2$，因此得到的是一個離散的點陣；把這些點畫在平面上，會看到它們規律地排列成一個二維 lattice（2-dimensional lattice）。
+
+  直觀上，只能用整數倍數去「走」$b_1$ 和 $b_2$，因此得到的是一個離散的點陣；把這些點畫在平面上，會看到它們規律地排列成一個二維 lattice（2-dimensional lattice）。
 </div>
+
+### continuous vs. discrete
+
+Lattice 可以視為 vector subspace 的 discrete 版本。
+
+- vector subspace 是 continuous：在任意兩個點之間永遠存在無限多個點  
+- lattice 由 basis vectors 的 integer linear combinations 所生成，因此只會落在一組分散且規律排列的 points 上（形成點陣結構）
+
+discreteness 帶來一個關鍵差異：在 lattice 中，除了 zero vector 以外，存在 **shortest non-zero vector**。
+
+- 在 continuous space 裡，向量長度可以無限逼近 0，因此通常不存在真正的 minimum  
+- 但 lattice 是離散集合，從原點到 non-zero points 的距離集合不會出現「嚴格遞減且下界為 0」卻永遠取不到的情況，因此 shortest non-zero vector 是 well-defined
+
+### high dimension hard, low dimension easy
+
+許多計算問題（尤其在 cryptography 中）常可歸結為：在給定的 lattice 中找出 shortest non-zero vector；典型代表是 **Shortest Vector Problem (SVP)**。
+
+一般而言，對任意（特別是 high-dimensional）lattice 求解 SVP 被普遍認為是困難的，這也是 lattice-based cryptography 安全性的核心安全來源之一。
+
+相對地，在 low dimension 時，這類問題往往較容易處理：維度小時可以依靠幾何直觀，搭配較直接的 search 或 reduction 方法有效求解。
