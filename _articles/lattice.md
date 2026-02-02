@@ -94,3 +94,50 @@ discreteness 帶來一個關鍵差異：在 lattice 中，除了 zero vector 以
 一般而言，對任意（特別是 high-dimensional）lattice 求解 SVP 被普遍認為是困難的，這也是 lattice-based cryptography 安全性的核心安全來源之一。
 
 相對地，在 low dimension 時，這類問題往往較容易處理：維度小時可以依靠幾何直觀，搭配較直接的 search 或 reduction 方法有效求解。
+
+## Changing a Lattice Basis
+
+給定一個 lattice $L$ 的 basis matrix $B$，我們常會想找「更好」的 basis（例如向量更短、更接近正交）。  
+但 lattice 的換基底不能像 vector space 一樣用任意實數線性變換，否則會改變由整數線性組合生成的點集。
+
+lattice 允許的換基底形式是
+$$
+B' = BU,
+$$
+其中 $U$ 必須是 **unimodular integer matrix**，也就是 $U$ 的元素皆為整數且
+$$
+\det(U)=\pm 1.
+$$
+這確保新基底仍然生成同一個 lattice（只是重新排列/重組基底向量）。
+
+## Determinant as an Invariant
+
+由於
+$$
+\det(B')=\det(B)\det(U),
+$$
+且 $\det(U)=\pm 1$，因此
+$$
+|\det(B')| = |\det(B)|.
+$$
+也就是說，basis matrix 的 determinant 的絕對值不依賴於選擇哪一組 basis，是 lattice 的一個 **invariant**。
+
+## Discriminant of a Lattice
+
+對一般情況（$B$ 不一定是 square matrix），定義 lattice 的 **discriminant** 為
+$$
+\Delta = \left|\det(B^TB)\right|^{1/2}.
+$$
+這個量只依賴 lattice 本身，不會因為換基底而改變。
+
+## Full-Rank Case
+
+若 $L$ 是 **full-rank lattice**（等價於 $B$ 是 square matrix），則
+$$
+\det(B^TB)=\det(B^T)\det(B)=(\det(B))^2,
+$$
+因此
+$$
+\Delta = |\det(B)|.
+$$
+在 full-rank 的情況下，discriminant 就等於 basis matrix determinant 的絕對值。
