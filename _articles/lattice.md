@@ -72,26 +72,26 @@ tags: [lattice, math]
   $$
   的平面點集合。
 
-  直觀上，只能用整數倍數去「走」$b_1$ 和 $b_2$，因此得到的是一個離散的點陣；把這些點畫在平面上，會看到它們規律地排列成一個二維 lattice（2-dimensional lattice）。
+  直觀上，只能用整數倍數去「走」$b_1$ 和 $b_2$，因此得到的是一個離散的點陣；把這些點畫在平面上，會看到它們規律地排列成一個 2-dimensional lattice。
 </div>
 
 ### continuous vs. discrete
 
 Lattice 可以視為 vector subspace 的 discrete 版本。
 
-- vector subspace 是 continuous：在任意兩個點之間永遠存在無限多個點  
+- vector subspace is continuous：在任意兩個點之間永遠存在無限多個點  
 - lattice 由 basis vectors 的 integer linear combinations 所生成，因此只會落在一組分散且規律排列的 points 上（形成點陣結構）
 
 discreteness 帶來一個關鍵差異：在 lattice 中，除了 zero vector 以外，存在 **shortest non-zero vector**。
 
 - 在 continuous space 裡，向量長度可以無限逼近 0，因此通常不存在真正的 minimum  
-- 但 lattice 是離散集合，從原點到 non-zero points 的距離集合不會出現「嚴格遞減且下界為 0」卻永遠取不到的情況，因此 shortest non-zero vector 是 well-defined
+- 但 lattice 是離散集合，從原點到 non-zero points 的距離集合不會出現「嚴格遞減且下界為 0」卻永遠取不到的情況，因此 *shortest non-zero vector is well-defined*
 
 ### high dimension hard, low dimension easy
 
 許多計算問題（尤其在 cryptography 中）常可歸結為：在給定的 lattice 中找出 shortest non-zero vector；典型代表是 **Shortest Vector Problem (SVP)**。
 
-一般而言，對任意（特別是 high-dimensional）lattice 求解 SVP 被普遍認為是困難的，這也是 lattice-based cryptography 安全性的核心安全來源之一。
+一般而言，對 high-dimensional lattice 求解 SVP 被普遍認為是困難的，這也是 lattice-based cryptography 安全性的核心安全來源之一。
 
 相對地，在 low dimension 時，這類問題往往較容易處理：維度小時可以依靠幾何直觀，搭配較直接的 search 或 reduction 方法有效求解。
 
@@ -103,53 +103,66 @@ discreteness 帶來一個關鍵差異：在 lattice 中，除了 zero vector 以
 但 lattice 的換基底不能像 vector space 一樣用任意實數線性變換，否則會改變由整數線性組合生成的點集。
 
 lattice 允許的換基底形式是
+
 $$
 B' = BU,
 $$
+
 其中 $U$ 必須是 **unimodular integer matrix**，也就是 $U$ 的元素皆為整數且
+
 $$
 \det(U)=\pm 1.
 $$
+
 這確保新基底仍然生成同一個 lattice（只是重新排列/重組基底向量）。
 
 ### Determinant as an Invariant
 
 由於
+
 $$
 \det(B')=\det(B)\det(U),
 $$
+
 且 $\det(U)=\pm 1$，因此
+
 $$
 |\det(B')| = |\det(B)|.
 $$
+
 也就是說，basis matrix 的 determinant 的絕對值不依賴於選擇哪一組 basis，是 lattice 的一個 **invariant**。
 
 ### Discriminant of a Lattice
 
 對一般情況（$B$ 不一定是 square matrix），定義 lattice 的 **discriminant** 為
+
 $$
 \Delta = \left|\det(B^TB)\right|^{1/2}.
 $$
+
 這個量只依賴 lattice 本身，不會因為換基底而改變。
 
 ### Full-Rank Case
 
 若 $L$ 是 **full-rank lattice**（等價於 $B$ 是 square matrix），則
+
 $$
 \det(B^TB)=\det(B^T)\det(B)=(\det(B))^2,
 $$
+
 因此
+
 $$
 \Delta = |\det(B)|.
 $$
+
 在 full-rank 的情況下，discriminant 就等於 basis matrix determinant 的絕對值。
 
 <!-- --- -->
 
 ## Orthogonal Bases and Gram–Schmidt in Lattices
 
-給定一個 lattice $L$，直覺上會想問：是否存在一組 **orthogonal basis**？  
-一般而言答案是否定的。
+給定一個 lattice $L$，直覺上會想問：是否存在一組 **orthogonal basis**？一般而言答案是否定的。
 
 原因在於 lattice 的換基底必須維持「整數線性組合所生成的點集」不變。lattice 的 basis change 只能使用整數係數（對應到 unimodular integer matrix），因此不能任意做含有非整數係數的線性變換。
 
