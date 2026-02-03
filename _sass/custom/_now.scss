@@ -76,6 +76,11 @@
 .now-primary{
   margin: 0 0 10px;
   font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
 }
 
 .now-link{
