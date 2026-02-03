@@ -105,9 +105,7 @@ This site is built with Jekyll and hosted on GitHub Pages.
             </a>
         </p>
         <ul class="now-list">
-            <li>Track: Web Cache Deception</li>
-            <li>Deliverables: lab writeups + defense checklist</li>
-            <li>Keywords: cache rules / path mapping / normalization</li>
+            <li><strong>Now</strong>: Web Cache Deception</li>
         </ul>
         <div class="chap-strip" aria-label="All learning paths">
             <span class="chap-pill">API testing</span>
