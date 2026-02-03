@@ -56,9 +56,9 @@ p
 \end{pmatrix}.
 $$
 
-如果 LLL 找到一個「short vector」接近上式，就同時表示：
+如果 LLL 找到一個「short vector」對應到上式，就代表同時滿足：
 
-- 第一個座標 $\left | q \right |$ 小（分母不大）
-- 第二個座標 $\left | C ( q \alpha - p ) \right |$ 小，因此 $\left | q \alpha - p \right |$ 小（近似誤差小）
+- 第一個座標的大小 $\lvert q \rvert$ 不大（分母不大）
+- 第二個座標的大小 $\lvert C(q\alpha - p) \rvert$ 不大，因此 $\lvert q\alpha - p \rvert$ 也會很小（近似誤差小）
 
 因此可以把 **LLL algorithm** 視為 **continued fractions algorithm** 的 **multi-dimensional generalization**：連分數在低維情況下提供最佳有理近似；而 LLL 在更一般的高維 lattice 中，透過找 short vectors 來達到類似的「找近似／找整數關係」效果。
