@@ -92,19 +92,50 @@
 
 .now-list li{ margin: 6px 0; }
 
+/* Redesigned progress bar */
 .now-progress{
   margin-top: 12px;
-  height: 8px;
+}
+
+.now-progress__label{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.now-progress__text{
+  font-size: 12px;
+  font-weight: 600;
+  opacity: .75;
+}
+
+.now-progress__pct{
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
   border-radius: 999px;
-  background: rgba(0,0,0,.07);
-  overflow:hidden;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.03);
+}
+
+.now-progress__track{
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.06);
+  border: 1px solid rgba(0,0,0,.10);
+  overflow: hidden;
 }
 
 .now-progress__bar{
   display:block;
   height: 100%;
+  width: 0;
   border-radius: 999px;
-  background: rgba(0,0,0,.35);
+  background: rgba(34,197,94,.55); /* green fill */
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.10);
+  transition: width .25s ease;
 }
 
 .now-muted{

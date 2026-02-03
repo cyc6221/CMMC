@@ -17,6 +17,8 @@ This site is built with Jekyll and hosted on GitHub Pages.
 
 <section class="now-grid">
 
+<!-- Cryptography: An Introduction (Third Edition) -->
+
 <article class="now-card">
     <header class="now-head">
         <span class="now-icon" aria-hidden="true">📚</span>
@@ -69,12 +71,19 @@ This site is built with Jekyll and hosted on GitHub Pages.
             <span class="chap-dot chap-dot--reading"></span> reading
             <span class="chap-dot chap-dot--todo"></span> todo
         </p>
-        <div class="now-progress" title="progress (optional)">
-            <span class="now-progress__bar" style="width: 35%;"></span>
+        <div class="now-progress" role="group" aria-label="Reading progress">
+            <div class="now-progress__label">
+                <span class="now-progress__text">Progress</span>
+                <span class="now-progress__pct">35%</span>
+            </div>
+            <div class="now-progress__track" aria-hidden="true">
+                <span class="now-progress__bar" style="width: 35%;"></span>
+            </div>
         </div>
-        <p class="now-muted">Progress is optional — change 35% anytime.</p>
     </div>
 </article>
+
+<!-- CTF -->
 
 <article class="now-card">
     <header class="now-head">
@@ -93,12 +102,16 @@ This site is built with Jekyll and hosted on GitHub Pages.
     </div>
 </article>
 
+<!-- PortSwigger -->
+
 <article class="now-card">
     <header class="now-head">
         <span class="now-icon" aria-hidden="true">🧪</span>
         <div class="now-title">
             <h3>PortSwigger</h3>
-            <span class="now-badge now-badge--alt2">Labs</span>
+            <span class="now-badge now-badge--alt2">
+                Web Cache Deception
+            </span>
         </div>
     </header>
     <div class="now-body">
