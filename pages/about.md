@@ -110,23 +110,23 @@ This site is built with Jekyll and hosted on GitHub Pages.
             <li>Keywords: cache rules / path mapping / normalization</li>
         </ul>
         <div class="chap-strip" aria-label="All learning paths">
-            <span class="chap">API testing</span>
-            <span class="chap">Server-Side vulnerabilities</span>
-            <span class="chap">SQL injection</span>
-            <span class="chap reading">Web cache deception</span>
-            <span class="chap">WebSockets vulnerabilities</span>
-            <span class="chap">Authentication vulnerabilities</span>
-            <span class="chap">Server-side request forgery (SSRF) attacks</span>
-            <span class="chap">Prototype pollution</span>
-            <span class="chap">Clickjacking (UI redressing)</span>
-            <span class="chap">GraphQL API vulnerabilities</span>
-            <span class="chap">Cross-origin resource sharing (CORS)</span>
-            <span class="chap">Path traversal</span>
-            <span class="chap">NoSQL injection</span>
-            <span class="chap">Race conditions</span>
-            <span class="chap">Cross-site request forgery (CSRF)</span>
-            <span class="chap">File upload vulnerabilities</span>
-            <span class="chap">Web LLM attacks</span>
+            <span class="chap-pill">API testing</span>
+            <span class="chap-pill">Server-Side vulnerabilities</span>
+            <span class="chap-pill">SQL injection</span>
+            <span class="chap-pill reading">Web cache deception</span>
+            <span class="chap-pill">WebSockets vulnerabilities</span>
+            <span class="chap-pill">Authentication vulnerabilities</span>
+            <span class="chap-pill">Server-side request forgery (SSRF) attacks</span>
+            <span class="chap-pill">Prototype pollution</span>
+            <span class="chap-pill">Clickjacking (UI redressing)</span>
+            <span class="chap-pill">GraphQL API vulnerabilities</span>
+            <span class="chap-pill">Cross-origin resource sharing (CORS)</span>
+            <span class="chap-pill">Path traversal</span>
+            <span class="chap-pill">NoSQL injection</span>
+            <span class="chap-pill">Race conditions</span>
+            <span class="chap-pill">Cross-site request forgery (CSRF)</span>
+            <span class="chap-pill">File upload vulnerabilities</span>
+            <span class="chap-pill">Web LLM attacks</span>
         </div>
         <p class="chap-hint">
             <span class="chap-dot chap-dot--done"></span> done
