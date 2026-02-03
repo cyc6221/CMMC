@@ -155,23 +155,23 @@ LLL algorithm 會同時維護：
 </li>
 
 <li>
-    <strong>檢查 Lovász condition（失敗 → swap）</strong><br>
+    <strong>檢查 Lovász condition（失敗 → swap）</strong>
     檢查
     $$
     \|b_2^*\|^2 \ge \left(\frac34-\mu_{2,1}^2\right)\|b_1^*\|^2.
     $$
-    右邊為
+    右邊：
     $$
     \left(\frac34-\left(\frac12\right)^2\right)\cdot 4
     =\left(\frac34-\frac14\right)\cdot 4
     =\frac12\cdot 4
     =2,
     $$
-    但
+    左邊：
     $$
     \|b_2^*\|^2=1 < 2,
     $$
-    所以需要 swap：
+    所以失敗，需要 swap：
     $$
     (b_1,b_2)\leftarrow\left(\begin{pmatrix}1\\1\end{pmatrix},\begin{pmatrix}2\\0\end{pmatrix}\right).
     $$
@@ -195,8 +195,8 @@ LLL algorithm 會同時維護：
 </li>
 
 <li>
-    <strong>Size reduction（修正 $$|\mu_{2,1}|\le \tfrac12$$）</strong><br>
-    因為 $$\mu_{2,1}=1$$ 違反 size reduction，所以做
+    <strong>Size reduction（修正 $|\mu_{2,1}|\le \tfrac12$）</strong>
+    因為 $\mu_{2,1}=1$ 違反 size reduction，所以做
     $$
     b_2 \leftarrow b_2 - 1\cdot b_1
     =\begin{pmatrix}2\\0\end{pmatrix}-\begin{pmatrix}1\\1\end{pmatrix}
@@ -212,28 +212,27 @@ LLL algorithm 會同時維護：
 
 <li>
     <strong>再次檢查 Lovász condition（成功）</strong>
-    $$
-    \|b_2^*\|^2=2.
-    $$
-    右邊為
+    右邊：
     $$
     \left(\frac34-\mu_{2,1}^2\right)\|b_1^*\|^2
     =\left(\frac34-0\right)\cdot 2
     =\frac32.
     $$
-    因此
+    左邊：
     $$
-    2 \ge \frac32
+    \|b_2^*\|^2=2 \ge \frac32
     $$
     成立。
 </li>
 
 <li>
-    <strong>結論：LLL-reduced basis</strong>
+    <strong>Conclusion</strong>
+    We conclude that
     $$
     b_1=\begin{pmatrix}1\\1\end{pmatrix},\quad
     b_2=\begin{pmatrix}1\\-1\end{pmatrix}.
     $$
+    is a LLL-reduced basis of the given lattice.
 </li>
 </ol>
 
