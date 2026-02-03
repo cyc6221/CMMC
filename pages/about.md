@@ -34,6 +34,7 @@ I am CY.
         </p>
         <ul class="now-list">
             <li><strong>Now</strong>: Attacks on Public Key Schemes</li>
+            <li><a href="{{ '/crypto-an-intro/' | relative_url }}">Cryptography: An Introduction — Contents</a></li>
         </ul>
         <div class="chap-strip" aria-label="Chapters 1 to 26">
             <span class="chap">1</span>
