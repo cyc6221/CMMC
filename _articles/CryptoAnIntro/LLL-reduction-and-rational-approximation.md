@@ -8,7 +8,7 @@ tags: [Lattice, lattice-cryptography, LA, LLL, GSO, SVP, Algorithm, continued-fr
 
 ## Before reading
 
-這一段在說明 **continued fractions** 與 **lattice reduction**（特別是 **LLL algorithm**）之間的關聯。先閱讀 [Lattice]({{ "/lattice/" | relative_url }}) 與 [LLL reduction]({{ "/LLL-reduction/" | relative_url }}) 。
+這一段在說明 **continued fractions** 與 **lattice reduction**（特別是 **LLL algorithm**）之間的關聯。先閱讀 [Lattice]({{ "/articles/CryptoAnIntro/lattice/" | relative_url }}) 與 [LLL reduction]({{ "/articles/CryptoAnIntro/LLL-reduction/" | relative_url }}) 。
 
 <!-- --- -->
 
