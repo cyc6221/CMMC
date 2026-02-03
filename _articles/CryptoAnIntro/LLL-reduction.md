@@ -243,3 +243,5 @@ LLL algorithm 會同時維護：
 ## References
 
 - Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 17. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
+
+- Wikipedia, [*Lenstra–Lenstra–Lovász lattice basis reduction algorithm*](https://en.wikipedia.org/wiki/Lenstra%E2%80%93Lenstra%E2%80%93Lov%C3%A1sz_lattice_basis_reduction_algorithm).
