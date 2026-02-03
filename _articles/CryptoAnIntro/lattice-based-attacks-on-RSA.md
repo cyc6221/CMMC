@@ -135,7 +135,7 @@ $$
 
 將每個 $g_{u,v}(xX)$ 展開成 coefficient vector，這些向量張成一個 lattice；選擇整數 $a_{u,v}$ 對應到 lattice 中的整數線性組合。
 <br>
-用 **LLL** 在 lattice 中找到 **short vector**，即可得到「係數小」的 $h(x)$，再用 Lemma 將 $h(x_0)\equiv 0\pmod{N^m}$ 升級為 $h(x_0)=0$，最後解出 $x_0$。
+用 LLL 在 lattice 中找到 short vector，即可得到「係數小」的 $h(x)$，再用 Lemma 將 $h(x_0)\equiv 0\pmod{N^m}$ 升級為 $h(x_0)=0$，最後解出 $x_0$。
 
 </div>
 
