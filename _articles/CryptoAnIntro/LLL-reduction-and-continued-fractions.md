@@ -14,7 +14,7 @@ tags: [Lattice, lattice-cryptography, LA, LLL, GSO, SVP, Algorithm, continued-fr
 
 ## Lattice Reduction and Continued Fractions
 
-**continued fractions** 的目標是：給定一個實數 $\alpha$，找到整數 $p,q$（希望 $q$ 不要太大），使得
+**Continued fractions** 的目標是：給定一個實數 $\alpha$，找到整數 $p,q$（希望 $q$ 不要太大），使得
 
 $$
 |q\alpha - p|
