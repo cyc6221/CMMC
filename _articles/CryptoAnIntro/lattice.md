@@ -6,7 +6,7 @@ last_updated: 2026-02-02
 tags: [Lattice, lattice-cryptography, LA, LLL, GSO, SVP]
 ---
 
-## Before lattice
+## Before reading
 
 先了解下列內容：
 
