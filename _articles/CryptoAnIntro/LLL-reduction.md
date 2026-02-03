@@ -3,7 +3,7 @@ layout: page
 title: LLL reduction
 date: 2026-02-02
 last_updated: 2026-02-03
-tags: [Lattice, lattice-cryptography, LA, LLL, GSO, SVP, Algorithm]
+tags: [Lattice, LLL, GSO, SVP]
 ---
 
 ## Definition
