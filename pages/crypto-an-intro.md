@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Cryptography: An Introduction — Contents
+title: "Cryptography: An Introduction — Contents"
 permalink: /crypto-an-intro/
 toc: false
 ---
