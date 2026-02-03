@@ -107,6 +107,7 @@ I am CY.
         </p>
         <ul class="now-list">
             <li><strong>Now</strong>: Web Cache Deception</li>
+            <li><a href="{{ '/PortSwigger/' | relative_url }}">PortSwigger All Learning Paths — Contents</a></li>
         </ul>
         <div class="chap-strip" aria-label="All learning paths">
             <span class="chap-pill">API testing</span>
