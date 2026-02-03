@@ -71,13 +71,16 @@ This site is built with Jekyll and hosted on GitHub Pages.
             <span class="chap-dot chap-dot--reading"></span> reading
             <span class="chap-dot chap-dot--todo"></span> todo
         </p>
+        {% assign done = 1 %}
+        {% assign total = 26 %}
+        {% assign pct = done | times: 100 | divided_by: total %}
         <div class="now-progress" role="group" aria-label="Reading progress">
             <div class="now-progress__label">
                 <span class="now-progress__text">Progress</span>
-                <span class="now-progress__pct">35%</span>
+                <span class="now-progress__pct">{{ done }}/{{ total }} ({{ pct }}%)</span>
             </div>
             <div class="now-progress__track" aria-hidden="true">
-                <span class="now-progress__bar" style="width: 35%;"></span>
+                <span class="now-progress__bar" style="width: {{ pct }}%;"></span>
             </div>
         </div>
     </div>
@@ -131,13 +134,16 @@ This site is built with Jekyll and hosted on GitHub Pages.
             <span class="chap-dot chap-dot--reading"></span> reading
             <span class="chap-dot chap-dot--todo"></span> todo
         </p>
+        {% assign done = 1 %}
+        {% assign total = 17 %}
+        {% assign pct = done | times: 100 | divided_by: total %}
         <div class="now-progress" role="group" aria-label="Reading progress">
             <div class="now-progress__label">
                 <span class="now-progress__text">Progress</span>
-                <span class="now-progress__pct">35%</span>
+                <span class="now-progress__pct">{{ done }}/{{ total }} ({{ pct }}%)</span>
             </div>
             <div class="now-progress__track" aria-hidden="true">
-                <span class="now-progress__bar" style="width: 35%;"></span>
+                <span class="now-progress__bar" style="width: {{ pct }}%;"></span>
             </div>
         </div>
     </div>
