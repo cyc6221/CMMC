@@ -141,6 +141,51 @@ $$
 
 <!-- --- -->
 
+<!-- Example -->
+
+<!-- --- -->
+
+## Coppersmith's Theorem
+
+類似的 lattice 技術也可以套用到任意 degree 為 $d$ 的 monic polynomial。以下引述 **Coppersmith's Theorem**（single-variable small root）。
+
+<div class="theorem">
+
+<strong>Theorem (Coppersmith).</strong>
+
+Let $f \in \mathbb{Z}[x]$ be a monic polynomial of degree $d$ and $N$ an integer. If there is some root $x_0$ of $f$ modulo $N$ such that
+$$
+|x_0| \le X = N^{1/d-\epsilon}
+$$
+then one can find $x_0$ in time polynomial in $\log N$ and $1/\epsilon$, for fixed values of $d$.
+
+</div>
+
+### Two-variable Analogue Lemma
+
+在 two-variable 的情況，下方這個 lemma 是上面 **Howgrave–Graham Lemma（single-variable）** 的類比版本。
+
+<div class="theorem">
+
+<strong>Lemma (Two-variable analogue).</strong>
+
+Let $h(x,y) \in \mathbb{Z}[x,y]$ denote a sum of at most $w$ monomials and suppose
+
+<ul>
+  <li>
+    $h(x_0,y_0) = 0 \pmod{N^e}$ for some positive integers $N$ and $e$ where the integers $x_0$ and $y_0$ satisfy $\lvert x_0 \rvert < X \ \text{and}\ \lvert y_0 \rvert < Y$,
+  </li>
+  <li>
+    $\lVert h(xX,yY) \rVert < N^e/\sqrt{w}$
+  </li>
+</ul>
+
+Then $h(x_0,y_0) = 0$ holds over the integers.
+
+</div>
+
+<!-- --- -->
+
 ## References
 
 - Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 17. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
