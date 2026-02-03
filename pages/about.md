@@ -39,22 +39,22 @@ This site is built with Jekyll and hosted on GitHub Pages.
             <li>Notes: lattice / LLL / Coppersmith (整理中)</li>
         </ul>
         <div class="chap-strip" aria-label="Chapters 1 to 26">
-            <span class="chap done">1</span>
-            <span class="chap done">2</span>
-            <span class="chap done">3</span>
-            <span class="chap done">4</span>
-            <span class="chap done">5</span>
-            <span class="chap done">6</span>
-            <span class="chap done">7</span>
-            <span class="chap done">8</span>
-            <span class="chap done">9</span>
-            <span class="chap done">10</span>
-            <span class="chap done">11</span>
-            <span class="chap done">12</span>
-            <span class="chap done">13</span>
-            <span class="chap done">14</span>
-            <span class="chap done">15</span>
-            <span class="chap done">16</span>
+            <span class="chap">1</span>
+            <span class="chap">2</span>
+            <span class="chap">3</span>
+            <span class="chap">4</span>
+            <span class="chap">5</span>
+            <span class="chap">6</span>
+            <span class="chap">7</span>
+            <span class="chap">8</span>
+            <span class="chap">9</span>
+            <span class="chap">10</span>
+            <span class="chap">11</span>
+            <span class="chap">12</span>
+            <span class="chap">13</span>
+            <span class="chap">14</span>
+            <span class="chap">15</span>
+            <span class="chap">16</span>
             <span class="chap reading">17</span>
             <span class="chap">18</span>
             <span class="chap">19</span>
