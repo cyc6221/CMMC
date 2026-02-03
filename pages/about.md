@@ -83,25 +83,6 @@ This site is built with Jekyll and hosted on GitHub Pages.
     </div>
 </article>
 
-<!-- CTF -->
-
-<article class="now-card">
-    <header class="now-head">
-        <span class="now-icon" aria-hidden="true">🚩</span>
-        <div class="now-title">
-            <h3>CTF</h3>
-            <span class="now-badge now-badge--alt">Active</span>
-        </div>
-    </header>
-    <div class="now-body">
-        <ul class="now-list">
-            <li>Focus: Web / Crypto / scripting</li>
-            <li>Output: writeups + payload/encoding cheatsheet</li>
-            <li>Goal: reusable snippets → notes → repo</li>
-        </ul>
-    </div>
-</article>
-
 <!-- PortSwigger -->
 
 <article class="now-card">
@@ -115,6 +96,14 @@ This site is built with Jekyll and hosted on GitHub Pages.
         </div>
     </header>
     <div class="now-body">
+        <p class="now-primary">
+            <a class="now-link" href="https://portswigger.net/" target="_blank" rel="noopener">
+                PortSwigger
+            </a>
+            <a class="now-link" href="https://portswigger.net/web-security/learning-paths" target="_blank" rel="noopener">
+                Web Security Academy Learning Paths
+            </a>
+        </p>
         <ul class="now-list">
             <li>Track: Web Cache Deception</li>
             <li>Deliverables: lab writeups + defense checklist</li>
