@@ -34,7 +34,6 @@ I am CY.
         </p>
         <ul class="now-list">
             <li><strong>Now</strong>: Attacks on Public Key Schemes</li>
-            <li>Notes: lattice / LLL / Coppersmith (整理中)</li>
         </ul>
         <div class="chap-strip" aria-label="Chapters 1 to 26">
             <span class="chap">1</span>
