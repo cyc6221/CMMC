@@ -19,7 +19,7 @@ I am CY.
 
 <article class="now-card">
     <header class="now-head">
-        <span class="now-icon" aria-hidden="true">📚</span>
+        <span class="now-icon" aria-hidden="true">📜</span>
         <div class="now-title">
             <h3>Studying</h3>
             <span class="now-badge">Chapter 17</span>
@@ -87,7 +87,7 @@ I am CY.
 
 <article class="now-card">
     <header class="now-head">
-        <span class="now-icon" aria-hidden="true">🧪</span>
+        <span class="now-icon" aria-hidden="true">🕷️</span>
         <div class="now-title">
             <h3>PortSwigger</h3>
             <span class="now-badge now-badge--alt2">
