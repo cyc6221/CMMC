@@ -58,7 +58,7 @@ $$
 
 如果 LLL 找到一個「short vector」接近上式，就同時表示：
 
-- 第一個座標 $| q |$ 小（分母不大）
-- 第二個座標 $| C ( q \alpha - p ) |$ 小，因此 $| q \alpha - p |$ 小（近似誤差小）
+- 第一個座標 $\left | q \right |$ 小（分母不大）
+- 第二個座標 $\left | C ( q \alpha - p ) \right |$ 小，因此 $\left | q \alpha - p \right |$ 小（近似誤差小）
 
 因此可以把 **LLL algorithm** 視為 **continued fractions algorithm** 的 **multi-dimensional generalization**：連分數在低維情況下提供最佳有理近似；而 LLL 在更一般的高維 lattice 中，透過找 short vectors 來達到類似的「找近似／找整數關係」效果。
