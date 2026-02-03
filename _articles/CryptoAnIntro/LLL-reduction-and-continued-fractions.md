@@ -62,3 +62,9 @@ $$
 - 第二個座標的大小 $\lvert C(q\alpha - p) \rvert$ 不大，因此 $\lvert q\alpha - p \rvert$ 也會很小（近似誤差小）
 
 因此可以把 **LLL algorithm** 視為 **continued fractions algorithm** 的 **multi-dimensional generalization**：連分數在低維情況下提供最佳有理近似；而 LLL 在更一般的高維 lattice 中，透過找 short vectors 來達到類似的「找近似／找整數關係」效果。
+
+<!-- --- -->
+
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 17. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
