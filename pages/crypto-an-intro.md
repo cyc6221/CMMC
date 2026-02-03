@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Cryptography: An Introduction — Contents
-permalink: /ci/
+permalink: /crypto-an-intro/
 toc: false
 ---
 
