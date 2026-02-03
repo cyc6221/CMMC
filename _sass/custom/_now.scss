@@ -1,7 +1,7 @@
 /* Currently / Now cards (About page) */
 .now-grid{
   display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
   margin: 14px 0 8px;
 }
