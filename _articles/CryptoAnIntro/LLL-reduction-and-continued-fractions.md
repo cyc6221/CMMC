@@ -1,6 +1,6 @@
 ---
 layout: page
-title: LLL Reduction and Rational Approximation via Lattices
+title: Lattice Reduction and Continued Fractions
 date: 2026-02-03
 last_updated: 2026-02-03
 tags: [Lattice, lattice-cryptography, LA, LLL, GSO, SVP, Algorithm, continued-fractions]
@@ -12,7 +12,7 @@ tags: [Lattice, lattice-cryptography, LA, LLL, GSO, SVP, Algorithm, continued-fr
 
 <!-- --- -->
 
-## Continued fractions and their relation to lattice reduction
+## Lattice Reduction and Continued Fractions
 
 **continued fractions** 的目標是：給定一個實數 $\alpha$，找到整數 $p,q$（希望 $q$ 不要太大），使得
 
