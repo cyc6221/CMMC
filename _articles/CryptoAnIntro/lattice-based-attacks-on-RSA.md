@@ -52,7 +52,7 @@ h(x)=\sum_{i=0}^{\deg(h)} h_i x^i,
 \|h\|^2=\sum_{i=0}^{\deg(h)} h_i^2.
 $$
 
-若能找到滿足 Lemma 所需 norm bound 的 $h$，即可把 modular root 升級成 integer root，進而求出 $x_0$。之後會考慮 $h(xX)$：當 $|x_0|<X$ 時，透過控制 $\|h(xX)\|$ 來推得 $|h(x_0)|$ 的上界，進而套用 Lemma。
+若能找到滿足 Lemma 所需 norm bound 的 $h$，即可把 modular root 升級成 integer root，進而求出 $x_0$。之後會考慮 $h(xX)$：當 $\lvert x_0\rvert < X$ 時，透過控制 $\lVert h(xX)\rVert$ 來推得 $\lvert h(x_0)\rvert$ 的上界，進而套用 Lemma。
 
 <!-- --- -->
 
@@ -81,9 +81,9 @@ then $h(x_0) = 0$ over the integers and not just modulo $N$.
 
 ### Intuition Behind Lemma
 
-若 $h(x_0)\equiv 0\pmod N$，則 $N\mid h(x_0)$。只要再保證 $|h(x_0)|<N$，則 $h(x_0)$ 只能等於 0（因為 $(-N,N)$ 內唯一的 $N$ 倍數是 0）。
+若 $h(x_0)\equiv 0\pmod N$，則 $N\mid h(x_0)$。只要再保證 $\lvert h(x_0)\rvert < N$，則 $h(x_0)$ 只能等於 0（因為 $(-N,N)$ 內唯一的 $N$ 倍數是 0）。
 
-Lemma 的條件 $\|h(xX)\|<N/\sqrt{n}$ 正是用來控制在 $|x_0|<X$ 時的 $|h(x_0)|$ 上界。
+Lemma 的條件 $\lVert h(xX)\rVert < N/\sqrt{n}$ 正是用來控制在 $\lvert x_0\rvert < X$ 時的 $\lvert h(x_0)\rvert$ 上界。
 
 ### From lower powers to higher powers
 
@@ -129,9 +129,15 @@ $$
 
 接下來要選擇 $a_{u,v}$ 讓 $h(x)$ 的係數夠小，以便套用 Lemma（將模數取為 $N^m$）。
 
-### Why LLL shows up
+<div class="remark">
 
-將每個 $g_{u,v}(xX)$ 展開成 coefficient vector，這些向量張成一個 lattice；選擇整數 $a_{u,v}$ 對應到 lattice 中的整數線性組合。用 **LLL** 在 lattice 中找到 **short vector**，即可得到「係數小」的 $h(x)$，再用 Lemma 將 $h(x_0)\equiv 0\pmod{N^m}$ 升級為 $h(x_0)=0$，最後解出 $x_0$。
+<strong> Why LLL shows up </strong>
+
+將每個 $g_{u,v}(xX)$ 展開成 coefficient vector，這些向量張成一個 lattice；選擇整數 $a_{u,v}$ 對應到 lattice 中的整數線性組合。
+<br>
+用 **LLL** 在 lattice 中找到 **short vector**，即可得到「係數小」的 $h(x)$，再用 Lemma 將 $h(x_0)\equiv 0\pmod{N^m}$ 升級為 $h(x_0)=0$，最後解出 $x_0$。
+
+</div>
 
 <!-- --- -->
 
