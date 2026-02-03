@@ -109,6 +109,39 @@ This site is built with Jekyll and hosted on GitHub Pages.
             <li>Deliverables: lab writeups + defense checklist</li>
             <li>Keywords: cache rules / path mapping / normalization</li>
         </ul>
+        <div class="chap-strip" aria-label="All learning paths">
+            <span class="chap">API testing</span>
+            <span class="chap">Server-Side vulnerabilities</span>
+            <span class="chap">SQL injection</span>
+            <span class="chap reading">Web cache deception</span>
+            <span class="chap">WebSockets vulnerabilities</span>
+            <span class="chap">Authentication vulnerabilities</span>
+            <span class="chap">Server-side request forgery (SSRF) attacks</span>
+            <span class="chap">Prototype pollution</span>
+            <span class="chap">Clickjacking (UI redressing)</span>
+            <span class="chap">GraphQL API vulnerabilities</span>
+            <span class="chap">Cross-origin resource sharing (CORS)</span>
+            <span class="chap">Path traversal</span>
+            <span class="chap">NoSQL injection</span>
+            <span class="chap">Race conditions</span>
+            <span class="chap">Cross-site request forgery (CSRF)</span>
+            <span class="chap">File upload vulnerabilities</span>
+            <span class="chap">Web LLM attacks</span>
+        </div>
+        <p class="chap-hint">
+            <span class="chap-dot chap-dot--done"></span> done
+            <span class="chap-dot chap-dot--reading"></span> reading
+            <span class="chap-dot chap-dot--todo"></span> todo
+        </p>
+        <div class="now-progress" role="group" aria-label="Reading progress">
+            <div class="now-progress__label">
+                <span class="now-progress__text">Progress</span>
+                <span class="now-progress__pct">35%</span>
+            </div>
+            <div class="now-progress__track" aria-hidden="true">
+                <span class="now-progress__bar" style="width: 35%;"></span>
+            </div>
+        </div>
     </div>
 </article>
 
