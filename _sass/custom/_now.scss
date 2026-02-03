@@ -112,3 +112,68 @@
   font-size: 12px;
   opacity: .7;
 }
+
+/* ---------- */
+
+/* Chapter strip (1~26) */
+.chap-strip{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.chap{
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.04);
+  color: rgba(0,0,0,.55);
+  user-select: none;
+}
+
+.chap.done{
+  border-color: rgba(0,0,0,.12);
+  background: rgba(34,197,94,.16);  /* green-ish */
+  color: rgba(0,0,0,.75);
+}
+
+.chap.reading{
+  border-color: rgba(0,0,0,.16);
+  background: rgba(59,130,246,.16); /* blue-ish highlight */
+  color: rgba(0,0,0,.8);
+}
+
+.chap:hover{
+  transform: translateY(-1px);
+}
+
+.chap-hint{
+  margin: 10px 0 0;
+  font-size: 12px;
+  opacity: .75;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.chap-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.04);
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+
+.chap-dot--done{ background: rgba(34,197,94,.16); }
+.chap-dot--reading{ background: rgba(59,130,246,.16); }
+.chap-dot--todo{ background: rgba(0,0,0,.04); }
