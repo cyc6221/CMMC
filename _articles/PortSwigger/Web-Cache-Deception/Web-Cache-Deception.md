@@ -2,27 +2,11 @@
 layout: page
 title: Web Cache Deception
 date: 2026-02-02
-last_updated: 2026-02-02
+last_updated: 2026-02-03
 tags: [PortSwigger, WCD, caching, CDN, Web Security]
 ---
 
 參考 PortSwigger 的 [Web cache deception（Learning path）](https://portswigger.net/web-security/learning-paths/web-cache-deception) 與 [Web cache deception](https://portswigger.net/web-security/web-cache-deception) 整理。
-
-<div class="definition">
-  <strong>Learning Paths</strong>
-  <ol>
-    <li>Web caches</li>
-    <li>Constructing a web cache deception attack</li>
-    <li>Exploiting static extension cache rules</li>
-    <li>Using path mapping discrepancies</li>
-    <li>Using delimiter discrepancies</li>
-    <li>Using delimiter decoding discrepancies</li>
-    <li>Exploiting static directory cache rules</li>
-    <li>Using normalization discrepancies</li>
-    <li>Exploiting file name cache rules</li>
-    <li>Preventing vulnerabilities</li>
-  </ol>
-</div>
 
 <!-- --- -->
 
@@ -327,3 +311,19 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 * [Web cache deception（Learning path）](https://portswigger.net/web-security/learning-paths/web-cache-deception)
 * [Web cache deception](https://portswigger.net/web-security/web-cache-deception)
 * [Web cache deception lab delimiter list](https://portswigger.net/web-security/web-cache-deception/wcd-lab-delimiter-list)
+
+<div class="definition">
+  <strong>Learning Paths</strong>
+  <ol>
+    <li>Web caches</li>
+    <li>Constructing a web cache deception attack</li>
+    <li>Exploiting static extension cache rules</li>
+    <li>Using path mapping discrepancies</li>
+    <li>Using delimiter discrepancies</li>
+    <li>Using delimiter decoding discrepancies</li>
+    <li>Exploiting static directory cache rules</li>
+    <li>Using normalization discrepancies</li>
+    <li>Exploiting file name cache rules</li>
+    <li>Preventing vulnerabilities</li>
+  </ol>
+</div>
