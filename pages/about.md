@@ -9,9 +9,7 @@ toc: false
 
 I am CY.
 
-## Site
-
-This site is built with Jekyll and hosted on GitHub Pages.
+<!-- --- -->
 
 ## Currently
 
@@ -150,3 +148,9 @@ This site is built with Jekyll and hosted on GitHub Pages.
 </article>
 
 </section>
+
+<!-- --- -->
+
+## Site
+
+This site is built with Jekyll and hosted on GitHub Pages.
