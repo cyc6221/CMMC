@@ -3,7 +3,7 @@ layout: page
 title: Wiener's Attack on RSA
 date: 2026-01-26
 last_updated: 2026-01-27
-tags: [attack, RSA]
+tags: [attack, RSA, continued-fractions]
 ---
 
 在 RSA 中，通常會選擇較小的 public exponent $e$ (常見：$e=3, 17, 65537$)。Sometimes 有人會想要更快的 private key operations，這時候他們會選擇把 private exponent $d$ 也選小一點。
