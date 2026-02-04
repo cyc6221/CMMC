@@ -1,0 +1,47 @@
+/* Lab table (CSS grid) */
+.lab-table{
+  list-style: none;
+  padding-left: 0;
+  margin: .75rem 0 1.25rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.lab-row{
+  display: grid;
+  grid-template-columns: 150px 1fr 90px; /* level / lab / solved */
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.lab-row:first-child{ border-top: none; }
+
+.lab-row a{
+  text-decoration: none;
+}
+
+.lab-row a:hover{
+  text-decoration: underline;
+}
+
+/* Solved badge */
+.lab-status{
+  justify-self: end;
+  font-size: 12px;
+  font-weight: 700;
+  padding: .14rem .55rem;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  color: #6b7280;
+  background: rgba(107, 114, 128, .08);
+  white-space: nowrap;
+}
+
+.lab-status.is-solved{
+  border-color: rgba(22, 163, 74, .45);
+  color: #16a34a;
+  background: rgba(22, 163, 74, .10);
+}
