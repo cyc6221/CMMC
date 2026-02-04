@@ -148,7 +148,77 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
                 <span class="now-progress__bar" style="width: {{ pct }}%;"></span>
             </div>
         </div>
+        <!-- Level progress-->
+        {% comment %} Level progress (manual numbers) {% endcomment %}
+        {% assign ap_done = 2 %}
+        {% assign ap_total = 59 %}
+        {% assign pr_done = 2 %}
+        {% assign pr_total = 172 %}
+        {% assign ex_done = 0 %}
+        {% assign ex_total = 39 %}
+        <!-- percentage -->
+        {% assign ap_pct = ap_done | times: 100 | divided_by: ap_total %}
+        {% assign pr_pct = pr_done | times: 100 | divided_by: pr_total %}
+        {% assign ex_pct = ex_done | times: 100 | divided_by: ex_total %}
+        <!-- level progress div -->
+        <div class="level-progress" role="group" aria-label="Level progress">
+            <div class="level-progress__head">
+                <span class="level-progress__title">Level progress</span>
+            </div>
+            <!-- Apprentice -->
+            <div class="level-progress__grid">
+                <div class="level-item">
+                <div
+                    class="level-ring"
+                    style="--pct: {{ ap_pct }};"
+                    role="img"
+                    aria-label="Apprentice {{ ap_done }} of {{ ap_total }} ({{ ap_pct }}%)"
+                >
+                    <div class="level-ring__inner">
+                        <div class="level-ring__num">{{ ap_done }}</div>
+                        <div class="level-ring__sub">of {{ ap_total }}</div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="level-item__label">Apprentice</div>
+            </div>
+            <!-- Practitioner -->
+            <div class="level-divider" aria-hidden="true"></div>
+                <div class="level-item">
+                    <div
+                        class="level-ring level-ring--alt"
+                        style="--pct: {{ pr_pct }};"
+                        role="img"
+                        aria-label="Practitioner {{ pr_done }} of {{ pr_total }} ({{ pr_pct }}%)"
+                    >
+                    <div class="level-ring__inner">
+                        <div class="level-ring__num">{{ pr_done }}</div>
+                        <div class="level-ring__sub">of {{ pr_total }}</div>
+                    </div>
+                </div>
+                <div class="level-item__label">Practitioner</div>
+            </div>
+            <!-- Expert -->
+                <div class="level-divider" aria-hidden="true"></div>
+                <div class="level-item">
+                    <div
+                        class="level-ring level-ring--alt2"
+                        style="--pct: {{ ex_pct }};"
+                        role="img"
+                        aria-label="Expert {{ ex_done }} of {{ ex_total }} ({{ ex_pct }}%)"
+                    >
+                    <div class="level-ring__inner">
+                        <div class="level-ring__num">{{ ex_done }}</div>
+                        <div class="level-ring__sub">of {{ ex_total }}</div>
+                    </div>
+                </div>
+                <div class="level-item__label">Expert</div>
+            </div>
+            <!-- --- -->
+        </div>
     </div>
+</div>
+
 </article>
 
 </section>
