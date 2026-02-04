@@ -27,21 +27,6 @@
   text-decoration: underline;
 }
 
-/* Solved badge */
-.lab-status{
-  justify-self: end;
-  font-size: 12px;
-  font-weight: 700;
-  padding: .14rem .55rem;
-  border-radius: 999px;
-  border: 1px solid #d1d5db;
-  color: #6b7280;
-  background: rgba(107, 114, 128, .08);
-  white-space: nowrap;
-}
-
-.lab-status.is-solved{
-  border-color: rgba(22, 163, 74, .45);
-  color: #16a34a;
-  background: rgba(22, 163, 74, .10);
+.lab-row .level{
+  justify-self: center;   /* 讓 level 這格水平置中 */
 }
