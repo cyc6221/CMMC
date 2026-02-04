@@ -6,12 +6,17 @@
 /* custom modules */
 @import "custom/toc";
 @import "custom/math-blocks";
+
 @import "custom/toggle";
 @import "custom/articles";
 @import "custom/tags";
 @import "custom/page";
 @import "custom/ui";
+
 @import "custom/now";
+@import "custom/chapter-strip";
+@import "custom/level";
+
 @import "custom/badges";
 
 hr {
