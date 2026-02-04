@@ -7,4 +7,4 @@ toc: false
 
 ## Web Cache Deception
 
-- [Exploiting path mapping for web cache deception]({{ "/articles/PortSwigger/Web-Cache-Deception/labs/lab-WCD-exploiting-path-mapping/" | relative_url }}) **APPRENTICE**
+- [Exploiting path mapping for web cache deception]({{ "/articles/PortSwigger/Web-Cache-Deception/labs/lab-wcd-exploiting-path-mapping/" | relative_url }}) **APPRENTICE**
