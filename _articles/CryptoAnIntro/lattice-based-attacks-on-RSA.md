@@ -31,7 +31,7 @@ $$
 $$
 f(x_0)\equiv 0 \pmod N,
 \quad
-|x_0|<N^{1/d}.
+\lvert x_0 \rvert < N^{1/d}.
 $$
 
 目標是有效率地找出 $x_0$。
@@ -47,9 +47,9 @@ $$
 並同時讓 $h(x)$ 的係數足夠小（LLL 會用到）。以係數向量的 Euclidean norm 量化：
 
 $$
-h(x)=\sum_{i=0}^{\deg(h)} h_i x^i,
+h(x) = \sum_{i=0}^{\deg(h)} h_i x^i,
 \qquad
-\|h\|^2=\sum_{i=0}^{\deg(h)} h_i^2.
+\lVert h \rVert^2 = \sum_{i=0}^{\deg(h)} h_i^2.
 $$
 
 若能找到滿足 Lemma 所需 norm bound 的 $h$，即可把 modular root 升級成 integer root，進而求出 $x_0$。之後會考慮 $h(xX)$：當 $\lvert x_0\rvert < X$ 時，透過控制 $\lVert h(xX)\rVert$ 來推得 $\lvert h(x_0)\rvert$ 的上界，進而套用 Lemma。
@@ -64,10 +64,10 @@ $$
 Let $h(x) \in \mathbb{Z}[x]$ denote a polynomial of degree at most $n$ and let $X$ and $N$ be positive integers. Suppose
 
 $$
-\|h(xX)\| < \frac{N}{\sqrt{n}}.
+\lVert h(xX) \rVert < \frac{N}{\sqrt{n}}.
 $$
 
-Then if $|x_0|<X$ satisfies
+Then if $\lvert x_0 \rvert < X$ satisfies
 
 $$
 h(x_0)\equiv 0 \pmod N,
@@ -141,7 +141,120 @@ $$
 
 <!-- --- -->
 
-<!-- Example -->
+<!-- ### Example -->
+
+<div class="example">
+
+<strong>Example.</strong>
+
+假設目標多項式為
+
+$$
+f(x)=x^2+ax+b,
+$$
+
+我們希望找到一個 $x_0$ 使得
+
+$$
+f(x_0)\equiv 0 \pmod N.
+$$
+
+<strong>Step 1: Choose parameter $m=2$ and build $g_{u,v}(xX)$</strong>
+
+在前述構造中取 $m=2$（此處 $d=2$），並計算 $g_{u,v}(xX)$：
+
+$$
+\begin{aligned}
+g_{0,0}(xX) &= N^2,\\
+g_{1,0}(xX) &= XN^2x,\\
+g_{0,1}(xX) &= bN+aXNx+NX^2x^2,\\
+g_{1,1}(xX) &= bNXx+aNX^2x^2+NX^3x^3,\\
+g_{0,2}(xX) &= b^2+2baXx+(a^2+2b)X^2x^2+2aX^3x^3+X^4x^4,\\
+g_{1,2}(xX) &= b^2Xx+2baX^2x^2+(a^2+2b)X^3x^3+2aX^4x^4+X^5x^5.
+\end{aligned}
+$$
+
+我們要找這些多項式的整數線性組合，使得得到的多項式係數很小。
+
+<strong>Step 2: Build the lattice basis matrix</strong>
+
+考慮由下列矩陣的 columns 生成的 lattice，其中每一 column 對應一個上面的多項式，
+每一 row 對應 $x$ 的次方（從 $x^0$ 到 $x^5$）：
+
+$$
+A=
+\begin{pmatrix}
+N^2 & 0 & bN & 0 & b^2 & 0\\
+0 & XN^2 & aXN & bNX & 2abX & Xb^2\\
+0 & 0 & NX^2 & aNX^2 & (a^2+2b)X^2 & 2abX^2\\
+0 & 0 & 0 & NX^3 & 2aX^3 & (a^2+2b)X^3\\
+0 & 0 & 0 & 0 & X^4 & 2aX^4\\
+0 & 0 & 0 & 0 & 0 & X^5
+\end{pmatrix}.
+$$
+
+此矩陣的 determinant 為
+
+$$
+\det(A)=N^6X^{15}.
+$$
+
+<strong>Step 3: Apply LLL and obtain a short vector</strong>
+
+對矩陣 $A$ 套用 LLL，得到新的 lattice basis $B$。令 $b_1$ 為 $B$ 的第一個向量，則滿足
+
+$$
+\lVert b_1\rVert \le 2^{6/4}\det(A)^{1/6}
+=2^{3/2}NX^{5/2}.
+$$
+
+因為 $b_1$ 是原 lattice 的整數組合，存在整數向量 $u=(u_1,\dots,u_6)^t$ 使得
+
+$$
+b_1=A u.
+$$
+
+對應回多項式，我們得到
+
+$$
+h(x)=u_1g_{0,0}(x)+u_2g_{1,0}(x)+\cdots+u_6g_{1,2}(x),
+$$
+
+並且有
+
+$$
+\lVert h(xX)\rVert \le 2^{3/2}NX^{5/2}.
+$$
+
+<strong>Step 4: Satisfy the lemma’s condition and derive the bound on $X$</strong>
+
+要套用 Lemma 17.2（此處維度 $n=6$，將 $N$ 替換成 $N^2$），需要
+
+$$
+2^{3/2}NX^{5/2} < \frac{N^2}{\sqrt{6}}.
+$$
+
+因此可取
+
+$$
+\lvert x_0 \rvert \le X = \frac{N^{2/5}}{48^{1/5}}.
+$$
+
+換句話說：只要
+
+$$
+\lvert x_0 \rvert \le X = \frac{N^{2/5}}{48^{1/5}},
+$$
+
+我們就能透過求 $h(x)$ 的整數根來找出 $f(x)$ 在 modulo $N$ 下的 small root $x_0$。特別地，這在
+
+$$
+\lvert x_0 \rvert < N^{0.39}
+$$
+
+時會成立。
+
+</div>
 
 <!-- --- -->
 
@@ -155,7 +268,7 @@ $$
 
 Let $f \in \mathbb{Z}[x]$ be a monic polynomial of degree $d$ and $N$ an integer. If there is some root $x_0$ of $f$ modulo $N$ such that
 $$
-|x_0| \le X = N^{1/d-\epsilon}
+\lvert x_0 \rvert \le X = N^{1/d-\epsilon}
 $$
 then one can find $x_0$ in time polynomial in $\log N$ and $1/\epsilon$, for fixed values of $d$.
 
