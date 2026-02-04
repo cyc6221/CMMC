@@ -122,7 +122,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
         </ul>
         <!-- --- -->
         <div class="chap-strip" aria-label="All learning paths">
-            <span class="chap-pill">API testing</span>
+            <span class="chap-pill reading">API testing</span>
             <span class="chap-pill">Server-Side vulnerabilities</span>
             <span class="chap-pill">SQL injection</span>
             <span class="chap-pill reading">Web cache deception</span>
@@ -147,7 +147,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
             <span class="chap-dot chap-dot--todo"></span> todo
         </p>
         <!-- --- -->
-        {% assign done = 1 %}
+        {% assign done = 2 %}
         {% assign total = 17 %}
         {% assign pct = done | times: 100 | divided_by: total %}
         <div class="now-progress" role="group" aria-label="Reading progress">
