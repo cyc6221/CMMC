@@ -110,6 +110,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
         <ul class="now-list">
             <li><strong>Now</strong>: Web Cache Deception</li>
             <li><a href="{{ '/PortSwigger/' | relative_url }}">PortSwigger All Learning Paths — Contents</a></li>
+            <li><a href="{{ '/PortSwigger-all-labs/' | relative_url }}">PortSwigger All Labs</a></li>
         </ul>
         <div class="chap-strip" aria-label="All learning paths">
             <span class="chap-pill">API testing</span>
