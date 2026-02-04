@@ -2,7 +2,7 @@
 layout: page
 title: Lattice Based Attacks on RSA
 date: 2026-02-03
-last_updated: 2026-02-03
+last_updated: 2026-02-04
 tags: [RSA, Lattice, LLL, SVP, Coppersmith]
 ---
 
@@ -159,27 +159,26 @@ $$
 f(x_0)\equiv 0 \pmod N.
 $$
 
-<strong>Step 1: Choose parameter $m=2$ and build $g_{u,v}(xX)$</strong>
+<strong>Step 1</strong>
 
-在前述構造中取 $m=2$（此處 $d=2$），並計算 $g_{u,v}(xX)$：
+取 $m=2$，計算 $g_{u,v}(xX)$：
 
 $$
 \begin{aligned}
-g_{0,0}(xX) &= N^2,\\
-g_{1,0}(xX) &= XN^2x,\\
-g_{0,1}(xX) &= bN+aXNx+NX^2x^2,\\
-g_{1,1}(xX) &= bNXx+aNX^2x^2+NX^3x^3,\\
-g_{0,2}(xX) &= b^2+2baXx+(a^2+2b)X^2x^2+2aX^3x^3+X^4x^4,\\
-g_{1,2}(xX) &= b^2Xx+2baX^2x^2+(a^2+2b)X^3x^3+2aX^4x^4+X^5x^5.
+g_{0,0}(xX) &= N^2 \\
+g_{1,0}(xX) &= XN^2x \\
+g_{0,1}(xX) &= bN+aXNx+NX^2x^2 \\
+g_{1,1}(xX) &= bNXx+aNX^2x^2+NX^3x^3 \\
+g_{0,2}(xX) &= b^2+2baXx+(a^2+2b)X^2x^2+2aX^3x^3+X^4x^4 \\
+g_{1,2}(xX) &= b^2Xx+2baX^2x^2+(a^2+2b)X^3x^3+2aX^4x^4+X^5x^5
 \end{aligned}
 $$
 
-我們要找這些多項式的整數線性組合，使得得到的多項式係數很小。
+目標是找出這些多項式的整數線性組合，使得所得多項式的係數盡可能小。
 
-<strong>Step 2: Build the lattice basis matrix</strong>
+<strong>Step 2</strong>
 
-考慮由下列矩陣的 columns 生成的 lattice，其中每一 column 對應一個上面的多項式，
-每一 row 對應 $x$ 的次方（從 $x^0$ 到 $x^5$）：
+考慮由下列矩陣的 columns 生成的 lattice：
 
 $$
 A=
@@ -199,7 +198,7 @@ $$
 \det(A)=N^6X^{15}.
 $$
 
-<strong>Step 3: Apply LLL and obtain a short vector</strong>
+<strong>Step 3</strong>
 
 對矩陣 $A$ 套用 LLL，得到新的 lattice basis $B$。令 $b_1$ 為 $B$ 的第一個向量，則滿足
 
@@ -226,7 +225,7 @@ $$
 \lVert h(xX)\rVert \le 2^{3/2}NX^{5/2}.
 $$
 
-<strong>Step 4: Satisfy the lemma’s condition and derive the bound on $X$</strong>
+<strong>Step 4</strong>
 
 要套用 Lemma 17.2（此處維度 $n=6$，將 $N$ 替換成 $N^2$），需要
 
@@ -240,13 +239,7 @@ $$
 \lvert x_0 \rvert \le X = \frac{N^{2/5}}{48^{1/5}}.
 $$
 
-換句話說：只要
-
-$$
-\lvert x_0 \rvert \le X = \frac{N^{2/5}}{48^{1/5}},
-$$
-
-我們就能透過求 $h(x)$ 的整數根來找出 $f(x)$ 在 modulo $N$ 下的 small root $x_0$。特別地，這在
+換句話說：只要 $\lvert x_0 \rvert \le X = \frac{N^{2/5}}{48^{1/5}}$, 我們就能透過求 $h(x)$ 的整數根來找出 $f(x)$ 在 modulo $N$ 下的 small root $x_0$。特別地，這在
 
 $$
 \lvert x_0 \rvert < N^{0.39}
