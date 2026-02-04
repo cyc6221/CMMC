@@ -304,16 +304,21 @@
 .level-ring {
   --size: 74px;
   --thickness: 8px;
-  --track: rgba(255,255,255,.12);
-  --fill: rgba(120, 255, 180, .85); /* Apprentice default */
+
+  /* default = Apprentice */
+  --fill: rgb(34, 197, 94);              /* green */
+  --track: rgba(34, 197, 94, .22);       /* light green track */
   --pct: 0;
 
   width: var(--size);
   height: var(--size);
   border-radius: 999px;
 
-  background:
-    conic-gradient(var(--fill) calc(var(--pct) * 1%), var(--track) 0);
+  background: conic-gradient(
+    var(--fill) calc(var(--pct) * 1%),
+    var(--track) 0
+  );
+
   display: grid;
   place-items: center;
 }
@@ -340,9 +345,17 @@
   margin-top: 2px;
 }
 
-/* Color variants (optional) */
-.level-ring--alt  { --fill: rgba(120, 180, 255, .85); }  /* Practitioner */
-.level-ring--alt2 { --fill: rgba(190, 140, 255, .85); }  /* Expert */
+/* Practitioner = blue */
+.level-ring--alt {
+  --fill: rgb(59, 130, 246);             /* blue */
+  --track: rgba(59, 130, 246, .22);      /* light blue track */
+}
+
+/* Expert = purple */
+.level-ring--alt2 {
+  --fill: rgb(168, 85, 247);             /* purple */
+  --track: rgba(168, 85, 247, .22);      /* light purple track */
+}
 
 /* Responsive: avoid dividers on narrow screens */
 @media (max-width: 520px) {
