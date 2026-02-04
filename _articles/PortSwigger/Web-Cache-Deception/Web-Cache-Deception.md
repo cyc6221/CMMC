@@ -308,7 +308,7 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
 ## References
 
-* [Web cache deception（Learning path）](https://portswigger.net/web-security/learning-paths/web-cache-deception)
+* [Web cache deception (Learning path)](https://portswigger.net/web-security/learning-paths/web-cache-deception)
 * [Web cache deception](https://portswigger.net/web-security/web-cache-deception)
 * [Web cache deception lab delimiter list](https://portswigger.net/web-security/web-cache-deception/wcd-lab-delimiter-list)
 
