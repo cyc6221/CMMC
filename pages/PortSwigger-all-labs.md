@@ -10,14 +10,18 @@ toc: false
 <ul class="lab-table">
   <li class="lab-row">
     <span class="level level--apprentice">APPRENTICE</span>
-    <a href='{{ "/articles/PortSwigger/Web-Cache-Deception/labs/lab-wcd-exploiting-path-mapping/" | relative_url }}'>Exploiting path mapping for web cache deception</a>
+    <a href='{{ "/articles/PortSwigger/Web-Cache-Deception/labs/lab-wcd-exploiting-path-mapping/" | relative_url }}'>
+      Exploiting path mapping for web cache deception
+    </a>
     <span class="lab-status is-solved">Solved</span>
   </li>
 
   <li class="lab-row">
     <span class="level level--practitioner">PRACTITIONER</span>
-    <a href='{{ "/articles/PortSwigger/Web-Cache-Deception/labs/lab-wcd-exploiting-path-delimiters/" | relative_url }}'>Exploiting path delimiters for web cache deception</a>
-    <span class="lab-status">Todo</span>
+    <a href='{{ "/articles/PortSwigger/Web-Cache-Deception/labs/lab-wcd-exploiting-path-delimiters/" | relative_url }}'>
+      Exploiting path delimiters for web cache deception
+    </a>
+    <span class="lab-status is-solved">Solved</span>
   </li>
 
   <li class="lab-row">
@@ -44,7 +48,33 @@ toc: false
 <ul class="lab-table">
   <li class="lab-row">
     <span class="level level--apprentice">APPRENTICE</span>
-    <a href='{{ "/articles/PortSwigger/API-Testing/labs/lab-exploiting-api-endpoint-using-documentation/" | relative_url }}'>Exploiting an API endpoint using documentation</a>
+    <a href='{{ "/articles/PortSwigger/API-Testing/labs/lab-exploiting-api-endpoint-using-documentation/" | relative_url }}'>
+      Exploiting an API endpoint using documentation
+    </a>
     <span class="lab-status is-solved">Solved</span>
+  </li>
+
+  <li class="lab-row">
+    <span class="level level--practitioner">PRACTITIONER</span>
+    <span>Exploiting server-side parameter pollution in a query string</span>
+    <span class="lab-status">Todo</span>
+  </li>
+
+  <li class="lab-row">
+    <span class="level level--practitioner">PRACTITIONER</span>
+    <span>Finding and exploiting an unused API endpoint</span>
+    <span class="lab-status">Todo</span>
+  </li>
+
+  <li class="lab-row">
+    <span class="level level--practitioner">PRACTITIONER</span>
+    <span>Exploiting a mass assignment vulnerability</span>
+    <span class="lab-status">Todo</span>
+  </li>
+
+  <li class="lab-row">
+    <span class="level level--expert">EXPERT</span>
+    <span>Exploiting server-side parameter pollution in a REST URL</span>
+    <span class="lab-status">Todo</span>
   </li>
 </ul>
