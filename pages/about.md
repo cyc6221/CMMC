@@ -27,6 +27,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
             <span class="now-badge">Chapter 17</span>
         </div>
     </header>
+    <!-- --- -->
     <div class="now-body">
         <p class="now-primary">
             Nigel Smart.
@@ -34,10 +35,12 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
                 Cryptography: An Introduction (Third Edition)
             </a>
         </p>
+        <!-- --- -->
         <ul class="now-list">
             <li><strong>Now</strong>: Attacks on Public Key Schemes</li>
             <li><a href="{{ '/crypto-an-intro/' | relative_url }}">Cryptography: An Introduction — Contents</a></li>
         </ul>
+        <!-- --- -->
         <div class="chap-strip" aria-label="Chapters 1 to 26">
             <span class="chap">1</span>
             <span class="chap">2</span>
@@ -66,11 +69,13 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
             <span class="chap">25</span>
             <span class="chap">26</span>
         </div>
+        <!-- --- -->
         <p class="chap-hint">
             <span class="chap-dot chap-dot--done"></span> done
             <span class="chap-dot chap-dot--reading"></span> reading
             <span class="chap-dot chap-dot--todo"></span> todo
         </p>
+        <!-- --- -->
         {% assign done = 1 %}
         {% assign total = 26 %}
         {% assign pct = done | times: 100 | divided_by: total %}
@@ -79,6 +84,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
                 <span class="now-progress__text">Progress</span>
                 <span class="now-progress__pct">{{ done }}/{{ total }} ({{ pct }}%)</span>
             </div>
+            <!-- --- -->
             <div class="now-progress__track" aria-hidden="true">
                 <span class="now-progress__bar" style="width: {{ pct }}%;"></span>
             </div>
@@ -98,6 +104,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
             </span>
         </div>
     </header>
+    <!-- --- -->
     <div class="now-body">
         <p class="now-primary">
             <a class="now-link" href="https://portswigger.net/" target="_blank" rel="noopener">
@@ -107,11 +114,13 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
                 Web Security Academy Learning Paths
             </a>
         </p>
+        <!-- --- -->
         <ul class="now-list">
             <li><strong>Now</strong>: Web Cache Deception</li>
             <li><a href="{{ '/PortSwigger/' | relative_url }}">PortSwigger All Learning Paths — Contents</a></li>
             <li><a href="{{ '/PortSwigger-all-labs/' | relative_url }}">PortSwigger All Labs</a></li>
         </ul>
+        <!-- --- -->
         <div class="chap-strip" aria-label="All learning paths">
             <span class="chap-pill">API testing</span>
             <span class="chap-pill">Server-Side vulnerabilities</span>
@@ -131,11 +140,13 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
             <span class="chap-pill">File upload vulnerabilities</span>
             <span class="chap-pill">Web LLM attacks</span>
         </div>
+        <!-- --- -->
         <p class="chap-hint">
             <span class="chap-dot chap-dot--done"></span> done
             <span class="chap-dot chap-dot--reading"></span> reading
             <span class="chap-dot chap-dot--todo"></span> todo
         </p>
+        <!-- --- -->
         {% assign done = 1 %}
         {% assign total = 17 %}
         {% assign pct = done | times: 100 | divided_by: total %}
@@ -148,6 +159,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
                 <span class="now-progress__bar" style="width: {{ pct }}%;"></span>
             </div>
         </div>
+        <!-- --- -->
         <!-- Level progress-->
         {% comment %} Level progress (manual numbers) {% endcomment %}
         {% assign ap_done = 2 %}
@@ -165,25 +177,27 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
             <div class="level-progress__head">
                 <span class="level-progress__title">Level progress</span>
             </div>
-            <!-- Apprentice -->
             <div class="level-progress__grid">
+                <!-- Apprentice -->
                 <div class="level-item">
-                <div
-                    class="level-ring"
-                    style="--pct: {{ ap_pct }};"
-                    role="img"
-                    aria-label="Apprentice {{ ap_done }} of {{ ap_total }} ({{ ap_pct }}%)"
-                >
-                    <div class="level-ring__inner">
-                        <div class="level-ring__num">{{ ap_done }}</div>
-                        <div class="level-ring__sub">of {{ ap_total }}</div>
+                    <div
+                        class="level-ring"
+                        style="--pct: {{ ap_pct }};"
+                        role="img"
+                        aria-label="Apprentice {{ ap_done }} of {{ ap_total }} ({{ ap_pct }}%)"
+                    >
+                        <div class="level-ring__inner">
+                            <div class="level-ring__num">{{ ap_done }}</div>
+                            <div class="level-ring__sub">of {{ ap_total }}</div>
+                        </div>
                     </div>
+                    <div class="level-item__label">Apprentice</div>
                 </div>
-                <!--  -->
-                <div class="level-item__label">Apprentice</div>
-            </div>
-            <!-- Practitioner -->
-            <div class="level-divider" aria-hidden="true"></div>
+                <!-- end of Apprentice -->
+                <!-- --- -->
+                <div class="level-divider" aria-hidden="true"></div>
+                <!-- --- -->
+                <!-- Practitioner -->
                 <div class="level-item">
                     <div
                         class="level-ring level-ring--alt"
@@ -191,15 +205,18 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
                         role="img"
                         aria-label="Practitioner {{ pr_done }} of {{ pr_total }} ({{ pr_pct }}%)"
                     >
-                    <div class="level-ring__inner">
-                        <div class="level-ring__num">{{ pr_done }}</div>
-                        <div class="level-ring__sub">of {{ pr_total }}</div>
+                        <div class="level-ring__inner">
+                            <div class="level-ring__num">{{ pr_done }}</div>
+                            <div class="level-ring__sub">of {{ pr_total }}</div>
+                        </div>
                     </div>
+                    <div class="level-item__label">Practitioner</div>
                 </div>
-                <div class="level-item__label">Practitioner</div>
-            </div>
-            <!-- Expert -->
+                <!-- end of Practitioner -->
+                <!-- --- -->
                 <div class="level-divider" aria-hidden="true"></div>
+                <!-- --- -->
+                <!-- Expert -->
                 <div class="level-item">
                     <div
                         class="level-ring level-ring--alt2"
@@ -207,18 +224,19 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
                         role="img"
                         aria-label="Expert {{ ex_done }} of {{ ex_total }} ({{ ex_pct }}%)"
                     >
-                    <div class="level-ring__inner">
-                        <div class="level-ring__num">{{ ex_done }}</div>
-                        <div class="level-ring__sub">of {{ ex_total }}</div>
+                        <div class="level-ring__inner">
+                            <div class="level-ring__num">{{ ex_done }}</div>
+                            <div class="level-ring__sub">of {{ ex_total }}</div>
+                        </div>
                     </div>
+                    <div class="level-item__label">Expert</div>
                 </div>
-                <div class="level-item__label">Expert</div>
+                <!-- end of Expert -->
             </div>
-            <!-- --- -->
+        <!-- end of level progress div -->
         </div>
+    <!-- end of now-body -->
     </div>
-</div>
-
 </article>
 
 </section>
