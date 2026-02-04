@@ -10,12 +10,6 @@ tags: [RSA, Lattice, LLL, SVP, Coppersmith]
 
 > Lattices can be used to attack certain RSA-related systems when appropriate side information is available.
 
-<!-- 相關攻擊：
-
-- [Håstad's attack]({{ "/articles/CryptoAnIntro/hastad/" | relative_url }})
-- [Franklin–Reiter attack and Coppersmith's generalization]({{ "/articles/CryptoAnIntro/franklin-reiter/" | relative_url }})
-- [Extension to Wiener's attack]({{ "/articles/CryptoAnIntro/wiener-extension/" | relative_url }}) -->
-
 <!-- --- -->
 
 ## Finding a Modular Small Root
@@ -285,6 +279,15 @@ Let $h(x,y) \in \mathbb{Z}[x,y]$ denote a sum of at most $w$ monomials and suppo
 Then $h(x_0,y_0) = 0$ holds over the integers.
 
 </div>
+
+<!-- --- -->
+
+## Related Attacks
+
+- [Håstad's attack]({{ "/articles/CryptoAnIntro/Hastad’s-attack/" | relative_url }})
+<!-- 
+- [Franklin–Reiter attack and Coppersmith's generalization]({{ "/articles/CryptoAnIntro/franklin-reiter/" | relative_url }})
+- [Extension to Wiener's attack]({{ "/articles/CryptoAnIntro/wiener-extension/" | relative_url }}) -->
 
 <!-- --- -->
 
