@@ -13,6 +13,8 @@ I am CY.
 
 ## Currently
 
+This is my [reading list]({{ "/readinglist/" | relative_url }}).
+
 <section class="now-grid">
 
 <!-- Cryptography: An Introduction (Third Edition) -->
