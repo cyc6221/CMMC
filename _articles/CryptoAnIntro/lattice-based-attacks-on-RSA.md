@@ -227,7 +227,7 @@ $$
 
 <strong>Step 4</strong>
 
-要套用 Lemma 17.2（此處維度 $n=6$，將 $N$ 替換成 $N^2$），需要
+要套用 Lemma（此處維度 $n=6$，將 $N$ 替換成 $N^2$），需要
 
 $$
 2^{3/2}NX^{5/2} < \frac{N^2}{\sqrt{6}}.
@@ -239,13 +239,9 @@ $$
 \lvert x_0 \rvert \le X = \frac{N^{2/5}}{48^{1/5}}.
 $$
 
-換句話說：只要 $\lvert x_0 \rvert \le X = \frac{N^{2/5}}{48^{1/5}}$, 我們就能透過求 $h(x)$ 的整數根來找出 $f(x)$ 在 modulo $N$ 下的 small root $x_0$。特別地，這在
+i.e., 只要 $\lvert x_0 \rvert \le X = \frac{N^{2/5}}{48^{1/5}}$, 我們就能透過求 $h(x)$ 的整數根來找出 $f(x)$ 在 modulo $N$ 下的 small root $x_0$。
 
-$$
-\lvert x_0 \rvert < N^{0.39}
-$$
-
-時會成立。
+當 $\lvert x_0 \rvert < N^{0.39}$ 時會成立。
 
 </div>
 
