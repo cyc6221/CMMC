@@ -62,8 +62,10 @@ toc: false
 
   <li class="lab-row">
     <span class="level level--practitioner">PRACTITIONER</span>
-    <span>Finding and exploiting an unused API endpoint</span>
-    <span class="lab-status">Todo</span>
+    <a href='{{ "/articles/PortSwigger/API-Testing/labs/lab-exploiting-unused-api-endpoint/" | relative_url }}'>
+      Finding and exploiting an unused API endpoint
+    </a>
+    <span class="lab-status is-solved">Solved</span>
   </li>
 
   <li class="lab-row">
