@@ -1,0 +1,34 @@
+/* Difficulty badges */
+.level{
+  display: inline-flex;
+  align-items: center;
+  margin-left: .5rem;
+  padding: .12rem .5rem;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  border: 1px solid currentColor;
+  background: transparent;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Green */
+.level--apprentice{
+  color: #16a34a;
+  background: rgba(22, 163, 74, .10);
+}
+
+/* Blue */
+.level--practitioner{
+  color: #2563eb;
+  background: rgba(37, 99, 235, .10);
+}
+
+/* Purple */
+.level--expert{
+  color: #7c3aed;
+  background: rgba(124, 58, 237, .10);
+}
