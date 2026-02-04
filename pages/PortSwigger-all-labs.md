@@ -12,3 +12,7 @@ toc: false
 - Exploiting origin server normalization for web cache deception **PRACTITIONER**
 - Exploiting cache server normalization for web cache deception **PRACTITIONER**
 - Exploiting exact-match cache rules for web cache deception **EXPERT**
+
+## API Testing
+
+- [Exploiting an API endpoint using documentation]({{ "/articles/PortSwigger/API-Testing/labs/lab-exploiting-api-endpoint-using-documentation/" | relative_url }}) **APPRENTICE**
