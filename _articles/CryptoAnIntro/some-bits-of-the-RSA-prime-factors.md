@@ -38,19 +38,19 @@ $$
 
 ### Step 1: recover $q_0$ from a modular relation
 
-由 $N = pq$，取 mod $2^{n/4}$：
+由 $N=pq$，對 $2^{n/4}$ 取 mod 可得：
 
 $$
 N \equiv p_0 q_0 \pmod{2^{n/4}}.
 $$
 
-因為 $p_0$ 已知，且在 RSA 中 $p$ 通常為 odd，因此 $p_0$ 也會是 odd，通常可在 $2^{n/4}$ 下可逆，即 $\gcd(p_0,2^{n/4})=1$ 。因此可解出
+因為 $p$ 是 odd prime，所以 $p_0$ 也必為 odd，從而 $\gcd(p_0,2^{n/4})=1$，因此 $p_0$ 在模 $2^{n/4}$ 下可逆。於是可解出：
 
 $$
 q_0 \equiv N \cdot p_0^{-1} \pmod{2^{n/4}}.
 $$
 
-也就是說：**知道 $p$ 的 $n/4$ 個 LSBs，會導致 $q$ 的 $n/4$ 個 LSBs 也可被推得**。
+i.e., **已知 $p$ 的 $n/4$ 個 LSBs，可推得 $q$ 的 $n/4$ 個 LSBs**。
 
 ### Step 2: build a bivariate polynomial with a small root
 

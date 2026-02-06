@@ -6,44 +6,51 @@ last_updated: 2026-02-06
 tags: [RSA, partial-key-exposure, LSB, private-exponent, Coppersmith, LLL]
 ---
 
-當 RSA 使用 **small public exponent** $e$（例如 $e=3$）時，如果攻擊者已知 private exponent $d$ 的一段 **LSBs (least significant bits)**，即使只知道「四分之一」長度的低位 bits，也可能進一步恢復完整的 $d$，甚至完成對 $N$ 的 factorization。
+當 RSA 使用 **small public exponent** $e$（例如 $e=3$）時，如果攻擊者已知 private exponent $d$ 的一段 **LSBs (least significant bits)**，即使只知道「四分之一」長度的低位 bits，也可能進一步恢復完整的 $d$，甚至 factor $N$。
 
 把 $d$ 拆成「已知低位 + 未知高位」，利用 RSA 的關係式導出一個關於 $p \bmod 2^{n/4}$ 的同餘條件，將問題轉化為「已知 prime factor 的部分 bits」的情況；接著透過 **Coppersmith/LLL** 類的 lattice 技術嘗試 factor $N$，一旦成功得到 $p,q$，就能回推出完整的 $d$。
 
-相關的 prime factor bits recovery 方法可參考： [Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-the-RSA-prime-factors/" | relative_url }}).
+相關的 prime factor bits recovery 方法參考： [Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-the-RSA-prime-factors/" | relative_url }}).
 
 <!-- --- -->
 
 ## Setup
 
-設 $N = pq$ 為 $n$-bit RSA modulus，且 $p \approx q$， public key 為 $(N,e)$，private exponent 為 $d$
+設 $N = p \cdot q$ 為 $n$-bit RSA modulus，且 $p \approx q$， public key 為 $(N,e)$，private exponent 為 $d$
 
 已知 $d$ 的 $n/4$ 個 LSBs，記為 $d_0$，並寫成
 
 $$
-d = d_0 + 2^{n/4}x_0,
+d = d_0 + 2^{n/4}x_0
 $$
 
 其中未知量 $x_0$ 滿足
 
 $$
-0 \le x_0 \le 2^{3n/4}.
+0 \le x_0 \le 2^{3n/4}
 $$
 
-We know that 存在整數 $k$（且 $0 < k < e$，$k$ 為 even）使得
+已知存在整數存在整數 $k$ 且 $0 < k < e$ ，使得
 
 $$
-ed - k\bigl(N - (p+q) + 1\bigr) = 1.
+ed - k (N - (p+q) + 1) = 1
 $$
 
 ### Derive a congruence for $p \bmod 2^{n/4}$
 
-由 $N=pq$，可將上式整理成一個把 $p$ 拉出來的形式
+先左右同乘 $p$
 
 $$
-\begin{equation}\label{eq:one}
-edp - kp(N - p + 1) + kN = p.
-\end{equation}
+edp - kp (N - (p+q) + 1) = p
+$$
+
+由 $N=pq$，可將上式整理成
+
+$$
+edp - kp (N - (p+q) + 1) =
+edp - kp (N - p - q + 1) =
+edp - kp (N - p + 1) + kpq =
+edp - kp(N - p + 1) + kN = p
 $$
 
 令
@@ -55,7 +62,9 @@ $$
 並把 $d = d_0 + 2^{n/4}x_0$ 代回，上式在模 $2^{n/4}$ 下會消去含 $2^{n/4}x_0$ 的項，得到一個只含已知 $d_0$ 與未知 $p_0$ 的同餘：
 
 $$
+\begin{equation}\label{eq:one}
 ed_0p_0 - kp_0(N - p_0 + 1) + kN - p_0 \equiv 0 \pmod{2^{n/4}}.
+\end{equation}
 $$
 
 重點：**這個式子只在模 $2^{n/4}$ 下成立，且不再含未知的 $x_0$**，因此可以用來枚舉/求解可能的 $p_0$。
@@ -78,7 +87,7 @@ $$
 ed_0p_0 - kp_0(N - p_0 + 1) + kN - p_0 \equiv 0 \pmod{2^{n/4}}.
 $$
 
-每個 $k$ 會產生 $O(4)$ 個可能的 $p_0$（也就是常數個候選值）。
+每個 $k$ 會產生 $O(n/4)$ 個可能的 $p_0$。
 
 <strong>Step 3: factor $N$ using partial bits of $p$</strong>
 
@@ -131,8 +140,8 @@ $$
 <div class="remark">
 
 <ol>
-  <li>這個攻擊利用了「$e$ 很小」使得 $k$ 可枚舉，以及「已知 $d$ 的低位」使得 Equation~(\ref{eq:one}) 在模 $2^{n/4}$ 下不含未知 $x_0$。 </li>
-  <li>真正的 heavy lifting 在於 Step 3：把「已知 $p \bmod 2^{n/4}$」轉成 factorization，這正是 5.2 的核心結論（Coppersmith + lattice/LLL）。</li>
+  <li>這個攻擊利用了「$e$ 很小」使得 $k$ 可枚舉，以及「已知 $d$ 的低位」使得 Equation~(\ref{eq:one}) 在模 $2^{n/4}$ 下不含未知 $x_0$。</li>
+  <li>真正的關鍵在於 Step 3：一旦得到 $p_0 \equiv p \pmod{2^{n/4}}$，就能把問題化約成「已知 prime factor 的部分 bits」的情況，接著用 Coppersmith/LLL 這類 lattice-based 方法嘗試 factor $N$，若成功即可恢復 $p,q$ 並回推出完整的 $d$。</li>
 </ol>
 
 </div>
