@@ -17,3 +17,4 @@ Chapter 17: Attacks on Public Key Schemes
   - [Håstad's attack]({{ "/articles/CryptoAnIntro/Hastad’s-attack/" | relative_url }}) <span class="lab-status">Todo</span>
   - [Franklin–Reiter attack and Coppersmith's generalization]({{ "/articles/CryptoAnIntro/franklin-reiter/" | relative_url }}) <span class="lab-status">Todo</span>
   - [Extension to Wiener's attack]({{ "/articles/CryptoAnIntro/wiener-extension/" | relative_url }}) <span class="lab-status">Todo</span>
+- [Partial Key Exposure Attacks]({{ "/articles/CryptoAnIntro/partial-key-exposure-attacks/" | relative_url }})
