@@ -19,7 +19,7 @@ tags: [RSA, partial-key-exposure, prime-factor, LSB, Coppersmith]
 把 $p$ 分解成已知低位與未知高位：
 
 $$
-p = x_0 \cdot 2^{n/4} + p_0,
+p = x_0 \cdot 2^{n/4} + p_0
 $$
 
 其中
@@ -31,7 +31,7 @@ $$
 同樣把 $q$ 寫成
 
 $$
-q = y_0 \cdot 2^{n/4} + q_0,
+q = y_0 \cdot 2^{n/4} + q_0
 $$
 
 其中 $q_0$ 是 $q$ 的 $n/4$ 個 LSBs（未知），$y_0$ 也是未知。
@@ -41,13 +41,13 @@ $$
 由 $N=pq$，對 $2^{n/4}$ 取 mod 可得：
 
 $$
-N \equiv p_0 q_0 \pmod{2^{n/4}}.
+N \equiv p_0 q_0 \pmod{2^{n/4}}
 $$
 
 因為 $p$ 是 odd prime，所以 $p_0$ 也必為 odd，從而 $\gcd(p_0,2^{n/4})=1$，因此 $p_0$ 在模 $2^{n/4}$ 下可逆。於是可解出：
 
 $$
-q_0 \equiv N \cdot p_0^{-1} \pmod{2^{n/4}}.
+q_0 \equiv N \cdot p_0^{-1} \pmod{2^{n/4}}
 $$
 
 i.e., **已知 $p$ 的 $n/4$ 個 LSBs，可推得 $q$ 的 $n/4$ 個 LSBs**。
@@ -57,25 +57,25 @@ i.e., **已知 $p$ 的 $n/4$ 個 LSBs，可推得 $q$ 的 $n/4$ 個 LSBs**。
 將 $p, q$ 的分解代回 $N = pq$，考慮多項式
 
 $$
-f(x,y) = (p_0 + 2^{n/4}x)(q_0 + 2^{n/4}y) - N.
+f(x,y) = (p_0 + 2^{n/4}x)(q_0 + 2^{n/4}y) - N
 $$
 
 展開：
 
 $$
-f(x,y) = p_0q_0 + 2^{n/4}(p_0y + q_0x) + 2^{n/2}xy - N.
+f(x,y) = p_0q_0 + 2^{n/4}(p_0y + q_0x) + 2^{n/2}xy - N
 $$
 
 真正的未知量 $(x_0, y_0)$ 會滿足
 
 $$
-f(x_0, y_0) = 0.
+f(x_0, y_0) = 0
 $$
 
 而且由於 $p \approx q \approx \sqrt{N}$，可估計
 
 $$
-0 < x_0, y_0 < 2^{n/4} \approx N^{1/4}.
+0 < x_0, y_0 < 2^{n/4} \approx N^{1/4}
 $$
 
 因此 $(x_0, y_0)$ 是一個 **small root**（小根）。
@@ -95,7 +95,7 @@ $$
 $$
 p = x_0 \cdot 2^{n/4} + p_0,
 \qquad
-q = y_0 \cdot 2^{n/4} + q_0,
+q = y_0 \cdot 2^{n/4} + q_0
 $$
 
 從而 factor $N$。

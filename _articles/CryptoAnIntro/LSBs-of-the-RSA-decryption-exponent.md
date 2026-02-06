@@ -61,14 +61,14 @@ $$
 令
 
 $$
-p_0 \equiv p \pmod{2^{n/4}},
+p_0 \equiv p \pmod{2^{n/4}}
 $$
 
 並把 $d = d_0 + 2^{n/4}x_0$ 代回，上式在模 $2^{n/4}$ 下會消去含 $2^{n/4}x_0$ 的項，得到一個只含已知 $d_0$ 與未知 $p_0$ 的同餘：
 
 $$
 \begin{equation}\label{eq:one}
-ed_0p_0 - kp_0(N - p_0 + 1) + kN - p_0 \equiv 0 \pmod{2^{n/4}}.
+ed_0p_0 - kp_0(N - p_0 + 1) + kN - p_0 \equiv 0 \pmod{2^{n/4}}
 \end{equation}
 $$
 
@@ -89,7 +89,7 @@ $$
 對固定的 $k$，在模 $2^{n/4}$ 下解：
 
 $$
-ed_0p_0 - kp_0(N - p_0 + 1) + kN - p_0 \equiv 0 \pmod{2^{n/4}}.
+ed_0p_0 - kp_0(N - p_0 + 1) + kN - p_0 \equiv 0 \pmod{2^{n/4}}
 $$
 
 每個 $k$ 會產生 $O(n/4)$ 個可能的 $p_0$。
@@ -111,7 +111,7 @@ $$
 當 $p, q$ 已知後，可直接算出：
 
 $$
-\varphi(N) = (p-1)(q-1),
+\varphi(N) = (p-1)(q-1)
 $$
 
 再由

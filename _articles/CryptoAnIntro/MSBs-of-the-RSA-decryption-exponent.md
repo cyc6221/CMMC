@@ -15,7 +15,7 @@ tags: [RSA, partial-key-exposure, MSB, private-exponent, small-exponent]
 令 $N = p \cdot q$。public key 為 $(N, e)$，private key 為 $d$，滿足
 
 $$
-ed \equiv 1 \pmod{\varphi(N)}.
+ed \equiv 1 \pmod{\varphi(N)}
 $$
 
 因此存在整數 $k$ 使得
@@ -28,13 +28,13 @@ $$
 因為
 
 $$
-\varphi(N) = (p-1)(q-1) = N - (p+q) + 1,
+\varphi(N) = (p-1)(q-1) = N - (p+q) + 1
 $$
 
 所以可改寫為
 
 $$
-ed - k\bigl(N - (p+q) + 1\bigr) = 1.
+ed - k\bigl(N - (p+q) + 1\bigr) = 1
 $$
 
 ## Candidate approximation for $d$
@@ -42,13 +42,13 @@ $$
 由於 $k$ 落在很小的範圍 $0 < k < e$，攻擊者可以枚舉每個可能的 $i$：
 
 $$
-0 < i < e,
+0 < i < e
 $$
 
 並計算候選近似值
 
 $$
-d_i=\left\lfloor \frac{iN+1}{e}\right\rfloor.
+d_i=\left\lfloor \frac{iN+1}{e}\right\rfloor
 $$
 
 直覺上，當 $i = k$ 時，$d_i$ 會是 $d$ 的良好近似。
@@ -60,7 +60,7 @@ $$
 $$
 ed - k\varphi(N)=1
 \Rightarrow
-d=\frac{k\varphi(N)+1}{e},
+d=\frac{k\varphi(N)+1}{e}
 $$
 
 而候選值相當於用
@@ -75,13 +75,13 @@ $$
 \left \lvert
 \frac{kN+1}{e}-\frac{k\varphi(N)+1}{e}
 \right \rvert
-= \frac{k(N-\varphi(N))}{e}.
+= \frac{k(N-\varphi(N))}{e}
 $$
 
 又因為
 
 $$
-N-\varphi(N)=p+q-1,
+N-\varphi(N)=p+q-1
 $$
 
 可得
@@ -89,7 +89,7 @@ $$
 $$
 \lvert d_k-d \rvert
 \le
-\frac{k(p+q)}{e}.
+\frac{k(p+q)}{e}
 $$
 
 在典型 RSA 設定中 $p, q$ 同階，故 $p+q = O(\sqrt{N})$，因此可以得到一個保守的估計：
@@ -99,7 +99,7 @@ $$
 \le
 \frac{3k\sqrt{N}}{e}
 <
-3\sqrt{N}.
+3\sqrt{N}
 $$
 
 ## Consequence: half of the MSBs leak
@@ -112,7 +112,7 @@ $$
 因此，$d$ 必定位於區間
 
 $$
-[d_k - O(\sqrt{N}),\ d_k + O(\sqrt{N})],
+[d_k - O(\sqrt{N}),\ d_k + O(\sqrt{N})]
 $$
 
 也就是說：在已知 $d_k$ 的情況下，$d$ 只剩下約 $\sqrt{N}$ 種可能。由於 $\sqrt{N} = 2^{n/2}$，這代表 $d$ 的不確定性主要集中在「低位約 $n/2$ 個 bits」，而「高位約 $n/2$ 個 bits」幾乎已被固定。換句話說，透過 $d_k$ 這個近似值，可以直接確定 $d$ 的 **MSBs 約一半 bits**。
