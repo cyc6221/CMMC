@@ -6,9 +6,11 @@ last_updated: 2026-02-06
 tags: [RSA, partial-key-exposure, LSB, private-exponent, Coppersmith, LLL]
 ---
 
-本節討論 **Partial Key Exposure** 的另一個經典案例：當 RSA 使用 **small public exponent** $e$（例如 $e=3$）時，如果攻擊者已知 private exponent $d$ 的一段 **LSBs (least significant bits)**，即使只知道「四分之一」長度的低位 bits，也可能進一步恢復完整的 $d$，甚至完成對 $N$ 的 factorization。
+當 RSA 使用 **small public exponent** $e$（例如 $e=3$）時，如果攻擊者已知 private exponent $d$ 的一段 **LSBs (least significant bits)**，即使只知道「四分之一」長度的低位 bits，也可能進一步恢復完整的 $d$，甚至完成對 $N$ 的 factorization。
 
-核心想法是：把 $d$ 拆成「已知低位 + 未知高位」，利用 RSA 關係式導出一個關於 $p \bmod 2^{n/4}$ 的同餘方程，接著把它轉成「已知部分 bits 的 prime factor」問題，最後用上一節（5.2）的 **Coppersmith/LLL** 技術把 $N$ factor 掉，從而還原 $d$。
+核心想法是：把 $d$ 拆成「已知低位 + 未知高位」，利用 RSA 的關係式導出一個關於 $p \bmod 2^{n/4}$ 的同餘條件，將問題轉化為「已知 prime factor 的部分 bits」的情況；接著透過 **Coppersmith/LLL** 類的 lattice 技術嘗試 factor $N$，一旦成功得到 $p,q$，就能回推出完整的 $d$。相關的 prime factor bits recovery 方法可參考：
+
+[Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-prime-factors/" | relative_url }}).
 
 <!-- --- -->
 
@@ -37,7 +39,7 @@ $$
 ed - k\bigl(N - (p+q) + 1\bigr) = 1.
 $$
 
-（文中也指出此處 $k$ 為 even。）
+$k$ 為 even。
 
 ### Derive a congruence for \(p \bmod 2^{n/4}\)
 
@@ -61,49 +63,57 @@ $$
 
 重點：**這個式子只在模 $2^{n/4}$ 下成立，且不再含未知的 $x_0$**，因此可以用來枚舉/求解可能的 $p_0$。
 
-### Algorithm idea (recover \(d\) via factoring \(N\))
+<div class="algorithm">
 
-根據文中描述，可以用下面的流程恢復完整的 $d$：
+<strong>Algorithm idea (recover $d$ via factoring $N$)</strong>
 
-#### Step 1: enumerate \(k\)
+<p>可以用下面的流程恢復完整的 $d$：</p>
 
-由於 $0 < k < e$ 且 $e$ 很小，攻擊者可以枚舉每個可能的 $k$。
+<h4>Step 1: enumerate $k$</h4>
 
-#### Step 2: solve Equation (15) for \(p_0\)
+<p>由於 $0 < k < e$ 且 $e$ 很小，攻擊者可以枚舉每個可能的 $k$。</p>
 
-對固定的 $k$，在模 $2^{n/4}$ 下解
+<h4>Step 2: solve Equation (15) for $p_0$</h4>
+
+<p>對固定的 $k$，在模 $2^{n/4}$ 下解：</p>
 
 $$
 ed_0p_0 - kp_0(N - p_0 + 1) + kN - p_0 \equiv 0 \pmod{2^{n/4}}.
 $$
 
-文中指出：每個 $k$ 會產生 $O(4)$ 個可能的 $p_0$（也就是常數個候選值）。
+<p>文中指出：每個 $k$ 會產生 $O(4)$ 個可能的 $p_0$（也就是常數個候選值）。</p>
 
-#### Step 3: factor \(N\) using partial bits of \(p\)
+<h4>Step 3: factor $N$ using partial bits of $p$</h4>
 
-一旦取得候選 $p_0 \equiv p \pmod{2^{n/4}}$，就回到上一節（5.2）的設定：
+<p>一旦取得候選 $p_0 \equiv p \pmod{2^{n/4}}$，就把問題轉化成「已知 prime factor 的部分 bits」的情況：</p>
 
-- 已知 $p$ 的 $n/4$ 個 LSBs
-- 用 **bivariate Coppersmith (heuristic) + LLL** 找到小根
-- 進而恢復 $p,q$，完成 factorization
+<ul>
+  <li>已知 $p$ 的 $n/4$ 個 LSBs</li>
+  <li>使用 <strong>bivariate Coppersmith (heuristic) + LLL</strong> 尋找小根</li>
+  <li>進而恢復 $p, q$，完成 factorization</li>
+</ul>
 
-若候選 $p_0$ 正確，這一步就能成功 factor 出 $N$。
+<p>若候選 $p_0$ 正確，這一步就能成功 factor 出 $N$。</p>
 
-#### Step 4: recover \(d\)
+<h4>Step 4: recover $d$</h4>
 
-當 $p,q$ 已知後，可直接算出
+<p>當 $p, q$ 已知後，可直接算出：</p>
 
 $$
 \varphi(N) = (p-1)(q-1),
 $$
 
-再由
+<p>再由</p>
 
 $$
 ed \equiv 1 \pmod{\varphi(N)}
 $$
 
-恢復 $d$（例如計算 $e^{-1} \bmod \varphi(N)$）。
+<p>恢復 $d$（例如計算 $e^{-1} \bmod \varphi(N)$）。</p>
+
+</div>
+
+<!-- --- -->
 
 ### Summary
 

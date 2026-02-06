@@ -35,7 +35,7 @@ $$
 ed - k\bigl(N - (p+q) + 1\bigr) = 1.
 $$
 
-## Candidate approximation for $d$
+### Candidate approximation for $d$
 
 由於 $k$ 落在很小的範圍 $0 < k < e$，攻擊者可以枚舉每個可能的 $i$：
 
@@ -51,7 +51,7 @@ $$
 
 直覺上，當 $i = k$ 時，$d_i$ 會是 $d$ 的良好近似。
 
-## Why $d_k$ is close to $d$
+### Why $d_k$ is close to $d$
 
 由
 
@@ -100,7 +100,7 @@ $$
 3\sqrt{N}.
 $$
 
-## Consequence: half of the MSBs leak
+### Consequence: half of the MSBs leak
 
 關鍵在於量級差距：
 

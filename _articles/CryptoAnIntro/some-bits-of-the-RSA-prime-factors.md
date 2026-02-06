@@ -6,19 +6,13 @@ last_updated: 2026-02-06
 tags: [RSA, partial-key-exposure, prime-factor, LSB, Coppersmith]
 ---
 
-本節討論 **Partial Key Exposure** 的另一種情況：攻擊者不是拿到 private exponent，而是拿到 RSA 質因數 $p$ 的部分 bits。令人意外的是：若已知 $p$ 的一段 bits（例如最低位的一段），在某些參數下可以用 **Coppersmith** 類的方法在 polynomial time 內把 $p, q$ 找回來，等同直接 factor $N$。
+如果攻擊者不是拿到 private exponent，而是拿到 RSA 質因數 $p$ 的部分 bits。若已知 $p$ 的一段 bits（例如最低位的一段），在某些參數下可以用 **Coppersmith** 類的方法在 polynomial time 內把 $p, q$ 找回來，等同直接 factor $N$。
 
 <!-- --- -->
 
 ## Setup
 
-設 RSA modulus 為
-
-$$
-N = p \cdot q,
-$$
-
-其中 $N$ 是 $n$-bit，並假設 $p \approx q$（典型 RSA 設定，兩者同階）。
+設 RSA modulus 為 $N = p \cdot q$，其中 $N$ 是 $n$-bit，並假設 $p \approx q$（典型 RSA 設定，兩者同階）。
 
 假設攻擊者已知 $p$ 的 **$n/4$ 個 LSBs**（least significant bits）。因為 $p$ 約為 $n/2$-bit，這等價於已知構成 $p$ 的 bits 中「較低的一半」。
 
