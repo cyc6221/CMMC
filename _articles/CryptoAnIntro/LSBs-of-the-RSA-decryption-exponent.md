@@ -44,12 +44,17 @@ $$
 edp - kp (N - (p+q) + 1) = p
 $$
 
-由 $N=pq$，可將上式整理成
+可將上式整理成
 
 $$
 edp - kp (N - (p+q) + 1) =
 edp - kp (N - p - q + 1) =
 edp - kp (N - p + 1) + kpq =
+$$
+
+由 $N=pq$，可得
+
+$$
 edp - kp(N - p + 1) + kN = p
 $$
 
