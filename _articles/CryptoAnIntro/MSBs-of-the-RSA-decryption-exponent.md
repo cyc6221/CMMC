@@ -6,7 +6,9 @@ last_updated: 2026-02-06
 tags: [RSA, partial-key-exposure, MSB, private-exponent, small-exponent]
 ---
 
-在 RSA 中，若使用常見的 **small public exponent** $e$（例如 $e = 3$），攻擊者即使不知道質數 $p, q$，也可能相對「容易」地恢復 private key $d$ 的 **MSBs (most significant bits)** 中約一半。直覺上原因是：存在一個很小的整數 $k$（且 $0 < k < e$），使得攻擊者可以只用公開的 $N$ 構造出一個非常接近 $d$ 的近似值，而其誤差上界只有 $O(\sqrt{N})$。
+在 RSA 中，若使用常見的 **small public exponent** $e$（例如 $e = 3$），攻擊者即使不知道質數 $p, q$，也可能相對「容易」地恢復 private key $d$ 的 **MSBs (most significant bits)** 中約一半。
+
+存在一個很小的整數 $k$（且 $0 < k < e$），使得攻擊者可以只用公開的 $N$ 構造出一個非常接近 $d$ 的近似值，而其誤差上界只有 $O(\sqrt{N})$。
 
 ## Setup
 
@@ -85,15 +87,15 @@ $$
 可得
 
 $$
-|d_k-d|
+\lvert d_k-d \rvert
 \le
 \frac{k(p+q)}{e}.
 $$
 
-在典型 RSA 設定中 $p, q$ 同階，故 $p+q = O(\sqrt{N})$，因此文中給出（較保守的）估計：
+在典型 RSA 設定中 $p, q$ 同階，故 $p+q = O(\sqrt{N})$，因此可以得到一個保守的估計：
 
 $$
-|d_k-d|
+\lvert d_k-d \rvert
 \le
 \frac{3k\sqrt{N}}{e}
 <
@@ -105,7 +107,7 @@ $$
 關鍵在於「$d$ 的尺度」與「近似誤差」的量級差距：
 
 - $d$ 的大小約為 $\Theta(N)$（大約是 $n$-bit 等級）
-- 但我們得到的近似 $d_k$ 與真實 $d$ 的差距滿足 $|d_k - d| = O(\sqrt{N})$（大約是 $n/2$-bit 等級）
+- 但我們得到的近似 $d_k$ 與真實 $d$ 的差距滿足 $\lvert d_k - d \rvert = O(\sqrt{N})$（大約是 $n/2$-bit 等級）
 
 因此，$d$ 必定位於區間
 
