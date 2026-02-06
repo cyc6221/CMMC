@@ -44,7 +44,7 @@ $$
 N \equiv p_0 q_0 \pmod{2^{n/4}}.
 $$
 
-因為 $p_0$ 已知，且在 RSA 中 $p$ 通常為 odd，因此 $p_0$ 也會是 odd，通常可在 $2^{n/4}$ 下可逆（即 $\gcd(p_0,2^{n/4})=1$）。因此可解出
+因為 $p_0$ 已知，且在 RSA 中 $p$ 通常為 odd，因此 $p_0$ 也會是 odd，通常可在 $2^{n/4}$ 下可逆，即 $\gcd(p_0,2^{n/4})=1$ 。因此可解出
 
 $$
 q_0 \equiv N \cdot p_0^{-1} \pmod{2^{n/4}}.
@@ -86,7 +86,7 @@ $$
 
 - $f(x,y)$ 是 degree two 的二元多項式
 - 已知它在整數域存在一個小根 $(x_0, y_0)$
-- 且 $|x_0|, |y_0| \le N^{1/4}$
+- 且 $\lvert x_0 \rvert, \lvert y_0 \rvert \le N^{1/4}$
 
 在這些條件下，可以透過 lattice 建構與 **LLL reduction** 找到等價約束，進而在 polynomial time 內恢復 $x_0, y_0$。
 
@@ -100,14 +100,22 @@ $$
 
 從而 factor $N$。
 
-### Summary
+<!-- --- -->
 
-已知 $p$ 的 $n/4$ 個 **LSBs**：
+<div class="algorithm">
 
-1. 由 $N \equiv p_0q_0 \pmod{2^{n/4}}$ 推出 $q_0$
-2. 構造二元多項式 $f(x,y) = (p_0 + 2^{n/4}x)(q_0 + 2^{n/4}y) - N$
-3. 由 **bivariate Coppersmith** 找到小根 $(x_0,y_0)$
-4. 還原 $p, q$，完成 factorization
+已知 $p$ 的 $n/4$ 個 LSBs：
+
+<ol>
+  <li> 由 $N \equiv p_0q_0 \pmod{2^{n/4}}$ 推出 $q_0$ </li>
+  <li> 構造二元多項式 $f(x,y) = (p_0 + 2^{n/4}x)(q_0 + 2^{n/4}y) - N$ </li>
+  <li> 由 bivariate Coppersmith 找到小根 $(x_0,y_0)$ </li>
+  <li> 還原 $p, q$，完成 factorization </li>
+</ol>
+
+</div>
+
+<!-- --- -->
 
 <div class="remark">
 
