@@ -12,12 +12,12 @@ tags: [RSA, partial-key-exposure]
 
 ## Partial Exposure of the MSBs of the RSA Decryption Exponent
 
-[Partial Exposure of the MSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/MSBs-of-decryption-exponent/" | relative_url }})
+[Partial Exposure of the MSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/MSBs-of-the-RSA-decryption-exponent/" | relative_url }})
 
 ## Partial Exposure of the some bits of the RSA Prime Factors
 
-[Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-prime-factors/" | relative_url }})
+[Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-the-RSA-prime-factors/" | relative_url }})
 
 ## Partial Exposure of the LSBs of the RSA Decryption Exponent
 
-[Partial Exposure of the LSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/LSBs-of-decryption-exponent/" | relative_url }})
+[Partial Exposure of the LSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/LSBs-of-the-RSA-decryption-exponent/" | relative_url }})
