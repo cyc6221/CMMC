@@ -10,7 +10,7 @@ tags: [RSA, partial-key-exposure, LSB, private-exponent, Coppersmith, LLL]
 
 核心想法是：把 $d$ 拆成「已知低位 + 未知高位」，利用 RSA 的關係式導出一個關於 $p \bmod 2^{n/4}$ 的同餘條件，將問題轉化為「已知 prime factor 的部分 bits」的情況；接著透過 **Coppersmith/LLL** 類的 lattice 技術嘗試 factor $N$，一旦成功得到 $p,q$，就能回推出完整的 $d$。相關的 prime factor bits recovery 方法可參考：
 
-[Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-prime-factors/" | relative_url }}).
+[Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-the-RSA-prime-factors/" | relative_url }}).
 
 <!-- --- -->
 
