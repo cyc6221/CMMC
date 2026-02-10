@@ -21,3 +21,7 @@ Chapter 17: Attacks on Public Key Schemes
   - [Partial Exposure of the MSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/MSBs-of-the-RSA-decryption-exponent/" | relative_url }})
   - [Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-the-RSA-prime-factors/" | relative_url }})
   - [Partial Exposure of the LSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/LSBs-of-the-RSA-decryption-exponent/" | relative_url }})
+
+## Chapter 18
+
+Chapter 18: Definitions of Security

@@ -24,7 +24,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
         <span class="now-icon" aria-hidden="true">📜</span>
         <div class="now-title">
             <h3>Studying</h3>
-            <span class="now-badge">Chapter 17</span>
+            <span class="now-badge">Chapter 18</span>
         </div>
     </header>
     <!-- --- -->
@@ -59,7 +59,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
             <span class="chap">15</span>
             <span class="chap">16</span>
             <span class="chap reading">17</span>
-            <span class="chap">18</span>
+            <span class="chap reading">18</span>
             <span class="chap">19</span>
             <span class="chap">20</span>
             <span class="chap">21</span>
@@ -76,7 +76,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
             <span class="chap-dot chap-dot--todo"></span> todo
         </p>
         <!-- --- -->
-        {% assign done = 1 %}
+        {% assign done = 2 %}
         {% assign total = 26 %}
         {% assign pct = done | times: 100 | divided_by: total %}
         <div class="now-progress" role="group" aria-label="Reading progress">
