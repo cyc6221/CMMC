@@ -5,6 +5,12 @@ permalink: /crypto-an-intro/
 toc: false
 ---
 
+## To-Print
+
+1, 2, 4, 5, 6, 8, 14, 15, 16, 19, 20, 21, 22
+
+---
+
 ## Chapter 17
 
 Chapter 17: Attacks on Public Key Schemes
