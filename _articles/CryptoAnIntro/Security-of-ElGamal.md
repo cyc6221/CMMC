@@ -14,6 +14,8 @@ If DDH is hard in the group $G$ then ElGamal encryption is polynomially secure a
 
 </div>
 
+---
+
 <div class="theorem">
 
 <strong> Lemma. </strong>
@@ -21,6 +23,32 @@ If DDH is hard in the group $G$ then ElGamal encryption is polynomially secure a
 ElGamal ecryption is malleable.
 
 </div>
+
+<div class="proof">
+
+假設 Eve 觀察到一個 ElGamal 密文
+$$c=(c_1,c_2)=(g^k,\, m\cdot h^k),$$
+其中 $h=g^x$，$x$ 為私鑰，而 $k$ 是一次性的隨機值（ephemeral key）。
+
+Eve 雖然不知道明文 $m$，也不知道 $k$ 或私鑰 $x$，但她仍然可以<strong>直接</strong>構造出一個對應於明文 $2m$ 的有效密文：
+$$c'=(c_1,\,2c_2)=(g^k,\,2m\cdot h^k).$$
+
+檢查解密結果：對 $c'$ 解密會得到
+$$
+m'=\frac{2c_2}{(c_1)^x}
+=\frac{2(m\cdot h^k)}{(g^k)^x}
+=\frac{2m\cdot g^{xk}}{g^{xk}}
+=2m.
+$$
+
+因此，Eve 可以在不知道 $m$ 的情況下，將密文「可控地」轉換為另一個密文，使其解密結果變成 $2m$。
+這正是 ElGamal 具有 malleability（可塑性）的意思。
+
+</div>
+
+---
+
+ElGamal encryption is not secure under an adaptively chosen plaintext attack.
 
 <div class="theorem">
 
