@@ -11,9 +11,7 @@ toc: false
 
 ---
 
-## Chapter 17
-
-Chapter 17: Attacks on Public Key Schemes
+## Chapter 17: Attacks on Public Key Schemes
 
 - [Wiener's Attack]({{ "/articles/CryptoAnIntro/Wieners-attack/" | relative_url }})
 - [Lattice]({{ "/articles/CryptoAnIntro/lattice/" | relative_url }})
@@ -28,9 +26,7 @@ Chapter 17: Attacks on Public Key Schemes
   - [Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-the-RSA-prime-factors/" | relative_url }})
   - [Partial Exposure of the LSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/LSBs-of-the-RSA-decryption-exponent/" | relative_url }})
 
-## Chapter 18
-
-Chapter 18: Definitions of Security
+## Chapter 18: Definitions of Security
 
 - [Security of Encryption]({{ "/articles/CryptoAnIntro/security-of-encryption/" | relative_url }})
 - [Security of RSA]({{ "/articles/CryptoAnIntro/security-of-RSA/" | relative_url }})
