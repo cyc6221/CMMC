@@ -7,7 +7,7 @@ toc: false
 
 ## To-Print
 
-1, 2, 4, 5, 6, 8, 14, 15, 16, 19, 20, 21, 22
+1, 2, 4, 5, 6, 8,
 
 ---
 
@@ -15,7 +15,7 @@ toc: false
 
 Chapter 17: Attacks on Public Key Schemes
 
-- [Wiener's Attack]({{ "/articles/CryptoAnIntro/Wiener's-attack/" | relative_url }})
+- [Wiener's Attack]({{ "/articles/CryptoAnIntro/Wieners-attack/" | relative_url }})
 - [Lattice]({{ "/articles/CryptoAnIntro/lattice/" | relative_url }})
   - [LLL Reduction]({{ "/articles/CryptoAnIntro/LLL-reduction/" | relative_url }})
   - [Lattice Reduction and Continued Fractions]({{ "/articles/CryptoAnIntro/LLL-reduction-and-continued-fractions/" | relative_url }})
@@ -31,3 +31,7 @@ Chapter 17: Attacks on Public Key Schemes
 ## Chapter 18
 
 Chapter 18: Definitions of Security
+
+- [Security of Encryption]({{ "/articles/CryptoAnIntro/security-of-encryption/" | relative_url }})
+- [Security of RSA]({{ "/articles/CryptoAnIntro/security-of-RSA/" | relative_url }})
+- [Security of ElGamal]({{ "/articles/CryptoAnIntro/security-of-ElGamal/" | relative_url }})
