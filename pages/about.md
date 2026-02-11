@@ -239,6 +239,63 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
     </div>
 </article>
 
+<!-- CryptoHack -->
+
+<article class="now-card">
+    <header class="now-head">
+        <span class="now-icon" aria-hidden="true">🕷️</span>
+        <div class="now-title">
+            <h3>CryptoHack</h3>
+            <span class="now-badge now-badge--alt2">
+                Modular Arithmetic
+            </span>
+        </div>
+    </header>
+    <!-- --- -->
+    <div class="now-body">
+        <p class="now-primary">
+            <a class="now-link" href="https://cryptohack.org/" target="_blank" rel="noopener">
+                CryptoHack
+            </a>
+        </p>
+        <!-- --- -->
+        <ul class="now-list">
+            <li><strong>Now</strong>: Web Cache Deception</li>
+            <li><a href="{{ '/PortSwigger/' | relative_url }}">PortSwigger All Learning Paths — Contents</a></li>
+            <li><a href="{{ '/PortSwigger-all-labs/' | relative_url }}">PortSwigger All Labs</a></li>
+        </ul>
+        <!-- --- -->
+        <div class="chap-strip" aria-label="All learning paths">
+            <span class="chap-pill done">Introduction to CryptoHack</span>
+            <span class="chap-pill reading">Modular Arithmetic</span>
+            <span class="chap-pill">Symmetric Cryptography</span>
+            <span class="chap-pill">Public-Key Cryptography</span>
+            <span class="chap-pill">Ellipic Curve</span>
+        </div>
+        <!-- --- -->
+        <p class="chap-hint">
+            <span class="chap-dot chap-dot--done"></span> done
+            <span class="chap-dot chap-dot--reading"></span> reading
+            <span class="chap-dot chap-dot--todo"></span> todo
+        </p>
+        <!-- --- -->
+        {% assign done = 2 %}
+        {% assign total = 5 %}
+        {% assign pct = done | times: 100 | divided_by: total %}
+        <div class="now-progress" role="group" aria-label="Reading progress">
+            <div class="now-progress__label">
+                <span class="now-progress__text">Progress</span>
+                <span class="now-progress__pct">{{ done }}/{{ total }} ({{ pct }}%)</span>
+            </div>
+            <div class="now-progress__track" aria-hidden="true">
+                <span class="now-progress__bar" style="width: {{ pct }}%;"></span>
+            </div>
+        </div>
+        <!-- --- -->
+    <!-- end of now-body -->
+    </div>
+</article>
+
 </section>
 
 <!-- --- -->
