@@ -257,12 +257,13 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
             <a class="now-link" href="https://cryptohack.org/" target="_blank" rel="noopener">
                 CryptoHack
             </a>
+            <a class="now-link" href="https://cryptohack.org/courses/" target="_blank" rel="noopener">
+                CryptoHack Courses
+            </a>
         </p>
         <!-- --- -->
         <ul class="now-list">
-            <li><strong>Now</strong>: Web Cache Deception</li>
-            <li><a href="{{ '/PortSwigger/' | relative_url }}">PortSwigger All Learning Paths — Contents</a></li>
-            <li><a href="{{ '/PortSwigger-all-labs/' | relative_url }}">PortSwigger All Labs</a></li>
+            <li><strong>Now</strong>: Modular Arithmetic</li>
         </ul>
         <!-- --- -->
         <div class="chap-strip" aria-label="All learning paths">
