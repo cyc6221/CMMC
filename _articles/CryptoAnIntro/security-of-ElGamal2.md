@@ -6,6 +6,18 @@ last_updated: 2026-02-11
 tags: [ElGamal, DDH, IND-CPA, CCA2, malleability]
 ---
 
+## DDH
+
+The **Decisional Diffie–Hellman (DDH) assumption** in a cyclic group $G=\langle g\rangle$ of order $q$ states that, given $(g^x, g^y, g^z)$ for uniformly random $x,y,z\in \mathbb{Z}_q$, it is computationally infeasible to decide whether
+
+$$
+z \equiv xy \pmod q,
+$$
+
+i.e., whether $g^z = g^{xy}$, or whether $g^z$ is a random independent group element.
+
+---
+
 <div class="theorem">
 
 <strong> Lemma. </strong>
