@@ -148,3 +148,60 @@
   font-size: 12px;
   opacity: .7;
 }
+
+// ---
+
+/* --- Points bar (level + points) --- */
+.now-xp {
+  margin-top: 12px;
+}
+
+.now-xp__meta {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.now-xp__stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.now-xp__icon {
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.now-xp__num {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.now-xp__track {
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.now-xp__bar {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 210, 77, 1), rgba(255, 170, 0, 1));
+}
+
+.now-xp__hint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.85;
+}
