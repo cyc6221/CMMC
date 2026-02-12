@@ -314,20 +314,16 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
                     <span class="now-xp__num">{{ level }}</span>
                 </span>
                 <span class="now-xp__stat" title="Points">
-                    <span class="now-xp__icon" aria-hidden="true">★</span>
+                    <span class="now-xp__icon" aria-hidden="true">⭐</span>
                     <span class="now-xp__num">{{ points_cur }}</span>
                 </span>
-                <span class="now-progress__pct">
+                <span class="now-xp__pct">
                     {{ points_cur }}/{{ points_total }} ({{ points_pct }}%)
                 </span>
             </div>
             <div class="now-xp__track" aria-hidden="true">
                 <span class="now-xp__bar" style="width: {{ points_pct }}%;"></span>
             </div>
-            <!-- <div class="now-xp__hint"> -->
-                <!-- <span class="now-xp__text">Points</span> -->
-                <!-- <span class="now-xp__pct">{{ points_cur }}/{{ points_total }} ({{ points_pct }}%)</span> -->
-            <!-- </div> -->
         </div>
     <!-- end of now-body -->
     </div>
