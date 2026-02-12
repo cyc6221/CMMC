@@ -175,7 +175,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
         <!-- level progress div -->
         <div class="level-progress" role="group" aria-label="Level progress">
             <div class="level-progress__head">
-                <span class="level-progress__title">Level progress</span>
+                <span class="level-progress__title">Lab progress</span>
             </div>
             <div class="level-progress__grid">
                 <!-- Apprentice -->
@@ -293,6 +293,39 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
             </div>
         </div>
         <!-- --- -->
+        {%- comment -%} --- Points bar (level + points) --- {%- endcomment -%}
+        {% assign level = 6 %}
+        {% assign points_cur = 235 %}
+        {% assign points_total = 320 %}
+        <!-- --- -->
+        <!-- 避免除以 0；同時把 pct 限制在 0~100 -->
+        {% if points_total <= 0 %}
+            {% assign points_pct = 0 %}
+        {% else %}
+            {% assign points_pct = points_cur | times: 100 | divided_by: points_total %}
+        {% endif %}
+        {% if points_pct < 0 %}{% assign points_pct = 0 %}{% endif %}
+        {% if points_pct > 100 %}{% assign points_pct = 100 %}{% endif %}
+        <!-- --- -->
+        <div class="now-xp" role="group" aria-label="Level and points">
+            <div class="now-xp__meta">
+                <span class="now-xp__stat" title="Level">
+                    <span class="now-xp__icon" aria-hidden="true">⚡</span>
+                    <span class="now-xp__num">{{ level }}</span>
+                </span>
+                <span class="now-xp__stat" title="Points">
+                    <span class="now-xp__icon" aria-hidden="true">★</span>
+                    <span class="now-xp__num">{{ points_cur }}</span>
+                </span>
+            </div>
+            <div class="now-xp__track" aria-hidden="true">
+                <span class="now-xp__bar" style="width: {{ points_pct }}%;"></span>
+            </div>
+            <div class="now-xp__hint">
+                <span class="now-xp__text">Points</span>
+                <span class="now-xp__pct">{{ points_cur }}/{{ points_total }} ({{ points_pct }}%)</span>
+            </div>
+        </div>
     <!-- end of now-body -->
     </div>
 </article>
