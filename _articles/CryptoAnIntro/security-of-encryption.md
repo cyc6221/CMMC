@@ -90,19 +90,136 @@ $$
 
 <div class="definition">
 
+<strong> Definition. </strong>
+
 A public key encryption algorithm is said to be secure if it is semantically secure against an adaptive chosen plaintext attack.
 
 </div>
 
 <div class="definition">
 
+<strong> Definition. </strong>
+
 A public key encryption algorithm is said to be secure if it is polynomially secure against an adaptive chosen plaintext attack.
 
 </div>
 
+這兩個概念彼此相關，下面的定理將精確地刻畫它們之間的關係：
+
 <div class="theorem">
 
+<strong> Theorem. </strong>
+
 For a passive adversary, a system which is polynomially secure must necessarily be semantically secure.
+
+</div>
+
+<div class="proof">
+
+<strong> Proof. </strong>
+
+<p>
+這個證明用<strong>反證法</strong>來說明：如果一個公鑰加密方案滿足「多項式安全」（通常可理解為 IND-CPA 那種左/右或 0/1 挑戰遊戲的安全），那它一定也會滿足<strong>語意安全</strong>（semantic security）。
+</p>
+
+<p><strong>Step 1：反設（假設語意安全不成立）</strong></p>
+<p>
+假設此加密方案<strong>不是</strong>語意安全。依定義，表示存在一個多項式時間的攻擊者（或演算法） $S$，它能從密文中「預測出明文的某個函數值」 $g(m)$，而且成功優勢不是可忽略的。
+形式化寫成：存在某個多項式 $p(k)$，使得當安全參數 $k$ 足夠大時，
+</p>
+
+$$
+\mathrm{Adv}_S > \frac{1}{p(k)}.
+$$
+
+<p>
+（這裡的 $\mathrm{Adv}_S$ 表示 $S$ 在語意安全遊戲中相對於隨機猜測的優勢。）
+</p>
+
+<p><strong>Step 2：用 $S$ 當作「黑箱」，構造一個新攻擊者 $A$</strong></p>
+<p>
+我們要構造一個攻擊者 $A$，去攻擊「多項式安全」的挑戰遊戲（也就是典型的：選兩個訊息、拿到其中一個的密文、猜是哪一個）。
+$A$ 會把剛才那個破壞語意安全的 $S$ 當作 oracle（黑箱）來用。
+</p>
+
+<p><strong>Step 3：Find 階段——挑兩個訊息 $m_0,m_1$</strong></p>
+<p>
+在多項式安全的遊戲裡，$A$ 必須先輸出兩個訊息 $m_0, m_1$。
+我們讓 $A$ 選出兩個使得下式成立的訊息：
+</p>
+
+$$
+g(m_0) \neq g(m_1).
+$$
+
+<p>
+直覺上：既然語意安全的定義是「給密文不應該學到任何關於明文的資訊」，那只要 $g(m)$ 是某個要被保護的「明文性質」，我們就挑兩個在這個性質上不同的明文，這樣才能用 $g$ 的值去判斷挑戰到底加密了哪一個。
+（原文提到 $g$ 在訊息空間上的輸出是均勻的，所以要找 $g(m_0)\neq g(m_1)$ 很容易。）
+</p>
+
+<p><strong>Step 4：挑戰——拿到 $c_b$</strong></p>
+<p>
+遊戲接著隨機選一個位元 $b\in\{0,1\}$，並回傳挑戰密文：
+</p>
+
+$$
+c_b = \mathrm{Enc}(pk, m_b).
+$$
+
+<p>
+攻擊者 $A$ 的任務就是猜出 $b$。
+</p>
+
+<p><strong>Step 5：Guess 階段——把 $c_b$ 丟給 $S$ 解「語意題」</strong></p>
+<p>
+在 guess 階段，$A$ 直接把挑戰密文 $c_b$（以及必要的輔助資訊 $y$，例如公開參數或先前得到的資料）交給 oracle $S$：
+</p>
+
+$$
+S(c_b, y) \approx g(m_b).
+$$
+
+<p>
+也就是：$S$ 會輸出它對 $g(m_b)$ 的最佳猜測。
+</p>
+
+<p>
+接著 $A$ 做一個很直接的比對：
+</p>
+
+<ul>
+  <li>如果 $S$ 的輸出等於 $g(m_0)$，那 $A$ 就猜 $b=0$。</li>
+  <li>如果 $S$ 的輸出等於 $g(m_1)$，那 $A$ 就猜 $b=1$。</li>
+</ul>
+
+<p>
+因為我們刻意選到 $g(m_0)\neq g(m_1)$，所以這個判斷是有意義的。
+</p>
+
+<p><strong>Step 6：成功率與優勢的傳遞</strong></p>
+<p>
+如果 $S$ 在語意安全遊戲中能以非忽略優勢猜對 $g(m_b)$，那麼 $A$ 在多項式安全遊戲中也能以相同的優勢猜對 $b$。
+因此兩者的成功機率（或優勢）會對應起來。
+原文用機率式表達這種「成功會一起成功」的關係，結論是：
+</p>
+
+$$
+\mathrm{Adv}_A = \mathrm{Adv}_S > \frac{1}{p(k)}.
+$$
+
+<p>
+也就是：只要語意安全能被 $S$ 破壞（有非忽略優勢），我們就能用它做出 $A$ 去破壞多項式安全（同樣有非忽略優勢）。
+</p>
+
+<p><strong>Step 7：導出矛盾，完成反證</strong></p>
+<p>
+但如果方案原本被假設是「多項式安全」，那就不應該存在這樣的 $A$ 能有非忽略優勢破壞它。
+因此反設（「不語意安全」）不成立。
+</p>
+
+<p>
+所以得到結論：<strong>多項式安全 $\Rightarrow$ 語意安全</strong>。
+</p>
 
 </div>
 
