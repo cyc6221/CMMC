@@ -119,12 +119,12 @@ For a passive adversary, a system which is polynomially secure must necessarily 
 <strong> Proof. </strong>
 
 <p>
-這個證明用<strong>反證法</strong>來說明：如果一個公鑰加密方案滿足「多項式安全」（通常可理解為 IND-CPA 那種左/右或 0/1 挑戰遊戲的安全），那它一定也會滿足<strong>語意安全</strong>（semantic security）。
+這個證明使用 <b>反證法</b> 來說明：如果一個公鑰加密方案滿足「多項式安全」（通常可理解為 IND-CPA 那種左/右或 0/1 挑戰遊戲的安全），那它一定也會滿足 <b>語意安全</b>（semantic security）。
 </p>
 
 <p><strong>Step 1：反設（假設語意安全不成立）</strong></p>
 <p>
-假設此加密方案<strong>不是</strong>語意安全。依定義，表示存在一個多項式時間的攻擊者（或演算法） $S$，它能從密文中「預測出明文的某個函數值」 $g(m)$，而且成功優勢不是可忽略的。
+假設此加密方案 <b>不是</b> 語意安全。依定義，表示存在一個多項式時間的攻擊者（或演算法） $S$，它能從密文中「預測出明文的某個函數值」 $g(m)$，而且成功優勢不是可忽略的。
 形式化寫成：存在某個多項式 $p(k)$，使得當安全參數 $k$ 足夠大時，
 </p>
 
@@ -218,7 +218,7 @@ $$
 </p>
 
 <p>
-所以得到結論：<strong>多項式安全 $\Rightarrow$ 語意安全</strong>。
+所以得到結論：<b>多項式安全 $\Rightarrow$ 語意安全</b>。
 </p>
 
 </div>
