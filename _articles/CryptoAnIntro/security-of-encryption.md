@@ -33,8 +33,7 @@ tags: []
 
 ### Perfect Security (information theoretic security)
 
-- 即使對手有**無限計算能力**，拿到密文也**得不到任何明文資訊**
-  - 密文對明文「完全不透露」
+- 即使對手有**無限計算能力**，拿到密文也**得不到任何明文資訊**，稱作密文對明文「完全不透露」
 - **Shannon 定理**：
   - 金鑰長度 = 訊息長度
   - 同一把金鑰不能重複使用（one-time）
@@ -51,7 +50,7 @@ tags: []
 - **對手能力**：
   - 只能觀察通訊中的密文（eavesdropping）。
   - 可使用加密黑箱（Encryption Oracle）：輸入任意明文 $m$，取得密文 $Enc(pk,m)$。
-  - 不能使用解密黑箱（無 Decryption Oracle）。
+  - 不能使用解密黑箱（No Decryption Oracle）。
 - 對手可以「**選擇明文**」並取得其加密結果（chosen plaintext）。在 public key 情境下這很自然，因為任何人（包含攻擊者）本來就能用 public key 執行加密。
 - **安全目標（直覺）**：即使對手能加密大量自選明文，也**無法分辨**挑戰密文究竟對應哪個明文（**IND-CPA**）。
 
