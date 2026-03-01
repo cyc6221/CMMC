@@ -247,7 +247,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
         <div class="now-title">
             <h3>CryptoHack</h3>
             <span class="now-badge now-badge--alt2">
-                Modular Arithmetic
+                Symmetric Cryptography
             </span>
         </div>
     </header>
@@ -263,14 +263,14 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
         </p>
         <!-- --- -->
         <ul class="now-list">
-            <li><strong>Now</strong>: Modular Arithmetic</li>
+            <li><strong>Now</strong>: Symmetric Cryptography</li>
             <li><a href="{{ '/CryptoHack-all-problems/' | relative_url }}">CryptoHack All Problems</a></li>
         </ul>
         <!-- --- -->
         <div class="chap-strip" aria-label="All learning paths">
             <span class="chap-pill done">Introduction to CryptoHack</span>
-            <span class="chap-pill reading">Modular Arithmetic</span>
-            <span class="chap-pill">Symmetric Cryptography</span>
+            <span class="chap-pill done">Modular Arithmetic</span>
+            <span class="chap-pill reading">Symmetric Cryptography</span>
             <span class="chap-pill">Public-Key Cryptography</span>
             <span class="chap-pill">Ellipic Curve</span>
         </div>
@@ -281,7 +281,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
             <span class="chap-dot chap-dot--todo"></span> todo
         </p>
         <!-- --- -->
-        {% assign done = 2 %}
+        {% assign done = 3 %}
         {% assign total = 5 %}
         {% assign pct = done | times: 100 | divided_by: total %}
         <div class="now-progress" role="group" aria-label="Reading progress">
