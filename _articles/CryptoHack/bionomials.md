@@ -153,6 +153,8 @@ $$
 
 ## 參考程式碼
 
+{% raw %}
+
 ```python
 from math import gcd
 
@@ -175,3 +177,5 @@ q = N // p
 
 print(f"crypto{{{p},{q}}}")
 ```
+
+{% endraw %}
