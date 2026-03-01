@@ -6,7 +6,7 @@ last_updated: 2026-03-01
 tags: []
 ---
 
-## Primitives、Protocols and Systems
+## Primitives, Protocols and Systems
 
 ### Primitives（密碼學原語）
 
