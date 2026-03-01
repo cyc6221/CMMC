@@ -6,6 +6,22 @@ last_updated: 2026-02-11
 tags: [ElGamal, DDH, IND-CPA, CCA2, malleability]
 ---
 
+## Semantic Security = Indistinguishability (IND-CPA)
+
+在下列標準設定下，語意安全性與不可區分性是等價的（semantic security is equivalent to IND-CPA indistinguishability）：
+
+- **攻擊者能力**：攻擊者為多項式時間（PPT）的隨機化（probabilistic）演算法。
+- **安全衡量**：攻擊者的優勢（advantage）必須是**可忽略的**（negligible）。
+- **加密型態**：加密演算法為**機率式/隨機化**（同一明文多次加密可產生不同密文）。
+- **攻擊模型**：採用 **CPA** 等級，即 **IND-CPA** 的挑戰遊戲設定。
+
+在這些條件下，兩者可以互相 **reduction**：
+
+- 若攻擊者能從密文中推得明文的某個性質 $f(m)$，且具有非可忽略優勢，則可構造一個 **IND-CPA distinguisher**：選擇兩個只在該性質上不同的候選明文，並藉由對挑戰密文的判斷在遊戲中獲勝。
+- 反之，若存在能在 IND-CPA 遊戲中以非可忽略優勢分辨挑戰密文對應 $m_0$ 或 $m_1$ 的 distinguisher，則表示密文洩漏了可用來推斷明文資訊的訊號，從而違反語意安全性。
+
+另外，若攻擊者能力升級到可查詢解密 oracle 的 **CCA2** ，則需改用相對應更強的 **IND-CCA2** 安全定義。
+
 ## DDH
 
 The **Decisional Diffie–Hellman (DDH) assumption** in a cyclic group $G=\langle g\rangle$ of order $q$ states that, given $(g^x, g^y, g^z)$ for uniformly random $x,y,z\in \mathbb{Z}_q$, it is computationally infeasible to decide whether
