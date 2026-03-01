@@ -264,6 +264,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
         <!-- --- -->
         <ul class="now-list">
             <li><strong>Now</strong>: Modular Arithmetic</li>
+            <li><a href="{{ '/CryptoHack-all-problems/' | relative_url }}">CryptoHack All Problems</a></li>
         </ul>
         <!-- --- -->
         <div class="chap-strip" aria-label="All learning paths">
