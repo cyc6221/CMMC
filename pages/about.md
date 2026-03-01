@@ -295,9 +295,9 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
         </div>
         <!-- --- -->
         {%- comment -%} --- Points bar (level + points) --- {%- endcomment -%}
-        {% assign level = 6 %}
-        {% assign points_cur = 235 %}
-        {% assign points_total = 320 %}
+        {% assign level = 7 %}
+        {% assign points_cur = 505 %}
+        {% assign points_total = 640 %}
         <!-- --- -->
         <!-- 避免除以 0；同時把 pct 限制在 0~100 -->
         {% if points_total <= 0 %}
