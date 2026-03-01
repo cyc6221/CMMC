@@ -247,6 +247,8 @@ $$
 
 與 $M$ 存在攻擊者可預期且可利用的關係（例如翻轉指定位元、對數值做加減乘除、改變特定欄位等）。此處已排除 trivial 的重送（replay）情形。
 
+> An encryption scheme is said to be non-malleable if given a ciphertext $C$, corresponding to an unknown plaintext $M$, it is impossible to determine a valid ciphertext $C'$ on a 'related' message $M'$.
+
 <div class="theorem">
 
 <strong> Lemma. </strong>
