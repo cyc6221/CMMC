@@ -11,7 +11,7 @@ toc: false
   <li class="lab-row">
     <span class="level level--practitioner">Mathematics</span>
     <a href='{{ "/articles/CryptoHack/bionomials/" | relative_url }}'>
-      Modular Arithmetic - Modular Binomials
+      Modular Binomials
     </a>
     <span class="lab-status is-solved">⭐80</span>
   </li>
