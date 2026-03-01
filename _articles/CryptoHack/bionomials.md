@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Modular Arithmetic - Modular Binomials"
+title: "Modular Binomials"
 date: 2026-03-01
 last_updated: 2026-03-01
 tags: [CryptoHack, Modular Arithmetic]
@@ -8,7 +8,8 @@ tags: [CryptoHack, Modular Arithmetic]
 
 ## 題目敘述
 
-[題目連結](https://cryptohack.org/courses/modular/bionomials/)
+- [題目連結](https://cryptohack.org/courses/modular/bionomials/)
+- 題目分類：Modular Arithmetic
 
 ### 英文敘述
 
@@ -55,6 +56,7 @@ $$
 $$
 c_1^{e_2} \equiv \big((2p+3q)^{e_1}\big)^{e_2} \equiv (2p+3q)^{E}\pmod N
 $$
+
 $$
 c_2^{e_1} \equiv \big((5p+7q)^{e_2}\big)^{e_1} \equiv (5p+7q)^{E}\pmod N
 $$
@@ -67,7 +69,7 @@ $$
 
 ### Step 2
 
-因為 $N=pq$，所以在 $\bmod p$ 下有 $p\equiv 0$。
+因為 $N=pq$，所以在 $\bmod p$ 下有 $p\equiv 0$：
 
 $$
 2p+3q \equiv 3q \pmod p
@@ -152,6 +154,8 @@ p = \gcd(X, N),\quad q = \frac{N}{p}
 $$
 
 ## 參考程式碼
+
+### Python
 
 {% raw %}
 
