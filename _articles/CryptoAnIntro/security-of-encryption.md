@@ -6,22 +6,28 @@ last_updated: 2026-02-11
 tags: []
 ---
 
-- Primitives（密碼學原語）
-  - 最底層的密碼學「基本構件/運算」，只保證某個局部性質
-  - e.g. raw RSA `m^e mod N`、模指數 `g^x mod p`、Hash、PRF、Block cipher
-  - primitive ≠ 可直接用的安全方案；例如 **raw RSA 是確定性**，同明文同鑰匙會得到同密文 → 會洩漏資訊
+## Primitives、Protocols and Systems
 
-- Protocols（密碼學協定）
-  - 把 primitives **組合成一套流程/互動規則**，達成安全目標（機密性、完整性、認證…）
-  - e.g. RSA-OAEP（隨機 padding 的 RSA 加密方案）、Diffie–Hellman key exchange、Schnorr 簽章流程
+### Primitives（密碼學原語）
 
-- Systems（密碼學系統）
-  - 把 protocol **工程化落地**成可用產品/平台，包含大量周邊：金鑰管理、RNG、錯誤處理、實作防 side-channel、部署設定、UX
-  - e.g. TLS/HTTPS、Signal、企業 PKI
+- 最底層的密碼學「基本構件/運算」，只保證某個局部性質
+- e.g. raw RSA `m^e mod N`、模指數 `g^x mod p`、Hash、PRF、Block cipher
+- primitive ≠ 可直接用的安全方案；例如 **raw RSA 是確定性**，同明文同鑰匙會得到同密文 → 會洩漏資訊
 
-- 層級關係
-  - **Primitive 是磚頭** → **Protocol 是拼法/流程** → **System 是真正蓋好的房子**  
-  - 安全性不會自動「往上繼承」：primitive 安全 ≠ protocol 安全 ≠ system 安全
+### Protocols（密碼學協定）
+
+- 把 primitives **組合成一套流程/互動規則**，達成安全目標（機密性、完整性、認證…）
+- e.g. RSA-OAEP（隨機 padding 的 RSA 加密方案）、Diffie–Hellman key exchange、Schnorr 簽章流程
+
+### Systems（密碼學系統）
+
+- 把 protocol **工程化落地**成可用產品/平台，包含大量周邊：金鑰管理、RNG、錯誤處理、實作防 side-channel、部署設定、UX
+- e.g. TLS/HTTPS、Signal、企業 PKI
+
+### 層級關係
+
+- **Primitive 是磚頭** → **Protocol 是拼法/流程** → **System 是真正蓋好的房子**  
+- 安全性不會自動「往上繼承」：primitive 安全 ≠ protocol 安全 ≠ system 安全
 
 ## Notions of Security
 
