@@ -1,8 +1,8 @@
 ---
 layout: page
 title: GCD
-date: 2026-03-02
-last_updated: 2026-03-02
+date: 2026-03-01
+last_updated: 2026-03-01
 tags: [CryptoHack, Modular Arithmetic, GCD]
 ---
 
