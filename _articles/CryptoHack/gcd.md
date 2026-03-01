@@ -14,6 +14,13 @@ import math
 print(math.gcd(48, 18))  # 6
 ```
 
+```python
+def gcd(a, b):
+    if b == 0:
+        return a
+    return gcd(b, a % b)
+```
+
 ## Extended GCD
 
 Extended GCD 會回傳 `g, x, y`，使得：
@@ -21,6 +28,28 @@ Extended GCD 會回傳 `g, x, y`，使得：
 $$
 a*x + b*y = \gcd(a, b)
 $$
+
+手算的話，用輾轉相除法得到gcd後，再一步一步回推即可得到係數
+
+e.g. a = 48, b = 18
+
+```=
+  2 |48|18| 1
+    |36|12| 
+    -------
+  2 |12| 6|
+    |12|  |
+    -------
+    | 0|  |
+```
+
+得到gcd=6
+
+$$
+gcd = 6 = 18 * 1 - 12 * 1 = 18 * 1 - (48 - 36) * 1 = 18 * 3 - 48 * 1
+$$
+
+由 a = 48, b = 18 得到 x = -1, y = 3
 
 ```python
 def extended_gcd(a, b):
