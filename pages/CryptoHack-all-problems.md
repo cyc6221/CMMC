@@ -9,7 +9,7 @@ toc: false
 
 <ul class="lab-table">
   <li class="lab-row">
-    <span class="level level--apprentice">Mathematics</span>
+    <span class="level level--practitioner">Mathematics</span>
     <a href='{{ "/articles/CryptoHack/bionomials/" | relative_url }}'>
       Modular Arithmetic - Modular Binomials
     </a>
