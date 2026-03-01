@@ -7,7 +7,7 @@ toc: false
 
 ## Modular Arithmetic
 
-- [GCD]({{ "/articles/CryptoHack/gcd/" | relative_url }})
+- <a href='{{ "/articles/CryptoHack/gcd/" | relative_url }}'>GCD</a>
 
 <ul class="lab-table">
   <li class="lab-row">
