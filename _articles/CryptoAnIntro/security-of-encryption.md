@@ -2,7 +2,7 @@
 layout: page
 title: Security of Encryption
 date: 2026-02-11
-last_updated: 2026-02-11
+last_updated: 2026-03-01
 tags: []
 ---
 
