@@ -316,3 +316,30 @@ $$
 </div>
 
 ### Plaintext Aware
+
+**Plaintext Awareness** 是一種很強的安全直覺：對手若未先掌握「對應的明文」，就難以（計算上困難）構造出任何**有效密文**。
+
+這裡的「有效密文」通常指
+$$
+Dec(sk, C)\neq \bot.
+$$
+
+> A scheme is called plaintext aware if it is computationally difficult to construct a valid ciphertext without being given the corresponding plaintext to start with.
+
+#### 核心想法
+
+若 $C$ 為有效密文，令
+$$
+M := Dec(sk, C).
+$$
+plaintext awareness 表達：對手能產生有效密文 $C$ 的能力，通常意味著它已經知道對應明文 $M$，或至少存在有效率的方法能從對手的運算軌跡中抽取出該 $M$。
+
+#### 對 CCA 的直覺含意
+
+在 CCA（Chosen Ciphertext Attack）中，對手依賴解密 oracle 的回覆 $Dec(sk, C)$ 來獲取額外資訊。
+
+plaintext aware 的方案使這種利用失效：對手若能提交會被接受的密文 $C$，通常已掌握其解密結果 $M$，因此 oracle 回覆不提供新增資訊。此性質直覺上排除有意義的 CCA 利用。
+
+#### ROM 的定位
+
+plaintext awareness 通常只在 **Random Oracle Model (ROM)** 下被定義與使用，並在相關安全性分析中把雜湊函數視為理想化的 random oracle 來刻畫「能否在不知道明文的情況下構造有效密文」。
