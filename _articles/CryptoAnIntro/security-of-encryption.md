@@ -225,13 +225,91 @@ $$
 
 ## Others
 
-### Non-Malleability
+### Non-Malleability（不可塑性）
+
+Non-malleability 描述加密方案的「不可被可控變形」性質。給定密文
+
+$$
+C = Enc(pk,M),
+$$
+
+攻擊者在不知道 $M$ 的情況下，無法有效率地構造另一個合法密文
+
+$$
+C' \neq C
+$$
+
+使得
+
+$$
+M' = Dec(sk,C')
+$$
+
+與 $M$ 存在攻擊者可預期且可利用的關係（例如翻轉指定位元、對數值做加減乘除、改變特定欄位等）。此處已排除 trivial 的重送（replay）情形。
 
 <div class="theorem">
 
 <strong> Lemma. </strong>
 
-A malleable encryption scheme is not secure against an adaptive chosen ciphertext attack.
+可塑的加密方案不可能在 IND-CCA2（自適應選擇密文攻擊下的不可區分性）下安全。
+
+</div>
+
+<div class="proof">
+
+<strong> Proof. </strong>
+
+挑戰密文為
+
+$$
+c_b = Enc(pk,m_b),\quad b\in\{0,1\}.
+$$
+
+可塑性保證存在有效率的轉換，使攻擊者可由 $c_b$ 構造
+
+$$
+c_b' = f(c_b),\quad c_b' \neq c_b,
+$$
+
+並使其解密結果
+
+$$
+m_b' = Dec(sk,c_b')
+$$
+
+與 $m_b$ 存在已知且可利用的關係，例如
+
+$$
+m_b' = g(m_b).
+$$
+
+CCA2 允許詢問解密 oracle 於 $c_b'$（因為 $c_b' \neq c_b$），因此攻擊者得到 $m_b'$。攻擊者利用已知關係由 $m_b'$ 推回 $m_b$，或至少可分辨 $b$，從而違反 IND-CCA2 安全性。∎
+
+</div>
+
+<div class="remark">
+
+<strong> Remark. </strong>
+
+上面 Lemma 等價地給出反向：
+
+$$
+\text{IND-CCA2} \Rightarrow \text{non-malleable}.
+$$
+
+在 CCA2 模型下，若方案允許受控的密文變形，攻擊者可藉由解密 oracle 對變形後密文查詢，間接獲得挑戰明文的資訊，進而破壞不可區分性。
+
+此外，標準結果指出在 CCA2 模型下：
+
+$$
+\text{NM-CCA2} \Rightarrow \text{IND-CCA2},
+$$
+
+因此兩者在多項式歸約意義下等價：
+
+$$
+\text{NM-CCA2} \iff \text{IND-CCA2}.
+$$
 
 </div>
 
