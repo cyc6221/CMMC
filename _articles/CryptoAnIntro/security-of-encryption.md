@@ -325,9 +325,11 @@ $$
 > A scheme is called plaintext aware if it is computationally difficult to construct a valid ciphertext without being given the corresponding plaintext to start with.
 
 若 $C$ 為有效密文，令
+
 $$
 M := Dec(sk, C).
 $$
+
 plaintext awareness 表達：對手能產生有效密文 $C$ 的能力，通常意味著它已經知道對應明文 $M$，或至少存在有效率的方法能從對手的運算軌跡中抽取出該 $M$。
 
 在 CCA（Chosen Ciphertext Attack）中，對手依賴解密 oracle 的回覆 $Dec(sk, C)$ 來獲取額外資訊。plaintext aware 的方案使這種利用失效：對手若能提交會被接受的密文 $C$，通常已掌握其解密結果 $M$，因此 oracle 回覆不提供新增資訊。此性質直覺上排除有意義的 CCA 利用。
