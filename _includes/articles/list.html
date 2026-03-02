@@ -12,7 +12,9 @@
           {{ a.date | date: "%Y-%m-%d" }}
 
           {% if a.label %}
-            <span class="meta-badge">{{ a.label | escape }}</span>
+            <span class="articles-label articles-label--tag" data-label="{{ a.label | escape }}">
+              {{ a.label | escape }}
+            </span>
           {% endif %}
         </div>
       {% endif %}
