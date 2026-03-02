@@ -6,9 +6,9 @@ last_updated: 2026-03-02
 tags: [primality testing, prime, paper]
 ---
 
-試除法等價於檢查所有 $m\le \sqrt{n}$ 的除法，因此需要 $\Omega(\sqrt{n})$ 次操作；埃拉托斯特尼篩法（sieve of Eratosthenes）雖然能在產生「小於 $n$ 的所有質數」時做到約 $O(n\log\log n)$ 的時間，但其成本仍以 $n$ 本身為尺度，而非輸入長度 $\lceil\log n\rceil$ 為尺度，因此對大型 $n$ 依然不符合複雜度理論中「有效率」的標準。複雜度理論中的高效率通常指時間是輸入長度的多項式，即 $\mathrm{poly}(\log n)$。
+試除法等價於檢查所有 $m\le \sqrt{n}$ 的除法，因此需要 $\Omega(\sqrt{n})$ 次操作； *Sieve of Eratosthenes* 雖然能在產生「小於 $n$ 的所有質數」時做到約 $O(n\log\log n)$ 的時間，但其成本仍以 $n$ 本身為尺度，而非輸入長度 $\lceil\log n\rceil$ 為尺度，因此對大型 $n$ 依然不符合複雜度理論中「有效率」的標準。複雜度理論中的高效率通常指時間是輸入長度的多項式，即 $\mathrm{poly}(\log n)$。
 
-Fermat 小定理指出：若 $p$ 為質數且 $p\nmid a$，則 $a^{p-1}\equiv 1\pmod p$，因此可用快速冪有效率檢查 $a^{n-1}\equiv 1\pmod n$。此方法仍不足以構成正確的質數判定，因為合成數可能對某些 $a$ 通過，而 Carmichael 數甚至會對所有與 $n$ 互質的 $a$ 通過。<a class="cite" href="#bib-car10">Car10</a>
+*Fermat's Littel Theorem* 指出：若 $p$ 為質數且 $p\nmid a$，則 $a^{p-1}\equiv 1\pmod p$，因此可用快速冪有效率檢查 $a^{n-1}\equiv 1\pmod n$。此方法仍不足以構成正確的質數判定，因為合成數可能對某些 $a$ 通過，而 *Carmichael number* 甚至會對所有與 $n$ 互質的 $a$ 通過。<a class="cite" href="#bib-car10">Car10</a>
 
 ## 複雜度觀點下的 PRIMES
 
