@@ -43,29 +43,12 @@
   font-size: .85rem;
   opacity: .75;
 
-  /* make date + label align nicely */
+  /* meta 永遠在下一行，且內容水平排列 */
   display: inline-flex;
   width: 100%;
   align-items: center;
   gap: .5rem;
   flex-wrap: wrap;
-}
-
-/* label badge (from front matter: label: "...") */
-.articles-label{
-  display: inline-flex;
-  align-items: center;
-  padding: .12rem .5rem;
-  border-radius: 999px;
-  border: 1px solid rgba(127,127,127,.35);
-  background: rgba(127,127,127,.10);
-  font-size: .78rem;
-  line-height: 1.2;
-  font-weight: 700;
-  white-space: nowrap;
-
-  /* keep it readable even if meta opacity applies */
-  opacity: 1;
 }
 
 /* ===== Tag-style label (price-tag shape) ===== */
@@ -74,19 +57,21 @@
   display: inline-flex;
   align-items: center;
 
-  /* 尺寸與字 */
+  /* 文字 */
   font-size: .78rem;
   line-height: 1;
   font-weight: 800;
   white-space: nowrap;
 
-  /* 右側本體 */
+  /* tag 本體（右側） */
   padding: .18rem .55rem .18rem .95rem; /* 左邊留給缺口與洞 */
   border-radius: 10px;
   border: 1px solid rgba(127,127,127,.35);
   background: rgba(127,127,127,.10);
 
-  /* 讓它看起來更像小 badge */
+  /* 不要被 meta 的 opacity 影響可讀性 */
+  opacity: 1;
+
   letter-spacing: .1px;
 }
 
@@ -101,12 +86,11 @@
   width: 0;
   height: 0;
 
-  /* 三角形 */
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
   border-right: 10px solid rgba(127,127,127,.10);
 
-  /* 讓缺口邊框也有線條 */
+  /* 缺口的邊框線 */
   filter: drop-shadow(1px 0 0 rgba(127,127,127,.35));
 }
 
@@ -122,14 +106,18 @@
   height: .36rem;
   border-radius: 999px;
 
-  background: rgba(255,255,255,.92); /* 洞的填色像挖空 */
+  background: rgba(255,255,255,.92);
   border: 1px solid rgba(127,127,127,.45);
 }
 
-/* Optional: stronger hover feel for label */
-.articles-item:hover .articles-label{
+/* hover: tag 也跟著更明顯 */
+.articles-item:hover .articles-label--tag{
   border-color: rgba(127,127,127,.5);
   background: rgba(127,127,127,.14);
+}
+.articles-item:hover .articles-label--tag::before{
+  border-right-color: rgba(127,127,127,.14);
+  filter: drop-shadow(1px 0 0 rgba(127,127,127,.5));
 }
 
 /* ===== Responsive: 2 columns on wide screens ===== */
