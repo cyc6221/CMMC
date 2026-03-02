@@ -1,3 +1,8 @@
+/* =========================
+   Articles Page Styles
+   ========================= */
+
+/* ===== List layout ===== */
 .articles-list{
   list-style: none;
   padding-left: 0;
@@ -32,63 +37,101 @@
   text-decoration: underline;
 }
 
+/* meta row: date + optional label */
 .articles-meta{
   margin-top: .25rem;
   font-size: .85rem;
   opacity: .75;
+
+  /* make date + label align nicely */
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
 }
 
-/* 可選：在寬螢幕時變成兩欄 */
+/* label badge (from front matter: label: "...") */
+.articles-label{
+  display: inline-flex;
+  align-items: center;
+  padding: .12rem .5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(127,127,127,.35);
+  background: rgba(127,127,127,.10);
+  font-size: .78rem;
+  line-height: 1.2;
+  font-weight: 700;
+  white-space: nowrap;
+
+  /* keep it readable even if meta opacity applies */
+  opacity: 1;
+}
+
+/* Optional: stronger hover feel for label */
+.articles-item:hover .articles-label{
+  border-color: rgba(127,127,127,.5);
+  background: rgba(127,127,127,.14);
+}
+
+/* ===== Responsive: 2 columns on wide screens ===== */
 @media (min-width: 900px){
   .articles-list{
     grid-template-columns: 1fr 1fr;
   }
 }
 
-// articles.md used
+/* =========================
+   Controls (Sort pills)
+   ========================= */
 
-  .articles-controls{
-    display:flex;
-    gap:.75rem;
-    flex-wrap:wrap;
-    align-items:center;
-    margin: 1rem 0 1.25rem;
-    justify-content: center;
-  }
-  .articles-controls .group{
-    display:flex;
-    gap:.5rem;
-    align-items:center;
-  }
-  .articles-controls .sep{
-    width:1px;
-    height:28px;
-    background: rgba(127,127,127,.35);
-    margin: 0 .25rem;
-  }
-  .pill{
-    display:inline-flex;
-    align-items:center;
-    padding:.35rem .7rem;
-    border-radius:999px;
-    border:1px solid rgba(127,127,127,.35);
-    background: rgba(127,127,127,.08);
-    cursor:pointer;
-    user-select:none;
-    font-size: 0.95rem;
-    line-height: 1;
-    transition: transform .05s ease, background .15s ease, border-color .15s ease;
-  }
-  .pill:hover{ transform: translateY(-1px); }
-  .pill:active{ transform: translateY(0px); }
-  .pill.active{
-    border-color: rgba(16,185,129,.9);
-    background: rgba(16,185,129,.18);
-    font-weight: 700;
-  }
+.articles-controls{
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
+  align-items:center;
+  margin: 1rem 0 1.25rem;
+  justify-content: center;
+}
 
-  .pill button{
-    all: unset;
-    cursor:pointer;
-  }
-  .pill[role="button"]{ color: inherit; }
+.articles-controls .group{
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+}
+
+.articles-controls .sep{
+  width:1px;
+  height:28px;
+  background: rgba(127,127,127,.35);
+  margin: 0 .25rem;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  padding:.35rem .7rem;
+  border-radius:999px;
+  border:1px solid rgba(127,127,127,.35);
+  background: rgba(127,127,127,.08);
+  cursor:pointer;
+  user-select:none;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: transform .05s ease, background .15s ease, border-color .15s ease;
+}
+
+.pill:hover{ transform: translateY(-1px); }
+.pill:active{ transform: translateY(0px); }
+
+.pill.active{
+  border-color: rgba(16,185,129,.9);
+  background: rgba(16,185,129,.18);
+  font-weight: 700;
+}
+
+.pill button{
+  all: unset;
+  cursor:pointer;
+}
+
+.pill[role="button"]{ color: inherit; }
