@@ -3,6 +3,7 @@ layout: page
 title: Find the Flag in a PDF
 date: 2026-01-26
 last_updated: 2026-01-26
+label: "cheatsheet"
 tags: [CTF, Forensics, cheatsheet]
 ---
 
