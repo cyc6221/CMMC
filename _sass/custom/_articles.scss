@@ -1,8 +1,6 @@
-/* =========================
-   Articles Page Styles
-   ========================= */
+/* Articles Page Styles */
 
-/* ===== List layout ===== */
+/* List */
 .articles-list{
   list-style: none;
   padding-left: 0;
@@ -37,46 +35,41 @@
   text-decoration: underline;
 }
 
-/* meta row: date + optional label */
+/* Meta */
 .articles-meta{
   margin-top: .25rem;
   font-size: .85rem;
   opacity: .75;
 
-  /* meta 永遠在下一行，且內容水平排列 */
-  display: inline-flex;
+  display: flex;
   width: 100%;
   align-items: center;
   gap: .5rem;
   flex-wrap: wrap;
 }
 
-/* ===== Tag-style label (price-tag shape) ===== */
-.articles-label--tag{
+/* Label (price-tag shape) */
+.articles-meta .a-tag{
   position: relative;
   display: inline-flex;
   align-items: center;
 
-  /* 文字 */
   font-size: .78rem;
   line-height: 1;
   font-weight: 800;
   white-space: nowrap;
 
-  /* tag 本體（右側） */
-  padding: .18rem .55rem .18rem .95rem; /* 左邊留給缺口與洞 */
+  padding: .18rem .55rem .18rem .95rem;
   border-radius: 10px;
   border: 1px solid rgba(127,127,127,.35);
   background: rgba(127,127,127,.10);
-
-  /* 不要被 meta 的 opacity 影響可讀性 */
   opacity: 1;
 
-  letter-spacing: .1px;
+  box-shadow: none;
+  text-decoration: none;
 }
 
-/* 左邊三角缺口 */
-.articles-label--tag::before{
+.articles-meta .a-tag::before{
   content: "";
   position: absolute;
   left: -10px;
@@ -90,12 +83,10 @@
   border-bottom: 12px solid transparent;
   border-right: 10px solid rgba(127,127,127,.10);
 
-  /* 缺口的邊框線 */
   filter: drop-shadow(1px 0 0 rgba(127,127,127,.35));
 }
 
-/* 小洞 */
-.articles-label--tag::after{
+.articles-meta .a-tag::after{
   content: "";
   position: absolute;
   left: .32rem;
@@ -110,27 +101,24 @@
   border: 1px solid rgba(127,127,127,.45);
 }
 
-/* hover: tag 也跟著更明顯 */
-.articles-item:hover .articles-label--tag{
+.articles-item:hover .articles-meta .a-tag{
   border-color: rgba(127,127,127,.5);
   background: rgba(127,127,127,.14);
 }
-.articles-item:hover .articles-label--tag::before{
+
+.articles-item:hover .articles-meta .a-tag::before{
   border-right-color: rgba(127,127,127,.14);
   filter: drop-shadow(1px 0 0 rgba(127,127,127,.5));
 }
 
-/* ===== Responsive: 2 columns on wide screens ===== */
+/* Responsive */
 @media (min-width: 900px){
   .articles-list{
     grid-template-columns: 1fr 1fr;
   }
 }
 
-/* =========================
-   Controls (Sort pills)
-   ========================= */
-
+/* Controls */
 .articles-controls{
   display:flex;
   gap:.75rem;
