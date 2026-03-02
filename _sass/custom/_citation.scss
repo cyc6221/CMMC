@@ -1,0 +1,83 @@
+/* ===========================
+   Auto-bracket citation: [AKS04]
+   Usage:
+     <a class="cite" href="#bib-aks04">AKS04</a>
+     <span class="cite">AKS04</span>
+   =========================== */
+
+:root {
+  --cite-fg: #0b3a6e;
+  --cite-bg: rgba(11, 58, 110, 0.10);
+  --cite-bd: rgba(11, 58, 110, 0.28);
+  --cite-fg-hover: #06284d;
+  --cite-bg-hover: rgba(11, 58, 110, 0.16);
+  --cite-ring: rgba(11, 58, 110, 0.30);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cite-fg: #a9c7ff;
+    --cite-bg: rgba(169, 199, 255, 0.12);
+    --cite-bd: rgba(169, 199, 255, 0.28);
+    --cite-fg-hover: #d4e4ff;
+    --cite-bg-hover: rgba(169, 199, 255, 0.18);
+    --cite-ring: rgba(169, 199, 255, 0.35);
+  }
+}
+
+/* Base badge style (AUTO brackets) */
+.cite {
+  display: inline-flex;
+  align-items: baseline;
+  padding: 0.08em 0.42em;
+  border: 1px solid var(--cite-bd);
+  border-radius: 999px;
+  background: var(--cite-bg);
+  color: var(--cite-fg);
+  font-size: 0.88em;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  transform: translateY(-0.06em); /* subtle superscript feel */
+
+  /* auto [ ] */
+  &::before { content: "["; opacity: 0.9; margin-right: 0.06em; }
+  &::after  { content: "]"; opacity: 0.9; margin-left: 0.06em; }
+}
+
+/* Link behavior: either <a class="cite"> or <a><span class="cite"></span></a> */
+a.cite,
+a .cite {
+  cursor: pointer;
+}
+
+a.cite:hover,
+a:hover .cite {
+  background: var(--cite-bg-hover);
+  color: var(--cite-fg-hover);
+}
+
+a.cite:focus-visible,
+a:focus-visible .cite {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--cite-ring);
+}
+
+/* Optional sizes */
+.cite--sm {
+  font-size: 0.82em;
+  padding: 0.06em 0.36em;
+}
+
+/* Multiple citations container */
+.cite-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+  vertical-align: baseline;
+
+  .cite { transform: translateY(-0.05em); }
+}
