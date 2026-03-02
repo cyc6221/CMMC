@@ -44,3 +44,51 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+// articles.md used
+
+  .articles-controls{
+    display:flex;
+    gap:.75rem;
+    flex-wrap:wrap;
+    align-items:center;
+    margin: 1rem 0 1.25rem;
+    justify-content: center;
+  }
+  .articles-controls .group{
+    display:flex;
+    gap:.5rem;
+    align-items:center;
+  }
+  .articles-controls .sep{
+    width:1px;
+    height:28px;
+    background: rgba(127,127,127,.35);
+    margin: 0 .25rem;
+  }
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    padding:.35rem .7rem;
+    border-radius:999px;
+    border:1px solid rgba(127,127,127,.35);
+    background: rgba(127,127,127,.08);
+    cursor:pointer;
+    user-select:none;
+    font-size: 0.95rem;
+    line-height: 1;
+    transition: transform .05s ease, background .15s ease, border-color .15s ease;
+  }
+  .pill:hover{ transform: translateY(-1px); }
+  .pill:active{ transform: translateY(0px); }
+  .pill.active{
+    border-color: rgba(16,185,129,.9);
+    background: rgba(16,185,129,.18);
+    font-weight: 700;
+  }
+
+  .pill button{
+    all: unset;
+    cursor:pointer;
+  }
+  .pill[role="button"]{ color: inherit; }
