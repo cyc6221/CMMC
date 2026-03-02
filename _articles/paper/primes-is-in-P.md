@@ -2,6 +2,7 @@
 layout: page
 title: <span class="cite">paper</span> PRIMES is in P
 date: 2026-03-02
+label: paper
 last_updated: 2026-03-02
 tags: [primality testing, prime, paper]
 ---
