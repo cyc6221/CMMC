@@ -83,4 +83,8 @@ layout: default
     </div>
   {% endif %}
 
+  {% if page.permalink == "/articles/" or page.url == "/articles/" %}
+    <script defer src="{{ '/assets/js/articles-sort.js' | relative_url }}"></script>
+  {% endif %}
+
 </article>
