@@ -81,3 +81,47 @@ a:focus-visible .cite {
 
   .cite { transform: translateY(-0.05em); }
 }
+
+/* References two-column layout like screenshot */
+.bib {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bib > li {
+  display: grid;
+  grid-template-columns: 6.5ch 1fr; /* left column width; tweak to taste */
+  column-gap: 1.2rem;
+  align-items: start;
+
+  margin: 0.6rem 0;
+}
+
+/* left label: [AB03] */
+.bib-key {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: baseline;
+
+  font-weight: 700;
+  white-space: nowrap;
+
+  /* auto brackets */
+  &::before { content: "["; }
+  &::after  { content: "]"; }
+}
+
+/* right text */
+.bib-body {
+  min-width: 0;            /* prevents overflow in grid */
+  overflow-wrap: anywhere; /* long URLs won't break layout */
+}
+
+/* Optional: highlight when jumped to (#bib-xxx) */
+.bib > li:target {
+  scroll-margin-top: 90px;
+  background: rgba(255, 230, 150, 0.35);
+  border-radius: 10px;
+  padding: 0.25rem 0.4rem;
+}

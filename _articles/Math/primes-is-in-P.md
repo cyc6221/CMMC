@@ -41,10 +41,33 @@ Introduction 也指出：若採用關於 **Sophie Germain primes / safe primes**
 
 ## References
 
-- <span id="bib-car10">[Car10] R. D. Carmichael. *Note on a number theory function.* Bull. Amer. Math. Soc., 16:232–238, 1910.</span>
-- <span id="bib-pra75">[Pra75] V. Pratt. *Every prime has a succinct certificate.* SIAM Journal on Computing, 4:214–220, 1975.</span>
-- <span id="bib-rab80">[Rab80] M. O. Rabin. *Probabilistic algorithm for testing primality.* J. Number Theory, 12:128–138, 1980.</span>
-- <span id="bib-ss77">[SS77] R. Solovay and V. Strassen. *A fast Monte-Carlo test for primality.* SIAM Journal on Computing, 6:84–86, 1977.</span>
-- <span id="bib-gk86">[GK86] S. Goldwasser and J. Kilian. *Almost all primes can be quickly certified.* In *Proceedings of the Annual ACM Symposium on the Theory of Computing*, pages 316–329, 1986.</span>
-- <span id="bib-aks04">[AKS04] M. Agrawal, N. Kayal, and N. Saxena. *PRIMES is in P.* Annals of Mathematics, 160(2):781–793, 2004.</span>
-- <span id="bib-lp05">[LP05] H. W. Lenstra, Jr. and C. Pomerance. *Primality testing with Gaussian periods*, 2005.</span>
+<ul class="bib">
+  <li id="bib-car10">
+    <span class="bib-key">Car10</span>
+    <span class="bib-body">R. D. Carmichael. *Note on a number theory function.* Bull. Amer. Math. Soc., 16:232–238, 1910.</span>
+  </li>
+  <li id="bib-pra75">
+    <span class="bib-key">Pra75</span>
+    <span class="bib-body">V. Pratt. *Every prime has a succinct certificate.* SIAM Journal on Computing, 4:214–220, 1975.</span>
+  </li>
+  <li id="bib-rab80">
+    <span class="bib-key">Rab80</span>
+    <span class="bib-body">M. O. Rabin. *Probabilistic algorithm for testing primality.* J. Number Theory, 12:128–138, 1980.</span>
+  </li>
+  <li id="bib-ss77">
+    <span class="bib-key">SS77</span>
+    <span class="bib-body">R. Solovay and V. Strassen. *A fast Monte-Carlo test for primality.* SIAM Journal on Computing, 6:84–86, 1977.</span>
+  </li>
+  <li id="bib-gk86">
+    <span class="bib-key">GK86</span>
+    <span class="bib-body">S. Goldwasser and J. Kilian. *Almost all primes can be quickly certified.* In *Proceedings of the Annual ACM Symposium on the Theory of Computing*, pages 316–329, 1986.</span>
+  </li>
+  <li id="bib-aks04">
+    <span class="bib-key">AKS04</span>
+    <span class="bib-body">M. Agrawal, N. Kayal, and N. Saxena. *PRIMES is in P.* Annals of Mathematics, 160(2):781–793, 2004.</span>
+  </li>
+  <li id="bib-lp05">
+    <span class="bib-key">LP05</span>
+    <span class="bib-body">H. W. Lenstra, Jr. and C. Pomerance. *Primality testing with Gaussian periods*, 2005.</span>
+  </li>
+</ul>
