@@ -6,22 +6,22 @@
    =========================== */
 
 :root {
-  --cite-fg: #0b3a6e;
-  --cite-bg: rgba(11, 58, 110, 0.10);
-  --cite-bd: rgba(11, 58, 110, 0.28);
-  --cite-fg-hover: #06284d;
-  --cite-bg-hover: rgba(11, 58, 110, 0.16);
-  --cite-ring: rgba(11, 58, 110, 0.30);
+  --cite-fg: #072f57;
+  --cite-bg: rgba(11, 58, 110, 0.18);
+  --cite-bd: rgba(11, 58, 110, 0.40);
+  --cite-fg-hover: #041e3a;
+  --cite-bg-hover: rgba(11, 58, 110, 0.24);
+  --cite-ring: rgba(11, 58, 110, 0.38);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --cite-fg: #a9c7ff;
-    --cite-bg: rgba(169, 199, 255, 0.12);
-    --cite-bd: rgba(169, 199, 255, 0.28);
-    --cite-fg-hover: #d4e4ff;
-    --cite-bg-hover: rgba(169, 199, 255, 0.18);
-    --cite-ring: rgba(169, 199, 255, 0.35);
+    --cite-fg: #c3d9ff;
+    --cite-bg: rgba(169, 199, 255, 0.20);
+    --cite-bd: rgba(169, 199, 255, 0.40);
+    --cite-fg-hover: #e4efff;
+    --cite-bg-hover: rgba(169, 199, 255, 0.26);
+    --cite-ring: rgba(169, 199, 255, 0.45);
   }
 }
 
