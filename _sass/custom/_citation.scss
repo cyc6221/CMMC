@@ -5,12 +5,17 @@
      <span class="cite">AKS04</span>
    =========================== */
 
+/* Single-mode tokens */
 :root {
-  --cite-fg: #072f57;
-  --cite-bg: rgba(11, 58, 110, 0.18);
-  --cite-bd: rgba(11, 58, 110, 0.40);
+  --cite-fg: #072f57;                 /* 字更深 */
+  --cite-bg: rgba(11, 58, 110, 0.18); /* 底更明顯 */
+  --cite-bd: rgba(11, 58, 110, 0.40); /* 框更明顯 */
+
+  /* hover 狀態 */
   --cite-fg-hover: #041e3a;
   --cite-bg-hover: rgba(11, 58, 110, 0.24);
+
+  /* focus ring */
   --cite-ring: rgba(11, 58, 110, 0.38);
 }
 
@@ -43,12 +48,14 @@ a .cite {
   cursor: pointer;
 }
 
+/* Hover */
 a.cite:hover,
 a:hover .cite {
   background: var(--cite-bg-hover);
   color: var(--cite-fg-hover);
 }
 
+/* Focus */
 a.cite:focus-visible,
 a:focus-visible .cite {
   outline: none;
