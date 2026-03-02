@@ -14,17 +14,6 @@
   --cite-ring: rgba(11, 58, 110, 0.38);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --cite-fg: #c3d9ff;
-    --cite-bg: rgba(169, 199, 255, 0.20);
-    --cite-bd: rgba(169, 199, 255, 0.40);
-    --cite-fg-hover: #e4efff;
-    --cite-bg-hover: rgba(169, 199, 255, 0.26);
-    --cite-ring: rgba(169, 199, 255, 0.45);
-  }
-}
-
 /* Base badge style (AUTO brackets) */
 .cite {
   display: inline-flex;
