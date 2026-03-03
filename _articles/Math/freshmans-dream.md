@@ -2,7 +2,7 @@
 layout: page
 title: Freshman's Dream
 date: 2026-03-02
-last_updated: 2026-03-02
+last_updated: 2026-03-03
 tags: [algebra]
 ---
 
