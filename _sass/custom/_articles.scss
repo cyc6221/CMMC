@@ -56,56 +56,55 @@
 
   font-size: .78rem;
   line-height: 1;
-  font-weight: 800;
+  font-weight: 850;
   white-space: nowrap;
 
-  /* 左側留洞的空間 */
-  padding: .18rem .55rem .18rem 1.05rem;
+  padding: .20rem .60rem .20rem 1.10rem;
 
-  border: 1px solid rgba(127,127,127,.35);
-  background: rgba(127,127,127,.10);
+  /* stronger contrast */
+  border: 1px solid rgba(127,127,127,.55);
+  background: rgba(127,127,127,.14);
   border-radius: 10px;
 
-  box-shadow: none;
+  box-shadow:
+    0 1px 0 rgba(0,0,0,.06),
+    0 0 0 1px rgba(255,255,255,.55) inset;
+
   text-decoration: none;
   opacity: 1;
 
-  /* 關鍵：用 clip-path 直接裁出 tag 形狀（不會被剪） */
   clip-path: polygon(
-    14px 0%,
+    16px 0%,
     100% 0%,
     100% 100%,
-    14px 100%,
+    16px 100%,
     0% 50%
   );
 }
 
-/* hole */
+/* Hole */
 .articles-meta .a-tag::after{
   content: "";
   position: absolute;
-  left: .42rem;
+  left: .44rem;
   top: 50%;
   transform: translateY(-50%);
 
-  width: .36rem;
-  height: .36rem;
+  width: .40rem;
+  height: .40rem;
   border-radius: 999px;
 
-  background: rgba(255,255,255,.92);
-  border: 1px solid rgba(127,127,127,.45);
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(0,0,0,.20);
+
+  box-shadow: 0 1px 0 rgba(0,0,0,.06) inset;
 }
 
-/* hover */
+/* Hover */
 .articles-item:hover .articles-meta .a-tag{
-  border-color: rgba(127,127,127,.5);
-  background: rgba(127,127,127,.14);
+  border-color: rgba(127,127,127,.70);
+  background: rgba(127,127,127,.20);
 }
-
-// .articles-item:hover .articles-meta .a-tag::before{
-//   border-right-color: rgba(127,127,127,.14);
-//   filter: drop-shadow(1px 0 0 rgba(127,127,127,.5));
-// }
 
 /* Responsive */
 @media (min-width: 900px){
