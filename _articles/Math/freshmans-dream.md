@@ -117,4 +117,4 @@ $$
 
 ## 參見
 
-- [Sophomore's Dream](./sophomores-dream.md)
+- [Sophomore's Dream]({{ "/articles/Math/sophomores-dream" | relative_url }})
