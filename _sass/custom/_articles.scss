@@ -48,7 +48,7 @@
   flex-wrap: wrap;
 }
 
-/* Label (price-tag shape) */
+/* Label */
 .articles-meta .a-tag{
   position: relative;
   display: inline-flex;
@@ -59,37 +59,32 @@
   font-weight: 800;
   white-space: nowrap;
 
-  padding: .18rem .55rem .18rem .95rem;
-  border-radius: 10px;
+  /* 左側留洞的空間 */
+  padding: .18rem .55rem .18rem 1.05rem;
+
   border: 1px solid rgba(127,127,127,.35);
   background: rgba(127,127,127,.10);
-  opacity: 1;
+  border-radius: 10px;
 
   box-shadow: none;
   text-decoration: none;
+  opacity: 1;
+
+  /* 關鍵：用 clip-path 直接裁出 tag 形狀（不會被剪） */
+  clip-path: polygon(
+    14px 0%,
+    100% 0%,
+    100% 100%,
+    14px 100%,
+    0% 50%
+  );
 }
 
-.articles-meta .a-tag::before{
-  content: "";
-  position: absolute;
-  left: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-
-  width: 0;
-  height: 0;
-
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-right: 10px solid rgba(127,127,127,.10);
-
-  filter: drop-shadow(1px 0 0 rgba(127,127,127,.35));
-}
-
+/* hole */
 .articles-meta .a-tag::after{
   content: "";
   position: absolute;
-  left: .32rem;
+  left: .42rem;
   top: 50%;
   transform: translateY(-50%);
 
@@ -101,15 +96,16 @@
   border: 1px solid rgba(127,127,127,.45);
 }
 
+/* hover */
 .articles-item:hover .articles-meta .a-tag{
   border-color: rgba(127,127,127,.5);
   background: rgba(127,127,127,.14);
 }
 
-.articles-item:hover .articles-meta .a-tag::before{
-  border-right-color: rgba(127,127,127,.14);
-  filter: drop-shadow(1px 0 0 rgba(127,127,127,.5));
-}
+// .articles-item:hover .articles-meta .a-tag::before{
+//   border-right-color: rgba(127,127,127,.14);
+//   filter: drop-shadow(1px 0 0 rgba(127,127,127,.5));
+// }
 
 /* Responsive */
 @media (min-width: 900px){
