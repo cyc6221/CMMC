@@ -136,7 +136,7 @@
 .now-progress__bar{
   display:block;
   height: 100%;
-  width: 0;
+  width: calc(var(--pct) * 1%);
   border-radius: 999px;
   background: rgba(34,197,94,.55); /* green fill */
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.10);
@@ -194,7 +194,7 @@
 .now-xp__bar{
   display:block;
   height: 100%;
-  width: 0;
+  width: calc(var(--pct) * 1%);
   border-radius: 999px;
   background: #f4b000;
 }

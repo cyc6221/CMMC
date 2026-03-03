@@ -1,0 +1,90 @@
+<article class="now-card">
+    <header class="now-head">
+        <span class="now-icon" aria-hidden="true">🕷️</span>
+        <div class="now-title">
+            <h3>CryptoHack</h3>
+            <span class="now-badge now-badge--alt2">
+                Symmetric Cryptography
+            </span>
+        </div>
+    </header>
+    <!-- --- -->
+    <div class="now-body">
+        <p class="now-primary">
+            <a class="now-link" href="https://cryptohack.org/" target="_blank" rel="noopener">
+                CryptoHack
+            </a>
+            <a class="now-link" href="https://cryptohack.org/courses/" target="_blank" rel="noopener">
+                CryptoHack Courses
+            </a>
+        </p>
+        <!-- --- -->
+        <ul class="now-list">
+            <li><strong>Now</strong>: Symmetric Cryptography</li>
+            <li><a href="{{ '/CryptoHack-all-problems/' | relative_url }}">CryptoHack All Problems</a></li>
+        </ul>
+        <!-- --- -->
+        <div class="chap-strip" aria-label="All learning paths">
+            <span class="chap-pill done">Introduction to CryptoHack</span>
+            <span class="chap-pill done">Modular Arithmetic</span>
+            <span class="chap-pill reading">Symmetric Cryptography</span>
+            <span class="chap-pill">Public-Key Cryptography</span>
+            <span class="chap-pill">Ellipic Curve</span>
+        </div>
+        <!-- --- -->
+        <p class="chap-hint">
+            <span class="chap-dot chap-dot--done"></span> done
+            <span class="chap-dot chap-dot--reading"></span> reading
+            <span class="chap-dot chap-dot--todo"></span> todo
+        </p>
+        <!-- --- -->
+        {% assign done = 3 %}
+        {% assign total = 5 %}
+        {% assign pct = done | times: 100 | divided_by: total %}
+        <div class="now-progress" role="group" aria-label="Reading progress">
+            <div class="now-progress__label">
+                <span class="now-progress__text">Progress</span>
+                <span class="now-progress__pct">{{ done }}/{{ total }} ({{ pct }}%)</span>
+            </div>
+            <div class="now-progress__track" aria-hidden="true">
+                <!-- <span class="now-progress__bar" style="width: {{ pct }}%;"></span> -->
+                <span class="now-progress__bar" style="--pct: {{ pct | default: 0 }};"></span>
+            </div>
+        </div>
+        <!-- --- -->
+        {%- comment -%} --- Points bar (level + points) --- {%- endcomment -%}
+        {% assign level = 7 %}
+        {% assign points_cur = 505 %}
+        {% assign points_total = 640 %}
+        <!-- --- -->
+        <!-- 避免除以 0；同時把 pct 限制在 0~100 -->
+        {% if points_total <= 0 %}
+            {% assign points_pct = 0 %}
+        {% else %}
+            {% assign points_pct = points_cur | times: 100 | divided_by: points_total %}
+        {% endif %}
+        {% if points_pct < 0 %}{% assign points_pct = 0 %}{% endif %}
+        {% if points_pct > 100 %}{% assign points_pct = 100 %}{% endif %}
+        <!-- --- -->
+        <div class="now-xp" role="group" aria-label="Level and points">
+            <div class="now-xp__meta">
+                <span class="now-xp__stat" title="Level">
+                    <span class="now-xp__icon" aria-hidden="true">⚡</span>
+                    <span class="now-xp__num">{{ level }}</span>
+                </span>
+                <span class="now-xp__stat" title="Points">
+                    <span class="now-xp__icon" aria-hidden="true">⭐</span>
+                    <span class="now-xp__num">{{ points_cur }}</span>
+                </span>
+                <span class="now-xp__pct">
+                    {{ points_cur }}/{{ points_total }} ({{ points_pct }}%)
+                </span>
+            </div>
+            <div class="now-xp__track" aria-hidden="true">
+                <!-- <span class="now-xp__bar" style="width: {{ points_pct }}%;"></span> -->
+                <span class="now-xp__bar" style="--pct: {{ points_pct }};"></span>
+            </div>
+        </div>
+    <!-- end of now-body -->
+    </div>
+</article>
