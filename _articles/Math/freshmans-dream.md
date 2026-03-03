@@ -6,13 +6,13 @@ last_updated: 2026-03-02
 tags: [algebra]
 ---
 
-Freshman’s dream（國一新生之夢）指一個常見的初學者直覺：將冪次「錯誤地」分配到加法上，誤以為
+Freshman’s dream 指一個常見的初學者直覺：將冪次「錯誤地」分配到加法上，誤以為
 
 $$
 (a+b)^n = a^n + b^n
 $$
 
-在一般的整數／實數運算中，這個等式多半不成立，因此被戲稱為「新生之夢」。
+在一般的整數／實數運算中，這個等式多半不成立，因此被戲稱為「Freshman’s dream」。
 
 ## 一般情況
 
@@ -114,3 +114,7 @@ $$
 
 - [Freshman’s dream](https://en.wikipedia.org/wiki/Freshman%27s_dream)
 - [國一新生之夢](https://zh.wikipedia.org/wiki/%E4%B8%AD%E4%B8%80%E6%96%B0%E7%94%9F%E4%B9%8B%E5%A4%A2)
+
+## 參見
+
+- [Sophomore's Dream](./sophomores-dream.md)
