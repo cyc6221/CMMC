@@ -19,19 +19,19 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
 
 <!-- Cryptography: An Introduction (Third Edition) -->
 {% include about/CryptoAnIntro.html %}
-<!--  -->
+<!-- Cryptography: An Introduction (Third Edition) -->
 
 <!-- PortSwigger -->
 {% include about/PortSwigger.html %}
-<!--  -->
+<!-- PortSwigger -->
 
 <!-- CryptoHack -->
 {% include about/CryptoHack.html %}
-<!--  -->
+<!-- CryptoHack -->
 
 <!-- Prime -->
 {% include about/Prime.html %}
-<!--  -->
+<!-- Prime -->
 
 </section>
 
