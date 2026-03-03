@@ -29,6 +29,10 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
 {% include about/CryptoHack.html %}
 <!--  -->
 
+<!-- Prime -->
+{% include about/Prime.html %}
+<!--  -->
+
 </section>
 
 <!-- --- -->
