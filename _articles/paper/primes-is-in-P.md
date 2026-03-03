@@ -1,6 +1,6 @@
 ---
 layout: page
-title: <span class="cite">paper</span> PRIMES is in P
+title: PRIMES is in P
 date: 2026-03-02
 last_updated: 2026-03-02
 label: "paper"
