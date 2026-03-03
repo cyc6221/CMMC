@@ -6,13 +6,13 @@ last_updated: 2026-03-02
 tags: [algebra]
 ---
 
-Freshman’s dream 指一個常見的初學者直覺：將冪次「錯誤地」分配到加法上，誤以為
+**Freshman’s dream** 指一個常見的初學者直覺：將冪次「錯誤地」分配到加法上，誤以為
 
 $$
 (a+b)^n = a^n + b^n
 $$
 
-在一般的整數／實數運算中，這個等式多半不成立，因此被戲稱為「Freshman’s dream」。
+在一般的整數／實數運算中，這個等式多半不成立，因此被戲稱為「**Freshman’s dream**」。
 
 ## 一般情況
 
