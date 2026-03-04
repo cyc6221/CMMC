@@ -33,6 +33,10 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
 {% include about/Prime.html %}
 <!-- Prime -->
 
+<!-- Square-Root Barrier -->
+{% include about/Square-Root-Barrier.html %}
+<!-- Square-Root
+
 </section>
 
 <!-- --- -->
