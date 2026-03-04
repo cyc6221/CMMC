@@ -61,5 +61,7 @@ $$
 ## References
 
 - [Safe and Sophie Germain primes](https://en.wikipedia.org/wiki/Safe_and_Sophie_Germain_primes)
+- [索菲·熱爾曼質數](https://zh.wikipedia.org/wiki/%E7%B4%A2%E8%8F%B2%C2%B7%E7%86%B1%E7%88%BE%E6%9B%BC%E8%B3%AA%E6%95%B8)
+- [安全質數](https://zh.wikipedia.org/wiki/%E5%AE%89%E5%85%A8%E7%B4%A0%E6%95%B0)
 - [OEIS A005384](https://oeis.org/A005384)
 - [OEIS A005385](https://oeis.org/A005385)
