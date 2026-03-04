@@ -72,3 +72,9 @@ Introduction 也指出：若採用關於 **Sophie Germain primes / safe primes**
     <span class="bib-body">H. W. Lenstra, Jr. and C. Pomerance. *Primality testing with Gaussian periods*, 2005.</span>
   </li>
 </ul>
+
+<!-- 
+存連結
+https://www.cse.iitk.ac.in/users/manindra/algebra/primality_v6.pdf
+https://annals.math.princeton.edu/wp-content/uploads/annals-v160-n2-p12.pdf
+ -->
