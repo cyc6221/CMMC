@@ -35,7 +35,7 @@ This is my [reading list]({{ "/readinglist/" | relative_url }}).
 
 <!-- Square-Root Barrier -->
 {% include about/Square-Root-Barrier.html %}
-<!-- Square-Root -->
+<!-- Square-Root Barrier -->
 
 </section>
 
