@@ -6,18 +6,29 @@
       data-title="{{ a.title | escape }}"
       data-date="{% if a.date %}{{ a.date | date: '%Y-%m-%d' }}{% endif %}"
     >
-      <a class="articles-link" href="{{ a.url | relative_url }}">{{ a.title }}</a>
-      {% if a.date %}
-        <div class="articles-meta">
-          📅 {{ a.date | date: "%Y-%m-%d" }}
+      <a class="articles-link" href="{{ a.url | relative_url }}" title="{{ a.title | escape }}">
+        {{ a.title }}
+      </a>
 
-          {% if a.label %}
-            <span class="a-tag">
-              {{ a.label | escape }}
-            </span>
-          {% endif %}
-        </div>
-      {% endif %}
+      <div class="articles-meta">
+        {% if a.authors %}
+          <span class="authors">{{ a.authors | escape }}</span>
+        {% endif %}
+
+        {% if a.venue %}
+          {% if a.authors %}<span class="sep">·</span>{% endif %}
+          <span class="venue">{{ a.venue | escape }}</span>
+        {% endif %}
+
+        {% if a.date %}
+          {% if a.authors or a.venue %}<span class="sep">·</span>{% endif %}
+          <span class="note-date">📅 {{ a.date | date: "%Y-%m-%d" }}</span>
+        {% endif %}
+
+        {% if a.label %}
+          <span class="a-tag">{{ a.label | escape }}</span>
+        {% endif %}
+      </div>
     </li>
   {% endfor %}
 </ul>
