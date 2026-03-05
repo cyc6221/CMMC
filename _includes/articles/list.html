@@ -11,17 +11,21 @@
       </a>
 
       <div class="articles-meta">
-        {% if a.authors %}
+        {% if a.author1 %}
+          <span class="authors">
+            {{ a.author1 | escape }}{% if a.authors %} et al.{% endif %}
+          </span>
+        {% elsif a.authors %}
           <span class="authors">{{ a.authors | escape }}</span>
         {% endif %}
 
         {% if a.venue %}
-          {% if a.authors %}<span class="sep">·</span>{% endif %}
+          {% if a.author1 or a.authors %}<span class="sep">·</span>{% endif %}
           <span class="venue">{{ a.venue | escape }}</span>
         {% endif %}
 
         {% if a.date %}
-          {% if a.authors or a.venue %}<span class="sep"><br></span>{% endif %}
+          {% if a.author1 or a.authors or a.venue %}<span class="sep"><br></span>{% endif %}
           <span class="note-date">📅 {{ a.date | date: "%Y-%m-%d" }}</span>
         {% endif %}
 
