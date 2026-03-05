@@ -217,33 +217,27 @@
 
 // 
 
-/* Bib style for now-list */
+/* bibliography layout */
 .now-list--bib{
-  padding-left: 0;      /* 不要原本的列點縮排 */
-  list-style: none;     /* 拿掉圓點 */
+  padding-left: 0;
+  list-style: none;
 }
 
 .now-list--bib .now-item{
   display: grid;
-  grid-template-columns: 7ch 1fr; /* 左欄寬度：可調 */
+  grid-template-columns: 7ch 1fr; /* 左欄寬度 */
   column-gap: 1.2rem;
   align-items: start;
-  margin: 10px 0;       /* 取代你原本 li margin */
+  margin: 10px 0;
 }
 
 .now-list--bib .now-key{
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   opacity: .85;
   white-space: nowrap;
-  justify-self: end;    /* 右對齊，像論文參考文獻 */
+  justify-self: end;
 }
 
 .now-list--bib .now-body{
-  min-width: 0;         /* 防止長標題撐爆 */
-}
-
-/* 讓 badge 不要卡在同一行太擠（可選） */
-.now-list--bib .now-badge{
-  margin-left: .5rem;
-  margin-top: 6px;      /* 你原本就有 */
+  min-width: 0;
 }
