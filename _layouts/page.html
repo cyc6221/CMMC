@@ -7,8 +7,37 @@ layout: default
   <header class="page-header">
     <h1 class="page-title">{{ page.title }}</h1>
 
+    {% assign author1 = page.author1 %}
+    {% assign authors = page.authors %}
+    {% assign venue = page.venue %}
     {% assign publish_time = page.published | default: page.date %}
     {% assign update_time = page.last_updated %}
+
+    {% if author1 or authors or venue %}
+      <div class="page-submeta page-submeta--citation">
+        {% if author1 %}
+          <span>{{ author1 }}</span>
+          {% if authors %}
+            <span>, </span>
+          {% elsif venue %}
+            <span>. </span>
+          {% endif %}
+        {% endif %}
+
+        {% if authors %}
+          <span>{{ authors }}</span>
+          {% if venue %}
+            <span>. </span>
+          {% else %}
+            <span>.</span>
+          {% endif %}
+        {% endif %}
+
+        {% if venue %}
+          <span>{{ venue }}</span><span>.</span>
+        {% endif %}
+      </div>
+    {% endif %}
 
     {% if publish_time or update_time or page.tags %}
       <div class="page-submeta">
