@@ -219,23 +219,31 @@
 
 /* bibliography layout */
 .now-list--bib{
+  --keyw: 8ch;
+  --gap: 1.2rem;
+
   padding-left: 0;
   list-style: none;
+  margin: 0;
 }
 
 .now-list--bib .now-item{
-  display: grid;
-  grid-template-columns: 7ch 1fr; /* 左欄寬度 */
-  column-gap: 1.2rem;
-  align-items: start;
+  position: relative;
+  padding-left: calc(var(--keyw) + var(--gap));
   margin: 10px 0;
 }
 
 .now-list--bib .now-key{
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: var(--keyw);
+  text-align: right;
+
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  opacity: .85;
   white-space: nowrap;
-  justify-self: end;
+  opacity: .85;
 }
 
 .now-list--bib .now-body{
