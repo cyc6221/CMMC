@@ -219,33 +219,30 @@
 
 /* bibliography layout */
 .now-list--bib{
-  --keyw: 8ch;
-  --gap: 1.2rem;
-
-  padding-left: 0;
   list-style: none;
+  padding-left: 0;
   margin: 0;
 }
 
 .now-list--bib .now-item{
   position: relative;
-  padding-left: calc(var(--keyw) + var(--gap));
+  padding-left: 0;
   margin: 10px 0;
-}
-
-.now-list--bib .now-key{
-  position: absolute;
-  left: 0;
-  top: 0;
-
-  width: var(--keyw);
-  text-align: right;
-
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  white-space: nowrap;
-  opacity: .85;
 }
 
 .now-list--bib .now-body{
   min-width: 0;
+}
+
+.now-list--bib .now-key{
+  position: absolute;
+  left: -8ch;
+  top: 0;
+
+  width: 7ch;
+  text-align: right;
+  white-space: nowrap;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  opacity: .85;
 }
