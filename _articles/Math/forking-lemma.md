@@ -47,10 +47,10 @@ $$
 $$
 \Pr[\text{得到兩份同 }\mathsf{cmt}\text{、不同 }\mathsf{ch}\text{ 的成功 transcript}]
 \ \gtrsim\
-\frac{\varepsilon(\varepsilon - 1/|\mathcal{C}|)}{q_H},
+\frac{\varepsilon(\varepsilon - 1/ \vert \mathcal{C} \vert)}{q_H},
 $$
 
-其中 $|\mathcal{C}|$ 是 challenge 空間大小。當 $|\mathcal{C}|$ 足夠大時，$1/|\mathcal{C}|$ 往往可忽略，常見的簡化表達為
+其中 $\vert \mathcal{C} \vert$ 是 challenge 空間大小。當 $\vert \mathcal{C} \vert$ 足夠大時，$1/ \vert \mathcal{C} \vert$ 往往可忽略，常見的簡化表達為
 
 $$
 \Omega\!\left(\frac{\varepsilon^2}{q_H}\right).
