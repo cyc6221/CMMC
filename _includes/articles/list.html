@@ -21,13 +21,12 @@
         {% endif %}
 
         {% if a.date %}
-          {% if a.authors or a.venue %}
-          <span class="sep"><br></span>{% endif %}
+          {% if a.authors or a.venue %}<span class="sep"><br></span>{% endif %}
           <span class="note-date">📅 {{ a.date | date: "%Y-%m-%d" }}</span>
         {% endif %}
 
         {% if a.label %}
-        <span class="sep">·</span>{% endif %}
+          {% if a.date %}<span class="sep">·</span>{% endif %}
           <span class="a-tag">{{ a.label | escape }}</span>
         {% endif %}
       </div>
