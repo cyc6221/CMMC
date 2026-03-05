@@ -1,6 +1,8 @@
 ---
 layout: page
 title: "The One-More Discrete Logarithm Assumption in the Generic Group Model"
+authors: "Mihir Bellare, Chanathip Namprempre, David Pointcheval, and Michael Semanko"
+venue: "Journal of Cryptology, 2003"
 date: 2026-03-05
 last_updated: 2026-03-05
 label: "paper"
