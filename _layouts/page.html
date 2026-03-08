@@ -8,52 +8,44 @@ layout: default
     <h1 class="page-title">{{ page.title }}</h1>
 
     {% assign author1 = page.author1 %}
-    {% assign authors = page.authors %}
     {% assign venue = page.venue %}
     {% assign publish_time = page.published | default: page.date %}
     {% assign update_time = page.last_updated %}
 
-    {% if author1 or authors or venue %}
+    {% if author1 or venue %}
     <div class="page-submeta page-submeta--citation">
       {% if author1 %}
         <span>
           {{ author1 }}
-          {% assign has_more_authors = false %}
-          {% if author2 or author3 or author4 or author5 %}
-            {% assign has_more_authors = true %}
+          {% if author2 %}
+            {% if author3 or author4 or author5 %}
+              , {{ author2 }}
+            {% else %}
+              and {{ author2 }}
+            {% endif %}
           {% endif %}
 
-          {% if has_more_authors %}
-            {% if author2 %}
-              {% if author3 or author4 or author5 %}
-                , {{ author2 }}
-              {% else %}
-                and {{ author2 }}
-              {% endif %}
+          {% if author3 %}
+            {% if author4 or author5 %}
+              , {{ author3 }}
+            {% else %}
+              and {{ author3 }}
             {% endif %}
+          {% endif %}
 
-            {% if author3 %}
-              {% if author4 or author5 %}
-                , {{ author3 }}
-              {% else %}
-                and {{ author3 }}
-              {% endif %}
-            {% endif %}
-
-            {% if author4 %}
-              {% if author5 %}
-                , {{ author4 }}
-              {% else %}
-                and {{ author4 }}
-              {% endif %}
-            {% endif %}
-
+          {% if author4 %}
             {% if author5 %}
-              and {{ author5 }}
-            {% endif %}.
-          {% elsif venue %}
-            .
+              , {{ author4 }}
+            {% else %}
+              and {{ author4 }}
+            {% endif %}
           {% endif %}
+
+          {% if author5 %}
+            and {{ author5 }}
+          {% endif %}
+
+          {% if venue %}.{% endif %}
         </span>
       {% endif %}
 
