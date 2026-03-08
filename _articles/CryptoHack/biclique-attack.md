@@ -7,13 +7,13 @@ label:
 tags: [CryptoHack, Symmetric Cryptography, AES]
 ---
 
-Biclique attack 是一種針對區塊密碼的密碼分析方法。2011 年，Bogdanov 等人利用這個方法，提出了對 **full AES** 的第一個「**在理論上比 brute force 略快**」的 key-recovery attack。對 **AES-128** 而言，其時間複雜度約為 **\(2^{126.1}\)**，相比暴力破解所需的 **\(2^{128}\)**，只帶來非常有限的改進。換句話說，這項結果在理論上確實略微降低了 AES-128 的安全強度，但降幅極小。<a class="cite" href="#bib-bog11">Bog11</a>
+Biclique attack 是一種針對區塊密碼的密碼分析方法。2011 年，Bogdanov 等人將此技巧應用到 **full AES**，提出了第一個在**理論上略優於 brute force** 的 key-recovery attack。以 **AES-128** 為例，其時間複雜度約為 **$2^{126.1}$**，相比暴力破解的 **$2^{128}$**，確實稍微降低了理論安全強度。<a class="cite" href="#bib-bog11">Bog11</a>
 
-這類結果的重要性主要在於**理論層面**。它說明了 full AES 並非在嚴格意義下與窮舉搜尋完全等價，也就是說，研究者確實找到了一種比單純枚舉所有金鑰更有效率的攻擊方式。然而，從**實務角度**來看，biclique attack 的成本仍然極高，遠遠超出現實可行範圍，因此通常**不被視為對 AES 實際部署的可信威脅**。在目前的公開研究中，AES 仍然被普遍視為安全且廣泛使用的主流 block cipher。<a class="cite" href="#bib-bog11">Bog11</a>
+不過，這種改進的幅度其實非常有限。雖然從學術定義上來看，只要存在比 brute force 更快的攻擊，就可以說該 cipher 在某種狹義下被「break」了；但 biclique attack 的成本仍然高得不可實行，因此它**不構成對 AES 實際部署的可信威脅**。也就是說，這項結果更像是在理論分析上取得了一點進展，而不是在現實世界中真正動搖了 AES 的安全性。
 
-換個角度來看，biclique attack 的意義更接近於「**理論上的小幅突破**」，而不是「**實務上的重大破壞**」。雖然它在非常狹義的學術定義下可以被稱為對 AES 的一種 break，因為它優於 brute force，但這並不表示 AES 在真實世界中已經不安全。相反地，AES 仍然具有相當充足的 security margin，而 biclique attack 也沒有動搖其在現代密碼學與工程實作中的核心地位。
+這也是 biclique attack 最值得注意的地方：它不是攻擊 reduced-round AES，而是直接針對 **full-round AES** 給出結果。因此，它常被拿來作為一個例子，說明即使是像 AES 這樣被廣泛信任的 block cipher，也仍然可以被持續研究與改進分析；只是這種分析結果未必代表實務上的危險。
 
-Biclique attack 之所以經常被提及，主要是因為它是針對 **full-round AES** 的分析結果，而不是只攻擊 reduced-round 版本。不過，它對安全性的影響仍然非常有限：對 AES-128 而言，安全等級只是從 128 bits 略微下降到約 126.1 bits。因此，這項成果通常被理解為密碼分析上的理論進展，而不是足以改變 AES 實際安全性的重大突破。<a class="cite" href="#bib-bog11">Bog11</a>
+整體而言，biclique attack 的意義主要在於：它顯示 **full AES 並非在嚴格形式上與窮舉搜尋完全等價**，但這個差距非常小，小到不足以改變 AES 在現代密碼學與工程實作中的核心地位。對使用者而言，AES 依然是安全且主流的對稱式加密標準；而對研究者而言，biclique attack 則是一個具有代表性的理論成果。<a class="cite" href="#bib-bog11">Bog11</a>
 
 ## References
 
