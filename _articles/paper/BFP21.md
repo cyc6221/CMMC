@@ -1,10 +1,9 @@
 ---
 layout: page
 title: "The One-More Discrete Logarithm Assumption in the Generic Group Model"
-author1: "Mihir Bellare"
-author2: "Chanathip Namprempre"
-author3: "David Pointcheval"
-author4: "Michael Semanko"
+author1: "Balthazar Bauer"
+author2: "Georg Fuchsbauer"
+author3: "Antoine Plouviez"
 venue: "Journal of Cryptology, 2003"
 date: 2026-03-05
 last_updated: 2026-03-05
