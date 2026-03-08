@@ -70,10 +70,16 @@
 
 .page-submeta--citation {
   margin-top: 0.35rem;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.2rem;
   font-size: 0.98rem;
-  line-height: 1.7;
-  color: var(--text-muted, #666);
+  line-height: 1.6;
+}
+
+.page-submeta--meta {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 //////////////////////////////////////////////////
