@@ -17,51 +17,63 @@ layout: default
     {% assign update_time = page.last_updated %}
 
     {% if author1 or venue %}
-    <div class="page-submeta page-submeta--citation">
-      {% if author1 %}
-        <span>
-          {{ author1 }}
-          {% if author2 %}
-            {% if author3 or author4 or author5 %}
-              , {{ author2 }}
-            {% else %}
-              and {{ author2 }}
-            {% endif %}
-          {% endif %}
+      <div class="page-submeta page-submeta--citation">
 
-          {% if author3 %}
-            {% if author4 or author5 %}
-              , {{ author3 }}
-            {% else %}
-              and {{ author3 }}
+        <!-- author -->
+        {% if author1 %}
+          <span>
+            <svg viewBox="0 0 24 24" class="ico" aria-hidden="true">
+              <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5Z"/>
+            </svg>
+            {{ author1 }}
+            {% if author2 %}
+              {% if author3 or author4 or author5 %}
+                , {{ author2 }}
+              {% else %}
+                and {{ author2 }}
+              {% endif %}
             {% endif %}
-          {% endif %}
-
-          {% if author4 %}
+            {% if author3 %}
+              {% if author4 or author5 %}
+                , {{ author3 }}
+              {% else %}
+                and {{ author3 }}
+              {% endif %}
+            {% endif %}
+            {% if author4 %}
+              {% if author5 %}
+                , {{ author4 }}
+              {% else %}
+                and {{ author4 }}
+              {% endif %}
+            {% endif %}
             {% if author5 %}
-              , {{ author4 }}
-            {% else %}
-              and {{ author4 }}
+              and {{ author5 }}
             {% endif %}
-          {% endif %}
+          </span>
+        {% endif %}
 
-          {% if author5 %}
-            and {{ author5 }}
-          {% endif %}
+        {% if author1 and venue %}
+          <span class="meta-sep" aria-hidden="true">|</span>
+        {% endif %}
 
-          {% if venue %}.{% endif %}
-        </span>
-      {% endif %}
-
-      {% if venue %}
-        <span>{{ venue }}.</span>
-      {% endif %}
-    </div>
+        <!-- venue -->
+        {% if venue %}
+          <span>
+            <svg viewBox="0 0 24 24" class="ico" aria-hidden="true">
+              <path d="M6.5 4A2.5 2.5 0 0 0 4 6.5v11A2.5 2.5 0 0 0 6.5 20H20V6.5A2.5 2.5 0 0 0 17.5 4Zm0 2h11A.5.5 0 0 1 18 6.5V18H6.5a1.5 1.5 0 0 1 0-3H16v-2H6.5A3.45 3.45 0 0 0 6 13V6.5a.5.5 0 0 1 .5-.5Z"/>
+            </svg>
+            {{ venue }}
+          </span>
+        {% endif %}
+      </div>
     {% endif %}
 
+    
     {% if publish_time or update_time or page.tags %}
-      <div class="page-submeta">
+      <div class="page-submeta page-submeta--meta">
 
+        <!-- publish_time -->
         {% if publish_time %}
           <span class="meta-item">
             <span class="meta-ico" aria-hidden="true">
@@ -76,7 +88,8 @@ layout: default
         {% if (publish_time and update_time) or (publish_time and page.tags) %}
           <span class="meta-sep" aria-hidden="true">|</span>
         {% endif %}
-
+        
+        <!-- update_time -->
         {% if update_time %}
           <span class="meta-item">
             <span class="meta-ico" aria-hidden="true">
@@ -92,6 +105,7 @@ layout: default
           <span class="meta-sep" aria-hidden="true">|</span>
         {% endif %}
 
+        <!-- tags -->
         {% if page.tags %}
           <span class="meta-item meta-item--tags">
             <span class="meta-ico" aria-hidden="true">
