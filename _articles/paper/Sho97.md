@@ -2,7 +2,6 @@
 layout: page
 title: "Lower Bounds for Discrete Logarithms and Related Problems"
 author1: "Victor Shoup"
-authors: 
 venue: "EUROCRYPT 1997"
 date: 2026-03-05
 last_updated: 2026-03-05

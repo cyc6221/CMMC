@@ -2,7 +2,8 @@
 layout: page
 title: PRIMES is in P
 author1: "Manindra Agrawal"
-authors: "Neeraj Kayal, and Nitin Saxena"
+author2: "Neeraj Kayal"
+author3: "Nitin Saxena"
 venue: "Annals of Mathematics, 2004"
 date: 2026-03-02
 last_updated: 2026-03-08
