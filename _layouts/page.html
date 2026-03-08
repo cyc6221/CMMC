@@ -16,7 +16,7 @@ layout: default
     {% if author1 or authors or venue %}
       <div class="page-submeta page-submeta--citation">
         {% if author1 %}
-          <span>"{{ author1 }}"{% if authors %},{% elsif venue %}.{% endif %}</span>
+          <span>{{ author1 }}{% if authors %},{% elsif venue %}.{% endif %}</span>
         {% endif %}
 
         {% if authors %}
