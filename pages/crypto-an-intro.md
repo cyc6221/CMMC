@@ -5,6 +5,10 @@ permalink: /crypto-an-intro/
 toc: false
 ---
 
+## Chapter 8: Block Ciphers
+
+- [Block Cipher]({{ "/articles/CryptoAnIntro/block-cipher/" | relative_url }})
+
 ## Chapter 17: Attacks on Public Key Schemes
 
 - [Wiener's Attack]({{ "/articles/CryptoAnIntro/Wieners-attack/" | relative_url }})
