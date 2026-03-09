@@ -6,6 +6,12 @@ last_updated: 2026-03-01
 tags: [security-notions, public-key]
 ---
 
+這篇筆記整理 **public-key encryption** 的基本安全概念。
+
+內容先區分 **primitive、protocol、system** 三個層次，並以 **raw RSA、Hash、PRF、block cipher**、**RSA-OAEP、Diffie–Hellman key exchange、Schnorr signature**、**TLS/HTTPS、Signal、PKI** 等例子說明它們之間的關係。
+
+接著介紹幾個主要的安全定義，包括 **perfect security、semantic security、polynomial security**，以及它們和 **IND-CPA、IND-CCA1、IND-CCA2** 的關係；也會整理 **passive attack / CPA、CCA1、CCA2** 等攻擊模型。最後補充 **non-malleability** 與 **plaintext awareness**。
+
 ## Primitives, Protocols and Systems
 
 ### Primitives（密碼學原語）
@@ -117,6 +123,8 @@ $$
 攻擊者在看到密文之前，對明文可能已有一些先驗猜測；但在看到密文之後，他不應該能夠顯著改善這些猜測。也因此，semantic security 成為現代 encryption 安全分析中的核心標準之一，並與後來的 IND-CPA、IND-CCA 等安全定義有非常密切的關係。
 
 ### Polynomial Security
+
+to-do
 
 ## Notions of Attacks
 
