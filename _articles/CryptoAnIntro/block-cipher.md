@@ -34,27 +34,6 @@ $$
 - $d$: decryption function
 - $c$: ciphertext block
 
-## Block Cipher vs. Stream Cipher
-
-Block cipher 與 stream cipher 都屬於 symmetric encryption 的重要類型，但其工作方式不同。
-
-### Block cipher
-
-Block cipher 一次處理一個固定大小的 block。從抽象角度看，每次加密都是對一個明確長度的輸入做轉換，輸出同樣長度的密文區塊。
-
-### Stream cipher
-
-Stream cipher 則通常維持某種 internal state，並持續產生 keystream，再將 keystream 與 plaintext 結合以產生 ciphertext。它不是以固定 block 為基本單位，而是偏向連續式處理資料流。
-
-### Difference in Perspective
-
-常見的概念區分如下：
-
-- block cipher 著重於「固定大小 block 的變換」
-- stream cipher 著重於「依序產生 keystream 並逐步加密資料」
-
-在理論與實作上，兩者各有優勢，並不能簡單地說哪一種一定較好。
-
 ## Block Size
 
 Block cipher 的一個基本參數是 **block size**。它決定一次加密操作所處理的資料長度。
@@ -230,32 +209,36 @@ DES 與 Rijndael 之所以重要，不只是因為它們在實務上的地位，
 
 因此，modern block cipher 的安全性是**多輪結構與整體設計**共同作用的結果。
 
-## Block Cipher or Stream Cipher?
+## Block Cipher vs. Stream Cipher
 
-block cipher 與 stream cipher 哪一個較好，並沒有單一正確答案。兩者都有其用途與不同特性。
+Block cipher 與 stream cipher 都屬於 symmetric encryption 的重要類型，但其工作方式與適用情境有所不同。
 
-以下是一些常見的比較觀點。
+### Block Cipher
 
-### Block ciphers are more general
+Block cipher 一次處理一個固定大小的 block。從抽象角度看，每次加密都是對一個明確長度的輸入做轉換，並輸出同樣長度的 ciphertext block。因此，block cipher 的核心觀點是對**固定大小區塊的變換**。
 
-block cipher 通常被視為較 general 的 primitive，因為透過適當 mode，它可以在許多情境下被轉化為類似 stream cipher 的使用方式。
+### Stream Cipher
 
-### Stream ciphers often have a more mathematical structure
+Stream cipher 則通常維持某種 internal state，並持續產生 keystream，再將 keystream 與 plaintext 結合以產生 ciphertext。它不是以固定 block 為基本單位，而是偏向連續式處理資料流，因此其核心觀點是**依序產生 keystream 並逐步加密資料**。
 
-stream cipher 往往帶有較明顯的數學結構。這可能使它們在某些情況下更容易分析，也可能使某些攻擊更容易建立；但同時，這種結構性也可能有助於安全性研究與證明。
+### Comparison
 
-### Software and Hardware Considerations
+從理論與實作角度來看，兩者各有優勢，並不能簡單地說哪一種一定較好。常見的比較觀點包括：
 
-在某些傳統觀點下：
+- **Block ciphers are more general**  
+  block cipher 通常被視為較 general 的 primitive，因為透過適當的 mode of operation，它可以在許多情境下被轉化為類似 stream cipher 的使用方式。
 
-- stream ciphers 常逐 bit 或逐小單位處理資料，因此未必特別適合某些 software 環境
-- stream ciphers 往往在 hardware 上非常高效
-- block ciphers 通常同時適用於 hardware 與 software
-- 但在專用硬體中，block ciphers 的速度未必能勝過 stream ciphers
+- **Stream ciphers often have a more mathematical structure**  
+  stream cipher 往往帶有較明顯的數學結構。這種結構可能使它們在某些情況下更容易分析，也可能使某些攻擊更容易建立；但另一方面，它也可能有助於安全性研究與理論證明。
 
-### Hardware vs. Software
+- **Stream ciphers are often less suitable for some software settings, but very efficient in hardware**  
+  stream ciphers 常以逐 bit 或逐小單位的方式處理資料，因此在某些 software 環境下未必特別方便；但在 hardware 上，它們往往能夠達到很高的效率。
 
-專用硬體通常具有更高效能，但彈性較差；軟體實作則較容易更新、部署與修改。這些工程層面的考量，也會影響實際系統是選擇 block cipher 還是 stream cipher。
+- **Block ciphers suit both hardware and software**  
+  block ciphers 通常同時適用於 hardware 與 software，不過在專用硬體中，其速度未必總能勝過 stream ciphers。
+
+- **Hardware is faster but less flexible than software**  
+  hardware 實作通常具有較高效能，但彈性較差；software 實作則較容易更新、部署與修改。因此，實際系統究竟選擇 block cipher 還是 stream cipher，除了理論安全性之外，也會受到工程需求與應用場景的影響。
 
 ## Summary
 
