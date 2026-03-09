@@ -26,6 +26,7 @@ toc: false
 ## To Read
 
 - Steven Galbraith. [Mathematics of Public Key Cryptography](https://www.math.auckland.ac.nz/~sgal018/crypto-book/main.pdf)
+  - [ch22: Digital Signatures Based on Discrete Logarithms](https://www.math.auckland.ac.nz/~sgal018/crypto-book/ch22.pdf)
 
 ---
 
