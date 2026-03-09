@@ -27,7 +27,7 @@ $$
 也就是說，對每一個固定的 key $k$，加密與解密應形成一對互逆的轉換。因此，對固定的 key 而言，block cipher 可以視為定義在固定長度 block 空間上的一個可逆轉換。
 
 <div class="remark">
-  <p><b>Notation.</b> Let
+  <p><b>Notation.</b> Let</p>
   <ul>
     <li>$m$ denote the plaintext block</li>
     <li>$k$ denote the secret key</li>
