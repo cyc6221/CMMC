@@ -54,7 +54,7 @@ perfect security 要求即使攻擊者擁有無限計算能力，也無法從密
 
 <div class="remark" style="border-left: 4px solid #2563eb; background: #eff6ff; padding: 12px 14px; border-radius: 8px; margin: 14px 0; line-height: 1.75;">
 
-為了形式化這個概念，可以假設攻擊者想知道的不是整個 plaintext，而只是 plaintext 的某個 **1-bit property**。也就是存在一個函數
+為了形式化這個概念，可以假設攻擊者想知道的不是整個 plaintext，而只是 plaintext 的某個 <b>1-bit property</b>。也就是存在一個函數
 
 $$
 g : M \to \{0,1\},
@@ -98,7 +98,7 @@ $$
 \right|.
 $$
 
-這個量衡量的就是：**攻擊者比隨機猜測多厲害多少**。  
+這個量衡量的就是：<b>攻擊者比隨機猜測多厲害多少</b>。  
 若密文完全沒有洩漏資訊，則攻擊者看到密文後仍然只能像丟硬幣一樣猜測，此時成功率接近 \(\tfrac12\)，因此 advantage 接近 0。反過來說，若密文真的洩漏了某些資訊，使得攻擊者能把成功率提升到 \(0.6\)、\(0.7\) 甚至更高，那麼 advantage 就會明顯大於 0。
 
 最後，一個 encryption scheme 被稱為 semantically secure，如果對所有 polynomial-time adversaries \(S\)、所有這類函數 \(g\)、以及所有 polynomial \(p(k)\)，當 security parameter \(k\) 夠大時，都有
@@ -107,7 +107,7 @@ $$
 \mathrm{Adv}_S \le \frac{1}{p(k)}.
 $$
 
-這表示攻擊者即使真的能從密文得到一點點額外幫助，那個幫助也必須小到可以忽略，也就是 **negligible in the security parameter**。因此，semantic security 的本質可以概括為：
+這表示攻擊者即使真的能從密文得到一點點額外幫助，那個幫助也必須小到可以忽略，也就是 <b>negligible in the security parameter</b>。因此，semantic security 的本質可以概括為：
 
 > 對任何有效率的攻擊者而言，ciphertext 不應該幫助他計算出 plaintext 的任何有意義資訊。
 
