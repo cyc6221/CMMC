@@ -47,6 +47,75 @@ tags: [security-notions, public-key]
 
 ### Semantic Security
 
+Semantic security（語意安全性）是 public-key encryption 中最重要的安全概念之一。其直覺是：**看到 ciphertext 不應該幫助攻擊者額外得知任何關於 plaintext 的有用資訊**。換句話說，若某個人原本只能依靠先驗知識去猜測訊息內容，那麼即使再把密文交給他，他也不應該因此顯著提高猜中的能力。
+
+Semantic security 可以視為 **computational version of perfect security**。  
+perfect security 要求即使攻擊者擁有無限計算能力，也無法從密文獲得任何資訊；而 semantic security 則只要求這件事對 **polynomial-time adversaries** 成立，因此是現代密碼學中更實際的安全目標。
+
+<div class="remark" style="border-left: 4px solid #2563eb; background: #eff6ff; padding: 12px 14px; border-radius: 8px; margin: 14px 0; line-height: 1.75;">
+
+為了形式化這個概念，可以假設攻擊者想知道的不是整個 plaintext，而只是 plaintext 的某個 **1-bit property**。也就是存在一個函數
+
+$$
+g : M \to \{0,1\},
+$$
+
+其中 \(M\) 是 message space，而 \(g(m)\) 表示明文 \(m\) 的某個性質。例如，\(g(m)\) 可以代表「這則訊息是否屬於某種類型」、「第一個 bit 是否為 1」等等。也就是說，攻擊者的任務被簡化成：嘗試根據密文去判斷這一個 bit。
+
+通常再假設
+
+$$
+\Pr(g(m)=1)=\Pr(g(m)=0)=\frac{1}{2},
+$$
+
+也就是 \(g(m)\) 在整個 message distribution 上是均勻的。這個條件的作用，是避免攻擊問題變得 trivial。因為如果 \(g(m)=1\) 本來就以極高機率成立，那麼攻擊者即使不看密文，也可以一直猜 1 而取得很高成功率；如此一來，就無法真正衡量密文是否洩漏資訊。
+
+接著，把攻擊者建模成一個演算法 \(S\)。它的輸入是 public key \(y\) 與 ciphertext \(c\)，其中 \(c\) 是在 public key \(y\) 下加密得到的密文。演算法 \(S\) 的輸出是一個 bit，代表它對 \(g(m)\) 的猜測。若令 \(x\) 為與 \(y\) 對應的 private key，則
+
+$$
+d_x(c)
+$$
+
+表示用私鑰 \(x\) 對密文 \(c\) 解密後得到的 plaintext。因此真正正確的答案是
+
+$$
+g(d_x(c)).
+$$
+
+於是攻擊者的成功機率可以寫成
+
+$$
+\Pr\big(S(c,y)=g(d_x(c))\big).
+$$
+
+由於在完全看不到密文的情況下，攻擊者頂多只能亂猜，因此 baseline success probability 是 \(\tfrac12\)。所以文中定義 adversary \(S\) 的 advantage 為
+
+$$
+\mathrm{Adv}_S
+=
+\left|
+\Pr\big(S(c,y)=g(d_x(c))\big)-\frac12
+\right|.
+$$
+
+這個量衡量的就是：**攻擊者比隨機猜測多厲害多少**。  
+若密文完全沒有洩漏資訊，則攻擊者看到密文後仍然只能像丟硬幣一樣猜測，此時成功率接近 \(\tfrac12\)，因此 advantage 接近 0。反過來說，若密文真的洩漏了某些資訊，使得攻擊者能把成功率提升到 \(0.6\)、\(0.7\) 甚至更高，那麼 advantage 就會明顯大於 0。
+
+最後，一個 encryption scheme 被稱為 semantically secure，如果對所有 polynomial-time adversaries \(S\)、所有這類函數 \(g\)、以及所有 polynomial \(p(k)\)，當 security parameter \(k\) 夠大時，都有
+
+$$
+\mathrm{Adv}_S \le \frac{1}{p(k)}.
+$$
+
+這表示攻擊者即使真的能從密文得到一點點額外幫助，那個幫助也必須小到可以忽略，也就是 **negligible in the security parameter**。因此，semantic security 的本質可以概括為：
+
+> 對任何有效率的攻擊者而言，ciphertext 不應該幫助他計算出 plaintext 的任何有意義資訊。
+
+</div>
+
+從更直覺的角度看，semantic security 的意思是：  
+攻擊者在看到密文之前，對明文可能已有一些先驗猜測；但在看到密文之後，他不應該能夠顯著改善這些猜測。也因此，semantic security 成為現代 encryption 安全分析中的核心標準之一，並與後來的 IND-CPA、IND-CCA 等安全定義有非常密切的關係。
+
 ### Polynomial Security
 
 ## Notions of Attacks
