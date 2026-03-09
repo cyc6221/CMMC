@@ -26,7 +26,7 @@ toc: false
 
 ## Chapter 18: Definitions of Security
 
-- [Security of Encryption]({{ "/articles/CryptoAnIntro/security-of-encryption/" | relative_url }}) <span class="lab-status">Todo</span>
+- [Security of Encryption]({{ "/articles/CryptoAnIntro/security-of-encryption/" | relative_url }})
 - [Security of RSA]({{ "/articles/CryptoAnIntro/security-of-RSA/" | relative_url }}) <span class="lab-status">Todo</span>
 - [Security of ElGamal]({{ "/articles/CryptoAnIntro/security-of-ElGamal/" | relative_url }}) <span class="lab-status">Todo</span>
 - Semantically Secure System
