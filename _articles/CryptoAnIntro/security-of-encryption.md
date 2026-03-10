@@ -124,7 +124,60 @@ $$
 
 ### Polynomial Security
 
-to-do
+Semantic Security 的定義相當自然，但通常不容易直接證明某個加密系統是否滿足它。因此，密碼學中常改用一個更容易操作的相關概念，稱為 **Polynomial Security**，也稱為 **Indistinguishability of Encryptions**。
+
+可以證明：若一個加密系統具有 Polynomial Security，則它也具有 Semantic Security。
+
+因此在實務上，若要證明一個系統是 semantically secure，通常先證明它是 polynomially secure 即可。
+
+一個系統若具有 indistinguishable encryptions，也就是具有 polynomial security，表示沒有任何 adversary 能在下列遊戲中，以顯著高於 \(1/2\) 的機率獲勝。
+
+給定某個 public key \(y\) 所對應的 public-key encryption function \(f_y\)，adversary \(A\) 分成兩個階段進行：
+
+- **Find**：adversary 輸出兩個長度相同的 plaintext $m_0, m_1$
+
+- **Guess**：系統從 \(\{0,1\}\) 中秘密選出一個 hidden bit \(b\)，並將其中一個 plaintext \(m_b\) 的加密結果 \(c_b\) 提供給 adversary。adversary 的目標是輸出對 \(b\) 的猜測。
+
+在這個遊戲中，adversary 的任務是區分它收到的 ciphertext 究竟是 \(m_0\) 的加密，還是 \(m_1\) 的加密。
+
+這個定義直接說明：若一個 public-key encryption scheme 想要滿足 polynomial security，則它必須是 **probabilistic** 的。
+
+若加密演算法是 deterministic 的，則在 Guess 階段中，adversary 可以自行計算
+
+$$
+c_1 = f_y(m_1)
+$$
+
+並檢查 \(c_1\) 是否等於收到的 \(c_b\)。
+
+- 若 \(c_1 = c_b\)，則可判定 \(b=1\)
+- 否則可判定 \(b=0\)
+
+因此 deterministic public-key encryption 不可能滿足 polynomial security。
+
+adversary \(A\) 的 advantage 定義為
+
+$$
+\operatorname{Adv}_A
+=
+\left \vert
+\Pr\big(A(\text{guess}, c_b, y, m_0, m_1)=b\big)-\frac{1}{2}
+\right \vert
+$$
+
+式中的 \(\frac{1}{2}\) 表示 adversary 在完全沒有資訊時隨機猜測 hidden bit \(b\) 的成功率。因此，\(\operatorname{Adv}_A\) 衡量的是 adversary 相較於隨機猜測所多出的優勢。
+
+若對所有 adversary \(A\)、所有 polynomial \(p\)，以及所有充分大的 security parameter \(k\)，皆有
+
+$$
+\operatorname{Adv}_A \le \frac{1}{p(k)}
+$$
+
+則此 encryption scheme 稱為 **polynomially secure**。
+
+這表示當 security parameter \(k\) 增加時，任何 polynomial-time adversary 所能取得的額外優勢都會變得極小，小到可視為 **negligible**。
+
+Polynomial Security 的核心意義在於：即使 adversary 自行選擇兩個候選 plaintext，它在看到 challenge ciphertext 之後，仍然無法有效分辨實際被加密的是哪一個。這也是 Polynomial Security 可作為 Semantic Security 的可操作形式的原因。
 
 ## Notions of Attacks
 
