@@ -35,7 +35,13 @@
     btn.className = "page-toc__toggle";
     btn.setAttribute("aria-expanded", "false");
     btn.setAttribute("aria-label", "Toggle subsection");
-    btn.innerHTML = '<span class="tri">▸</span>';
+    btn.innerHTML = `
+      <span class="tri" aria-hidden="true">
+        <svg viewBox="0 0 20 20" class="tri-icon" focusable="false">
+          <path d="M7 4.5L14 10L7 15.5Z"></path>
+        </svg>
+      </span>
+    `;
 
     const a = document.createElement("a");
     a.className = "page-toc__link";
