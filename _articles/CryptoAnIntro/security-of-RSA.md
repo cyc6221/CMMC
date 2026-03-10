@@ -180,3 +180,61 @@ $$
 所以 Eve 雖然不能直接要求 oracle 解密原始 ciphertext $c$，卻可以透過一個不同但相關的 ciphertext $c'$，有效恢復 $m$。這表示 raw RSA 無法抵抗 chosen-ciphertext attack，因此不是 CCA2 secure。
 
 </div>
+
+---
+
+## Definition of Textbook RSA
+
+**Textbook RSA** 是指最原始、最直接的 RSA 形式。給定兩個大質數 $p,q$，令
+
+$$
+n=pq,\qquad \varphi(n)=(p-1)(q-1).
+$$
+
+選擇滿足
+
+$$
+\gcd(e,\varphi(n))=1
+$$
+
+的整數 $e$，再取 $d$ 使得
+
+$$
+ed \equiv 1 \pmod{\varphi(n)}.
+$$
+
+此時 $(e,n)$ 為 public key，$(d,n)$ 為 private key。對於訊息 $m \in \mathbb{Z}_n$，其 encryption 與 decryption 定義為
+
+$$
+c \equiv m^e \pmod n,
+\qquad
+m \equiv c^d \pmod n.
+$$
+
+在這種形式下，RSA 直接以 modular exponentiation 定義 encryption 與 decryption，**不加入任何 padding 或 randomization**。因此，**textbook RSA** 通常就是指 **RSA used without padding**；在許多情境中，它也常被稱為 **raw RSA** 或 **plain RSA**。
+
+Textbook RSA 具有一些不理想的性質。首先，它是 **deterministic** 的：相同的 plaintext 會得到相同的 ciphertext，因此無法達到 **semantic security**。例如，若攻擊者想區分兩個候選訊息，只要自行加密後比對 ciphertext，即可直接判斷。其次，它具有 **malleability**。若
+
+$$
+c \equiv m^e \pmod n,
+$$
+
+則攻擊者可構造
+
+$$
+c' \equiv c \cdot 2^e \pmod n,
+$$
+
+使得解密結果變成
+
+$$
+m' \equiv 2m \pmod n.
+$$
+
+也就是說，攻擊者雖然未必知道 $m$，卻可以對 ciphertext 做出可預測的變形。
+
+因此，textbook RSA 只適合作為 RSA 基本數學結構的描述，而不適合作為現代安全意義下的 public-key encryption scheme。實際部署的 RSA 通常會加入 **padding**，並搭配其他實作層面的保護，例如使用 **CRT** 加速 decryption、選擇固定的公開指數 $e=65537$，以及加入 side-channel mitigations。
+
+### Reference
+
+- [Definition of textbook RSA — Cryptography Stack Exchange](https://crypto.stackexchange.com/questions/1448/definition-of-textbook-rsa)
