@@ -31,3 +31,15 @@ toc: false
 - [Security of ElGamal]({{ "/articles/CryptoAnIntro/security-of-ElGamal/" | relative_url }}) <span class="lab-status">Todo</span>
 - Semantically Secure System
 - Security of Signatures
+
+## Chapter 19: Complexity Theoretic Approaches
+
+### Polynomial Complexity Classes
+
+### Knapsack-Based Cryptosystems
+
+### Bit Security
+
+### Random Self-Reductions
+
+### Randomized Algorithms
