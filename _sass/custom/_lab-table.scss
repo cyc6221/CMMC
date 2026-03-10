@@ -1,4 +1,13 @@
-/* Lab table (CSS grid) */
+/*
+  Usage / 備註：
+  - 使用於：
+    - pages/PortSwigger-all-labs.md
+    - pages/CryptoHack-all-problems.md
+    - 其他以 <ul class="lab-table"> 結構列出 labs 或題目清單的頁面
+  - 功能：以 CSS Grid 呈現三欄（level / title / status）並提供基本的行間分隔與樣式
+*/
+
+/* — Container: .lab-table（外層 list, 邊框與圓角） */
 .lab-table{
   list-style: none;
   padding-left: 0;
@@ -8,6 +17,7 @@
   overflow: hidden;
 }
 
+/* — Row: .lab-row（每列的 grid 定義，含 padding、分隔線） */
 .lab-row{
   display: grid;
   grid-template-columns: 120px 1fr 90px; /* level / lab / solved */
@@ -19,6 +29,7 @@
 
 .lab-row:first-child{ border-top: none; }
 
+/* — Link: 使內部連結無底線，hover 時顯示 underline */
 .lab-row a{
   text-decoration: none;
 }
@@ -27,6 +38,7 @@
   text-decoration: underline;
 }
 
+/* — Level cell: .lab-row .level（水平置中） */
 .lab-row .level{
   justify-self: center;   /* 讓 level 這格水平置中 */
 }
