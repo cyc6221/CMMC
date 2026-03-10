@@ -1,3 +1,13 @@
+/*
+  Usage / 備註：
+  - 用途：頁面側邊 TOC（table of contents）樣式
+  - 使用位置：
+    - _layouts/page.html  (aside.page-toc / #page-toc)
+    - assets/js/page-toc.js（動態產生 .page-toc__list / .page-toc__item / .page-toc__toggle / .page-toc__link 等元素）
+    - 在任何具有 `layout: page` 且 `toc` 未設為 false 的頁面會啟用（body.has-toc）
+*/
+
+/* — Lists: .page-toc__list, .page-toc__sublist（無序列表樣式） */
 .page-toc__list,
 .page-toc__sublist {
   list-style: none;
@@ -5,10 +15,12 @@
   padding: 0;
 }
 
+/* — Item: .page-toc__item（每個 TOC 條目的間距） */
 .page-toc__item {
   margin: 0 0 .35rem 0;
 }
 
+/* — Toggle: .page-toc__toggle（展開子項的按鈕樣式） */
 .page-toc__toggle {
   appearance: none;
   border: 0;
@@ -21,15 +33,18 @@
   vertical-align: middle;
 }
 
+/* — Toggle icon: .page-toc__toggle .tri（旋轉三角符號） */
 .page-toc__toggle .tri {
   display: inline-block;
   transition: transform .18s ease;
 }
 
+/* — Expanded state: .page-toc__item.is-expanded > .page-toc__toggle .tri */
 .page-toc__item.is-expanded > .page-toc__toggle .tri {
   transform: rotate(90deg);
 }
 
+/* — Links: .page-toc__link / .page-toc__sublink（主連結與子連結樣式） */
 .page-toc__link,
 .page-toc__sublink {
   text-decoration: none;
@@ -39,6 +54,7 @@
   font-weight: 600;
 }
 
+/* — Sublist: .page-toc__sublist（子清單縮排與左側邊線） */
 .page-toc__sublist {
   margin-top: .35rem;
   margin-left: 1.2rem;
@@ -46,15 +62,12 @@
   border-left: 1px solid rgba(128, 128, 128, 0.2);
 }
 
+/* — Subitem: .page-toc__subitem（子項間距） */
 .page-toc__subitem {
   margin: .2rem 0;
 }
 
-.page-toc__sublink {
-  font-size: .95em;
-  opacity: .9;
-}
-
+/* — Active state: .page-toc__link.is-active / .page-toc__sublink.is-active（目前章節強調） */
 .page-toc__link.is-active,
 .page-toc__sublink.is-active {
   color: var(--link-color, #2563eb);
