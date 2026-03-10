@@ -1,4 +1,13 @@
-/* Chapter strip (1~26) */
+/*
+  Usage / 備註：
+  - 使用於：
+    - _includes/about/PortSwigger.html  -> chap-strip 列出多個 learning paths（使用 chap-pill）
+    - _includes/about/CryptoHack.html   -> chap-strip（learning paths）
+    - _includes/about/CryptoAnIntro.html-> chap-strip（章節編號 1~26）
+    - pages/about.md                    -> 透過 include 顯示在 About 頁面（section.now-grid）
+*/
+
+/* — List: chap-strip 容器（數字方塊或文字 pills 的外層） */
 .chap-strip{
   display: flex;
   flex-wrap: wrap;
@@ -20,6 +29,7 @@
   user-select: none;
 }
 
+/* — Block: chap（數字方塊）樣式 */
 .chap.done{
   border-color: rgba(0,0,0,.12);
   background: rgba(34,197,94,.16);  /* green-ish */
@@ -32,10 +42,12 @@
   color: rgba(0,0,0,.8);
 }
 
+/* — State variants: done / reading（數字方塊的狀態樣式） */
 .chap:hover{
   transform: translateY(-1px);
 }
 
+/* — Hint: chap-hint（說明列，顯示小圓點 legend） */
 .chap-hint{
   margin: 10px 0 0;
   font-size: 12px;
@@ -46,6 +58,7 @@
   flex-wrap: wrap;
 }
 
+/* — Dot: chap-dot（小圓點，用於 legend，含 done/reading/todo 變體） */
 .chap-dot{
   width: 10px;
   height: 10px;
@@ -63,7 +76,7 @@
 
 /* ---------- */
 
-/* Make chap-strip usable for both number blocks and text pills */
+/* — Responsive / Alternate usage: 讓 chap-strip 也可用於文字 pills */
 .chap-strip{
   display:flex;
   flex-wrap:wrap;
@@ -72,7 +85,7 @@
   align-items: center;
 }
 
-/* Text pills (PortSwigger learning paths) */
+/* — Pill: chap-pill（文字形式的章節/learning-path 樣式） */
 .chap-pill{
   display: inline-flex;
   align-items: center;
@@ -92,7 +105,7 @@
   text-overflow: ellipsis;
 }
 
-/* states */
+/* — Pill states: chap-pill.done / chap-pill.reading */
 .chap-pill.done{
   background: rgba(34,197,94,.16);
 }
