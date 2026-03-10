@@ -1,4 +1,13 @@
-/* Difficulty badges */
+/*
+  Usage / 備註：
+  - 使用於範例頁面：
+    - pages/PortSwigger-all-labs.md         -> lab tables 使用 .level / .lab-status
+    - pages/CryptoHack-all-problems.md     -> 顯示解題狀態（.lab-status）
+    - pages/crypto-an-intro.md             -> 列表中旁註使用 .lab-status
+  - 其他：在多處手動列表與 lab-table（_includes / pages）均有使用 .level 與 .lab-status
+*/
+
+/* — Base level: 共用徽章基底（顏色/圓角/字重） */
 .level{
   display: inline-flex;
   align-items: center;
@@ -15,19 +24,19 @@
   white-space: nowrap;
 }
 
-/* Green */
+/* — Variant: Apprentice (綠色，初級) */
 .level--apprentice{
   color: #16a34a;
   background: rgba(22, 163, 74, .10);
 }
 
-/* Blue */
+/* — Variant: Practitioner (藍色，中級) */
 .level--practitioner{
   color: #2563eb;
   background: rgba(37, 99, 235, .10);
 }
 
-/* Purple */
+/* — Variant: Expert (紫色，高級) */
 .level--expert{
   color: #7c3aed;
   background: rgba(124, 58, 237, .10);
@@ -35,7 +44,7 @@
 
 /* ---------- */
 
-/* Solved badge */
+/* — Lab status: 未解/已解 樣式（列表右側的狀態徽章） */
 .lab-status{
   justify-self: end;
   font-size: 12px;
@@ -48,6 +57,7 @@
   white-space: nowrap;
 }
 
+/* — Lab status: solved state（已解） */
 .lab-status.is-solved{
   border-color: rgba(22, 163, 74, .45);
   color: #16a34a;
