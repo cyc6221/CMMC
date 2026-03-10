@@ -1,0 +1,62 @@
+.page-toc__list,
+.page-toc__sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-toc__item {
+  margin: 0 0 .35rem 0;
+}
+
+.page-toc__toggle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin-right: .35rem;
+  font-size: .9rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.page-toc__toggle .tri {
+  display: inline-block;
+  transition: transform .18s ease;
+}
+
+.page-toc__item.is-expanded > .page-toc__toggle .tri {
+  transform: rotate(90deg);
+}
+
+.page-toc__link,
+.page-toc__sublink {
+  text-decoration: none;
+}
+
+.page-toc__link {
+  font-weight: 600;
+}
+
+.page-toc__sublist {
+  margin-top: .35rem;
+  margin-left: 1.2rem;
+  padding-left: .4rem;
+  border-left: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.page-toc__subitem {
+  margin: .2rem 0;
+}
+
+.page-toc__sublink {
+  font-size: .95em;
+  opacity: .9;
+}
+
+.page-toc__link.is-active,
+.page-toc__sublink.is-active {
+  color: var(--link-color, #2563eb);
+  font-weight: 700;
+}
