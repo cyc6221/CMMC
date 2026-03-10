@@ -20,11 +20,7 @@ $$
 (N_i, e_i), \quad i=1,2,3,
 $$
 
-且都使用相同的 encryption exponent
-
-$$
-e_i = 3.
-$$
+且都使用相同的 encryption exponent $e_i = 3.$
 
 若 sender 將同一個 message $m$ 傳給三位接收者，則得到
 
@@ -110,17 +106,13 @@ $$
 m < \min_i N_i < N^{1/k} < N^{1/e},
 $$
 
-且
-
-$$
-k > e,
-$$
-
-則 $m$ 落在 small-root method 可處理的範圍內，因此可以 recover $m$。
+且 $k > e$ 時，則 $m$ 落在 small-root method 可處理的範圍內，因此可以 recover $m$。
 
 <div class="remark">
 
-Håstad’s Attack 常被稱為 **broadcast attack**。最基本的版本處理完全相同 message 的廣播情形；更一般的版本則處理帶有固定且可預測格式的訊息。兩者的核心都是利用 ciphertext 之間的 algebraic relation 來 recover plaintext。
+Håstad’s Attack 常被稱為 <b>broadcast attack</b>。
+
+最基本的版本處理完全相同 message 的廣播情形；更一般的版本則處理帶有固定且可預測格式的訊息。兩者的核心都是利用 ciphertext 之間的 algebraic relation 來 recover plaintext。
 
 </div>
 
