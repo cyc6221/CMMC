@@ -2,7 +2,7 @@
 layout: page
 title: Security of Encryption
 date: 2026-02-11
-last_updated: 2026-03-01
+last_updated: 2026-03-10
 tags: [security-notions, public-key]
 ---
 
@@ -10,19 +10,7 @@ tags: [security-notions, public-key]
 
 內容先簡要區分 primitive、protocol、system 三個層次，說明 encryption scheme 在整體密碼系統中的位置；接著介紹幾個核心安全定義，包括 perfect security、semantic security、indistinguishability of encryptions，以及它們和 IND-CPA、IND-CCA1、IND-CCA2 的關係。最後補充 non-malleability 與 plaintext awareness 這兩個常見但較進階的概念。
 
-## Quick Links
-
-- [Primitives](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#primitives)
-- [Protocols](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#protocols)
-- [Systems](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#systems)
-- [Perfect Security](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#perfect-security)
-- [Semantic Security](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#semantic-security)
-- [Polynomial Security](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#polynomial-security)
-- [Passive Attack / CPA](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#passive-attack--chosen-plaintext-attack-cpa)
-- [CCA1](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#chosen-ciphertext-attack-cca1)
-- [CCA2](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#adaptive-chosen-ciphertext-attack-cca2)
-- [Non-Malleability](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#non-malleability)
-- [Plaintext Awareness](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#plaintext-awareness)
+In This Note: [Primitives](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#primitives) · [Protocols](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#protocols) · [Systems](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#systems) · [Perfect Security](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#perfect-security) · [Semantic Security](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#semantic-security) · [Polynomial Security](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#polynomial-security) · [Passive Attack / CPA](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#passive-attack--chosen-plaintext-attack-cpa) · [CCA1](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#chosen-ciphertext-attack-cca1) · [CCA2](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#adaptive-chosen-ciphertext-attack-cca2) · [Non-Malleability](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#non-malleability) · [Plaintext Awareness](https://cyc6221.github.io/CMMC/articles/CryptoAnIntro/security-of-encryption/#plaintext-awareness)
 
 ## Primitives, Protocols and Systems
 
