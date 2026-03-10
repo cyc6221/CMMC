@@ -1,8 +1,18 @@
+/*
+用途 / 使用位置:
+- JavaScript 控制/監聽: assets/js/chapters-toggle.js
+- 應用於任何使用 "details.chap-toggle" 的 markup（通常出現在章節列表或目錄 include）
+
+說明:
+- 提供可折疊章節（details + summary）的樣式：左側為連結、右側為切換按鈕，並處理內層清單的縮排與間距。
+*/
+
+/* Container: 外層 details 的間距 */
 details.chap-toggle {
   margin: 0.25rem 0 0.75rem 0;
 }
 
-/* summary：左連結 + 右按鈕 */
+/* Summary row: 左側連結 + 右按鈕 的 Flex 佈局 */
 details.chap-toggle > summary.chap-toggle__summary {
   list-style: none;
   display: flex;
@@ -12,17 +22,17 @@ details.chap-toggle > summary.chap-toggle__summary {
   padding: 6px 0;
 }
 
-/* 移除瀏覽器預設 marker */
+/* 移除瀏覽器內建的 details marker（只影響 WebKit） */
 details.chap-toggle > summary::-webkit-details-marker {
   display: none;
 }
 
-/* 左邊章節連結樣式 */
+/* Link: 左側章節連結基礎樣式 */
 details.chap-toggle .chap-toggle__link {
   text-decoration: none;
 }
 
-/* 右邊三角按鈕 */
+/* Toggle button: 右側按鈕基礎互動樣式 */
 details.chap-toggle .chap-toggle__btn {
   appearance: none;
   border: none;
@@ -35,28 +45,30 @@ details.chap-toggle .chap-toggle__btn {
   transition: background 0.15s ease, opacity 0.15s ease;
 }
 
-/* 按鈕顯示三角形（關） */
+/* Button icon (closed): 使用 ::before 顯示三角形符號（關閉狀態） */
 details.chap-toggle .chap-toggle__btn::before {
   content: "▸";
   font-size: 32px;      /* 三角形大小 */
 }
 
-/* 展開狀態（三角往下） */
+/* Open state: 展開時顯示向下三角 */
 details.chap-toggle[open] .chap-toggle__btn::before {
   content: "▾";
 }
 
-/* hover */
+/* Hover state: 按鈕 hover 的背景與不透明度 */
 details.chap-toggle .chap-toggle__btn:hover {
   background: rgba(0, 0, 0, 0.08);
   opacity: 1;
 }
 
-/* 內層清單 */
+/* Nested list: 內層清單的縮排與上方間距 */
 details.chap-toggle .chap-toggle__list {
   margin: 6px 0 0 0;
   padding-left: 24px;
 }
+
+/* Nested list items: 每個項目的垂直間距 */
 details.chap-toggle .chap-toggle__list li {
   margin: 12px 0;
 }
