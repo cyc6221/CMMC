@@ -21,3 +21,7 @@ tags: [RSA, partial-key-exposure]
 ## Partial Exposure of the LSBs of the RSA Decryption Exponent
 
 [Partial Exposure of the LSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/LSBs-of-the-RSA-decryption-exponent/" | relative_url }})
+
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 17. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)

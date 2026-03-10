@@ -142,3 +142,7 @@ $$
 即使能「trivially」恢復 $d$ 的一部分 MSBs，目前仍沒有已知方法能僅憑這些 MSBs 進一步恢復 $d$ 的其餘 bits，從而完整還原 private key。
 
 </div>
+
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 17. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)

@@ -235,6 +235,8 @@ $$
 
 因此，textbook RSA 只適合作為 RSA 基本數學結構的描述，而不適合作為現代安全意義下的 public-key encryption scheme。實際部署的 RSA 通常會加入 **padding**，並搭配其他實作層面的保護，例如使用 **CRT** 加速 decryption、選擇固定的公開指數 $e=65537$，以及加入 side-channel mitigations。
 
-### Reference
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 18. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
 
 - [Definition of textbook RSA — Cryptography Stack Exchange](https://crypto.stackexchange.com/questions/1448/definition-of-textbook-rsa)
