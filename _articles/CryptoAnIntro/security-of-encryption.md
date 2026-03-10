@@ -53,78 +53,57 @@ tags: [security-notions, public-key]
 
 ### Semantic Security
 
-Semantic security（語意安全性）是 public-key encryption 中最重要的安全概念之一。其直覺是：**看到 ciphertext 不應該幫助攻擊者額外得知任何關於 plaintext 的有用資訊**。換句話說，若某個人原本只能依靠先驗知識去猜測訊息內容，那麼即使再把密文交給他，他也不應該因此顯著提高猜中的能力。
+Semantic security（語意安全性）是公鑰加密中最核心的概念之一。直觀上它要求：看到 ciphertext 不應該讓一個有效率的攻擊者顯著提高對 plaintext 的任何有用猜測能力。換句話說，對於多項式時間的攻擊者而言，ciphertext 應該不會提供超出先驗知識的實質資訊。
 
-Semantic security 可以視為 **computational version of perfect security**。  
-perfect security 要求即使攻擊者擁有無限計算能力，也無法從密文獲得任何資訊；而 semantic security 則只要求這件事對 **polynomial-time adversaries** 成立，因此是現代密碼學中更實際的安全目標。
-
-<div class="remark" style="border-left: 4px solid #2563eb; background: #eff6ff; padding: 12px 14px; border-radius: 8px; margin: 14px 0; line-height: 1.75;">
-
-為了形式化這個概念，可以假設攻擊者想知道的不是整個 plaintext，而只是 plaintext 的某個 <b>1-bit property</b>。也就是存在一個函數
+為了形式化，可以把攻擊者要猜的內容簡化為 plaintext 的一個 1-bit property：存在函數
 
 $$
-g : M \to \{0,1\},
+ g:M\to\{0,1\},
 $$
 
-其中 $M$ 是 message space，而 $g(m)$ 表示明文 $m$ 的某個性質。例如，$g(m)$ 可以代表「這則訊息是否屬於某種類型」、「第一個 bit 是否為 1」等等。也就是說，攻擊者的任務被簡化成：嘗試根據密文去判斷這一個 bit。
+其中 $M$ 為 message space，而攻擊者是一個演算法 $S$，它的輸入為 public key $y$ 與 ciphertext $c$，輸出一個 bit 作為對 $g(m)$ 的猜測。令 $x$ 為對應的 private key，$d_x(c)$ 表示解密後的明文；則正確答案為 $g(d_x(c))$。
 
-通常再假設
-
-$$
-\Pr(g(m)=1)=\Pr(g(m)=0)=\frac{1}{2},
-$$
-
-也就是 $g(m)$ 在整個 message distribution 上是均勻的。這個條件的作用，是避免攻擊問題變得 trivial。因為如果 $g(m)=1$ 本來就以極高機率成立，那麼攻擊者即使不看密文，也可以一直猜 1 而取得很高成功率；如此一來，就無法真正衡量密文是否洩漏資訊。
-
-接著，把攻擊者建模成一個演算法 $S$。它的輸入是 public key $y$ 與 ciphertext $c$，其中 $c$ 是在 public key $y$ 下加密得到的密文。演算法 $S$ 的輸出是一個 bit，代表它對 $g(m)$ 的猜測。若令 $x$ 為與 $y$ 對應的 private key，則
+攻擊者的成功機率可寫為
 
 $$
-d_x(c)
+\Pr\big(S(c,y)=g(d_x(c))\big),
 $$
 
-表示用私鑰 $x$ 對密文 $c$ 解密後得到的 plaintext。因此真正正確的答案是
+baseline 為隨機猜測的 $\tfrac12$，因此定義 advantage 為
 
 $$
-g(d_x(c)).
+\mathrm{Adv}_S=\left|\Pr\big(S(c,y)=g(d_x(c))\big)-\tfrac12\right|.
 $$
 
-於是攻擊者的成功機率可以寫成
+一個 scheme 被稱為 semantically secure，若對所有多項式時間的攻擊者 $S$、所有函數 $g$，以及任一多項式 $p(k)$，當安全參數 $k$ 足夠大時都有
 
 $$
-\Pr\big(S(c,y)=g(d_x(c))\big).
+\mathrm{Adv}_S\le\frac{1}{p(k)}.
 $$
 
-由於在完全看不到密文的情況下，攻擊者頂多只能亂猜，因此 baseline success probability 是 $\tfrac12$。所以文中定義 adversary $S$ 的 advantage 為
+這表示任何有效率的攻擊者在看到密文後獲得的額外優勢都是 negligible（可忽略）的。
 
-$$
-\mathrm{Adv}_S
-=
-\left|
-\Pr\big(S(c,y)=g(d_x(c))\big)-\frac12
-\right|.
-$$
-
-這個量衡量的就是：<b>攻擊者比隨機猜測多厲害多少</b>。  
-若密文完全沒有洩漏資訊，則攻擊者看到密文後仍然只能像丟硬幣一樣猜測，此時成功率接近 $\tfrac12$，因此 advantage 接近 0。反過來說，若密文真的洩漏了某些資訊，使得攻擊者能把成功率提升到 $0.6$、$0.7$ 甚至更高，那麼 advantage 就會明顯大於 0。
-
-最後，一個 encryption scheme 被稱為 semantically secure，如果對所有 polynomial-time adversaries $S$、所有這類函數 $g$、以及所有 polynomial $p(k)$，當 security parameter $k$ 夠大時，都有
-
-$$
-\mathrm{Adv}_S \le \frac{1}{p(k)}.
-$$
-
-這表示攻擊者即使真的能從密文得到一點點額外幫助，那個幫助也必須小到可以忽略，也就是 <b>negligible in the security parameter</b>。因此，semantic security 的本質可以概括為：
-
-> 對任何有效率的攻擊者而言，ciphertext 不應該幫助他計算出 plaintext 的任何有意義資訊。
-
-</div>
-
-從更直覺的角度看，semantic security 的意思是：  
-攻擊者在看到密文之前，對明文可能已有一些先驗猜測；但在看到密文之後，他不應該能夠顯著改善這些猜測。也因此，semantic security 成為現代 encryption 安全分析中的核心標準之一，並與後來的 IND-CPA、IND-CCA 等安全定義有非常密切的關係。
 
 ### Polynomial Security
 
-Semantic Security 的定義相當自然，但通常不容易直接證明某個加密系統是否滿足它。因此，密碼學中常改用一個更容易操作的相關概念，稱為 **Polynomial Security**，也稱為 **Indistinguishability of Encryptions**。
+Semantic security 的定義直觀但在證明上不易操作，因此常改用等價（或在多項式歸約下等價）的可操作化定義：Polynomial Security（又稱 Indistinguishability of Encryptions）。
+
+<div class="remark" style="border-left: 4px solid #2563eb; background: #eff6ff; padding: 12px 14px; border-radius: 8px; margin: 14px 0; line-height: 1.75;">
+Polynomial Security 的遊戲（簡述）：攻擊者 $A$ 分兩階段進行。
+
+- Find 階段：$A$ 輸出兩個等長的明文 $m_0,m_1$。
+- Guess 階段：系統隨機選取 $b\in\{0,1\}$，返回 $c_b=\mathrm{Enc}(pk,m_b)$ 給 $A$，$A$ 的任務是猜出 $b$。
+
+若對所有多項式時間的 $A$ 與任一多項式 $p(k)$，當安全參數 $k$ 足夠大時，
+
+$$
+\operatorname{Adv}_A=\left|\Pr\big(A(\text{guess},c_b,y,m_0,m_1)=b\big)-\tfrac12\right|\le\frac{1}{p(k)},
+$$
+
+則該 scheme 為 polynomially secure。此定義直接說明：若加密演算法為 deterministic，則 $A$ 可自行計算 $\mathrm{Enc}(pk,m_1)$ 與收到的密文比較而立即分辨，因此實用的公鑰加密必須是 probabilistic（含隨機化成分）。
+
+此外，Polynomial Security 與 Semantic Security 在多項式時間的攻擊者模型下等價，故在證明上常先證明 indistinguishability，再由此推出 semantic security。
+</div>
 
 可以證明：若一個加密系統具有 Polynomial Security，則它也具有 Semantic Security。
 
@@ -431,13 +410,13 @@ $$
 
 在 CCA2 模型下，若方案允許受控的密文變形，攻擊者可藉由解密 oracle 對變形後密文查詢，間接獲得挑戰明文的資訊，進而破壞不可區分性。
 
-此外，標準結果指出在 CCA2 模型下：
+此外，標準結果指出，在 CCA2 模型下：
 
 $$
 \text{NM-CCA2} \Rightarrow \text{IND-CCA2}
 $$
 
-因此兩者在多項式歸約意義下等價：
+因此，兩者在多項式歸約的意義下是等價的：
 
 $$
 \text{NM-CCA2} \iff \text{IND-CCA2}
@@ -445,23 +424,24 @@ $$
 
 </div>
 
-### Plaintext Aware
+### Plaintext Awareness
 
-**Plaintext Awareness** 是一種很強的安全直覺：對手若未先掌握「對應的明文」，就難以（計算上困難）構造出任何**有效密文**。此處「有效密文」通常指
+**Plaintext Awareness**（明文感知性）是一種非常強的安全直覺：若攻擊者未事先掌握「對應的明文」，就難以（計算上困難）構造出任何**有效密文**。這裡的「有效密文」通常指：
+
 $$
-Dec(sk, C)\neq \bot.
+Dec(sk, C)\neq \bot
 $$
 
 > A scheme is called plaintext aware if it is computationally difficult to construct a valid ciphertext without being given the corresponding plaintext to start with.
 
-若 $C$ 為有效密文，令
+假設 $C$ 為有效密文，令：
 
 $$
-M := Dec(sk, C).
+M := Dec(sk, C)
 $$
 
-plaintext awareness 表達：對手能產生有效密文 $C$ 的能力，通常意味著它已經知道對應明文 $M$，或至少存在有效率的方法能從對手的運算軌跡中抽取出該 $M$。
+plaintext awareness 的核心意義在於：攻擊者能產生有效密文 $C$，通常表示他已經知道對應的明文 $M$，或至少存在有效率的方法能從攻擊者的運算過程中抽取出該 $M$。
 
-在 CCA 中，對手依賴解密 oracle 的回覆 $Dec(sk, C)$ 來獲取額外資訊。plaintext aware 的方案使這種利用失效：對手若能提交會被接受的密文 $C$，通常已掌握其解密結果 $M$，因此 oracle 回覆不提供新增資訊。此性質直覺上排除有意義的 CCA 利用。
+在 CCA 模型下，攻擊者依賴解密 oracle 的回覆 $Dec(sk, C)$ 來獲取額外資訊。若加密方案具備 plaintext awareness，這種利用方式將失效：攻擊者若能提交會被接受的密文 $C$，通常已掌握其解密結果 $M$，因此 oracle 回覆不會提供任何新增資訊。這個性質直觀上排除了有意義的 CCA 利用。
 
-plaintext awareness 通常只在 **ROM** 下被定義與使用，並在相關安全性分析中把雜湊函數視為理想化的 random oracle 來刻畫「能否在不知道明文的情況下構造有效密文」。
+值得注意的是，plaintext awareness 通常只在 **ROM**（Random Oracle Model）下被定義與使用，並在相關安全性分析中將雜湊函數視為理想化的 random oracle，以刻畫「能否在不知道明文的情況下構造有效密文」的難度。
