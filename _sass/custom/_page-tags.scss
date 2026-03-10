@@ -3,7 +3,7 @@
   - 用途：頁面側邊 TOC（table of contents）樣式
   - 使用位置：
     - _layouts/page.html  (aside.page-toc / #page-toc)
-    - assets/js/page-toc.js（動態產生 .page-toc__list / .page-toc__item / .page-toc__toggle / .page-toc__link 等元素）
+    - assets/js/page-toc.js（動態產生 .page-toc__list / .page-toc__item / .page-toc__row / .page-toc__toggle / .page-toc__link 等元素）
     - 在任何具有 `layout: page` 且 `toc` 未設為 false 的頁面會啟用（body.has-toc）
 */
 
@@ -17,7 +17,14 @@
 
 /* — Item: .page-toc__item（每個 TOC 條目的間距） */
 .page-toc__item {
-  margin: 0 0 .35rem 0;
+  margin: 0 0 .5rem 0;
+}
+
+/* — Row: .page-toc__row（讓三角形與標題同列對齊） */
+.page-toc__row {
+  display: flex;
+  align-items: flex-start;
+  gap: .38rem;
 }
 
 /* — Toggle: .page-toc__toggle（展開子項的按鈕樣式） */
@@ -26,9 +33,18 @@
   border: 0;
   background: transparent;
   cursor: pointer;
+
   padding: 0;
-  margin-right: .35rem;
-  font-size: .9rem;
+  margin: .1rem 0 0 0;
+
+  width: .9rem;
+  height: .9rem;
+  flex: 0 0 .9rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   line-height: 1;
   vertical-align: middle;
 }
@@ -36,11 +52,13 @@
 /* — Toggle icon: .page-toc__toggle .tri（旋轉三角符號） */
 .page-toc__toggle .tri {
   display: inline-block;
+  font-size: .72rem;
+  line-height: 1;
   transition: transform .18s ease;
 }
 
-/* — Expanded state: .page-toc__item.is-expanded > .page-toc__toggle .tri */
-.page-toc__item.is-expanded > .page-toc__toggle .tri {
+/* — Expanded state: .page-toc__item.is-expanded > .page-toc__row .page-toc__toggle .tri */
+.page-toc__item.is-expanded > .page-toc__row .page-toc__toggle .tri {
   transform: rotate(90deg);
 }
 
@@ -51,20 +69,28 @@
 }
 
 .page-toc__link {
+  display: inline-block;
   font-weight: 600;
+  line-height: 1.45;
 }
 
 /* — Sublist: .page-toc__sublist（子清單縮排與左側邊線） */
 .page-toc__sublist {
   margin-top: .35rem;
-  margin-left: 1.2rem;
-  padding-left: .4rem;
+  margin-left: 1.35rem;
+  padding-left: .55rem;
   border-left: 1px solid rgba(128, 128, 128, 0.2);
 }
 
 /* — Subitem: .page-toc__subitem（子項間距） */
 .page-toc__subitem {
-  margin: .2rem 0;
+  margin: .22rem 0;
+}
+
+.page-toc__sublink {
+  display: inline-block;
+  line-height: 1.4;
+  opacity: .92;
 }
 
 /* — Active state: .page-toc__link.is-active / .page-toc__sublink.is-active（目前章節強調） */
