@@ -1,5 +1,10 @@
-/* === Math Blocks (Definition / Theorem / Proof / Example / Remark / Algorithm) === */
+/*
+  Usage / 備註：
+  - 用途：樣式用於標示數學/教學內容中的區塊（Definition, Theorem, Proof, Example, Remark, Algorithm）。
+  - 使用情境：可在論文/教學筆記中用到（_articles/*.md 的內容區塊），讓這些區塊在視覺上更突出並保留語意。
+*/
 
+/* — Group: 共用基底（margin, padding, border, background, radius, shadow） */
 .definition,
 .theorem,
 .proof,
@@ -9,25 +14,25 @@
   margin: 1.5em 0;
   padding: 1em 1.2em;
   border-left: 4px solid;
-  background: #f3f4f6;          /* 加深 */
-  border: 1px solid #e5e7eb;    /* 增加外框 */
-  border-left-width: 4px;       /* 確保左邊仍然較粗 */
-  border-radius: 8px;           /* 可選 */
-  box-shadow: 0 1px 2px rgba(0,0,0,0.06); /* 可選 */
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-left-width: 4px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
 }
 
-/* Definition */
+/* — Definition: .definition 的顏色 */
 .definition {
   border-color: #166534;
 }
 
-/* Theorem */
+/* — Theorem: .theorem（強調、斜體） */
 .theorem {
   border-color: #1e3a8a;
   font-style: italic;
 }
 
-/* Proof */
+/* — Proof: .proof（證明區塊與 QED 樣式） */
 .proof {
   border-color: #7e22ce;
   /* font-style: italic; */
@@ -38,23 +43,23 @@
   font-size: 1.2em;
 }
 
-/* Example */
+/* — Example: .example（範例樣式） */
 .example {
   border-color: #6b7280;
 }
 
-/* Remark */
+/* — Remark: .remark（備註/提示樣式） */
 .remark {
   border-color: #f97316;
 }
 
-/* Algorithm */
+/* — Algorithm: .algorithm（演算法區塊） */
 .algorithm {
   border-color: #0f766e; /* teal */
   /* font-style: italic; */ /* 需要斜體就打開 */
 }
 
-/* Title inside blocks */
+/* — Title inside blocks: 將區塊內的 <strong> 當作標題處理 */
 .definition strong,
 .theorem strong,
 .proof strong,
