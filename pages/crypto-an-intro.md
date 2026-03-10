@@ -19,6 +19,8 @@ toc: false
   - [Håstad's attack]({{ "/articles/CryptoAnIntro/Hastads-attack/" | relative_url }})
   - [Franklin–Reiter attack and Coppersmith's generalization]({{ "/articles/CryptoAnIntro/franklin-reiter/" | relative_url }}) <span class="lab-status">Todo</span>
   - [Extension to Wiener's attack]({{ "/articles/CryptoAnIntro/wiener-extension/" | relative_url }}) <span class="lab-status">Todo</span>
+  - [Coppersmith's Theorem]({{ "/articles/CryptoAnIntro/lattice-based-attacks-on-RSA/#coppersmiths-theorem" | relative_url }})
+  - [Howgrave-Graham Lemma]({{ "/articles/CryptoAnIntro/lattice-based-attacks-on-RSA/#howgravegraham-lemma" | relative_url }})
 - [Partial Key Exposure Attacks]({{ "/articles/CryptoAnIntro/partial-key-exposure-attacks/" | relative_url }})
   - [Partial Exposure of the MSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/MSBs-of-the-RSA-decryption-exponent/" | relative_url }})
   - [Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-the-RSA-prime-factors/" | relative_url }})
