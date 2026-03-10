@@ -1,4 +1,13 @@
-/* one-row meta under title */
+/*
+  Usage / 備註：
+  - 用途：頁面標題下方的 meta 行（作者、venue、發表/更新時間、tags）以及 page 內容區塊與 h2/h3 樣式
+  - 使用位置：
+    - _layouts/page.html （page header: .page-submeta / page-content / aside.page-toc）
+    - 所有使用 `layout: page` 的頁面會套用這些樣式（例如文章與 page 類型頁面）
+    - tags 連結會使用 .tag-pill（由 layouts/page.html 動態產生）
+*/
+
+/* — Submeta: .page-submeta（標題下方的一行或多行 meta） */
 .page-submeta {
   margin-top: 8px;
   display: flex;
@@ -15,12 +24,13 @@
   gap: 6px;
 }
 
+/* — Separator: .meta-sep（項目間的分隔符） */
 .page-submeta .meta-sep {
   color: #d1d5db;
   margin: 0 2px;
 }
 
-/* ICON SIZE FIX (core) */
+/* — Icon fix: .meta-ico / .ico（保持圖示尺寸一致） */
 .page-submeta .meta-ico {
   display: inline-flex;
   align-items: center;
@@ -37,7 +47,7 @@
   fill: currentColor;
 }
 
-/* tags pills inline */
+/* — Tags: .meta-tags / .tag-pill（標籤 pills 的樣式與互動） */
 .page-submeta .meta-tags {
   display: inline-flex;
   flex-wrap: wrap;
@@ -68,6 +78,7 @@
   transform: translateY(1px);
 }
 
+/* — Citation/meta variants: .page-submeta--citation / .page-submeta--meta（不同用途的微調） */
 .page-submeta--citation {
   margin-top: 0.35rem;
   margin-bottom: 0.2rem;
@@ -82,9 +93,7 @@
   line-height: 1.5;
 }
 
-//////////////////////////////////////////////////
-
-/* Page 文章內容（layout: page）h2 / h3 強化 */
+/* — Content: .page-content（文章內容內 h2 / h3 加強） */
 .page-content {
   h2 {
     font-weight: 800;
@@ -108,7 +117,7 @@
   h2, h3 { scroll-margin-top: 90px; }
 }
 
-/* 永遠顯示右側捲軸 */
+/* — Always show vertical scrollbar */
 html {
   overflow-y: scroll;
 }
