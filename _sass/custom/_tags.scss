@@ -1,8 +1,12 @@
-/* Tags page */
-.tags-page {
-  margin-top: 8px;
-}
+/*
+  Usage / 備註：
+  - 用途：Tags 頁面互動按鈕與說明區塊樣式
+  - 使用位置：
+    - pages/tags.md (tags bar 與 articles list 篩選介面)
+    - JS 使用：tags.md 內含控制行為的 script，選取 .tag-btn
+*/
 
+/* — Container: .tags-bar（標籤按鈕列） */
 .tags-bar {
   display: flex;
   flex-wrap: wrap;
@@ -10,6 +14,7 @@
   margin: 10px 0 18px;
 }
 
+/* — Button: .tag-btn（標籤按鈕基底、hover、active） */
 .tag-btn {
   appearance: none;
   border: 1px solid #e5e7eb;
@@ -38,6 +43,7 @@
   color: #ffffff;
 }
 
+/* — Hint: .tags-hint（篩選與提示文字區） */
 .tags-hint {
   padding: 10px 12px;
   border: 1px dashed #d1d5db;
@@ -46,13 +52,19 @@
   margin: 0 0 16px;
 }
 
+/* — Hidden state: .articles-list.is-hidden（預設隱藏文章列表） */
 .articles-list.is-hidden {
   display: none;
 }
 
+/* — Page top margin: .tags-page（Tags 頁面上方外距） */
+.tags-page {
+  margin-top: 8px;
+}
+
 //////////////////////////////
 
-/* Clear button distinct style */
+/* — Clear: .tag-btn--clear（清除按鈕的特別樣式） */
 .tag-btn--clear {
   margin-left: 6px;
   border-style: dashed;
@@ -65,7 +77,7 @@
   border-color: #9ca3af;
 }
 
-/* Clear 不要變綠（即使誤加 is-active） */
+/* — Clear active override: .tag-btn--clear.is-active（避免誤加 active 時變綠） */
 .tag-btn--clear.is-active {
   background: #fff;
   border-color: #e5e7eb;
