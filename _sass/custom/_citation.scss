@@ -1,11 +1,25 @@
-/* ===========================
-   Auto-bracket citation: [AKS04]
-   Usage:
-     <a class="cite" href="#bib-aks04">AKS04</a>
-     <span class="cite">AKS04</span>
-   =========================== */
+/*
+  Usage / 備註：
+  - 用途：用於在文章內標記參考文獻代號（例如 [AKS04]），以及在文章末端的 references/bibliography 區塊使用 `.bib` 列表。
+  - 範例：
+      內文中使用：<a class="cite" href="#bib-aks04">AKS04</a> 或 <span class="cite">AKS04</span>
+      參考文獻區塊：<ul class="bib"> ... <li id="bib-aks04"><span class="bib-key">AKS04</span><span class="bib-body">...</span></li> ...</ul>
+  - 出處：多數 paper/文章（_articles/.../*.md）中以此方式標註引用。
 
-/* Single-mode tokens */
+  簡單範例：
+    <!-- 內文 -->
+    在討論中可標註如 <a class="cite" href="#bib-aks04">AKS04</a>。
+
+    <!-- 參考文獻（通常放在文章最後） -->
+    <ul class="bib">
+      <li id="bib-aks04">
+        <span class="bib-key">AKS04</span>
+        <span class="bib-body">M. Agrawal, N. Kayal, N. Saxena, "PRIMES is in P", Journal, 2004.</span>
+      </li>
+    </ul>
+*/
+
+/* — Variables: 色彩與互動變數（主要定義 cite 的顏色、hover 與 focus） */
 :root {
   --cite-fg: #072f57;                 /* 字更深 */
   --cite-bg: rgba(11, 58, 110, 0.18); /* 底更明顯 */
@@ -19,7 +33,7 @@
   --cite-ring: rgba(11, 58, 110, 0.38);
 }
 
-/* Base badge style (AUTO brackets) */
+/* — Base badge: .cite（自動加上方括號的引用標籤） */
 .cite {
   display: inline-flex;
   align-items: baseline;
@@ -42,33 +56,33 @@
   &::after  { content: "]"; opacity: 0.9; margin-left: 0.06em; }
 }
 
-/* Link behavior: either <a class="cite"> or <a><span class="cite"></span></a> */
+/* — Link behavior: 支援 <a class="cite"> 或 <a><span class="cite"></span></a> 的使用情境 */
 a.cite,
 a .cite {
   cursor: pointer;
 }
 
-/* Hover */
+/* — Hover: 游標移上時的樣式 */
 a.cite:hover,
 a:hover .cite {
   background: var(--cite-bg-hover);
   color: var(--cite-fg-hover);
 }
 
-/* Focus */
+/* — Focus: 可見焦點狀態（keyboard-accessible） */
 a.cite:focus-visible,
 a:focus-visible .cite {
   outline: none;
   box-shadow: 0 0 0 3px var(--cite-ring);
 }
 
-/* Optional sizes */
+/* — Sizes: 可選的小尺寸變體 .cite--sm */
 .cite--sm {
   font-size: 0.82em;
   padding: 0.06em 0.36em;
 }
 
-/* Multiple citations container */
+/* — Container: 多個引用時使用 .cite-list（橫向排列） */
 .cite-list {
   display: inline-flex;
   flex-wrap: wrap;
@@ -78,7 +92,7 @@ a:focus-visible .cite {
   .cite { transform: translateY(-0.05em); }
 }
 
-/* References two-column layout like screenshot */
+/* — Bibliography layout: .bib (two-column key + body) */
 .bib {
   list-style: none;
   margin: 0;
@@ -94,7 +108,7 @@ a:focus-visible .cite {
   margin: 0.6rem 0;
 }
 
-/* left label: [AB03] */
+/* — Bib key: 左側標籤（自動方括號） */
 .bib-key {
   display: inline-flex;
   justify-content: flex-start;
@@ -108,13 +122,13 @@ a:focus-visible .cite {
   &::after  { content: "]"; }
 }
 
-/* right text */
+/* — Bib body: 右側參考文獻內容（長 URL 處理） */
 .bib-body {
   min-width: 0;            /* prevents overflow in grid */
   overflow-wrap: anywhere; /* long URLs won't break layout */
 }
 
-/* Optional: highlight when jumped to (#bib-xxx) */
+/* — Highlight on jump: 當跳至 #bib-xxx 時給予高亮與滾動間距 */
 .bib > li:target {
   scroll-margin-top: 90px;
   background: rgba(255, 230, 150, 0.35);
