@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Hastad’s Attack
+title: Håstad’s Attack
 date: 2026-03-10
 last_updated: 2026-03-10
 tags: [RSA, Coppersmith, broadcast-attack]
 ---
 
-Hastad’s Attack 是對 **textbook RSA** 的經典攻擊。若同一個 message 被送給多個不同接收者，且他們使用相同的小 public exponent，則 adversary 可能由多個 ciphertext 直接 recover plaintext。
+Håstad’s Attack 是對 **textbook RSA** 的經典攻擊。若同一個 message 被送給多個不同接收者，且他們使用相同的小 public exponent，則 adversary 可能由多個 ciphertext 直接 recover plaintext。
 
 最基本的情形是 **broadcast attack**。同一個 message 被加密到不同 modulus 下時，這些 ciphertext 可用 **Chinese Remainder Theorem** 合併，進而還原 $m^e$，最後取整數 $e$ 次根 recover $m$。
 
@@ -56,7 +56,7 @@ $$
 m = \sqrt[3]{C}.
 $$
 
-## Generalized Hastad’s Attack
+## Generalized Håstad’s Attack
 
 現在考慮帶有固定格式的情形。對 user $i$，設 ciphertext 為
 
@@ -120,7 +120,7 @@ $$
 
 <div class="remark">
 
-Hastad’s Attack 常被稱為 **broadcast attack**。最基本的版本處理完全相同 message 的廣播情形；更一般的版本則處理帶有固定且可預測格式的訊息。兩者的核心都是利用 ciphertext 之間的 algebraic relation 來 recover plaintext。
+Håstad’s Attack 常被稱為 **broadcast attack**。最基本的版本處理完全相同 message 的廣播情形；更一般的版本則處理帶有固定且可預測格式的訊息。兩者的核心都是利用 ciphertext 之間的 algebraic relation 來 recover plaintext。
 
 </div>
 
