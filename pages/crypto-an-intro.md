@@ -13,18 +13,24 @@ toc: false
 
 - [Wiener's Attack]({{ "/articles/CryptoAnIntro/Wieners-attack/" | relative_url }})
 - [Lattice]({{ "/articles/CryptoAnIntro/lattice/" | relative_url }})
-  - [LLL Reduction]({{ "/articles/CryptoAnIntro/LLL-reduction/" | relative_url }})
-  - [Lattice Reduction and Continued Fractions]({{ "/articles/CryptoAnIntro/LLL-reduction-and-continued-fractions/" | relative_url }})
+- [LLL Reduction]({{ "/articles/CryptoAnIntro/LLL-reduction/" | relative_url }})
+- [Lattice Reduction and Continued Fractions]({{ "/articles/CryptoAnIntro/LLL-reduction-and-continued-fractions/" | relative_url }})
+
+### Lattice-Based Attacks
+
 - [Lattice-based attacks on RSA]({{ "/articles/CryptoAnIntro/lattice-based-attacks-on-RSA/" | relative_url }})
-  - [Håstad's Attack]({{ "/articles/CryptoAnIntro/Hastads-attack/" | relative_url }})
-  - [Franklin–Reiter Attack]({{ "/articles/CryptoAnIntro/Franklin-Reiter-attack/" | relative_url }}) <span class="lab-status">Todo</span>
-  - [Extended Wiener's Attack]({{ "/articles/CryptoAnIntro/Wieners-attack-extended/" | relative_url }}) <span class="lab-status">Todo</span>
-  - [Coppersmith's Theorem]({{ "/articles/CryptoAnIntro/lattice-based-attacks-on-RSA/#coppersmiths-theorem" | relative_url }})
-  - [Howgrave-Graham Lemma]({{ "/articles/CryptoAnIntro/lattice-based-attacks-on-RSA/#howgravegraham-lemma" | relative_url }})
+- [Håstad's Attack]({{ "/articles/CryptoAnIntro/Hastads-attack/" | relative_url }})
+- [Franklin–Reiter Attack]({{ "/articles/CryptoAnIntro/Franklin-Reiter-attack/" | relative_url }}) <span class="lab-status">Todo</span>
+- [Extended Wiener's Attack]({{ "/articles/CryptoAnIntro/Wieners-attack-extended/" | relative_url }}) <span class="lab-status">Todo</span>
+- [Coppersmith's Theorem]({{ "/articles/CryptoAnIntro/lattice-based-attacks-on-RSA/#coppersmiths-theorem" | relative_url }})
+- [Howgrave-Graham Lemma]({{ "/articles/CryptoAnIntro/lattice-based-attacks-on-RSA/#howgravegraham-lemma" | relative_url }})
+
+### Partial Key Exposure Attacks
+
 - [Partial Key Exposure Attacks]({{ "/articles/CryptoAnIntro/partial-key-exposure-attacks/" | relative_url }})
-  - [Partial Exposure of the MSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/MSBs-of-the-RSA-decryption-exponent/" | relative_url }})
-  - [Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-the-RSA-prime-factors/" | relative_url }})
-  - [Partial Exposure of the LSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/LSBs-of-the-RSA-decryption-exponent/" | relative_url }})
+- [Partial Exposure of the MSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/MSBs-of-the-RSA-decryption-exponent/" | relative_url }})
+- [Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-the-RSA-prime-factors/" | relative_url }})
+- [Partial Exposure of the LSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/LSBs-of-the-RSA-decryption-exponent/" | relative_url }})
 
 ## Chapter 18: Definitions of Security
 
