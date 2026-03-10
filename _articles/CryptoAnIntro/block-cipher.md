@@ -37,11 +37,31 @@ $$
   </ul>
 </div>
 
-## Block Size
+### Block Size
 
 Block cipher 的一個基本參數是 **block size**。它決定一次加密操作所處理的資料長度。
 
 早期的 DES 採用 **64-bit block size**。現代 block cipher 則多半使用 **128 bits** 或更大的 block size。較大的 block size 通常有助於降低某些由區塊重複所造成的風險，因此在現代設計中更常見。
+
+<div class="example">
+
+<strong>Examples of Block Ciphers</strong>
+
+Block cipher 的例子包含早期的重要設計與現代常見標準：
+
+<div class="example">
+  <ul>
+    <li><b>DES</b>（Data Encryption Standard）：歷史上非常重要的 block cipher，但因為 key length 過短，現今已不再被視為安全標準</li>
+    <li><b>3DES</b>（Triple DES）：透過多次套用 DES 來提升安全性的延伸設計</li>
+    <li><b>AES</b>（Advanced Encryption Standard）：目前最主要的現代對稱式 block cipher 標準</li>
+    <li><b>RC5</b>：一種設計上強調簡潔與效率的 block cipher</li>
+    <li><b>RC6</b>：曾作為 AES 競賽 finalist 的 block cipher</li>
+  </ul>
+</div>
+
+在這些 block ciphers 中，DES 具有特別重要的歷史地位，而 AES 則是現代標準。
+
+</div>
 
 ## Modes of Operation
 
@@ -76,22 +96,6 @@ mode of operation 決定了：
 - 為多 block 結構提供必要的隨機化或同步資訊
 
 mode 的選擇在實務中極為重要，因為即使底層 block cipher 安全，不適當的 mode 仍可能導致系統脆弱。
-
-## Examples of Block Ciphers
-
-Block cipher 的例子包含早期的重要設計與現代常見標準：
-
-<div class="example">
-  <ul>
-    <li><b>DES</b>（Data Encryption Standard）：歷史上非常重要的 block cipher，但因為 key length 過短，現今已不再被視為安全標準</li>
-    <li><b>3DES</b>（Triple DES）：透過多次套用 DES 來提升安全性的延伸設計</li>
-    <li><b>AES</b>（Advanced Encryption Standard）：目前最主要的現代對稱式 block cipher 標準</li>
-    <li><b>RC5</b>：一種設計上強調簡潔與效率的 block cipher</li>
-    <li><b>RC6</b>：曾作為 AES 競賽 finalist 的 block cipher</li>
-  </ul>
-</div>
-
-在這些 block ciphers 中，DES 具有特別重要的歷史地位，而 AES 則是現代標準。
 
 ## DES
 
@@ -255,8 +259,12 @@ Block cipher 與 stream cipher 都屬於 symmetric encryption 的重要類型，
 - **Hardware is faster but less flexible than software**  
   hardware 實作通常具有較高效能，但彈性較差；software 實作則較容易更新、部署與修改。因此，實際系統究竟選擇 block cipher 還是 stream cipher，除了理論安全性之外，也會受到工程需求與應用場景的影響。
 
-## Summary
+<div class="definition">
+
+<strong>Summary</strong>
 
 block cipher 是一種對固定長度 block 進行可逆轉換的 symmetric primitive。其安全性通常建立在多輪 iterated structure、round function、round key 與 key schedule 的整體設計之上。DES 代表了早期具有歷史影響力的標準，而 AES（Rijndael）則是現代最具代表性的 block cipher 標準。
 
 理解 block cipher，不僅需要掌握其基本定義，也需要理解 modes of operation、invertibility、substitution and permutation，以及其對各種 cryptanalysis 方法的抵抗能力。
+
+</div>
