@@ -1,6 +1,14 @@
+/*
+  Usage / 備註：
+  - 使用於：
+    - _includes/articles/list.html  -> 產生 .articles-list / .articles-item / .articles-meta 等 HTML 結構
+    - pages/articles.md             -> 透過 include 引入上面的 list（主要 Articles 頁面）
+    - pages/tags.md                 -> Tag 頁面也會建立一個 #articlesList 並用 JS 對 .articles-item 做過濾（支援 hash 多選）
+*/
+
 /* Articles Page Styles */
 
-/* List */
+/* — List: layout for the articles list (grid, gap) */
 .articles-list{
   list-style: none;
   padding-left: 0;
@@ -9,6 +17,7 @@
   gap: .75rem;
 }
 
+/* — Item: card style for each article */
 .articles-item{
   border: 1px solid rgba(127,127,127,.28);
   background: rgba(127,127,127,.06);
@@ -24,6 +33,7 @@
   background: rgba(127,127,127,.09);
 }
 
+/* — Link: article title link; two-line clamp + emphasis */
 .articles-link{
   overflow: hidden;
   display: -webkit-box;
@@ -42,7 +52,7 @@
   text-decoration: underline;
 }
 
-/* Meta */
+/* — Meta: author / venue / date row; inline pills and truncation */
 .articles-meta{
   margin-top: .25rem;
   font-size: .85rem;
@@ -66,7 +76,7 @@
   max-width: 100%;
 }
 
-/* Label */
+/* — Label: tag badge shown in meta (a-tag) */
 .articles-meta .a-tag{
   position: relative;
   display: inline-flex;
@@ -102,7 +112,7 @@
   );
 }
 
-/* Hole */
+/* — Label hole: decorative circular hole inside the a-tag */
 .articles-meta .a-tag::after{
   content: "";
   position: absolute;
@@ -120,21 +130,21 @@
   box-shadow: 0 1px 0 rgba(0,0,0,.06) inset;
 }
 
-/* Hover */
+/* — Hover: hover states for item and tag */
 .articles-item:hover .articles-meta .a-tag{
   border-color: rgba(60,60,60,.95);
   background: rgba(59,130,246,.22);
   color: rgba(30,58,138,.98);
 }
 
-/* Responsive */
+/* — Responsive: media query for two-column layout on wide screens */
 @media (min-width: 900px){
   .articles-list{
     grid-template-columns: 1fr 1fr;
   }
 }
 
-/* Controls */
+/* — Controls: sorting / ordering control container */
 .articles-controls{
   display:flex;
   gap:.75rem;
@@ -157,6 +167,7 @@
   margin: 0 .25rem;
 }
 
+/* — Pill: individual control button styles and active state */
 .pill{
   display:inline-flex;
   align-items:center;
