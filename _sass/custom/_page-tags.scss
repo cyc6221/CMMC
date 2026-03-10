@@ -36,11 +36,11 @@
   position: relative;
 
   padding: 0;
-  margin: .08rem 0 0 0;
+  margin: .04rem 0 0 0;
 
-  width: 1.25rem;
-  height: 1.25rem;
-  flex: 0 0 1.25rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  flex: 0 0 1.6rem;
   border-radius: 999px;
 
   display: inline-flex;
@@ -52,8 +52,8 @@
 
   transition:
     background-color .18s ease,
-    transform .18s ease,
-    box-shadow .18s ease;
+    box-shadow .18s ease,
+    transform .18s ease;
 }
 
 /* — Hover / focus halo */
@@ -64,15 +64,26 @@
   outline: none;
 }
 
-/* — Toggle icon: .page-toc__toggle .tri（旋轉三角符號） */
+/* — Triangle wrapper */
 .page-toc__toggle .tri {
-  display: inline-block;
-  font-size: .95rem;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
   transition: transform .18s ease;
+  transform-origin: 50% 50%;
 }
 
-/* — Expanded state: .page-toc__item.is-expanded > .page-toc__row .page-toc__toggle .tri */
+/* — SVG triangle */
+.page-toc__toggle .tri-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* — Expanded state */
 .page-toc__item.is-expanded > .page-toc__row .page-toc__toggle .tri {
   transform: rotate(90deg);
 }
@@ -92,7 +103,7 @@
 /* — Sublist: .page-toc__sublist（子清單縮排與左側邊線） */
 .page-toc__sublist {
   margin-top: .35rem;
-  margin-left: 1.5rem;
+  margin-left: 1.55rem;
   padding-left: .55rem;
   border-left: 1px solid rgba(128, 128, 128, 0.2);
 }
