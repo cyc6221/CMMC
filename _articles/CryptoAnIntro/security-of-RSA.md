@@ -2,7 +2,7 @@
 layout: page
 title: Security of RSA
 date: 2026-02-11
-last_updated: 2026-02-11
+last_updated: 2026-03-10
 tags: [rsa, semantic-security, ind-cpa, cca2]
 ---
 
@@ -13,11 +13,9 @@ tags: [rsa, semantic-security, ind-cpa, cca2]
 對 RSA 而言，真正的問題在於「裸 RSA」的加密是 deterministic；因此只要 plaintext space 具有可猜測性，攻擊者便可直接利用 public key 自行加密候選 plaintext 並與目標 ciphertext 比較，從而破壞這個基本安全要求。
 
 <div class="remark" style="border-left:4px solid #0f766e; background:#ecfeff; padding:12px 14px; border-radius:8px; margin:14px 0; line-height:1.7;">
-<b>Remark.</b>
-文獻中常見 <i>textbook RSA</i>、<i>plain RSA</i>、<i>raw RSA</i>、以及中文的「裸 RSA」等說法。這些用語通常都指<strong>沒有加入 randomized padding 或 encoding transform 的基本 RSA encryption</strong>，也就是直接將
-\(m\) 映射為
-\(c = m^e \bmod N\)。
-實務上它們通常可視為同義；若要統一表述，本文以下使用 <b>raw RSA</b>。
+<strong>Remark.</strong>
+
+文獻中常見 <i>textbook RSA</i>、<i>plain RSA</i>、<i>raw RSA</i>、以及中文的「裸 RSA」等說法。這些用語通常都指<b>沒有加入 randomized padding 或 encoding transform 的基本 RSA encryption</b>，也就是直接將 $m$ 映射為 $c = m^e \bmod N$。實務上它們通常可視為同義；若要統一表述，本文以下使用 <b>raw RSA</b>。
 </div>
 
 ## Raw RSA is not semantically secure
