@@ -16,7 +16,7 @@ toc: false
   - [LLL Reduction]({{ "/articles/CryptoAnIntro/LLL-reduction/" | relative_url }})
   - [Lattice Reduction and Continued Fractions]({{ "/articles/CryptoAnIntro/LLL-reduction-and-continued-fractions/" | relative_url }})
 - [Lattice-based attacks on RSA]({{ "/articles/CryptoAnIntro/lattice-based-attacks-on-RSA/" | relative_url }})
-  - [Håstad's attack]({{ "/articles/CryptoAnIntro/Hastad’s-attack/" | relative_url }}) <span class="lab-status">Todo</span>
+  - [Håstad's attack]({{ "/articles/CryptoAnIntro/Hastads-attack/" | relative_url }})
   - [Franklin–Reiter attack and Coppersmith's generalization]({{ "/articles/CryptoAnIntro/franklin-reiter/" | relative_url }}) <span class="lab-status">Todo</span>
   - [Extension to Wiener's attack]({{ "/articles/CryptoAnIntro/wiener-extension/" | relative_url }}) <span class="lab-status">Todo</span>
 - [Partial Key Exposure Attacks]({{ "/articles/CryptoAnIntro/partial-key-exposure-attacks/" | relative_url }})
