@@ -42,8 +42,13 @@
     a.href = `#${h2.id}`;
     a.textContent = h2.textContent || "";
 
-    li.appendChild(btn);
-    li.appendChild(a);
+    const row = document.createElement("div");
+    row.className = "page-toc__row";
+
+    row.appendChild(btn);
+    row.appendChild(a);
+
+    li.appendChild(row);
 
     let subUl = null;
     let el = h2.nextElementSibling;
