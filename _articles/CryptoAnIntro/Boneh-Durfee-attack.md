@@ -182,3 +182,5 @@ $$
 ## References
 
 - Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 17. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
+
+- CryptoHack, [*Boneh-Durfee Attack*](https://cryptohack.gitbook.io/cryptobook/untitled/low-private-component-attacks/boneh-durfee-attack).
