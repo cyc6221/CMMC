@@ -172,3 +172,7 @@ y_0=r_2-r_1
 $$
 
 是 $h(y)$ 的 small root。利用 Coppersmith method 可 recover $r_2-r_1$，再回到 Franklin–Reiter 型的 related-message setting 求得原始 message。
+
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 17. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
