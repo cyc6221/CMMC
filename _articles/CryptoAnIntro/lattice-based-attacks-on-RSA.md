@@ -6,7 +6,7 @@ last_updated: 2026-02-04
 tags: [RSA, Lattice, LLL, SVP, Coppersmith]
 ---
 
-本頁作為筆記索引，整理 **lattice-based techniques** 在 **RSA** 攻擊中的通用框架 <a class="cite" href="#bib-bon99">Bon99</a><a class="cite" href="#bib-ns01">NS01</a>：將 **side information** 建模為「在 mod $N$ 下尋找 **modular small root**」，並以 **Howgrave–Graham Lemma** <a class="cite" href="#bib-how97">How97</a> 與 **Coppersmith Theorem** <a class="cite" href="#bib-cop97">COP97</a> 作為工具基礎。
+本頁作為筆記索引，整理 **lattice-based techniques** 在 **RSA** 攻擊中的通用框架 <a class="cite" href="#bib-bon99">Bon99</a><a class="cite" href="#bib-ns01">NS01</a>：將 **side information** 建模為「在 mod $N$ 下尋找 **modular small root**」，並以 **Howgrave–Graham Lemma** <a class="cite" href="#bib-how97">How97</a> 與 **Coppersmith Theorem** <a class="cite" href="#bib-cop97">Cop97</a> 作為工具基礎。
 
 > Lattices can be used to attack certain RSA-related systems when appropriate side information is available.
 
@@ -54,7 +54,7 @@ $$
 
 <div class="theorem">
 
-<strong>Lemma.</strong><a class="cite" href="#bib-hg97">HG97</a>
+<strong>Lemma.<a class="cite" href="#bib-hg97">HG97</a></strong>
 
 Let $h(x) \in \mathbb{Z}[x]$ denote a polynomial of degree at most $n$ and let $X$ and $N$ be positive integers. Suppose
 
@@ -248,7 +248,7 @@ i.e., 只要 $\lvert x_0 \rvert \le X = \frac{N^{2/5}}{48^{1/5}}$, 我們就能�
 
 <div class="theorem">
 
-<strong>Theorem (Coppersmith).</strong><a class="cite" href="#bib-cop97">COP97</a>
+<strong>Theorem (Coppersmith).<a class="cite" href="#bib-cop97">Cop97</a></strong>
 
 Let $f \in \mathbb{Z}[x]$ be a monic polynomial of degree $d$ and $N$ an integer. If there is some root $x_0$ of $f$ modulo $N$ such that
 $$
