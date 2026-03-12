@@ -56,7 +56,11 @@ $$
 
 ### Group Order
 
-因為 $1,2,\dots,p-1$ 都與 $p$ 互質，所以 $\vert \mathbb{Z}_p^* \vert = p-1$
+因為 $1,2,\dots,p-1$ 都與 $p$ 互質，所以
+
+$$
+\lvert \mathbb{Z}_p^* \rvert = p-1.
+$$
 
 ### Cyclic Structure
 
@@ -74,15 +78,49 @@ $$
 
 cyclic group 表示存在某個元素可以生成整個群。這是結構描述，不是大小描述。group 是否為 cyclic，與其 order 是否等於某個特定數值是不同概念。
 
-在特定情況下 $G = \mathbb{Z}_p^*$ 且 $p$ 是質數時，才有 $|G|=p-1$。
+在特定情況
+
+$$
+G = \mathbb{Z}_p^*
+$$
+
+且 $p$ 是質數時，才有
+
+$$
+\lvert G \rvert = p-1.
+$$
 
 ### Primitive Root
 
-若元素 $g$ 滿足 $\langle g \rangle$ 生成整個 $\mathbb{Z}_p^*$，即 $\langle g \rangle = \mathbb{Z}_p^*$，則 $\operatorname{ord}(g)=p-1$。此時 $g$ 是 primitive root。
+若元素 $g$ 滿足
+
+$$
+\langle g \rangle = \mathbb{Z}_p^*
+$$
+
+則
+
+$$
+\operatorname{ord}(g)=p-1.
+$$
+
+此時 $g$ 是 primitive root。
 
 ### Proper Subgroup
 
-不是每個元素都能生成整個 $\mathbb{Z}_p^*$。若 $g$ 不是 primitive root，則 $\langle g \rangle \subsetneq \mathbb{Z}_p^*$ ，且 $|\langle g \rangle| \mid (p-1)$。因此 element order 一定整除 group order。
+不是每個元素都能生成整個 $\mathbb{Z}_p^*$。若 $g$ 不是 primitive root，則
+
+$$
+\langle g \rangle \subsetneq \mathbb{Z}_p^*
+$$
+
+且
+
+$$
+\lvert \langle g \rangle \rvert \mid (p-1).
+$$
+
+因此 element order 一定整除 group order。
 
 ## Subgroups and the Role of $q$
 
@@ -115,13 +153,13 @@ $$
 若大群為 $\mathbb{Z}_p^*$，則
 
 $$
-|\mathbb{Z}_p^*| = p-1.
+\lvert \mathbb{Z}_p^* \rvert = p-1.
 $$
 
 若實際工作在 $\langle g \rangle$ 上，則
 
 $$
-q = |\langle g \rangle| = \operatorname{ord}(g).
+q = \lvert \langle g \rangle \rvert = \operatorname{ord}(g).
 $$
 
 因此 $q$ 通常表示實際使用的 subgroup order，而不是整個大群的 order。
@@ -131,13 +169,13 @@ $$
 在這個設定下，應區分
 
 $$
-|\mathbb{Z}_p^*| = p-1
+\lvert \mathbb{Z}_p^* \rvert = p-1
 $$
 
 與
 
 $$
-|\langle g \rangle| = q.
+\lvert \langle g \rangle \rvert = q.
 $$
 
 兩者之間的關係為
@@ -167,7 +205,7 @@ $$
 若 $G$ 是 finite cyclic group，且
 
 $$
-|G|=n,
+\lvert G \rvert=n,
 $$
 
 則對每個
@@ -183,13 +221,13 @@ $$
 此處的 divisor $q$ 是指
 
 $$
-q \mid |G|.
+q \mid \lvert G \rvert.
 $$
 
 例如若
 
 $$
-|G|=22,
+\lvert G \rvert=22,
 $$
 
 則 divisors 為
@@ -203,7 +241,7 @@ $$
 若 $G$ 是 cyclic group，且
 
 $$
-|\langle g_1\rangle| = |\langle g_2\rangle| = q,
+\lvert \langle g_1\rangle \rvert = \lvert \langle g_2\rangle \rvert = q,
 $$
 
 則
@@ -225,6 +263,8 @@ $$
 $$
 
 其中 $p$ 是 odd prime，且 $k \ge 1$。
+
+### Examples
 
 <div class="example">
     <strong> 是 cyclic ： </strong>
