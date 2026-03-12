@@ -54,7 +54,7 @@ $$
 
 <div class="theorem">
 
-<strong>Lemma.<a class="cite" href="#bib-hg97">HG97</a></strong>
+<strong>Lemma.<a class="cite" href="#bib-how97">How97</a></strong>
 
 Let $h(x) \in \mathbb{Z}[x]$ denote a polynomial of degree at most $n$ and let $X$ and $N$ be positive integers. Suppose
 
