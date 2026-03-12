@@ -56,7 +56,7 @@ $$
 
 ### Group Order
 
-因為 $1,2,\dots,p-1$ 都與 $p$ 互質，所以 $|\mathbb{Z}_p^*| = p-1$
+因為 $1,2,\dots,p-1$ 都與 $p$ 互質，所以 $\vert \mathbb{Z}_p^* \vert = p-1$
 
 ### Cyclic Structure
 
