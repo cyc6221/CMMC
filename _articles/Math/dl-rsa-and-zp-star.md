@@ -56,11 +56,7 @@ $$
 
 ### Group Order
 
-因為 $1,2,\dots,p-1$ 都與 $p$ 互質，所以
-
-$$
-|\mathbb{Z}_p^*| = p-1.
-$$
+因為 $1,2,\dots,p-1$ 都與 $p$ 互質，所以 $|\mathbb{Z}_p^*| = p-1$
 
 ### Cyclic Structure
 
@@ -78,49 +74,15 @@ $$
 
 cyclic group 表示存在某個元素可以生成整個群。這是結構描述，不是大小描述。group 是否為 cyclic，與其 order 是否等於某個特定數值是不同概念。
 
-在特定情況
-
-$$
-G = \mathbb{Z}_p^*
-$$
-
-且 $p$ 是質數時，才有
-
-$$
-|G| = p-1.
-$$
+在特定情況下 $G = \mathbb{Z}_p^*$ 且 $p$ 是質數時，才有 $|G|=p-1$。
 
 ### Primitive Root
 
-若元素 $g$ 滿足
-
-$$
-\langle g \rangle = \mathbb{Z}_p^*
-$$
-
-則
-
-$$
-\operatorname{ord}(g)=p-1.
-$$
-
-此時 $g$ 是 primitive root。
+若元素 $g$ 滿足 $\langle g \rangle$ 生成整個 $\mathbb{Z}_p^*$，即 $\langle g \rangle = \mathbb{Z}_p^*$，則 $\operatorname{ord}(g)=p-1$。此時 $g$ 是 primitive root。
 
 ### Proper Subgroup
 
-不是每個元素都能生成整個 $\mathbb{Z}_p^*$。若 $g$ 不是 primitive root，則
-
-$$
-\langle g \rangle \subsetneq \mathbb{Z}_p^*
-$$
-
-且
-
-$$
-|\langle g \rangle| \mid (p-1).
-$$
-
-因此 element order 一定整除 group order。
+不是每個元素都能生成整個 $\mathbb{Z}_p^*$。若 $g$ 不是 primitive root，則 $\langle g \rangle \subsetneq \mathbb{Z}_p^*$ ，且 $|\langle g \rangle| \mid (p-1)$。因此 element order 一定整除 group order。
 
 ## Subgroups and the Role of $q$
 
@@ -264,16 +226,17 @@ $$
 
 其中 $p$ 是 odd prime，且 $k \ge 1$。
 
-### Examples
-
-會是 cyclic 的例子：
-
-- $n=7$
-- $n=9=3^2$
-- $n=18=2\cdot 3^2$
-
-不一定是 cyclic 的例子：
-
-- $n=8$
-- $n=12$
-- $n=15$
+<div class="example">
+    <strong> 是 cyclic ： </strong>
+    <ul>
+        <li> $n=7$ </li>
+        <li> $n=9=3^2$ </li>
+        <li> $n=18=2\cdot 3^2$ </li>
+    </ul>
+    <strong> 不是 cyclic ： </strong>
+    <ul>
+        <li> $n=8$ </li>
+        <li> $n=12$ </li>
+        <li> $n=15$ </li>
+    </ul>
+</div>
