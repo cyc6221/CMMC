@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Discrete Logarithm, RSA, and the Structure of $\mathbb{Z}_p^*$"
+title: Discrete Logarithm, RSA, and the Structure of $\mathbb{Z}_p^*$
 date: 2026-03-11
 last_updated: 2026-03-11
 tags: [discrete-logarithm, RSA, finite-field, group-theory, cyclic-group]
