@@ -6,11 +6,17 @@ last_updated: 2026-03-11
 tags: [RSA]
 ---
 
-Boneh–DeMillo–Lipton Fault Attack 是針對 **CRT-based RSA implementation** 的經典 **fault attack** <a class="citation" href="#bib-bdl01">BDL01</a>。此攻擊說明：若 attacker 能在 RSA signature 的計算過程中使其中一部分運算發生錯誤，則只要取得一個 faulted signature，就可能直接分解 RSA modulus $N$，進而 recover private key。
+Boneh–DeMillo–Lipton Fault Attack 是針對 **CRT-based RSA implementation** 的經典 **fault attack** <a class="cite" href="#bib-bdl01">BDL01</a>。此攻擊說明：若 attacker 能在 RSA signature 的計算過程中使其中一部分運算發生錯誤，則只要取得一個 faulted signature，就可能直接分解 RSA modulus $N$，進而 recover private key。
 
 這類攻擊的重點不在於直接從數學上破解 RSA，而在於利用 **implementation fault**。也就是說，RSA 的數學結構本身可能是安全的，但若裝置在實際計算時遭受外部干擾，例如 voltage glitch、clock glitch、加熱、冷卻或其他硬體層級的 fault injection，則輸出的錯誤結果可能洩漏出原本不應暴露的 secret information。
 
 在 RSA signature 的情境下，若實作使用 **Chinese Remainder Theorem (CRT)** 來加速計算，攻擊效果尤其明顯。因為 CRT 會將簽章運算拆成模 $p$ 與模 $q$ 兩部分分別計算；只要其中一邊被 fault 擾動，而另一邊仍然正確，attacker 就能利用兩者之間的不一致，從錯誤 signature 中抽出 modulus 的一個質因數。
+
+<div class="remark">
+
+Boneh–DeMillo–Lipton Fault Attack 常被稱為 <b>Bellcore attack</b>，兩者通常指的就是這個針對 <b>CRT-RSA signature</b> 的經典 fault attack。
+
+</div>
 
 ## CRT-based RSA Signature
 
@@ -170,12 +176,6 @@ $$
 - 在高安全需求裝置中加強對 voltage、clock、temperature 等異常環境的監測。
 
 防禦的核心思想是：即使內部某一步驟發生 fault，也不能讓錯誤結果直接暴露給 attacker。
-
-<div class="remark">
-
-Boneh–DeMillo–Lipton Fault Attack 常被稱為 <b>Bellcore attack</b>，兩者通常指的就是這個針對 <b>CRT-RSA signature</b> 的經典 fault attack。
-
-</div>
 
 ## References
 
