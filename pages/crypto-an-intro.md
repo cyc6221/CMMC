@@ -32,6 +32,10 @@ toc: false
 - [Partial Exposure of the some bits of the RSA Prime Factors]({{ "/articles/CryptoAnIntro/some-bits-of-the-RSA-prime-factors/" | relative_url }})
 - [Partial Exposure of the LSBs of the RSA Decryption Exponent]({{ "/articles/CryptoAnIntro/LSBs-of-the-RSA-decryption-exponent/" | relative_url }})
 
+### Fault Attacks
+
+- [Boneh–DeMillo–Lipton Fault Attack]({{ "/articles/CryptoAnIntro/Boneh-DeMillo-Lipton-fault-attack/" | relative_url }})
+
 ## Chapter 18: Definitions of Security
 
 - [Security of Encryption]({{ "/articles/CryptoAnIntro/security-of-encryption/" | relative_url }})
