@@ -20,8 +20,8 @@ toc: false
 
 - [Lattice-based attacks on RSA]({{ "/articles/CryptoAnIntro/lattice-based-attacks-on-RSA/" | relative_url }})
 - [Håstad's Attack]({{ "/articles/CryptoAnIntro/Hastads-attack/" | relative_url }})
-- [Franklin–Reiter Attack]({{ "/articles/CryptoAnIntro/Franklin-Reiter-attack/" | relative_url }}) <span class="lab-status">Todo</span>
-- [Boneh-Durfee Attack]({{ "/articles/CryptoAnIntro/Boneh-Durfee-attack/" | relative_url }}) <span class="lab-status">Todo</span>
+- [Franklin–Reiter Attack]({{ "/articles/CryptoAnIntro/Franklin-Reiter-attack/" | relative_url }})
+- [Boneh-Durfee Attack]({{ "/articles/CryptoAnIntro/Boneh-Durfee-attack/" | relative_url }})
 - [Coppersmith's Theorem]({{ "/articles/CryptoAnIntro/lattice-based-attacks-on-RSA/#coppersmiths-theorem" | relative_url }})
 - [Howgrave-Graham Lemma]({{ "/articles/CryptoAnIntro/lattice-based-attacks-on-RSA/#howgravegraham-lemma" | relative_url }})
 
