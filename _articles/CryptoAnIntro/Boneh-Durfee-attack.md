@@ -3,7 +3,7 @@ layout: page
 title: Boneh-Durfee Attack
 date: 2026-03-11
 last_updated: 2026-03-11
-tags: [RSA, lattice, Coppersmith, small-d]
+tags: [RSA, lattice, Coppersmith]
 ---
 
 Boneh-Durfee attack 是針對 **RSA small private exponent** 的經典攻擊之一。它延伸了 Wiener’s attack 的研究方向，將可攻擊範圍從非常小的 $d$ 推進到更大的情形。相較於 Wiener’s attack 主要依賴 continued fractions，Boneh-Durfee attack 改以 **lattice reduction** 與 **Coppersmith-type small root techniques** 為核心工具。
