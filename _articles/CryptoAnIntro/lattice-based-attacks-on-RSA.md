@@ -286,7 +286,7 @@ Then $h(x_0,y_0) = 0$ holds over the integers.
 
 - [Håstad's Attack]({{ "/articles/CryptoAnIntro/Hastads-attack/" | relative_url }})
 - [Franklin–Reiter Attack]({{ "/articles/CryptoAnIntro/Franklin-Reiter-attack/" | relative_url }})
-- [Extended Wiener's Attack]({{ "/articles/CryptoAnIntro/Wieners-attack-extended/" | relative_url }})
+- [Boneh-Durfee Attack]({{ "/articles/CryptoAnIntro/Boneh-Durfee-attack/" | relative_url }})
 
 <!-- --- -->
 
