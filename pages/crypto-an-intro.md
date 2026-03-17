@@ -40,9 +40,9 @@ toc: false
 
 - [Security of Encryption]({{ "/articles/CryptoAnIntro/security-of-encryption/" | relative_url }})
 - [Security of RSA]({{ "/articles/CryptoAnIntro/security-of-RSA/" | relative_url }})
-- [Security of ElGamal]({{ "/articles/CryptoAnIntro/security-of-ElGamal/" | relative_url }}) <span class="lab-status">Todo</span>
-- Semantically Secure System
-- Security of Signatures
+- [Security of ElGamal]({{ "/articles/CryptoAnIntro/security-of-ElGamal/" | relative_url }})
+- Semantically Secure System <span class="lab-status">Todo</span>
+- Security of Signatures <span class="lab-status">Todo</span>
 
 ## Chapter 19: Complexity Theoretic Approaches
 
