@@ -50,9 +50,9 @@ If DDH is hard in the group $G$ then ElGamal encryption is polynomially secure a
 
 ## ElGamal
 
-<div class="theorem">
-
 ### Malleability of ElGamal Encryption
+
+<div class="theorem">
 
 <strong> Lemma. </strong>
 
