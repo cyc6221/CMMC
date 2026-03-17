@@ -18,7 +18,7 @@ $$
 (g^x, g^y, g^{xy}) \quad \text{and} \quad (g^x, g^y, g^z)
 $$
 
-are computationally indistinguishable, where $x,y,z \xleftarrow{\$} \mathbb{Z}_q$ are chosen uniformly at random.
+are computationally indistinguishable, where $x,y,z$ are chosen uniformly at random from $\mathbb{Z}_q$.
 
 </div>
 
@@ -44,7 +44,7 @@ If DDH is hard in the group $G$, then ElGamal encryption is polynomially secure 
     <li>Choose a random bit $b\in\{0,1\}$.</li>
     <li>Set $c_2=m_b\cdot g^z$.</li>
     <li>Run the guess stage of adversary $A$ on input $(c_1,c_2), h, m_0, m_1, s$, and obtain a bit $b'$.</li>
-    <li>If $b=b'$, output <code>true</code> (DDH); otherwise output <code>false</code> (random).</li>
+    <li>If $b=b'$, output <code>DDH</code>; otherwise output <code>random</code>.</li>
   </ol>
 </div>
 
@@ -102,6 +102,8 @@ ElGamal encryption is malleable.
 
 <div class="proof">
 
+<strong>Proof.</strong>
+
 假設 Eve 觀察到一個 ElGamal 密文
 
 $$
@@ -134,7 +136,6 @@ $$
 
 ElGamal encryption is not secure against an adaptive chosen-ciphertext attack.
 
-The following attack exploits the malleability of ElGamal encryption.
 此攻擊正是利用 ElGamal 的 malleability。
 
 <div class="theorem">
@@ -147,43 +148,36 @@ ElGamal encryption is not CCA2 secure.
 
 <div class="proof">
 
+<strong>Proof.</strong>
+
 假設 Eve 想破解的密文為
-
 $$
-c=(c_1,c_2)=(g^k,\, m\cdot h^k).
+c=(c_1,c_2)=(g^k,\; m\cdot h^k).
 $$
 
-在 CCA2（chosen-ciphertext attack）模型下，Eve 可以呼叫 decryption oracle 解密任意「不是原密文」的密文。
+在 CCA2（chosen-ciphertext attack）模型下，Eve 可以查詢 decryption oracle，要求解密任何一個與原 challenge ciphertext 不同的密文。
 
 因此 Eve 構造一個相關密文
-
 $$
-c'=(c_1,\,2c_2),
+c'=(c_1,\; 2c_2),
 $$
+並將其送入 decryption oracle，得到回傳的明文 $m'$。
 
-並詢問 decryption oracle 對 $c'$ 解密，得到回傳的明文 $m'$。
-
-ElGamal 的解密會計算
-
+由 ElGamal 的解密公式可得
 $$
 m'=\frac{2c_2}{(c_1)^x},
 $$
-
-其中 $x$ 是 secret key，且 $h=g^x$。
-
-代入 $c_1=g^k$ 與 $c_2=m\cdot h^k$：
-
+其中 $x$ 是 secret key，且 $h=g^x$。將 $c_1=g^k$ 與 $c_2=m\cdot h^k$ 代入，可得
 $$
-\frac{m'}{2}
-=\frac{2c_2(c_1)^{-x}}{2}
-=\frac{2(m\cdot h^k)(g^k)^{-x}}{2}
-=\frac{2m\cdot (g^{x})^k\cdot g^{-xk}}{2}
-=\frac{2m}{2}
-=m.
+m'
+=\frac{2(m\cdot h^k)}{(g^k)^x}
+=\frac{2m\cdot (g^x)^k}{g^{kx}}
+=2m.
 $$
 
-因此 Eve 只要用 oracle 回傳的 $m'$ 做一次簡單運算（除以 2），就能恢復原始明文 $m$。
-這表示 ElGamal 在 CCA2 下不安全。
+因此 Eve 只要再將 oracle 回傳的 $m'$ 除以 $2$，即可恢復原始明文 $m$。也就是說，Eve 能夠藉由查詢一個與 challenge ciphertext 相關但不同的密文，成功解出 challenge plaintext。
+
+這表示 ElGamal encryption is not secure against an adaptive chosen-ciphertext attack.
 
 </div>
 
