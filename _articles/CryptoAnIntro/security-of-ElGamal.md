@@ -48,6 +48,20 @@ If DDH is hard in the group $G$ then ElGamal encryption is polynomially secure a
 
 </div>
 
+<div class="algorithm">
+  <b>Algorithm.</b>
+  <ul>
+    <li>Input a DDH instance $(g^x, g^y, g^z)$.</li>
+    <li>Set the public key to $h = g^x$.</li>
+    <li>Run the find stage of adversary $A$ on input $h$, and obtain $(m_0, m_1, s)$.</li>
+    <li>Set $c_1 = g^y$.</li>
+    <li>Choose a random bit $b \in \{0,1\}$.</li>
+    <li>Set $c_2 = m_b \cdot g^z$.</li>
+    <li>Run the guess stage of adversary $A$ on input $(c_1,c_2), h, m_0, m_1, s$, and obtain a bit $b'$.</li>
+    <li>If $b=b'$, output <code>true</code>; otherwise output <code>false</code>.</li>
+  </ul>
+</div>
+
 ## ElGamal
 
 ### Malleability of ElGamal Encryption
