@@ -48,13 +48,15 @@ If DDH is hard in the group $G$ then ElGamal encryption is polynomially secure a
 
 </div>
 
----
+## ElGamal
 
 <div class="theorem">
 
+### Malleability of ElGamal Encryption
+
 <strong> Lemma. </strong>
 
-ElGamal ecryption is malleable.
+ElGamal encryption is malleable.
 
 </div>
 
@@ -80,7 +82,7 @@ $$
 
 </div>
 
----
+### ElGamal Encryption is Not CCA2 Secure
 
 ElGamal encryption is not secure under an adaptively chosen plaintext attack.
 
@@ -88,7 +90,7 @@ ElGamal encryption is not secure under an adaptively chosen plaintext attack.
 
 <strong> Lemma. </strong>
 
-ElGamal ecryption is not CCA2 secure.
+ElGamal encryption is not CCA2 secure.
 
 </div>
 
