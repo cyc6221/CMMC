@@ -24,13 +24,20 @@ tags: [ElGamal, DDH, IND-CPA, CCA2, malleability]
 
 ## DDH
 
-The **Decisional Diffie–Hellman (DDH) assumption** in a cyclic group $G=\langle g\rangle$ of order $q$ states that, given $(g^x, g^y, g^z)$ for uniformly random $x,y,z\in \mathbb{Z}_q$, it is computationally infeasible to decide whether
+<div class="definition">
+    <strong>Definition.</strong>
+    <b>Decisional Diffie–Hellman Assumption (DDH).</b>
+  
+    Let $G = \langle g \rangle$ be a cyclic group of prime order $q$. The DDH assumption states that the distributions
 
-$$
-z \equiv xy \pmod q,
-$$
+    $$
+    (g^x, g^y, g^{xy}) \quad \text{and} \quad (g^x, g^y, g^z)
+    $$
 
-i.e., whether $g^z = g^{xy}$, or whether $g^z$ is a random independent group element.
+    are computationally indistinguishable, where $x,y,z \xleftarrow{\$} \mathbb{Z}_q$ are chosen uniformly at random.
+</div>
+
+DDH 是 discrete-log-based cryptography 中最基本的 decisional assumption 之一。它的意思是：即使 adversary 已經看到 $g^x$ 和 $g^y$，仍然無法有效判斷第三個元素究竟是對應的 Diffie–Hellman value $g^{xy}$，還是一個獨立隨機的 group element。換句話說，在 DDH 成立的群中，$g^{xy}$ 在外觀上與 random element 沒有可被有效辨識的差別。
 
 ---
 
@@ -115,3 +122,7 @@ $$
 這表示 ElGamal 在 CCA2 下不安全。
 
 </div>
+
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 18. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
