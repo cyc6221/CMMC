@@ -48,6 +48,24 @@ If DDH is hard in the group $G$ then ElGamal encryption is polynomially secure a
 
 </div>
 
+這個證明是 **reduction to DDH**。核心想法是：假設存在一個 adversary $A$ 可以分辨 ElGamal challenge ciphertext 對應的是 $m_0$ 還是 $m_1$，那麼就可以利用 $A$ 來解 DDH 問題。
+
+給定一組 DDH instance $(g^x,g^y,g^z)$，我們令 public key 為 $h=g^x$，再構造 ciphertext
+$$
+(c_1,c_2)=(g^y,\; m_b\cdot g^z),
+$$
+其中 $b\in\{0,1\}$ 是隨機選出的 bit。然後把這個 ciphertext 交給 adversary $A$ 去猜它加密的是哪一個 message。
+
+若 $z=xy$，則
+$$
+(c_1,c_2)=(g^y,\; m_b g^{xy})
+$$
+正好是一個合法的 ElGamal encryption，因此 $A$ 若真的能破壞 ElGamal 的 polynomial security，就能以比隨機猜測更高的機率猜對 $b$$。$
+
+若 $z$ 是獨立隨機的，則 $g^z$ 並不是正確的 Diffie–Hellman value，這時 $(c_1,c_2)$ 不再是合法的 challenge ciphertext，$A$ 的輸出就應該和 $b$ 幾乎無關，只能接近隨機猜測。
+
+因此，$A$ 的成功與否就能用來區分 $(g^x,g^y,g^z)$ 是真正的 DDH tuple 還是 random tuple，從而解出 DDH。這與 DDH assumption 矛盾，所以這樣的 adversary $A$ 不可能存在。故在 DDH 假設下，ElGamal encryption 是 polynomially secure。
+
 <div class="algorithm">
   <b>Algorithm.</b>
   <ol>
