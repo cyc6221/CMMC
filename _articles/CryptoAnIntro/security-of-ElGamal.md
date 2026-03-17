@@ -25,8 +25,7 @@ tags: [ElGamal, DDH, IND-CPA, CCA2, malleability]
 ## DDH
 
 <div class="definition">
-    <strong>Definition.</strong>
-    <b>Decisional Diffie–Hellman Assumption (DDH).</b>
+    <strong>Definition. Decisional Diffie–Hellman Assumption (DDH).</strong>
   
     Let $G = \langle g \rangle$ be a cyclic group of prime order $q$. The DDH assumption states that the distributions
 
