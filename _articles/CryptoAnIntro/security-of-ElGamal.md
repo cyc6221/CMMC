@@ -38,7 +38,7 @@ tags: [ElGamal, DDH, IND-CPA, CCA2, malleability]
 
 DDH 是 discrete-log-based cryptography 中最基本的 decisional assumption 之一。它的意思是：即使 adversary 已經看到 $g^x$ 和 $g^y$，仍然無法有效判斷第三個元素究竟是對應的 Diffie–Hellman value $g^{xy}$，還是一個獨立隨機的 group element。換句話說，在 DDH 成立的群中，$g^{xy}$ 在外觀上與 random element 沒有可被有效辨識的差別。
 
----
+### Polynomial Security of ElGamal under the DDH Assumption
 
 <div class="theorem">
 
