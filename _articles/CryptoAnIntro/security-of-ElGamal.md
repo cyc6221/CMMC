@@ -2,7 +2,7 @@
 layout: page
 title: Security of ElGamal
 date: 2026-02-11
-last_updated: 2026-02-11
+last_updated: 2026-03-16
 tags: [ElGamal, DDH, IND-CPA, CCA2, malleability]
 ---
 
