@@ -42,9 +42,11 @@ toc: false
 - [Security of RSA]({{ "/articles/CryptoAnIntro/security-of-RSA/" | relative_url }})
 - [Security of ElGamal]({{ "/articles/CryptoAnIntro/security-of-ElGamal/" | relative_url }})
 - Semantically Secure System <span class="lab-status">Todo</span>
-- Security of Signatures <span class="lab-status">Todo</span>
+- [Security of Signatures]({{ "/articles/CryptoAnIntro/security-of-signatures/" | relative_url }})
 
 ## Chapter 19: Complexity Theoretic Approaches
+
+<span class="lab-status">Todo</span>
 
 ### Polynomial Complexity Classes
 
