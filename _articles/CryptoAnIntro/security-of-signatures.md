@@ -2,7 +2,7 @@
 layout: page
 title: Security of Signatures
 date: 2026-03-20
-last_updated: 2026-03-20
+last_updated: 2026-03-21
 tags: [signature]
 ---
 
@@ -145,3 +145,7 @@ $$
 ### Conclusion
 
 raw RSA signature 無法提供安全的簽章機制，因為它的代數結構過於直接，導致攻擊者在被動情況下即可構造 existential forgery，在主動情況下又能進一步完成 selective forgery。這也說明了為何實際的 RSA 簽章方案必須搭配 hash 與適當的 padding：安全性不只是來自 RSA 反演本身的困難性，更來自於對原始代數結構的適當遮蔽與轉換。
+
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 18. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
