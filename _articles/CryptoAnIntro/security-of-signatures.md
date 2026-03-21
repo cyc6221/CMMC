@@ -44,7 +44,7 @@ $$
 
 在直觀上，existential forgery 只要求攻擊者隨便找到一個新訊息並成功偽造即可；selective forgery 則要求攻擊者對自己真正想攻擊的特定訊息成功偽造；total break 則表示攻擊者已經具備完整簽章能力，幾乎等同於取得私鑰。也正因為 existential forgery 對攻擊者而言成功條件更寬鬆，所以要防住它反而是更強的安全目標。在實務上，由於簽章系統可能被用在合約、交易、授權聲明、挑戰回應協定，甚至任意格式的位元字串上，因此通常會要求簽章機制至少能抵抗 existential forgery。
 
----
+## Definition of Security for Signatures
 
 <div class="definition" style="border-left:4px solid #0f766e; background:#ecfeff; padding:12px 14px; border-radius:8px; margin:14px 0; line-height:1.7;">
 
@@ -55,8 +55,6 @@ A signature scheme is deemed to be secure if it is infeasible for an adaptive ad
 </div>
 
 簽章機制的安全性通常定義為：對任何 adaptive adversary 而言，要產生一個 existential forgery 在計算上都是不可行的。
-
----
 
 ## Raw RSA Signatures and Forgery
 
