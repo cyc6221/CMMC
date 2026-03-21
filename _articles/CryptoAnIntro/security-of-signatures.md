@@ -53,3 +53,95 @@ $$
 A signature scheme is deemed to be secure if it is infeasible for an adaptive adversary to produce an existential forgery.
 
 </div>
+
+---
+
+## Raw RSA Signatures and Forgery
+
+在簽章系統中，hash function 的使用是不可或缺的。這一點可以從最原始的 RSA 簽章方式清楚看出。若直接將 RSA 簽章定義為
+
+$$
+s = m^d \pmod N,
+$$
+
+其中 $d$ 為私鑰指數，則此簽章機制存在明顯的安全缺陷。其根本原因在於 raw RSA 直接保留了 RSA 的乘法結構，因而允許攻擊者利用這個代數性質構造有效簽章。
+
+### Existential Forgery on Raw RSA
+
+對 raw RSA 而言，即使是在被動攻擊模型下，也能直接構造 existential forgery。攻擊者不需要查詢 signing oracle，只需先任意選取一個值 $s$，再計算
+
+$$
+m = s^e \pmod N,
+$$
+
+其中 $e$ 為公開指數。如此便得到一組 $(m,s)$，而且此組資料會通過驗證，因為
+
+$$
+s^e \equiv m \pmod N.
+$$
+
+因此，攻擊者可直接構造出某個訊息 $m$ 的有效簽章 $s$，從而完成 existential forgery。這表示 raw RSA 無法抵抗最基本的簽章偽造。
+
+### Selective Forgery on Raw RSA
+
+raw RSA 也無法抵抗主動攻擊下的 selective forgery。設攻擊者希望對指定訊息 $m$ 偽造簽章。首先，攻擊者任取一個隨機元素
+
+$$
+m_1 \in (\mathbb{Z}/N\mathbb{Z})^\ast,
+$$
+
+再令
+
+$$
+m_2 = \frac{m}{m_1}.
+$$
+
+更精確地說，這裡的運算應理解為模 $N$ 乘法群中的運算，因此
+
+$$
+m_2 \equiv m \cdot m_1^{-1} \pmod N.
+$$
+
+接著，攻擊者向 signing oracle 查詢 $m_1$ 與 $m_2$ 的簽章，得到
+
+$$
+s_1 = m_1^d \pmod N,
+\qquad
+s_2 = m_2^d \pmod N.
+$$
+
+然後令
+
+$$
+s = s_1 s_2 \pmod N.
+$$
+
+由於 RSA 簽章保有乘法性，可得
+
+$$
+\begin{aligned}
+s
+&= s_1 s_2 \pmod N \\
+&= m_1^d \cdot m_2^d \pmod N \\
+&= (m_1 m_2)^d \pmod N \\
+&= m^d \pmod N.
+\end{aligned}
+$$
+
+因此，$s$ 即為訊息 $m$ 的有效簽章。也就是說，攻擊者雖未直接要求 oracle 對 $m$ 簽章，仍可藉由兩個相關訊息的簽章組合出目標訊息的簽章，從而完成 selective forgery。
+
+### Necessity of Hashing
+
+上述例子顯示，raw RSA 的問題不在於計算是否困難，而在於其簽章形式直接暴露了 RSA 的代數結構。只要簽章保持這種可乘性，攻擊者便能透過簡單的代數操作構造偽造簽章。
+
+因此，實際上的 RSA-based signature scheme 不會直接對訊息 $m$ 計算
+
+$$
+s = m^d \pmod N,
+$$
+
+而是先對訊息施加 hash，並結合適當的編碼與 padding 機制，例如 Full Domain Hash 或 RSA-PSS。這些設計的目的，在於避免訊息本身直接落入可被利用的代數結構中，從而提升簽章機制對偽造攻擊的抵抗能力。
+
+### Conclusion
+
+raw RSA signature 無法提供安全的簽章機制，因為它的代數結構過於直接，導致攻擊者在被動情況下即可構造 existential forgery，在主動情況下又能進一步完成 selective forgery。這也說明了為何實際的 RSA 簽章方案必須搭配 hash 與適當的 padding：安全性不只是來自 RSA 反演本身的困難性，更來自於對原始代數結構的適當遮蔽與轉換。
