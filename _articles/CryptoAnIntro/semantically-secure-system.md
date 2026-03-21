@@ -143,7 +143,7 @@ $$
 
 If the QUADRES problem is hard for the modulus $N$ then the above encryption system is polynomially secure against passive adversaries.
 
-<div>
+</div>
 
 <div class="proof">
 
@@ -194,7 +194,7 @@ $$
 
 The Goldwasser-Micali encryption scheme is insecure against an adaptive chosen ciphertext attack.
 
-<div>
+</div>
 
 <div class="proof">
 
