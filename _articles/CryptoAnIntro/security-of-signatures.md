@@ -29,7 +29,7 @@ Existential forgery 表示攻擊者不需要事先指定目標訊息，只要能
 若從攻擊者的偽造能力來看，三者的強弱順序為
 
 $$
-\text{Total Break} \;>\; \text{Selective Forgery} \;>\; \text{Existential Forgery}.
+\text{Total Break} \;>\; \text{Selective Forgery} \;>\; \text{Existential Forgery}
 $$
 
 這是因為 total break 幾乎等同於完全掌握簽章能力；selective forgery 只要求攻擊者能對某個指定的目標訊息完成偽造；existential forgery 則只要求攻擊者能對某個新的訊息完成偽造即可。
@@ -38,10 +38,10 @@ $$
 
 $$
 \text{Secure against Existential Forgery}
-\;\Rightarrow\;
+\Rightarrow
 \text{Secure against Selective Forgery}
-\;\Rightarrow\;
-\text{Secure against Total Break}.
+\Rightarrow
+\text{Secure against Total Break}
 $$
 
 由於 existential forgery 對攻擊者而言成功條件最寬鬆，因此能夠抵抗 existential forgery 是較強的安全要求。也正因如此，簽章機制的安全性通常定義為：對任何 adaptive adversary 而言，產生 existential forgery 在計算上皆不可行。
