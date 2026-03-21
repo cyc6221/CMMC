@@ -54,6 +54,8 @@ A signature scheme is deemed to be secure if it is infeasible for an adaptive ad
 
 </div>
 
+簽章機制的安全性通常定義為：對任何 adaptive adversary 而言，要產生一個 existential forgery 在計算上都是不可行的。
+
 ---
 
 ## Raw RSA Signatures and Forgery
