@@ -46,9 +46,11 @@ toc: false
 
 ## Chapter 19: Complexity Theoretic Approaches
 
-<span class="lab-status">Todo</span>
+- [Decision Problems]({{ "/articles/CryptoAnIntro/decision-problems/" | relative_url }})
+- [Polynomial Complexity Classes]({{ "/articles/CryptoAnIntro/polynomial-complexity-classes/" | relative_url }})
+- [List of NPC Problems]({{ "/articles/CryptoAnIntro/list-of-NPC-problems/" | relative_url }})
 
-### Polynomial Complexity Classes
+<span class="lab-status">Todo</span>
 
 ### Knapsack-Based Cryptosystems
 
