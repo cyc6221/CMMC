@@ -91,11 +91,11 @@ $$
     <li>初始化 $b_1=b_2=\cdots=b_n=0$</li>
     <li>對 $i=1,2,\dots,n$ 依序執行下列步驟：
       <ol>
-        <li>若 $T=0$，則回傳 $ (b_1,\dots,b_n) $
+        <li>若 $T=0$ 則回傳 $ (b_1,\dots,b_n) $
         </li>
         <li>
-            查詢 $ O(w_{i+1},\dots,w_n,\; T-w_i). $
-            若結果為 true，則令 $ T=T-w_i,\qquad b_i=1. $
+            查詢 $ O(w_{i+1},\dots,w_n,\; T-w_i) $
+            若結果為 true，則令 $ T=T-w_i \quad,\quad b_i=1 $
         </li>
       </ol>
     </li>
