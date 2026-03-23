@@ -3,7 +3,7 @@ layout: page
 title: Polynomial Complexity Classes
 date: 2026-03-22
 last_updated: 2026-03-23
-tags: []
+tags: [complexity-theory, decision-problems, P vs NP]
 ---
 
 在〈[Decision Problems]({{ "/articles/CryptoAnIntro/decision-problems/" | relative_url }})〉中，將計算問題表述成只有 yes 或 no 兩種答案的 decision problem。這樣的表述方式提供了一個統一的框架，使不同問題之間的計算難度得以比較。
@@ -23,7 +23,7 @@ tags: []
 事實上，
 
 $$
-P = co\text{-}P.
+P = co\text{-}P
 $$
 
 證明方式很直接。假設有一個演算法 $A$，只要 instance 的答案是 yes，就能在 $n^c$ 的時間內輸出 yes。那麼只要把 $A$ 跑起來：若它在 $n^c$ 步內輸出 yes，就接受 yes；若超過 $n^c$ 還沒有輸出 yes，就直接終止它並輸出 no。這樣一來，就能把原本「快速確認 yes」的能力轉換成「快速確認 no」的能力，因此 $P$ 與 $co\text{-}P$ 相等。
@@ -35,6 +35,7 @@ $$
 這裡最重要的點不是「能不能快速找到 witness」，而是「若有人把 witness 給你，你能不能快速驗證它是對的」。這正是 $NP$ 與 $P$ 的關鍵差別所在。
 
 <div class="example">
+  <strong>Example.</strong>
   <ul>
     <li><b>Composite problem</b>：問一個整數 $N$ 是否為合成數。這個問題在 $NP$ 中，因為 witness 可以是一個非平凡因數，而驗證方式只要檢查它是否真的整除 $N$ 即可。</li>
     <li><b>$k$-colourability</b>：問圖 $G$ 是否可用 $k$ 種顏色著色。這時 witness 就是一組具體的著色方式，而驗證時只需確認每條邊的兩端頂點顏色不同即可。</li>
@@ -51,21 +52,21 @@ $$
 在這些例子裡，並沒有假設 witness 本身能在 polynomial time 內被找出來；$NP$ 的重點只在於：一旦有人給出 witness，就能在 polynomial time 內驗證它是否正確。由此立刻可以看出
 
 $$
-P \subset NP.
+P \subset NP
 $$
 
 因為若一個問題本來就能在 polynomial time 內求解，那麼它的答案自然也能在 polynomial time 內被驗證。
 
-不過，這裡也帶出了理論計算機科學中最重要的公開問題之一，也就是 [$P = NP$?]({{ "/articles/CryptoAnIntro/P-equals-NP/" | relative_url }})：
+不過，這裡也帶出了理論計算機科學中最重要的公開問題之一，也就是 [$P = NP$？]({{ "/articles/CryptoAnIntro/P-equals-NP/" | relative_url }})
 
 $$
-P \stackrel{?}{=} NP.
+P \stackrel{?}{=} NP
 $$
 
 目前普遍相信答案是否定的，也就是相信
 
 $$
-P \ne NP.
+P \ne NP
 $$
 
 這代表可能存在某些問題：雖然它們的 yes instance 擁有簡短而且可快速驗證的證明，但整體而言，仍然不存在已知的 polynomial-time 演算法可以有效率地把答案求出來。
@@ -77,19 +78,19 @@ $$
 不過，這裡就不像 $P$ 與 $co\text{-}P$ 那樣自然相等。若
 
 $$
-P \ne NP,
+P \ne NP
 $$
 
 則可推出
 
 $$
-NP \ne co\text{-}NP.
+NP \ne co\text{-}NP
 $$
 
 因此一般會認為
 
 $$
-NP \ne co\text{-}NP.
+NP \ne co\text{-}NP
 $$
 
 這表示「yes 有可驗證證明」與「no 有可驗證證明」通常應被視為不同層次的性質。
@@ -122,20 +123,20 @@ $$
 一個 decision problem $DP$ 若是 **$NP$-complete**，表示每一個屬於 $NP$ 的問題都可以在 polynomial time 內 **reduce** 到 $DP$。換句話說，若能有效率地解掉這個 $DP$，那麼所有 $NP$ 問題也都能有效率地解掉。形式上可寫成：
 
 $$
-DP \in P \implies P = NP.
+DP \in P \implies P = NP
 $$
 
 因此，$NP$-complete 問題通常可以被看成是 $NP$ 中最困難的一群問題。更多經典例子可參見〈[List of NPC Problems]({{ "/articles/CryptoAnIntro/list-of-NPC-problems/" | relative_url }})〉。
 
 <div class="example">
-  <b>Example.</b>
+  <strong>Example.</strong>
   <ul>
     <li><b>3-colouring problem</b></li>
     <li><b>knapsack problem</b></li>
   </ul>
 </div>
 
-這些例子也提醒我們，理論上的高困難度與實務上是否適合作為密碼學基礎，未必是同一件事。
+這些例子也說明，理論上的高困難度與實務上是否適合作為密碼學基礎，未必是同一件事。對密碼學而言，問題並不只是在理論上是否夠難，而是這種困難性是否真的符合密碼學所需要的形式。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -174,8 +175,10 @@ $$
 
 <div class="remark">
 <strong>Remark.</strong>
-這個例子突顯了一個對密碼學非常重要的 distinction：$P$、$NP$、$co\text{-}NP$ 與 $NP$-complete 這些複雜度類別，描述的是問題在理論上的困難程度；但對密碼學來說，真正重要的不只是最壞情況下有多難，而是平均情況下是否仍然夠難。也因此，$NP$-completeness 本身並不足以保證一個問題適合拿來作為密碼基礎。
+這個例子突顯了一個對密碼學非常重要的區別：$P$、$NP$、$co\text{-}NP$ 與 $NP$-complete 這些複雜度類別，描述的是問題在理論上的困難程度；但對密碼學來說，真正重要的不只是最壞情況下有多難，而是平均情況下是否仍然夠難。也因此，$NP$-completeness 本身並不足以保證一個問題適合拿來作為密碼基礎。
 </div>
+
+整體而言，複雜度類別提供了一套理解計算困難度的基本語言，也為後續討論密碼學中的 hardness assumptions 奠定了背景。不過，從複雜度理論走向密碼學時，還必須進一步區分 worst-case 與 average-case 的差別。
 
 ## References
 
