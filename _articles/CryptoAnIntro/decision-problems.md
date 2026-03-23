@@ -2,11 +2,11 @@
 layout: page
 title: Decision Problems
 date: 2026-03-22
-last_updated: 2026-03-22
-tags: []
+last_updated: 2026-03-23
+tags: [complexity-theory, decision-problems, knapsack]
 ---
 
-在複雜度理論中，**decision problem（判定問題）** 是最基本的出發點之一。密碼學中常見的一個觀念誤區，是把某些只在少數特殊實例上困難的問題，誤認為適合作為密碼基礎的困難問題。要避免這種混淆，就需要先掌握複雜度理論中對問題的標準描述方式。
+在密碼學與複雜度理論中，討論「一個問題是否困難」之前，首先需要明確問題是如何被表述的。最基本的表述方式之一，就是 decision problem。
 
 ## What is a Decision Problem?
 
@@ -31,7 +31,7 @@ $$
 質數判定是最典型的例子之一。令 $I$ 為所有整數，令 $S$ 為所有質數所形成的子集合，則對應的 decision problem 為：
 
 <div class="definition">
-  <strong>Problem Statement.</strong>
+  <strong>Example. Primality Testing</strong>
   給定一個整數，判斷它是不是質數。
 </div>
 
@@ -42,7 +42,7 @@ $$
 另一個常見例子是圖著色問題。令 $I$ 為所有圖，令 $S$ 為所有可以用 $k$ 種顏色著色的圖，則對應的 decision problem 為：
 
 <div class="definition">
-  <strong>Problem Statement.</strong>
+  <strong>Example. Graph Colouring</strong>
   給定一張圖，判斷它是否可以只用 $k$ 種顏色完成著色。
 </div>
 
@@ -59,12 +59,9 @@ $$
 ### Decision Knapsack Problem
 
 <div class="definition">
-  <strong>Definition.</strong>
-  Given $n$ items with different weights $w_i$, determine whether one can find
-  $b_i \in \{0,1\}$ such that
-  $$
-  S = b_1 w_1 + b_2 w_2 + \cdots + b_n w_n.
-  $$
+  <strong>Definition. Decision Knapsack Problem</strong>
+
+  Given $n$ items with different weights $w_i$, determine whether there exist $b_i \in \set{0,1}$ such that $$ S = b_1 w_1 + b_2 w_2 + \cdots + b_n w_n. $$
 </div>
 
 這個版本只問是否存在一組選法，使得所選物品的總重量恰好等於指定值 $S$，因此它是一個典型的 decision problem。  
@@ -75,12 +72,9 @@ $$
 ### Knapsack Problem
 
 <div class="definition">
-  <strong>Definition.</strong>
-  Find $b_i \in \{0,1\}$ such that
-  $$
-  S = b_1 w_1 + b_2 w_2 + \cdots + b_n w_n,
-  $$
-  assuming such a solution is unique.
+  <strong>Definition. Knapsack Problem</strong>
+
+  Find $b_i \in \set{0,1}$ such that $$ S = b_1 w_1 + b_2 w_2 + \cdots + b_n w_n, $$ assuming such a solution is unique.
 </div>
 
 這裡的問題不再只是問「有沒有解」，而是要求實際找出使等式成立的那組 $b_i$。換句話說，這裡要求的是 search version，而不是 decision version。
@@ -88,28 +82,19 @@ $$
 <div class="algorithm">
   <strong>Algorithm.</strong>
   <ol>
-    <li>令 $O$ 為 decision knapsack problem 的 oracle。先查詢 $O(w_1,\dots,w_n,S)$。若結果為 false，則回傳 false。</li>
-    <li>令 $T=S$。</li>
-    <li>初始化
-      $$
-      b_1=b_2=\cdots=b_n=0.
-      $$
+    <li>
+        令 $O$ 為 decision knapsack problem 的 oracle。先查詢 $O(w_1,\dots,w_n,S)$。
+        若結果為 false，則回傳 false
     </li>
+    <li>令 $T=S$</li>
+    <li>初始化 $b_1=b_2=\cdots=b_n=0$</li>
     <li>對 $i=1,2,\dots,n$ 依序執行下列步驟：
       <ol>
-        <li>若 $T=0$，則回傳
-          $$
-          (b_1,\dots,b_n).
-          $$
+        <li>若 $T=0$，則回傳 $ (b_1,\dots,b_n) $
         </li>
-        <li>查詢
-          $$
-          O(w_{i+1},\dots,w_n,\; T-w_i).
-          $$
-          若結果為 true，則令
-          $$
-          T=T-w_i,\qquad b_i=1.
-          $$
+        <li>
+            查詢 $ O(w_{i+1},\dots,w_n,\; T-w_i). $
+            若結果為 true，則令 $ T=T-w_i,\qquad b_i=1. $
         </li>
       </ol>
     </li>
@@ -125,3 +110,5 @@ $$
   <strong>Remark.</strong>
   這裡反映出一個重要觀念：decision version 並不只是原問題的簡化版，它往往已經保留了原問題的核心結構。以 knapsack 為例，只要能有效回答「是否存在解」，在唯一解的假設下，就能進一步還原實際的解。因此，在複雜度理論中，判定問題並不是不重要的弱化形式，而是分析計算問題時非常核心的表述方式。
 </div>
+
+**Decision problem** 提供了一種統一且適合複雜度分析的語言，也為後續討論 $P$、$NP$ 與 NP-completeness 建立了基本框架。
