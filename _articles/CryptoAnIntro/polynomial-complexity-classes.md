@@ -34,37 +34,41 @@ $$
 
 這裡最重要的點不是「能不能快速找到 witness」，而是「若有人把 witness 給你，你能不能快速驗證它是對的」。這正是 $NP$ 與 $P$ 的關鍵差別所在。
 
-例如：
+<div class="example">
+  <ul>
+    <li><b>Composite problem</b>：問一個整數 $N$ 是否為合成數。這個問題在 $NP$ 中，因為 witness 可以是一個非平凡因數，而驗證方式只要檢查它是否真的整除 $N$ 即可。</li>
+    <li><b>$k$-colourability</b>：問圖 $G$ 是否可用 $k$ 種顏色著色。這時 witness 就是一組具體的著色方式，而驗證時只需確認每條邊的兩端頂點顏色不同即可。</li>
+    <li>
+      <b>Knapsack</b>：問某個 knapsack instance 是否有解。這時 witness 就是那組 $b_i$ 的值，而驗證只需計算
+      $$
+      S=b_1w_1+\cdots+b_nw_n
+      $$
+      是否成立。
+    </li>
+  </ul>
+</div>
 
-- **Composite problem**：問一個整數 $N$ 是否為合成數。這個問題在 $NP$ 中，因為 witness 可以是一個非平凡因數，而驗證方式只要檢查它是否真的整除 $N$ 即可。
-- **$k$-colourability**：問圖 $G$ 是否可用 $k$ 種顏色著色。這時 witness 就是一組具體的著色方式，而驗證時只需確認每條邊的兩端頂點顏色不同即可。
-- **Knapsack**：問某個 knapsack instance 是否有解。這時 witness 就是那組 $b_i$ 的值，而驗證只需計算
-  $$
-  S=b_1w_1+\cdots+b_nw_n
-  $$
-  是否成立。
-
-在這些例子裡，並沒有假設 witness 本身可以在 polynomial time 內被找出來；只是假設它能被 polynomial time 驗證。也因此，明顯有
+在這些例子裡，並沒有假設 witness 本身能在 polynomial time 內被找出來；$NP$ 的重點只在於：一旦有人給出 witness，就能在 polynomial time 內驗證它是否正確。由此立刻可以看出
 
 $$
 P \subset NP.
 $$
 
-因為若一個問題本來就能快速解，那麼當然也能快速驗證。
+因為若一個問題本來就能在 polynomial time 內求解，那麼它的答案自然也能在 polynomial time 內被驗證。
 
-理論計算機科學中最重要的公開問題之一，就是：
+不過，這裡也帶出了理論計算機科學中最重要的公開問題之一，也就是 [\(P = NP\)?]({{ "/articles/CryptoAnIntro/P-equals-NP/" | relative_url }})：
 
 $$
 P \stackrel{?}{=} NP.
 $$
 
-多數人相信答案是否定的，也就是相信
+目前普遍相信答案是否定的，也就是相信
 
 $$
 P \ne NP.
 $$
 
-這表示：有些問題雖然其 yes instance 有簡短且可快速驗證的證明，但整體而言卻仍然沒有已知的有效率求解演算法。
+這代表可能存在某些問題：雖然它們的 yes instance 擁有簡短而且可快速驗證的證明，但整體而言，仍然不存在已知的 polynomial-time 演算法可以有效率地把答案求出來。
 
 ## The Class $co\text{-}NP$
 
@@ -115,31 +119,34 @@ $$
 
 ## $NP$-Complete Problems
 
-一個 decision problem $DP$ 若是 **$NP$-complete**，表示每一個屬於 $NP$ 的問題都可以在 polynomial time 內 **reduce** 到 $DP$。也就是說，若能有效率地解掉這個 $DP$，那麼所有 $NP$ 問題都能有效率地解掉。形式上可寫成：
+一個 decision problem $DP$ 若是 **$NP$-complete**，表示每一個屬於 $NP$ 的問題都可以在 polynomial time 內 **reduce** 到 $DP$。換句話說，若能有效率地解掉這個 $DP$，那麼所有 $NP$ 問題也都能有效率地解掉。形式上可寫成：
 
 $$
 DP \in P \implies P = NP.
 $$
 
-因此，$NP$-complete 問題可以被看成是 $NP$ 中最困難的一群問題。
+因此，$NP$-complete 問題通常可以被看成是 $NP$ 中最困難的一群問題。更多經典例子可參見〈[List of NPC Problems]({{ "/articles/CryptoAnIntro/list-of-NPC-problems/" | relative_url }})〉。
 
-經典例子包括：
+<div class="example">
+  <b>Example.</b>
+  <ul>
+    <li><b>3-colouring problem</b></li>
+    <li><b>knapsack problem</b></li>
+  </ul>
+</div>
 
-- **3-colouring problem**
-- **knapsack problem**
-
-這兩個例子也說明了一件事：理論上的高困難度與實務上的密碼適用性，未必是同一件事。
+這些例子也提醒我們，理論上的高困難度與實務上是否適合作為密碼學基礎，未必是同一件事。
 
 <div class="remark">
 <strong>Remark.</strong>
-像 **factoring** 或 **COMPOSITES** 這樣的問題，已知位於 $NP$ 中，但目前並不知道它們是不是 $NP$-complete。更進一步地說，許多密碼學真正依賴的困難問題，例如 factoring、discrete logarithm 等，雖然位於 $NP$，但通常並不被認為和 $NP$-complete 問題有直接關聯。
+像 <b>factoring</b> 或 <b>COMPOSITES</b> 這樣的問題，已知位於 $NP$ 中，但目前並不知道它們是不是 $NP$-complete。更進一步地說，許多密碼學真正依賴的困難問題，例如 factoring、discrete logarithm 等，雖然位於 $NP$，但通常並不被認為和 $NP$-complete 問題有直接關聯。
 
-這件事很重要，因為它提醒我們：**密碼學上重要的「難題」與理論計算機科學中最極端的「最難問題」並不是同一類概念**。
+這件事很重要，因為它提醒我們 <b>密碼學上重要的「難題」與理論計算機科學中最極端的「最難問題」並不是同一類概念</b>。
 </div>
 
 <div class="remark">
 <strong>Remark.</strong>
-這裡最關鍵的一點，是要分清楚 **worst-case complexity** 與 **average-case hardness** 的差別。即使 $NP$-complete 問題在最壞情況下看起來比 factoring 更難，也不代表它們更適合拿來作為密碼學基礎。
+這裡最關鍵的一點，是要分清楚 <b>worst-case complexity</b> 與 <b>average-case hardness</b> 的差別。即使 $NP$-complete 問題在最壞情況下看起來比 factoring 更難，也不代表它們更適合拿來作為密碼學基礎。
 
 原因在於，複雜度理論談的是 worst-case complexity，但密碼學真正需要的是 average-case hardness。也就是說，單單證明「某些極端輸入很難」是不夠的；真正需要的是：對於實際生成出來、平均意義下的 instance，它們也應該難以求解。
 
@@ -148,7 +155,7 @@ $$
 
 <div class="example">
 <strong>Example.</strong>
-為了更清楚說明 worst-case 與 average-case 的差異，可以看 **3-colouring** 這個例子。理論上，判斷一張圖是否可 3-著色，在最壞情況下是 $NP$-complete；但平均而言，它其實很容易。原因是：對一張隨機圖來說，不管圖有多大，它通常根本不會是 3-colourable。
+為了更清楚說明 worst-case 與 average-case 的差異，可以看 <b>3-colouring</b> 這個例子。理論上，判斷一張圖是否可 3-著色，在最壞情況下是 $NP$-complete；但平均而言，它其實很容易。原因是：對一張隨機圖來說，不管圖有多大，它通常根本不會是 3-colourable。
 
 一個簡單的 backtracking 著色法如下：
 
