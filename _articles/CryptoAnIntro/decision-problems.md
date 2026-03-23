@@ -112,4 +112,12 @@ $$
   這裡反映出一個重要觀念：decision version 並不只是原問題的簡化版，它往往已經保留了原問題的核心結構。以 knapsack 為例，只要能有效回答「是否存在解」，在唯一解的假設下，就能進一步還原實際的解。因此，在複雜度理論中，判定問題並不是不重要的弱化形式，而是分析計算問題時非常核心的表述方式。
 </div>
 
-**Decision Problem** 提供了一種統一且適合複雜度分析的語言，也為後續討論 $P$、$NP$ 與 NP-completeness 建立了基本框架。
+## Next
+
+**Decision Problem** 提供了一種統一且適合複雜度分析的語言，也構成了後續討論 $P$、$NP$ 與 NP-completeness 的基本出發點。理解判定問題的表述方式之後，就可以進一步進入多項式時間複雜度類別的定義與比較。
+
+[Polynomial Complexity Classes]({{ "/articles/CryptoAnIntro/polynomial-complexity-classes/" | relative_url }})
+
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 19. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
