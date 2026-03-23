@@ -87,9 +87,33 @@ $$
 
 <div class="algorithm">
   <strong>Algorithm.</strong>
-  Suppose we have an oracle for the decision knapsack problem. First ask whether the given instance has a solution. If the answer is no, then there is no knapsack solution. If the answer is yes, determine the values of the $b_i$ one by one.
-
-  Start with $T=S$. For each $i=1,2,\dots,n$, ask whether there is a solution for the remaining instance with target value $T-w_i$. If the answer is yes, set $b_i=1$ and replace $T$ by $T-w_i$. Otherwise set $b_i=0$. Repeating this process determines all the coefficients $b_i$, and hence recovers the knapsack solution.
+  <ol>
+    <li>令 $O$ 為 decision knapsack problem 的 oracle。先查詢 $O(w_1,\dots,w_n,S)$。若結果為 false，則回傳 false。</li>
+    <li>令 $T=S$。</li>
+    <li>初始化
+      $$
+      b_1=b_2=\cdots=b_n=0.
+      $$
+    </li>
+    <li>對 $i=1,2,\dots,n$ 依序執行下列步驟：
+      <ol>
+        <li>若 $T=0$，則回傳
+          $$
+          (b_1,\dots,b_n).
+          $$
+        </li>
+        <li>查詢
+          $$
+          O(w_{i+1},\dots,w_n,\; T-w_i).
+          $$
+          若結果為 true，則令
+          $$
+          T=T-w_i,\qquad b_i=1.
+          $$
+        </li>
+      </ol>
+    </li>
+  </ol>
 </div>
 
 <div class="remark">
