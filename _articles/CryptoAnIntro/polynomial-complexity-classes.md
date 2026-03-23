@@ -56,7 +56,7 @@ $$
 
 因為若一個問題本來就能在 polynomial time 內求解，那麼它的答案自然也能在 polynomial time 內被驗證。
 
-不過，這裡也帶出了理論計算機科學中最重要的公開問題之一，也就是 [\(P = NP\)?]({{ "/articles/CryptoAnIntro/P-equals-NP/" | relative_url }})：
+不過，這裡也帶出了理論計算機科學中最重要的公開問題之一，也就是 [$P = NP$?]({{ "/articles/CryptoAnIntro/P-equals-NP/" | relative_url }})：
 
 $$
 P \stackrel{?}{=} NP.
