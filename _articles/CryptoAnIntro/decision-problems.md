@@ -6,11 +6,11 @@ last_updated: 2026-03-23
 tags: [complexity-theory, decision-problems, knapsack]
 ---
 
-在密碼學與複雜度理論中，討論「一個問題是否困難」之前，首先需要明確問題是如何被表述的。最基本的表述方式之一，就是 Decision Problem。
+在密碼學與複雜度理論中，討論「一個問題是否困難」之前，首先需要明確問題是如何被表述的。最基本的表述方式之一，就是 **Decision Problem**。
 
 ## Decision Problem
 
-**Decision Problem** 就是答案只有 **yes/no** 的問題。輸入是一個 instance（實例），通常會被編碼成某種形式，例如長度為 $n$ 的二進位字串。可以把所有可能輸入看成一個集合 $I$，再指定其中一個子集合 $S$，而判定問題的本質就是：
+**Decision Problem** 就是答案只有 **yes/no** 的問題。輸入是一個 **instance（實例）**，通常會被編碼成某種形式，例如長度為 $n$ 的二進位字串。可以把所有可能輸入看成一個集合 $I$，再指定其中一個子集合 $S$，而判定問題的本質就是：
 
 $$
 \text{給定 } I \text{ 中的一個 instance，判斷它是否屬於 } S.
@@ -28,7 +28,7 @@ $$
 
 ### Primality
 
-質數判定是最典型的例子之一。令 $I$ 為所有整數，令 $S$ 為所有質數所形成的子集合，則對應的 Decision Problem 為：
+**Primality Testing（質數判定）** 是最典型的例子之一。令 $I$ 為所有整數，令 $S$ 為所有質數所形成的子集合，則對應的 Decision Problem 為：
 
 <div class="definition">
   <strong>Example. Primality Testing</strong>
@@ -39,9 +39,9 @@ $$
 
 ### Graph Colouring
 
-另一個常見例子是圖著色問題。令 $I$ 為所有圖，令 $S$ 為所有可以用 $k$ 種顏色著色的圖，則對應的 Decision Problem 為：
+另一個常見例子是 **Graph Colouring（圖著色問題）**。令 $I$ 為所有圖，令 $S$ 為所有可以用 $k$ 種顏色著色的圖，則對應的 Decision Problem 為：
 
-<div class="definition">
+<div class="example">
   <strong>Example. Graph Colouring</strong>
   給定一張圖，判斷它是否可以只用 $k$ 種顏色完成著色。
 </div>
@@ -58,7 +58,7 @@ $$
 
 ### Decision Knapsack Problem
 
-<div class="definition">
+<div class="example">
   <strong>Definition. Decision Knapsack Problem</strong>
 
   Given $n$ items with different weights $w_i$, determine whether there exist $b_i \in \set{0,1}$ such that $$ S = b_1 w_1 + b_2 w_2 + \cdots + b_n w_n. $$
