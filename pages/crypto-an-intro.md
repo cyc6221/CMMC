@@ -48,7 +48,8 @@ toc: false
 
 - [Decision Problems]({{ "/articles/CryptoAnIntro/decision-problems/" | relative_url }})
 - [Polynomial Complexity Classes]({{ "/articles/CryptoAnIntro/polynomial-complexity-classes/" | relative_url }})
-- [List of NPC Problems]({{ "/articles/CryptoAnIntro/list-of-NPC-problems/" | relative_url }})
+  - [List of NPC Problems]({{ "/articles/CryptoAnIntro/list-of-NPC-problems/" | relative_url }})
+  - [P = NP?]({{ "/articles/CryptoAnIntro/P-equals-NP/" | relative_url }})
 
 <span class="lab-status">Todo</span>
 
