@@ -6,7 +6,9 @@ last_updated: 2026-03-23
 tags: []
 ---
 
-在把問題寫成 decision problem 之後，下一步就是討論：這些問題到底有多難。複雜度理論的目的之一，就是依照「能不能有效率地求解」或「能不能有效率地驗證」來分類不同的問題。這一節依序介紹 $P$、$co\text{-}P$、$NP$、$co\text{-}NP$ 與 $NP$-complete，並說明這些概念雖然重要，但不能直接拿來當作密碼學安全性的全部依據。
+在前一節〈[Decision Problems]({{ "/articles/CryptoAnIntro/decision-problems/" | relative_url }})〉中，已經先將計算問題表述成只有 yes 或 no 兩種答案的 decision problem。這樣的表述方式提供了一個統一的框架，使不同問題之間的計算難度得以比較。
+
+在此基礎上，接下來便要進一步討論：這些 decision problems 究竟有多難。複雜度理論正是研究這個問題的工具。它依照「能否有效率地求解」以及「能否有效率地驗證」來分類不同的問題。本節將介紹 $P$、$co\text{-}P$、$NP$、$co\text{-}NP$ 與 $NP$-complete 等基本類別，並說明這些概念雖然構成理解計算困難度的基礎，卻仍不足以直接作為密碼學安全性的完整依據。
 
 ## The Class $P$
 
@@ -159,3 +161,7 @@ $$
 對一張有 $t$ 個頂點的隨機圖而言，這個演算法平均走訪的頂點數少於 197，而且這個界與 $t$ 的大小無關。換句話說，雖然 3-colouring 在最壞情況下非常難，但對平均隨機圖來說，卻往往能在幾乎固定成本內很快判定為不可著色。
 
 這也正好帶出整節最重要的結論：$P$、$NP$、$co\text{-}NP$ 與 $NP$-complete 這些複雜度類別，幫助我們理解問題在理論上的困難程度；但對密碼學來說，真正重要的不只是最壞情況下有多難，而是平均情況下是否仍然夠難。也因此，$NP$-completeness 本身並不足以保證一個問題適合拿來作為密碼基礎。
+
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 19. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
