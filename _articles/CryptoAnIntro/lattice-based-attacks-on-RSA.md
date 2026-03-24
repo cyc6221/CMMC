@@ -3,7 +3,7 @@ layout: page
 title: Lattice Based Attacks on RSA
 date: 2026-02-03
 last_updated: 2026-02-04
-tags: [RSA, Lattice, LLL, SVP, Coppersmith]
+tags: [RSA, lattice, LLL, SVP, Coppersmith]
 ---
 
 本頁作為筆記索引，整理 **lattice-based techniques** 在 **RSA** 攻擊中的通用框架 <a class="cite" href="#bib-bon99">Bon99</a><a class="cite" href="#bib-ns01">NS01</a>：將 **side information** 建模為「在 mod $N$ 下尋找 **modular small root**」，並以 **Howgrave–Graham Lemma** <a class="cite" href="#bib-how97">How97</a> 與 **Coppersmith Theorem** <a class="cite" href="#bib-cop97">Cop97</a> 作為工具基礎。

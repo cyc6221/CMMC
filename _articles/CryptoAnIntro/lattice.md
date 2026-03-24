@@ -3,7 +3,7 @@ layout: page
 title: Lattice
 date: 2026-02-02
 last_updated: 2026-02-02
-tags: [Lattice, LLL, GSO, SVP]
+tags: [lattice, LLL, GSO, SVP]
 ---
 
 ## Before reading
