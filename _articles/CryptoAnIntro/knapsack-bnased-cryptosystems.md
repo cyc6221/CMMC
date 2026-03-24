@@ -174,6 +174,7 @@ $$
 \{w_1,\dots,w_n\}
 $$
 的 **density** 為
+
 $$
 d=\frac{n}{\max\{\log_2 w_i:1\le i\le n\}}.
 $$
