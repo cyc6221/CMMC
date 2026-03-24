@@ -57,11 +57,11 @@ Suppose we are given $h=g^x$. We perform the following steps. First let $t=\frac
 We then output $y$ as the discrete logarithm of the original element $h$ with respect to $g$.
 </div>
 
-> DL 部分的核心想法是：若我們知道目前離散對數的奇偶性，就可以逐步把它拆解出來。
+DL 部分的關鍵在於：若已知目前離散對數的奇偶性，便可逐步恢復其值。
 
-假設目前 $h=g^x$。若 oracle 告訴我們 $x$ 是偶數，則可直接將指數除以 $2$；若 oracle 告訴我們 $x$ 是奇數，則先把 $x$ 減去 $1$，使其變成偶數，再除以 $2$。在群階 $q$ 為奇質數的情況下，$2$ 在模 $q$ 下可逆，所以「除以 $2$」是合法操作。如此反覆進行，就能一位一位地恢復 $x$ 的二進位資訊，最後得到完整的離散對數。
+設 $h=g^x$。若 oracle 回傳 $x$ 為偶數，則可直接將指數除以 $2$；若 oracle 回傳 $x$ 為奇數，則先將 $x$ 減去 $1$ 使其成為偶數，再將其除以 $2$。由於群階 $q$ 是奇質數，$2$ 在模 $q$ 下可逆，因此上述操作在指數上是良定的。
 
-因此，只要能計算 $x \bmod 2$，就能進一步解出整個 discrete logarithm，故 $B_2$ 是 hard predicate。
+重複此過程，便可依次確定 $x$ 的二進位表示，最終恢復完整的離散對數。由此可見，若能有效計算 $x \bmod 2$，便能進一步解出整個 discrete logarithm，因此 $B_2$ 是函數 $x \mapsto g^x$ 的 hard predicate。
 
 <div class="example">
 <strong>Example.</strong>
@@ -274,7 +274,7 @@ $$
 
 <div class="remark">
 <strong>Remark.</strong>
-從這一節可以看出，bit security 並不是在問「只知道一個 bit 是否無關緊要」，而是在問：某些看似極少量的資訊，是否其實已經足以恢復整個秘密。對離散對數而言，最低位元是 hard predicate；對 RSA 而言，奇偶性、是否落在 $N/2$ 以上，以及某些低位 bits，也都是 hard predicates。這說明對這些 one-way functions 而言，局部資訊的洩漏在本質上與整體反轉一樣危險，也正是理解 semantic security 與更進一步安全性概念的重要基礎。
+Bit security 所關心的，並不是單一 bit 是否只是微不足道的局部資訊，而是這類看似有限的資訊是否已足以恢復整體秘密。對離散對數問題而言，最低位元構成 hard predicate；對 RSA 問題而言，奇偶性、是否落在 $N/2$ 以上，以及某些低位 bits 也都構成 hard predicates。這表示對這些 one-way functions 而言，局部資訊的洩漏在本質上與整體反轉同樣危險。
 </div>
 
 ## References
