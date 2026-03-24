@@ -5,6 +5,7 @@ date: 2026-03-25
 last_updated: 2026-03-25
 label: "prime"
 tags: [prime]
+permalink: /articles/Math/prime-number-theorem/
 ---
 
 ## Overview
