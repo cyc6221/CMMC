@@ -3,7 +3,7 @@ layout: page
 title: Bit Security
 date: 2026-03-24
 last_updated: 2026-03-24
-tags: [bit-security, hard-predicate, discrete-logarithm, RSA, one-way-function]
+tags: [bit-security, hard-predicate, DL, RSA]
 ---
 
 在密碼學中，攻擊者未必想恢復全部秘密資訊，而可能只想知道其中某一個 bit。此時自然會問：**從函數輸出中計算輸入的單一 bit，是否仍然是困難的**。
@@ -23,11 +23,17 @@ Let $f : S \to T$ be a one-way function, where $S$ and $T$ are finite sets, and 
 
 證明某個 predicate 為 hard predicate 的典型方法，是先假設存在一個 oracle，能夠在只給定 $f(x)$ 的情況下計算出 $B(x)$，再證明若有此 oracle，便可有效反轉 $f$。因此，若 $f$ 是 one-way function，則 $B(x)$ 不應能由 $f(x)$ 有效求得，也就是說，$B$ 是 $f$ 的 hard predicate。
 
-此外，也可以定義 $k$-bit predicate 與 hard $k$-bit predicate；此時 $B$ 的值域不再是 ${0,1}$，而是長度為 $k$ 的 bit string。
+此外，也可以定義 $k$-bit predicate 與 hard $k$-bit predicate；此時 $B$ 的值域不再是 $\{0,1\}$，而是長度為 $k$ 的 bit string。
 
 ## Hard Predicate for Discrete Logarithm
 
-設 $G$ 為一個有限阿貝爾群，其階為質數 $q$，並令 $g$ 為其生成元。考慮以下 predicate：$B_2(x) = x \bmod 2$。也就是說，$B_2(x)$ 回傳離散對數 $x$ 的最低位元。
+Let $G$ denote a finite abelian group of prime order $q$, and let $g$ be a generator of $G$. Consider the following predicate:
+
+$$
+B_2(x) = x \bmod 2
+$$
+
+In other words, $B_2(x)$ returns the least significant bit of the discrete logarithm $x$.
 
 <div class="theorem">
 <strong>Theorem.</strong>
@@ -40,7 +46,7 @@ $$
 
 <div class="proof">
 <strong>Proof.</strong>
-Let $O(h,g)$ denote an oracle which returns the least significant bit of the discrete logarithm of $h$ to the base $g$, i.e. it computes $B_2(x)$ for $x=\log_g h$. We need to show how to use $O$ to solve a discrete logarithm problem.
+Let $O(h,g)$ denote an oracle which returns the least significant bit of the discrete logarithm of $h$ to the base $g$, i.e. it computes $B_2(x)$ for $x=\log_g h$. We need to show how to use $O$ to solve a discrete logarithm problem. <br>
 
 Suppose we are given $h=g^x$. We perform the following steps. First let $t=\frac{1}{2} \pmod q$. Then set $y=0$ and $z=1$, and repeat the following until $h=1$:
 <ul>
@@ -51,7 +57,7 @@ Suppose we are given $h=g^x$. We perform the following steps. First let $t=\frac
 We then output $y$ as the discrete logarithm of the original element $h$ with respect to $g$.
 </div>
 
-核心想法是：若我們知道目前離散對數的奇偶性，就可以逐步把它拆解出來。
+> DL 部分的核心想法是：若我們知道目前離散對數的奇偶性，就可以逐步把它拆解出來。
 
 假設目前 $h=g^x$。若 oracle 告訴我們 $x$ 是偶數，則可直接將指數除以 $2$；若 oracle 告訴我們 $x$ 是奇數，則先把 $x$ 減去 $1$，使其變成偶數，再除以 $2$。在群階 $q$ 為奇質數的情況下，$2$ 在模 $q$ 下可逆，所以「除以 $2$」是合法操作。如此反覆進行，就能一位一位地恢復 $x$ 的二進位資訊，最後得到完整的離散對數。
 
@@ -130,7 +136,7 @@ Using the algorithm above, we obtain the following table:
 - $B_h(m)=0$ if $m < N/2$ otherwise $B_h(m)=1$
 - $B_k(m)=m \bmod 2^k$ where $k=O(\log\log N)$
 
-若將這些 predicates 對應的 oracle 分別記為 $O_1(c,N)$、$O_h(c,N)$ 與 $O_k(c,N)$，則 $O_1$ 與 $O_h$ 之間存在密切關係。換言之，只要能計算其中之一，便可據此構造出另一者。具體而言，
+若將這些 predicates 對應的 oracle 分別記為 $O_1(c,N)$、$O_h(c,N)$ 與 $O_k(c,N)$，則 $O_1$ 與 $O_h$ 之間存在密切關係。只要能計算其中之一，便可據此構造出另一者。
 
 $$
 O_h(c,N)=O_1(c \cdot 2^e \bmod N, N)
@@ -142,22 +148,26 @@ $$
 
 因此，判斷明文的奇偶性與判斷明文是否落在區間 $[0, N/2)$ 內，在計算能力上是等價的。
 
-RSA 部分的核心觀念是：若我們能判斷明文 $m$ 是否小於 $N/2$，那麼就能對 $m$ 的值域做二分搜尋。
+若能判斷明文 $m$ 是否落在區間 $[0, N/2)$ 內，便可逐步縮小 $m$ 的可能範圍，進而恢復其值。其關鍵在於 RSA 函數滿足
 
-因為對 RSA 而言，$(2m)^e \equiv 2^e m^e \pmod N$，所以從密文 $c=m^e \pmod N$ 出發，我們可以有效構造出對應於 $2m,4m,8m,\dots$ 的密文。每次透過 oracle 判斷「目前對應的明文是在前半還是後半」，就能把可能範圍縮小一半，最終將原本的明文完整恢復。
+$$
+(2m)^e \equiv 2^e m^e \pmod N
+$$
+
+因此從密文 $c=m^e \pmod N$ 出發，可以有效構造出對應於 $2m,4m,8m,\dots$ 的密文。每一步利用 oracle 判斷目前對應明文位於區間的前半或後半，便可將搜尋範圍縮小一半，這正是一種二分搜尋的過程。
 
 <div class="example">
 <strong>Example.</strong>
-Given an oracle for $O_h$ or $O_1$, we can invert the RSA function using a standard binary-search style algorithm.
+假設已知一個 oracle $O_h$ 或 $O_1$，則可利用下列二分搜尋程序反轉 RSA 函數。
 
-Set $y=c$, $l=0$, and $h=N$. While $h-l \ge 1$, perform:
+令 $y=c$、$l=0$、$h=N$。當 $h-l \ge 1$ 時，重複執行以下步驟：
 <ul>
-  <li>$b = O_h(y,N)$,</li>
-  <li>$y = y \cdot 2^e \pmod N$,</li>
-  <li>$m = (h+l)/2$,</li>
-  <li>if $b=1$, set $l=m$; otherwise set $h=m$.</li>
+  <li>計算 $b = O_h(y,N)$；</li>
+  <li>更新 $y = y \cdot 2^e \pmod N$；</li>
+  <li>令 $m = (h+l)/2$；</li>
+  <li>若 $b=1$，則設 $l=m$；否則設 $h=m$。</li>
 </ul>
-When the loop terminates, the value $\lfloor h \rfloor$ is the preimage of $c$ under the RSA function.
+當程序結束時，$\lfloor h \rfloor$ 即為密文 $c$ 在 RSA 函數下的原像。
 
 設公開資訊為 $N=10403$，$e=7$，並考慮密文 $c=3$。利用 oracle $O_h(y,N)$，可逐步得到下表：
 
