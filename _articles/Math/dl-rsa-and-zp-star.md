@@ -3,7 +3,7 @@ layout: page
 title: Discrete Logarithm, RSA, and the Structure of $\mathbb{Z}_p^{\ast}$
 date: 2026-03-11
 last_updated: 2026-03-11
-tags: [discrete-logarithm, RSA, finite-field, group-theory, cyclic-group]
+tags: [DL, RSA, finite-field, group-theory, cyclic-group]
 ---
 
 Discrete Logarithm 與 RSA 都使用 modular arithmetic，但兩者的數學設定不同。finite-field Discrete Logarithm 通常在 $\mathbb{Z}_p^{\ast}$ 上討論，其中 $p$ 是質數；RSA 則使用 composite modulus $N = pq$，其中 $p,q$ 是大質數。前者重點在 group structure，後者重點不在 cyclic group 中求 logarithm。理解 $\mathbb{Z}_p^{\ast}$、group order、element order、primitive root 與 subgroup 之間的關係，有助於區分這兩類問題。
