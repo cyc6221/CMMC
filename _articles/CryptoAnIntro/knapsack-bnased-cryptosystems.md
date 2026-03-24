@@ -192,11 +192,13 @@ $$
 LLL Algorithm 是 Lenstra--Lenstra--Lovász 提出的 lattice basis reduction 演算法。它的目的是將一組 lattice basis 轉換成另一組較短且較接近正交的 basis。雖然 LLL 不一定能找出最短向量，但在許多實務情況下，它能有效找到相當短的向量，因此成為分析 lattice problem 的重要工具。
 
 在 low-density knapsack attack 中，subset sum problem 可以轉換成一個 lattice problem。假設我們想解的是
+
 $$
-\sum_{i=1}^n b_iw_i=S,\qquad b_i\in\{0,1\}.
+\sum_{i=1}^n b_iw_i=S,\quad b_i\in\{0,1\}.
 $$
 
 可以構造一個 $(n+1)$ 維 lattice，其生成矩陣為
+
 $$
 A=
 \begin{pmatrix}
@@ -209,11 +211,8 @@ w_1&w_2&w_3&\cdots&w_n&S
 \end{pmatrix}.
 $$
 
-若原本 knapsack 的解為 bit vector
-$$
-(b_1,\dots,b_n),
-$$
-則考慮向量
+若原本 knapsack 的解為 bit vector $(b_1, \dots, b_n)$，則考慮向量
+
 $$
 x=
 \begin{pmatrix}
@@ -221,13 +220,11 @@ b_1\\
 \vdots\\
 b_n\\
 -1
-\end{pmatrix}.
+\end{pmatrix}
 $$
-對應的 lattice vector
-$$
-y=Ax
-$$
-會滿足
+
+對應的 lattice vector $y=Ax$ 會滿足
+
 $$
 y_i=
 \begin{cases}
@@ -237,8 +234,11 @@ b_i-\frac12,&1\le i\le n,\\
 $$
 
 因此，$y$ 會是一個非常短的向量，因為它的長度滿足
+
 $$
-\|y\|<\frac{\sqrt{n}}{2}.
+\|y\|
+= \sqrt{y_1^2+y_2^2+\cdots+y_n^2+y_{n+1}^2}
+<\frac{\sqrt{n}}{2}.
 $$
 
 <div class="remark">
@@ -287,7 +287,22 @@ A=
 \end{pmatrix}.
 $$
 
-對此矩陣套用 LLL Algorithm 後，可得到一組 reduced basis，其中會出現一個很短的向量
+對此矩陣套用 LLL Algorithm 後，可得到新的 lattice basis
+$$
+A'=
+\frac12
+\begin{pmatrix}
+1&-1&-2&2&3&2&0\\
+-1&-3&0&-2&-1&-2&0\\
+-1&-1&-2&2&-1&2&0\\
+1&-1&-2&0&-1&-2&-2\\
+1&-1&0&2&-3&0&4\\
+1&1&0&-2&1&2&0\\
+0&0&-2&0&0&-2&2
+\end{pmatrix}.
+$$
+
+在這組 reduced basis 中，可取一個很短的向量
 $$
 y=
 \frac12
@@ -302,7 +317,7 @@ y=
 \end{pmatrix}.
 $$
 
-再由 $Ax=y$，亦即
+再由 $Ax=y$，可得到
 $$
 x=A^{-1}y=
 \begin{pmatrix}
