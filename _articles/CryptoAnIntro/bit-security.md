@@ -6,11 +6,9 @@ last_updated: 2026-03-24
 tags: [bit-security, hard-predicate, discrete-logarithm, RSA, one-way-function]
 ---
 
-在複雜度理論中，我們曾經討論過 decision problem，也就是輸出只有一個 bit 的問題。在密碼學中，也會出現類似的情況：攻擊者未必想恢復全部秘密資訊，而可能只想知道其中某一個 bit。此時自然會問，**計算單一 bit 的資訊，是否和恢復整體資訊一樣困難**。
+在密碼學中，攻擊者未必想恢復全部秘密資訊，而可能只想知道其中某一個 bit。此時自然會問：**從函數輸出中計算輸入的單一 bit，是否仍然是困難的**。
 
-例如對 RSA 函數 $x \mapsto y = x^e \pmod N$，攻擊者或許不在乎完整求出 $x$，而只想知道 $x \bmod 2$，也就是 $x$ 的奇偶性。我們希望即使只是這一個 bit，也不能從函數輸出中被有效求得。這種性質便稱為 **bit security**。
-
-bit security 和 semantic security 之間有明顯關聯。若攻擊者僅由密文便能判斷明文的某一個 bit，例如奇偶性，那麼密文其實已經洩漏了明文的部分資訊，因此也就破壞了系統的語意安全。
+例如對 RSA 函數 $x \mapsto y = x^e \pmod N$，攻擊者或許不在乎完整求出 $x$，而只想知道 $x \bmod 2$，也就是 $x$ 的奇偶性。若即使只是這一個 bit，也不能從函數輸出中被有效求得，我們便說這個函數具有 **bit security**。
 
 ## Hard Predicate
 
@@ -23,9 +21,9 @@ Let $f : S \to T$ be a one-way function, where $S$ and $T$ are finite sets, and 
 </ol>
 </div>
 
-證明某個 predicate 是 hard predicate 的典型方法，是先假設存在一個 oracle，能夠在只知道 $f(x)$ 的情況下求出 $B(x)$，再進一步證明：若有這個 oracle，就能有效地反轉 $f$。如此一來，若 $f$ 確實是 one-way function，則 $B$ 就應當是 hard predicate。
+證明某個 predicate 為 hard predicate 的典型方法，是先假設存在一個 oracle，能夠在只給定 $f(x)$ 的情況下計算出 $B(x)$，再證明若有此 oracle，便可有效反轉 $f$。因此，若 $f$ 是 one-way function，則 $B(x)$ 不應能由 $f(x)$ 有效求得，也就是說，$B$ 是 $f$ 的 hard predicate。
 
-更一般地，也可以定義 $k$-bit predicate 與 hard $k$-bit predicate，只是此時 $B$ 的值域不再是 $\{0,1\}$，而是長度為 $k$ 的 bit string。
+此外，也可以定義 $k$-bit predicate 與 hard $k$-bit predicate；此時 $B$ 的值域不再是 ${0,1}$，而是長度為 $k$ 的 bit string。
 
 ## Hard Predicate for Discrete Logarithm
 
@@ -33,7 +31,11 @@ Let $f : S \to T$ be a one-way function, where $S$ and $T$ are finite sets, and 
 
 <div class="theorem">
 <strong>Theorem.</strong>
-The predicate $B_2$ is a hard predicate for the function $x \mapsto g^x$.
+The predicate $B_2$ is a hard predicate for the function
+
+$$
+x \mapsto g^x
+$$
 </div>
 
 <div class="proof">
@@ -49,7 +51,7 @@ Suppose we are given $h=g^x$. We perform the following steps. First let $t=\frac
 We then output $y$ as the discrete logarithm of the original element $h$ with respect to $g$.
 </div>
 
-這個 proof 的核心想法是：若我們知道目前離散對數的奇偶性，就可以逐步把它拆解出來。
+核心想法是：若我們知道目前離散對數的奇偶性，就可以逐步把它拆解出來。
 
 假設目前 $h=g^x$。若 oracle 告訴我們 $x$ 是偶數，則可直接將指數除以 $2$；若 oracle 告訴我們 $x$ 是奇數，則先把 $x$ 減去 $1$，使其變成偶數，再除以 $2$。在群階 $q$ 為奇質數的情況下，$2$ 在模 $q$ 下可逆，所以「除以 $2$」是合法操作。如此反覆進行，就能一位一位地恢復 $x$ 的二進位資訊，最後得到完整的離散對數。
 
@@ -60,33 +62,85 @@ We then output $y$ as the discrete logarithm of the original element $h$ with re
 Consider the field $\mathbb{F}_{607}$ and the element $g=64$ of order $q=101$. We wish to find the discrete logarithm of $h=56$ with respect to $g$.
 
 Using the algorithm above, we obtain the following table:
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:center;">$h$</th>
+      <th style="text-align:center;">$O(h,g)$</th>
+      <th style="text-align:center;">$z$</th>
+      <th style="text-align:center;">$y$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center;">56</td>
+      <td style="text-align:center;">0</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">0</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">451</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">2</td>
+      <td style="text-align:center;">2</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">201</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">4</td>
+      <td style="text-align:center;">6</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">288</td>
+      <td style="text-align:center;">0</td>
+      <td style="text-align:center;">8</td>
+      <td style="text-align:center;">6</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">100</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">16</td>
+      <td style="text-align:center;">22</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">454</td>
+      <td style="text-align:center;">0</td>
+      <td style="text-align:center;">32</td>
+      <td style="text-align:center;">22</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">64</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">64</td>
+      <td style="text-align:center;">86</td>
+    </tr>
+  </tbody>
+</table>
+
+因此最後得到 $y=86$，也就是 $g^{86}=h \pmod{607}$。也就是說，$\log_g 56 = 86$。
+
 </div>
-
-| $h$ | $O(h,g)$ | $z$ | $y$ |
-| :-: | :-: | :-: | :-: |
-| 56 | 0 | 1 | 0 |
-| 451 | 1 | 2 | 2 |
-| 201 | 1 | 4 | 6 |
-| 288 | 0 | 8 | 6 |
-| 100 | 1 | 16 | 22 |
-| 454 | 0 | 32 | 22 |
-| 64 | 1 | 64 | 86 |
-
-因此最後得到 $y=86$，也就是 $g^{86}=h \pmod{607}$。換言之，$\log_g 56 = 86$。
 
 ## Hard Predicates for the RSA Problem
 
 對 RSA 問題而言，給定 $c=m^e \pmod N$，可考慮以下三種 hard predicates：
 
-- $B_1(m)=m \bmod 2$。
-- $B_h(m)=0$ 若 $m < N/2$，否則 $B_h(m)=1$。
-- $B_k(m)=m \bmod 2^k$，其中 $k=O(\log\log N)$。
+- $B_1(m)=m \bmod 2$
+- $B_h(m)=0$ if $m < N/2$ otherwise $B_h(m)=1$
+- $B_k(m)=m \bmod 2^k$ where $k=O(\log\log N)$
 
-若分別以 oracle 表示，則記為 $O_1(c,N)$、$O_h(c,N)$ 與 $O_k(c,N)$。
+若將這些 predicates 對應的 oracle 分別記為 $O_1(c,N)$、$O_h(c,N)$ 與 $O_k(c,N)$，則 $O_1$ 與 $O_h$ 之間存在密切關係。換言之，只要能計算其中之一，便可據此構造出另一者。具體而言，
 
-其中前兩者彼此有緊密關係，因為 $O_h(c,N)=O_1(c \cdot 2^e \bmod N, N)$，以及 $O_1(c,N)=O_h(c \cdot 2^{-e} \bmod N, N)$。因此，只要能計算其中之一，便可轉而計算另一者。
+$$
+O_h(c,N)=O_1(c \cdot 2^e \bmod N, N)
+$$
 
-### Main Idea
+$$
+O_1(c,N)=O_h(c \cdot 2^{-e} \bmod N, N)
+$$
+
+因此，判斷明文的奇偶性與判斷明文是否落在區間 $[0, N/2)$ 內，在計算能力上是等價的。
 
 RSA 部分的核心觀念是：若我們能判斷明文 $m$ 是否小於 $N/2$，那麼就能對 $m$ 的值域做二分搜尋。
 
@@ -104,28 +158,109 @@ Set $y=c$, $l=0$, and $h=N$. While $h-l \ge 1$, perform:
   <li>if $b=1$, set $l=m$; otherwise set $h=m$.</li>
 </ul>
 When the loop terminates, the value $\lfloor h \rfloor$ is the preimage of $c$ under the RSA function.
-</div>
 
 設公開資訊為 $N=10403$，$e=7$，並考慮密文 $c=3$。利用 oracle $O_h(y,N)$，可逐步得到下表：
 
-| $y$ | $O_h(y,N)$ | $l$ | $h$ |
-| :-: | :-: | :-: | :-: |
-| $3$ | 0 | 0 | 10403 |
-| $3 \cdot 2^7$ | 1 | 0 | 5201.5 |
-| $3 \cdot 4^7$ | 1 | 2600.75 | 5201.5 |
-| $3 \cdot 8^7$ | 1 | 3901.125 | 5201.5 |
-| $3 \cdot 16^7$ | 0 | 4551.3125 | 5201.5 |
-| $3 \cdot 32^7$ | 0 | 4551.3125 | 4876.40625 |
-| $3 \cdot 64^7$ | 1 | 4551.3125 | 4713.859375 |
-| $3 \cdot 128^7$ | 0 | 4632.5859375 | 4713.859375 |
-| $3 \cdot 256^7$ | 1 | 4632.5859375 | 4673.22265625 |
-| $3 \cdot 512^7$ | 1 | 4652.904296875 | 4673.22265625 |
-| $3 \cdot 1024^7$ | 1 | 4663.0634765625 | 4673.22265625 |
-| $3 \cdot 2048^7$ | 1 | 4668.14306640625 | 4673.22265625 |
-| $3 \cdot 4096^7$ | 1 | 4670.682861328125 | 4673.22265625 |
-| $3 \cdot 8192^7$ | 0 | 4671.9527587890625 | 4673.22265625 |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:center;">$y$</th>
+      <th style="text-align:center;">$O_h(y,N)$</th>
+      <th style="text-align:center;">$l$</th>
+      <th style="text-align:center;">$h$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center;">$3$</td>
+      <td style="text-align:center;">0</td>
+      <td style="text-align:center;">0</td>
+      <td style="text-align:center;">10403</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 2^7$</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">0</td>
+      <td style="text-align:center;">5201.5</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 4^7$</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">2600.75</td>
+      <td style="text-align:center;">5201.5</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 8^7$</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">3901.125</td>
+      <td style="text-align:center;">5201.5</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 16^7$</td>
+      <td style="text-align:center;">0</td>
+      <td style="text-align:center;">4551.3125</td>
+      <td style="text-align:center;">5201.5</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 32^7$</td>
+      <td style="text-align:center;">0</td>
+      <td style="text-align:center;">4551.3125</td>
+      <td style="text-align:center;">4876.40625</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 64^7$</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">4551.3125</td>
+      <td style="text-align:center;">4713.859375</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 128^7$</td>
+      <td style="text-align:center;">0</td>
+      <td style="text-align:center;">4632.5859375</td>
+      <td style="text-align:center;">4713.859375</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 256^7$</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">4632.5859375</td>
+      <td style="text-align:center;">4673.22265625</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 512^7$</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">4652.904296875</td>
+      <td style="text-align:center;">4673.22265625</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 1024^7$</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">4663.0634765625</td>
+      <td style="text-align:center;">4673.22265625</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 2048^7$</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">4668.14306640625</td>
+      <td style="text-align:center;">4673.22265625</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 4096^7$</td>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;">4670.682861328125</td>
+      <td style="text-align:center;">4673.22265625</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">$3 \cdot 8192^7$</td>
+      <td style="text-align:center;">0</td>
+      <td style="text-align:center;">4671.9527587890625</td>
+      <td style="text-align:center;">4673.22265625</td>
+    </tr>
+  </tbody>
+</table>
 
 最後區間縮小到只剩下 $4672$ 附近，因此可得 RSA 函數 $x \mapsto x^7 \pmod{10403}$ 對密文 $3$ 的原像為 $4672$。
+
+</div>
 
 <div class="remark">
 <strong>Remark.</strong>
