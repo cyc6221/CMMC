@@ -189,7 +189,7 @@ $$
 
 ## LLL Algorithm
 
-LLL Algorithm 是 Lenstra--Lenstra--Lovász 提出的 lattice basis reduction 演算法。它的目的是將一組 lattice basis 轉換成另一組較短且較接近正交的 basis。雖然 LLL 不一定能找出最短向量，但在許多實務情況下，它能有效找到相當短的向量，因此成為分析 lattice problem 的重要工具。
+LLL Algorithm 是 Lenstra-Lenstra-Lovász 提出的 lattice basis reduction 演算法。它的目的是將一組 lattice basis 轉換成另一組較短且較接近正交的 basis。雖然 LLL 不一定能找出最短向量，但在許多實務情況下，它能有效找到相當短的向量，因此成為分析 lattice problem 的重要工具。
 
 在 low-density knapsack attack 中，subset sum problem 可以轉換成一個 lattice problem。假設我們想解的是
 
@@ -264,7 +264,7 @@ $$
 乘上生成矩陣後，可得到一個最後一座標為 $0$、其餘座標都形如 $b_i-\frac12$ 的短向量。由於前面各座標只會是 $\frac12$ 或 $-\frac12$，因此整體長度很小，也就使得這個向量容易成為 LLL reduction 的目標。
 </div>
 
-從這個角度來看，LLL attack 並不是直接暴力解 subset sum problem，而是先將問題轉換到 lattice 中，再利用其幾何結構找出隱藏的短向量。這也是為什麼 Merkle--Hellman 雖然建立在 knapsack problem 之上，卻仍然能被有效攻破。
+從這個角度來看，LLL attack 並不是直接暴力解 subset sum problem，而是先將問題轉換到 lattice 中，再利用其幾何結構找出隱藏的短向量。這也是為什麼 Merkle-Hellman 雖然建立在 knapsack problem 之上，卻仍然能被有效攻破。
 
 <div class="example">
 <strong>Example.</strong>
