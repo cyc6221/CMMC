@@ -281,11 +281,7 @@ $$
 
 從這個角度來看，LLL attack 並不是直接暴力解 subset sum，而是把問題轉換到 lattice 中，再利用幾何結構找出隱藏的短向量。這也是為什麼 Merkle--Hellman 雖然建立在 knapsack problem 之上，卻仍然能被有效攻破。
 
-## Remarks
-
-Knapsack-based cryptosystems 在密碼學史上具有重要意義，因為它們展示了從 combinatorial hard problem 建構 public-key cryptography 的早期嘗試。不過，這類系統的失敗也說明了一個關鍵事實：
-
-一般問題在複雜度理論上很難，並不代表它所誘導出的隨機實例也同樣適合作為密碼基礎。
+Knapsack-based cryptosystems 在密碼學史上具有重要意義，因為它們展示了從 combinatorial hard problem 建構 public-key cryptography 的早期嘗試。不過，這類系統的失敗也說明了一個關鍵事實：一般問題在複雜度理論上很難，並不代表它所誘導出的隨機實例也同樣適合作為密碼基礎。
 
 <div class="remark">
 <strong>Remark.</strong>
