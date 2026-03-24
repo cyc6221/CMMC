@@ -276,23 +276,7 @@ $$
 
 <div class="example">
 <strong>Example.</strong>
-若某個 knapsack instance 的解為
-$$
-(b_1,b_2,b_3,b_4)=(1,0,1,1),
-$$
-則在對應的 lattice 構造中，會考慮向量
-$$
-x=(1,0,1,1,-1).
-$$
-乘上生成矩陣後，可得到一個最後一座標為 $0$、其餘座標都形如
-$$
-b_i-\frac12
-$$
-的短向量。由於每個前面座標只會是
-$$
-\frac12 \quad \text{或} \quad -\frac12,
-$$
-因此整體長度很小，也就使得這個向量容易成為 LLL reduction 的目標。
+若某個 knapsack instance 的解為 $(b_1,b_2,b_3,b_4)=(1,0,1,1)$，則在對應的 lattice 構造中，會考慮向量 $x=(1,0,1,1,-1)$。乘上生成矩陣後，可得到一個最後一座標為 $0$、其餘座標都形如 $b_i-\frac12$ 的短向量。由於前面各座標只會是 $\frac12$ 或 $-\frac12$，因此整體長度很小，也就使得這個向量容易成為 LLL reduction 的目標。
 </div>
 
 從這個角度來看，LLL attack 並不是直接暴力解 subset sum，而是把問題轉換到 lattice 中，再利用幾何結構找出隱藏的短向量。這也是為什麼 Merkle--Hellman 雖然建立在 knapsack problem 之上，卻仍然能被有效攻破。
