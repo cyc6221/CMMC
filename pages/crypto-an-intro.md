@@ -50,10 +50,9 @@ toc: false
 - [Polynomial Complexity Classes]({{ "/articles/CryptoAnIntro/polynomial-complexity-classes/" | relative_url }})
   - [List of NPC Problems]({{ "/articles/CryptoAnIntro/list-of-NPC-problems/" | relative_url }})<span class="lab-status">Updating</span>
   - [P = NP?]({{ "/articles/CryptoAnIntro/P-equals-NP/" | relative_url }})<span class="lab-status">Updating</span>
+- [Knapsack-Based Cryptosystems]({{ "/articles/CryptoAnIntro/knapsack-bnased-cryptosystems/" | relative_url }})
 
 <span class="lab-status">Todo</span>
-
-### Knapsack-Based Cryptosystems
 
 ### Bit Security
 
