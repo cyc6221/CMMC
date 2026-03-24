@@ -1,11 +1,10 @@
 ---
 layout: page
 title: Prime Number Theorem
-date: 2026-03-25
+date: 2026-03-24
 last_updated: 2026-03-25
 label: "prime"
 tags: [prime]
-permalink: /articles/Math/prime-number-theorem/
 ---
 
 ## Overview
