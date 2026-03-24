@@ -84,28 +84,21 @@ Merkle--Hellman cryptosystem 的設計目標，是將一個容易解的 super-in
 
 ### Key generation
 
-先選擇一組私密的 super-increasing sequence：
-$$
-\{w_1,w_2,\dots,w_n\}.
-$$
+Merkle--Hellman cryptosystem 的 key generation 可分成以下幾步：
 
-再選擇兩個私密整數 $N$ 與 $M$，使得
-$$
-\gcd(N,M)=1.
-$$
+<ol>
+  <li>先選擇一組私密的 super-increasing sequence
+    $\{w_1,w_2,\dots,w_n\}$。
+  </li>
+  <li>再選擇兩個私密整數 $N$ 與 $M$，使得 $\gcd(N,M)=1$。</li>
+  <li>對每個 $i=1,2,\dots,n$，定義公開 weights
+    $w_i' \equiv Nw_i \pmod M$。
+  </li>
+  <li>將公開金鑰設為 $\{w_1',w_2',\dots,w_n'\}$。</li>
+  <li>將私鑰設為原本的 super-increasing sequence 以及 $(N,M)$。</li>
+</ol>
 
-然後定義公開 weights 為
-$$
-w_i' \equiv Nw_i \pmod M,\qquad 1\le i\le n.
-$$
-
-公開金鑰就是
-$$
-\{w_1',w_2',\dots,w_n'\},
-$$
-而私鑰則包含原本的 super-increasing sequence 以及 $(N,M)$。
-
-這樣的想法是：對外公開的是一個看起來一般的 knapsack problem，但知道私密參數的人可以把它轉回原本容易的 super-increasing knapsack。
+這樣的想法是：對外公開的是一個看起來像一般 knapsack problem 的 instance，但知道私密參數的人可以把它轉回原本容易求解的 super-increasing knapsack。
 
 <div class="remark">
 <strong>Remark.</strong>
