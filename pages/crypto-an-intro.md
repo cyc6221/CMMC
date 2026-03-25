@@ -54,6 +54,11 @@ toc: false
 - [Bit Security]({{ "/articles/CryptoAnIntro/bit-security/" | relative_url }})
 - [Random Self-Reductions]({{ "/articles/CryptoAnIntro/random-self-reduction/" | relative_url }})
 
-<span class="lab-status">Todo</span>
-
 ### Randomized Algorithms
+
+- [Randomized Complexity Classes]({{ "/articles/CryptoAnIntro/randomized-complexity-classes/" | relative_url }})
+  - [Monte Carlo Algorithm]({{ "/articles/CryptoAnIntro/monte-carlo-algorithm/" | relative_url }})
+  - [Atlantic City Algorithm]({{ "/articles/CryptoAnIntro/atlantic-city-algorithm/" | relative_url }})
+  - [Las Vegas Algorithm]({{ "/articles/CryptoAnIntro/las-vegas-algorithm/" | relative_url }})
+
+<span class="lab-status">Todo</span>
