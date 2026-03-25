@@ -9,6 +9,9 @@ toc: false
 
 I am CY.
 
+- [My First Article]({{ "/articles/first-article/" | relative_url }})
+- [Snoop Dogg]({{ "/articles/Snoop Dogg/" | relative_url }})
+
 <!-- --- -->
 
 ## Currently
