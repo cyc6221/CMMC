@@ -3,7 +3,7 @@ layout: page
 title: Random Self-Reduction
 date: 2026-03-25
 last_updated: 2026-03-25
-tags: [RSA, DDH, random-self-reduction, average-case-hardness]
+tags: [RSA, DDH, reduction]
 ---
 
 在密碼學中，一個問題若只在最壞情況下困難，通常還不足以作為安全性的基礎。原因是密碼系統實際面對的是一般分佈下出現的 instance，而不是刻意挑選出的極端例子。若某個問題僅對少數特殊 instance 困難，但在平均情況下其實容易，則它便不適合作為密碼假設。
