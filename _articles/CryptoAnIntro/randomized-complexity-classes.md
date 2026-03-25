@@ -6,21 +6,17 @@ last_updated: 2026-03-25
 tags: [complexity-theory, randomized-algorithm, RP, BPP, ZPP]
 ---
 
-隨機化複雜度類別用來描述：當演算法可以使用 randomness 時，哪些 decision problems 仍然能在 polynomial time 內有效處理。與 deterministic complexity classes 不同，這裡的重點不只是在執行時間，還包括錯誤發生的方式，以及演算法是否保證終止。
+隨機化複雜度類別描述的是：當演算法允許使用 randomness 時，哪些 decision problems 仍可在 polynomial time 內有效處理。與 deterministic complexity classes 相比，這裡除了執行時間之外，還必須考慮錯誤的型態與演算法是否保證終止。
 
-在進入 $RP$、$BPP$、$ZPP$ 之前，可以先分別參考三種典型的 randomized algorithms：
+可先參考三種典型的 randomized algorithms：
 
 - [Monte Carlo Algorithm]({{ "/articles/CryptoAnIntro/monte-carlo-algorithm/" | relative_url }})
 - [Atlantic City Algorithm]({{ "/articles/CryptoAnIntro/atlantic-city-algorithm/" | relative_url }})
 - [Las Vegas Algorithm]({{ "/articles/CryptoAnIntro/las-vegas-algorithm/" | relative_url }})
 
-這三種模型分別對應到單邊錯誤、雙邊錯誤，以及零錯誤但可能不終止的情況；而 $RP$、$BPP$、$ZPP$ 則是它們在 complexity theory 中的對應類別。
+這三種模型分別對應到單邊錯誤、雙邊錯誤，以及零錯誤但可能不終止的情形；相對應的 complexity classes 則是 $RP$、$BPP$ 與 $ZPP$。
 
-## Random Witnesses and Decision Problems
-
-設 $DP$ 是一個 decision problem，$S$ 是所有 answer 為 yes 的 instances 所形成的集合。對於輸入 instance $I$，隨機化演算法可視為除了讀取 $I$ 之外，還額外讀取一個隨機字串 $w$，並根據 $(I,w)$ 的組合輸出 yes 或 no。
-
-這樣的觀點很重要，因為在定義 randomized complexity classes 時，常會把 randomness 看成某種隨機選出的 witness，然後用「對多少比例的 $w$，演算法輸出正確答案」來描述其正確性。
+在這些定義中，randomness 可視為演算法額外讀取的一段隨機字串 $w$。因此，randomized complexity classes 通常以「對多少比例的 $w$，演算法輸出正確答案」來描述其正確性。
 
 ## Class $RP$
 
@@ -117,14 +113,6 @@ These containments describe what is known unconditionally. Whether some of these
 像 Fermat test 與 Miller--Rabin test，會把 compositeness 的檢測放在 one-sided error 的框架下，因此可視為與 $RP$ 相關的例子。另一方面，某些 primality proving 方法則對應到 zero-error 的觀點，因此可放到 $ZPP$ 的脈絡下理解。
 
 這些例子顯示，randomness 不只是分析上的方便工具，而是真的能在 number-theoretic problems 中帶來有效率的演算法設計。
-
-## Next
-
-若想先從演算法行為本身理解這些類別，可以依序閱讀：
-
-- [Monte Carlo Algorithm]({{ "/articles/CryptoAnIntro/monte-carlo-algorithm/" | relative_url }})
-- [Atlantic City Algorithm]({{ "/articles/CryptoAnIntro/atlantic-city-algorithm/" | relative_url }})
-- [Las Vegas Algorithm]({{ "/articles/CryptoAnIntro/las-vegas-algorithm/" | relative_url }})
 
 ## References
 
