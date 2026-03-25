@@ -8,7 +8,7 @@ tags: [complexity-theory, randomized-algorithm, RP, BPP, ZPP]
 
 隨機化複雜度類別描述的是：當演算法允許使用 randomness 時，哪些 decision problems 仍可在 polynomial time 內有效處理。與 deterministic complexity classes 相比，這裡除了執行時間之外，還必須考慮錯誤的型態與演算法是否保證終止。
 
-可先參考三種典型的 randomized algorithms：
+三種典型的 randomized algorithms：
 
 - [Monte Carlo Algorithm]({{ "/articles/CryptoAnIntro/monte-carlo-algorithm/" | relative_url }})
 - [Atlantic City Algorithm]({{ "/articles/CryptoAnIntro/atlantic-city-algorithm/" | relative_url }})
@@ -31,7 +31,7 @@ A decision problem $DP$ is said to be in the class $RP$ if there exists an algor
 
 $RP$ 對應的是 one-sided error 的情況。若 instance 的正確答案是 no，演算法永遠不會誤判成 yes；若正確答案是 yes，則演算法至少有固定常數機率成功接受。
 
-這正是 [Monte Carlo Algorithm]({{ "/articles/CryptoAnIntro/monte-carlo-algorithm/" | relative_url }}) 在 complexity class 上的對應版本。重點不在於成功機率剛好是 $1/2$，而是在於它大於 $0$ 且可以透過重複執行放大成功率。
+這正是〈[Monte Carlo Algorithm]({{ "/articles/CryptoAnIntro/monte-carlo-algorithm/" | relative_url }})〉在 complexity class 上的對應版本。重點不在於成功機率剛好是 $1/2$，而是在於它大於 $0$ 且可以透過重複執行放大成功率。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -51,7 +51,7 @@ A decision problem $DP$ is said to be in the class $BPP$ if there exists an algo
 
 $BPP$ 允許 yes 與 no 兩邊都發生錯誤，但要求正確率至少高於 $1/2$ 一個固定常數。這表示演算法雖然可能判錯，卻可以藉由 repeated trials 與 majority vote 把錯誤機率壓低到指數小。
 
-這對應到 [Atlantic City Algorithm]({{ "/articles/CryptoAnIntro/atlantic-city-algorithm/" | relative_url }}) 的模型，也就是 polynomial-time、two-sided error 的 randomized algorithm。
+這對應到〈[Atlantic City Algorithm]({{ "/articles/CryptoAnIntro/atlantic-city-algorithm/" | relative_url }})〉的模型，也就是 polynomial-time、two-sided error 的 randomized algorithm。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -70,7 +70,7 @@ $$
 
 $ZPP$ 表示一個問題同時屬於 $RP$ 與 $co$-$RP$。直觀上，這代表 yes 與 no 兩邊都能以 one-sided error 的方式處理，因此可以進一步組合成 zero-error 的 randomized computation。
 
-它對應到 [Las Vegas Algorithm]({{ "/articles/CryptoAnIntro/las-vegas-algorithm/" | relative_url }})：演算法一旦輸出答案，就一定正確，但可能需要隨機時間，或在某些表述下可能不保證立即終止。
+它對應到〈[Las Vegas Algorithm]({{ "/articles/CryptoAnIntro/las-vegas-algorithm/" | relative_url }})〉演算法一旦輸出答案，就一定正確，但可能需要隨機時間，或在某些表述下可能不保證立即終止。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -79,7 +79,7 @@ $ZPP$ captures the idea of randomized polynomial-time computation with zero erro
 
 ## Containment Relations
 
-課文通常會列出這些基本包含關係：
+這些 randomized complexity classes 之間有以下基本包含關係：
 
 $$
 P \subseteq ZPP \subseteq RP \subseteq NP
@@ -88,14 +88,26 @@ $$
 以及
 
 $$
-ZPP \subseteq BPP.
+P \subseteq ZPP \subseteq co\text{-}RP \subseteq co\text{-}NP
 $$
 
-這些關係反映了：deterministic polynomial-time computation 可以視為 randomized computation 的特例，而 zero-error 與 one-sided error 類別又都自然包含在 bounded-error computation 的框架中。
+再加上
+
+$$
+RP \subseteq BPP,\qquad co\text{-}RP \subseteq BPP,
+$$
+
+因此可得
+
+$$
+ZPP = RP \cap co\text{-}RP \subseteq BPP.
+$$
+
+這些包含關係反映了幾個基本事實。首先，deterministic polynomial-time computation 可以視為 randomized computation 的特例，因此 $P$ 自然包含在這些隨機化類別之中。其次，$RP$ 描述 one-sided error 的 randomized polynomial-time computation，而 $co$-$RP$ 則是其補問題版本。當一個問題同時屬於 $RP$ 與 $co$-$RP$ 時，便得到零錯誤的類別 $ZPP$。另一方面，$BPP$ 容許 bounded two-sided error，因此自然包含 $RP$ 與 $co$-$RP$ 這兩類 one-sided error computation。
 
 <div class="remark">
 <strong>Remark.</strong>
-These containments describe what is known unconditionally. Whether some of these inclusions are strict remains open.
+These containments are known unconditionally. It is not known in general whether any of these inclusions are strict.
 </div>
 
 ## Error Reduction
