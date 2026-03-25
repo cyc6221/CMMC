@@ -161,7 +161,7 @@ Thus the transformation preserves whether the given triple is Diffie–Hellman, 
 
 <div class="remark">
 <strong>Remark.</strong>
-Random self-reduction shows that, for problems such as RSA and DDH, hardness is not confined to a small collection of specially chosen instances. Instead, an algorithm that succeeds on random instances can be used to solve arbitrary instances as well.
+Random self-reduction shows that, for problems such as RSA and DDH, hardness is not confined to a small collection of specially chosen instances. Instead, an algorithm that succeeds on random instances can be used to solve arbitrary instances as well. <br>
 
 對 RSA problem 與 DDH problem 而言，這表示其困難性並不是來自少數特殊的 worst-case instances，而是能夠透過隨機自我化約延伸到一般情況下的 instances。換言之，若隨機 instance 可解，則任意 instance 亦可解。
 </div>
