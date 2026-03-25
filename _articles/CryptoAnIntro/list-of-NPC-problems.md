@@ -3,7 +3,7 @@ layout: page
 title: List of NPC Problems
 date: 2026-03-22
 last_updated: 2026-03-23
-tags: [complexity-theory, NP-Complete, Karp's 21 Problems, Reductions]
+tags: [complexity-theory, NP-Complete, Karp's 21 Problems, reduction]
 ---
 
 在討論 $NP$-complete 問題時，最重要的想法之一是：這並不是幾個彼此無關、各自困難的特殊問題，而是一整類可以透過 polynomial-time reduction 彼此連結起來的問題。只要其中任何一個問題能在 polynomial time 內求解，那麼所有屬於 $NP$ 的問題也都能在 polynomial time 內求解，因此會推出 $P = NP$。

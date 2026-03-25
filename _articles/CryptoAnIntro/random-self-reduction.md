@@ -3,7 +3,7 @@ layout: page
 title: Random Self-Reduction
 date: 2026-03-25
 last_updated: 2026-03-25
-tags: [RSA, DDH, random-self-reduction, average-case-hardness]
+tags: [RSA, DDH, reduction]
 ---
 
 在複雜度理論與密碼學中，一個自然的疑問是：某個問題若在最壞情況下很難，是否代表它在平均情況下也同樣困難？這個問題之所以重要，是因為密碼系統所面對的並不是某些特別挑選出的極端實例，而是一般分佈下出現的 instance。若一個問題只是 **worst-case hard**，但在 **average case** 下其實容易，那麼它就不適合作為密碼安全性的基礎。原文指出，對固定模數下的 RSA problem，以及固定群上的 DDH problem，可以利用 **random self-reduction** 把任意給定的 instance 轉換為隨機 instance；因此，只要平均情況可解，最壞情況也就可解，兩者的困難性必須相當接近。:contentReference[oaicite:1]{index=1}
