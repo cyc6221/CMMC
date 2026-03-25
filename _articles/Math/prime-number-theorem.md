@@ -7,9 +7,7 @@ label: "prime"
 tags: [prime]
 ---
 
-## Overview
-
-Prime Number Theorem（質數定理）描述的是：當整數愈來愈大時，質數在整數中的分布會如何變得稀疏。它的核心結論是，計算不超過 $x$ 的質數個數時，$\pi(x)$ 的成長速度與 $\frac{x}{\log x}$ 漸近相同。
+**Prime Number Theorem**，質數定理：當整數愈來愈大時，質數在整數中的分布會如何變得稀疏。當計算不超過 $x$ 的質數個數時，$\pi(x)$ 的成長速度與 $\frac{x}{\log x}$ 漸近相同。
 
 <div class="definition">
 <strong>Definition.</strong>
@@ -20,12 +18,12 @@ $$
 表示 **prime-counting function**，也就是不超過 $x$ 的質數個數。
 </div>
 
-例如：
-$$
-\pi(10)=4,\qquad \pi(20)=8,\qquad \pi(100)=25.
-$$
+<div class="example">
+<strong>Example.</strong>
+$ \pi(10)=4, \pi(20)=8, \pi(100)=25 $
+</div>
 
-因此，Prime Number Theorem 所回答的核心問題就是：當 $x$ 很大時，$\pi(x)$ 大約有多大。
+Prime Number Theorem 的核心在於回答：當 $x \to \infty$ 時，$\pi(x)$ 漸近上有多大。
 
 ## Statement of the Theorem
 
