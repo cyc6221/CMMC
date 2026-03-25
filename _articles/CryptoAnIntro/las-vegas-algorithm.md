@@ -6,27 +6,29 @@ last_updated: 2026-03-25
 tags: [randomized-algorithm, ZPP]
 ---
 
-Las Vegas algorithm 是 randomized algorithm 中另一個很重要的模型。它和 Monte Carlo algorithm、Atlantic City algorithm 的最大不同在於：**只要它輸出答案，答案就一定正確**。換句話說，它不容許錯誤輸出；隨機性影響的不是答案正確性，而是演算法是否會在有限時間內停止，或需要花多少時間才成功結束。
+Las Vegas algorithm 是 randomized algorithm 中一種非常重要的模型。它的核心特徵是：**只要演算法輸出答案，該答案就一定正確**。因此，隨機性影響的不是 correctness，而是演算法是否能在某一次執行中順利終止，以及需要花多少時間才成功完成。
 
-在 randomized complexity theory 中，Las Vegas algorithm 與 zero-error computation 的觀念密切相關，並對應到 complexity class $ZPP$。若想先看整體整理，可參考 [Randomized Complexity Classes]({{ "/articles/CryptoAnIntro/randomized-complexity-classes/" | relative_url }}).
+這種模型體現了 zero-error randomized computation 的思想：允許演算法在執行過程中依賴隨機選擇，但不容許它輸出錯誤答案。也正因如此，Las Vegas algorithm 在 randomized complexity theory 中與 complexity class $ZPP$ 密切相關。
 
 <div class="remark">
 <strong>Las Vegas Algorithm</strong>
 <ul>
-  <li> Will terminate with the correct answer with probability $\geq 1/2$.</li>
+  <li> Will terminate with the correct answer with probability $\geq \frac{1}{2}$.</li>
   <li> Otherwise will not terminate.</li>
 </ul>
 </div>
 
 ## Basic Idea
 
-在 randomized computation 中，有些演算法選擇接受小機率錯誤，以換取固定的 polynomial running time；但 Las Vegas algorithm 走的是另一條路。它要求：
+在 randomized computation 中，隨機性通常用來降低計算成本或幫助搜尋結構。不過，不同的 randomized models 允許把風險放在不同地方：有些允許小機率輸出錯誤答案，有些則要求答案永遠正確，而把不確定性放在執行時間或停止行為上。Las Vegas algorithm 屬於後者。
 
-- 演算法一旦輸出答案，就必須完全正確；
-- 隨機性只影響它何時成功結束；
-- 因此不確定的不是 correctness，而是 termination behavior。
+它的基本精神是：
 
-這使得 Las Vegas algorithm 成為 zero-error randomized computation 的自然代表。
+- 演算法一旦結束並輸出結果，該結果必定正確；
+- 隨機性只影響這次執行是否成功完成；
+- 因此不確定的不是答案對不對，而是這次能不能順利得到答案。
+
+這使 Las Vegas algorithm 成為 zero-error randomized computation 的典型代表。
 
 ## Definition
 
@@ -39,42 +41,30 @@ A Las Vegas algorithm is a randomized algorithm such that
 </ul>
 </div>
 
-根據課文的表述，Las Vegas algorithm 的特徵是：它有至少固定常數機率在一次執行中成功終止並給出正確答案；否則它可能不終止。也就是說，隨機性影響的是「這次有沒有成功完成」，而不是「完成時答案對不對」。
+這裡的 $\frac{1}{2}$ 並不是本質上的特殊數值，而只是代表存在一個固定的常數下界，使得演算法在單次執行中有非忽略的機率成功終止。若一次執行沒有成功，它可以選擇繼續運行，或者理解為重新啟動另一輪隨機化過程。
 
 <div class="remark">
 <strong>Remark.</strong>
 A Las Vegas algorithm never outputs an incorrect answer. Its randomness affects termination rather than correctness.
 </div>
 
-## Zero Error
+## Zero-Error Property
 
-Las Vegas algorithm 最重要的性質，就是 **zero error**。
+Las Vegas algorithm 最重要的性質就是 **zero error**。這表示它不會輸出錯誤的 yes，也不會輸出錯誤的 no。對於 decision problem 而言，只要它做出了判定，該判定就一定正確。
 
-這代表：
-
-- 若演算法輸出 yes，則 yes 一定正確；
-- 若演算法輸出 no，則 no 也一定正確；
-- 它不會給出錯誤答案。
-
-因此，與 Monte Carlo 或 Atlantic City algorithm 相比，Las Vegas algorithm 的不確定性完全不在 correctness 上，而是在它是否能順利終止。
+因此，Las Vegas algorithm 的風險不在於「可能答錯」，而在於「這次是否能成功結束」。這種結構和 bounded-error randomized computation 有本質上的不同：後者接受小機率錯誤，以換取每次都能在固定時間內完成；前者則拒絕錯誤輸出，把隨機性的影響留在 termination behavior 上。
 
 ## Why It Is Useful
 
-Las Vegas algorithm 的優點，在於它保留了 randomness 帶來的計算彈性，同時又不犧牲 correctness。
+Las Vegas algorithm 的價值，在於它同時保留了 randomness 的彈性與 correctness 的絕對保證。這種模式特別適合那些可以透過隨機方法搜尋某種 structure、witness 或 certificate，而一旦找到之後又能快速驗證其正確性的情況。
 
-這樣的模型特別適合在下列情況出現：
+在這類問題中，演算法可以透過反覆嘗試不同的隨機選擇來尋找成功路徑；若尚未成功，寧可繼續嘗試，也不願輸出未經保證的答案。這反映出一種較為保守的隨機化策略：寧可把不確定性放在時間上，也不把不確定性放在答案上。
 
-- 想利用隨機性快速搜尋某種 certificate 或 structure；
-- 找到時可以立即驗證並保證正確；
-- 找不到時寧可繼續找，也不願意冒險輸出錯誤答案。
+## Repetition and Expected Efficiency
 
-因此，它代表的是一種比較保守的隨機化策略：寧可延後結束，也不接受錯誤。
+若單次執行成功終止的機率至少為某個固定常數，例如 $\frac{1}{2}$，那麼把演算法反覆重新啟動，就能使長時間一直失敗的機率快速下降。也就是說，雖然某一次執行不保證一定完成，但整體而言，它仍可能在期望意義下具有良好的效率。
 
-## Repetition and Expected Success
-
-若一次執行成功終止的機率至少為 $\frac{1}{2}$，那麼反覆重新啟動演算法，就能以高機率在不多次嘗試後得到正確答案。
-
-直觀上，每次執行都至少有固定常數機率成功，因此重複進行時，長時間一直失敗的機率會快速下降。這也是為什麼 zero-error randomized algorithms 雖然單次執行可能不保證結束，整體上仍可視為有效率的計算模式。
+這也是 Las Vegas algorithm 與 zero-error polynomial-time computation 連結的重要原因：它不要求每一次執行都在固定時間內成功，而是要求整體計算在期望上仍然有效率。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -83,7 +73,7 @@ The key point is not the exact constant $\frac{1}{2}$, but the existence of a co
 
 ## Relation to $ZPP$
 
-Las Vegas algorithm 在 complexity theory 中，對應到 class $ZPP$。
+Las Vegas algorithm 在 complexity theory 中對應到 class $ZPP$。
 
 <div class="definition">
 <strong>Definition.</strong>
@@ -93,41 +83,31 @@ ZPP = RP \cap co\text{-}RP.
 $$
 </div>
 
-直觀上，$ZPP$ 表示可以用 zero-error randomized polynomial-time computation 解決的 decision problems。它的重點不是 bounded two-sided error，也不是 one-sided error，而是完全不允許錯誤輸出。
+直觀上，$ZPP$ 表示可以由 zero-error randomized polynomial-time computation 解決的 decision problems。它不像 $RP$ 那樣只允許 one-sided error，也不像 $BPP$ 那樣允許 two-sided bounded error；相反地，它要求演算法完全不輸出錯誤答案，並把隨機性的角色限制在執行過程與停止行為上。
 
-因此，Las Vegas algorithm 可以看作是 $ZPP$ 的 algorithmic model。
+因此，Las Vegas algorithm 可以看作 $ZPP$ 的自然 algorithmic model。
 
-## Comparison with Monte Carlo Algorithm
+## Comparison with Other Randomized Models
 
-和 [Monte Carlo Algorithm]({{ "/articles/CryptoAnIntro/monte-carlo-algorithm/" | relative_url }}) 相比，Las Vegas algorithm 的差別非常鮮明：
+Las Vegas algorithm 與其他 randomized models 的差異，主要在於 correctness 與 termination 之間的取捨方式不同。
 
-- Monte Carlo algorithm：一定停止，但可能出錯；
-- Las Vegas algorithm：不會出錯，但可能不停止。
+- **Monte Carlo algorithm**：一定停止，但可能以小機率輸出錯誤答案。
+- **Atlantic City algorithm**：一定在 polynomial time 內停止，但 yes 與 no 兩邊都可能出錯。
+- **Las Vegas algorithm**：輸出永遠正確，但不保證每次執行都會成功終止。
 
-所以兩者其實是在不同面向上做 trade-off：一個犧牲 correctness 的絕對保證，另一個則犧牲 termination 的絕對保證。
-
-## Comparison with Atlantic City Algorithm
-
-和 [Atlantic City Algorithm]({{ "/articles/CryptoAnIntro/atlantic-city-algorithm/" | relative_url }}) 相比，Las Vegas algorithm 的差別在於：
-
-- Atlantic City algorithm：兩邊都可能出錯，但一定會在 polynomial time 結束；
-- Las Vegas algorithm：輸出永遠正確，但隨機性可能影響是否終止。
-
-因此，Las Vegas algorithm 不是 bounded-error model，而是 zero-error model。
+因此，Las Vegas algorithm 並不是 bounded-error model，而是 zero-error model。它的重點不是限制錯誤機率，而是完全排除錯誤輸出的可能性。
 
 ## Example: Primality Proving
 
-在 number-theoretic algorithms 中，某些 primality proving 方法可以放在 Las Vegas algorithm 的脈絡下理解。其想法是：演算法可能需要隨機嘗試某些結構或證明過程，但只要它成功產生輸出，就能保證該 primality conclusion 是正確的。
+在 number-theoretic algorithms 中，某些 primality proving 方法可以放在 Las Vegas algorithm 的脈絡下理解。其基本想法是：演算法可能需要依賴隨機選擇去尋找某種證明結構或輔助資訊，但只要它成功產生輸出，該輸出所支持的 primality conclusion 就是正確的。
 
-因此，這類方法提供了 zero-error randomized computation 的典型例子，也說明了 $ZPP$ 不只是抽象定義，而是與具體演算法設計密切相關。
+這類例子說明，Las Vegas algorithm 並不只是理論上的抽象模型，而是和實際演算法設計有密切關聯。隨機性在其中扮演的是搜尋與加速的角色，而不是降低答案可靠性的代價。
 
-## Intuition
+### See also
 
-Las Vegas algorithm 的直觀理解可以寫成一句話：
-
-> it never lies, but it may keep trying until it succeeds.
-
-這句話正好點出它和其他 randomized models 的根本差異：它把隨機性的風險放在時間與停止性上，而不是放在答案正確性上。
+- [Randomized Complexity Classes]({{ "/articles/CryptoAnIntro/randomized-complexity-classes/" | relative_url }})
+- [Monte Carlo Algorithm]({{ "/articles/CryptoAnIntro/monte-carlo-algorithm/" | relative_url }})
+- [Atlantic City Algorithm]({{ "/articles/CryptoAnIntro/atlantic-city-algorithm/" | relative_url }})
 
 ## References
 
