@@ -120,11 +120,23 @@ These containments are known unconditionally. It is not known in general whether
 
 ## Example: Primality Testing
 
-隨機化複雜度類別的一個經典例子是 primality testing。
+隨機化複雜度類別的一個經典例子是 primality testing 與 compositeness testing。這些例子說明：randomness 不只是分析上的輔助工具，而是確實能在 number-theoretic problems 中帶來有效率的演算法設計。
 
-像 Fermat test 與 Miller--Rabin test，會把 compositeness 的檢測放在 one-sided error 的框架下，因此可視為與 $RP$ 相關的例子。另一方面，某些 primality proving 方法則對應到 zero-error 的觀點，因此可放到 $ZPP$ 的脈絡下理解。
+像 Fermat test 與 Miller--Rabin test，都是用來檢測一個整數是否為 composite 的 Monte Carlo algorithms。它們的特徵是：若輸入 $N$ 為 prime，演算法一定不會誤判為 composite；若 $N$ 為 composite，則演算法至少有固定常數機率偵測出這件事。因此，compositeness testing 屬於 one-sided error 的框架，可視為與 $RP$ 對應的典型例子。換句話說，
 
-這些例子顯示，randomness 不只是分析上的方便工具，而是真的能在 number-theoretic problems 中帶來有效率的演算法設計。
+$$
+\text{COMPOSITES} \in RP.
+$$
+
+這正反映了 $RP$ 的定義：對 yes-instances（此處為 composite numbers），演算法有固定常數機率接受；對 no-instances（此處為 prime numbers），演算法永遠不會誤接受。
+
+另一方面，Adleman--Huang algorithm 提供了 primality proving 的隨機化方法。它屬於 Las Vegas 型態：演算法一旦輸出答案，答案必定正確；隨機性影響的是它是否能在某次嘗試中成功完成，而不是輸出的正確性。因此，primality testing 也可放在 zero-error randomized computation 的脈絡下理解，亦即
+
+$$
+\text{PRIMALITY} \in ZPP.
+$$
+
+這個例子同時把前面的幾個觀念串接起來：Fermat test 與 Miller--Rabin test 說明了 one-sided error 與 $RP$ 的意義；Adleman--Huang algorithm 則對應到 zero-error 與 $ZPP$。因此，primality testing 不只是隨機化演算法的應用範例，也是一個用來理解 $RP$、$ZPP$ 與不同 error models 之間關係的標準例子。
 
 ## References
 
