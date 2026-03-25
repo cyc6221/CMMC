@@ -1,12 +1,13 @@
 /*
   Usage / 備註：
-  - 用途：樣式用於標示數學/教學內容中的區塊（Definition, Theorem, Proof, Example, Remark, Algorithm）。
+  - 用途：樣式用於標示數學/教學內容中的區塊（Definition, Theorem, Lemma, Proof, Example, Remark, Algorithm）。
   - 使用情境：可在論文/教學筆記中用到（_articles/*.md 的內容區塊），讓這些區塊在視覺上更突出並保留語意。
 */
 
 /* — Group: 共用基底（margin, padding, border, background, radius, shadow） */
 .definition,
 .theorem,
+.lemma,
 .proof,
 .example,
 .remark,
@@ -29,6 +30,12 @@
 /* — Theorem: .theorem（強調、斜體） */
 .theorem {
   border-color: #1e3a8a;
+  font-style: italic;
+}
+
+/* — Lemma: .lemma（引理） */
+.lemma {
+  border-color: #3730a3;
   font-style: italic;
 }
 
@@ -56,12 +63,13 @@
 /* — Algorithm: .algorithm（演算法區塊） */
 .algorithm {
   border-color: #0f766e; /* teal */
-  /* font-style: italic; */ /* 需要斜體就打開 */
+  /* font-style: italic; */
 }
 
 /* — Title inside blocks: 將區塊內的 <strong> 當作標題處理 */
 .definition strong,
 .theorem strong,
+.lemma strong,
 .proof strong,
 .example strong,
 .remark strong,
