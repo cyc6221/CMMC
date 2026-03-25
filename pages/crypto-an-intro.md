@@ -52,9 +52,8 @@ toc: false
   - [P = NP?]({{ "/articles/CryptoAnIntro/P-equals-NP/" | relative_url }})<span class="lab-status">Updating</span>
 - [Knapsack-Based Cryptosystems]({{ "/articles/CryptoAnIntro/knapsack-bnased-cryptosystems/" | relative_url }})
 - [Bit Security]({{ "/articles/CryptoAnIntro/bit-security/" | relative_url }})
+- [Random Self-Reductions]({{ "/articles/CryptoAnIntro/random-self-reduction/" | relative_url }})
 
 <span class="lab-status">Todo</span>
-
-### Random Self-Reductions
 
 ### Randomized Algorithms
