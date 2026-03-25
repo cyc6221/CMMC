@@ -138,6 +138,12 @@ $$
 
 這個例子同時把前面的幾個觀念串接起來：Fermat test 與 Miller--Rabin test 說明了 one-sided error 與 $RP$ 的意義；Adleman--Huang algorithm 則對應到 zero-error 與 $ZPP$。因此，primality testing 不只是隨機化演算法的應用範例，也是一個用來理解 $RP$、$ZPP$ 與不同 error models 之間關係的標準例子。
 
+## See also
+
+- [Monte Carlo Algorithm]({{ "/articles/CryptoAnIntro/monte-carlo-algorithm/" | relative_url }})
+- [Atlantic City Algorithm]({{ "/articles/CryptoAnIntro/atlantic-city-algorithm/" | relative_url }})
+- [Las Vegas Algorithm]({{ "/articles/CryptoAnIntro/las-vegas-algorithm/" | relative_url }})
+
 ## References
 
 - Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 19. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
