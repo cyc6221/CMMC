@@ -50,3 +50,29 @@ hr {
 .site-header {
   box-shadow: 0 1px 0 rgba(0,0,0,.06);
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Roboto+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+/* 內文：中文優先穩定，英文用等寬 */
+body {
+  font-family: "Roboto Mono", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", monospace, sans-serif;
+  line-height: 1.8;
+}
+
+/* 標題：英文為主 */
+h1, h2, h3, h4, h5, h6,
+.site-title {
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+/* 導覽列、按鈕這類短文字也可跟標題同風格 */
+.site-nav,
+.page-link {
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+}
+
+/* 程式碼區塊維持等寬 */
+code, pre {
+  font-family: "Roboto Mono", monospace;
+}
