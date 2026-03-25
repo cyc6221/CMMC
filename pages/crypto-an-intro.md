@@ -61,4 +61,10 @@ toc: false
   - [Atlantic City Algorithm]({{ "/articles/CryptoAnIntro/atlantic-city-algorithm/" | relative_url }})
   - [Las Vegas Algorithm]({{ "/articles/CryptoAnIntro/las-vegas-algorithm/" | relative_url }})
 
+## Chapter 20: Provable Security: With Random Oracles
+
 <span class="lab-status">Todo</span>
+
+## Chapter 21: Hybrid Encryption
+
+## Chapter 22: Provable Security: Without Random Oracles
