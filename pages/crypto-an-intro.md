@@ -65,6 +65,8 @@ toc: false
 
 ## Chapter 20: Provable Security: With Random Oracles
 
+- [Provable Security]({{ "/articles/CryptoAnIntro/provable-security/" | relative_url }})
+
 <span class="lab-status">Todo</span>
 
 ## Chapter 21: Hybrid Encryption
