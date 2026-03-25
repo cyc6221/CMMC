@@ -10,6 +10,13 @@ Atlantic City algorithm 是另一種典型的 randomized algorithm。它和 Mont
 
 在 randomized complexity theory 中，Atlantic City algorithm 對應到 complexity class $BPP$。若想先看整體脈絡，可參考 [Randomized Complexity Classes]({{ "/articles/CryptoAnIntro/randomized-complexity-classes/" | relative_url }}).
 
+<div class="remark">
+<ul>
+  <li> Outputs <b>true</b> with probability $\geq 2/3$ of being correct.</li>
+  <li> Outputs <b>false</b> with probability $\geq 2/3$ of being correct.</li>
+</ul>
+</div>
+
 ## Basic Idea
 
 在 randomized computation 中，有些演算法雖然不能保證每次都完全正確，但可以保證：

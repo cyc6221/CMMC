@@ -10,6 +10,14 @@ Monte Carlo algorithm 是最典型的 randomized algorithm 之一。它的特徵
 
 在 randomized complexity theory 中，Monte Carlo algorithm 與 one-sided error 的觀念密切相關，並且對應到 complexity class $RP$。若想從整體角度理解它在隨機化複雜度中的位置，可參考 [Randomized Complexity Classes]({{ "/articles/CryptoAnIntro/randomized-complexity-classes/" | relative_url }}).
 
+<div class="remark">
+<ul>
+  <li> Always outputs <b>false</b> if the answer is actually <b>false</b>.</li>
+  <li> Answers <b>true</b> with probability $\geq 1/2$.</li>
+  <li> Otherwise answers <b>false</b>, even though the actual answer is <b>true</b>.</li>
+</ul>
+</div>
+
 ## Basic Idea
 
 與 deterministic algorithm 不同，Monte Carlo algorithm 在執行過程中會使用 randomness，因此即使輸入相同，不同次執行也可能得到不同結果。不過，這種隨機性並不是毫無限制的；它仍然要求：
