@@ -9,6 +9,8 @@ toc: false
 
 - [Block Cipher]({{ "/articles/CryptoAnIntro/block-cipher/" | relative_url }})
 
+## Chapter 12: Primality Testing
+
 ## Chapter 17: Attacks on Public Key Schemes
 
 - [Wiener's Attack]({{ "/articles/CryptoAnIntro/Wieners-attack/" | relative_url }})
