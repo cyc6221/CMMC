@@ -28,3 +28,6 @@ header_pages:
 plugins:
   - jekyll-git-metadata
   - jekyll-sitemap
+
+sitemap:
+  path: sitemap.xml
