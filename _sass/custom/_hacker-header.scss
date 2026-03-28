@@ -1,0 +1,64 @@
+// -----------------------------------------------
+// Hacker header
+// -----------------------------------------------
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #111;
+  border-bottom: 1px solid #33ff33;
+  box-shadow: 0 1px 0 rgba(51, 255, 51, 0.15);
+}
+
+.site-header .wrapper {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-title,
+.site-title:visited {
+  color: #33ff33;
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.site-title:hover {
+  color: #66ff66;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.site-nav .page-link,
+.site-nav .page-link:visited {
+  color: #ddd;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.site-nav .page-link:hover {
+  color: #33ff33;
+  text-decoration: none;
+}
+
+/* 如果舊 minima 結構還殘留，直接隱藏 */
+.nav-trigger,
+.menu-icon,
+.trigger {
+  display: none !important;
+}

@@ -27,69 +27,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Roboto+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap');
 
+/* hacker custom */
+@import "custom/hacker-base";
+@import "custom/hacker-header";
+@import "custom/hacker-footer";
+@import "custom/back-to-top";
+
 // -----------------------------------------------
 
 hr {
-  /* 外觀 */
-  border: 0;                     /* 移除預設樣式 */
-  border-top: 3px solid #d0d0d0;  /* 粗細/樣式/顏色 */
-
-  /* 尺寸與對齊 */
-  width: 100%;                   /* 長度：可改 60% 等 */
-  margin: 24px auto;             /* 上下間距；auto 可置中（搭配非 100% 寬時） */
-
-  /* 可選：避免某些瀏覽器陰影/高度干擾 */
+  border: 0;
+  border-top: 3px solid #d0d0d0;
+  width: 100%;
+  margin: 24px auto;
   height: 0;
   background: transparent;
-}
-
-// -----------------------------------------------
-// hacker theme
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: #111;
-  border-bottom: 1px solid #33ff33;
-  box-shadow: 0 1px 0 rgba(51,255,51,.15);
-}
-
-.site-title,
-.site-title:visited {
-  color: #33ff33;
-}
-
-.site-nav .page-link {
-  color: #ddd;
-}
-
-.site-nav .page-link:hover {
-  color: #33ff33;
-}
-
-// -----------------------------------------------
-
-/* 內文：中文優先穩定，英文用等寬 */
-body {
-  font-family: "Roboto Mono", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", monospace, sans-serif;
-  line-height: 1.8;
-}
-
-/* 標題：英文為主 */
-h1, h2, h3, h4, h5, h6,
-.site-title {
-  font-family: "Inter", "Noto Sans TC", sans-serif;
-  letter-spacing: 0.01em;
-}
-
-/* 導覽列、按鈕這類短文字也可跟標題同風格 */
-.site-nav,
-.page-link {
-  font-family: "Inter", "Noto Sans TC", sans-serif;
-}
-
-/* 程式碼區塊維持等寬 */
-code, pre {
-  font-family: "Roboto Mono", monospace;
 }
