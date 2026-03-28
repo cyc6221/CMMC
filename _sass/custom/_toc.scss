@@ -32,12 +32,9 @@ body.has-toc #page-content {
 ----------------------------------------------- */
 
 body.has-toc .page-toc {
-  position: fixed;
-  top: 72px;
-  right: max(24px, calc((100vw - 1160px) / 2));
-  width: 240px;
-  max-height: calc(100vh - 96px);
-  overflow-y: auto;
+  position: sticky;
+  top: 66px;
+  height: fit-content;
   padding: 0 0 0 14px;
   border-left: 1px solid #2a2a2a;
   font-size: 13px;
@@ -45,18 +42,13 @@ body.has-toc .page-toc {
 }
 
 body.has-toc .page-toc__title {
-  position: sticky;
-  top: 0;
   margin: 0 0 12px;
-  padding: 0 0 8px;
-  background: #0d0d0d;
   color: #33ff33;
   font-family: "Roboto Mono", monospace;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  z-index: 2;
 }
 
 /* -----------------------------------------------
