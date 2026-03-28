@@ -1,10 +1,13 @@
 /*
   Usage / 備註：
-  - 用途：樣式用於標示數學/教學內容中的區塊（Definition, Theorem, Lemma, Proof, Example, Remark, Algorithm）。
-  - 使用情境：可在論文/教學筆記中用到（_articles/*.md 的內容區塊），讓這些區塊在視覺上更突出並保留語意。
+  - 用途：樣式用於標示數學/教學內容中的區塊
+    （Definition, Theorem, Lemma, Proof, Example, Remark, Algorithm）。
+  - 風格：配合目前 hacker theme，改為深色底 + 霓虹色邊框。
 */
 
-/* — Group: 共用基底（margin, padding, border, background, radius, shadow） */
+/* -----------------------------------------------
+   共用基底
+----------------------------------------------- */
 .definition,
 .theorem,
 .lemma,
@@ -12,61 +15,17 @@
 .example,
 .remark,
 .algorithm {
-  margin: 1.5em 0;
-  padding: 1em 1.2em;
+  margin: 1.4rem 0;
+  padding: 1rem 1.15rem;
+  background: #111;
+  border: 1px solid #2a2a2a;
   border-left: 4px solid;
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
-  border-left-width: 4px;
-  border-radius: 8px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  border-radius: 0;
+  box-shadow: none;
+  color: #e6e6e6;
 }
 
-/* — Definition: .definition 的顏色 */
-.definition {
-  border-color: #166534;
-}
-
-/* — Theorem: .theorem（強調、斜體） */
-.theorem {
-  border-color: #1e3a8a;
-  // font-style: italic;
-}
-
-/* — Lemma: .lemma（引理） */
-.lemma {
-  border-color: #3730a3;
-  // font-style: italic;
-}
-
-/* — Proof: .proof（證明區塊與 QED 樣式） */
-.proof {
-  border-color: #7e22ce;
-  /* font-style: italic; */
-}
-
-.proof .qed {
-  float: right;
-  font-size: 1.2em;
-}
-
-/* — Example: .example（範例樣式） */
-.example {
-  border-color: #6b7280;
-}
-
-/* — Remark: .remark（備註/提示樣式） */
-.remark {
-  border-color: #f97316;
-}
-
-/* — Algorithm: .algorithm（演算法區塊） */
-.algorithm {
-  border-color: #0f766e; /* teal */
-  /* font-style: italic; */
-}
-
-/* — Title inside blocks: 將區塊內的 <strong> 當作標題處理 */
+/* 區塊標題 */
 .definition strong,
 .theorem strong,
 .lemma strong,
@@ -75,5 +34,131 @@
 .remark strong,
 .algorithm strong {
   display: block;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.55rem;
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+/* 區塊內段落 */
+.definition p:last-child,
+.theorem p:last-child,
+.lemma p:last-child,
+.proof p:last-child,
+.example p:last-child,
+.remark p:last-child,
+.algorithm p:last-child {
+  margin-bottom: 0;
+}
+
+/* 區塊內清單 */
+.definition ul,
+.theorem ul,
+.lemma ul,
+.proof ul,
+.example ul,
+.remark ul,
+.algorithm ul,
+.definition ol,
+.theorem ol,
+.lemma ol,
+.proof ol,
+.example ol,
+.remark ol,
+.algorithm ol {
+  margin-bottom: 0;
+}
+
+/* -----------------------------------------------
+   個別色系
+----------------------------------------------- */
+
+/* Definition */
+.definition {
+  border-left-color: #33ff33;
+}
+.definition strong {
+  color: #33ff33;
+}
+
+/* Theorem */
+.theorem {
+  border-left-color: #60a5fa;
+}
+.theorem strong {
+  color: #60a5fa;
+}
+
+/* Lemma */
+.lemma {
+  border-left-color: #a78bfa;
+}
+.lemma strong {
+  color: #a78bfa;
+}
+
+/* Proof */
+.proof {
+  border-left-color: #e879f9;
+}
+.proof strong {
+  color: #e879f9;
+}
+
+.proof .qed {
+  float: right;
+  font-size: 1.05em;
+  color: #e879f9;
+}
+
+/* Example */
+.example {
+  border-left-color: #9ca3af;
+}
+.example strong {
+  color: #d1d5db;
+}
+
+/* Remark */
+.remark {
+  border-left-color: #f59e0b;
+}
+.remark strong {
+  color: #fbbf24;
+}
+
+/* Algorithm */
+.algorithm {
+  border-left-color: #2dd4bf;
+}
+.algorithm strong {
+  color: #2dd4bf;
+}
+
+/* -----------------------------------------------
+   區塊內數學與程式碼微調
+----------------------------------------------- */
+.definition code,
+.theorem code,
+.lemma code,
+.proof code,
+.example code,
+.remark code,
+.algorithm code {
+  background: #1a1a1a;
+  border: 1px solid #2f2f2f;
+  padding: 0.08em 0.35em;
+  border-radius: 0;
+  color: #e6e6e6;
+}
+
+.definition pre,
+.theorem pre,
+.lemma pre,
+.proof pre,
+.example pre,
+.remark pre,
+.algorithm pre {
+  background: #0d0d0d;
+  border: 1px solid #2f2f2f;
 }
