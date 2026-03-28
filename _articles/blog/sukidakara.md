@@ -7,7 +7,7 @@ tags: [blog]
 ---
 
 <div class="video-window">
-  <div class="video-window__title">[ youtube ] now playing: Yuika - Sukidakara (Lyric Video)</div>
+  <div class="video-window__title">NOW PLAYING: Yuika - Sukidakara (Lyric Video)</div>
   <div class="video-window__body">
     <iframe
       src="https://www.youtube.com/embed/eYAd4uDotF0"
