@@ -8,13 +8,13 @@
 /* Layout */
 
 body.has-toc .wrapper {
-  max-width: 1160px;
+  max-width: 1240px;
 }
 
 body.has-toc .page-layout {
   display: grid;
-  grid-template-columns: minmax(0, 780px) 240px;
-  gap: 32px;
+  grid-template-columns: minmax(0, 820px) 280px;
+  gap: 40px;
   align-items: start;
   justify-content: center;
 }
@@ -67,8 +67,8 @@ body.has-toc .page-toc__item {
 
 body.has-toc .page-toc__sublist {
   margin-top: 0.35rem;
-  margin-left: 1.55rem;
-  padding-left: 0.55rem;
+  margin-left: 1.2rem;
+  padding-left: 0.8rem;
   border-left: 1px solid rgba(51, 255, 51, 0.16);
 }
 
@@ -81,7 +81,8 @@ body.has-toc .page-toc__subitem {
 body.has-toc .page-toc__row {
   display: flex;
   align-items: flex-start;
-  gap: 0.42rem;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 /* Toggle */
@@ -91,25 +92,22 @@ body.has-toc .page-toc__toggle {
   border: 0;
   background: transparent;
   cursor: pointer;
-  position: relative;
   padding: 0;
-  margin: 0.04rem 0 0;
-  width: 1.35rem;
-  height: 1.35rem;
-  flex: 0 0 1.35rem;
-  border-radius: 999px;
+  margin: 0.08rem 0 0;
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: #8f8f8f;
   line-height: 1;
-  vertical-align: middle;
-  transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  transition: color 0.18s ease, transform 0.18s ease;
+  order: 2;
 }
 
 body.has-toc .page-toc__toggle:hover,
 body.has-toc .page-toc__toggle:focus-visible {
-  background: rgba(51, 255, 51, 0.08);
   color: #33ff33;
   outline: none;
 }
@@ -118,8 +116,8 @@ body.has-toc .page-toc__toggle .tri {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 0.9rem;
-  height: 0.9rem;
+  width: 0.82rem;
+  height: 0.82rem;
   transition: transform 0.18s ease;
   transform-origin: 50% 50%;
 }
@@ -140,7 +138,9 @@ body.has-toc .page-toc__item.is-expanded > .page-toc__row .page-toc__toggle .tri
 body.has-toc .page-toc__link,
 body.has-toc .page-toc__sublink {
   position: relative;
-  display: inline-block;
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
   padding: 0.08rem 0 0.08rem 1rem;
   color: #9f9f9f;
   text-decoration: none;
@@ -209,7 +209,7 @@ body.has-toc .page-toc__sublink[aria-current="true"]::before {
 
 @media (max-width: 1024px) {
   body.has-toc .wrapper {
-    max-width: 860px;
+    max-width: 900px;
   }
 
   body.has-toc .page-layout {
