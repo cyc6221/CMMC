@@ -5,7 +5,7 @@
 @import "{{ site.theme }}";
 
 /* custom modules */
-@import "custom/toc";
+// @import "custom/toc";
 @import "custom/math-blocks";
 
 @import "custom/toggle";
@@ -23,7 +23,10 @@
 
 @import "custom/citation";
 
-@import "custom/page-tags";
+// @import "custom/page-tags";
+
+/* page-toc 相關樣式（頁面側邊 TOC） */
+@import "custom/page-toc";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Roboto+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap');
 

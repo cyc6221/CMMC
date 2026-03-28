@@ -1,0 +1,239 @@
+/*
+  Page TOC
+  - Sidebar layout and TOC structure
+  - Supports link, sublink, toggle, sublist, and active state
+  - Uses terminal-style highlight for current heading
+*/
+
+/* Layout */
+
+body.has-toc .wrapper {
+  max-width: 1160px;
+}
+
+body.has-toc .page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 780px) 240px;
+  gap: 32px;
+  align-items: start;
+  justify-content: center;
+}
+
+body.has-toc #page-content {
+  min-width: 0;
+}
+
+/* Panel */
+
+body.has-toc .page-toc {
+  position: fixed;
+  top: 72px;
+  right: max(24px, calc((100vw - 1160px) / 2));
+  width: 240px;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  padding: 0 0 0 14px;
+  border-left: 1px solid #2a2a2a;
+  font-size: 13px;
+  color: #bfbfbf;
+}
+
+body.has-toc .page-toc__title {
+  position: sticky;
+  top: 0;
+  margin: 0 0 12px;
+  padding: 0 0 8px;
+  background: #0d0d0d;
+  color: #33ff33;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Lists */
+
+body.has-toc .page-toc__list,
+body.has-toc .page-toc__sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.has-toc .page-toc__item {
+  margin: 0 0 0.45rem;
+}
+
+body.has-toc .page-toc__sublist {
+  margin-top: 0.35rem;
+  margin-left: 1.55rem;
+  padding-left: 0.55rem;
+  border-left: 1px solid rgba(51, 255, 51, 0.16);
+}
+
+body.has-toc .page-toc__subitem {
+  margin: 0.22rem 0;
+}
+
+/* Row */
+
+body.has-toc .page-toc__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.42rem;
+}
+
+/* Toggle */
+
+body.has-toc .page-toc__toggle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  margin: 0.04rem 0 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  flex: 0 0 1.35rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #8f8f8f;
+  line-height: 1;
+  vertical-align: middle;
+  transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+body.has-toc .page-toc__toggle:hover,
+body.has-toc .page-toc__toggle:focus-visible {
+  background: rgba(51, 255, 51, 0.08);
+  color: #33ff33;
+  outline: none;
+}
+
+body.has-toc .page-toc__toggle .tri {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.9rem;
+  height: 0.9rem;
+  transition: transform 0.18s ease;
+  transform-origin: 50% 50%;
+}
+
+body.has-toc .page-toc__toggle .tri-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+body.has-toc .page-toc__item.is-expanded > .page-toc__row .page-toc__toggle .tri {
+  transform: rotate(90deg);
+}
+
+/* Links */
+
+body.has-toc .page-toc__link,
+body.has-toc .page-toc__sublink {
+  position: relative;
+  display: inline-block;
+  padding: 0.08rem 0 0.08rem 1rem;
+  color: #9f9f9f;
+  text-decoration: none;
+  line-height: 1.45;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+body.has-toc .page-toc__link {
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-weight: 700;
+}
+
+body.has-toc .page-toc__sublink {
+  font-family: "Roboto Mono", monospace;
+  font-size: 12.5px;
+  color: #7f7f7f;
+}
+
+/* Marker */
+
+body.has-toc .page-toc__link::before,
+body.has-toc .page-toc__sublink::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  top: 0.08rem;
+  color: #33ff33;
+  opacity: 0;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  transition: opacity 0.15s ease;
+}
+
+/* Hover */
+
+body.has-toc .page-toc__link:hover,
+body.has-toc .page-toc__sublink:hover {
+  color: #33ff33;
+}
+
+/* Active */
+
+body.has-toc .page-toc__link.is-active,
+body.has-toc .page-toc__sublink.is-active,
+body.has-toc .page-toc__item.is-active > .page-toc__row .page-toc__link,
+body.has-toc .page-toc__subitem.is-active > .page-toc__sublink,
+body.has-toc .page-toc__link[aria-current="true"],
+body.has-toc .page-toc__sublink[aria-current="true"] {
+  color: #eaffea;
+  background: rgba(51, 255, 51, 0.06);
+  font-weight: 700;
+}
+
+body.has-toc .page-toc__link.is-active::before,
+body.has-toc .page-toc__sublink.is-active::before,
+body.has-toc .page-toc__item.is-active > .page-toc__row .page-toc__link::before,
+body.has-toc .page-toc__subitem.is-active > .page-toc__sublink::before,
+body.has-toc .page-toc__link[aria-current="true"]::before,
+body.has-toc .page-toc__sublink[aria-current="true"]::before {
+  opacity: 1;
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  body.has-toc .wrapper {
+    max-width: 860px;
+  }
+
+  body.has-toc .page-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  body.has-toc .page-toc {
+    position: static;
+    top: auto;
+    right: auto;
+    width: auto;
+    max-height: none;
+    overflow-y: visible;
+    padding: 12px 14px;
+    border: 1px solid #2a2a2a;
+    background: #101010;
+  }
+
+  body.has-toc .page-toc__title {
+    position: static;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    background: transparent;
+  }
+}
