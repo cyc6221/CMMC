@@ -19,3 +19,7 @@ Kobe.txt
 # minima theme
 assets/main_minima.scss
 _includes/header_minima.html
+
+# page-tags and toc not used for now
+_sass/custom/_page-tags_nouse.scss
+_sass/custom/_toc_nouse.scss
