@@ -1,0 +1,27 @@
+.video-window {
+  max-width: 800px;
+  margin: 1.5rem auto;
+  border: 1px solid #33ff33;
+  background: #000;
+}
+
+.video-window__title {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #33ff33;
+  font-size: 0.9rem;
+}
+
+.video-window__body {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-window__body iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
