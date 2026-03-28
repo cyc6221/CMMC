@@ -44,4 +44,4 @@ tags: [blog]
 ## 好きだから
 
 - [Yuika - Sukidakara (Lyric Video)](https://youtu.be/eYAd4uDotF0?si=ku072xNTY-WzyeYF)
-- [『ユイカ』](https://www.youtube.com/@yuika_singuitar)
+- [『ユイカ』: YouTube Channel](https://www.youtube.com/@yuika_singuitar)
