@@ -18,3 +18,4 @@ Kobe.txt
 
 # minima theme
 assets/main_minima.scss
+_includes/header_minima.html
