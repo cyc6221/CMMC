@@ -1,7 +1,6 @@
 ---
 ---
 
-// @import "minima";
 // @import "jekyll-theme-hacker";
 @import "{{ site.theme }}";
 
@@ -68,22 +67,6 @@ hr {
 .site-nav .page-link:hover {
   color: #33ff33;
 }
-
-// -----------------------------------------------
-// minima theme
-
-/* 讓整個 site header 置頂 */
-// .site-header {
-//   position: sticky;
-//   top: 0;
-//   z-index: 1000;
-//   background: #fff; /* 重要：不然滑動時背景可能透明 */
-// }
-
-/* 可選：滑動時更清楚 */
-// .site-header {
-//   box-shadow: 0 1px 0 rgba(0,0,0,.06);
-// }
 
 // -----------------------------------------------
 
