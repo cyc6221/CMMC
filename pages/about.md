@@ -13,6 +13,7 @@ I am CY.
 
 - [My First Article]({{ "/articles/blog/first-article/" | relative_url }})
 - [Snoop Dogg]({{ "/articles/blog/Snoop Dogg/" | relative_url }})
+- [好きだから。]({{ "/articles/blog/sukidakara/" | relative_url }})
 
 <!-- --- -->
 
