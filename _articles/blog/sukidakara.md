@@ -6,16 +6,18 @@ last_updated: 2026-03-28
 tags: [blog]
 ---
 
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/eYAd4uDotF0"
-  title="Yuika - Sukidakara (Lyric Video)"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen>
-</iframe>
+<div class="video-window">
+  <div class="video-window__title">[ youtube ] now playing: Yuika - Sukidakara (Lyric Video)</div>
+  <div class="video-window__body">
+    <iframe
+      src="https://www.youtube.com/embed/eYAd4uDotF0"
+      title="Yuika - Sukidakara (Lyric Video)"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
 ## Lyrics
 
