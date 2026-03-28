@@ -6,6 +6,19 @@ last_updated: 2026-03-28
 tags: [blog]
 ---
 
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/eYAd4uDotF0"
+  title="Yuika - Sukidakara (Lyric Video)"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+</iframe>
+
+## Lyrics
+
 かっこいいから好きなんじゃない。
 
 > *Kakkoii kara suki nan janai.*
