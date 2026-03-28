@@ -1,6 +1,7 @@
 title: "CMMC"
 description: "Study notes on modern cryptography."
-theme: minima
+# theme: minima
+theme: jekyll-theme-hacker
 
 url: "https://cyc6221.github.io"
 baseurl: "/CMMC"
