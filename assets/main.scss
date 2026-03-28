@@ -2,7 +2,8 @@
 ---
 
 // @import "minima";
-@import "jekyll-theme-hacker";
+// @import "jekyll-theme-hacker";
+@import "{{ site.theme }}";
 
 /* custom modules */
 @import "custom/toc";
