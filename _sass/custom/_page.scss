@@ -95,6 +95,10 @@
 
 /* — Content: .page-content（文章內容內 h2 / h3 加強） */
 .page-content {
+  > :first-child {
+    margin-top: 0;
+  }
+  
   h2 {
     font-weight: 800;
     line-height: 1.25;
