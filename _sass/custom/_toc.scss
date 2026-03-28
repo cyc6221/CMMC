@@ -72,36 +72,33 @@ body.has-toc #page-toc .page-toc__item {
 
 body.has-toc #page-toc .page-toc__link,
 body.has-toc #page-toc a {
+  position: relative;
   display: block;
-  padding: 4px 8px;
-  border-left: 2px solid transparent;
+  padding: 4px 8px 4px 16px;
   color: #9f9f9f;
   text-decoration: none;
   line-height: 1.5;
   overflow-wrap: anywhere;
   word-break: break-word;
-  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+/* terminal prompt marker 預設隱藏 */
+body.has-toc #page-toc .page-toc__link::before,
+body.has-toc #page-toc a::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  color: #33ff33;
+  opacity: 0;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
 }
 
 body.has-toc #page-toc .page-toc__link:hover,
 body.has-toc #page-toc a:hover {
   color: #33ff33;
-  background: rgba(51, 255, 51, 0.05);
-}
-
-/* -----------------------------------------------
-   Active state
------------------------------------------------ */
-
-body.has-toc #page-toc .page-toc__link.is-active,
-body.has-toc #page-toc .page-toc__link[aria-current="true"],
-body.has-toc #page-toc .is-active > .page-toc__link,
-body.has-toc #page-toc .is-active > a,
-body.has-toc #page-toc a[aria-current="true"] {
-  border-left-color: #33ff33;
-  background: rgba(51, 255, 51, 0.08);
-  color: #eaffea;
-  font-weight: 700;
 }
 
 /* ------------------------------------------------
@@ -125,9 +122,37 @@ body.has-toc #page-toc .toc-h3 > a {
 }
 
 
-/* -----------------------------------------------
-   h3 active state
------------------------------------------------ */
+/* Active state: h2 / h3 共用 */
+
+body.has-toc #page-toc .page-toc__link.is-active,
+body.has-toc #page-toc .page-toc__link[aria-current="true"],
+body.has-toc #page-toc .is-active > .page-toc__link,
+body.has-toc #page-toc .is-active > a,
+body.has-toc #page-toc a[aria-current="true"],
+body.has-toc #page-toc .toc-h2.is-active > a,
+body.has-toc #page-toc .toc-h3.is-active > a,
+body.has-toc #page-toc .page-toc__item--h2.is-active > .page-toc__link,
+body.has-toc #page-toc .page-toc__item--h3.is-active > .page-toc__link {
+  color: #eaffea;
+  background: rgba(51, 255, 51, 0.06);
+  font-weight: 700;
+}
+
+/* Active state: 顯示 terminal 的 > */
+
+body.has-toc #page-toc .page-toc__link.is-active::before,
+body.has-toc #page-toc .page-toc__link[aria-current="true"]::before,
+body.has-toc #page-toc .is-active > .page-toc__link::before,
+body.has-toc #page-toc .is-active > a::before,
+body.has-toc #page-toc a[aria-current="true"]::before,
+body.has-toc #page-toc .toc-h2.is-active > a::before,
+body.has-toc #page-toc .toc-h3.is-active > a::before,
+body.has-toc #page-toc .page-toc__item--h2.is-active > .page-toc__link::before,
+body.has-toc #page-toc .page-toc__item--h3.is-active > .page-toc__link::before {
+  opacity: 1;
+}
+
+/* h3 active 時也要跟 h2 一樣亮 */
 
 body.has-toc #page-toc .page-toc__item--h3 > .page-toc__link.is-active,
 body.has-toc #page-toc .page-toc__item--h3 > .page-toc__link[aria-current="true"],
@@ -135,9 +160,8 @@ body.has-toc #page-toc .toc-h3 > .page-toc__link.is-active,
 body.has-toc #page-toc .toc-h3 > .page-toc__link[aria-current="true"],
 body.has-toc #page-toc .toc-h3 > a[aria-current="true"],
 body.has-toc #page-toc .toc-h3.is-active > a {
-  border-left-color: #33ff33;
-  background: rgba(51, 255, 51, 0.08);
   color: #eaffea;
+  background: rgba(51, 255, 51, 0.06);
   font-weight: 700;
 }
 
@@ -158,12 +182,19 @@ body.has-toc #page-toc .toc-h3.is-active > a {
   body.has-toc .page-toc {
     position: static;
     top: auto;
+    right: auto;
+    width: auto;
+    max-height: none;
+    overflow-y: visible;
     padding: 12px 14px;
     border: 1px solid #2a2a2a;
     background: #101010;
   }
 
   body.has-toc .page-toc__title {
+    position: static;
     margin-bottom: 10px;
+    padding-bottom: 0;
+    background: transparent;
   }
 }
