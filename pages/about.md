@@ -11,8 +11,8 @@ I am CY.
 
 ### My blog
 
-- [My First Article]({{ "/articles/first-article/" | relative_url }})
-- [Snoop Dogg]({{ "/articles/Snoop Dogg/" | relative_url }})
+- [My First Article]({{ "/articles/blog/first-article/" | relative_url }})
+- [Snoop Dogg]({{ "/articles/blog/Snoop Dogg/" | relative_url }})
 
 <!-- --- -->
 
