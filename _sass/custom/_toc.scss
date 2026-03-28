@@ -32,9 +32,12 @@ body.has-toc #page-content {
 ----------------------------------------------- */
 
 body.has-toc .page-toc {
-  position: sticky;
-  top: 58px;
-  height: fit-content;
+  position: fixed;
+  top: 72px;
+  right: max(24px, calc((100vw - 1160px) / 2));
+  width: 240px;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
   padding: 0 0 0 14px;
   border-left: 1px solid #2a2a2a;
   font-size: 13px;
@@ -42,13 +45,18 @@ body.has-toc .page-toc {
 }
 
 body.has-toc .page-toc__title {
+  position: sticky;
+  top: 0;
   margin: 0 0 12px;
+  padding: 0 0 8px;
+  background: #0d0d0d;
   color: #33ff33;
   font-family: "Roboto Mono", monospace;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  z-index: 2;
 }
 
 /* -----------------------------------------------
@@ -69,7 +77,9 @@ body.has-toc #page-toc .page-toc__item {
 /* -----------------------------------------------
    Links
 ----------------------------------------------- */
-body.has-toc #page-toc .page-toc__link {
+
+body.has-toc #page-toc .page-toc__link,
+body.has-toc #page-toc a {
   display: block;
   padding: 4px 8px;
   border-left: 2px solid transparent;
@@ -81,13 +91,21 @@ body.has-toc #page-toc .page-toc__link {
   transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
 
-body.has-toc #page-toc .page-toc__link:hover {
+body.has-toc #page-toc .page-toc__link:hover,
+body.has-toc #page-toc a:hover {
   color: #33ff33;
   background: rgba(51, 255, 51, 0.05);
 }
 
+/* -----------------------------------------------
+   Active state
+----------------------------------------------- */
+
 body.has-toc #page-toc .page-toc__link.is-active,
-body.has-toc #page-toc .page-toc__link[aria-current="true"] {
+body.has-toc #page-toc .page-toc__link[aria-current="true"],
+body.has-toc #page-toc .is-active > .page-toc__link,
+body.has-toc #page-toc .is-active > a,
+body.has-toc #page-toc a[aria-current="true"] {
   border-left-color: #33ff33;
   background: rgba(51, 255, 51, 0.08);
   color: #eaffea;
@@ -98,24 +116,14 @@ body.has-toc #page-toc .page-toc__link[aria-current="true"] {
    Heading levels
 ----------------------------------------------- */
 
-body.has-toc #page-toc .page-toc__item--h2 > .page-toc__link {
-  font-family: "Inter", "Noto Sans TC", sans-serif;
-  font-weight: 700;
-}
-
-body.has-toc #page-toc .page-toc__item--h3 > .page-toc__link {
-  padding-left: 18px;
-  font-size: 12.5px;
-  color: #7f7f7f;
-  font-family: "Roboto Mono", monospace;
-}
-
+body.has-toc #page-toc .page-toc__item--h2 > .page-toc__link,
 body.has-toc #page-toc .toc-h2 > .page-toc__link,
 body.has-toc #page-toc .toc-h2 > a {
   font-family: "Inter", "Noto Sans TC", sans-serif;
   font-weight: 700;
 }
 
+body.has-toc #page-toc .page-toc__item--h3 > .page-toc__link,
 body.has-toc #page-toc .toc-h3 > .page-toc__link,
 body.has-toc #page-toc .toc-h3 > a {
   padding-left: 18px;
@@ -124,17 +132,21 @@ body.has-toc #page-toc .toc-h3 > a {
   font-family: "Roboto Mono", monospace;
 }
 
+
 /* -----------------------------------------------
-   Fallback link styling
+   h3 active state
 ----------------------------------------------- */
 
-body.has-toc #page-toc a {
-  color: inherit;
-  text-decoration: none;
-}
-
-body.has-toc #page-toc a:hover {
-  color: #33ff33;
+body.has-toc #page-toc .page-toc__item--h3 > .page-toc__link.is-active,
+body.has-toc #page-toc .page-toc__item--h3 > .page-toc__link[aria-current="true"],
+body.has-toc #page-toc .toc-h3 > .page-toc__link.is-active,
+body.has-toc #page-toc .toc-h3 > .page-toc__link[aria-current="true"],
+body.has-toc #page-toc .toc-h3 > a[aria-current="true"],
+body.has-toc #page-toc .toc-h3.is-active > a {
+  border-left-color: #33ff33;
+  background: rgba(51, 255, 51, 0.08);
+  color: #eaffea;
+  font-weight: 700;
 }
 
 /* -----------------------------------------------
