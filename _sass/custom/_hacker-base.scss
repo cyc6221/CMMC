@@ -29,12 +29,16 @@ a:hover {
 }
 
 .page-content {
-  padding-top: 32px;
+  padding-top: 8px;
   padding-bottom: 32px;
 }
 
 .page-content .wrapper {
   max-width: 1100px;
+}
+
+.page-content > .wrapper > :first-child {
+  margin-top: 0;
 }
 
 /* 標題 */
