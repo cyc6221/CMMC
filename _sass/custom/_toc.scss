@@ -1,88 +1,164 @@
 /*
   Usage / 備註：
-  - 用途：針對有「頁內目錄（TOC）」的 page 提供佈局與側欄樣式
-  - 使用位置：
-    - _layouts/page.html（aside.page-toc 與 #page-toc）
-    - assets/js/page-toc.js（動態產生 .page-toc__list / .page-toc__item / .page-toc__link 等元素）
-    - 啟用條件：layout 為 page 且 page.toc 未設為 false（在 default.html 會加上 body.has-toc）
+  - 用途：樣式用於標示數學/教學內容中的區塊
+    （Definition, Theorem, Lemma, Proof, Example, Remark, Algorithm）。
+  - 風格：配合目前 hacker theme，改為深色底 + 霓虹色邊框。
 */
 
-/* — Wrapper: 擴充 wrapper 寬度，讓有 TOC 的頁面變寬 */
-body.has-toc .wrapper {
-  max-width: 1100px; /* 可改 1200/1280 */
+/* -----------------------------------------------
+   共用基底
+----------------------------------------------- */
+.definition,
+.theorem,
+.lemma,
+.proof,
+.example,
+.remark,
+.algorithm {
+  margin: 1.4rem 0;
+  padding: 1rem 1.15rem;
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-left: 4px solid;
+  border-radius: 0;
+  box-shadow: none;
+  color: #e6e6e6;
 }
 
-/* — Layout: .page-layout 兩欄配置（文章 + TOC） */
-body.has-toc .page-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 780px) 260px; /* 文章寬 + TOC 寬 */
-  gap: 28px;
-  justify-content: center;
-}
-
-/* — Content: #page-content 最小寬度防溢位 */
-body.has-toc #page-content {
-  min-width: 0;
-}
-
-/* — TOC panel: .page-toc（sticky 側欄、padding、邊界） */
-body.has-toc .page-toc {
-  position: sticky;
-  top: 90px; /* 依 header 高度調 */
-  height: fit-content;
-  padding: 12px 12px;
-  border-left: 1px solid #e5e7eb;
-  font-size: 14px;
-}
-
-/* — Link wrapping: 長標題自動換行避免撐破側欄 */
-body.has-toc .page-toc__link {
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-
-/* — Responsive: 小螢幕時改為單欄且移除側邊線 */
-@media (max-width: 1024px) {
-  body.has-toc .wrapper {
-    max-width: 800px;
-  }
-  body.has-toc .page-layout {
-    grid-template-columns: 1fr;
-  }
-  body.has-toc .page-toc {
-    position: static;
-    border-left: none;
-    padding: 0;
-  }
-}
-
-/* — List reset: 去掉 list 預設 bullet 並移除內距 */
-body.has-toc .page-toc__list {
-  list-style: none;
-  padding-left: 0;
-}
-
-body.has-toc .page-toc__item {
-  margin: 8px 0;
-}
-
-/* — Item spacing: .page-toc__item 的間距 */
-body.has-toc .page-toc__item {
-  margin: 4px 0;
-}
-
-/* — Link block: .page-toc__link（顯示為區塊，左側以 border 指示 active） */
-body.has-toc .page-toc__link {
+/* 區塊標題 */
+.definition strong,
+.theorem strong,
+.lemma strong,
+.proof strong,
+.example strong,
+.remark strong,
+.algorithm strong {
   display: block;
-  padding: 4px 8px;
-  border-left: 2px solid transparent;
-  color: #2563eb;
+  margin-bottom: 0.55rem;
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.01em;
 }
 
-/* — Active state: .page-toc__link.is-active（左側顏色與背景） */
-body.has-toc .page-toc__link.is-active {
-  border-left-color: #2563eb;
-  background: rgba(37, 99, 235, 0.06);
-  color: #111827;
-  font-weight: 600;
+/* 區塊內段落 */
+.definition p:last-child,
+.theorem p:last-child,
+.lemma p:last-child,
+.proof p:last-child,
+.example p:last-child,
+.remark p:last-child,
+.algorithm p:last-child {
+  margin-bottom: 0;
+}
+
+/* 區塊內清單 */
+.definition ul,
+.theorem ul,
+.lemma ul,
+.proof ul,
+.example ul,
+.remark ul,
+.algorithm ul,
+.definition ol,
+.theorem ol,
+.lemma ol,
+.proof ol,
+.example ol,
+.remark ol,
+.algorithm ol {
+  margin-bottom: 0;
+}
+
+/* -----------------------------------------------
+   個別色系
+----------------------------------------------- */
+
+/* Definition */
+.definition {
+  border-left-color: #33ff33;
+}
+.definition strong {
+  color: #33ff33;
+}
+
+/* Theorem */
+.theorem {
+  border-left-color: #60a5fa;
+}
+.theorem strong {
+  color: #60a5fa;
+}
+
+/* Lemma */
+.lemma {
+  border-left-color: #a78bfa;
+}
+.lemma strong {
+  color: #a78bfa;
+}
+
+/* Proof */
+.proof {
+  border-left-color: #e879f9;
+}
+.proof strong {
+  color: #e879f9;
+}
+
+.proof .qed {
+  float: right;
+  font-size: 1.05em;
+  color: #e879f9;
+}
+
+/* Example */
+.example {
+  border-left-color: #9ca3af;
+}
+.example strong {
+  color: #d1d5db;
+}
+
+/* Remark */
+.remark {
+  border-left-color: #f59e0b;
+}
+.remark strong {
+  color: #fbbf24;
+}
+
+/* Algorithm */
+.algorithm {
+  border-left-color: #2dd4bf;
+}
+.algorithm strong {
+  color: #2dd4bf;
+}
+
+/* -----------------------------------------------
+   區塊內數學與程式碼微調
+----------------------------------------------- */
+.definition code,
+.theorem code,
+.lemma code,
+.proof code,
+.example code,
+.remark code,
+.algorithm code {
+  background: #1a1a1a;
+  border: 1px solid #2f2f2f;
+  padding: 0.08em 0.35em;
+  border-radius: 0;
+  color: #e6e6e6;
+}
+
+.definition pre,
+.theorem pre,
+.lemma pre,
+.proof pre,
+.example pre,
+.remark pre,
+.algorithm pre {
+  background: #0d0d0d;
+  border: 1px solid #2f2f2f;
 }
