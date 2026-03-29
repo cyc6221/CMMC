@@ -412,3 +412,7 @@ $$
 </div>
 
 Schnorr 在 active case 中依然可證，最核心的原因就是：其 hash 輸入包含 $r$，而 $r$ 又可以先由 simulator 反推構造，再把 oracle 回答補上。若 hash 只依賴 $m$，這種 simulation 通常就做不到。對 DSA 而言，並不存在相同型態的安全結論；EC-DSA 的已知證明方向也不是這裡這種將 hash 當作 generic object 再歸約到 discrete logarithm 的路線。
+
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 20. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
