@@ -24,3 +24,4 @@ _includes/header_minima.html
 _sass/nouse/_page-tags_nouse.scss
 _sass/nouse/_toc_nouse.scss
 _sass/nouse/_now_nouse.scss
+_sass/nouse/_chapter-strip_nouse.scss
