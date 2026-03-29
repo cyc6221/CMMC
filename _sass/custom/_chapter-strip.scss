@@ -7,109 +7,128 @@
     - pages/about.md                    -> 透過 include 顯示在 About 頁面（section.now-grid）
 */
 
-/* — List: chap-strip 容器（數字方塊或文字 pills 的外層） */
+/* — List: chap-strip 容器 */
 .chap-strip{
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
   margin-top: 12px;
 }
 
+/* — Block: chap（數字方塊） */
 .chap{
   width: 28px;
   height: 28px;
-  display: grid;
+  display: inline-grid;
   place-items: center;
-  border-radius: 8px;
+  padding: 0;
+  border: 1px solid #2a2a2a;
+  border-radius: 0;
+  background: #111;
+  color: #8b949e;
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 12px;
-  font-weight: 600;
-  border: 1px solid rgba(0,0,0,.12);
-  background: rgba(0,0,0,.04);
-  color: rgba(0,0,0,.55);
+  font-weight: 700;
+  line-height: 1;
   user-select: none;
+  transition: border-color .12s ease, color .12s ease, background-color .12s ease, transform .12s ease;
 }
 
-/* — Block: chap（數字方塊）樣式 */
 .chap.done{
-  border-color: rgba(0,0,0,.12);
-  background: rgba(34,197,94,.16);  /* green-ish */
-  color: rgba(0,0,0,.75);
+  border-color: #1f6f1f;
+  background: #0f1a0f;
+  color: #33ff33;
 }
 
 .chap.reading{
-  border-color: rgba(0,0,0,.16);
-  background: rgba(59,130,246,.16); /* blue-ish highlight */
-  color: rgba(0,0,0,.8);
+  border-color: #33ff33;
+  background: #122012;
+  color: #f5f5f5;
+  box-shadow: inset 0 0 0 1px rgba(51,255,51,.12);
 }
 
-/* — State variants: done / reading（數字方塊的狀態樣式） */
 .chap:hover{
   transform: translateY(-1px);
+  border-color: #33ff33;
+  color: #33ff33;
 }
 
-/* — Hint: chap-hint（說明列，顯示小圓點 legend） */
+/* — Hint: chap-hint（說明列） */
 .chap-hint{
   margin: 10px 0 0;
-  font-size: 12px;
-  opacity: .75;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
+  color: #8b949e;
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.6;
 }
 
-/* — Dot: chap-dot（小圓點，用於 legend，含 done/reading/todo 變體） */
+/* — Dot: chap-dot（legend） */
 .chap-dot{
   width: 10px;
   height: 10px;
-  border-radius: 999px;
   display: inline-block;
-  border: 1px solid rgba(0,0,0,.12);
-  background: rgba(0,0,0,.04);
   margin-right: 6px;
+  border: 1px solid #2a2a2a;
+  border-radius: 999px;
+  background: #111;
   vertical-align: -1px;
 }
 
-.chap-dot--done{ background: rgba(34,197,94,.16); }
-.chap-dot--reading{ background: rgba(59,130,246,.16); }
-.chap-dot--todo{ background: rgba(0,0,0,.04); }
-
-/* ---------- */
-
-/* — Responsive / Alternate usage: 讓 chap-strip 也可用於文字 pills */
-.chap-strip{
-  display:flex;
-  flex-wrap:wrap;
-  gap: 8px;
-  margin-top: 12px;
-  align-items: center;
+.chap-dot--done{
+  border-color: #1f6f1f;
+  background: #33ff33;
 }
 
-/* — Pill: chap-pill（文字形式的章節/learning-path 樣式） */
+.chap-dot--reading{
+  border-color: #33ff33;
+  background: #b7ffb7;
+}
+
+.chap-dot--todo{
+  background: #111;
+}
+
+/* — Pill: chap-pill（文字形式） */
 .chap-pill{
   display: inline-flex;
   align-items: center;
   max-width: 100%;
-  height: 28px;
+  min-height: 28px;
   padding: 0 10px;
-  border-radius: 999px;
+  border: 1px solid #2a2a2a;
+  border-radius: 0;
+  background: #111;
+  color: #cfcfcf;
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 12px;
-  font-weight: 650;
-
-  border: 1px solid rgba(0,0,0,.12);
-  background: rgba(0,0,0,.04);
-  color: rgba(0,0,0,.75);
-
+  font-weight: 700;
+  line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: border-color .12s ease, color .12s ease, background-color .12s ease, transform .12s ease;
 }
 
-/* — Pill states: chap-pill.done / chap-pill.reading */
 .chap-pill.done{
-  background: rgba(34,197,94,.16);
+  border-color: #1f6f1f;
+  background: #0f1a0f;
+  color: #33ff33;
 }
+
 .chap-pill.reading{
-  border-color: rgba(0,0,0,.16);
-  background: rgba(59,130,246,.16);
+  border-color: #33ff33;
+  background: #122012;
+  color: #f5f5f5;
+  box-shadow: inset 0 0 0 1px rgba(51,255,51,.12);
+}
+
+.chap-pill:hover{
+  transform: translateY(-1px);
+  border-color: #33ff33;
+  color: #33ff33;
 }
