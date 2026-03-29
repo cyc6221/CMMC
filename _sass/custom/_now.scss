@@ -345,3 +345,27 @@
   color: #f0f0f0;
   font-weight: 700;
 }
+
+// fix the margin
+
+.now-head {
+  margin: 0;
+  padding: 0;
+  display: flow-root;
+}
+
+.now-head h1,
+.now-head h2,
+.now-head h3,
+.now-head h4,
+.now-head p {
+  margin: 0;
+}
+
+.now-head ul,
+.now-head ol,
+.now-head li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

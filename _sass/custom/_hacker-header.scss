@@ -71,33 +71,57 @@
 
 // test
 
-.site-header .wrapper {
-  min-height: 24px;
-  padding-top: 0;
-  padding-bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  line-height: 1.2;
-}
+// .site-header .wrapper {
+//   min-height: 24px;
+//   padding-top: 0;
+//   padding-bottom: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   gap: 12px;
+//   line-height: 1.2;
+// }
 
-.site-title,
-.site-nav,
-.page-link {
+// .site-title,
+// .site-nav,
+// .page-link {
+//   margin: 0;
+//   padding: 0;
+//   line-height: 1.2;
+// }
+
+// .site-nav {
+//   display: flex;
+//   align-items: center;
+//   gap: 12px;
+// }
+
+// .site-title,
+// .page-link {
+//   display: inline-flex;
+//   align-items: center;
+// }
+
+// fix the margin 
+
+.site-header {
   margin: 0;
   padding: 0;
-  line-height: 1.2;
+  display: flow-root;
 }
 
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.site-header h1,
+.site-header h2,
+.site-header h3,
+.site-header h4,
+.site-header p {
+  margin: 0;
 }
 
-.site-title,
-.page-link {
-  display: inline-flex;
-  align-items: center;
+.site-header ul,
+.site-header ol,
+.site-header li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
