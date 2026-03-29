@@ -9,17 +9,13 @@ toc: false
 
 I am CY.
 
-### My blog
+This is my [blog list]({{ "/blog-list/" | relative_url }}).
 
-- [My First Article]({{ "/articles/blog/first-article/" | relative_url }})
-- [Snoop Dogg]({{ "/articles/blog/Snoop Dogg/" | relative_url }})
-- [好きだから。]({{ "/articles/blog/sukidakara/" | relative_url }})
+This is my [reading list]({{ "/readinglist/" | relative_url }}).
 
 <!-- --- -->
 
 ## Currently
-
-This is my [reading list]({{ "/readinglist/" | relative_url }}).
 
 <section class="now-grid">
 
