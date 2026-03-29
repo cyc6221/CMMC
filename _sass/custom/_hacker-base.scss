@@ -12,13 +12,20 @@ body {
 
 a,
 a:visited {
-  color: #33ff33;
+  color: #4dd0e1;
   text-decoration: none;
 }
 
-a:hover {
-  color: #66ff66;
-  text-decoration: none;
+a:hover,
+a:focus {
+  color: #80deea;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-shadow: 0 0 4px rgba(77, 208, 225, 0.35);
+}
+
+a:active {
+  color: #b2ebf2;
 }
 
 .wrapper {
