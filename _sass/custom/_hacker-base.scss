@@ -66,3 +66,36 @@ code,
 pre {
   font-family: "Roboto Mono", monospace;
 }
+
+// test
+
+.site-header,
+.now-head {
+  margin: 0;
+  padding: 0;
+  display: flow-root;
+}
+
+.site-header h1,
+.site-header h2,
+.site-header h3,
+.site-header h4,
+.site-header p,
+.now-head h1,
+.now-head h2,
+.now-head h3,
+.now-head h4,
+.now-head p {
+  margin: 0;
+}
+
+.site-header ul,
+.site-header ol,
+.site-header li,
+.now-head ul,
+.now-head ol,
+.now-head li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
