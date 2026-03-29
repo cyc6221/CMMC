@@ -11,7 +11,7 @@ I am CY.
 
 This is my [blog list]({{ "/blog-list/" | relative_url }}).
 
-This is my [reading list]({{ "/readinglist/" | relative_url }}).
+This is my [reading list]({{ "/reading-list/" | relative_url }}).
 
 <!-- --- -->
 
