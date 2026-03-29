@@ -13,6 +13,8 @@ This is my [blog list]({{ "/blog-list/" | relative_url }}).
 
 This is my [reading list]({{ "/reading-list/" | relative_url }}).
 
+This is [site list]({{ "/site-list/" | relative_url }}).
+
 <!-- --- -->
 
 ## Currently
