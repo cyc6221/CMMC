@@ -1,27 +1,22 @@
 /*
-  Usage / 備註：此檔樣式用於 Now / Now-card UI（About 頁面與相關 include）
-  - pages/about.md (包含 section.now-grid)
-  - _includes/about/PortSwigger.html
-  - _includes/about/CryptoHack.html
-  - _includes/about/CryptoAnIntro.html
-  - _includes/about/Prime.html
-  - _includes/about/Square-Root-Barrier.html
+  Hacker-style Now UI
+  - 保留原本 class 結構
+  - 改為 terminal / hacker theme 視覺
 */
 
-/* — Grid: .now-grid（容器與寬度限制） */
 .now-grid{
   display: grid;
   grid-template-columns: 1fr;
-  gap: 18px;
-  margin: 16px auto 10px;
+  gap: 20px;
+  margin: 18px auto 12px;
   max-width: 980px;
 }
 
 @media (min-width: 900px){
   .now-card{
     display: grid;
-    grid-template-columns: 190px 1fr;
-    column-gap: 18px;
+    grid-template-columns: 210px 1fr;
+    column-gap: 20px;
     align-items: start;
   }
 
@@ -29,207 +24,263 @@
   .now-body{ margin-top: 0; }
 }
 
-/* — Card: .now-card（卡片樣式、陰影、hover） */
 .now-card{
-  border: 1px solid rgba(0,0,0,.10);
-  border-radius: 16px;
+  position: relative;
+  border: 1px solid #2f2f2f;
+  border-left: 3px solid #33ff33;
+  border-radius: 0;
   padding: 18px 18px 16px;
-  background: #fff;
-  box-shadow: 0 10px 24px rgba(0,0,0,.05);
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  background: #0d0d0d;
+  box-shadow: none;
+  transition: border-color .12s ease, background-color .12s ease, transform .12s ease;
+}
+
+.now-card::before{
+  content: "$ now";
+  display: inline-block;
+  margin: 0 0 14px;
+  color: #33ff33;
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
 }
 
 .now-card:hover{
-  transform: translateY(-2px);
-  border-color: rgba(0,0,0,.18);
-  box-shadow: 0 14px 34px rgba(0,0,0,.08);
+  border-color: #33ff33;
+  background: #101010;
+  transform: translateY(-1px);
 }
 
-/* — Head / Title: .now-head / .now-title（標題區與大小） */
 .now-head{
-  display:flex;
-  align-items:flex-start;
+  display: flex;
+  align-items: flex-start;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .now-title h3{
   margin: 0;
-  font-size: 18px;
-  line-height: 1.15;
+  color: #f5f5f5;
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 17px;
+  line-height: 1.2;
 }
 
-/* — Icon: .now-icon（圖示容器） */
+.now-title h3 a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.now-title h3 a:hover{
+  color: #33ff33;
+}
+
 .now-icon{
-  width: 36px;
-  height: 36px;
-  display:grid;
-  place-items:center;
-  border-radius: 10px;
-  background: rgba(0,0,0,.04);
-  font-size: 18px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #2f2f2f;
+  border-radius: 0;
+  background: #111;
+  color: #33ff33;
+  font-size: 16px;
   line-height: 1;
   flex: 0 0 auto;
 }
 
-/* — Badge: .now-badge（小徽章變體） */
 .now-badge{
-  display:inline-block;
-  margin-top: 6px;
+  display: inline-block;
+  margin-top: 8px;
   padding: 3px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  border: 1px solid rgba(0,0,0,.12);
-  background: rgba(0,0,0,.03);
+  border-radius: 0;
+  border: 1px solid #2f2f2f;
+  background: #111;
+  color: #33ff33;
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
 }
 
-.now-badge--alt{ background: rgba(0,0,0,.06); }
-.now-badge--alt2{ background: rgba(0,0,0,.08); }
+.now-badge--alt{ background: #131313; }
+.now-badge--alt2{ background: #171717; }
 
 .now-badge.todo{
-  background: #FAD1D1;
-  color: #7A1F1F;
-  border: 1px solid #F2A8A8;
+  color: #ff6b6b;
+  border-color: rgba(255, 107, 107, .45);
+  background: rgba(255, 107, 107, .08);
 }
 
-/* — Primary links: .now-primary / .now-link */
 .now-primary{
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-size: 14px;
-
   display: flex;
   align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
 }
 
-.now-link{
+.now-link,
+.now-primary a{
+  color: #7ee787;
   text-decoration: none;
-  border-bottom: 1px dashed rgba(0,0,0,.35);
+  border-bottom: 1px dashed #2f6f2f;
 }
-.now-link:hover{ border-bottom-style: solid; }
 
-/* — List: .now-list（一般清單） */
+.now-link:hover,
+.now-primary a:hover{
+  color: #33ff33;
+  border-bottom-color: #33ff33;
+}
+
 .now-list{
   margin: 0;
-  padding-left: 18px;
+  padding-left: 20px;
+  color: #cfcfcf;
   font-size: 14px;
 }
 
-.now-list li{ margin: 6px 0; }
+.now-list li{
+  margin: 7px 0;
+}
 
-/* — Progress: .now-progress / track / bar */
+.now-list li::marker{
+  color: #33ff33;
+}
+
 .now-progress{
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 .now-progress__label{
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
+}
+
+.now-progress__text,
+.now-progress__pct,
+.now-xp__pct,
+.now-muted,
+.now-xp__meta,
+.now-list--bib .now-key{
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 .now-progress__text{
   font-size: 12px;
-  font-weight: 600;
-  opacity: .75;
+  font-weight: 700;
+  color: #9adf9a;
+  opacity: .9;
+  text-transform: uppercase;
+  letter-spacing: .04em;
 }
 
 .now-progress__pct{
   font-size: 12px;
   font-weight: 700;
   padding: 2px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.12);
-  background: rgba(0,0,0,.03);
+  border-radius: 0;
+  border: 1px solid #2f2f2f;
+  background: #111;
+  color: #33ff33;
 }
 
 .now-progress__track{
   height: 10px;
-  border-radius: 999px;
-  background: rgba(0,0,0,.06);
-  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 0;
+  background: #0a0a0a;
+  border: 1px solid #2a2a2a;
   overflow: hidden;
 }
 
 .now-progress__bar{
-  display:block;
+  display: block;
   height: 100%;
   width: calc(var(--pct) * 1%);
-  border-radius: 999px;
-  background: rgba(34,197,94,.55); /* green fill */
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,.10);
+  border-radius: 0;
+  background: linear-gradient(90deg, #1f7a1f 0%, #33ff33 100%);
+  box-shadow: none;
   transition: width .25s ease;
 }
 
-/* — Muted text: .now-muted */
 .now-muted{
   margin: 8px 0 0;
   font-size: 12px;
-  opacity: .7;
+  color: #8b949e;
+  opacity: 1;
 }
 
-/* — XP: .now-xp（points / level small UI） */
-.now-xp {
-  margin-top: 12px;
+.now-xp{
+  margin-top: 14px;
 }
 
-.now-xp__meta {
+.now-xp__meta{
   display: flex;
-  gap: 14px;
+  gap: 10px;
   align-items: center;
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 13px;
+  color: #cfcfcf;
+  flex-wrap: wrap;
 }
 
-.now-xp__stat {
+.now-xp__stat{
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
+  border-radius: 0;
+  border: 1px solid #2f2f2f;
+  background: #111;
 }
 
-.now-xp__icon {
-  opacity: 0.9;
-  font-size: 14px;
+.now-xp__icon{
+  opacity: 1;
+  color: #33ff33;
+  font-size: 13px;
 }
 
-.now-xp__num {
+.now-xp__num{
   font-weight: 700;
-  letter-spacing: 0.2px;
+  letter-spacing: .02em;
+  color: #f5f5f5;
 }
 
 .now-xp__track{
   width: 100%;
   height: 10px;
-  border-radius: 999px;
+  border-radius: 0;
   overflow: hidden;
-  background: rgba(0,0,0,.10);
+  background: #0a0a0a;
+  border: 1px solid #2a2a2a;
 }
 
 .now-xp__bar{
-  display:block;
+  display: block;
   height: 100%;
   width: calc(var(--pct) * 1%);
-  border-radius: 999px;
-  background: #f4b000;
+  border-radius: 0;
+  background: linear-gradient(90deg, #b58900 0%, #ffd866 100%);
 }
 
 .now-xp__pct{
   font-size: 12px;
   font-weight: 700;
   padding: 2px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.12);
-  background: rgba(0,0,0,.03);
+  border-radius: 0;
+  border: 1px solid #2f2f2f;
+  background: #111;
+  color: #33ff33;
   margin-left: auto;
 }
 
-/* — Bibliography-like: .now-list--bib（用於簡短 key + body 列表） */
 .now-list--bib{
   list-style: none;
   padding-left: 0;
@@ -239,22 +290,49 @@
 .now-list--bib .now-item{
   position: relative;
   padding-left: 0;
-  margin: 10px 0;
+  margin: 12px 0;
 }
 
 .now-list--bib .now-body{
   min-width: 0;
+  color: #cfcfcf;
 }
 
 .now-list--bib .now-key{
   position: absolute;
   left: -10ch;
   top: 0;
-
   width: 8ch;
   text-align: right;
   white-space: nowrap;
+  color: #33ff33;
+  opacity: .95;
+}
 
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  opacity: .85;
+.now-card,
+.now-card p,
+.now-card li,
+.now-card .now-body,
+.now-card .now-primary,
+.now-card .now-link{
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.now-card p,
+.now-card .now-body{
+  color: #cfcfcf;
+}
+
+.now-card strong,
+.now-card b{
+  color: #f5f5f5;
+}
+
+.now-card code{
+  padding: 1px 5px;
+  border: 1px solid #2f2f2f;
+  border-radius: 0;
+  background: #111;
+  color: #33ff33;
+  font-size: .92em;
 }
