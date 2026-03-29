@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Reading List
-permalink: /readinglist/
+permalink: /reading-list/
 toc: false
 ---
 
