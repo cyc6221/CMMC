@@ -6,7 +6,7 @@ last_updated: 2026-03-26
 tags: [RSA, signature, random-oracle, FDH, RSA-PSS]
 ---
 
-RSA-based signature 的安全性，在 provable security 的脈絡下，通常放在 **random oracle model** 中討論。這裡有兩個很重要的代表性方案：**RSA with Full-Domain Hashing (FDH)** 與 **RSA-PSS**。前者的結構最直接，也最適合說明如何把「偽造簽章」歸約成「反轉 RSA function」；後者則是在實作上更自然、也更接近標準化使用方式的方案。課本中指出，RSA-FDH 可在 random oracle model 下證明安全，而 RSA-PSS 也可在同樣模型下、基於 RSA assumption 證明安全，只是書中沒有展開完整證明。:contentReference[oaicite:0]{index=0} :contentReference[oaicite:1]{index=1}
+RSA-based signature 的安全性，在 provable security 的脈絡下，通常放在 **random oracle model** 中討論。這裡有兩個很重要的代表性方案：**RSA with Full-Domain Hashing (FDH)** 與 **RSA-PSS**。前者的結構最直接，也最適合說明如何把「偽造簽章」歸約成「反轉 RSA function」；後者則是在實作上更自然、也更接近標準化使用方式的方案。課本中指出，RSA-FDH 可在 random oracle model 下證明安全，而 RSA-PSS 也可在同樣模型下、基於 RSA assumption 證明安全，只是書中沒有展開完整證明。
 
 ## RSA with Full-Domain Hashing (FDH)
 
@@ -36,7 +36,7 @@ $$
 s^e \equiv H(m) \pmod N.
 $$
 
-若成立，就接受此簽章。這種形式的好處是結構非常乾淨：**簽章就是對 hash value 做 RSA inversion**。因此，只要能把 adversary 的 forgery 對準某一個特定的 hash query，就有機會把它轉成 RSA inversion。:contentReference[oaicite:2]{index=2}
+若成立，就接受此簽章。這種形式的好處是結構非常乾淨：**簽章就是對 hash value 做 RSA inversion**。因此，只要能把 adversary 的 forgery 對準某一個特定的 hash query，就有機會把它轉成 RSA inversion。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -65,7 +65,7 @@ $$
 s^e \equiv y \pmod N.
 $$
 
-因此 $s$ 就是 $y$ 的 RSA inverse，也就是我們要找的解。:contentReference[oaicite:3]{index=3}
+因此 $s$ 就是 $y$ 的 RSA inverse，也就是我們要找的解。
 
 <div class="theorem">
 <strong>Theorem 20.4.</strong>
@@ -148,7 +148,7 @@ $$
 
 第二，真正不知道怎麼簽的，就只有那一個特別位置 $t$，因為那裡的 hash value 被設成 challenge $y$。所以 reduction 的全部希望都在於：adversary 最後偽造的目標訊息，剛好就是這一個位置。
 
-也正因如此，這個證明雖然漂亮，但不是 tight reduction；它會損失一個大約 $q_H$ 的因子。這正是 theorem 中成功機率只有 $1/q_H$ 的原因。:contentReference[oaicite:4]{index=4}
+也正因如此，這個證明雖然漂亮，但不是 tight reduction；它會損失一個大約 $q_H$ 的因子。這正是 theorem 中成功機率只有 $1/q_H$ 的原因。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -191,7 +191,7 @@ $$
 G_2:\{0,1\}^{k_1}\to\{0,1\}^{k-k_0-k_1-1},
 $$
 
-表示取 $G(w)$ 的後 $k-k_0-k_1-1$ bits。:contentReference[oaicite:6]{index=6}
+表示取 $G(w)$ 的後 $k-k_0-k_1-1$ bits。
 
 ### 簽章流程
 
@@ -221,7 +221,7 @@ $$
 s = y^d \bmod N.
 $$
 
-也就是說，RSA-PSS 並不是直接對 $H(m)$ 做 RSA inversion，而是先把訊息 $m$ 與隨機鹽值 $r$ 混合，再經過一個特定的編碼結構，形成 $y$ 後才去做 RSA inversion。這個編碼結構把冗餘、遮罩與隨機性都放進去，使得驗證者能從 $s^e$ 中檢查整體結構是否一致。:contentReference[oaicite:7]{index=7}
+也就是說，RSA-PSS 並不是直接對 $H(m)$ 做 RSA inversion，而是先把訊息 $m$ 與隨機鹽值 $r$ 混合，再經過一個特定的編碼結構，形成 $y$ 後才去做 RSA inversion。這個編碼結構把冗餘、遮罩與隨機性都放進去，使得驗證者能從 $s^e$ 中檢查整體結構是否一致。
 
 ### 驗證流程
 
@@ -256,7 +256,7 @@ $$
 b=0,\qquad G_2(w)=\gamma,\qquad H(m\|r)=w.
 $$
 
-只有當三者都成立時，簽章才接受。:contentReference[oaicite:8]{index=8}
+只有當三者都成立時，簽章才接受。
 
 ### 為什麼驗證會正確
 
