@@ -19,7 +19,7 @@
   padding: 0;
   border: 1px solid #6a6f73;
   background: #0d0d0d;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.03);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
   overflow: hidden;
 }
 
@@ -45,7 +45,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 10px 8px;
+  padding: 10px;
   border-bottom: 1px solid #1d1d1d;
   background: #0f0f0f;
 }
@@ -66,33 +66,35 @@
 
 .now-title {
   min-width: 0;
+  flex: 1;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.now-title h3 {
+.now-title h2 {
   margin: 0;
   color: #f0f0f0;
   font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 18px;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
-.now-title h3 a {
+.now-title h2 a {
   color: inherit;
   text-decoration: none;
 }
 
-.now-title h3 a:hover {
+.now-title h2 a:hover {
   color: #33ff33;
   text-decoration: none;
 }
 
 .now-badge {
   display: inline-block;
-  margin-top: 0;
+  margin: 0;
   padding: 2px 8px;
   border: 1px solid #2a2a2a;
   background: #111;
@@ -102,6 +104,11 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  line-height: 1.2;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* body */
@@ -337,25 +344,4 @@
 .now-xp__num {
   color: #f0f0f0;
   font-weight: 700;
-}
-
-/* small screen */
-
-@media (max-width: 640px) {
-  .now-head {
-    padding: 10px 10px 6px;
-  }
-
-  .now-body {
-    padding: 14px;
-  }
-
-  .now-list--bib .now-item {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-
-  .now-list--bib .now-key {
-    white-space: normal;
-  }
 }
