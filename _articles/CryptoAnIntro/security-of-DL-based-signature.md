@@ -12,7 +12,7 @@ tags: [signature, Schnorr, DSA, EC-DSA, forking-lemma, random-oracle]
 
 ## Forking Lemma
 
-在這一章考慮的簽章方案中，簽章通常可以抽象寫成下列形式：
+在這裡考慮的簽章方案中，簽章通常可以抽象寫成下列形式：
 
 - signer 先產生一個可能為空的 commitment $\sigma_1$；
 - 再計算 $h = H(\sigma_1 \| m)$；
@@ -160,7 +160,7 @@ $$
 
 障礙就在於最後那個 reduction modulo $q$：它把原本群元素中的資訊壓縮掉了。若沒有這一步 reduction，理論上就比較有機會走出像 Schnorr 那樣的 proof；但 DSA 正是靠這個設計才保有較小的 signature size。因此，DSA 的效率特性也正是這種 reduction proof 卡住的來源。
 
-課文這裡的結論很直接：對 DSA，這套 proof technique 不適用，而且 **there is no known proof of security for DSA signatures**。
+對 DSA 而言，這套 proof technique 不適用，而且目前也沒有已知的安全性證明可由這條路線建立。
 
 ### EC-DSA Signature
 
@@ -320,15 +320,15 @@ $$
 故若存在能被動偽造上述修改版 EC-DSA 的 adversary，便能構造出解 elliptic-curve discrete logarithm problem 的演算法，與假設矛盾。
 </div>
 
-這裡與 DSA 最本質的差別是：在 elliptic curve 上，相同的 $x$-coordinate 至多對應到兩個互為相反數的點，因此雖然不能唯一恢復 $k$，但 still 可以把候選數量壓到 2 個，最後再檢查公開金鑰即可。課文也特別指出，這個結論只適用於某些滿足條件的曲線。
+這裡與 DSA 最本質的差別是：在 elliptic curve 上，相同的 $x$-coordinate 至多對應到兩個互為相反數的點，因此雖然不能唯一恢復 $k$，但仍可以把候選數量壓到 2 個，最後再檢查公開金鑰即可。這也是修改版 EC-DSA 在特定條件下能建立 passive security 的原因。
 
 ## Active Adversary
 
 一旦 adversary 可以發出 signing queries，reduction 不只要處理最終 forgery，還必須在**不知道私鑰**的情況下，回答對方的簽章請求。這一步稱為 **simulation of signing queries**。
 
-這裡最重要的觀察是：若 hash function 只吃訊息 $m$，那 adversary 可能在要求簽章之前，就先查過 $H(m)$。這樣 reduction 之後便無法再修改這個 hash 回應，也就無法自由地構造模擬簽章。這就是為什麼在 Schnorr 這類方案中，hash 輸入要包含像 $\sigma_1$ 這樣直到簽章當下才決定的值。
+若 hash function 只吃訊息 $m$，則 adversary 可能在要求簽章之前，就先查過 $H(m)$。這樣 reduction 之後便無法再修改這個 hash 回應，也就無法自由地構造模擬簽章。這也是 Schnorr 這類方案中，hash 輸入要包含像 $\sigma_1$ 這樣直到簽章當下才決定之值的原因。
 
-因此，在 random oracle model 中，若能成功模擬 signing oracle，則 active attack 在某種意義下就不會比 passive attack 更強；因為 reduction 可以把 active adversary 所需要的互動全都偽裝出來。
+因此，在 random oracle model 中，只要能成功模擬 signing oracle，active attack 所需的互動便可被 reduction 重現，安全性分析也就能延續 passive case 的思路。
 
 ### Schnorr Signature (Active Adversary)
 
@@ -411,4 +411,4 @@ $$
 此外，由於 $h$ 被視為 random oracle 的輸出，而 $s$ 也是均勻隨機選取，故此模擬簽章與真實簽章在分佈上不可區分。於是 active adversary 所看到的互動，可由 simulator 完整模擬。既然 passive adversary 已可被轉化為 discrete logarithm solver，則 active adversary 也同樣不能存在。
 </div>
 
-Schnorr 在 active case 中依然可證，最核心的原因就是：其 hash 輸入包含 $r$，而 $r$ 又可以先由 simulator 反推構造，再把 oracle 回答補上。若 hash 只依賴 $m$，這種 simulation 通常就做不到。課文此處也特別指出：對 DSA 沒有類似的安全結論，而 EC-DSA 的已知證明方向則不是這裡這種「把 hash 當 generic object 再歸約到 discrete logarithm」的路線。
+Schnorr 在 active case 中依然可證，最核心的原因就是：其 hash 輸入包含 $r$，而 $r$ 又可以先由 simulator 反推構造，再把 oracle 回答補上。若 hash 只依賴 $m$，這種 simulation 通常就做不到。對 DSA 而言，並不存在相同型態的安全結論；EC-DSA 的已知證明方向也不是這裡這種將 hash 當作 generic object 再歸約到 discrete logarithm 的路線。
