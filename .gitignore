@@ -20,6 +20,7 @@ Kobe.txt
 assets/main_minima.scss
 _includes/header_minima.html
 
-# page-tags and toc not used for now
+# not used scss for now
 _sass/nouse/_page-tags_nouse.scss
 _sass/nouse/_toc_nouse.scss
+_sass/nouse/_now_nouse.scss
