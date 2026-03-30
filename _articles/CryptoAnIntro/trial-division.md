@@ -3,7 +3,7 @@ layout: page
 title: Trial Division
 date: 2026-03-30
 last_updated: 2026-03-30
-tags: [trial-division, primality-testing, factoring, computational-number-theory]
+tags: [trial-division, primality-testing, factoring]
 ---
 
 Trial division 是最直接的整數檢驗方法之一。它的核心想法非常簡單：若一個整數 $n>1$ 是 composite，則它一定存在一個不超過 $\sqrt{n}$ 的非平凡因數。因此，要判斷 $n$ 是否為 prime，只需要檢查從 $2$ 到 $\lfloor \sqrt{n}\rfloor$ 之間是否有整數可以整除 $n$。若存在，則 $n$ 是 composite；若不存在，則 $n$ 是 prime。
