@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Primality Proving Algorithms
-date: 2026-03-30
+date: 2026-03-29
 last_updated: 2026-03-30
 tags: [primality-proving, primality-testing, ecpp, elliptic-curves, hyperelliptic-curves]
 ---

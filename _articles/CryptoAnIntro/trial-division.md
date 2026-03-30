@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Trial Division
-date: 2026-03-30
+date: 2026-03-29
 last_updated: 2026-03-30
 tags: [trial-division, primality-testing, factoring]
 ---
