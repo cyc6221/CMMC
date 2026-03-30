@@ -1,6 +1,8 @@
 ---
-layout: default
+layout: page
 title: CMMC
+permalink: /
+toc: false
 ---
 
 I am CY. 我是 CY
