@@ -3,10 +3,10 @@ layout: page
 title: Miller-Rabin Primality Test
 date: 2026-03-29
 last_updated: 2026-03-30
-tags: [miller-rabin, primality-testing, probabilistic-algorithm, witness]
+tags: [primality-testing]
 ---
 
-Miller-Rabin primality test 是一種 probabilistic primality test。它延續了 Fermat test 以 modular exponentiation 來快速檢查 compositeness 的想法，但進一步修正了 Fermat test 會被 Carmichael numbers 這類例外擊穿的問題。它的重點不在於直接輸出 primality proof，而在於：若輸入是 composite，則一定存在能揭露其 compositeness 的 base；而且對隨機選到的 base 而言，誤判 composite 為 prime 的機率有明確上界。
+**Miller-Rabin primality test** 是一種 *probabilistic primality test*。它延續了 Fermat test 以 modular exponentiation 快速檢查 compositeness 的想法，並進一步避免了 Carmichael numbers 這類例外情形所造成的問題。它的重點不在於直接輸出 primality proof，而在於：若輸入是 composite，則存在能揭露其 compositeness 的 base；而且對隨機選到的 base 而言，將 composite 誤判為 prime 的機率有明確上界。
 
 ## Basic Idea
 
@@ -27,7 +27,7 @@ $$
 a^m,\ a^{2m},\ a^{2^2m},\ \dots,\ a^{2^{s}m}
 \pmod n.
 $$
-若 $n$ 是 odd prime，則這條序列必須呈現特定結構：它要嘛一開始就等於 $1$，要嘛在某一步先到達 $-1 \pmod n$，之後平方才會回到 $1$。若這條鏈中出現了不應該出現的平方根結構，就能判定 $n$ 為 composite。
+若 $n$ 是 odd prime，則這條序列必須呈現特定結構：它要嘛一開始就等於 $1$，要嘛在某一步先到達 $-1 \pmod n$，之後平方才會回到 $1$。若這條鏈中出現了不應該出現的平方根結構，就可判定 $n$ 為 composite。
 
 <div class="definition">
 <strong>Definition.</strong>
@@ -41,19 +41,19 @@ a^m,\ a^{2m},\ a^{2^2m},\ \dots,\ a^{2^{s}m}\pmod n.
 $$
 </div>
 
-## Why the Decomposition $n-1=2^s m$ Matters
+## Decomposition of $n-1$
 
-把 $n-1$ 拆成 $2$ 的冪次乘上一個奇數，等於把指數中的二進位結構分離出來。這使得演算法不是只檢查單一 congruence
+把 $n-1$ 拆成 $2$ 的冪次乘上一個奇數，相當於把指數中的二進位結構分離出來。這使得演算法不是只檢查單一 congruence
 $$
 a^{n-1}\equiv 1 \pmod n,
 $$
-而是一路檢查從 $a^m$ 開始連續平方時的行為。
+而是檢查從 $a^m$ 開始連續平方時的整體行為。
 
-這和 Fermat test 的差別很重要。Fermat test 只檢查最終是否有
+這與 Fermat test 有明顯差別。Fermat test 只檢查最終是否有
 $$
 a^{n-1}\equiv 1 \pmod n.
 $$
-但對 composite 而言，單看終點可能會被 pseudo-prime 欺騙。Miller-Rabin 則檢查「到達終點前」的整條平方鏈，因此能抓出更多不合法的情況。
+但對 composite 而言，只看終點可能會被 pseudo-prime 欺騙。Miller-Rabin 會檢查到達終點之前的整條平方鏈，因此能偵測更多不合法的情況。
 
 ## Algorithm
 
@@ -89,7 +89,7 @@ end
 return ("Probable Prime")
 </div>
 
-這個流程可分成三個判斷層次：
+這個流程可分成三個判斷層次。
 
 ### Step 1: Compute $a^m \bmod n$
 
@@ -121,7 +121,7 @@ $$
 $$
 b=1,
 $$
-則表示找到了 mod $n$ 下不正常的平方根鏈，這不可能發生在 prime modulus 的情況，因此可直接判定 $n$ 為 composite。
+則表示找到了 mod $n$ 下不正常的平方根鏈。這種情況不可能發生在 prime modulus，因此可直接判定 $n$ 為 composite。
 
 若整條平方鏈一路都沒有出現
 $$
@@ -129,7 +129,7 @@ $$
 $$
 最後仍未到達 $n-1$，也同樣可判定 $n$ 為 composite。
 
-## Intuition Behind the Test
+## Structural Intuition
 
 若 $n=p$ 是 odd prime，則在有限域 $\mathbb{F}_p$ 中，方程式
 $$
@@ -139,7 +139,7 @@ $$
 $$
 x\equiv 1 \pmod p,\qquad x\equiv -1 \pmod p.
 $$
-因此，若一個值經過平方後變成 $1$，那它在 prime modulus 下先前只能是 $\pm 1$。Miller-Rabin 正是在利用這個結構。
+因此，若一個值經過平方後變成 $1$，那它在 prime modulus 下先前只能是 $\pm 1$。Miller-Rabin 正是利用這個結構。
 
 換句話說，若在 repeated squaring 的過程中發現某個值
 $$
@@ -149,7 +149,7 @@ $$
 $$
 b^2\equiv 1 \pmod n,
 $$
-那就表示 $n$ 的模結構不像 prime modulus，那麼 $n$ 一定是 composite。
+那就表示 $n$ 的模結構不像 prime modulus，因此 $n$ 必為 composite。
 
 <div class="lemma">
 <strong>Lemma.</strong>
@@ -193,7 +193,7 @@ x\equiv -1 \pmod p.
 $$
 </div>
 
-這個 lemma 雖然只是在 prime modulus 下的一個基本事實，但它正是 Miller-Rabin 判定規則的核心。
+這個 lemma 是 Miller-Rabin 判定規則的核心。測試所偵測的，正是 composite modulus 下可能出現、但 prime modulus 下不會出現的非平凡平方根結構。
 
 ## Miller-Rabin Witness
 
@@ -208,7 +208,7 @@ $$
 If $n$ is composite, then $a$ is called a <em>Miller-Rabin witness</em> for the compositeness of $n$ when the Miller-Rabin test with base $a$ outputs $(\text{Composite},a)$.
 </div>
 
-這類 witness 和 Fermat test 中的 compositeness witness 一樣，都能作為可驗證的證據。任何人只要重新執行同樣的 modular exponentiation 與 repeated squaring，就能檢查這個 base 是否確實揭露了 compositeness。
+這類 witness 和 Fermat test 中的 compositeness witness 一樣，都可作為可驗證的證據。任何人只要重新執行相同的 modular exponentiation 與 repeated squaring，就能檢查這個 base 是否確實揭露了 compositeness。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -228,7 +228,7 @@ $$
 An integer $n$ that passes the Miller-Rabin test for a chosen set of bases is called a <em>probable prime</em> with respect to those bases.
 </div>
 
-因此，Miller-Rabin 的語意與 deterministic primality proof 不同。它不是保證「一定是 prime」，而是保證「若是 composite，被隨機 base 漏掉的機率很小」。
+因此，Miller-Rabin 的語意與 deterministic primality proof 不同。它不是保證「一定是 prime」，而是表示「若是 composite，被隨機 base 漏掉的機率很小」。
 
 ## Error Probability
 
@@ -264,7 +264,7 @@ $$
 Repeated application of the Miller-Rabin test drives the error probability down exponentially fast, which is why it is widely used in practical prime generation.
 </div>
 
-## Why It Improves on Fermat Test
+## Comparison with Fermat Test
 
 Fermat test 只檢查
 $$
@@ -276,7 +276,7 @@ Miller-Rabin 並不是只看最終是否到達 $1$，而是沿著
 $$
 a^m,\ a^{2m},\ a^{4m},\dots,a^{2^s m}
 $$
-一路檢查平方鏈的合法性。這使得 composite 即使通過最終的 Fermat congruence，也仍可能在中途暴露出不可能出現在 prime modulus 下的平方根結構。因此 Carmichael numbers 不再是無法處理的例外。
+一路檢查平方鏈的合法性。這使得 composite 即使通過最終的 Fermat congruence，也仍可能在中途暴露出不可能出現在 prime modulus 下的平方根結構。因此 Carmichael numbers 不再構成同樣層級的例外。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -313,7 +313,7 @@ a\le O((\log n)^2).
 $$
 </div>
 
-這個性質的意義在於：若加入額外數論假設，Miller-Rabin 不只是一個隨機化演算法，也能與較小範圍的 base 搜尋建立更強的理論連結。
+這個性質表示：在額外的數論假設下，Miller-Rabin 不只是一個隨機化演算法，也能與較小範圍的 base 搜尋建立更強的理論連結。
 
 ## Practical Interpretation
 
