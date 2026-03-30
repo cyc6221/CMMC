@@ -31,10 +31,13 @@ body.has-toc .page-toc {
   height: fit-content;
   max-height: calc(100vh - 104px);
   overflow-y: auto;
-  padding: 0 0 0 14px;
+  overflow-x: hidden;
+  padding: 0 8px 0 14px;
   border-left: 1px solid #2a2a2a;
   font-size: 13px;
   color: #bfbfbf;
+  scrollbar-width: thin;
+  scrollbar-color: #33ff33 #111;
 }
 
 body.has-toc .page-toc__title {
@@ -139,14 +142,15 @@ body.has-toc .page-toc__link,
 body.has-toc .page-toc__sublink {
   position: relative;
   display: block;
-  flex: 1 1 auto;
   min-width: 0;
+  max-width: 100%;
   padding: 0.08rem 0 0.08rem 1rem;
   color: #9f9f9f;
   text-decoration: none;
   line-height: 1.45;
   word-break: break-word;
   overflow-wrap: anywhere;
+  box-sizing: border-box;
   transition: color 0.15s ease, background-color 0.15s ease;
 }
 
@@ -205,32 +209,23 @@ body.has-toc .page-toc__sublink[aria-current="true"]::before {
   opacity: 1;
 }
 
-/* Responsive */
+/* Scrollbar */
 
-@media (max-width: 1024px) {
-  body.has-toc .wrapper {
-    max-width: 900px;
-  }
+body.has-toc .page-toc::-webkit-scrollbar {
+  width: 8px;
+}
 
-  body.has-toc .page-layout {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+body.has-toc .page-toc::-webkit-scrollbar-track {
+  background: #111;
+  border-left: 1px solid #1a1a1a;
+}
 
-  body.has-toc .page-toc {
-    position: static;
-    top: auto;
-    max-height: none;
-    overflow-y: visible;
-    padding: 12px 14px;
-    border: 1px solid #2a2a2a;
-    background: #101010;
-  }
+body.has-toc .page-toc::-webkit-scrollbar-thumb {
+  background: #33ff33;
+  border-radius: 999px;
+  border: 1px solid #111;
+}
 
-  body.has-toc .page-toc__title {
-    position: static;
-    margin-bottom: 10px;
-    padding-bottom: 0;
-    background: transparent;
-  }
+body.has-toc .page-toc::-webkit-scrollbar-thumb:hover {
+  background: #66ff66;
 }
