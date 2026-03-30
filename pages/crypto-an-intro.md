@@ -11,6 +11,25 @@ toc: false
 
 ## Chapter 12: Primality Testing
 
+### Prime Numbers and Primality Testing
+
+- [Prime Numbers and Primality Testing]({{ "/articles/CryptoAnIntro/prime-numbers-and-primality-testing/" | relative_url }})
+- [Trial Division]({{ "/articles/CryptoAnIntro/trial-division/" | relative_url }})
+
+### Probabilistic and Proving Algorithms
+
+- [Fermat Primality Test]({{ "/articles/CryptoAnIntro/fermat-primality-test/" | relative_url }})
+- [Miller-Rabin Primality Test]({{ "/articles/CryptoAnIntro/miller-rabin-primality-test/" | relative_url }})
+- [Primality Proving Algorithms]({{ "/articles/CryptoAnIntro/primality-proving-algorithms/" | relative_url }})
+
+### Factoring Algorithms
+
+- [Factoring Algorithms Overview]({{ "/articles/CryptoAnIntro/factoring-algorithms-overview/" | relative_url }})
+- [Smooth Numbers and Factoring Complexity]({{ "/articles/CryptoAnIntro/smooth-numbers-and-factoring-complexity/" | relative_url }})
+- [Pollard's p - 1 Method]({{ "/articles/CryptoAnIntro/pollards-p-minus-1-method/" | relative_url }})
+- [Difference of Two Squares and Relations]({{ "/articles/CryptoAnIntro/difference-of-two-squares-and-relations/" | relative_url }})
+- [Number Field Sieve]({{ "/articles/CryptoAnIntro/number-field-sieve/" | relative_url }})
+
 ## Chapter 17: Attacks on Public Key Schemes
 
 - [Wiener's Attack]({{ "/articles/CryptoAnIntro/Wieners-attack/" | relative_url }})
