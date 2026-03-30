@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Prime Numbers and Primality Testing
-description: Prime numbers 在公鑰密碼中的角色，以及 primality testing 與 primality proving 的基本觀念。
 date: 2026-03-30
 last_updated: 2026-03-30
 tags: [prime, primality-testing]

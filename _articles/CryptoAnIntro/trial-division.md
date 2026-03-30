@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Trial Division
-description: Trial division 的基本方法、正確性、時間複雜度，以及它在 primality testing 與 factoring 中的角色。
 date: 2026-03-30
 last_updated: 2026-03-30
 tags: [trial-division, primality-testing, factoring, computational-number-theory]
