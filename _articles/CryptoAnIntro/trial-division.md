@@ -102,11 +102,11 @@ In the worst case, trial division requires $\sqrt{n}$ steps, which is exponentia
 
 ## Practical Use
 
-雖然 trial division 對大整數效率不高，但在實作中仍很常用，因為小範圍檢查成本低，且能快速排除大量 composite。
+雖然 trial division 對大整數效率不高，但在實作中仍然很常用，因為檢查小因數的成本低，且能快速排除大量 composite。
 
-最基本的例子是偶數檢查。任何大於 $2$ 的偶數都不是 prime，因此在較複雜的 primality test 前，先做少量 trial division 是自然的步驟。更一般地，若只檢查到某個小界 $Y$，便可先排除所有含有小質因數的候選值，這稱為 partial trial division。
+最基本的例子是偶數檢查。任何大於 $2$ 的偶數都不是 prime，因此在較複雜的 primality test 之前，先做少量 trial division 是很自然的步驟。更一般地，也可以只測試某個界 $Y$ 以下的質數；這種作法常稱為 partial trial division，其作用是先移除所有含有小質因數的候選值。
 
-若先用所有小於 $Y$ 的質數做試除，則剩下仍未被排除的 composite 的比例可寫成
+若先對所有小於 $Y$ 的質數做試除，則仍未被排除的 composite 所占比例可寫成
 $$
 \prod_{p<Y}\left(1-\frac{1}{p}\right).
 $$
@@ -118,33 +118,23 @@ $$
 
 <div class="remark">
 <strong>Remark.</strong>
-Partial trial division is often used as a preprocessing step: it is inexpensive and eliminates a large proportion of composite integers before more advanced tests are applied.
+Partial trial division 常作為前處理步驟，因為它實作簡單、成本低，且對排除含有小質因數的 composite 特別有效。
 </div>
 
-## Trial Division in Factoring
+### Trial Division in Factoring
 
-trial division 不只可用於 primality testing，也可直接用於 factoring。若目標是分解整數 $N$，則可由小到大測試每個可能因數 $p$；每當發現 $p\mid N$，就反覆將 $p$ 除去，直到不再可整除，以得到該質因數的 exponent。如此可逐步建立 $N$ 的 prime factorization。其最壞時間仍為
+trial division 不只可用於 primality testing，也可直接用於 factoring。若目標是分解整數 $N$，則可由小到大測試各個可能因數 $p$；每當發現 $p\mid N$，就反覆將 $p$ 除去，直到不再可整除，以得到該質因數在分解中出現的 exponent。如此便可逐步建立 $N$ 的 prime factorization。
+
+其最壞時間仍為
 $$
 O(\sqrt{N}),
 $$
-因此對一般大整數 factoring 並不實用，但對小整數仍是自然方法。
+因此對一般的大整數 factoring 並不實用；不過對小整數而言，它仍然是最自然也最直接的方法之一。
 
-<div class="definition">
-<strong>Definition.</strong>
-Factoring by trial division is the method of testing successive integers $p$ from $2$ to $\sqrt{N}$, and whenever $p$ divides $N$, repeatedly dividing out $p$ to determine its exponent in the factorization of $N$.
+<div class="remark">
+<strong>Remark.</strong>
+trial division 特別適合用在輸入較小的情況，或作為 primality testing 與 factoring 的前置步驟，用來先移除小質因數，再交由更進階的方法處理。
 </div>
-
-當 trial division 用於 factoring 時，其角色與 primality testing 略有不同。在 primality testing 中，目標是判斷是否為質數；在 factoring 中，目標是輸出完整的質因數分解。兩者都依賴「只需檢查到平方根」這一事實，但 factoring 版本會在找到因數後持續除去，以取得對應冪次。
-
-## Suitable Scenarios
-
-在計算上，trial division 較適合以下情境：
-
-- 輸入本身很小；
-- 作為較高階 primality test 前的 preliminary filter；
-- 作為 factoring algorithm 的前置清理步驟，用來移除小質因數。
-
-它的重要性不在於速度，而在於方法直接、易於實作，且對小因數特別有效。對後續的 probabilistic primality tests 與更進階 factoring methods 而言，trial division 常是最前面的基本步驟。
 
 ## References
 
