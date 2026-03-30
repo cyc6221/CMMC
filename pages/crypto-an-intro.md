@@ -24,7 +24,7 @@ toc: false
 
 ### Factoring Algorithms
 
-- [Factoring Algorithms Overview]({{ "/articles/CryptoAnIntro/factoring-algorithms-overview/" | relative_url }})
+- [Factoring Algorithms]({{ "/articles/CryptoAnIntro/factoring-algorithms/" | relative_url }})
 - [Smooth Numbers and Factoring Complexity]({{ "/articles/CryptoAnIntro/smooth-numbers-and-factoring-complexity/" | relative_url }})
 - [Pollard's p - 1 Method]({{ "/articles/CryptoAnIntro/pollards-p-minus-1-method/" | relative_url }})
 - [Difference of Two Squares and Relations]({{ "/articles/CryptoAnIntro/difference-of-two-squares-and-relations/" | relative_url }})
