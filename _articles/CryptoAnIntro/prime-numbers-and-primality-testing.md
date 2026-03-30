@@ -6,13 +6,22 @@ last_updated: 2026-03-30
 tags: [prime, primality-testing]
 ---
 
-質數在公鑰密碼中扮演核心角色。許多密碼系統的參數生成都需要大質數，例如 RSA 與 Rabin 需要選取質數 $p,q$ 來形成模數 $N=pq$；ElGamal 會需要選取滿足 $q \mid (p-1)$ 的參數；橢圓曲線系統則常要求群的階可被大質數整除。這使得「如何有效找到質數」成為實作密碼系統時的基礎問題。
+**質數**在公鑰密碼中扮演核心角色，許多密碼系統的參數生成都需要大質數，這使得**如何有效找到質數**成為實作密碼系統時的基礎問題。
 
-與因數分解相比，檢驗一個整數是否為質數通常要容易得多。實務上可以使用非常快速的 primality testing algorithm 來判斷一個數是否為質數；有些演算法屬於 probabilistic algorithm，可能帶有極小的錯誤機率，但這個錯誤機率可以透過重複執行有效壓低。除此之外，也存在能夠輸出 primality certificate 的方法，使第三方可以快速驗證某個數確實為質數。
+<div class="example">
+<strong>Example.</strong>
+<ul>
+  <li> RSA 與 Rabin 需要選取質數 $p,q$ 來形成模數 $N=pq$ </li>
+  <li> ElGamal 會需要選取滿足 $q \mid (p-1)$ 的參數 </li>
+  <li>橢圓曲線系統則常要求群的階可被大質數整除 </li>
+</ul>
+</div>
+
+與因數分解相比，**檢驗一個整數是否為質數**通常要容易得多。實務上可以使用非常快速的 primality testing algorithm 來判斷一個數是否為質數；有些演算法屬於 probabilistic algorithm，可能帶有極小的錯誤機率，但這個錯誤機率可以透過重複執行有效壓低。除此之外，也存在能夠輸出 primality certificate 的方法，使第三方可以快速驗證某個數確實為質數。
 
 <div class="remark">
 <strong>Remark.</strong>
-<b>Why Prime Numbers Matter</b><br>
+<b>Why Prime Numbers Matter?</b>
 在密碼學中，質數不是單純的數論研究對象，而是建構安全參數時的基本材料。當系統需要一個難以分解的模數、需要一個具有大質數子群的乘法群，或需要一條其群階具有大質數因子的橢圓曲線時，都會回到質數生成的問題。從這個角度來看，<b>prime generation</b> and <b>primality testing</b> 是實作公鑰密碼時不可分離的兩個步驟
 </div>
 
