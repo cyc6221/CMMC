@@ -10,19 +10,21 @@ tags: [prime, primality-testing]
 
 與因數分解相比，檢驗一個整數是否為質數通常要容易得多。實務上可以使用非常快速的 primality testing algorithm 來判斷一個數是否為質數；有些演算法屬於 probabilistic algorithm，可能帶有極小的錯誤機率，但這個錯誤機率可以透過重複執行有效壓低。除此之外，也存在能夠輸出 primality certificate 的方法，使第三方可以快速驗證某個數確實為質數。
 
-## Why Prime Numbers Matter
-
-在密碼學中，質數不是單純的數論研究對象，而是建構安全參數時的基本材料。當系統需要一個難以分解的模數、需要一個具有大質數子群的乘法群，或需要一條其群階具有大質數因子的橢圓曲線時，都會回到質數生成的問題。從這個角度來看，prime generation 與 primality testing 是實作公鑰密碼時不可分離的兩個步驟。
+<div class="remark">
+<strong>Remark.</strong>
+<b>Why Prime Numbers Matter</b><br>
+在密碼學中，質數不是單純的數論研究對象，而是建構安全參數時的基本材料。當系統需要一個難以分解的模數、需要一個具有大質數子群的乘法群，或需要一條其群階具有大質數因子的橢圓曲線時，都會回到質數生成的問題。從這個角度來看，<b>prime generation</b> and <b>primality testing</b> 是實作公鑰密碼時不可分離的兩個步驟
+</div>
 
 ## Prime Density
 
 在討論如何找到質數之前，先要了解一個更基本的問題：質數在整數中是否夠常見。若質數過於稀少，則即使有快速檢驗方法，實際生成大質數仍會變得困難；反之，若質數分布密度足夠高，則只要隨機抽樣並配合有效檢驗程序，就能在合理時間內找到所需的質數。
 
 <div class="theorem">
-<strong>Theorem 12.1 (Prime Number Theorem).</strong>
+<strong>Theorem. Prime Number Theorem.</strong>
 The function $\pi(X)$ counts the number of primes less than $X$, where we have the approximation
 $$
-\pi(X)\approx \frac{X}{\log X}.
+\pi(X)\approx \frac{X}{\log X}
 $$
 </div>
 
@@ -32,11 +34,16 @@ $$
 $$
 這提供了一個很重要的 heuristic：隨機抽取大整數並進行 primality test，平均不需要太多次就能找到一個質數。
 
-例如對一個 512-bit 的整數而言，其為質數的機率大約是
+<div class="example">
+<strong>Example.</strong>
+對一個 512-bit 的整數而言，其為質數的機率大約是
 $$
 \frac{1}{\log p}\approx \frac{1}{355}.
 $$
-若只考慮奇數，平均大約測試 $177$ 個候選值左右就能遇到一個質數。這也是為什麼 large prime generation 在實務上是可行的：重點不在於質數是否夠多，而在於 primality test 是否夠有效率。
+若只考慮奇數，平均大約測試 $177$ 個候選值左右就能遇到一個質數。
+</div>
+
+這也是為什麼 large prime generation 在實務上是可行的：重點不在於質數是否夠多，而在於 primality test 是否夠有效率。
 
 <div class="remark">
 <strong>Remark.</strong>
