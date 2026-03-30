@@ -3,10 +3,10 @@ layout: page
 title: Fermat Primality Test
 date: 2026-03-29
 last_updated: 2026-03-30
-tags: [fermat-test, primality-testing, pseudoprime, carmichael-numbers]
+tags: [primality-testing, pseudoprime, carmichael-numbers]
 ---
 
-Fermat primality test 是一種 probabilistic primality test。它的出發點不是直接構造質數證明，而是利用一個質數一定滿足的同餘性質，來快速排除許多 composite。這個方法的優點在於 modular exponentiation 可以非常快地完成，因此即使輸入是大整數，也能有效進行測試。
+**Fermat primality test** 是一種 *probabilistic primality test*。它的出發點不是直接構造質數證明，而是利用一個質數一定滿足的同餘性質，來快速排除許多 composite。這個方法的優點在於 modular exponentiation 可以非常快地完成，因此即使輸入是大整數，也能有效進行測試。
 
 ## Basic Idea
 
