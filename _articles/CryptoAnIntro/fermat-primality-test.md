@@ -33,8 +33,9 @@ $$
 The Fermat primality test uses the converse heuristic of Fermat's Little Theorem: if $a^{n-1}\not\equiv 1 \pmod n$, then $n$ is definitely composite.
 </div>
 
-## Relation with Lagrange’s Theorem
-
+<div class="remark">
+<strong>Remark.</strong>
+<b>Relation with Lagrange’s Theorem</b>
 從群論角度來看，Fermat’s Little Theorem 可以視為更一般事實的一個特例。若 $G$ 是有限乘法群，則對任意 $a\in G$，有
 $$
 a^{\#G}=1.
@@ -48,6 +49,7 @@ $$
 a^{p-1}\equiv 1 \pmod p.
 $$
 Fermat primality test 正是利用這個性質，把「prime 一定滿足的條件」拿來作為篩除 composite 的工具。
+</div>
 
 ## Fermat Test to the Base $a$
 
@@ -75,13 +77,14 @@ $$
 就立刻輸出 composite；若重複做了 $k$ 次都沒有失敗，則輸出 probably prime。原始章節給出的 pseudo-code 如下。
 
 <div class="algorithm">
-<strong>Algorithm 12.1: Fermat’s test for primality</strong>
-for $i=0$ to $k-1$ do  
-Pick $a$ from $[2,\ldots,n-1]$  
-$b=a^{n-1}\bmod n$  
-if $b\ne 1$ then return $(\text{Composite},a)$  
-end  
-return ("Probably Prime")
+<strong>Algorithm. Fermat’s test for primality</strong>
+
+<pre><code>for $i=0$ to $k-1$ do
+    Pick $a$ from $[2,\ldots,n-1]$
+    $b=a^{n-1}\bmod n$
+    if $b\ne 1$ then return $(\text{Composite},a)$
+end
+return ("Probably Prime")</code></pre>
 </div>
 
 這裡的關鍵是 modular exponentiation 可以在 polynomial time 內完成，因此單次測試相當快。整個方法之所以可行，不是因為它保證一次就判定質數，而是因為它可以非常快速地重複許多次。
@@ -110,40 +113,35 @@ A witness for compositeness is a verifiable certificate that $n$ is not prime.
 
 ## Probable Prime
 
-若重複做了多次 Fermat test 都沒有找到 witness，演算法就會回傳 “Probably Prime”。這個輸出不能理解成「已經證明是質數」，而只能理解成「目前沒有找到 compositeness 的證據」。因此，Fermat test 的語意不是 proof of primality，而是 repeated failure to refute primality。
+若重複進行多次 Fermat test 都沒有找到 witness，演算法就會回傳 “Probably Prime”。這個輸出不代表已經證明 $n$ 是質數，而只代表目前沒有找到 compositeness 的證據。因此，Fermat test 的作用不是產生 proof of primality，而是在反覆測試下持續未能否定 primality。
 
-根據原始章節的敘述，若 $n$ 是 composite，則對隨機選到的 base $a$，以大於 $1/2$ 的機率會得到
+在一般分析下，若 $n$ 是 composite，則對隨機選到的 base $a$，有相當高的機率會得到
 $$
 a^{n-1}\ne 1 \pmod n.
 $$
-因此若做 $k$ 次都沒有找到 witness，則把 composite 誤判為 “Probably Prime” 的機率至多約為
+若每次測試找到 witness 的機率至少為 $1/2$，那麼做 $k$ 次都沒有找到 witness 時，把 composite 誤判為 “Probably Prime” 的機率至多為
 $$
 \frac{1}{2^k}.
 $$
-這也是為什麼重複測試可以快速降低錯誤機率。
-
-<div class="remark">
-<strong>Remark.</strong>
-If the algorithm outputs “Probably Prime” after $k$ iterations, then $n$ is either prime or a probable prime, and the error probability is at most $2^{-k}$ under the stated analysis.
-</div>
+因此，重複測試可以快速降低錯誤機率。
 
 ## Pseudo-Prime
 
-Fermat test 的根本限制在於：有些 composite 也可能滿足
+Fermat test 的限制在於：有些 composite 也可能滿足
 $$
 a^{n-1}\equiv 1 \pmod n
 $$
-對某些 base 成立。當這種情況發生時，Fermat test 就無法用這個 base 偵測出 compositeness。這類 composite 被稱為 pseudo-prime to the base $a$。
+對某些 base $a$ 成立。當這種情況發生時，Fermat test 無法用這個 base 偵測出 compositeness。這類 composite 稱為 pseudo-prime to the base $a$。
 
-原始章節給的一個例子是
+例如
 $$
 n=11\cdot 31=341,\qquad a=2.
 $$
-此時雖然 $341$ 明顯不是質數，但仍有
+雖然 $341$ 不是質數，但仍有
 $$
 2^{340}\equiv 1 \pmod{341}.
 $$
-因此，341 是一個 Fermat pseudo-prime to the base $2$。這說明了通過單一 base 的 Fermat test，並不足以保證 primality。
+因此，341 是一個 Fermat pseudo-prime to the base $2$。這說明單一 base 通過 Fermat test，並不足以保證 primality。
 
 <div class="definition">
 <strong>Definition.</strong>
@@ -155,17 +153,17 @@ $$
 
 ## Carmichael Numbers
 
-pseudo-prime 現象雖然已經顯示 Fermat test 不完美，但還有一類更麻煩的例外：某些 composite 對所有與它互質的 base 都會通過 Fermat test。這些數稱為 Carmichael numbers。也就是說，對這類數而言，只要 base 與 $n$ 互質，就永遠有
+pseudo-prime 已經顯示 Fermat test 不是完全可靠，但還存在更強的例外情形：某些 composite 對所有與它互質的 base 都會通過 Fermat test。這些數稱為 Carmichael numbers。也就是說，若 $N$ 是 Carmichael number，則對每個與 $N$ 互質的 $a$，都有
 $$
-a^{n-1}\equiv 1 \pmod n.
+a^{N-1}\equiv 1 \pmod N.
 $$
-因此單靠 Fermat test，不可能從這些 base 中找到 witness。
+因此，單靠 Fermat test 無法從這些 base 中找到 witness。
 
-原始章節指出，Carmichael numbers 有無限多個，最前面的例子包括
+常見例子包括
 $$
 561,\ 1105,\ 1729.
 $$
-它們並不是隨機偶發的極端例外，而是一個真正需要正視的結構性障礙。
+這些數不是零星特例，而是一類具有特殊算術結構的 composite。
 
 <div class="definition">
 <strong>Definition.</strong>
@@ -176,20 +174,14 @@ $$
 for every $a$ coprime to $N$.
 </div>
 
-原始章節列出 Carmichael numbers 的幾個性質：
+Carmichael numbers 具有幾個基本性質：
 
-<div class="lemma">
-<strong>Lemma.</strong>
-Carmichael numbers have the following properties:
-<ul>
-  <li>They are always odd.</li>
-  <li>They have at least three prime factors.</li>
-  <li>They are square free.</li>
-  <li>If $p$ divides a Carmichael number $N$ then $p-1$ divides $N-1$.</li>
-</ul>
-</div>
+- 它們一定是 odd。
+- 它們至少有三個 prime factors。
+- 它們是 square-free。
+- 若 $p$ 整除 Carmichael number $N$，則 $p-1$ 整除 $N-1$。
 
-這些性質說明 Carmichael numbers 並不是隨便拼湊出的 composite，而是具有特殊算術結構的整數。也正因為這類數的存在，Fermat test 在實務上通常不被視為最終使用的 primality test，而更常被 Miller–Rabin 之類更強的測試取代。
+這些性質說明 Carmichael numbers 並不是任意形成的 composite，而是具有明確算術結構的整數。也因為這類數的存在，Fermat test 通常不作為最終的 primality test，而更常被更強的測試方法取代。
 
 ## Practical Meaning
 
