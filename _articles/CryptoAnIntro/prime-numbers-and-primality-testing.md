@@ -50,42 +50,20 @@ $$
 The Prime Number Theorem provides a heuristic explanation for why random search is practical in prime generation: large primes are sparse, but not prohibitively rare.
 </div>
 
-## Primality Testing and Primality Proving
+## Primality Testing and Related Directions
 
-判斷一個整數是否為質數，大致可以分成兩種方向。
+判斷一個整數是否為質數，大致可分成兩個方向：**primality testing** 與 **primality proving**。前者著重於有效判定一個數是 prime 還是 composite；後者則著重於產生可被第三方驗證的 primality certificate。
 
-第一種是 **primality testing**。這類方法的目標是在效率與可信度之間取得平衡。很多實用演算法並不直接輸出「這個數一定是質數」的證明，而是輸出「這個數看起來像質數」或「這個數一定是合數」的判斷。若演算法輸出合數，通常還會附帶一個 witness，作為可驗證的 compositeness certificate。
-
-第二種是 **primality proving**。這類方法的目標不是只給出高可信度的結論，而是輸出一個真正的 proof of primality。這個 proof 應該滿足一個自然要求：第三方驗證它時，所花的代價要比生成它更小。也就是說，primality certificate 的價值不只在於說服自己，而在於它能被快速獨立驗證。
+在 primality testing 中，演算法不一定直接輸出完整證明。許多實用方法的目標，是快速排除 composite，或判定某個整數具有極高可信度為 prime。若演算法輸出 composite，通常還會附帶一個 witness，作為可驗證的 compositeness certificate。相對地，primality proving 的目標則是輸出真正的 proof of primality，並希望第三方驗證這個 proof 的成本低於重新生成它。
 
 <div class="definition">
 <strong>Definition.</strong>
 A primality testing routine which produces a certificate that can be checked by a third party to prove that the number is indeed prime is called a <em>primality proving algorithm</em>, and the certificate is called a <em>proof of primality</em>.
 </div>
 
-## Trial Division as a Baseline
+最基本的方法是 [Trial Division]({{ "/articles/CryptoAnIntro/trial-division/" | relative_url }}). 它提供了最直接的 primality test，也可自然延伸到 factoring。當整數規模增大後，實務上更常使用 probabilistic methods，以極小錯誤機率換取效率；這部分可進一步連到 [Fermat Primality Test]({{ "/articles/CryptoAnIntro/fermat-primality-test/" | relative_url }}) 與 [Miller-Rabin Primality Test]({{ "/articles/CryptoAnIntro/miller-rabin-primality-test/" | relative_url }}). 若目標是產生可驗證的證明，則會進一步連到 [Primality Proving Algorithms]({{ "/articles/CryptoAnIntro/primality-proving-algorithms/" | relative_url }}).
 
-最直接的 primality test 是 trial division。對輸入 $p$，逐一檢查 $2$ 到 $\sqrt{p}$ 之間的整數是否整除 $p$；若沒有任何非平凡因數，則 $p$ 為質數。這個方法的優點在於它不只判斷合數，還能直接給出一個非平凡因數，因此當輸出為 composite 時，驗證非常直接。
-
-但 trial division 的缺點也很明顯。若輸入本身是質數，最壞情況需要做到 $\sqrt{p}$，而這相對於輸入長度 $\log_2 p$ 而言是指數時間，因此不適合用在大整數上。它也無法為「是質數」這件事提供精簡而可重複驗證的 certificate；若要再次確認，只能把整個程序重做一次。
-
-不過，trial division 並非完全沒有價值。對很小的數，它仍然是最自然的方法；而在較進階的 primality tests 中，也常先拿小質數做 partial trial division，快速排除大量顯然的合數。例如，先檢查所有小於 $100$ 的質數因子，可以大幅縮小後續需要進一步測試的候選集合。
-
-<div class="remark">
-<strong>Remark.</strong>
-Trial division is computationally inefficient for large inputs, but it remains useful as a preliminary filtering step before more advanced primality tests are applied.
-</div>
-
-## Probabilistic Viewpoint
-
-現代 primality testing 的重要觀念之一，是接受「極小錯誤機率」作為效率交換的代價。對於大整數候選值，與其追求每一次都給出絕對確定的證明，實務上更常做的是使用快速的 probabilistic test，並透過多次獨立測試將錯誤機率壓到可以忽略的程度。這類方法的核心不是一次就保證正確，而是讓錯誤機率隨重複次數呈指數下降。
-
-在這個框架下，後續常見的演算法包括 Fermat test 與 Miller–Rabin test。前者利用 Fermat’s Little Theorem 建構 compositeness test，但會遇到 pseudo-primes 與 Carmichael numbers 的問題；後者則進一步修正這個弱點，使得每次測試接受 composite 的機率能夠有效受控。
-
-<div class="remark">
-<strong>Remark.</strong>
-In practical prime generation, the main issue is usually not whether primality can be proven in principle, but whether compositeness can be rejected quickly and probable primes can be identified with negligibly small error.
-</div>
+另一方面，若關心的問題不只是判定 prime 或 composite，而是進一步分解整數，則主題會延伸到 factoring 的脈絡。這部分的後續內容包括 [Factoring Algorithms]({{ "/articles/CryptoAnIntro/factoring-algorithms/" | relative_url }}), [Smooth Numbers and Factoring Complexity]({{ "/articles/CryptoAnIntro/smooth-numbers-and-factoring-complexity/" | relative_url }}), [Pollard's p - 1 Method]({{ "/articles/CryptoAnIntro/pollards-p-minus-1-method/" | relative_url }}), [Difference of Two Squares and Relations]({{ "/articles/CryptoAnIntro/difference-of-two-squares-and-relations/" | relative_url }}), 與 [Number Field Sieve]({{ "/articles/CryptoAnIntro/number-field-sieve/" | relative_url }}).
 
 ## References
 
