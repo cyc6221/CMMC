@@ -4,7 +4,7 @@ title: Prime Numbers and Primality Testing
 description: Prime numbers 在公鑰密碼中的角色，以及 primality testing 與 primality proving 的基本觀念。
 date: 2026-03-30
 last_updated: 2026-03-30
-tags: [prime-numbers, primality-testing, computational-number-theory, cryptography]
+tags: [prime, primality-testing]
 ---
 
 質數在公鑰密碼中扮演核心角色。許多密碼系統的參數生成都需要大質數，例如 RSA 與 Rabin 需要選取質數 $p,q$ 來形成模數 $N=pq$；ElGamal 會需要選取滿足 $q \mid (p-1)$ 的參數；橢圓曲線系統則常要求群的階可被大質數整除。這使得「如何有效找到質數」成為實作密碼系統時的基礎問題。
