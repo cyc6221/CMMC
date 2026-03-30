@@ -8,7 +8,7 @@ venue: "Annals of Mathematics, 2004"
 date: 2026-03-02
 last_updated: 2026-03-08
 label: "paper"
-tags: [primality testing, prime, paper]
+tags: [primality-testing, prime, paper]
 ---
 
 試除法等價於檢查所有 $m\le \sqrt{n}$ 的除法，因此需要 $\Omega(\sqrt{n})$ 次操作； **Sieve of Eratosthenes** 雖然能在產生「小於 $n$ 的所有質數」時做到約 $O(n\log\log n)$ 的時間，但其成本仍以 $n$ 本身為尺度，而非輸入長度 $\lceil\log n\rceil$ 為尺度，因此對大型 $n$ 依然不符合複雜度理論中「有效率」的標準。複雜度理論中的高效率通常指時間是輸入長度的多項式，即 $\mathrm{poly}(\log n)$。
