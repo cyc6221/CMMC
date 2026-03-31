@@ -6,9 +6,7 @@ last_updated: 2026-03-31
 tags: [block-cipher, rijndael, AES]
 ---
 
-## Basic Structure
-
-Rijndael 是一種不採用 Feistel 結構的 block cipher。它與 DES 一樣，都是透過多輪反覆運算來累積安全性，但每一輪的操作形式不同。Rijndael 的設計建立在明確的代數結構上，多數運算可用 $\mathbb{F}_{2^8}$ 上的運算來描述。
+**Rijndael** 是一種不採用 [Feistel]({{ "/articles/CryptoAnIntro/feistel-cipher/" | relative_url }}) 結構的 [Block Cipher]({{ "/articles/CryptoAnIntro/block-cipher/" | relative_url }})。它與 [DES]({{ "/articles/CryptoAnIntro/des/" | relative_url }}) 一樣，都是透過多輪反覆運算來累積安全性，但每一輪的操作形式不同。Rijndael 的設計建立在明確的代數結構上，多數運算可用 $\mathbb{F}_{2^8}$ 上的運算來描述。
 
 Rijndael 可支援 block size 為 $128$、$192$、$256$ bits，也可支援 key size 為 $128$、$192$、$256$ bits。不同的 block size 與 key size 組合會對應不同的 round 數。這裡只考慮最常用的版本：block size 為 $128$ bits、key size 為 $128$ bits，此時 round 數為 $10$。
 
