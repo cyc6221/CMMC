@@ -82,9 +82,9 @@ Feistel 結構的重點不在於要求 $F$ 可逆，而在於整個 round 的排
 Feistel cipher 有兩個直接的設計優點。
 
 1. $F$ 可以是任意函數，而不需要先保證其本身可逆，仍然能得到可逆的加密結構。
-   - > choose any function $F$, yet still obtain an invertible encryption function which can be inverted using the secret key
+   > choose any function $F$, yet still obtain an invertible encryption function which can be inverted using the secret key
 2. 加密與解密可以共用相同的程式或電路，只需要在解密時將 round key 的使用順序反過來即可。
-   - > the same code or circuitry can be used for encryption and decryption functions, with only the order of the round keys reversed for decryption
+   > the same code or circuitry can be used for encryption and decryption functions, with only the order of the round keys reversed for decryption
 
 這使得 Feistel 結構在硬體與實作上都很自然，也成為經典 block cipher 設計的重要形式。
 
@@ -93,11 +93,11 @@ Feistel cipher 有兩個直接的設計優點。
 Feistel 結構本身只保證可逆，並不自動保證安全。實際安全性仍取決於下列因素：
 
 - round keys 如何由主金鑰產生
-  - > how the round keys are generated from the main key
+  > how the round keys are generated from the main key
 - 總共使用多少 rounds
-  - > how many rounds are used
+  > how many rounds are used
 - 函數 $F$ 的設計方式
-  - > how the function $F$ is defined
+  > how the function $F$ is defined
 
 若這些部分設計不佳，即使採用 Feistel 結構，仍可能被攻破。
 
