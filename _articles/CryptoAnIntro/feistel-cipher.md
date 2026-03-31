@@ -108,7 +108,12 @@ Feistel 結構本身只保證可逆，並不自動保證安全。實際安全性
 
 ### Relation to DES
 
-DES 是 Feistel cipher 的一個具代表性的變形。它沿用左右半部交替更新的結構，並透過 16 輪 round、round key schedule，以及額外的 permutation 與 substitution 元件來建立實際的加密演算法。Feistel 結構提供了 DES 的骨架，而 DES 的安全性則進一步依賴其 $F$ 函數與整體參數設計。
+[DES]({{ "/articles/CryptoAnIntro/des/" | relative_url }}) 是 Feistel cipher 的一個具代表性的變形。它沿用左右半部交替更新的結構，並透過 16 輪 round、round key schedule，以及額外的 permutation 與 substitution 元件來建立實際的加密演算法。Feistel 結構提供了 DES 的骨架，而 DES 的安全性則進一步依賴其 $F$ 函數與整體參數設計。
+
+- the number of rounds $r$ is 16
+- the block length $n$ is 64 bits
+- the key length is 56 bits
+- the round keys $K_1, \dots, K_{16}$ are each 48 bits
 
 ## References
 
