@@ -6,9 +6,11 @@ last_updated: 2026-03-31
 tags: [primality-testing, ecpp, elliptic-curves, hyperelliptic-curves]
 ---
 
-primality proving algorithm 的目標，不是只給出「這個數很可能是 prime」的判定，而是輸出一個可以被第三方獨立驗證的證明，使得某個整數確實為 prime。這和 probabilistic primality testing 的角色不同：後者主要用來快速排除 composite，或給出高度可信的 probable prime；前者則要求能夠提供真正的證明物件，並且讓驗證成本低於生成成本。
+**Primality Proving Algorithm** 的目標，是對一個整數是否為 prime 給出可被獨立驗證的證明。也就是說，它不只是輸出判定結果，而是進一步產生一份 certificate，使第三方也能確認該整數確實為 prime。
 
-## From Primality Testing to Primality Proving
+這和 probabilistic primality testing 不同。probabilistic test 的主要作用，是快速排除 composite，或給出高度可信的 probable prime；但 probable prime 並不等於已經得到嚴格的 primality proof。primality proving algorithm 要處理的，正是從「高度可信」進一步提升到「形式上確定」的問題。
+
+## Primality Proving
 
 在實作上，許多 primality testing algorithm 的輸出其實是 compositeness 的證據，而不是 primality 的證據。也就是說，當演算法發現一個數是 composite 時，往往可以同時給出 witness；但若演算法輸出 probable prime，這通常並不等於它已經給出了「一定是質數」的正式證明。
 
@@ -42,18 +44,18 @@ In practice, primality proving is often applied only after a number has already 
 
 ## ECPP
 
-ECPP 是目前最成功的 primality proving algorithm 之一。ECPP 是 **Elliptic Curve Primality Prover** 的縮寫，表示它是建立在 elliptic curves 上的 primality proving method。它延續了較早期 finite-field primality proving 的思路，並將證明框架發展到 elliptic-curve setting 中。
+ECPP 是目前最成功的 primality proving algorithms 之一。ECPP 是 **Elliptic Curve Primality Proving** 的縮寫，表示它是一種建立在 elliptic curves 上的 primality proving method。它延續了較早期 finite-field primality proving 的思路，並將這種證明框架推進到 elliptic-curve setting 中；其具體內容可見 [ECPP]({{ "/articles/CryptoAnIntro/ECPP/" | relative_url }}).
 
 ### Nature of ECPP
 
-ECPP 是 randomized algorithm。這表示它在生成 proof 的過程中使用隨機性，而不是單純的 deterministic verification procedure。
+ECPP 是一種 randomized algorithm。也就是說，它在生成 proof 的過程中會使用隨機性，而不是單純依靠 deterministic verification procedure。
 
-它的性質有兩個重要特點：
+它的性質有兩個值得注意的面向：
 
 - 當輸入是 prime 時，它在數學上不保證一定會輸出 proof；
 - 當輸入是 composite 時，它也不保證一定會終止。
 
-這說明 ECPP 的強項並不是最強形式的 termination guarantee，而是在實際使用中表現非常成功。
+這說明 ECPP 的強項並不在於提供最強形式的 termination guarantee，而是在實際使用中表現非常成功。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -62,29 +64,29 @@ ECPP is a randomized algorithm. Its practical performance is strong, but its ter
 
 ### Efficiency of ECPP
 
-儘管如此，ECPP 仍然具有兩個非常重要的優點。第一，它可以在 polynomial time 內運作；第二，它所產生的 proofs of primality 可以更快地被驗證。這使得它非常適合用在「生成 proof 較重、驗證 proof 較輕」的應用情境中。
+儘管如此，ECPP 仍然具有兩個非常重要的優點。第一，它能在 polynomial time 的框架下運作；第二，它所產生的 proofs of primality 往往可以更快地被驗證。這使得它非常適合用在「生成 proof 較重、驗證 proof 較輕」的應用情境中。
 
-這裡的重點不只是 ECPP 很快，而是它符合 certificate-based proof system 的理想形式：生成 proof 需要較多工作，但 verification 更便宜。
+這裡的重點不只是 ECPP 很有效率，而是它符合 certificate-based proof system 的理想形式：生成 proof 需要較多工作，但 verification 相對便宜。
 
 ### Finite-Field Background
 
-在 elliptic-curve 方法之前，已經有建立在 finite fields 上的 primality proving algorithm。ECPP 可以看作是把 primality proving 的方法推進到 elliptic curves 的版本。由於 elliptic curves 提供了更靈活的群結構，因此在效率與實務表現上往往更有優勢，這也是 ECPP 能夠成為最成功方法之一的重要原因。
+在 elliptic-curve 方法出現之前，已經有建立在 finite fields 上的 primality proving algorithms。ECPP 可以看作是把 primality proving 的方法推進到 elliptic curves 的版本。由於 elliptic curves 提供了更靈活的群結構，因此在效率與實務表現上通常更具優勢，這也是 ECPP 能夠成為最成功方法之一的重要原因。
 
 ## Adleman–Huang Algorithm
 
-除了 ECPP 之外，另一條不同的路線是 Adleman–Huang primality proving algorithm。它和 ECPP 的主要差別，在於它對 termination 有更強的數學保證。
+除了 ECPP 之外，另一條不同的路線是 Adleman–Huang primality proving algorithm。它和 ECPP 的主要差別，在於它對 termination 有更強的數學保證；相關內容可參見 [Adleman–Huang Algorithm]({{ "/articles/CryptoAnIntro/adleman-huang-algorithm/" | relative_url }}).
 
-當輸入是 prime 時，Adleman–Huang algorithm 保證能夠終止並輸出 proof of primality。這一點與 ECPP 形成明顯對比。
+當輸入是 prime 時，Adleman–Huang algorithm 保證能夠終止並輸出 proof of primality。這一點與 ECPP 形成了明顯對比。
 
 ### Hyperelliptic Curves
 
-這個演算法不是建立在普通 elliptic curves 上，而是建立在 hyperelliptic curves 上。也就是說，它把曲線方法進一步推廣到更複雜的幾何結構中。
+這個演算法不是建立在一般的 elliptic curves 上，而是建立在 hyperelliptic curves 上。也就是說，它把曲線方法進一步推廣到更複雜的幾何結構之中。
 
 ### Theoretical Guarantee and Practical Use
 
-Adleman–Huang method 的理論吸引力在於，它對 prime input 具有明確的 termination guarantee。不過在實務上，這種方法並沒有像 ECPP 那樣廣泛採用。
+Adleman–Huang method 的理論吸引力在於，它對 prime input 具有明確的 termination guarantee。不過在實務上，這種方法並沒有像 ECPP 那樣被廣泛採用。
 
-造成這種差異的原因，一方面是 hyperelliptic curve 所涉及的數學較為複雜，另一方面則是因為在實際使用中，ECPP 通常能以較少的工作量產生 primality proof，因此更具實務優勢。
+造成這種差異的原因，一方面是 hyperelliptic curves 所涉及的數學較為複雜，另一方面則是因為在實際使用中，ECPP 通常能以較少的工作量產生 primality proof，因此更具實務優勢。
 
 <div class="remark">
 <strong>Remark.</strong>
