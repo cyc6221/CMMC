@@ -272,3 +272,7 @@ block cipher 是一種對固定長度 block 進行可逆轉換的 symmetric prim
 
 理解 block cipher，不僅需要掌握其基本定義，也需要理解 modes of operation、invertibility、substitution and permutation，以及其對各種 cryptanalysis 方法的抵抗能力。
 </div>
+
+## References
+
+- Nigel P. Smart, *Cryptography: An Introduction* (3rd ed.), Chapter 8. [PDF](https://nigelsmart.github.io/Crypto_Book/book.pdf)
