@@ -7,7 +7,7 @@ toc: false
 
 ## Course
 
-Google Cybersecurity: [My Certificate](https://coursera.org/share/8d09a67a7584aa67fc718447ce8d41e1)
+Google Cybersecurity: [Course Certificate](https://coursera.org/share/8d09a67a7584aa67fc718447ce8d41e1)
 
 1. Foundations of Cybersecurity: [Course 1 Certificate](https://coursera.org/share/5666b0baeb3414abd3d9ecab338adbb4)
 2. Play It Safe: Manage Security Risks: [Course 2 Certificate](https://coursera.org/share/936d3a317b2daebbab00eebce9c3eddd)
