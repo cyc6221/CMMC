@@ -6,7 +6,7 @@ last_updated: 2026-03-31
 tags: [block-cipher, DES]
 ---
 
-DES 是一種以 Feistel 結構為基礎的 block cipher。其基本參數為：
+**DES** 是一種以 [Feistel]({{ "/articles/CryptoAnIntro/feistel-cipher/" | relative_url }}) 結構為基礎的 [Block Cipher]({{ "/articles/CryptoAnIntro/block-cipher/" | relative_url }})。其基本參數為：
 
 - round 數為 $16$
 - block length 為 $64$ bits
@@ -151,13 +151,9 @@ $$
 \xrightarrow{\text{PC-2}} K_i.
 $$
 
-## Why the Feistel Structure Matters in DES
-
-DES 使用 Feistel 結構，因此即使 round function $F$ 中包含 expansion、table lookup 與 permutation 等不可逆操作，整體每一輪仍然可逆。這讓 DES 可以把設計重點放在 non-linear substitution 與 diffusion 的效果，而不需要要求每個元件 individually 可逆。
-
 <div class="remark">
 <strong>Remark.</strong>
-DES 的 round function 本身不是可逆函數，但這不影響 DES 的可解密性。真正保證可逆的是 Feistel round 的更新形式，而不是 $F$ 的內部每個步驟。
+DES 使用 Feistel 結構，因此即使 round function $F$ 中包含 expansion、table lookup 與 permutation 等不可逆操作，整體每一輪仍然可逆。這讓 DES 可以把設計重點放在 non-linear substitution 與 diffusion 的效果，而不需要要求每個元件 individually 可逆。DES 的 round function 本身不是可逆函數，但這不影響 DES 的可解密性。真正保證可逆的是 Feistel round 的更新形式，而不是 $F$ 的內部每個步驟。
 </div>
 
 ## 3DES
