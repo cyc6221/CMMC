@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="310" viewBox="0 0 560 310">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#000"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Top labels -->
+  <text x="35" y="38" font-family="serif" font-size="24" fill="red">Plaintext block</text>
+
+  <!-- Top block L0 R0 -->
+  <rect x="240" y="20" width="220" height="32" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="350" y1="20" x2="350" y2="52" stroke="black" stroke-width="1.5"/>
+  <text x="295" y="37" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="22" fill="red">
+    <tspan font-style="italic">L</tspan><tspan baseline-shift="sub" font-size="16">0</tspan>
+  </text>
+  <text x="405" y="37" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="22" fill="red">
+    <tspan font-style="italic">R</tspan><tspan baseline-shift="sub" font-size="16">0</tspan>
+  </text>
+
+  <!-- Outer iterate box -->
+  <rect x="210" y="60" width="305" height="190" fill="none" stroke="black" stroke-width="1.8"/>
+
+  <!-- Iterate times -->
+  <text x="95" y="150" font-family="serif" font-size="22" fill="black">Iterate <tspan font-style="italic" fill="blue">r</tspan></text>
+  <text x="105" y="173" font-family="serif" font-size="22" fill="black">times</text>
+
+  <!-- Inner top block Li-1 Ri-1 -->
+  <rect x="240" y="68" width="220" height="32" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="350" y1="68" x2="350" y2="100" stroke="black" stroke-width="1.5"/>
+  <text x="295" y="85" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="21" fill="red">
+    <tspan font-style="italic">L</tspan><tspan baseline-shift="sub" font-size="15">i−1</tspan>
+  </text>
+  <text x="405" y="85" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="21" fill="red">
+    <tspan font-style="italic">R</tspan><tspan baseline-shift="sub" font-size="15">i−1</tspan>
+  </text>
+
+  <!-- F box -->
+  <rect x="372" y="126" width="66" height="24" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="405" y="140" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="22" fill="blue" font-style="italic">F</text>
+
+  <!-- Ki input -->
+  <text x="482" y="142" font-family="serif" font-size="22" fill="red">
+    <tspan font-style="italic">K</tspan><tspan baseline-shift="sub" font-size="15">i</tspan>
+  </text>
+  <line x1="474" y1="134" x2="441" y2="134" stroke="black" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- Ri-1 down into F -->
+  <line x1="405" y1="100" x2="405" y2="124" stroke="black" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- F down to xor -->
+  <line x1="405" y1="150" x2="405" y2="174" stroke="black" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- XOR circle -->
+  <circle cx="405" cy="184" r="8" fill="white" stroke="black" stroke-width="1.2"/>
+  <line x1="405" y1="177" x2="405" y2="191" stroke="black" stroke-width="1"/>
+  <line x1="398" y1="184" x2="412" y2="184" stroke="black" stroke-width="1"/>
+
+  <!-- Li-1 down then right to xor -->
+  <line x1="295" y1="100" x2="295" y2="180" stroke="black" stroke-width="1.4"/>
+  <line x1="295" y1="180" x2="395" y2="180" stroke="black" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- Cross line Ri-1 to Li -->
+  <line x1="405" y1="100" x2="295" y2="204" stroke="black" stroke-width="1.1" marker-end="url(#arrow)"/>
+
+  <!-- XOR down to Ri -->
+  <line x1="405" y1="192" x2="405" y2="210" stroke="black" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- Bottom inner block Li Ri -->
+  <rect x="240" y="212" width="220" height="32" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="350" y1="212" x2="350" y2="244" stroke="black" stroke-width="1.5"/>
+  <text x="295" y="229" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="21" fill="red">
+    <tspan font-style="italic">L</tspan><tspan baseline-shift="sub" font-size="15">i</tspan>
+  </text>
+  <text x="405" y="229" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="21" fill="red">
+    <tspan font-style="italic">R</tspan><tspan baseline-shift="sub" font-size="15">i</tspan>
+  </text>
+
+  <!-- Bottom label -->
+  <text x="35" y="275" font-family="serif" font-size="24" fill="blue">Ciphertext block</text>
+
+  <!-- Final output block Rr Lr -->
+  <rect x="240" y="256" width="220" height="32" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="350" y1="256" x2="350" y2="288" stroke="black" stroke-width="1.5"/>
+  <text x="295" y="273" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="22" fill="blue">
+    <tspan font-style="italic">R</tspan><tspan baseline-shift="sub" font-size="16">r</tspan>
+  </text>
+  <text x="405" y="273" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="22" fill="blue">
+    <tspan font-style="italic">L</tspan><tspan baseline-shift="sub" font-size="16">r</tspan>
+  </text>
+</svg>
