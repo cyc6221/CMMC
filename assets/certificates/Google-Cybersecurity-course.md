@@ -23,70 +23,40 @@ Google Cybersecurity: [My Certificate](https://coursera.org/share/8d09a67a7584aa
 
 ### Google Cybersecurity
 
-<iframe
-  src="{{ '/assets/certificates/Google-Cybersecurity.pdf' | relative_url }}"
-  style="width:100%; height:70vh; border:none;">
-</iframe>
+<iframe src="{{ '/assets/certificates/Google-Cybersecurity.pdf' | relative_url }}" width="80%" height="750px"></iframe>
 
 ### Foundations of Cybersecurity
 
-<iframe
-  src="{{ '/assets/certificates/Foundations-of-Cybersecurity.pdf' | relative_url }}"
-  style="width:100%; height:70vh; border:none;">
-</iframe>
+<iframe src="{{ '/assets/certificates/Foundations-of-Cybersecurity.pdf' | relative_url }}" width="80%" height="750px"></iframe>
 
 ### Play It Safe: Manage Security Risks
 
-<iframe
-  src="{{ '/assets/certificates/Play-It-Safe-Manage-Security-Risks.pdf' | relative_url }}"
-  style="width:100%; height:70vh; border:none;">
-</iframe>
+<iframe src="{{ '/assets/certificates/Play-It-Safe-Manage-Security-Risks.pdf' | relative_url }}" width="80%" height="750px"></iframe>
 
 ### Connect and Protect: Networks and Network Security
 
-<iframe
-  src="{{ '/assets/certificates/Connect-and-Protect-Networks-and-Network-Security.pdf' | relative_url }}"
-  style="width:100%; height:70vh; border:none;">
-</iframe>
+<iframe src="{{ '/assets/certificates/Connect-and-Protect-Networks-and-Network-Security.pdf' | relative_url }}" width="80%" height="750px"></iframe>
 
 ### Tools of the Trade: Linux and SQL
 
-<iframe
-  src="{{ '/assets/certificates/Tools-of-the-Trade-Linux-and-SQL.pdf' | relative_url }}"
-  style="width:100%; height:70vh; border:none;">
-</iframe>
+<iframe src="{{ '/assets/certificates/Tools-of-the-Trade-Linux-and-SQL.pdf' | relative_url }}" width="80%" height="750px"></iframe>
 
 ### Assets, Threats, and Vulnerabilities
 
-<iframe
-  src="{{ '/assets/certificates/Assets-Threats-and-Vulnerabilities.pdf' | relative_url }}"
-  style="width:100%; height:70vh; border:none;">
-</iframe>
+<iframe src="{{ '/assets/certificates/Assets-Threats-and-Vulnerabilities.pdf' | relative_url }}" width="80%" height="750px"></iframe>
 
 ### Sound the Alarm: Detection and Response
 
-<iframe
-  src="{{ '/assets/certificates/Sound-the-Alarm-Detection-and-Response.pdf' | relative_url }}"
-  style="width:100%; height:70vh; border:none;">
-</iframe>
+<iframe src="{{ '/assets/certificates/Sound-the-Alarm-Detection-and-Response.pdf' | relative_url }}" width="80%" height="750px"></iframe>
 
 ### Automate Cybersecurity Tasks with Python
 
-<iframe
-  src="{{ '/assets/certificates/Automate-Cybersecurity-Tasks-with-Python.pdf' | relative_url }}"
-  style="width:100%; height:70vh; border:none;">
-</iframe>
+<iframe src="{{ '/assets/certificates/Automate-Cybersecurity-Tasks-with-Python.pdf' | relative_url }}" width="80%" height="750px"></iframe>
 
 ### Put It to Work: Prepare for Cybersecurity Jobs
 
-<iframe
-  src="{{ '/assets/certificates/Put-It-to-Work-Prepare-for-Cybersecurity-Jobs.pdf' | relative_url }}"
-  style="width:100%; height:70vh; border:none;">
-</iframe>
+<iframe src="{{ '/assets/certificates/Put-It-to-Work-Prepare-for-Cybersecurity-Jobs.pdf' | relative_url }}" width="80%" height="750px"></iframe>
 
 ### Accelerate Your Job Search with AI
 
-<iframe
-  src="{{ '/assets/certificates/Accelerate-Your-Job-Search-with-AI.pdf' | relative_url }}"
-  style="width:100%; height:70vh; border:none;">
-</iframe>
+<iframe src="{{ '/assets/certificates/Accelerate-Your-Job-Search-with-AI.pdf' | relative_url }}" width="80%" height="750px"></iframe>
