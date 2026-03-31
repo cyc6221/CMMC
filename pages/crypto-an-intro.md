@@ -8,6 +8,10 @@ toc: false
 ## Chapter 8: Block Ciphers
 
 - [Block Cipher]({{ "/articles/CryptoAnIntro/block-cipher/" | relative_url }})
+- [Feistel Cipher]({{ "/articles/CryptoAnIntro/feistel-cipher/" | relative_url }})
+- [DES]({{ "/articles/CryptoAnIntro/des/" | relative_url }})
+- [Rijndael]({{ "/articles/CryptoAnIntro/rijndael/" | relative_url }})
+- [Modes of Operation]({{ "/articles/CryptoAnIntro/modes-of-operation/" | relative_url }})
 
 ## Chapter 12: Primality Testing
 
