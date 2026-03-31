@@ -7,20 +7,24 @@ toc: false
 
 This is [my certificates list]({{ "/my-certificates/" | relative_url }}).
 
-## Certificate
+## ISC2
 
 - [ISC2](https://www.isc2.org/)
-  - [CC（Certified in Cybersecurity）](https://www.isc2.org/certifications/cc)
-    - d
-  - [CCSP（Certified Cloud Security Professional）](https://www.isc2.org/certifications/ccsp)
-  - CGRC（Certified in Governance, Risk and Compliance）
-  - CISSP（Certified Information Systems Security Professional）
-  - CISSP-ISSAP
-  - CISSP-ISSEP
-  - CISSP-ISSMP
-  - CSSLP（Certified Secure Software Lifecycle Professional）
-  - HCISPP（HealthCare Information Security and Privacy Practitioner）
-  - SSCP（Systems Security Certified Practitioner）
+  - [CC（Certified in Cybersecurity）](https://www.isc2.org/certifications/cc) `入門資安` `No experience required`
+  - [CCSP（Certified Cloud Security Professional）](https://www.isc2.org/certifications/ccsp) `雲端安全` `5+ years experience`
+  - [CGRC（Certified in Governance, Risk and Compliance）](https://www.isc2.org/certifications/cgrc) `治理風險法遵` `2+ years experience`
+  - [CISSP（Certified Information Systems Security Professional）](https://www.isc2.org/certifications/cissp) `中高階綜合資安 / 管理 / 架構`
+    - [CISSP-ISSAP](https://www.isc2.org/certifications/issap) `CISSP 進階專精`
+    - [CISSP-ISSEP](https://www.isc2.org/certifications/issep) `CISSP 進階專精`
+    - [CISSP-ISSMP](https://www.isc2.org/certifications/issmp) `CISSP 進階專精`
+  - [CSSLP（Certified Secure Software Lifecycle Professional）](https://www.isc2.org/certifications/csslp) `安全軟體生命週期` `4+ years experience`
+  - [HCISPP（HealthCare Information Security and Privacy Practitioner）](https://www.isc2.org/certifications/hcispp)
+  - [SSCP（Systems Security Certified Practitioner）](https://www.isc2.org/certifications/sscp) `安全維運 / 系統實作` `1+ years experience`
+
+---
+
+## Certificates
+
 - Cisco
   - CCNA
   - CCNP Security
