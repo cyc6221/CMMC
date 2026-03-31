@@ -62,7 +62,6 @@ $$
 
 \[
 \begin{aligned}
-&\textbf{Algorithm. Miller\text{-}Rabin test for primality}\\[4pt]
 &\text{Write } n-1=2^s m,\ \text{with } m \text{ odd}\\[6pt]
 &\text{for } j=0 \text{ to } k-1 \text{ do}\\
 &\qquad \text{Pick } a \text{ from } [2,\ldots,n-2]\\

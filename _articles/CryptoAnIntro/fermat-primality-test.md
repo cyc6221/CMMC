@@ -81,7 +81,6 @@ $$
 
 \[
 \begin{aligned}
-&\textbf{Algorithm. Fermat's test for primality}\\
 &\text{for } i=0 \text{ to } k-1 \text{ do}\\
 &\qquad \text{Pick } a \text{ from } [2,\ldots,n-1]\\
 &\qquad b=a^{n-1}\bmod n\\
