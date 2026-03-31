@@ -6,9 +6,7 @@ last_updated: 2026-03-31
 tags: [block-cipher, modes-of-operation]
 ---
 
-## Basic Idea
-
-Block cipher 一次只能處理固定長度的區塊，因此在加密長訊息時，必須規定如何將多個 plaintext blocks 串接起來使用。這種使用方式稱為 mode of operation。
+[Block Cipher]({{ "/articles/CryptoAnIntro/block-cipher/" | relative_url }}) 一次只能處理固定長度的區塊，因此在加密長訊息時，必須規定如何將多個 plaintext blocks 串接起來使用。這種使用方式稱為 mode of operation。
 
 不同的 mode 不只影響加密流程，也會影響：
 
