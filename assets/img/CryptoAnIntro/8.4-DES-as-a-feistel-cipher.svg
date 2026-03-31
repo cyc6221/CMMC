@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="430" viewBox="0 0 480 430">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#000"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Plaintext block -->
+  <rect x="160" y="16" width="210" height="22" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="265" y="28" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="red">
+    Plaintext block
+  </text>
+
+  <!-- Left labels -->
+  <text x="23" y="62" font-family="serif" font-size="15" fill="black">initial permutation</text>
+  <text x="23" y="97" font-family="serif" font-size="15" fill="black">split</text>
+  <text x="23" y="188" font-family="serif" font-size="15" fill="black">iterate 16 times</text>
+  <text x="23" y="319" font-family="serif" font-size="15" fill="black">join</text>
+  <text x="23" y="360" font-family="serif" font-size="15" fill="black">final permutation</text>
+
+  <!-- Arrow to IP -->
+  <line x1="265" y1="47" x2="265" y2="50" stroke="black" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- IP -->
+  <rect x="243" y="51" width="49" height="22" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="267.5" y="63" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="blue">IP</text>
+
+  <!-- Arrow to L0R0 -->
+  <line x1="265" y1="73" x2="265" y2="85" stroke="black" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- L0 R0 -->
+  <rect x="160" y="82" width="210" height="22" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="265" y1="80" x2="265" y2="102" stroke="black" stroke-width="1.5"/>
+  <text x="212.5" y="92" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="red">
+    <tspan font-style="italic">L</tspan><tspan baseline-shift="sub" font-size="12">0</tspan>
+  </text>
+  <text x="317.5" y="92" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="red">
+    <tspan font-style="italic">R</tspan><tspan baseline-shift="sub" font-size="12">0</tspan>
+  </text>
+
+  <!-- Arrow to round box -->
+  <line x1="265" y1="102" x2="265" y2="115" stroke="black" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- Outer iterate box -->
+  <rect x="130" y="116" width="285" height="180" fill="none" stroke="black" stroke-width="1.8"/>
+
+  <!-- Inner top block Li-1 Ri-1 -->
+  <rect x="160" y="126" width="210" height="22" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="265" y1="126" x2="265" y2="148" stroke="black" stroke-width="1.5"/>
+  <text x="212.5" y="136" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="red">
+    <tspan font-style="italic">L</tspan><tspan baseline-shift="sub" font-size="12">i−1</tspan>
+  </text>
+  <text x="317.5" y="136" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="red">
+    <tspan font-style="italic">R</tspan><tspan baseline-shift="sub" font-size="12">i−1</tspan>
+  </text>
+
+  <!-- F box -->
+  <rect x="285" y="188" width="62" height="22" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="316" y="199" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="blue" font-style="italic">F</text>
+
+  <!-- Ki input -->
+  <text x="386" y="205" font-family="serif" font-size="16" fill="red">
+    <tspan font-style="italic">K</tspan><tspan baseline-shift="sub" font-size="12">i</tspan>
+  </text>
+  <line x1="380" y1="199" x2="352" y2="199" stroke="black" stroke-width="1.3" marker-end="url(#arrow)"/>
+
+  <!-- Ri-1 down into F -->
+  <line x1="317.5" y1="148" x2="317.5" y2="186" stroke="black" stroke-width="1.3" marker-end="url(#arrow)"/>
+
+  <!-- F down to xor -->
+  <line x1="316" y1="210" x2="316" y2="227" stroke="black" stroke-width="1.3" marker-end="url(#arrow)"/>
+
+  <!-- XOR -->
+  <circle cx="316" cy="232" r="7.5" fill="white" stroke="black" stroke-width="1.1"/>
+  <line x1="316" y1="226" x2="316" y2="238" stroke="black" stroke-width="1"/>
+  <line x1="310" y1="232" x2="322" y2="232" stroke="black" stroke-width="1"/>
+
+  <!-- Li-1 to xor -->
+  <line x1="212.5" y1="148" x2="212.5" y2="235" stroke="black" stroke-width="1.3"/>
+  <line x1="212.5" y1="235" x2="307" y2="235" stroke="black" stroke-width="1.3" marker-end="url(#arrow)"/>
+
+  <!-- Ri-1 cross to Li -->
+  <line x1="317.5" y1="148" x2="212.5" y2="255" stroke="black" stroke-width="1.1" marker-end="url(#arrow)"/>
+
+  <!-- xor to Ri -->
+  <line x1="316" y1="239.5" x2="316" y2="257" stroke="black" stroke-width="1.3" marker-end="url(#arrow)"/>
+
+  <!-- Bottom inner block Li Ri -->
+  <rect x="160" y="260" width="210" height="22" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="265" y1="260" x2="265" y2="282" stroke="black" stroke-width="1.5"/>
+  <text x="212.5" y="270" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="red">
+    <tspan font-style="italic">L</tspan><tspan baseline-shift="sub" font-size="12">i</tspan>
+  </text>
+  <text x="317.5" y="270" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="red">
+    <tspan font-style="italic">R</tspan><tspan baseline-shift="sub" font-size="12">i</tspan>
+  </text>
+
+  <!-- Arrow to Rr Lr -->
+  <line x1="265" y1="296" x2="265" y2="307" stroke="black" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- Final output block Rr Lr -->
+  <rect x="160" y="307" width="210" height="22" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="265" y1="305" x2="265" y2="327" stroke="black" stroke-width="1.5"/>
+  <text x="212.5" y="317" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="blue">
+    <tspan font-style="italic">R</tspan><tspan baseline-shift="sub" font-size="12">r</tspan>
+  </text>
+  <text x="317.5" y="317" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="blue">
+    <tspan font-style="italic">L</tspan><tspan baseline-shift="sub" font-size="12">r</tspan>
+  </text>
+
+  <!-- Arrow to IP^-1 -->
+  <line x1="265" y1="327" x2="265" y2="340" stroke="black" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- IP^-1 -->
+  <rect x="243" y="341" width="49" height="22" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="267.5" y="355" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="blue">
+    IP<tspan baseline-shift="super" font-size="12">−1</tspan>
+  </text>
+
+  <!-- Arrow to Ciphertext -->
+  <line x1="265" y1="365" x2="265" y2="375" stroke="black" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- Ciphertext block -->
+  <rect x="160" y="375" width="210" height="22" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="265" y="386" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="16" fill="blue">
+    Ciphertext block
+  </text>
+</svg>
