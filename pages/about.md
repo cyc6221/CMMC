@@ -9,13 +9,13 @@ toc: false
 
 I am CY.
 
-This is my [blog list]({{ "/blog-list/" | relative_url }}).
+- This is my [blog list]({{ "/blog-list/" | relative_url }}).
 
-This is my [reading list]({{ "/reading-list/" | relative_url }}).
+- This is my [reading list]({{ "/reading-list/" | relative_url }}).
 
-This is [site list]({{ "/site-list/" | relative_url }}).
+- This is [site list]({{ "/site-list/" | relative_url }}).
 
-This is [certificate list]({{ "/certificate-list/" | relative_url }}) and [my certificates]({{ "/my-certificates/" | relative_url }}).
+- This is [certificate list]({{ "/certificate-list/" | relative_url }}) and [my certificates]({{ "/my-certificates/" | relative_url }}).
 
 <!-- --- -->
 
