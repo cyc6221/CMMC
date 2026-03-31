@@ -3,7 +3,7 @@ layout: page
 title: DES
 date: 2026-03-31
 last_updated: 2026-03-31
-tags: [block-cipher, des, feistel-cipher, cryptography]
+tags: [block-cipher, DES]
 ---
 
 ## Basic Properties
