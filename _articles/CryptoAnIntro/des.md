@@ -23,11 +23,12 @@ DES 的整體流程如下：
 
 1. 對 $64$-bit plaintext 做 initial permutation
 2. 將結果切成左半與右半
-3. 執行 $16$ 輪 Feistel round
+3. 執行 $16$ 輪 identical operations
 4. 將兩半重新組合
 5. 進行 final permutation
+   - final permutation 是 initial permutation 的 inverse。
 
-final permutation 是 initial permutation 的 inverse。這種安排可使加密與解密在實作上更一致。
+![8.4-DES-as-a-feistel-cipher.svg]({{ '/assets/img/CryptoAnIntro/8.4-DES-as-a-feistel-cipher.svg' | relative_url }})
 
 若以 $(L_0, R_0)$ 表示初始分塊，則每輪更新為
 
@@ -45,6 +46,12 @@ DES 在主體 Feistel iteration 前後都加入 permutation。這些 permutation
 ## DES Round Function
 
 DES 每一輪中的函數 $F$ 由數個步驟組成。輸入是右半部 $32$ bits 與 round key $48$ bits，輸出為 $32$ bits。其流程如下：
+
+### Initial and Final Permutations
+
+DES 一開始使用 initial permutation $IP$，最後使用 inverse permutation $IP^{-1}$。若輸入 bit string 為 $x_1,\dots,x_{64}$，則 $IP$ 的表格表示輸出每一個位置從哪個輸入位置取值。換言之，若表中第一個數是 $58$，表示輸出第 $1$ bit 取自輸入第 $58$ bit。
+
+這些 permutation 可直接視為固定重排，不涉及金鑰與非線性運算。
 
 ### Expansion Permutation
 
@@ -111,12 +118,6 @@ $$
 &22\ 11\ 4\ 25
 \end{aligned}
 $$
-
-## Initial and Final Permutations
-
-DES 一開始使用 initial permutation $IP$，最後使用 inverse permutation $IP^{-1}$。若輸入 bit string 為 $x_1,\dots,x_{64}$，則 $IP$ 的表格表示輸出每一個位置從哪個輸入位置取值。換言之，若表中第一個數是 $58$，表示輸出第 $1$ bit 取自輸入第 $58$ bit。
-
-這些 permutation 可直接視為固定重排，不涉及金鑰與非線性運算。
 
 ## Key Schedule
 
