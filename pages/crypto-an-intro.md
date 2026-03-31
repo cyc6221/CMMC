@@ -9,9 +9,9 @@ toc: false
 
 - [Block Cipher]({{ "/articles/CryptoAnIntro/block-cipher/" | relative_url }})
 - [Feistel Cipher]({{ "/articles/CryptoAnIntro/feistel-cipher/" | relative_url }})
-- [DES]({{ "/articles/CryptoAnIntro/des/" | relative_url }})
-- [Rijndael]({{ "/articles/CryptoAnIntro/rijndael/" | relative_url }})
-- [Modes of Operation]({{ "/articles/CryptoAnIntro/modes-of-operation/" | relative_url }})
+- [DES]({{ "/articles/CryptoAnIntro/des/" | relative_url }}) <span class="lab-status">Updating</span>
+- [Rijndael]({{ "/articles/CryptoAnIntro/rijndael/" | relative_url }}) <span class="lab-status">Updating</span>
+- [Modes of Operation]({{ "/articles/CryptoAnIntro/modes-of-operation/" | relative_url }}) <span class="lab-status">Updating</span>
 
 ## Chapter 12: Primality Testing
 
