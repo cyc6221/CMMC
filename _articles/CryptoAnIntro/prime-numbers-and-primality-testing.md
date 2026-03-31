@@ -2,7 +2,7 @@
 layout: page
 title: Prime Numbers and Primality Testing
 date: 2026-03-29
-last_updated: 2026-03-30
+last_updated: 2026-03-31
 tags: [prime, primality-testing]
 ---
 
