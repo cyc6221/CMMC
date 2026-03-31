@@ -60,22 +60,26 @@ $$
 <div class="algorithm">
 <strong>Algorithm. Miller-Rabin test for primality</strong>
 
-<pre><code>Write $n-1=2^s m$, with $m$ odd
-
-for $j=0$ to $k-1$ do
-    Pick $a$ from $[2,\ldots,n-2]$
-    $b=a^m \bmod n$
-    if $b\ne 1$ and $b\ne n-1$ then
-        $i=1$
-        while $i&lt;s$ and $b\ne n-1$ do
-            $b=b^2 \bmod n$
-            if $b=1$ then return $(\text{Composite},a)$
-            $i=i+1$
-        end
-        if $b\ne n-1$ then return $(\text{Composite},a)$
-    end
-end
-return ("Probably Prime")</code></pre>
+\[
+\begin{aligned}
+&\textbf{Algorithm. Miller\text{-}Rabin test for primality}\\[4pt]
+&\text{Write } n-1=2^s m,\ \text{with } m \text{ odd}\\[6pt]
+&\text{for } j=0 \text{ to } k-1 \text{ do}\\
+&\qquad \text{Pick } a \text{ from } [2,\ldots,n-2]\\
+&\qquad b=a^m \bmod n\\
+&\qquad \text{if } b\ne 1 \text{ and } b\ne n-1 \text{ then}\\
+&\qquad\qquad i=1\\
+&\qquad\qquad \text{while } i<s \text{ and } b\ne n-1 \text{ do}\\
+&\qquad\qquad\qquad b=b^2 \bmod n\\
+&\qquad\qquad\qquad \text{if } b=1 \text{ then return } (\text{Composite},a)\\
+&\qquad\qquad\qquad i=i+1\\
+&\qquad\qquad \text{end}\\
+&\qquad\qquad \text{if } b\ne n-1 \text{ then return } (\text{Composite},a)\\
+&\qquad \text{end}\\
+&\text{end}\\
+&\text{return } \text{Probably Prime}
+\end{aligned}
+\]
 </div>
 
 ### Step 1: Compute $a^m \bmod n$
