@@ -3,7 +3,7 @@ layout: page
 title: Modes of Operation
 date: 2026-03-31
 last_updated: 2026-03-31
-tags: [block-cipher, modes-of-operation, ecb, cbc, ofb, cfb, ctr, cryptography]
+tags: [block-cipher, modes-of-operation]
 ---
 
 ## Basic Idea
