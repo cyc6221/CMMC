@@ -22,7 +22,7 @@ toc: false
 - [Miller-Rabin Primality Test]({{ "/articles/CryptoAnIntro/miller-rabin-primality-test/" | relative_url }})
 - [Primality Proving Algorithms]({{ "/articles/CryptoAnIntro/primality-proving-algorithms/" | relative_url }})
   - [ECPP]({{ "/articles/CryptoAnIntro/ECPP/" | relative_url }}) <span class="lab-status">Working on it</span>
-  - [Adleman–Huang Algorithm]({{ "/articles/CryptoAnIntro/adleman-huang-algorithm/" | relative_url }}) <span class="lab-status">Working on it</span>
+  - [Adleman–Huang Algorithm]({{ "/articles/CryptoAnIntro/Adleman-Huang-algorithm/" | relative_url }}) <span class="lab-status">Working on it</span>
 
 ### Factoring Algorithms
 

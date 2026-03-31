@@ -76,7 +76,7 @@ ECPP is a randomized algorithm. Its practical performance is strong, but its ter
 
 除了 ECPP 之外，另一條不同的路線是 Adleman–Huang primality proving algorithm。它和 ECPP 的主要差別，在於它對 termination 有更強的數學保證；相關內容可參見
 
-當輸入是 prime 時，[Adleman–Huang Algorithm]({{ "/articles/CryptoAnIntro/adleman-huang-algorithm/" | relative_url }}) 保證能夠終止並輸出 proof of primality。這一點與 ECPP 形成了明顯對比。
+當輸入是 prime 時，[Adleman–Huang Algorithm]({{ "/articles/CryptoAnIntro/Adleman-Huang-algorithm/" | relative_url }}) 保證能夠終止並輸出 proof of primality。這一點與 ECPP 形成了明顯對比。
 
 ### Hyperelliptic Curves
 
