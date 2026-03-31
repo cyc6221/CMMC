@@ -79,12 +79,17 @@ $$
 <div class="algorithm">
 <strong>Algorithm. Fermat’s test for primality</strong>
 
-<pre><code>for $i=0$ to $k-1$ do
-    Pick $a$ from $[2,\ldots,n-1]$
-    $b=a^{n-1}\bmod n$
-    if $b\ne 1$ then return $(\text{Composite},a)$
-end
-return ("Probably Prime")</code></pre>
+\[
+\begin{aligned}
+&\textbf{Algorithm. Fermat's test for primality}\\
+&\text{for } i=0 \text{ to } k-1 \text{ do}\\
+&\qquad \text{Pick } a \text{ from } [2,\ldots,n-1]\\
+&\qquad b=a^{n-1}\bmod n\\
+&\qquad \text{if } b\ne 1 \text{ then return } (\text{Composite}, a)\\
+&\text{end}\\
+&\text{return } \text{Probably Prime}
+\end{aligned}
+\]
 </div>
 
 這裡的關鍵是 modular exponentiation 可以在 polynomial time 內完成，因此單次測試相當快。整個方法之所以可行，不是因為它保證一次就判定質數，而是因為它可以非常快速地重複許多次。
