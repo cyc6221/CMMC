@@ -3,7 +3,7 @@ layout: page
 title: Feistel Cipher
 date: 2026-03-31
 last_updated: 2026-03-31
-tags: [block-cipher, feistel-cipher, des, cryptography]
+tags: [block-cipher, DES]
 ---
 
 ## Basic Idea
