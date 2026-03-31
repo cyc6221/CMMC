@@ -6,8 +6,6 @@ last_updated: 2026-03-31
 tags: [block-cipher, DES]
 ---
 
-## Basic Properties
-
 DES 是一種以 Feistel 結構為基礎的 block cipher。其基本參數為：
 
 - round 數為 $16$
@@ -16,6 +14,8 @@ DES 是一種以 Feistel 結構為基礎的 block cipher。其基本參數為：
 - 每個 round key $K_1, \dots, K_{16}$ 為 $48$ bits
 
 由於 $56$-bit key 對現代應用而言偏短，因此實務上常見以多次 DES 組合成 3DES，以增加有效金鑰長度。
+
+![8.3-triple-DES.svg]({{ '/assets/img/CryptoAnIntro/8.3-triple-DES.svg' | relative_url }})
 
 ## Overall Structure
 
