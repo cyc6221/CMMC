@@ -21,15 +21,19 @@ $$
 ### Encryption
 
 $$
-L_i = R_{i-1},
-R_i = L_{i-1} \oplus F(K_i, R_{i-1}).
+\begin{aligned}
+L_i &= R_{i-1} \\
+R_i &= L_{i-1} \oplus F(K_i, R_{i-1})
+\end{aligned}
 $$
 
 ### Decryption
 
 $$
-R_{i-1} = L_i,
-L_{i-1} = R_i \oplus F(K_i, L_i).
+\begin{aligned}
+R_{i-1} &= L_i \\
+L_{i-1} &= R_i \oplus F(K_i, L_i)
+\end{aligned}
 $$
 
 ## Round Invertibility
