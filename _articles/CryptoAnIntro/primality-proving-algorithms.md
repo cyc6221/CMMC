@@ -3,7 +3,7 @@ layout: page
 title: Primality Proving Algorithms
 date: 2026-03-29
 last_updated: 2026-03-31
-tags: [primality-testing, ecpp, elliptic-curves, hyperelliptic-curves]
+tags: [primality-testing, primality-proving]
 ---
 
 **Primality Proving Algorithm** 的目標，是對一個整數是否為 prime 給出可被獨立驗證的證明。也就是說，它不只是輸出判定結果，而是進一步產生一份 certificate，使第三方也能確認該整數確實為 prime。
@@ -44,7 +44,7 @@ In practice, primality proving is often applied only after a number has already 
 
 ## ECPP
 
-ECPP 是目前最成功的 primality proving algorithms 之一。ECPP 是 **Elliptic Curve Primality Proving** 的縮寫，表示它是一種建立在 elliptic curves 上的 primality proving method。它延續了較早期 finite-field primality proving 的思路，並將這種證明框架推進到 elliptic-curve setting 中；其具體內容可見 [ECPP]({{ "/articles/CryptoAnIntro/ECPP/" | relative_url }}).
+[ECPP]({{ "/articles/CryptoAnIntro/ECPP/" | relative_url }}) 是目前最成功的 primality proving algorithms 之一。ECPP 是 **Elliptic Curve Primality Proving** 的縮寫，表示它是一種建立在 elliptic curves 上的 primality proving method。它延續了較早期 finite-field primality proving 的思路，並將這種證明框架推進到 elliptic-curve setting 中。
 
 ### Nature of ECPP
 
@@ -74,9 +74,9 @@ ECPP is a randomized algorithm. Its practical performance is strong, but its ter
 
 ## Adleman–Huang Algorithm
 
-除了 ECPP 之外，另一條不同的路線是 Adleman–Huang primality proving algorithm。它和 ECPP 的主要差別，在於它對 termination 有更強的數學保證；相關內容可參見 [Adleman–Huang Algorithm]({{ "/articles/CryptoAnIntro/adleman-huang-algorithm/" | relative_url }}).
+除了 ECPP 之外，另一條不同的路線是 Adleman–Huang primality proving algorithm。它和 ECPP 的主要差別，在於它對 termination 有更強的數學保證；相關內容可參見
 
-當輸入是 prime 時，Adleman–Huang algorithm 保證能夠終止並輸出 proof of primality。這一點與 ECPP 形成了明顯對比。
+當輸入是 prime 時，[Adleman–Huang Algorithm]({{ "/articles/CryptoAnIntro/adleman-huang-algorithm/" | relative_url }}) 保證能夠終止並輸出 proof of primality。這一點與 ECPP 形成了明顯對比。
 
 ### Hyperelliptic Curves
 
