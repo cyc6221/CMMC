@@ -16,6 +16,22 @@ $$
 
 ![8.2-basic-operation-of-a-feistel-cipher.svg]({{ '/assets/img/CryptoAnIntro/8.2-basic-operation-of-a-feistel-cipher.svg' | relative_url }})
 
+## Encryption and Decryption
+
+### Encryption
+
+$$
+L_i = R_{i-1},
+R_i = L_{i-1} \oplus F(K_i, R_{i-1}).
+$$
+
+### Decryption
+
+$$
+R_{i-1} = L_i,
+L_{i-1} = R_i \oplus F(K_i, L_i).
+$$
+
 ## Round Invertibility
 
 Feistel 結構的可逆性可以直接由 round update 式子看出。已知
