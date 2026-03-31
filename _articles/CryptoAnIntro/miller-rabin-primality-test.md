@@ -41,7 +41,7 @@ a^m,\ a^{2m},\ a^{2^2m},\ \dots,\ a^{2^{s}m}\pmod n.
 $$
 </div>
 
-## Decomposition of $n-1$
+### Why write $n-1=2^s m$?
 
 把 $n-1$ 拆成 $2$ 的冪次乘上一個奇數，相當於把指數中的二進位結構分離出來。這使得演算法不是只檢查單一 congruence
 $$
@@ -58,38 +58,25 @@ $$
 ## Algorithm
 
 <div class="algorithm">
-<strong>Algorithm 12.2: Miller-Rabin Algorithm</strong>
+<strong>Algorithm. Miller-Rabin test for primality</strong>
 
-Write $n-1=2^s m$, with $m$ odd
+<pre><code>Write $n-1=2^s m$, with $m$ odd
 
 for $j=0$ to $k-1$ do
-
-pick $a$ from $[2,\ldots,n-2]$
-
-$b=a^m \bmod n$
-
-if $b\ne 1$ and $b\ne (n-1)$ then
-
-$i=1$ while $i<s$ and $b\ne (n-1)$ do
-
-$b=b^2 \bmod n$
-
-if $b=1$ then return $(\text{Composite},a)$
-
-$i=i+1$
-
+    Pick $a$ from $[2,\ldots,n-2]$
+    $b=a^m \bmod n$
+    if $b\ne 1$ and $b\ne n-1$ then
+        $i=1$
+        while $i&lt;s$ and $b\ne n-1$ do
+            $b=b^2 \bmod n$
+            if $b=1$ then return $(\text{Composite},a)$
+            $i=i+1$
+        end
+        if $b\ne n-1$ then return $(\text{Composite},a)$
+    end
 end
-
-if $b\ne (n-1)$ then return $(\text{Composite},a)$
-
-end
-
-end
-
-return ("Probable Prime")
+return ("Probably Prime")</code></pre>
 </div>
-
-這個流程可分成三個判斷層次。
 
 ### Step 1: Compute $a^m \bmod n$
 
@@ -129,7 +116,9 @@ $$
 $$
 最後仍未到達 $n-1$，也同樣可判定 $n$ 為 composite。
 
-## Structural Intuition
+## Why the Test Works
+
+### Structural Intuition
 
 若 $n=p$ 是 odd prime，則在有限域 $\mathbb{F}_p$ 中，方程式
 $$
@@ -195,7 +184,7 @@ $$
 
 這個 lemma 是 Miller-Rabin 判定規則的核心。測試所偵測的，正是 composite modulus 下可能出現、但 prime modulus 下不會出現的非平凡平方根結構。
 
-## Miller-Rabin Witness
+### Miller-Rabin Witness
 
 若對某個 base $a$，Miller-Rabin test 輸出
 $$
@@ -215,11 +204,11 @@ If $n$ is composite, then $a$ is called a <em>Miller-Rabin witness</em> for the 
 A Miller-Rabin witness is a certificate of compositeness: once a witness $a$ is found, the failure can be verified efficiently by repeating the same modular computations.
 </div>
 
-## Probable Prime
+### Probable Prime
 
 若對隨機挑選的 $k$ 個 bases，演算法都沒有找到 witness，則輸出
 $$
-\text{"Probable Prime"}.
+\text{"Probably Prime"}.
 $$
 這個輸出不是 primality proof，而只是表示：在目前測過的 bases 中，沒有觀察到 composite 的證據。
 
@@ -230,13 +219,13 @@ An integer $n$ that passes the Miller-Rabin test for a chosen set of bases is ca
 
 因此，Miller-Rabin 的語意與 deterministic primality proof 不同。它不是保證「一定是 prime」，而是表示「若是 composite，被隨機 base 漏掉的機率很小」。
 
-## Error Probability
+### Error Probability
 
 Miller-Rabin 的重要性在於它有比 Fermat test 更強的錯誤機率控制。對 composite 的 $n$，對每一個隨機 base $a$，演算法把它錯誤接受為 prime 的機率至多是
 $$
 \frac14.
 $$
-因此若用 $k$ 個不同的 bases 重複測試，且每一次都回傳 “Probable Prime”，則總錯誤機率至多為
+因此若用 $k$ 個不同的 bases 重複測試，且每一次都回傳 “Probably Prime”，則總錯誤機率至多為
 $$
 \left(\frac14\right)^k.
 $$
@@ -264,7 +253,9 @@ $$
 Repeated application of the Miller-Rabin test drives the error probability down exponentially fast, which is why it is widely used in practical prime generation.
 </div>
 
-## Comparison with Fermat Test
+## Comparison and Practice
+
+### Comparison with Fermat Test
 
 Fermat test 只檢查
 $$
@@ -287,7 +278,7 @@ $$
 it also checks whether the intermediate repeated squaring steps are consistent with the structure of a prime modulus.
 </div>
 
-## Choice of Bases
+### Choice of Bases
 
 實作上，演算法在每一輪會從
 $$
@@ -297,7 +288,7 @@ $$
 
 若目標是高效率且高可信度的 primality testing，常見策略就是選擇適量的 bases 重複執行。這樣做的成本主要來自 modular exponentiation，但這仍然相當快，因此整體演算法非常適合用在 large prime generation 的前置階段。
 
-## GRH and Small Witnesses
+### GRH and Small Witnesses
 
 在理論上，Miller-Rabin 還有一個與 small witnesses 有關的性質。若 $n$ 是 composite，則在 Generalized Riemann Hypothesis 之下，可以保證存在一個 Miller-Rabin witness $a$，其大小滿足
 $$
@@ -315,7 +306,7 @@ $$
 
 這個性質表示：在額外的數論假設下，Miller-Rabin 不只是一個隨機化演算法，也能與較小範圍的 base 搜尋建立更強的理論連結。
 
-## Practical Interpretation
+### Practical Interpretation
 
 Miller-Rabin 的輸出可以分成兩種理解：
 
