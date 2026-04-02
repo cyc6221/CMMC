@@ -26,6 +26,8 @@ toc: false
 - [VulnHub](https://www.vulnhub.com/)
 - [OffSec Proving Grounds](https://www.offsec.com/products/proving-grounds/)
 
+- [OSCP (PEN-200) 之心路歷程](https://4hsienyang.medium.com/oscp-pen-200-review-7e74e2374a4a)
+
 ## To Read
 
 - Steven Galbraith. [Mathematics of Public Key Cryptography](https://www.math.auckland.ac.nz/~sgal018/crypto-book/main.pdf)
