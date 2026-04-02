@@ -5,7 +5,7 @@ permalink: /certificate-list/
 toc: false
 ---
 
-This is [my certificates list]({{ "/my-certificates/" | relative_url }}).
+This is [my certificates list]({{ "/my-certificates/" | relative_url }}) and [reading list]({{ "/reading-list/" | relative_url }}).
 
 ## ISC2
 
