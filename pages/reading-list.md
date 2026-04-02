@@ -28,6 +28,9 @@ toc: false
 
 - [OSCP (PEN-200) 之心路歷程](https://4hsienyang.medium.com/oscp-pen-200-review-7e74e2374a4a)
 
+- [HackerCat](https://hackercat.org/)
+  - [OSCP 2025 認證準備與心得分享](https://hackercat.org/oscp/oscp-review)
+
 ## Certificates
 
 - [ISC2](https://www.isc2.org/) (vendor)
