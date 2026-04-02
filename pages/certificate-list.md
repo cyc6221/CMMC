@@ -21,47 +21,74 @@ This is [my certificates list]({{ "/my-certificates/" | relative_url }}).
   - [HCISPP（HealthCare Information Security and Privacy Practitioner）](https://www.isc2.org/certifications/hcispp)
   - [SSCP（Systems Security Certified Practitioner）](https://www.isc2.org/certifications/sscp) `安全維運 / 系統實作` `1+ years experience`
 
----
+## Cisco
 
-## Certificates
+- [Cisco](https://www.cisco.com/)
+  - [CCNA](https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html) `基礎網路`
+  - [CCNP Security](https://www.cisco.com/) `企業網路/資安`
 
-- Cisco
-  - CCNA
-  - CCNP Security
-- CompTIA
-  - CompTIA CySA+
-  - CompTIA PenTest+
-  - CompTIA SecurityX
-  - CompTIA Security +
-- ISACA
-  - CISA
-  - CISM
-  - CRISC
-  - CGEIT
-- OffSec (Offensive Security)
-  - OSCP / OSCP+（OffSec Certified Professional）
-  - OSCE / OSCE³（Offensive Security Certified Expert）
-  - OSED
-  - OSEE
-  - OSEP
-  - OSWP（OffSec Wireless Professional）
-  - OSWE
-- ISO／資安管理與稽核體系
-  - ISO 22301 稽核員／主導稽核員
-  - ISO/IEC 27001 稽核員／主導稽核員
-  - ISO/IEC 27701 稽核員／主導稽核員
-  - ISO/IEC 27017 主導稽核員
-  - ISO/IEC 27018 主導稽核員
-- iPAS（經濟部能力鑑定）
-  - 資安工程師能力鑑定－初級
-  - 資安工程師能力鑑定－中級
-- ISA
-  - ISA / IEC 62443 Cybersecurity Design Specialist
-  - ISA / IEC 62443 Cybersecurity Expert
-  - ISA / IEC 62443 Cybersecurity Fundamentals Specialist
-  - ISA / IEC 62443 Cybersecurity Risk Assessment Specialist
-  - ISA / IEC 62443 Cybersecurity Maintenance Specialist
-- CyberAB
-  - CMMC Certified Professional（CCP）
-  - CMMC Certified Assessor Level 1（CCA-1）
-  - CMMC Certified Assessor Level 2（CCA-2）
+## CompTIA
+
+- [CompTIA](https://www.comptia.org/)
+  - [CompTIA Security+](https://www.comptia.org/certifications/security) `入門資安`
+  - [CompTIA CySA+](https://www.comptia.org/certifications/cybersecurity-analyst) `資安分析`
+  - [CompTIA PenTest+](https://www.comptia.org/certifications/pentest) `滲透測試`
+  - CompTIA SecurityX `資安進階/綜合`
+
+## ISACA
+
+- [ISACA](https://www.isaca.org/)
+  - [CISA](https://www.isaca.org/credentialing/cisa) `資安稽核`
+  - [CISM](https://www.isaca.org/credentialing/cism) `資安管理`
+  - [CRISC](https://www.isaca.org/credentialing/crisc) `風險管理`
+  - [CGEIT](https://www.isaca.org/credentialing/cgeit) `IT 治理`
+
+## OffSec (Offensive Security)
+
+- [Offensive Security](https://www.offsec.com/)
+  - [OSAI](https://www.offsec.com/courses/ai-300/) `AI-300` `Advanced`
+  - [OSCP](https://www.offsec.com/courses/pen-200/) `PEN-200` `Foundational`
+  - [OSEP](https://www.offsec.com/courses/pen-300/) `PEN-300` `Advanced`
+  - [OSWE](https://www.offsec.com/courses/web-300/) `WEB-300` `Advanced`
+  - [OSWA](https://www.offsec.com/courses/web-200/) `WEB-200` `Foundational`
+  - [OSED](https://www.offsec.com/courses/exp-301/) `EXP-301` `Advanced`
+  - [OSEE](https://www.offsec.com/courses/exp-401/) `EXP-401` `Expert`
+  - [OSDA](https://www.offsec.com/courses/soc-200/) `SOC-200` `Foundational`
+  - [OSTH](https://www.offsec.com/courses/th-200/) `TH-200` `Foundational`
+  - [OSIR](https://www.offsec.com/courses/ir-200/) `IR-200` `Foundational`
+  - [OSCC-SEC](https://www.offsec.com/courses/sec-100/) `SEC-100` `Essentials`
+  - [OSCC-SJD](https://www.offsec.com/courses/sjd-100/) `SJD-100` `Essentials`
+  - [KLCP](https://www.offsec.com/courses/pen-103/) `PEN-103` `Foundational`
+  - [OSWP](https://www.offsec.com/courses/oswp/) `OSWP` `Foundational`
+  - [OSCE³](https://www.offsec.com/certificates/osce3/) `OSCE3` `Expert`
+
+## ISO／資安管理與稽核體系
+
+- ISO 系列
+  - ISO 22301 `營運持續性管理 / 稽核員／主導稽核員`
+  - ISO/IEC 27001 `資訊安全管理系統 / 稽核員／主導稽核員`
+  - ISO/IEC 27701 `隱私資訊管理 / 稽核員`
+  - ISO/IEC 27017 `雲端服務安全 / 主導稽核員`
+  - ISO/IEC 27018 `個人資料保護 (雲端) / 主導稽核員`
+
+## iPAS（經濟部能力鑑定）
+
+- iPAS
+  - 資安工程師能力鑑定－初級 `基礎實作`
+  - 資安工程師能力鑑定－中級 `進階實作`
+
+## ISA
+
+- [ISA](https://www.isa.org/)
+  - ISA / IEC 62443 Cybersecurity Design Specialist `工控/OT 資安`
+  - ISA / IEC 62443 Cybersecurity Expert `工控/OT 深度`
+  - ISA / IEC 62443 Cybersecurity Fundamentals Specialist `基礎`
+  - ISA / IEC 62443 Cybersecurity Risk Assessment Specialist `風險評估`
+  - ISA / IEC 62443 Cybersecurity Maintenance Specialist `維運`
+
+## CyberAB / CMMC
+
+- [CyberAB](https://cyberab.org/)
+  - [CMMC Certified Professional（CCP）](https://cyberab.org/) `CMMC 基礎`
+  - CMMC Certified Assessor Level 1（CCA-1） `評估員 L1`
+  - CMMC Certified Assessor Level 2（CCA-2） `評估員 L2`
