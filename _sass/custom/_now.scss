@@ -254,21 +254,21 @@ header.now-head::after {
   font-size: 13px;
 }
 
-/* responsive */
+/* specific to Prime.html */
 
-@media (max-width: 640px) {
-  header.now-head {
-    align-items: flex-start;
-  }
+.primality-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: start;
+}
 
-  .now-title {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
+.primality-column h4 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
 
-  .now-badge {
-    width: 100%;
-    white-space: normal;
-  }
+.primality-column .now-list {
+    margin: 0;
+    padding-left: 1.2rem;
 }
