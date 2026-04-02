@@ -51,6 +51,7 @@ This is [my certificates list]({{ "/my-certificates/" | relative_url }}).
 
 - [OSCC-SEC](https://www.offsec.com/courses/sec-100/) `SEC-100`
 - [OSCC-SJD](https://www.offsec.com/courses/sjd-100/) `SJD-100`
+- [KLCP](https://www.offsec.com/courses/pen-103/) `PEN-103`
 
 ### Foundational
 
@@ -59,8 +60,7 @@ This is [my certificates list]({{ "/my-certificates/" | relative_url }}).
 - [OSDA](https://www.offsec.com/courses/soc-200/) `SOC-200`
 - [OSTH](https://www.offsec.com/courses/th-200/) `TH-200`
 - [OSIR](https://www.offsec.com/courses/ir-200/) `IR-200`
-- [KLCP](https://www.offsec.com/courses/pen-103/) `PEN-103`
-- [OSWP](https://www.offsec.com/courses/oswp/) `OSWP`
+- [OSWP](https://www.offsec.com/courses/oswp/) `PEN-210`
 
 ### Advanced
 
@@ -72,7 +72,6 @@ This is [my certificates list]({{ "/my-certificates/" | relative_url }}).
 ### Expert
 
 - [OSEE](https://www.offsec.com/courses/exp-401/) `EXP-401`
-- [OSCE³](https://www.offsec.com/certificates/osce3/) `OSCE3`
 
 ## ISO／資安管理與稽核體系
 
