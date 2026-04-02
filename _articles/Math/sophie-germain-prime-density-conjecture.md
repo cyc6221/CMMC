@@ -18,7 +18,7 @@ $$
 為 twin prime constant。這表示 Sophie-Germain primes 被預期具有與 twin primes 類似的漸近分布規律，其數量約為 $\dfrac{x}{(\log x)^2}$ 的等級，而常數因子則由上述乘積給出。這個猜想可視為 Hardy–Littlewood 型質數分布預測在 $p$ 與 $2p+1$ 同時為質數這種情形下的具體表現。
 
 <div class="definition">
-<strong>Sophie-Germain Prime Density Conjecture</strong><br>
+<strong>Sophie-Germain Prime Density Conjecture</strong>
 The number of primes $q \le m$ such that $2q + 1$ is also a prime is asymptotically $\dfrac{2C_2 m}{\ln^2 m}$ where $C_2$ is the twin prime constant (estimated to be approximately $0.66$). Primes $q$ with this property are called Sophie-Germain primes.
 </div>
 
