@@ -60,7 +60,7 @@ This is [my certificates list]({{ "/my-certificates/" | relative_url }}).
 - [OSDA](https://www.offsec.com/courses/soc-200/) `SOC-200`
 - [OSTH](https://www.offsec.com/courses/th-200/) `TH-200`
 - [OSIR](https://www.offsec.com/courses/ir-200/) `IR-200`
-- [OSWP](https://www.offsec.com/courses/oswp/) `PEN-210`
+- [OSWP](https://www.offsec.com/courses/pen-210/) `PEN-210`
 
 ### Advanced
 
