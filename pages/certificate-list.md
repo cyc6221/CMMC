@@ -46,21 +46,33 @@ This is [my certificates list]({{ "/my-certificates/" | relative_url }}).
 ## OffSec (Offensive Security)
 
 - [Offensive Security](https://www.offsec.com/)
-  - [OSAI](https://www.offsec.com/courses/ai-300/) `AI-300` `Advanced`
-  - [OSCP](https://www.offsec.com/courses/pen-200/) `PEN-200` `Foundational`
-  - [OSEP](https://www.offsec.com/courses/pen-300/) `PEN-300` `Advanced`
-  - [OSWE](https://www.offsec.com/courses/web-300/) `WEB-300` `Advanced`
-  - [OSWA](https://www.offsec.com/courses/web-200/) `WEB-200` `Foundational`
-  - [OSED](https://www.offsec.com/courses/exp-301/) `EXP-301` `Advanced`
-  - [OSEE](https://www.offsec.com/courses/exp-401/) `EXP-401` `Expert`
-  - [OSDA](https://www.offsec.com/courses/soc-200/) `SOC-200` `Foundational`
-  - [OSTH](https://www.offsec.com/courses/th-200/) `TH-200` `Foundational`
-  - [OSIR](https://www.offsec.com/courses/ir-200/) `IR-200` `Foundational`
-  - [OSCC-SEC](https://www.offsec.com/courses/sec-100/) `SEC-100` `Essentials`
-  - [OSCC-SJD](https://www.offsec.com/courses/sjd-100/) `SJD-100` `Essentials`
-  - [KLCP](https://www.offsec.com/courses/pen-103/) `PEN-103` `Foundational`
-  - [OSWP](https://www.offsec.com/courses/oswp/) `OSWP` `Foundational`
-  - [OSCE³](https://www.offsec.com/certificates/osce3/) `OSCE3` `Expert`
+
+### Essentials
+
+- [OSCC-SEC](https://www.offsec.com/courses/sec-100/) `SEC-100` `Essentials`
+- [OSCC-SJD](https://www.offsec.com/courses/sjd-100/) `SJD-100` `Essentials`
+
+### Foundational
+
+- [OSCP](https://www.offsec.com/courses/pen-200/) `PEN-200` `Foundational`
+- [OSWA](https://www.offsec.com/courses/web-200/) `WEB-200` `Foundational`
+- [OSDA](https://www.offsec.com/courses/soc-200/) `SOC-200` `Foundational`
+- [OSTH](https://www.offsec.com/courses/th-200/) `TH-200` `Foundational`
+- [OSIR](https://www.offsec.com/courses/ir-200/) `IR-200` `Foundational`
+- [KLCP](https://www.offsec.com/courses/pen-103/) `PEN-103` `Foundational`
+- [OSWP](https://www.offsec.com/courses/oswp/) `OSWP` `Foundational`
+
+### Advanced
+
+- [OSAI](https://www.offsec.com/courses/ai-300/) `AI-300` `Advanced`
+- [OSEP](https://www.offsec.com/courses/pen-300/) `PEN-300` `Advanced`
+- [OSWE](https://www.offsec.com/courses/web-300/) `WEB-300` `Advanced`
+- [OSED](https://www.offsec.com/courses/exp-301/) `EXP-301` `Advanced`
+
+### Expert
+
+- [OSEE](https://www.offsec.com/courses/exp-401/) `EXP-401` `Expert`
+- [OSCE³](https://www.offsec.com/certificates/osce3/) `OSCE3` `Expert`
 
 ## ISO／資安管理與稽核體系
 
