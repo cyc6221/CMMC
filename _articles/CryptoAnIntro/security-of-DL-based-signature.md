@@ -23,9 +23,9 @@ tags: [signature, Schnorr, DSA, EC-DSA, forking-lemma, random-oracle]
 <div class="example">
 <strong>Example.</strong>
 <ul>
-  <li>DSA: $\sigma_1 = \emptyset$, $h = H(m)$, $$\sigma_2 = \left(r,\frac{h+xr}{k} \bmod q\right)$$, where $r = (g^k \bmod p) \bmod q$</li>
-  <li>EC-DSA: $\sigma_1 = \emptyset$, $h = H(m)$, $$\sigma_2 = \left(r,\frac{h+xr}{k} \bmod q\right)$$, where $r = x\text{-coord}([k]G)$</li>
-  <li>Schnorr signatures: $\sigma_1 = g^k$, $h = H(\sigma_1 \| m)$, $$\sigma_2 = xh + k \bmod q$$</li>
+  <li>DSA: $\sigma_1 = \emptyset$, $h = H(m)$, $$\sigma_2 = \left(r,\frac{h+xr}{k} \bmod q\right),$$ where $r = (g^k \bmod p) \bmod q$</li>
+  <li>EC-DSA: $\sigma_1 = \emptyset$, $h = H(m)$, $$\sigma_2 = \left(r,\frac{h+xr}{k} \bmod q\right),$$ where $r = x\text{-coord}([k]G)$</li>
+  <li>Schnorr signatures: $\sigma_1 = g^k$, $h = H(\sigma_1 \| m)$, $$\sigma_2 = xh + k \bmod q.$$</li>
 </ul>
 </div>
 
