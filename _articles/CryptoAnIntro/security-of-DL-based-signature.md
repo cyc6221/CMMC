@@ -29,6 +29,11 @@ tags: [signature, Schnorr, DSA, EC-DSA, forking-lemma, random-oracle]
 </ul>
 </div>
 
+<div class="remark">
+<strong>Note.</strong>
+In all of these schemes the hash function is assumed to have codomain equal to $\mathbb{F}_q$.
+</div>
+
 在 random oracle model 中，reduction $B^A$ 可以控制 hash oracle 的回答。若 adversary $A$ 能以 non-negligible probability 產生 existential forgery，則可假設它一定曾查詢過關鍵的 hash 值 $h = H(\sigma_1 \| m)$；否則 reduction 可以代為補查，不影響分析。
 
 forking lemma 的操作是：讓 $A$ 在**相同 random tape** 下執行兩次。第一次正常回答所有 hash queries；第二次則挑某一個 hash query，將其回答改成另一個值。若剛好被改動的是 critical hash query，則兩次執行會得到同一訊息上的兩份 forgery：
