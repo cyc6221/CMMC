@@ -49,7 +49,7 @@ DES 的整體運算可分成兩個層次來看。最外層先對 $64$-bit 輸入
 
 ## Initial and Final Permutations
 
-DES 一開始對輸入區塊施加 initial permutation $IP$，最後再施加 inverse permutation $IP^{-1}$)。這兩個 permutation 都是固定的 bit 重排，不涉及金鑰，也不提供非線性；它們的作用是按照既定位置重新排列輸入與輸出 bits。
+DES 一開始對輸入區塊施加 initial permutation $IP$，最後再施加 inverse permutation $IP^{-1}$。這兩個 permutation 都是固定的 bit 重排，不涉及金鑰，也不提供非線性；它們的作用是按照既定位置重新排列輸入與輸出 bits。
 
 若輸入 bit string 為 $x_1,\dots,x_{64}$，則 $IP$ 的表格表示輸出各位置分別取自哪一個輸入位置。例 如表中左上角是 $58$，表示輸出第 $1$ 個 bit 取自輸入第 $58$ 個 bit。
 
