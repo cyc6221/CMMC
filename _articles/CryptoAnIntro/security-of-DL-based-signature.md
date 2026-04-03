@@ -12,17 +12,22 @@ tags: [signature, Schnorr, DSA, EC-DSA, forking-lemma, random-oracle]
 
 ## Forking Lemma
 
-在這裡考慮的簽章方案中，簽章通常可以抽象寫成下列形式：
+在這裡考慮的簽章方案中，簽章通常可以抽象寫成下列形式，SIGNER 動作如下：
 
-- signer 先產生一個可能為空的 commitment $\sigma_1$；
-- 再計算 $h = H(\sigma_1 \| m)$；
-- 最後利用 $\sigma_1$ 與 $h$ 算出第二部分 $\sigma_2$。
+- 產生一個可能為空的 **commitment** $\sigma_1$
+- 再計算 $h = H(\sigma_1 \| m)$
+- 最後利用 $\sigma_1$ 與 $h$ 算出第二部分 $\sigma_2$
 
-因此輸出可記為 $(\sigma_1, H(\sigma_1 \| m), \sigma_2)$。常見例子如下：
+因此輸出可記為 $(\sigma_1, H(\sigma_1 \| m), \sigma_2)$。
 
-- DSA：$\sigma_1 = \emptyset$，$h = H(m)$，$\sigma_2 = \left(r,\frac{h+xr}{k} \bmod q\right)$，其中 $r = (g^k \bmod p) \bmod q$。
-- EC-DSA：$\sigma_1 = \emptyset$，$h = H(m)$，$\sigma_2 = \left(r,\frac{h+xr}{k} \bmod q\right)$，其中 $r = x\text{-coord}([k]G)$。
-- Schnorr signatures：$\sigma_1 = g^k$，$h = H(\sigma_1 \| m)$，$\sigma_2 = xh + k \bmod q$。
+<div class="example">
+<strong>Example.</strong>
+<ul>
+  <li>DSA: $\sigma_1 = \emptyset$, $h = H(m)$, $$\sigma_2 = \left(r,\frac{h+xr}{k} \bmod q\right)$$, where $r = (g^k \bmod p) \bmod q$</li>
+  <li>EC-DSA: $\sigma_1 = \emptyset$, $h = H(m)$, $$\sigma_2 = \left(r,\frac{h+xr}{k} \bmod q\right)$$, where $r = x\text{-coord}([k]G)$</li>
+  <li>Schnorr signatures: $\sigma_1 = g^k$, $h = H(\sigma_1 \| m)$, $$\sigma_2 = xh + k \bmod q$$</li>
+</ul>
+</div>
 
 在 random oracle model 中，reduction $B^A$ 可以控制 hash oracle 的回答。若 adversary $A$ 能以 non-negligible probability 產生 existential forgery，則可假設它一定曾查詢過關鍵的 hash 值 $h = H(\sigma_1 \| m)$；否則 reduction 可以代為補查，不影響分析。
 
