@@ -191,39 +191,53 @@ $$
 ### EC-DSA Signature
 
 EC-DSA 的簽章形式與 DSA 類似，只是把 multiplicative group 換成 elliptic curve group。對修改後的版本，假設
+
 $$
 h = H(m \| r),
 $$
+
 其中
+
 $$
 r = x\text{-coord}([k]P) \bmod q,
 $$
+
 簽章方程式為
+
 $$
 s = \frac{h+xr}{k} \pmod q.
 $$
 
 fork 後得到兩份簽章資料：
+
 $$
 r = x\text{-coord}([k]P) \bmod q, \qquad s = \frac{h+xr}{k} \pmod q,
 $$
+
 $$
 r' = x\text{-coord}([k']P) \bmod q, \qquad s' = \frac{h'+xr'}{k'} \pmod q,
 $$
+
 其中還有
+
 $$
 r = r'.
 $$
 
 和 DSA 不同的是，在某些條件下，從相同的 $x$-coordinate 可以推出
+
 $$
 [k']P = [k]P \quad \text{or} \quad [k']P = -[k]P.
 $$
+
 因此可得
+
 $$
 k' \equiv k \pmod q \qquad \text{or} \qquad k' \equiv -k \pmod q.
 $$
+
 也就是
+
 $$
 k' = \pm k \pmod q.
 $$
@@ -231,36 +245,49 @@ $$
 把這兩種可能分開看。
 
 若 $k' = k$，則
+
 $$
 s = \frac{h+xr}{k}, \qquad s' = \frac{h'+xr}{k}.
 $$
+
 兩式相減可得
+
 $$
 s-s' = \frac{h-h'}{k} \pmod q,
 $$
+
 因此
+
 $$
 (s-s')k = h-h' \pmod q.
 $$
 
 若 $k' = -k$，則
+
 $$
 s' = \frac{h'+xr}{-k} = -\frac{h'+xr}{k} \pmod q.
 $$
+
 因此
+
 $$
 s+s' = \frac{h-h'}{k} \pmod q,
 $$
+
 亦即
+
 $$
 (s+s')k = h-h' \pmod q.
 $$
 
 這兩種情形可統一寫成
+
 $$
 (s \mp s')k = h-h' \pmod q.
 $$
+
 因此 reduction 可以得到 **兩個候選值**：
+
 $$
 k = \frac{h-h'}{\,s-s'\,} \pmod q
 \qquad \text{or} \qquad
@@ -268,18 +295,25 @@ k = \frac{h-h'}{\,s+s'\,} \pmod q.
 $$
 
 一旦得到候選的 $k$，就可由
+
 $$
 s = \frac{h+xr}{k} \pmod q
 $$
+
 改寫為
+
 $$
 x = \frac{sk-h}{r} \pmod q.
 $$
+
 因此對每個候選的 $k$，都可算出對應的候選 secret key
+
 $$
 x = (sk-h)r^{-1} \pmod q.
 $$
+
 最後再檢查哪一個滿足
+
 $$
 [x]P = Y.
 $$
