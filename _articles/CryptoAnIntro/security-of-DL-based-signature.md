@@ -44,18 +44,17 @@ $$
 
 ## Passive Adversary
 
-passive adversary 只觀察 public key、hash oracle，以及可能的公開資訊，不具備額外的 signing oracle 互動能力。這種情況下，forking lemma 最容易直接套用。
+**Passive Adversary** 只觀察 public key、hash oracle，以及可能的公開資訊，不具備額外的 signing oracle 互動能力。
 
 ### Schnorr Signature (Passive Adversary)
 
 Schnorr signature 的公開金鑰寫作 $y=g^x$。對訊息 $m$，簽章者隨機選取 $k$，令
+
 $$
 r = g^k, \qquad h = H(r \| m), \qquad s = xh + k \pmod q.
 $$
-因此簽章可寫為 $(h,s)$，驗證條件則可重寫成
-$$
-g^s = y^h r.
-$$
+
+因此簽章可寫為 $(h,s)$，驗證條件則可重寫成 $g^s = y^h r$。
 
 <div class="theorem">
 <strong>Theorem 20.1.</strong> In the random oracle model, assuming discrete logarithms are hard to compute for the group G, no passive adversary against Schnorr signatures can exist for the group G.
