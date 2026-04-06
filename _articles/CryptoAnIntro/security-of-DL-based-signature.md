@@ -37,9 +37,11 @@ In all of these schemes the hash function is assumed to have codomain equal to $
 在 random oracle model 中，reduction $B^A$ 可以控制 hash oracle 的回答。若 adversary $A$ 能以 non-negligible probability 產生 existential forgery，則可假設它一定曾查詢過關鍵的 hash 值 $h = H(\sigma_1 \| m)$；否則 reduction 可以代為補查，不影響分析。
 
 forking lemma 的操作是：讓 $A$ 在**相同 random tape** 下執行兩次。第一次正常回答所有 hash queries；第二次則挑某一個 hash query，將其回答改成另一個值。若剛好被改動的是 critical hash query，則兩次執行會得到同一訊息上的兩份 forgery：
+
 $$
 (m,\sigma_1,h,\sigma_2), \qquad (m,\sigma_1,h',\sigma_2').
 $$
+
 兩份輸出之間唯一關鍵的差異，在於 hash challenge 由 $h$ 變成 $h'$。接下來是否能把這兩份簽章轉化為底層 hard problem 的解，就取決於 scheme 本身的代數結構。
 
 ## Passive Adversary
@@ -325,56 +327,77 @@ $$
 <div class="proof">
 <strong>Proof.</strong>
 對修改後的 EC-DSA 套用 forking lemma，可得兩份同一訊息上的偽造簽章，使得
+
 $$
 r = r', \qquad h = H(m \| r), \qquad h' = H(m \| r').
 $$
+
 又由
+
 $$
 r = x\text{-coord}([k]P) \bmod q, \qquad r' = x\text{-coord}([k']P) \bmod q,
 $$
+
 在條件 $q > p$ 下，可由 $r=r'$ 推得兩種可能：
+
 $$
 k' = k \pmod q \qquad \text{or} \qquad k' = -k \pmod q.
 $$
 
 若 $k'=k$，則
+
 $$
 s = \frac{h+xr}{k}, \qquad s' = \frac{h'+xr}{k},
 $$
+
 所以
+
 $$
 s-s' = \frac{h-h'}{k} \pmod q,
 $$
+
 進而
+
 $$
 k = (h-h')(s-s')^{-1} \pmod q.
 $$
 
 若 $k'=-k$，則
+
 $$
 s' = \frac{h'+xr'}{k'} = -\frac{h'+xr}{k} \pmod q,
 $$
+
 因此
+
 $$
 s+s' = \frac{h-h'}{k} \pmod q,
 $$
+
 進而
+
 $$
 k = (h-h')(s+s')^{-1} \pmod q.
 $$
 
 所以 reduction 最多得到兩個候選的 $k$。對每個候選值，都可由
+
 $$
 s = \frac{h+xr}{k} \pmod q
 $$
+
 改寫成
+
 $$
 x = (sk-h)r^{-1} \pmod q.
 $$
+
 因此會得到兩個候選的 $x$。最後只需檢查哪一個滿足公開金鑰條件
+
 $$
 [x]P = Y.
 $$
+
 正確的那一個就是所要求的 discrete logarithm 解。
 
 故若存在能被動偽造上述修改版 EC-DSA 的 adversary，便能構造出解 elliptic-curve discrete logarithm problem 的演算法，與假設矛盾。
@@ -393,41 +416,45 @@ $$
 ### Schnorr Signature (Active Adversary)
 
 Schnorr 的真實簽章為：對訊息 $m$，選隨機 $k$，令
+
 $$
 r = g^k, \qquad h = H(r \| m), \qquad s = xh + k \pmod q.
 $$
+
 輸出 $(h,s)$。
 
 模擬器在不知道 $x$ 的情況下，改成反過來做：
 
-1. 隨機選 $s,h \in \mathbb F_q$；
-2. 設
-   $$
-   r = g^s y^{-h};
-   $$
-3. 若之前的 random-oracle list 中已存在 $(r \| m,h')$ 且 $h' \ne h$，則重選；
-4. 將 hash oracle 編程為
-   $$
-   H(r \| m) = h;
-   $$
-5. 輸出「簽章」$(h,s)$。
+1. 隨機選 $s,h \in \mathbb F_q$
+2. 設 $r = g^s y^{-h}$
+3. 若之前的 random-oracle list 中已存在 $(r \| m,h')$ 且 $h' \ne h$，則重選
+4. 將 hash oracle 編程為 $H(r \| m) = h$
+5. 輸出「簽章」$(h,s)$
 
 現在驗證這確實是一份合法 Schnorr signature。因為公開金鑰為 $y=g^x$，所以
+
 $$
 r = g^s y^{-h} = g^s g^{-xh} = g^{s-xh}.
 $$
+
 因此若令
+
 $$
 k = s-xh \pmod q,
 $$
+
 就有
+
 $$
 r = g^k.
 $$
+
 而且
+
 $$
 s = xh + k \pmod q.
 $$
+
 這正是 Schnorr signature 的正確關係式，所以 $(h,s)$ 的分佈與真實簽章一致。
 
 重點在於：模擬器不是先選 $k$ 再算 $s$，而是先隨機選出最終要輸出的 $(h,s)$，再反推出對應的 $r$，最後把 random oracle 在 $(r \| m)$ 上的值程式化成 $h$。這種作法之所以可行，正是因為在 random oracle model 中，reduction 可以控制 hash oracle 的回答。
@@ -441,31 +468,43 @@ $$
 要把 passive security 的 argument 推到 active case，關鍵是說明：在不知道私鑰 $x$ 的情況下，仍可模擬對 adversary 的 signing queries。
 
 對任意訊息 $m$，模擬器先隨機選
+
 $$
 s,h \in \mathbb F_q,
 $$
+
 再定義
+
 $$
 r = g^s y^{-h}.
 $$
+
 接著把 random oracle 在 $(r \| m)$ 上的回答設成 $h$，並輸出 $(h,s)$。
 
 需驗證此輸出為合法簽章。由 $y=g^x$ 得
+
 $$
 r = g^s y^{-h} = g^s g^{-xh} = g^{s-xh}.
 $$
+
 令
+
 $$
 k = s-xh \pmod q,
 $$
+
 則
+
 $$
 r = g^k
 $$
+
 且
+
 $$
 s = xh + k \pmod q.
 $$
+
 因此 $(h,s)$ 確實滿足 Schnorr 簽章的驗證式。
 
 此外，由於 $h$ 被視為 random oracle 的輸出，而 $s$ 也是均勻隨機選取，故此模擬簽章與真實簽章在分佈上不可區分。於是 active adversary 所看到的互動，可由 simulator 完整模擬。既然 passive adversary 已可被轉化為 discrete logarithm solver，則 active adversary 也同樣不能存在。
