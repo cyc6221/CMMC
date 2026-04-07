@@ -141,9 +141,11 @@ $$
 這個 proof 的關鍵有兩點。
 
 第一，對所有不是第 $t$ 個的 hash query，$B^A$ 都故意把 hash value 設成某個隨機值的 $e$ 次方，也就是
+
 $$
 H(m_i)=s_i^e.
 $$
+
 因此自然知道對應的簽章 $s_i$，可以完整模擬 signing oracle。
 
 第二，真正無法簽署的，只有那一個被嵌入 challenge 的位置 $t$，因為那裡的 hash value 被設成 $y$。所以 reduction 是否成功，取決於 adversary 最後偽造的目標訊息，是否剛好落在這個位置上。
