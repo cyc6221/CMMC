@@ -64,11 +64,10 @@ $$
 
 <div class="proof">
 <strong>Proof.</strong>
-設 reduction $B^A$ 的輸入是一個 discrete logarithm instance
-$$
-y = g^x,
-$$
-其目標是恢復 $x$。假設 adversary $A$ 在 public key $y$ 下能以 non-negligible probability 偽造 Schnorr signature。對 $A$ 套用 forking lemma 後，$B^A$ 可得到同一訊息上的兩份合法簽章：
+設 reduction $B^A$ 的輸入是一個 discrete logarithm instance $y = g^x$，其目標是恢復 $x$。
+<br>
+
+假設 adversary $A$ 在 public key $y$ 下能以 non-negligible probability 偽造 Schnorr signature。對 $A$ 套用 forking lemma 後，$B^A$ 可得到同一訊息上的兩份合法簽章：
 $$
 (m,\sigma_1 = g^k,h,\sigma_2 = xh + k \bmod q)
 $$
@@ -77,11 +76,12 @@ $$
 (m,\sigma_1' = g^{k'},h',\sigma_2' = xh' + k' \bmod q).
 $$
 where $h = H(\sigma_1 \| m)$ is the oracle query from the first run of $A$ and $h' = H(\sigma_1' \| m)$ is the oracle query from the second run of $A$.
+<br>
 
-由於兩次執行使用相同 random tape，且 fork 成功時保留了相同的 commitment，因此 $\sigma_1 = \sigma_1'.$
-也就是 $g^k = g^{k'}.$
-因群的階為 $q$，可得 $k \equiv k' \pmod q.$
-因此可直接把兩條簽章方程式相減：
+由於兩次執行使用相同 random tape，且 fork 成功時保留了相同的 commitment，因此 $\sigma_1 = \sigma_1'$，i.e. $g^k = g^{k'}$。
+<br>
+
+因群的階為 $q$，可得 $k \equiv k' \pmod q$，因此可直接把兩條簽章方程式相減：
 $$
 \sigma_2 - \sigma_2' \equiv (xh+k) - (xh'+k') \pmod q.
 $$
@@ -89,17 +89,18 @@ $$
 $$
 \sigma_2 - \sigma_2' \equiv x(h-h') \pmod q.
 $$
+<br>
 
-令
+Let
 $$
 A = h-h' \pmod q, \qquad B = \sigma_2-\sigma_2' \pmod q,
 $$
-則有
+Then
 $$
 Ax \equiv B \pmod q.
 $$
 
-又因為第二次執行在 critical hash query 上刻意改變了回答，所以
+因為第二次執行在 critical hash query 上刻意改變了回答，所以
 $$
 h \neq h' \pmod q,
 $$
