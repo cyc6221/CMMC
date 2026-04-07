@@ -76,19 +76,11 @@ $$
 $$
 (m,\sigma_1' = g^{k'},h',\sigma_2' = xh' + k' \bmod q).
 $$
+where $h = H(\sigma_1 \| m)$ is the oracle query from the first run of $A$ and $h' = H(\sigma_1' \| m)$ is the oracle query from the second run of $A$.
 
-由於兩次執行使用相同 random tape，且 fork 成功時保留了相同的 commitment，因此
-$$
-\sigma_1 = \sigma_1'.
-$$
-也就是
-$$
-g^k = g^{k'}.
-$$
-因群的階為 $q$，可得
-$$
-k \equiv k' \pmod q.
-$$
+由於兩次執行使用相同 random tape，且 fork 成功時保留了相同的 commitment，因此 $\sigma_1 = \sigma_1'.$
+也就是 $g^k = g^{k'}.$
+因群的階為 $q$，可得 $k \equiv k' \pmod q.$
 因此可直接把兩條簽章方程式相減：
 $$
 \sigma_2 - \sigma_2' \equiv (xh+k) - (xh'+k') \pmod q.
@@ -97,6 +89,7 @@ $$
 $$
 \sigma_2 - \sigma_2' \equiv x(h-h') \pmod q.
 $$
+
 令
 $$
 A = h-h' \pmod q, \qquad B = \sigma_2-\sigma_2' \pmod q,
