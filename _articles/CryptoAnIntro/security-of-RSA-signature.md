@@ -43,7 +43,7 @@ $$
 FDH 中的「full-domain hash」是指 $H$ 的輸出直接落在 $(\mathbb Z/N\mathbb Z)^\ast$ 中。這使得簽章可以寫成 $s=H(m)^d \bmod N$，也使 security reduction 的形式相當自然。在理論分析中，這種 hash function 通常以 random oracle 來建模。
 </div>
 
-### 安全性直觀
+### Security Intuition
 
 設 adversary $A$ 可以在 random oracle model 下對 RSA-FDH 做 **existential forgery under active attack**。也就是說，$A$ 可以：
 
@@ -136,7 +136,7 @@ $$
 於是得到結論：若存在能偽造 RSA-FDH 的 active adversary，則可利用它以機率 $1/q_H$ 反轉 RSA function。
 </div>
 
-### 為什麼這個 reduction 成立
+### Why This Reduction Works
 
 這個 proof 的關鍵有兩點。
 
@@ -159,7 +159,7 @@ RSA-FDH 的安全性證明典型地呈現了 random oracle proof 的做法：red
 
 RSA-PSS（Probabilistic Signature Scheme）是另一個重要的 RSA-based signature。與 FDH 相比，它的主要特色是：**簽章時會加入隨機性**，因此同一則訊息即使重複簽署，也不一定得到相同簽章。其安全性同樣在 random oracle model 下討論，但設計上不需要直接使用 full-domain hash，而是透過隨機值、hash 與編碼結構共同形成待簽署的 RSA input。
 
-### 參數與函數
+### Parameters and Functions
 
 設 RSA modulus $N$ 的位元長度為 $k$，公開指數為 $e$，私密指數為 $d$。選兩個整數 $k_0,k_1$，滿足
 
@@ -193,7 +193,7 @@ $$
 
 表示取 $G(w)$ 的後 $k-k_0-k_1-1$ bits。
 
-### 簽章流程
+### Signing Process
 
 對訊息 $m$ 進行簽章時，先隨機產生一個長度為 $k_0$ 的 bit string：
 
@@ -221,7 +221,7 @@ $$
 
 也就是說，RSA-PSS 並不是直接對 $H(m)$ 做 RSA inversion，而是先把訊息 $m$ 與隨機值 $r$ 混合，再經過特定的編碼結構形成 $y$，最後才對 $y$ 做 RSA inversion。
 
-### 驗證流程
+### Verification Process
 
 收到訊息 $m$ 與簽章 $s$ 後，驗證者先計算
 
@@ -256,7 +256,7 @@ $$
 
 只有當三者都成立時，簽章才接受。
 
-### 為什麼驗證會正確
+### Why Verification Works
 
 若簽章是合法產生的，則簽章者原本設定
 
@@ -307,7 +307,7 @@ $$
 RSA-PSS 是 probabilistic signature scheme。由於簽章時會隨機選擇 $r$，即使同一訊息 $m$ 被簽兩次，也通常會產生不同的 $w$、不同的 $y$，因此得到不同的簽章 $s$。這使它與 deterministic 的簽章形式有明顯區別。
 </div>
 
-### PSS 與 FDH 的差異
+### Differences Between PSS and FDH
 
 RSA-FDH 的簽章形式最直接：
 
