@@ -91,8 +91,8 @@ toc: false
 ## Chapter 20: Provable Security: With Random Oracles
 
 - [Provable Security]({{ "/articles/CryptoAnIntro/provable-security/" | relative_url }})
-- [Security of DL-based Signature]({{ "/articles/CryptoAnIntro/security-of-DL-based-signature/" | relative_url }})
-- [Security of RSA Signature]({{ "/articles/CryptoAnIntro/security-of-RSA-signature/" | relative_url }})
+- [Security of DL-based Signature]({{ "/articles/CryptoAnIntro/security-of-DL-based-signature/" | relative_url }}) <span class="lab-status">Updating</span>
+- [Security of RSA Signature]({{ "/articles/CryptoAnIntro/security-of-RSA-signature/" | relative_url }}) <span class="lab-status">Updating</span>
 
 <span class="lab-status">Todo</span>
 
