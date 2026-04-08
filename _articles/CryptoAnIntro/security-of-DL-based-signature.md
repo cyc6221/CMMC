@@ -2,11 +2,11 @@
 layout: page
 title: Security of DL-based Signature
 date: 2026-03-26
-last_updated: 2026-03-26
+last_updated: 2026-04-08
 tags: [signature, Schnorr, DSA, EC-DSA, forking-lemma, random-oracle]
 ---
 
-數位簽章安全性的證明，在 random oracle model 中常透過 **forking lemma** 來進行。其核心想法是：若一個 adversary 能在某個 hash-query 的回答下產生合法 forgery，則 reduction 可以在相同 random tape 下重跑 adversary，並只改動那個關鍵 hash-query 的回覆，從而得到兩個彼此相關、但 challenge 不同的偽造簽章。接著再利用這兩份輸出之間的代數關係，恢復底層 hard problem 的解。
+數位簽章安全性的證明，在 random oracle model 中常透過 [forking lemma]({{ "/articles/Cryptology/forking-lemma/" | relative_url }}) 來進行。其核心想法是：若一個 adversary 能在某個 hash-query 的回答下產生合法 forgery，則 reduction 可以在相同 random tape 下重跑 adversary，並只改動那個關鍵 hash-query 的回覆，從而得到兩個彼此相關、但 challenge 不同的偽造簽章。接著再利用這兩份輸出之間的代數關係，恢復底層 hard problem 的解。
 
 對離散對數型簽章而言，這種方法並不是一體適用。Schnorr signatures 中，forking 後會保留相同的 commitment，因此可直接解出 secret key；DSA 中則因為 reduction modulo $q$ 的存在，無法從相同的 $r$ 推回相同的 ephemeral key；EC-DSA 也有類似障礙，但在某些額外條件下可以部分修補。當 adversary 由 passive 升級為 active 時，關鍵則變成：reduction 能否在不知道私鑰的情況下，模擬 signing oracle。
 
