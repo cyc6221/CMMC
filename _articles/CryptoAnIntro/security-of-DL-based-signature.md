@@ -70,9 +70,7 @@ $$
 假設 adversary $A$ 在 public key $y$ 下能以 non-negligible probability 偽造 Schnorr signature。對 $A$ 套用 forking lemma 後，$B^A$ 可得到同一訊息上的兩份合法簽章：
 $$
 (m,\sigma_1 = g^k,h,\sigma_2 = xh + k \bmod q)
-$$
-以及
-$$
+\text{ and }
 (m,\sigma_1' = g^{k'},h',\sigma_2' = xh' + k' \bmod q).
 $$
 where $h = H(\sigma_1 \| m)$ is the oracle query from the first run of $A$ and $h' = H(\sigma_1' \| m)$ is the oracle query from the second run of $A$.
@@ -129,16 +127,14 @@ $$
 其中 $h = H(m)$。若照著 Schnorr 的思路對 DSA 使用 forking lemma，則會得到兩份簽章：
 
 $$
-(m,\emptyset,h,(r,s))
+(m, \sigma_1 = \emptyset, h, \sigma_2 = (r,s))
+\text{ and }
+(m,\sigma_1' = \emptyset, h', \sigma_2' = (r',s'))
 $$
 
-與
+where $h = H(m)$ is the oracle query from the first run of $A$ and $h' = H(m)$ is the oracle query from the second run of $A$.
 
-$$
-(m,\emptyset,h',(r',s')).
-$$
-
-對應的方程式為
+and
 
 $$
 r = (g^k \bmod p)\bmod q, \qquad s = \frac{h+xr}{k} \pmod q,
