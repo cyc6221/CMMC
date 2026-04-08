@@ -6,7 +6,7 @@ last_updated: 2026-03-05
 tags: [square-root-barrier]
 ---
 
-## 直覺：為何稱為 “forking”
+## Intuition: Why it's called "forking"
 
 在 Fiat–Shamir（FS）或以 $\Sigma$-protocol 為基礎的三回合結構中，攻擊者若能產生一份可驗證的 transcript
 
@@ -22,7 +22,7 @@ $$
 
 對許多協議（例如 Schnorr 與 GQ），兩份 transcript 可用來抽取 witness（例如離散對數或 RSA 相關秘密）。Forking lemma 用來量化下列事實：若偽造者的成功率為 $\varepsilon$，則透過重跑並在關鍵點改變 challenge 的方式，有可觀的機率同時得到上述兩份 transcript。這種做法本質上依賴 rewinding（或在 ROM 下的 forking），並常導致 reduction 的成功率出現平方等級的衰減，對應到 square-root barrier 的現象。
 
-## 設定：Identification 與 Signature
+## Setting: Identification and Signature
 
 同一個三回合結構通常對應兩種物件：
 
@@ -35,7 +35,7 @@ $$
 
 其中 $H$ 是隨機預言機（ROM）。偽造者 $\mathcal{F}$ 可自適應查詢 $H$ 至多 $q_H$ 次。
 
-## 典型版 Forking Lemma（常用敘述）
+## Typical Forking Lemma (Common Statement)
 
 令
 
@@ -59,7 +59,7 @@ $$
 
 此型態可視為把「單次成功機率 $\varepsilon$」提升到「兩次成功（可抽取 witness）所需事件」時，成功率出現平方等級衰減的量化描述。
 
-## Forking 程序：概念性的構造
+## Forking Procedure: Conceptual Construction
 
 forking 的構造通常可抽象為下列流程：
 
@@ -68,7 +68,7 @@ forking 的構造通常可抽象為下列流程：
 3. 將執行回復到關鍵查詢之前，使用相同的隨機性重跑 $\mathcal{F}$，但在該關鍵查詢點把 $H(m,\mathsf{cmt})$ 的回覆改為另一個獨立隨機值 $\mathsf{ch}'$。
 4. 若第二次仍然成功，且產生相同承諾 $\mathsf{cmt}$，則得到 fork：兩份成功 transcript 共享相同 $\mathsf{cmt}$ 但 challenge 不同。
 
-## 機率計算：平方差從何而來（核心）
+## Probability Analysis: Where the Square comes From (Core)
 
 設「單次成功」事件為 $S$，且
 
@@ -96,9 +96,9 @@ $$
 
 其中 $\epsilon^{\mathrm{hard}}(t)$ 表示 $t$ 時間下解底層困難問題的最佳成功率（例如 Schnorr 對應 DLOG；GQ 對應 RSA inversion）。
 
-## Schnorr：ID 與 SIG 的 square-root gap
+## Schnorr: Square-root Gap for ID and SIG
 
-### 攻擊基準：generic DLOG 的量級
+### Attack Baseline: Generic DLOG Magnitude
 
 在群階約為 $p$ 的群中，若用 Generic Group Model（Shoup 的 generic hardness）估計 $t$ 時間內解 DLOG 的成功率，常見量級為
 
@@ -106,7 +106,7 @@ $$
 \epsilon^{\mathrm{dl}}(t)\ \approx\ \frac{t^2}{p}.
 $$
 
-### Identification（互動式）
+### Identification (Interactive)
 
 使用 rewinding / reset lemma 類分析時，證明常給出平方根型界：
 
@@ -122,7 +122,7 @@ $$
 
 這與攻擊基準 $t^2/p$ 之間形成 square-root gap。
 
-### Signature（Fiat–Shamir, ROM）
+### Signature (Fiat–Shamir, ROM)
 
 在 ROM 下，Schnorr 簽章的安全歸約通常透過 forking lemma，因此界常呈現
 
@@ -138,7 +138,7 @@ $$
 
 這顯示簽章的界除了平方根損失外，還會額外帶入 $\sqrt{q_H}$。
 
-### 具體數字例子（顯示平方差）
+### Numerical Example (Showing the Square-root Gap)
 
 取 $p\approx 2^{256}$，$t=2^{80}$。
 
@@ -156,11 +156,11 @@ $$
 
 兩者相差 $2^{48}$ 倍，對應到典型的 square-root gap。
 
-## GQ：ID 與 SIG 的 square-root gap（RSA 家族）
+## GQ: Square-root Gap for ID and SIG (RSA Family)
 
 GQ（Guillou–Quisquater）是 RSA-based 的 $\Sigma$-protocol 家族，與 Schnorr 在結構上相似，差別在底層困難性改為 RSA inversion（或其變形）。以下用同一套符號描述差距。
 
-### 攻擊基準：RSA inversion 的量級
+### Attack Baseline: RSA Inversion Magnitude
 
 令 $t$ 時間下解 RSA inversion 的最佳成功率量級記為
 
@@ -170,7 +170,7 @@ $$
 
 將「最佳已知攻擊」視為直接做 RSA inversion，即以 $\epsilon^{\mathrm{rsa}}(t)$ 作為攻擊基準。
 
-### Identification（互動式）
+### Identification (Interactive)
 
 互動式 GQ ID 的證明（採 rewinding / reset 類抽取）通常呈現平方根型界：
 
@@ -180,7 +180,7 @@ $$
 
 因此若攻擊基準是 $\epsilon^{\mathrm{rsa}}(t)$，則證明界在量級上出現平方根落差。
 
-### Signature（Fiat–Shamir, ROM）
+### Signature (Fiat–Shamir, ROM)
 
 Fiat–Shamir 後的 GQ 簽章在 ROM 下常透過 forking lemma 分析，界常呈現
 
@@ -190,7 +190,7 @@ $$
 
 同樣地，若以 $\epsilon^{\mathrm{rsa}}(t)$ 作為攻擊基準，則可看出平方根型 tightness 損失，並且另帶 $\sqrt{q_H}$ 因子。
 
-## 小結
+## Summary
 
 Forking lemma 與 rewinding 類技巧把「單次成功」推進到「兩次成功（可抽取 witness）」時，成功率在量級上出現平方（或在反向上界中出現平方根）。因此：
 
