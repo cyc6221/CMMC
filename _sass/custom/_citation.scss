@@ -21,16 +21,17 @@
 
 /* — Variables: 色彩與互動變數（主要定義 cite 的顏色、hover 與 focus） */
 :root {
-  --cite-fg: #072f57;                 /* 字更深 */
-  --cite-bg: rgba(11, 58, 110, 0.18); /* 底更明顯 */
-  --cite-bd: rgba(11, 58, 110, 0.40); /* 框更明顯 */
+  /* Hacker theme: dark background + neon green accents */
+  --cite-fg: #00ff7f;                 /* neon green foreground */
+  --cite-bg: rgba(0, 255, 127, 0.06); /* subtle neon green background */
+  --cite-bd: rgba(0, 255, 127, 0.22); /* neon green border (faint) */
 
   /* hover 狀態 */
-  --cite-fg-hover: #041e3a;
-  --cite-bg-hover: rgba(11, 58, 110, 0.24);
+  --cite-fg-hover: #bfffe6;           /* lighter neon on hover */
+  --cite-bg-hover: rgba(0, 255, 127, 0.14);
 
   /* focus ring */
-  --cite-ring: rgba(11, 58, 110, 0.38);
+  --cite-ring: rgba(0, 255, 127, 0.32);
 }
 
 /* — Base badge: .cite（自動加上方括號的引用標籤） */
