@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Sigma-Protocol
+title: Sigma Protocol
 date: 2026-04-08
 last_updated: 2026-04-08
 tags: [square-root-barrier]
@@ -30,7 +30,7 @@ $$
 $$
 來分析：第一步的 $a$ 可以視為某種承諾或隨機遮罩後的值，第二步的 $c$ 用來迫使 prover 對特定問題作答，第三步的 $z$ 則把先前的隨機性與 witness 結合，讓 verifier 能檢查整體是否一致。
 
-## 基本結構
+## Structure and Core Properties
 
 Sigma-protocol 的典型流程如下：
 
@@ -41,11 +41,15 @@ Sigma-protocol 的典型流程如下：
 
 這類協定最經典的三個性質是 completeness、special soundness 與 special honest-verifier zero-knowledge。這三者幾乎可以視為 Sigma-protocol 的標誌性特徵，也正好對應三件事：誠實 prover 會成功、不知道 witness 的偽造者不能同時應付多個 challenge、而單一誠實執行的 transcript 不會洩漏秘密。
 
+### Completeness
+
 <div class="definition">
 <div><strong>Completeness.</strong> A Sigma-protocol is complete if for every $(x,w)\in R$, an honest execution between the prover $P(x,w)$ and the verifier $V(x)$ is accepted with probability $1$.</div>
 </div>
 
 完備性表示：只要 prover 真的知道合法 witness，並且雙方都誠實執行協定，那 verifier 就會接受。
+
+### Special Soundness
 
 <div class="definition">
 <div><strong>Special Soundness.</strong> A Sigma-protocol has special soundness if there exists an efficient extractor $E$ such that, given two accepting transcripts
@@ -57,13 +61,15 @@ with the same first message $a$ and distinct challenges $c\neq c'$, the extracto
 
 這個性質是 Sigma-protocol 最關鍵的部分之一。它表示：若有人能針對同一個 commitment $a$，回答兩個不同 challenge 並都通過驗證，那麼從這兩份 transcript 中就能抽出 witness。換句話說，若一個人有能力同時應付不同 challenge，那不只是「運氣好」，而是他手上其實掌握了真正的秘密。這也是 Sigma-protocol 常被拿來建立 proof of knowledge 的原因。
 
+### Special Honest-Verifier Zero-Knowledge
+
 <div class="definition">
 <div><strong>Special Honest-Verifier Zero-Knowledge (SHVZK).</strong> A Sigma-protocol has special honest-verifier zero-knowledge if there exists a probabilistic polynomial-time simulator $S$ that, given an instance $x$ and a challenge $c$, can generate an accepting transcript $(a,c,z)$ whose distribution is identical to, or computationally indistinguishable from, that of a real transcript produced in an honest interaction.</div>
 </div>
 
 這裡的重點是 honest-verifier。也就是說，simulator 假設 verifier 的 challenge 的確是依照協定誠實隨機選出的。在這個前提下，simulator 不需要 witness，也能直接產生看起來像真的 transcript。這反映出一個很重要的現象：單獨看一份 transcript，驗證者不應從中學到 witness 的額外資訊。
 
-## 為什麼 special soundness 很重要
+### Why These Properties Matter
 
 設想某個 prover 可以對同一個 $a$ 分別回應兩個不同挑戰 $c\neq c'$。這代表第一步的承諾 $a$ 中，其實已經隱含了足夠資訊，使得一旦兩個不同 challenge 的答案都被揭露，就能解出 witness。這種性質在很多具體協定裡都能直接看見。
 
@@ -77,15 +83,13 @@ z-z'=(c-c')e.
 $$
 只要 $c\neq c'$，就可以解出秘密 $e$。因此，能對同一個第一訊息成功回答兩個不同 challenge，本質上就等價於知道離散對數 witness。
 
-這也說明了 Sigma-protocol 的一個核心結構：單看一份 transcript，並不足以抽出 witness；但若能拿到兩份 challenge 不同、第一訊息相同的 accepting transcripts，witness 就會浮現出來。後續很多 proof of knowledge、rewinding、forking lemma 與 tightness 的分析，都是從這個觀察出發。
-
-## 為什麼是 honest-verifier zero-knowledge
-
-Sigma-protocol 常見的是 special honest-verifier zero-knowledge，而不是直接保證對所有惡意 verifier 都是零知識。原因在於 simulator 通常採取的是「先指定 challenge，再倒推構造 transcript」的方式。換句話說，它先拿到 $c$，再反推出適合的 $(a,z)$，使得整個 transcript 通過驗證。
+另一方面，Sigma-protocol 常見的是 special honest-verifier zero-knowledge，而不是直接保證對所有惡意 verifier 都是零知識。原因在於 simulator 通常採取的是「先指定 challenge，再倒推構造 transcript」的方式。換句話說，它先拿到 $c$，再反推出適合的 $(a,z)$，使得整個 transcript 通過驗證。
 
 在 verifier 誠實時，challenge 本來就會均勻隨機產生，因此這種模擬方式自然可行，也能重建真實分布。但若 verifier 可以惡意依照先前訊息選 challenge，simulator 未必能如此直接地控制輸出分布，因此通常需要更強的技巧或額外轉換。也因此，Sigma-protocol 的標準零知識保證通常是 HVZK 或 SHVZK，而不是一開始就得到完整的一般惡意驗證者零知識。
 
-## 典型例子：Schnorr Protocol
+從更高的角度看，Sigma-protocol 的核心結構正是：單看一份 transcript，並不足以抽出 witness；但若能拿到兩份 challenge 不同、第一訊息相同的 accepting transcripts，witness 就會浮現出來。後續很多 proof of knowledge、rewinding、forking lemma 與 tightness 的分析，都是從這個觀察出發。
+
+## A Canonical Example: Schnorr Protocol
 
 Sigma-protocol 最經典的例子之一是 Schnorr protocol。設 $G=\langle g\rangle$ 為一個循環群，公開 instance 為
 $$
@@ -114,7 +118,11 @@ $$
 g^z=g^{r+cx}=g^r(g^x)^c=a\cdot y^c.
 $$
 
-這個例子非常完整地展現了 Sigma-protocol 的基本精神。若 prover 真的知道 $x$，則驗證式一定成立，所以 completeness 很直接。若存在兩個可接受 transcript
+這個例子非常完整地展現了 Sigma-protocol 的基本精神。
+
+### Completeness, Soundness, and SHVZK in Schnorr
+
+若 prover 真的知道 $x$，則驗證式一定成立，所以 completeness 很直接。若存在兩個可接受 transcript
 $$
 (a,c,z),\qquad (a,c',z')
 $$
@@ -137,7 +145,7 @@ a=g^z y^{-c}.
 $$
 如此構造出的 transcript $(a,c,z)$ 會通過驗證，且分布與真實執行一致，因此 Schnorr protocol 也具有 SHVZK。
 
-## Sigma-protocol 與 proof of knowledge
+## Knowledge Extraction, Identification, and Fiat–Shamir
 
 Sigma-protocol 常被視為 proof of knowledge 的自然來源，但兩者不是完全同義。更精確地說，是 special soundness 讓人可以構造 extractor，因此 Sigma-protocol 很適合建立 knowledge-type 的安全論證。
 
@@ -147,15 +155,9 @@ Sigma-protocol 常被視為 proof of knowledge 的自然來源，但兩者不是
 
 在很多情況下，extractor 的做法是 rewinding：先與 prover 互動，拿到第一個成功的 transcript；接著回到 challenge 發送之前，保持第一則訊息 $a$ 不變，重新送出另一個 challenge；若 prover 再次成功，extractor 就可利用兩份 transcript 抽出 witness。也因如此，rewinding 幾乎是 Sigma-protocol 證明中的標準技術，而後來很多對 Fiat–Shamir 簽章的安全分析，也都沿用了這種思路。
 
-## Sigma-protocol 與 identification scheme
+許多 identification scheme 的核心，就是 prover 透過 Sigma-protocol 證明自己知道某個秘密。例如 Schnorr identification 與 Guillou–Quisquater identification 都屬於這個範疇。在這種設定下，攻擊者的目標通常是假冒合法 prover，通過 verifier 的隨機挑戰。Sigma-protocol 在這裡提供了一個非常自然的分析框架。一方面，zero-knowledge 顯示互動過程本身不應洩漏秘密，因此觀察 transcript 不足以學會 witness；另一方面，special soundness 則說明，若某個攻擊者真的能穩定地通過驗證，那麼透過 rewinding 往往就能把它轉成一個 witness extractor，進一步連到 underlying hard problem。也就是說，成功 impersonation 通常不只是「騙過 verifier」，而會被解讀成「其實已掌握秘密」。
 
-許多 identification scheme 的核心，就是 prover 透過 Sigma-protocol 證明自己知道某個秘密。例如 Schnorr identification 與 Guillou–Quisquater identification 都屬於這個範疇。在這種設定下，攻擊者的目標通常是假冒合法 prover，通過 verifier 的隨機挑戰。
-
-Sigma-protocol 在這裡提供了一個非常自然的分析框架。一方面，zero-knowledge 顯示互動過程本身不應洩漏秘密，因此觀察 transcript 不足以學會 witness；另一方面，special soundness 則說明，若某個攻擊者真的能穩定地通過驗證，那麼透過 rewinding 往往就能把它轉成一個 witness extractor，進一步連到 underlying hard problem。也就是說，成功 impersonation 通常不只是「騙過 verifier」，而會被解讀成「其實已掌握秘密」。
-
-## Sigma-protocol 與 Fiat–Shamir transformation
-
-Sigma-protocol 與 Fiat–Shamir transformation 的關係非常密切。Fiat–Shamir 的基本想法，是把原本由 verifier 隨機給出的 challenge $c$，改成由雜湊函數決定，例如
+Sigma-protocol 與 Fiat–Shamir transformation 的關係也非常密切。Fiat–Shamir 的基本想法，是把原本由 verifier 隨機給出的 challenge $c$，改成由雜湊函數決定，例如
 $$
 c = H(x,a).
 $$
@@ -176,7 +178,7 @@ $$
 
 這正是 Schnorr signature 等簽章方案的核心形式。不過，一旦從互動版轉為非互動版，安全性分析通常就不再只是直接套用 Sigma-protocol 的三個性質，而必須進一步在 random oracle model 中分析。這時 rewinding、forking lemma、tight reduction 與 square-root loss 等議題便自然出現。
 
-## Challenge space 的角色
+## Challenge Space, Transcripts, and the Square-Root Barrier
 
 Sigma-protocol 的安全性也與 challenge space 的大小密切相關。若 challenge 空間太小，攻擊者就可能靠猜測 verifier 將送出的 challenge 來提高成功率；若 challenge 空間夠大，則單次猜中的機率就會很低。從這個角度看，challenge 的不可預測性本身就是 soundness 的重要來源。
 
@@ -186,8 +188,6 @@ $$
 $$
 這也說明了為何 verifier 的 challenge 必須是隨機且在 prover 送出第一訊息之後才決定。若 challenge 可預測，Sigma-protocol 的 soundness 便會大幅削弱。
 
-## Transcript 的觀點
-
 從 transcript 的角度看，Sigma-protocol 其實同時控制了兩件事。第一，單一 accepting transcript
 $$
 (a,c,z)
@@ -196,11 +196,7 @@ $$
 
 因此，Sigma-protocol 最核心的數學特徵可以概括成一句話：單看一份 transcript 沒有知識可抽，但兩份相容而 challenge 不同的 transcript 合起來就足以暴露 witness。這種結構正是它能同時表現出零知識與知識擷取性的原因。
 
-## 常見應用
-
 Sigma-protocol 常見於離散對數知識證明、RSA 型 witness 的知識證明、identification schemes、zero-knowledge proof 的基本模組，以及 Fiat–Shamir 型簽章。很多更複雜的協定，其實都可以拆成若干個 Sigma-protocol 或其變形來理解，因此它不只是一類特定協定，而是一種非常基本的設計範式。
-
-## 與 square-root barrier 的關聯
 
 在許多 Fiat–Shamir 型簽章的安全證明中，底層互動協定往往就是某種 Sigma-protocol。經典證明通常會透過 rewinding 或 forking，試圖從一個成功偽造者手中取得兩份具有相同第一訊息、但 challenge 不同的 accepting transcripts，然後再利用 special soundness 抽出 witness。
 
