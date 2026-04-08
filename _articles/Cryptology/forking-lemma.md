@@ -6,7 +6,7 @@ last_updated: 2026-03-05
 tags: [square-root-barrier]
 ---
 
-在 Fiat–Shamir（FS）或以 $\Sigma$-protocol 為基礎的三回合結構中，攻擊者若能產生一份可驗證的 transcript
+在 [Fiat–Shamir（FS）]({{ "/articles/Cryptology/FS-transformation/" | relative_url }}) 或以 [$\Sigma$-protocol]({{ "/articles/Cryptology/sigma-protocol/" | relative_url }}) 為基礎的三回合結構中，攻擊者若能產生一份可驗證的 transcript
 
 $$
 (\mathsf{cmt},\mathsf{ch},\mathsf{rsp}),
