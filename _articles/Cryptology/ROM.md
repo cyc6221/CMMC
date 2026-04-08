@@ -69,9 +69,7 @@ Random Oracle Model 的主要優點包括：
 
 因此，ROM 應被理解為一種強而有力的分析工具，而不是對真實系統的無條件保證。閱讀安全證明時，必須清楚分辨「在 ROM 下成立」與「在標準模型下成立」是不同層次的結論。
 
-## Example
-
-下面以 Schnorr 與 GQ 為例，說明 Random Oracle Model 如何連接 identification protocol 與 signature scheme。
+## Schnorr Scheme
 
 ### Schnorr Identification
 
@@ -131,6 +129,8 @@ g^s = R \cdot y^c.
 $$
 
 這裡的 ROM 假設使 $H(m,R)$ 可以扮演原本互動式協議中隨機 challenge 的角色。也就是說，ROM 提供了一個理想化框架，讓非互動簽章的安全分析能夠沿著互動式協議的結構進行。
+
+## GQ Scheme
 
 ### GQ Identification
 
