@@ -127,8 +127,8 @@ $$
 其中 $h = H(m)$。若照著 Schnorr 的思路對 DSA 使用 forking lemma，則會得到兩份簽章：
 
 $$
-(m, \sigma_1 = \emptyset, h, \sigma_2 = (r,s))
-\text{ and }
+(m, \sigma_1 = \emptyset, h, \sigma_2 = (r,s)) \qquad
+\text{ and } \qquad
 (m,\sigma_1' = \emptyset, h', \sigma_2' = (r',s'))
 $$
 
@@ -152,29 +152,13 @@ $$
 h = H(m \| r),
 $$
 
-使它更像 Schnorr 的結構，fork 後可以保證兩次 critical hash query 都對應同一個 $r$，仍然只會得到
-
-$$
-r = r',
-$$
-
-以及
+使它更像 Schnorr 的結構，fork 後可以保證兩次 critical hash query 都對應同一個 $r$，仍然只會得到 $r = r'$，以及
 
 $$
 r = (g^k \bmod p)\bmod q, \qquad r' = (g^{k'} \bmod p)\bmod q.
 $$
 
-但從
-
-$$
-(g^k \bmod p)\bmod q = (g^{k'} \bmod p)\bmod q
-$$
-
-仍然**無法推出**
-
-$$
-k = k'.
-$$
+但從 $(g^k \bmod p)\bmod q = (g^{k'} \bmod p)\bmod q$ 仍然**無法推出** $k = k'$。
 
 障礙就在於最後那個 reduction modulo $q$：它把原本群元素中的資訊壓縮掉了。若沒有這一步 reduction，理論上就比較有機會走出像 Schnorr 那樣的 proof；但 DSA 正是靠這個設計才保有較小的 signature size。因此，DSA 的效率特性也正是這種 reduction proof 卡住的來源。
 
@@ -185,19 +169,13 @@ $$
 EC-DSA 的簽章形式與 DSA 類似，只是把 multiplicative group 換成 elliptic curve group。對修改後的版本，假設
 
 $$
-h = H(m \| r),
-$$
-
-其中
-
-$$
-r = x\text{-coord}([k]P) \bmod q,
+h = H(m \| r), \qquad where r = x\text{-coord}([k]P) \bmod q
 $$
 
 簽章方程式為
 
 $$
-s = \frac{h+xr}{k} \pmod q.
+s = \frac{h+xr}{k} \pmod q
 $$
 
 fork 後得到兩份簽章資料：
@@ -210,11 +188,7 @@ $$
 r' = x\text{-coord}([k']P) \bmod q, \qquad s' = \frac{h'+xr'}{k'} \pmod q,
 $$
 
-其中還有
-
-$$
-r = r'.
-$$
+where we have $r = r'$ and $h = H(m \| r)$, $h' = H(m \| r')$ are the oracle queries from the first and second runs of $A$, respectively.
 
 和 DSA 不同的是，在某些條件下，從相同的 $x$-coordinate 可以推出
 
@@ -234,7 +208,7 @@ $$
 k' = \pm k \pmod q.
 $$
 
-把這兩種可能分開看。
+#### Case 1: $k' = k$
 
 若 $k' = k$，則
 
@@ -254,6 +228,8 @@ $$
 (s-s')k = h-h' \pmod q.
 $$
 
+#### Case 2: $k' = -k$
+
 若 $k' = -k$，則
 
 $$
@@ -271,6 +247,8 @@ $$
 $$
 (s+s')k = h-h' \pmod q.
 $$
+
+#### Summary
 
 這兩種情形可統一寫成
 
