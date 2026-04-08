@@ -2,11 +2,11 @@
 layout: page
 title: Security of RSA Signature
 date: 2026-03-26
-last_updated: 2026-03-26
+last_updated: 2026-04-08
 tags: [RSA, signature, random-oracle, FDH, RSA-PSS]
 ---
 
-RSA-based signature 的安全性，通常放在 **random oracle model** 下討論。這裡有兩個經典方案：**RSA with Full-Domain Hashing (FDH)** 與 **RSA-PSS**。前者的結構直接，適合說明如何把「偽造簽章」歸約成「反轉 RSA function」；後者則透過隨機化與編碼機制，形成更完整的簽章設計。兩者都建立在 RSA inversion 的困難性之上，但在簽章形式、驗證方式與安全性證明的技術細節上有所不同。
+RSA-based signature 的安全性，通常放在 [random oracle model]({{ "/articles/Cryptology/ROM/" | relative_url }}) 下討論。這裡有兩個經典方案：**RSA with Full-Domain Hashing (FDH)** 與 **RSA-PSS**。前者的結構直接，適合說明如何把「偽造簽章」歸約成「反轉 RSA function」；後者則透過隨機化與編碼機制，形成更完整的簽章設計。兩者都建立在 RSA inversion 的困難性之上，但在簽章形式、驗證方式與安全性證明的技術細節上有所不同。
 
 ## RSA with Full-Domain Hashing (FDH)
 
