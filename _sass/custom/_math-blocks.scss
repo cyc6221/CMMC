@@ -163,24 +163,18 @@
   border: 1px solid #2f2f2f;
 }
 
-.katex-display,
-.MathJax_Display {
-  background: #111;
-  border-left: 4px solid #00ff41;
-  box-shadow: 0 0 0 1px #222;
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  background: rgba(0, 255, 65, 0.06);
+  border-left: 3px solid rgba(0, 255, 65, 0.45);
   padding: 0.8em 1em;
   margin: 1em 0;
   border-radius: 6px;
   overflow-x: auto;
 }
 
-mjx-container[jax="CHTML"][display="true"] {
-  display: block;
-  background: #111;
-  border-left: 4px solid #00ff41;
-  box-shadow: 0 0 0 1px #222;
-  padding: 0.8em 1em;
-  margin: 1em 0;
-  border-radius: 6px;
-  overflow-x: auto;
+mjx-container[jax="CHTML"]:not([display="true"]) {
+  background: rgba(0, 255, 65, 0.08);
+  padding: 0.02em 0.22em;
+  border-radius: 4px;
 }
