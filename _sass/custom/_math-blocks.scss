@@ -163,10 +163,13 @@
   border: 1px solid #2f2f2f;
 }
 
+// MathJax v3 highlight for hacker theme
+// - display math: $$ ... $$
+// - inline math:  $ ... $
 mjx-container[jax="CHTML"][display="true"] {
   display: block;
-  background: rgba(0, 255, 65, 0.12);
-  border-left: 3px solid rgba(0, 255, 65, 0.65);
+  background: rgba(0, 255, 65, 0.16);
+  border-left: 3px solid rgba(0, 255, 65, 0.75);
   padding: 0.8em 1em;
   margin: 1em 0;
   border-radius: 6px;
@@ -174,7 +177,7 @@ mjx-container[jax="CHTML"][display="true"] {
 }
 
 mjx-container[jax="CHTML"]:not([display="true"]) {
-  background: rgba(0, 255, 65, 0.14);
+  background: rgba(0, 255, 65, 0.18);
   padding: 0.02em 0.22em;
   border-radius: 4px;
 }
