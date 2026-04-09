@@ -35,9 +35,11 @@
 .algorithm strong {
   display: block;
   margin-bottom: 0.55rem;
-  font-family: "Inter", "Noto Sans TC", sans-serif;
-  font-weight: 800;
+  font-family: "STIX Two Math", "STIX Two Text", Georgia, "Times New Roman", "Noto Serif TC", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", serif;
+  font-weight: 700;
   letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* 區塊內段落 */
