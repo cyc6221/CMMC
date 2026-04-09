@@ -173,3 +173,14 @@
   border-radius: 6px;
   overflow-x: auto;
 }
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  background: #111;
+  border-left: 4px solid #00ff41;
+  box-shadow: 0 0 0 1px #222;
+  padding: 0.8em 1em;
+  margin: 1em 0;
+  border-radius: 6px;
+  overflow-x: auto;
+}
