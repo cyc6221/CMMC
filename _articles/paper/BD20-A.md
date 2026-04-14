@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "[BD20] A Okamoto Identification and Signature Scheme from MBDL"
+title: "[BD20] A Okamoto Identification and Signature from MBDL"
 author1: "Mihir Bellare"
 author2: "Wei Dai"
 venue: "INDOCRYPT 2020"
