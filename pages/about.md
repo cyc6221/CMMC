@@ -43,6 +43,10 @@ I am CY.
 {% include about/Square-Root-Barrier.html %}
 <!-- Square-Root Barrier -->
 
+<!-- MBDL as a Hub -->
+{% include about/MBDL-as-a-hub.html %}
+<!-- MBDL as a Hub -->
+
 </section>
 
 <!-- --- -->
