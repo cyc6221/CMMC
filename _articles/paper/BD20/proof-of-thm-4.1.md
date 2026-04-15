@@ -7,7 +7,7 @@ venue: "INDOCRYPT 2020"
 date: 2026-04-15
 last_updated: 2026-04-15
 label: "paper"
-tags: [square-root-barrier, paper]
+tags: [square-root-barrier, paper, MBDL]
 ---
 
 This note records the proof page for [Theorem 4.1 in chapter 4]({{ "/articles/paper/BD20/BD20-4/" | relative_url }}) of the paper [The Multi-Base Discrete Logarithm Problem: Tight Reductions and Non-Rewinding Proofs for Schnorr Identification and Signatures]({{ "/articles/paper/BD20/" | relative_url }}). Related chapters include:
