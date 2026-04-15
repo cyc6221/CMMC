@@ -89,8 +89,10 @@ layout: default
           </span>
         {% endif %}
 
-        {% if (publish_time and update_time) or (publish_time and page.tags) %}
-          <span class="meta-sep" aria-hidden="true">|</span>
+        {% if publish_time %}
+          {% if update_time or page.tags %}
+            <span class="meta-sep" aria-hidden="true">|</span>
+          {% endif %}
         {% endif %}
         
         <!-- update_time -->
