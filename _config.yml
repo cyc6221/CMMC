@@ -29,7 +29,7 @@ header_pages:
   - pages/tags.md
 
 plugins:
-  - jekyll-git-metadata
+  - jekyll-github-metadata
   - jekyll-sitemap
   - jekyll-remote-theme
 
