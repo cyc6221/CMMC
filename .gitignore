@@ -1,6 +1,9 @@
 _site/
 .sass-cache/
 .jekyll-cache/
+.bundle/
+.bundlehome/
+vendor/bundle/
 
 .markdownlint.json
 
