@@ -10,7 +10,7 @@ label: "paper"
 tags: [square-root-barrier, paper, MBDL]
 ---
 
-It is appendix B of the paper [The Multi-Base Discrete Logarithm Problem: Tight Reductions and Non-Rewinding Proofs for Schnorr Identification and Signatures]({{ "/articles/paper/BD20/" | relative_url }}). Other chapters include:
+It is appendix B of [the paper]({{ "/articles/paper/BD20/" | relative_url }})<a class="cite" href="#bib-bd20">BD20</a>. Other chapters include:
 
 - [1 Introduction]({{ "/articles/paper/BD20/BD20-1/" | relative_url }})
 - [2 Preliminaries]({{ "/articles/paper/BD20/BD20-2/" | relative_url }})
@@ -20,3 +20,12 @@ It is appendix B of the paper [The Multi-Base Discrete Logarithm Problem: Tight 
 - [A Okamoto Identification and Signature from MBDL]({{ "/articles/paper/BD20/BD20-A/" | relative_url }})
 
 ---
+
+## References
+
+<ul class="bib">
+  <li id="bib-bd20">
+    <span class="bib-key">BD20</span>
+    <span class="bib-body">M. Bellare and W. Dai. <i>The Multi-Base Discrete Logarithm Problem: Tight Reductions and Non-Rewinding Proofs for Schnorr Identification and Signatures.</i> In Progress in Cryptology-INDOCRYPT '20, pages 529-552, 2020.</span>
+  </li>
+</ul>

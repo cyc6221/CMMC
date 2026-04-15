@@ -10,7 +10,7 @@ label: "paper"
 tags: [square-root-barrier, paper, MBDL]
 ---
 
-This note records the proof page for [Theorem 4.1 in chapter 4]({{ "/articles/paper/BD20/BD20-4/" | relative_url }}) of the paper [The Multi-Base Discrete Logarithm Problem: Tight Reductions and Non-Rewinding Proofs for Schnorr Identification and Signatures]({{ "/articles/paper/BD20/" | relative_url }}). Related chapters include:
+This note records the proof page for [Theorem 4.1 in chapter 4]({{ "/articles/paper/BD20/BD20-4/" | relative_url }}) of [the paper]({{ "/articles/paper/BD20/" | relative_url }})<a class="cite" href="#bib-bd20">BD20</a>. Related chapters include:
 
 - [1 Introduction]({{ "/articles/paper/BD20/BD20-1/" | relative_url }})
 - [2 Preliminaries]({{ "/articles/paper/BD20/BD20-2/" | relative_url }})
@@ -47,3 +47,12 @@ $\mathcal{O} (Q^{Tr}_{\mathcal{A}} \cdot T^{\mathrm{exp}}_\mathbb{G})$.
 </div>
 
 ## Proof of Theorem 4.1
+
+## References
+
+<ul class="bib">
+  <li id="bib-bd20">
+    <span class="bib-key">BD20</span>
+    <span class="bib-body">M. Bellare and W. Dai. <i>The Multi-Base Discrete Logarithm Problem: Tight Reductions and Non-Rewinding Proofs for Schnorr Identification and Signatures.</i> In Progress in Cryptology-INDOCRYPT '20, pages 529-552, 2020.</span>
+  </li>
+</ul>
