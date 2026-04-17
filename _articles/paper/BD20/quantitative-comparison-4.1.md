@@ -68,7 +68,7 @@ $$
 要使用這些方程式，現在還需要估計它們各自的 advantage。為此，假設 $G$ 是一個群，其中與 discrete log 相關問題的安全性可由在 generic group model (GGM) 中證明的界所捕捉，而根據目前對某些 elliptic curve groups 的理解，這看起來是合理的。  
 這裡忽略執行時間中的 simulation overhead，因為 $A$ 的 transcript queries 數量反映的是 identification protocol 的 online executions，理應遠小於 $A$ 的執行時間，因此取 $B_1$ 與 $B_2$ 的執行時間都大約為 $t$，亦即 IMP-PA adversary $A$ 的執行時間。
 
-經典的 Shoup 結果 [47] 給出
+經典的 Shoup 結果 <a class="cite" href="#bib-sho97">Sho97</a> 給出
 $$
 Adv^{\mathrm{dl}}_{G,g}(B_1) \approx \frac{t^2}{p},
 $$
@@ -159,5 +159,10 @@ $$
   <li id="bib-bd20">
     <span class="bib-key">BD20</span>
     <span class="bib-body">M. Bellare and W. Dai. <i>The Multi-Base Discrete Logarithm Problem: Tight Reductions and Non-Rewinding Proofs for Schnorr Identification and Signatures.</i> In Progress in Cryptology-INDOCRYPT '20, pages 529-552, 2020.</span>
+  </li>
+
+  <li id="bib-sho97">
+    <span class="bib-key">Sho97</span>
+    <span class="bib-body">V. Shoup. <i>Lower bounds for discrete logarithms and related problems.</i> In W. Fumy, editor, EUROCRYPT'97, volume 1233 of LNCS, pages 256-266. Springer, Heidelberg, May 1997.</span>
   </li>
 </ul>
