@@ -10,7 +10,7 @@ label: "paper"
 tags: [square-root-barrier, paper, MBDL]
 ---
 
-This note records the quantitative comparison for [4.2 Schnorr Signature from MBDL]({{ "/articles/paper/BD20/BD20-4.2/" | relative_url }}) in [chapter 4 Schnorr Identification and Signatures from MBDL]({{ "/articles/paper/BD20/BD20-4/" | relative_url }}) of [the paper]({{ "/articles/paper/BD20/" | relative_url }})<a class="cite" href="#bib-bd20">BD20</a>. Related notes include [4.1 Schnorr Identification from MBDL]({{ "/articles/paper/BD20/BD20-4.1/" | relative_url }}), [Proof of Theorem 4.1]({{ "/articles/paper/BD20/proof-of-thm-4.1/" | relative_url }}), and [Quantitative Comparison for 4.1]({{ "/articles/paper/BD20/quantitative-comparison-4.1/" | relative_url }}).
+This note records the quantitative comparison for 4.3 in [chapter 4 Schnorr Identification and Signatures from MBDL]({{ "/articles/paper/BD20/BD20-4/" | relative_url }}) of [the paper]({{ "/articles/paper/BD20/" | relative_url }})<a class="cite" href="#bib-bd20">BD20</a>. Related notes include [4.1 Schnorr Identification from MBDL]({{ "/articles/paper/BD20/BD20-4.1/" | relative_url }}), [Proof of Theorem 4.1]({{ "/articles/paper/BD20/proof-of-thm-4.1/" | relative_url }}), and [Quantitative Comparison for 4.1]({{ "/articles/paper/BD20/quantitative-comparison-4.1/" | relative_url }}).
 
 - [1 Introduction]({{ "/articles/paper/BD20/BD20-1/" | relative_url }})
 - [2 Preliminaries]({{ "/articles/paper/BD20/BD20-2/" | relative_url }})
@@ -127,7 +127,7 @@ $$
 $$
 p_2 < p_1,
 $$
-因此 Theorem 4.1 保證可在較小的群中達到所需安全性。  
+因此 Theorem 4.3 保證可在較小的群中達到所需安全性。  
 群元素表示大小的比值為
 $$
 r \approx \frac{\log(p_1)}{\log(p_2)}
