@@ -57,10 +57,7 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
   <ol>
     <li>
       <code>Set</code>
-      $(Y, X) \leftarrow^{\$} \mathrm{Init}()$
-    </li>
-    <li>
-      <code>Run</code>
+      $(Y, X) \leftarrow^{\$} \mathrm{Init}()$; <code>Run</code>
       $z^\ast \leftarrow^{\$} \mathcal{A}^{\mathrm{Ch}, \mathrm{Tr}}(X)$
     </li>
     <li>
@@ -73,11 +70,7 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
   <ol>
     <li>
       <code>Set</code>
-      $W \leftarrow (R^\ast)^{-1} \cdot Y$
-    </li>
-    <li>
-      <code>Set</code>
-      $c^\ast \leftarrow \mathrm{DLO}(1, W)$
+      $W \leftarrow (R^\ast)^{-1} \cdot Y$; $c^\ast \leftarrow \mathrm{DLO}(1, W)$
     </li>
     <li>
       <code>Return</code>
@@ -89,15 +82,7 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
   <ol>
     <li>
       <code>Set</code>
-      $z \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $c \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $R \leftarrow g^z \cdot X^{-c}$
+      $z \leftarrow^{\$} \mathbb{Z}_p$; $c \leftarrow^{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
     </li>
     <li>
       <code>Return</code>
@@ -213,23 +198,7 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $p \leftarrow \lvert G \rvert$
-    </li>
-    <li>
-      <code>Set</code>
-      $y \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $Y \leftarrow g^y$
-    </li>
-    <li>
-      <code>Set</code>
-      $x \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $X \leftarrow g^x$
+      $p \leftarrow \lvert G \rvert$; $y \leftarrow^{\$} \mathbb{Z}_p$; $Y \leftarrow g^y$; $x \leftarrow^{\$} \mathbb{Z}_p$; $X \leftarrow g^x$
     </li>
     <li>
       <code>Return</code>
@@ -253,15 +222,7 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $z \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $c \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $R \leftarrow g^z \cdot X^{-c}$
+      $z \leftarrow^{\$} \mathbb{Z}_p$; $c \leftarrow^{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
     </li>
     <li>
       <code>Return</code>
@@ -287,19 +248,7 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $p \leftarrow \lvert G \rvert$
-    </li>
-    <li>
-      <code>Set</code>
-      $y \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $Y \leftarrow g^y$
-    </li>
-    <li>
-      <code>Set</code>
-      $x \leftarrow^{\$} \mathbb{Z}_p$
+      $p \leftarrow \lvert G \rvert$; $y \leftarrow^{\$} \mathbb{Z}_p$; $Y \leftarrow g^y$; $x \leftarrow^{\$} \mathbb{Z}_p$
     </li>
     <li>
       <code>If</code>
@@ -331,15 +280,7 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $z \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $c \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $R \leftarrow g^z \cdot X^{-c}$
+      $z \leftarrow^{\$} \mathbb{Z}_p$; $c \leftarrow^{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
     </li>
     <li>
       <code>Return</code>
@@ -365,23 +306,7 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $p \leftarrow \lvert G \rvert$
-    </li>
-    <li>
-      <code>Set</code>
-      $y \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $Y \leftarrow g^y$
-    </li>
-    <li>
-      <code>Set</code>
-      $x \leftarrow^{\$} \mathbb{Z}_p^\ast$
-    </li>
-    <li>
-      <code>Set</code>
-      $X \leftarrow g^x$
+      $p \leftarrow \lvert G \rvert$; $y \leftarrow^{\$} \mathbb{Z}_p$; $Y \leftarrow g^y$; $x \leftarrow^{\$} \mathbb{Z}_p^\ast$; $X \leftarrow g^x$
     </li>
     <li>
       <code>Return</code>
@@ -393,11 +318,7 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $W \leftarrow R_\ast^{-1} \cdot Y$
-    </li>
-    <li>
-      <code>Set</code>
-      $c_\ast \leftarrow \mathrm{DL}_{G,X}(W)$
+      $W \leftarrow R_\ast^{-1} \cdot Y$; $c_\ast \leftarrow \mathrm{DL}_{G,X}(W)$
     </li>
     <li>
       <code>Return</code>
@@ -409,15 +330,7 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $z \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $c \leftarrow^{\$} \mathbb{Z}_p$
-    </li>
-    <li>
-      <code>Set</code>
-      $R \leftarrow g^z \cdot X^{-c}$
+      $z \leftarrow^{\$} \mathbb{Z}_p$; $c \leftarrow^{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
     </li>
     <li>
       <code>Return</code>
