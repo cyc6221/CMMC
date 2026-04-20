@@ -128,7 +128,7 @@ $$
 \end{aligned}
 $$
 
-遊戲 $\mathrm{Gm}_0,\mathrm{Gm}_1$ 是 identical-until-bad，因此根據 Game Playing 的基本引理 [11]，可得
+遊戲 $\mathrm{Gm}_0,\mathrm{Gm}_1$ 是 identical-until-bad，因此根據 Game Playing 的基本引理 <a class="cite" href="#bib-br06">BR06</a>，可得
 
 $$
 \Pr[\mathrm{Gm}_0(\mathcal{A})]-\Pr[\mathrm{Gm}_1(\mathcal{A})]\le \Pr[\mathrm{Gm}_1(\mathcal{A}) \text{ sets bad}] .
@@ -353,5 +353,10 @@ $$
   <li id="bib-bd20">
     <span class="bib-key">BD20</span>
     <span class="bib-body">M. Bellare and W. Dai. <i>The Multi-Base Discrete Logarithm Problem: Tight Reductions and Non-Rewinding Proofs for Schnorr Identification and Signatures.</i> In Progress in Cryptology-INDOCRYPT '20, pages 529-552, 2020.</span>
+  </li>
+
+  <li id="bib-br06">
+    <span class="bib-key">BR06</span>
+    <span class="bib-body">M. Bellare and P. Rogaway. <i>The security of triple encryption and a framework for code-based game-playing proofs.</i> In S. Vaudenay, editor, EUROCRYPT 2006, volume 4004 of LNCS, pages 409-426. Springer, Heidelberg, May/June 2006.</span>
   </li>
 </ul>
