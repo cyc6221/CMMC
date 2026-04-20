@@ -57,11 +57,11 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
   <ol>
     <li>
       <code>Set</code>
-      $(Y, X) \xleftarrow{\$} \mathrm{Init}()$
+      $(Y, X) \leftarrow^{\$} \mathrm{Init}()$
     </li>
     <li>
       <code>Run</code>
-      $z^\ast \xleftarrow{\$} \mathcal{A}^{\mathrm{Ch}, \mathrm{Tr}}(X)$
+      $z^\ast \leftarrow^{\$} \mathcal{A}^{\mathrm{Ch}, \mathrm{Tr}}(X)$
     </li>
     <li>
       <code>Return</code>
@@ -89,11 +89,11 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
   <ol>
     <li>
       <code>Set</code>
-      $z \xleftarrow{\$} \mathbb{Z}_p$
+      $z \leftarrow^{\$} \mathbb{Z}_p$
     </li>
     <li>
       <code>Set</code>
-      $c \xleftarrow{\$} \mathbb{Z}_p$
+      $c \leftarrow^{\$} \mathbb{Z}_p$
     </li>
     <li>
       <code>Set</code>
@@ -203,6 +203,236 @@ g^{z_\ast}=X^{c_\ast}R_\ast=YR_\ast^{-1}R_\ast=Y
 $$
 
 ，因此 $\mathcal{B}$ 獲勝。
+
+### Game 0
+
+<div class="algorithm">
+  <div class="algorithm-title">Game $\mathrm{Gm}_0$</div>
+
+  <p><strong>Init:</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $p \leftarrow \lvert G \rvert$
+    </li>
+    <li>
+      <code>Set</code>
+      $y \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $Y \leftarrow g^y$
+    </li>
+    <li>
+      <code>Set</code>
+      $x \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $X \leftarrow g^x$
+    </li>
+    <li>
+      <code>Return</code>
+      $(Y, X)$
+    </li>
+  </ol>
+
+  <p><strong>Ch($R_\ast$):</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $c_\ast \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Return</code>
+      $c_\ast$
+    </li>
+  </ol>
+
+  <p><strong>Tr($W$):</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $z \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $c \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $R \leftarrow g^z \cdot X^{-c}$
+    </li>
+    <li>
+      <code>Return</code>
+      $(R, c, z)$
+    </li>
+  </ol>
+
+  <p><strong>Fin($z_\ast$):</strong></p>
+  <ol>
+    <li>
+      <code>Return</code>
+      $(g^{z_\ast} = X^{c_\ast} R_\ast)$
+    </li>
+  </ol>
+</div>
+
+### Game 1
+
+<div class="algorithm">
+  <div class="algorithm-title">Game $\mathrm{Gm}_1$</div>
+
+  <p><strong>Init:</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $p \leftarrow \lvert G \rvert$
+    </li>
+    <li>
+      <code>Set</code>
+      $y \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $Y \leftarrow g^y$
+    </li>
+    <li>
+      <code>Set</code>
+      $x \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>If</code>
+      $(x = 0)$ then set $\mathrm{bad} \leftarrow \mathrm{true}$ and sample $x \leftarrow^{\$} \mathbb{Z}_p^\ast$
+    </li>
+    <li>
+      <code>Set</code>
+      $X \leftarrow g^x$
+    </li>
+    <li>
+      <code>Return</code>
+      $(Y, X)$
+    </li>
+  </ol>
+
+  <p><strong>Ch($R_\ast$):</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $c_\ast \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Return</code>
+      $c_\ast$
+    </li>
+  </ol>
+
+  <p><strong>Tr($W$):</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $z \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $c \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $R \leftarrow g^z \cdot X^{-c}$
+    </li>
+    <li>
+      <code>Return</code>
+      $(R, c, z)$
+    </li>
+  </ol>
+
+  <p><strong>Fin($z_\ast$):</strong></p>
+  <ol>
+    <li>
+      <code>Return</code>
+      $(g^{z_\ast} = X^{c_\ast} R_\ast)$
+    </li>
+  </ol>
+</div>
+
+### Game 2
+
+<div class="algorithm">
+  <div class="algorithm-title">Game $\mathrm{Gm}_2$</div>
+
+  <p><strong>Init:</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $p \leftarrow \lvert G \rvert$
+    </li>
+    <li>
+      <code>Set</code>
+      $y \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $Y \leftarrow g^y$
+    </li>
+    <li>
+      <code>Set</code>
+      $x \leftarrow^{\$} \mathbb{Z}_p^\ast$
+    </li>
+    <li>
+      <code>Set</code>
+      $X \leftarrow g^x$
+    </li>
+    <li>
+      <code>Return</code>
+      $(Y, X)$
+    </li>
+  </ol>
+
+  <p><strong>Ch($R_\ast$):</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $W \leftarrow R_\ast^{-1} \cdot Y$
+    </li>
+    <li>
+      <code>Set</code>
+      $c_\ast \leftarrow \mathrm{DL}_{G,X}(W)$
+    </li>
+    <li>
+      <code>Return</code>
+      $c_\ast$
+    </li>
+  </ol>
+
+  <p><strong>Tr($W$):</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $z \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $c \leftarrow^{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $R \leftarrow g^z \cdot X^{-c}$
+    </li>
+    <li>
+      <code>Return</code>
+      $(R, c, z)$
+    </li>
+  </ol>
+
+  <p><strong>Fin($z_\ast$):</strong></p>
+  <ol>
+    <li>
+      <code>Return</code>
+      $(z_\ast = \mathrm{DL}_{G,g}\!\left(X^{c_\ast} R_\ast\right))$
+    </li>
+  </ol>
+</div>
 
 ## References
 
