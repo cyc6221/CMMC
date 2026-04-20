@@ -42,8 +42,8 @@ $$
 \mathbf{Adv}^{\mathrm{mbdl}}_{\mathbb{G},g,1}(\mathcal{B}) + \frac{1}{p}.
 $$
 
-Additionally, $T_{\mathcal{B}}$ is roughly $T_{\mathcal{A}}$ plus simulation overhead
-$\mathcal{O} (Q^{Tr}_{\mathcal{A}} \cdot T^{\mathrm{exp}}_\mathbb{G})$.
+Additionally, $\mathrm{T}_{\mathcal{B}}$ is roughly $\mathrm{T}_{\mathcal{A}}$ plus simulation overhead
+$\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mathbb{G})$.
 </div>
 
 ## Proof of Theorem 4.1
