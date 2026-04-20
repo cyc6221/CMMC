@@ -111,13 +111,9 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
 
 ### Formal Proof
 
-對於形式化證明，可考慮圖 5 中的遊戲。各過程會透過註解指出它們出現於哪些遊戲中。遊戲 $\mathrm{Gm}_1$ 包含第 2 行中的方框程式碼，而 $\mathrm{Gm}_0$ 不包含。這兩個遊戲都透過零知識模擬來實作 transcript oracle，而不是使用秘密金鑰；除此之外，$\mathrm{Gm}_0$ 與遊戲 
+各過程會透過註解指出它們出現於哪些遊戲中。遊戲 $\mathrm{Gm}_1$ 包含第 2 行中的方框程式碼，而 $\mathrm{Gm}_0$ 不包含。這兩個遊戲都透過零知識模擬來實作 transcript oracle，而不是使用秘密金鑰。
 
-$$
-\mathrm{Gm}^{\mathrm{imp\mbox{-}pa}}_{\mathrm{ID}}
-$$
-
-相同，因此可得
+除此之外，$\mathrm{Gm}_0$ 與遊戲 $$\mathrm{Gm}^{\mathrm{imp\mbox{-}pa}}_{\mathrm{ID}}$$ 相同，因此可得
 
 $$
 \begin{aligned}
