@@ -50,6 +50,62 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
 
 回顧一下，在將 Schnorr 的 IMP-PA 安全性歸約到 DL 時，所構造的 dl 對手 $\mathcal{B}$ 會將目標點 $Y$ 設為公鑰 $X$。在我們的情況下，採取相同的方法是很自然的。問題在於，如何使用離散對數 oracle $\mathrm{DLO}$ 來避免 rewinding 並得到緊的歸約。然而這一點並不明確，而且事實上 $\mathrm{DLO}$ oracle 似乎並無助於此。
 
+<div class="algorithm">
+  <div class="algorithm-title">Adversary $\mathcal{B}^{\mathrm{DLO}}$</div>
+
+  <p><strong>Init:</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $(Y, X) \xleftarrow{\$} \mathrm{Init}()$
+    </li>
+    <li>
+      <code>Run</code>
+      $z^\ast \xleftarrow{\$} \mathcal{A}^{\mathrm{Ch}, \mathrm{Tr}}(X)$
+    </li>
+    <li>
+      <code>Return</code>
+      $z^\ast$
+    </li>
+  </ol>
+
+  <p><strong>Ch($R^\ast$):</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $W \leftarrow (R^\ast)^{-1} \cdot Y$
+    </li>
+    <li>
+      <code>Set</code>
+      $c^\ast \leftarrow \mathrm{DLO}(1, W)$
+    </li>
+    <li>
+      <code>Return</code>
+      $c^\ast$
+    </li>
+  </ol>
+
+  <p><strong>Tr:</strong></p>
+  <ol>
+    <li>
+      <code>Set</code>
+      $z \xleftarrow{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $c \xleftarrow{\$} \mathbb{Z}_p$
+    </li>
+    <li>
+      <code>Set</code>
+      $R \leftarrow g^z \cdot X^{-c}$
+    </li>
+    <li>
+      <code>Return</code>
+      $(R, c, z)$
+    </li>
+  </ol>
+</div>
+
 我們的歸約與先前的方法不同之處在於，**不**將目標點 $Y$ 設為公鑰。相反地，我們觀察對手 $\mathcal{A}$ 的一次成功冒充。（$\mathcal{A}$ 的 transcript oracle $\mathrm{Tr}$ 的模擬仍然是透過該方案的誠實驗證者零知識性質來完成。）對手 $\mathcal{A}$ 提供 $R_\ast$，收到 $c_\ast$，然後回傳 $z_\ast$，滿足
 $g^{z_\ast}=R_\ast X^{c_\ast}$，其中 $X$ 是公鑰。因此，$\mathcal{A}$ 實際上計算出了 $R_\ast X^{c_\ast}$ 的離散對數。我們使其等於我們的 mbdl challenge $Y$，也就是說，$\mathcal{B}$ 在輸入 $Y$ 時，安排 $Y=R_\ast X^{c_\ast}$。若它能成功做到這一點，則 $\mathcal{A}$ 回傳的 $z_\ast$ 的確會是 $\mathrm{DL}_{G,g}(Y)$，於是它便可輸出並獲勝。
 
