@@ -5,52 +5,53 @@ permalink: /about/
 toc: false
 ---
 
-## Me
-
 I am CY.
 
-- This is my [blog list]({{ "/blog-list/" | relative_url }}).
+<nav class="about-links" aria-label="About page sections">
+    <a class="about-links__item" href="#research">Research</a>
+    <a class="about-links__item" href="#learning">Learning</a>
+    <a class="about-links__item" href="#practice">Practice</a>
+    <a class="about-links__item" href="#math-problem">Math Problem</a>
+    <a class="about-links__item" href="#certificate">Certificate</a>
+</nav>
 
-- This is my [reading list]({{ "/reading-list/" | relative_url }}).
+<div class="about-links">
+    <a class="about-links__item" href="{{ '/blog-list/' | relative_url }}">Blog List</a>
+    <a class="about-links__item" href="{{ '/reading-list/' | relative_url }}">Reading List</a>
+    <a class="about-links__item" href="{{ '/site-list/' | relative_url }}">Site List</a>
+</div>
 
-- This is [site list]({{ "/site-list/" | relative_url }}).
+---
 
-- This is [certificate list]({{ "/certificate-list/" | relative_url }}) and [my certificates]({{ "/my-certificates/" | relative_url }}).
-
-<!-- --- -->
-
-## Currently
+## Research {#research}
 
 <section class="now-grid">
-
-<!-- Cryptography: An Introduction (Third Edition) -->
-{% include about/CryptoAnIntro.html %}
-<!-- Cryptography: An Introduction (Third Edition) -->
-
-<!-- PortSwigger -->
-{% include about/PortSwigger.html %}
-<!-- PortSwigger -->
-
-<!-- CryptoHack -->
-{% include about/CryptoHack.html %}
-<!-- CryptoHack -->
-
-<!-- Prime -->
-{% include about/Prime.html %}
-<!-- Prime -->
-
-<!-- Square-Root Barrier -->
-{% include about/Square-Root-Barrier.html %}
-<!-- Square-Root Barrier -->
-
-<!-- MBDL as a Hub -->
 {% include about/MBDL-as-a-hub.html %}
-<!-- MBDL as a Hub -->
-
+{% include about/Square-Root-Barrier.html %}
 </section>
 
-<!-- --- -->
+## Learning {#learning}
 
-## Site
+<section class="now-grid">
+{% include about/CryptoAnIntro.html %}
+</section>
 
-This site is built with Jekyll and hosted on GitHub Pages.
+## Practice {#practice}
+
+<section class="now-grid">
+{% include about/PortSwigger.html %}
+{% include about/CryptoHack.html %}
+</section>
+
+## Math Problem {#math-problem}
+
+<section class="now-grid">
+{% include about/Prime.html %}
+</section>
+
+## Certificate {#certificate}
+
+<div class="about-links">
+    <a class="about-links__item" href="{{ '/certificate-list/' | relative_url }}">Certificate List</a>
+    <a class="about-links__item" href="{{ '/my-certificates/' | relative_url }}">My Certificates</a>
+</div>
