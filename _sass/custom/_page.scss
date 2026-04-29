@@ -95,6 +95,15 @@
 
 /* — Content: .page-content（文章內容內 h2 / h3 加強） */
 .page-content {
+  /* theme vars for about-links */
+  --about-border: #245c24;
+  --about-bg: rgba(51, 255, 51, 0.05);
+  --about-bg-hover: rgba(51, 255, 51, 0.1);
+  --about-accent: #33ff33;
+  /* use inherited text color so cards follow site theme (light/dark) */
+  --about-text: inherit;
+  --about-focus: rgba(51, 255, 51, 0.18);
+
   h2 {
     font-weight: 800;
     line-height: 1.25;
@@ -134,28 +143,40 @@
   gap: 12px;
   min-height: 52px;
   padding: 0.8rem 1rem;
-  border: 1px solid #245c24;
-  background: rgba(51, 255, 51, 0.05);
-  color: #e6e6e6;
+  border: 1px solid var(--about-border);
+  background: var(--about-bg);
+  /* inherit page text color to avoid breaking dark/light themes */
+  color: var(--about-text);
   text-decoration: none;
   transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
 }
 
 .page-content .about-links__item::after {
-  content: "->";
-  color: #33ff33;
+  content: "→";
+  color: var(--about-accent);
   font-family: "Roboto Mono", monospace;
   font-size: 0.95rem;
   flex: 0 0 auto;
+  pointer-events: none; /* decorative */
 }
 
 .page-content .about-links__item:hover,
 .page-content .about-links__item:focus-visible {
-  border-color: #33ff33;
-  background: rgba(51, 255, 51, 0.1);
-  color: #ffffff;
+  border-color: var(--about-accent);
+  background: var(--about-bg-hover);
+  /* keep inherited text color on hover */
+  color: var(--about-text);
   text-decoration: none;
   transform: translateY(-1px);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--about-focus);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-content .about-links__item {
+    transition: none;
+    transform: none !important;
+  }
 }
 
 /* — Always show vertical scrollbar */
