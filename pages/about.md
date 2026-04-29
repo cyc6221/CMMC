@@ -21,8 +21,6 @@ I am CY.
     <a class="about-links__item" href="{{ '/site-list/' | relative_url }}">Site List</a>
 </div>
 
----
-
 ## Research {#research}
 
 <section class="now-grid">
