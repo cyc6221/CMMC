@@ -164,14 +164,23 @@
   color: var(--about-text);
 }
 
-.page-content .about-links__item:hover,
-.page-content .about-links__item:focus-visible {
+/* Hover: visual lift (mouse only) */
+.page-content .about-links__item:hover {
   border-color: var(--about-accent);
   background: var(--about-bg-hover);
   /* keep inherited text color on hover */
   color: var(--about-text);
   text-decoration: none;
   transform: translateY(-1px);
+}
+
+/* Focus: keyboard accessibility — avoid movement, use focus ring */
+.page-content .about-links__item:focus-visible {
+  border-color: var(--about-accent);
+  background: var(--about-bg-hover);
+  color: var(--about-text);
+  text-decoration: none;
+  transform: none;
   outline: none;
   box-shadow: 0 0 0 3px var(--about-focus);
 }
