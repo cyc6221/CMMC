@@ -159,7 +159,7 @@
   pointer-events: none; /* decorative */
 }
 
-/* Visited links: only change color (browsers restrict :visited styles) */
+/* Visited links: keep the same text color intentionally (browsers restrict :visited styles) */
 .page-content .about-links__item:visited {
   color: var(--about-text);
 }
@@ -181,8 +181,18 @@
   color: var(--about-text);
   text-decoration: none;
   transform: none;
-  outline: none;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
   box-shadow: 0 0 0 3px var(--about-focus);
+}
+
+@media (forced-colors: active) {
+  .page-content .about-links__item:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+    box-shadow: none;
+    border-color: Highlight;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
