@@ -135,8 +135,7 @@
   margin: 1rem 0 1.75rem;
 }
 
-.page-content .about-links__item,
-.page-content .about-links__item:visited {
+.page-content .about-links__item {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -158,6 +157,11 @@
   font-size: 0.95rem;
   flex: 0 0 auto;
   pointer-events: none; /* decorative */
+}
+
+/* Visited links: only change color (browsers restrict :visited styles) */
+.page-content .about-links__item:visited {
+  color: var(--about-text);
 }
 
 .page-content .about-links__item:hover,
