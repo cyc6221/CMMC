@@ -95,6 +95,15 @@
 
 /* — Content: .page-content（文章內容內 h2 / h3 加強） */
 .page-content {
+  /* theme vars for about-links */
+  --about-border: #245c24;
+  --about-bg: rgba(51, 255, 51, 0.05);
+  --about-bg-hover: rgba(51, 255, 51, 0.1);
+  --about-accent: #33ff33;
+  /* use inherited text color so cards follow site theme (light/dark) */
+  --about-text: inherit;
+  --about-focus: rgba(51, 255, 51, 0.18);
+
   h2 {
     font-weight: 800;
     line-height: 1.25;
@@ -116,6 +125,80 @@
   > h2:first-child,
   > h3:first-child {
     margin-top: 0;
+  }
+}
+
+.page-content .about-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 1rem 0 1.75rem;
+}
+
+.page-content .about-links__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--about-border);
+  background: var(--about-bg);
+  /* inherit page text color to avoid breaking dark/light themes */
+  color: var(--about-text);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.page-content .about-links__item::after {
+  content: "→";
+  color: var(--about-accent);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.95rem;
+  flex: 0 0 auto;
+  pointer-events: none; /* decorative */
+}
+
+/* Visited links: keep the same text color intentionally (browsers restrict :visited styles) */
+.page-content .about-links__item:visited {
+  color: var(--about-text);
+}
+
+/* Hover: visual lift (mouse only) */
+.page-content .about-links__item:hover {
+  border-color: var(--about-accent);
+  background: var(--about-bg-hover);
+  /* keep inherited text color on hover */
+  color: var(--about-text);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* Focus: keyboard accessibility — avoid movement, use focus ring */
+.page-content .about-links__item:focus-visible {
+  border-color: var(--about-accent);
+  background: var(--about-bg-hover);
+  color: var(--about-text);
+  text-decoration: none;
+  transform: none;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px var(--about-focus);
+}
+
+@media (forced-colors: active) {
+  .page-content .about-links__item:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+    box-shadow: none;
+    border-color: Highlight;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-content .about-links__item {
+    transition: none;
+    transform: none !important;
   }
 }
 

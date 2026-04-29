@@ -82,26 +82,30 @@ header.now-head::after {
   gap: 12px;
 }
 
-.now-title h2 {
-  flex: 0 0 auto;
+.now-title h3 {
+  /* allow title to shrink and ellipsize on narrow screens */
+  flex: 1 1 auto;
+  min-width: 0;
   margin: 0;
   padding: 0;
   border: 0;
   background: transparent;
   color: #f0f0f0;
   font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.1;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.now-title h2 a {
+.now-title h3 a {
   color: inherit;
   text-decoration: none;
 }
 
-.now-title h2 a:hover {
+.now-title h3 a:hover {
   color: #33ff33;
   text-decoration: none;
 }
@@ -263,7 +267,7 @@ header.now-head::after {
     align-items: start;
 }
 
-.primality-column h3 {
+.primality-column h4 {
     margin-top: 0;
     margin-bottom: 0.75rem;
 }
