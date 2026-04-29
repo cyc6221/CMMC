@@ -15,7 +15,7 @@ When addressing GitHub PR review comments in this repo, use this sequence:
 8. Mark each addressed review thread as resolved.
 9. Re-check thread state to confirm unresolved threads are cleared.
 
-## PR Review Loop After Opening A PR
+## PR Review Loop After Opening a PR
 
 After a PR is opened, expect the review cycle to continue in rounds:
 
@@ -24,7 +24,7 @@ After a PR is opened, expect the review cycle to continue in rounds:
 3. Wait for the user's direction on which fixes to make before editing.
 4. Implement the selected fixes locally.
 5. Stage only the intended files, then commit and push the branch update.
-6. Reply on the addressed review comments or review threads with a short note describing the fix.
+6. Reply to the addressed review comments or review threads with a short note describing the fix.
 7. Mark the addressed review threads as resolved.
 8. Re-check for any remaining or newly added comments.
 9. Wait for the next review round and repeat the same loop.
