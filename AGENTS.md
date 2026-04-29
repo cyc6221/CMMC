@@ -5,7 +5,7 @@
 When addressing GitHub PR review comments in this repo, use this sequence:
 
 1. Open or locate the target PR and load unresolved review threads first.
-2. Group comments by file or behavior area and fix them locally.
+2. Group comments by file or behavior area, summarize the actionable items for the user, and wait for the user's direction before fixing them locally.
 3. Run the smallest relevant verification step before publishing.
    - For site/layout changes, prefer `bundle exec jekyll build`.
 4. Stage only the files that belong to the review fix.
