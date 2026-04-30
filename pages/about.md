@@ -45,6 +45,7 @@ I am CY.
 
 <section class="now-grid">
 {% include about/Prime.html %}
+{% include about/ErdosProblem.html %}
 </section>
 
 ## Certificate {#certificate}
