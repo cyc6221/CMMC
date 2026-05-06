@@ -51,11 +51,12 @@ state = [
     [94, 79, 8, 54],
 ]
 
-# After implementing inv_shift_rows, take the state, run inv_mix_columns on it, then inv_shift_rows, convert to bytes and you will have your flag.
+if __name__ == "__main__":
+    # After implementing inv_shift_rows, take the state, run inv_mix_columns on it,
+    # then inv_shift_rows, convert to bytes and you will have your flag.
+    from matrix import matrix2bytes
 
-from matrix import matrix2bytes
+    inv_mix_columns(state)
+    inv_shift_rows(state)
 
-inv_mix_columns(state)
-inv_shift_rows(state)
-
-print(matrix2bytes(state))
+    print(matrix2bytes(state))

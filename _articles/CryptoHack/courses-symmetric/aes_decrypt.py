@@ -11,8 +11,10 @@ from diffusion import inv_mix_columns, inv_shift_rows
 
 def expand_key(master_key):
     """
-    Expands and returns a list of key matrices for the given master_key.
+    Expands and returns a list of key matrices for an AES-128 master_key.
     """
+    if len(master_key) != 16:
+        raise ValueError("This script only supports AES-128 keys (16 bytes).")
 
     # Round constants https://en.wikipedia.org/wiki/AES_key_schedule#Round_constants
     r_con = (
@@ -41,13 +43,10 @@ def expand_key(master_key):
             # XOR with first byte of R-CON, since the others bytes of R-CON are 0.
             word[0] ^= r_con[i]
             i += 1
-        elif len(master_key) == 32 and len(key_columns) % iteration_size == 4:
-            # Run word through S-box in the fourth iteration when using a
-            # 256-bit key.
-            word = [s_box[b] for b in word]
 
         # XOR with equivalent word from previous iteration.
-        word = bytes(i^j for i, j in zip(word, key_columns[-iteration_size]))
+        word = bytes(prev_byte ^ key_byte
+                     for prev_byte, key_byte in zip(word, key_columns[-iteration_size]))
         key_columns.append(word)
 
     # Group key words in 4x4 byte matrices.
@@ -81,6 +80,6 @@ def decrypt(key, ciphertext):
 
     return matrix2bytes(state)
 
-
-print("Decrypted:")
-print(decrypt(key, ciphertext))
+if __name__ == "__main__":
+    print("Decrypted:")
+    print(decrypt(key, ciphertext))

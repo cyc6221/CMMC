@@ -20,8 +20,8 @@ def add_round_key(s, k):
     return [[ss ^ kk for ss, kk in zip(s_row, k_row)]
             for s_row, k_row in zip(s, k)]
 
-from matrix import matrix2bytes
+if __name__ == "__main__":
+    from matrix import matrix2bytes
 
-print(add_round_key(state, round_key))
-
-print(matrix2bytes(add_round_key(state, round_key)))
+    print(add_round_key(state, round_key))
+    print(matrix2bytes(add_round_key(state, round_key)))

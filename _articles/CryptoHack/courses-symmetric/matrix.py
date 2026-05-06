@@ -7,11 +7,12 @@ def matrix2bytes(matrix):
     # Solution for aes2: flatten the 4x4 matrix row by row, then convert to bytes.
     return bytes(sum(matrix, []))
 
-matrix = [
-    [99, 114, 121, 112],
-    [116, 111, 123, 105],
-    [110, 109, 97, 116],
-    [114, 105, 120, 125],
-]
+if __name__ == "__main__":
+    matrix = [
+        [99, 114, 121, 112],
+        [116, 111, 123, 105],
+        [110, 109, 97, 116],
+        [114, 105, 120, 125],
+    ]
 
-print(matrix2bytes(matrix))
+    print(matrix2bytes(matrix))
