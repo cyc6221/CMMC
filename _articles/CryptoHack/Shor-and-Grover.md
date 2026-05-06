@@ -9,6 +9,8 @@ tags: [CryptoHack, Quantum Computing, Shor's Algorithm, Grover's Algorithm]
 
 > [CryptoHack aes1: Resisting Bruteforce](https://cryptohack.org/courses/symmetric/aes1/)
 
+Finally, while quantum computers have the potential to completely break popular public-key cryptosystems like RSA via **Shor's algorithm**, they are thought to only cut in half the security level of symmetric cryptosystems via **Grover's algorithm**. This is one reason why people recommend using AES-256, despite it being less performant, as it would still provide a very adequate 128 bits of security in a quantum future.
+
 ## Shor's Algorithm
 
 `Shor's algorithm` 是量子密碼學中最常被提到的演算法之一，因為它可以有效率地進行大整數分解與離散對數計算。若未來實用的大規模量子電腦真的成熟，像 `RSA` 與 `ECC` 這類依賴相關數學難題的公開金鑰系統，都會直接受到威脅。
