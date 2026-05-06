@@ -21,4 +21,5 @@ toc: false
 
 ## Symmetric Cryptography
 
+- <a href='{{ "/articles/CryptoHack/AES/" | relative_url }}'>AES</a>
 - <a href='{{ "/articles/CryptoHack/biclique-attack/" | relative_url }}'>Biclique Attack</a>
