@@ -83,13 +83,9 @@ plaintext = state
 
 > Link: [Keyed Permutations](https://cryptohack.org/courses/symmetric/aes0/)
 
-這題主要是在建立對 AES 結構的直覺，先理解它是 keyed permutation，而不是單純把資料做固定變換。
-
 ### aes1
 
 > Link: [Resisting Bruteforce](https://cryptohack.org/courses/symmetric/aes1/)
-
-這題重點是金鑰空間與暴力破解成本，幫助建立後面進入 `AES-128` 時對安全性的基本感覺。
 
 ### aes2
 
