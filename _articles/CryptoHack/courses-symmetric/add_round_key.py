@@ -15,18 +15,13 @@ round_key = [
 
 def add_round_key(s, k):
     """ Add (XOR) the round key to the state.  """
+    # Solution for aes3: XOR each byte in the state with the byte
+    # at the same position in the round key.
     return [[ss ^ kk for ss, kk in zip(s_row, k_row)]
             for s_row, k_row in zip(s, k)]
 
+from matrix import matrix2bytes
 
 print(add_round_key(state, round_key))
 
-# 
-
-def matrix2bytes(matrix):
-    """ Converts a 4x4 matrix into a 16-byte array.  """
-    return bytes(sum(matrix, []))
-
-matrix = add_round_key(state, round_key)
-
-print(matrix2bytes(matrix))
+print(matrix2bytes(add_round_key(state, round_key)))

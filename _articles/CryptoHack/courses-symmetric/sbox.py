@@ -45,8 +45,14 @@ state = [
 
 
 def sub_bytes(s, sbox=s_box):
-    ???
+    """ Substitutes bytes in state with corresponding byte in sbox.  """
+    # Solution for aes4: replace each byte in the state by looking it up
+    # in the S-box (or inverse S-box if a different table is passed in).
+    return [[sbox[ss] for ss in s_row] for s_row in s]
 
 
 print(sub_bytes(state, sbox=inv_s_box))
 
+from matrix import matrix2bytes
+
+print(matrix2bytes(sub_bytes(state, sbox=inv_s_box)))

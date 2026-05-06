@@ -4,6 +4,7 @@ def bytes2matrix(text):
 
 def matrix2bytes(matrix):
     """ Converts a 4x4 matrix into a 16-byte array.  """
+    # Solution for aes2: flatten the 4x4 matrix row by row, then convert to bytes.
     return bytes(sum(matrix, []))
 
 matrix = [
