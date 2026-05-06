@@ -23,3 +23,4 @@ toc: false
 
 - <a href='{{ "/articles/CryptoHack/AES/" | relative_url }}'>AES</a>
 - <a href='{{ "/articles/CryptoHack/biclique-attack/" | relative_url }}'>Biclique Attack</a>
+- <a href='{{ "/articles/CryptoHack/Shor-and-Grover/" | relative_url }}'>Shor's Algorithm and Grover's Algorithm</a>
