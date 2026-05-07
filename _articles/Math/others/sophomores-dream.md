@@ -43,4 +43,4 @@ $$
 
 ## 參見
 
-- [Freshman's Dream]({{ "/articles/Math/freshmans-dream" | relative_url }})
+- [Freshman's Dream]({{ "/articles/Math/others/freshmans-dream/" | relative_url }})
