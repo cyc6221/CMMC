@@ -63,3 +63,39 @@
   color: #16a34a;
   background: rgba(22, 163, 74, .10);
 }
+
+/* ---------- */
+
+/* — Status badge: About / Math 頁共用的進度標籤（to-do / working / to-read） */
+.status-badge{
+  display: inline-block;
+  margin-left: .5rem;
+  padding: .12rem .55rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* — to-do: 尚未撰寫（虛線灰） */
+.status-badge--todo{
+  border-style: dashed;
+  color: #8aa88a;
+  background: transparent;
+}
+
+/* — working: 撰寫中（綠色） */
+.status-badge--working{
+  color: #33ff33;
+  background: rgba(51, 255, 51, .10);
+}
+
+/* — to-read: 尚未閱讀（藍色） */
+.status-badge--toread{
+  color: #60a5fa;
+  background: rgba(96, 165, 250, .10);
+}
