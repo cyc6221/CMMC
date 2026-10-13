@@ -41,6 +41,11 @@
 
 // -----------------------------------------------
 
+/* the theme's bullet.png path is relative to its own stylesheet and 404s here; drop it so lists use list-style-type */
+ul li {
+  list-style-image: none;
+}
+
 hr {
   border: 0;
   border-top: 3px solid #d0d0d0;
