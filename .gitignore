@@ -10,6 +10,7 @@ vendor/bundle/
 book-to-read.md
 
 resource
+local-docs
 
 # Cryptography: An Introduction, Chapter 19
 randomized-complexity-classes-to-read.txt
