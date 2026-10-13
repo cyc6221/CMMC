@@ -37,6 +37,7 @@ header_pages:
   # - index.md
   - pages/about.md
   - pages/articles.md
+  - pages/math.md
   - pages/tags.md
 
 plugins:
