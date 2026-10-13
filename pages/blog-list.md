@@ -12,7 +12,3 @@ toc: false
 ## Speech
 
 - [Snoop Dogg]({{ "/articles/blog/Snoop Dogg/" | relative_url }})
-
-## Music
-
-- [好きだから。]({{ "/articles/blog/sukidakara/" | relative_url }})
