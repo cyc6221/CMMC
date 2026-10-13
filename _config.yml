@@ -22,6 +22,17 @@ collections:
     output: true
     permalink: /articles/:path/
 
+# Overrides Jekyll's default exclude list, so the defaults are repeated here
+exclude:
+  - AGENTS.md
+  - CLAUDE.md
+  - README.md
+  - local-docs
+  - resource
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
 header_pages:
   # - index.md
   - pages/about.md
