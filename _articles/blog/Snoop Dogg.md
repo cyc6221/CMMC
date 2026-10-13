@@ -73,6 +73,8 @@ Fight on.
   </div>
 </div>
 
+- [Snoop Dogg - USC Marshall 2025 Commencement Guest Speaker](https://www.youtube.com/watch?v=AghXEtS44Fw)
+
 ## The Next Episode
 
 <div class="video-window">
@@ -87,3 +89,5 @@ Fight on.
     </iframe>
   </div>
 </div>
+
+- [Dr. Dre - The Next Episode (Official Music Video) ft. Snoop Dogg, Kurupt, Nate Dogg](https://youtu.be/QZXc39hT8t4?si=PT87B0HgIKhL2SWn)
