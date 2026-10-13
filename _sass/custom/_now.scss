@@ -131,6 +131,21 @@ header.now-head::after {
   white-space: nowrap;
 }
 
+/* to-do: 尚未撰寫的項目，不連結，僅作標記 */
+
+.now-todo {
+  color: #8aa88a;
+  cursor: default;
+}
+
+.now-badge--todo {
+  margin-left: 0.5rem;
+  border-style: dashed;
+  border-color: #3d5a3d;
+  background: transparent;
+  color: #8aa88a;
+}
+
 /* body */
 
 .now-body {
