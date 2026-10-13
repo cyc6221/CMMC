@@ -78,3 +78,50 @@ When the user asks to merge a PR after review fixes:
 - After merging a PR, delete the local branch and delete the remote branch unless the user asks to keep them.
 - When cleanup requires leaving the current branch, switch to `main` first, fast-forward it, then delete the merged feature branch.
 - Finish by confirming the current branch and a clean worktree.
+
+## Note Writing Rules
+
+These rules apply whenever Claude Code, Codex, or any other agent writes or reorganizes a study note under `_articles/`.
+
+### Language and tone
+
+- Write explanations in Traditional Chinese, centered on the topic itself.
+- Do not refer to how a textbook or source presents it; use a neutral tone.
+- Keep sentences concise and cut filler.
+- Do not add a conclusion or summary at the end; go straight into the topic.
+- Do not output citation artifacts such as `:contentReference[oaicite:0]{index=0}`.
+
+### Structure
+
+- One topic per `##` (h2) heading; sub-topics of the same topic use `###` (h3).
+- The page title comes from the front matter, so do not add an `#` (h1) heading.
+
+### Theorems, lemmas, proofs
+
+- Keep every theorem, lemma, and proof in its original language (English) and wrap it in `<div class="theorem">`, `<div class="lemma">`, `<div class="proof">`, etc.
+- Do not invent any theorem, lemma, or proof that does not exist in the source.
+- Write derivations step by step; do not skip steps.
+- Put supplementary explanations in a `<div class="remark">` block.
+- Available block classes (see `_sass/custom/_math-blocks.scss`): `definition`, `theorem`, `lemma`, `proof`, `example`, `remark`, `algorithm`.
+
+### Math
+
+- Use inline `$...$` by default; use `$$...$$` only for equations that deserve their own line.
+- Do not put every formula on its own line.
+
+### Front matter
+
+```yaml
+---
+layout: page
+title: <title>
+date: YYYY-MM-DD
+last_updated: YYYY-MM-DD
+label: "<paper | prime | LAB | cheatsheet | ...>"
+tags: [tag1, tag2]
+---
+```
+
+- Add `tags` directly. This is a cryptography site, so do not use `cryptography` as a tag.
+- Paper notes also set `author1` to `author5` and `venue`.
+- Match the `label` and `tags` already used by neighboring notes in the same folder.
