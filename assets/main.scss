@@ -41,6 +41,11 @@
 
 // -----------------------------------------------
 
+/* theme asset lives at assets/images/, but this stylesheet is assets/main.css */
+ul li {
+  list-style-image: url('{{ "/assets/images/bullet.png" | relative_url }}');
+}
+
 hr {
   border: 0;
   border-top: 3px solid #d0d0d0;
