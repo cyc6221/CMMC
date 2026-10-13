@@ -81,11 +81,10 @@
   white-space: nowrap;
 }
 
-/* — to-do: 尚未撰寫（虛線灰） */
+/* — to-do: 尚未撰寫（灰色） */
 .status-badge--todo{
-  border-style: dashed;
   color: #8aa88a;
-  background: transparent;
+  background: rgba(138, 168, 138, .10);
 }
 
 /* — working: 撰寫中（綠色） */
