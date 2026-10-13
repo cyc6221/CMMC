@@ -11,7 +11,6 @@ I am CY.
     <a class="about-links__item" href="#research">Research</a>
     <a class="about-links__item" href="#learning">Learning</a>
     <a class="about-links__item" href="#practice">Practice</a>
-    <a class="about-links__item" href="#math-problem">Math Problem</a>
     <a class="about-links__item" href="#certificate">Certificate</a>
 </nav>
 
@@ -39,14 +38,6 @@ I am CY.
 <section class="now-grid">
 {% include about/PortSwigger.html %}
 {% include about/CryptoHack.html %}
-</section>
-
-## Math Problem {#math-problem}
-
-<section class="now-grid">
-{% include about/Prime.html %}
-{% include about/Others.html %}
-{% include about/ErdosProblem.html %}
 </section>
 
 ## Certificate {#certificate}
