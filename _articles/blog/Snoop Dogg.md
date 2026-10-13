@@ -60,7 +60,34 @@ So, all of you legends out there, you know the word.
 
 Fight on.
 
-## The Next Episode
+<div class="video-window">
+  <div class="video-window__title">NOW PLAYING: Snoop Dogg - USC Marshall 2025 Commencement Guest Speaker</div>
+  <div class="video-window__body">
+    <iframe
+      src="https://www.youtube.com/embed/AghXEtS44Fw"
+      title="Snoop Dogg - USC Marshall 2025 Commencement Guest Speaker"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
 - [Snoop Dogg - USC Marshall 2025 Commencement Guest Speaker](https://www.youtube.com/watch?v=AghXEtS44Fw)
+
+## The Next Episode
+
+<div class="video-window">
+  <div class="video-window__title">NOW PLAYING: Dr. Dre - The Next Episode (Official Music Video) ft. Snoop Dogg, Kurupt, Nate Dogg</div>
+  <div class="video-window__body">
+    <iframe
+      src="https://www.youtube.com/embed/QZXc39hT8t4"
+      title="Dr. Dre - The Next Episode (Official Music Video) ft. Snoop Dogg, Kurupt, Nate Dogg"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
 - [Dr. Dre - The Next Episode (Official Music Video) ft. Snoop Dogg, Kurupt, Nate Dogg](https://youtu.be/QZXc39hT8t4?si=PT87B0HgIKhL2SWn)
