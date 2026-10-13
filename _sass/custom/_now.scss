@@ -131,6 +131,13 @@ header.now-head::after {
   white-space: nowrap;
 }
 
+/* to-do: 尚未撰寫的項目，不連結，僅作標記 */
+
+.now-todo {
+  color: #9ca3af;
+  cursor: default;
+}
+
 /* body */
 
 .now-body {
