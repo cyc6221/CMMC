@@ -3,6 +3,8 @@ layout: page
 title: Knapsack-Based Cryptosystems
 date: 2026-03-24
 last_updated: 2026-03-24
+redirect_from:
+  - /articles/CryptoAnIntro/knapsack-bnased-cryptosystems/
 tags: [knapsack, Merkle-Hellman, LLL, lattice]
 ---
 

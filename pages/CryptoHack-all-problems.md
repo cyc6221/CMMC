@@ -12,7 +12,7 @@ toc: false
 <ul class="lab-table">
   <li class="lab-row">
     <span class="level level--practitioner">Mathematics</span>
-    <a href='{{ "/articles/CryptoHack/bionomials/" | relative_url }}'>
+    <a href='{{ "/articles/CryptoHack/binomials/" | relative_url }}'>
       Modular Binomials
     </a>
     <span class="lab-status is-solved">⭐80</span>
