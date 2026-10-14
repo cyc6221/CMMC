@@ -118,10 +118,8 @@ title: <title>
 date: YYYY-MM-DD
 last_updated: YYYY-MM-DD
 label: "<paper | prime | LAB | cheatsheet | ...>"
-tags: [tag1, tag2]
 ---
 ```
 
-- Add `tags` directly. This is a cryptography site, so do not use `cryptography` as a tag.
 - Paper notes also set `author1` to `author5` and `venue`.
-- Match the `label` and `tags` already used by neighboring notes in the same folder.
+- Match the `label` already used by neighboring notes in the same folder.
