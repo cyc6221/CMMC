@@ -4,7 +4,6 @@ title: GCD
 date: 2026-03-01
 last_updated: 2026-03-01
 label: "Solution"
-tags: [CryptoHack, Modular Arithmetic, GCD]
 ---
 
 ## GCD

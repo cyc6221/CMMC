@@ -3,7 +3,6 @@ layout: page
 title: Miller-Rabin Primality Test
 date: 2026-03-29
 last_updated: 2026-03-31
-tags: [primality-testing]
 ---
 
 **Miller-Rabin primality test** 是一種 *probabilistic primality test*。它延續了 Fermat test 以 modular exponentiation 快速檢查 compositeness 的想法，並進一步避免了 Carmichael numbers 這類例外情形所造成的問題。它的重點不在於直接輸出 primality proof，而在於：若輸入是 composite，則存在能揭露其 compositeness 的 base；而且對隨機選到的 base 而言，將 composite 誤判為 prime 的機率有明確上界。

@@ -3,7 +3,6 @@ layout: page
 title: Number Field Sieve
 date: 2026-03-30
 last_updated: 2026-03-30
-tags: [number-field-sieve, factoring, algebraic-number-fields, sieving, factor-base, congruence-of-squares]
 ---
 
 Number Field Sieve (NFS) 是目前已知最快的通用整數分解演算法之一。它的核心目標仍然是構造

@@ -3,7 +3,6 @@ layout: page
 title: Pollard's p-1 Method
 date: 2026-03-30
 last_updated: 2026-03-30
-tags: [pollards-p-minus-1, factoring, power-smooth, fermats-little-theorem, special-purpose-factoring]
 ---
 
 Pollard's $p-1$ method 是一種 special-purpose factoring algorithm。它不是對所有合數都同樣有效，而是特別適合處理這樣的情況：目標整數 $N$ 的某個質因數 $p$，其 $p-1$ 具有很多小的 prime power 因子。當這種結構存在時，演算法可以利用模 $p$ 乘法群的性質，把 $p$ 從 $N$ 中分離出來。

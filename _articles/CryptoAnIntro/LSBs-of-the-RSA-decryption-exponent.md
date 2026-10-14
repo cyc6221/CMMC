@@ -3,7 +3,6 @@ layout: page
 title: Partial Exposure of the LSBs of the RSA Decryption Exponent
 date: 2026-02-06
 last_updated: 2026-02-06
-tags: [RSA, partial-key-exposure, LSB, private-exponent, Coppersmith, LLL]
 ---
 
 當 RSA 使用 **small public exponent** $e$（例如 $e=3$）時，如果攻擊者已知 private exponent $d$ 的一段 **LSBs (least significant bits)**，即使只知道「四分之一」長度的低位 bits，也可能進一步恢復完整的 $d$，甚至 factor $N$。

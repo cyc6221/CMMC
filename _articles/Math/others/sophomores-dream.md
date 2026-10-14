@@ -3,7 +3,6 @@ layout: page
 title: Sophomore’s Dream
 date: 2026-03-03
 last_updated: 2026-03-03
-tags: [calculus]
 ---
 
 **Sophomore’s Dream** 是一個「看起來很不合理但卻成立」的恆等式，把一個奇怪的積分和一個同樣奇怪的級數連在一起。

@@ -3,7 +3,6 @@ layout: page
 title: LLL reduction
 date: 2026-02-02
 last_updated: 2026-02-03
-tags: [lattice, LLL, GSO, SVP]
 ---
 
 ## Definition

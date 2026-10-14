@@ -3,7 +3,6 @@ layout: page
 title: Security of ElGamal
 date: 2026-02-11
 last_updated: 2026-03-16
-tags: [ElGamal, DDH, IND-CPA, CCA2, malleability]
 ---
 
 ElGamal encryption 在 **DDH assumption** 下可以抵抗 **passive attack**，因此具有對應的 polynomial security；但由於它具有 **malleability**，ciphertext 可以被可預測地修改，因此無法抵抗 **adaptive chosen-ciphertext attack (CCA2)**。

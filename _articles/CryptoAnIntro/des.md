@@ -3,7 +3,6 @@ layout: page
 title: DES
 date: 2026-03-31
 last_updated: 2026-03-31
-tags: [block-cipher, DES]
 ---
 
 **DES** 是一種以 [Feistel]({{ "/articles/CryptoAnIntro/feistel-cipher/" | relative_url }}) 結構為基礎的 [Block Cipher]({{ "/articles/CryptoAnIntro/block-cipher/" | relative_url }})。其基本參數為：

@@ -3,7 +3,6 @@ layout: page
 title: Smooth Numbers and Factoring Complexity
 date: 2026-03-30
 last_updated: 2026-03-30
-tags: [smooth-numbers, factoring-complexity, sub-exponential-time, dickman-de-bruijn-function, power-smooth]
 ---
 
 Smooth numbers 在整數分解演算法中扮演核心角色。許多現代 factoring methods 並不是直接對目標整數 $N$ 做分解，而是先尋找一些與 $N$ 有關的輔助數值，並希望這些數值能夠完全分解成小質數的乘積。只要這樣的數值出現得夠多，就能把它們轉化為 relations，再透過線性代數進一步構造出平方同餘。

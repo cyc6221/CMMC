@@ -3,7 +3,6 @@ layout: page
 title: Håstad’s Attack
 date: 2026-03-10
 last_updated: 2026-03-11
-tags: [RSA, Coppersmith, broadcast-attack]
 ---
 
 Håstad’s Attack 是對 **textbook RSA** 的經典攻擊。若同一個 message 被送給多個不同接收者，且他們使用相同的小 public exponent，則 adversary 可能由多個 ciphertext 直接 recover plaintext。

@@ -4,7 +4,6 @@ title: Prime Number Theorem
 date: 2026-03-24
 last_updated: 2026-03-25
 label: "prime"
-tags: [prime]
 ---
 
 **Prime Number Theorem**，質數定理：當整數愈來愈大時，質數在整數中的分布會如何變得稀疏。當計算不超過 $x$ 的質數個數時，$\pi(x)$ 的成長速度與 $\frac{x}{\log x}$ 漸近相同。

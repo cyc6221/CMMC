@@ -3,7 +3,6 @@ layout: page
 title: Block Cipher
 date: 2026-03-09
 last_updated: 2026-03-31
-tags: [block-cipher, DES, AES]
 ---
 
 Block cipher（區塊密碼）是對稱式加密中最核心的 primitive 之一。它以**固定長度的資料區塊**為單位進行轉換：給定一把 secret key，將一個 plaintext block 映射成一個 ciphertext block，並且應當能夠有效地反向解密。

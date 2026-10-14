@@ -3,7 +3,6 @@ layout: page
 title: Provable Security
 date: 2026-03-25
 last_updated: 2026-03-25
-tags: [provable-security, reduction, random-oracle]
 ---
 
 Provable security 並不是證明一個 cryptosystem 具有絕對安全性，而是證明：**若某個 adversary 能有效攻破此系統，則可利用它去解某個公認困難的數學問題**。因此，這種安全性是建立在 hardness assumption 上的相對安全性，而不是 unconditional security。

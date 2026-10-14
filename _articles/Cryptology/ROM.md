@@ -3,7 +3,6 @@ layout: page
 title: Random Oracle Model
 date: 2026-03-07
 last_updated: 2026-04-08
-tags: [square-root-barrier]
 ---
 
 Random Oracle Model（ROM, 隨機預言機模型）是密碼學中常用的一種**理想化安全模型**。在這個模型裡，雜湊函數 $H$ 不被看成某個具體可實作的演算法（例如 SHA-256），而是被抽象成一個**真正隨機且一致的 oracle**：對每個新的輸入，它會回傳均勻隨機的輸出；而對同一輸入的重複查詢，則永遠回傳相同結果。

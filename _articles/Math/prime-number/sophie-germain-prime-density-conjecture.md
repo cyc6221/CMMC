@@ -4,7 +4,6 @@ title: Sophie-Germain Prime Density Conjecture
 date: 2026-04-02
 last_updated: 2026-04-02
 label: "prime"
-tags: [prime, conjecture, sophie-germain-primes]
 ---
 
 Sophie-Germain prime 是指一個質數 $p$，滿足 $2p+1$ 也是質數。若以 $\pi_{SG}(x)$ 表示不超過 $x$ 的 Sophie-Germain primes 的個數，則其密度猜想預測，當 $x\to\infty$ 時，

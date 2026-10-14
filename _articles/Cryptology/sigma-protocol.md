@@ -3,7 +3,6 @@ layout: page
 title: Sigma Protocol
 date: 2026-04-08
 last_updated: 2026-04-08
-tags: [square-root-barrier]
 ---
 
 Sigma-protocol 是一類非常重要的三步驟互動式證明協定，常用來讓一個 prover 向 verifier 證明自己知道某個 witness，但又不直接洩漏 witness 本身。它在 identification scheme、zero-knowledge proof、proof of knowledge，以及後續的 Fiat–Shamir transformation 中都扮演核心角色。
