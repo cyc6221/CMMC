@@ -197,7 +197,16 @@
 }
 
 .pill[role="button"]{ color: inherit; }
-/* — Notes link: 論文卡片上通往細節筆記列表的連結（獨占一行） */
-.articles-meta .notes-link{
+/* — Notes link: 論文卡片上通往細節筆記列表的連結；外層 .notes-row 獨占一行，可點範圍只有連結文字 */
+.articles-meta .notes-row{
   flex-basis: 100%;
+}
+
+.articles-meta .notes-link{
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.articles-meta .notes-link:hover{
+  text-decoration: underline;
 }

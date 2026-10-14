@@ -42,7 +42,7 @@
         {% endif %}
 
         {% if a.notes_url %}
-          <a class="notes-link" href="{{ a.notes_url | relative_url }}">→ {{ a.notes_title | default: "細節筆記" | escape }}</a>
+          <span class="notes-row"><a class="notes-link" href="{{ a.notes_url | relative_url }}">→ {{ a.notes_title | default: "細節筆記" | escape }}</a></span>
         {% endif %}
       </div>
     </li>
