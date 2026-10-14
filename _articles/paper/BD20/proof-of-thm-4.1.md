@@ -337,11 +337,13 @@ which is the claimed bound.
 <strong>Remark.</strong>
 上述證明中幾個省略的細節補充如下。
 
-- **$\mathrm{Gm}_1$ 中 $x$ 的分布。** $x$ 先在 $\mathbb{Z}_p$ 中均勻取樣，若 $x = 0$ 則在 $\mathbb{Z}_p^\ast$ 中均勻重抽。任一 $a \in \mathbb{Z}_p^\ast$ 最終被取到的機率為 $\frac{1}{p} + \frac{1}{p} \cdot \frac{1}{p-1} = \frac{1}{p-1}$，所以最終的 $x$ 在 $\mathbb{Z}_p^\ast$ 上均勻，與 $\mathrm{Gm}_2$ 的 $\mathrm{Init}$ 一致。同時 $\Pr[x = 0] = 1/p$，即 $\Pr[\mathrm{Gm}_1(\mathcal{A}) \text{ sets } \mathrm{bad}] = 1/p$。
-- **Eq. (9) 中 $f_{R_\ast,X}$ 的定義域。** $R_\ast$ 是 $\mathcal{A}$ 輸出的群元素，屬於 $G$，所以對任意 $Y \in G$ 都有 $R_\ast^{-1} Y \in G$，$\mathrm{DL}_{G,X}$ 有定義。$X$ 是 $G$ 的生成元，因此 $f_{R_\ast,X}$ 與 $h_{R_\ast,X}$ 互為反函數。
-- **$Y$ 與 $\mathcal{A}$ 的視角獨立。** 在 $\mathrm{Gm}_2$ 中 $Y = g^y$，$y$ 在 $\mathbb{Z}_p$ 中均勻且 $g$ 是生成元，所以 $Y$ 在 $G$ 上均勻。在 $\mathrm{Ch}$ 回傳 $c_\ast$ 之前，$\mathcal{A}$ 看到的只有 $X$（只取決於 $x$）以及 $\mathrm{Tr}$ 的輸出（只取決於 $z, c, X$），它們都不依賴 $Y$。因此對固定的 $R_\ast, X$，$c_\ast = f_{R_\ast,X}(Y)$ 在 $\mathbb{Z}_p$ 中均勻且與 $\mathcal{A}$ 的視角獨立，與 $\mathrm{Gm}_1$ 中獨立均勻取樣的 $c_\ast$ 同分布。
-- **$\mathrm{Fin}$ 的等價性。** $g$ 是生成元，所以 $z_\ast \in \mathbb{Z}_p$ 滿足 $g^{z_\ast} = X^{c_\ast} R_\ast$ 若且唯若 $z_\ast = \mathrm{DL}_{G,g}(X^{c_\ast} R_\ast)$。
-- **時間界。** $\mathcal{B}$ 只執行 $\mathcal{A}$ 一次。$\mathrm{Ch}$ 被呼叫一次，需要一次 $\mathrm{DLO}$ 查詢和常數個群運算。每次 $\mathrm{Tr}$ 查詢計算 $R = g^z X^{-c}$，需要常數個指數運算。共有 $Q^{\mathrm{Tr}}_{\mathcal{A}}$ 次 $\mathrm{Tr}$ 查詢，所以 $\mathrm{T}_{\mathcal{B}}$ 約為 $\mathrm{T}_{\mathcal{A}} + \mathcal{O}(Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_G)$。
+<ul>
+  <li><strong>$\mathrm{Gm}_1$ 中 $x$ 的分布。</strong> $x$ 先在 $\mathbb{Z}_p$ 中均勻取樣，若 $x = 0$ 則在 $\mathbb{Z}_p^\ast$ 中均勻重抽。任一 $a \in \mathbb{Z}_p^\ast$ 最終被取到的機率為 $\frac{1}{p} + \frac{1}{p} \cdot \frac{1}{p-1} = \frac{1}{p-1}$，所以最終的 $x$ 在 $\mathbb{Z}_p^\ast$ 上均勻，與 $\mathrm{Gm}_2$ 的 $\mathrm{Init}$ 一致。同時 $\Pr[x = 0] = 1/p$，即 $\Pr[\mathrm{Gm}_1(\mathcal{A}) \text{ sets } \mathrm{bad}] = 1/p$。</li>
+  <li><strong>Eq. (9) 中 $f_{R_\ast,X}$ 的定義域。</strong> $R_\ast$ 是 $\mathcal{A}$ 輸出的群元素，屬於 $G$，所以對任意 $Y \in G$ 都有 $R_\ast^{-1} Y \in G$，$\mathrm{DL}_{G,X}$ 有定義。$X$ 是 $G$ 的生成元，因此 $f_{R_\ast,X}$ 與 $h_{R_\ast,X}$ 互為反函數。</li>
+  <li><strong>$Y$ 與 $\mathcal{A}$ 的視角獨立。</strong> 在 $\mathrm{Gm}_2$ 中 $Y = g^y$，$y$ 在 $\mathbb{Z}_p$ 中均勻且 $g$ 是生成元，所以 $Y$ 在 $G$ 上均勻。在 $\mathrm{Ch}$ 回傳 $c_\ast$ 之前，$\mathcal{A}$ 看到的只有 $X$（只取決於 $x$）以及 $\mathrm{Tr}$ 的輸出（只取決於 $z, c, X$），它們都不依賴 $Y$。因此對固定的 $R_\ast, X$，$c_\ast = f_{R_\ast,X}(Y)$ 在 $\mathbb{Z}_p$ 中均勻且與 $\mathcal{A}$ 的視角獨立，與 $\mathrm{Gm}_1$ 中獨立均勻取樣的 $c_\ast$ 同分布。</li>
+  <li><strong>$\mathrm{Fin}$ 的等價性。</strong> $g$ 是生成元，所以 $z_\ast \in \mathbb{Z}_p$ 滿足 $g^{z_\ast} = X^{c_\ast} R_\ast$ 若且唯若 $z_\ast = \mathrm{DL}_{G,g}(X^{c_\ast} R_\ast)$。</li>
+  <li><strong>時間界。</strong> $\mathcal{B}$ 只執行 $\mathcal{A}$ 一次。$\mathrm{Ch}$ 被呼叫一次，需要一次 $\mathrm{DLO}$ 查詢和常數個群運算。每次 $\mathrm{Tr}$ 查詢計算 $R = g^z X^{-c}$，需要常數個指數運算。共有 $Q^{\mathrm{Tr}}_{\mathcal{A}}$ 次 $\mathrm{Tr}$ 查詢，所以 $\mathrm{T}_{\mathcal{B}}$ 約為 $\mathrm{T}_{\mathcal{A}} + \mathcal{O}(Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_G)$。</li>
+</ul>
 </div>
 
 ## References
