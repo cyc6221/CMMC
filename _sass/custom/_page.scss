@@ -1,10 +1,9 @@
 /*
   Usage / 備註：
-  - 用途：頁面標題下方的 meta 行（作者、venue、發表/更新時間、tags）以及 page 內容區塊與 h2/h3 樣式
+  - 用途：頁面標題下方的 meta 行（作者、venue、發表/更新時間）以及 page 內容區塊與 h2/h3 樣式
   - 使用位置：
     - _layouts/page.html （page header: .page-submeta / page-content / aside.page-toc）
     - 所有使用 `layout: page` 的頁面會套用這些樣式（例如文章與 page 類型頁面）
-    - tags 連結會使用 .tag-pill（由 layouts/page.html 動態產生）
 */
 
 /* — Submeta: .page-submeta（標題下方的一行或多行 meta） */
@@ -45,37 +44,6 @@
   width: 16px;
   height: 16px;
   fill: currentColor;
-}
-
-/* — Tags: .meta-tags / .tag-pill（標籤 pills 的樣式與互動） */
-.page-submeta .meta-tags {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-}
-
-.page-submeta .tag-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 999px;
-  background: #f9fafb;
-  color: #111827;
-  text-decoration: none; /* no underline */
-  font-size: 13px;
-  line-height: 1;
-  transition: background .15s ease, border-color .15s ease, transform .05s ease;
-}
-
-.page-submeta .tag-pill:hover {
-  background: #fff;
-  border-color: #d1d5db;
-}
-
-.page-submeta .tag-pill:active {
-  transform: translateY(1px);
 }
 
 /* — Citation/meta variants: .page-submeta--citation / .page-submeta--meta（不同用途的微調） */

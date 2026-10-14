@@ -42,7 +42,6 @@ header_pages:
   - pages/articles.md
   - pages/research.md
   - pages/math.md
-  - pages/tags.md
 
 plugins:
   - jekyll-github-metadata
