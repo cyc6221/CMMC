@@ -6,7 +6,6 @@ author2: "Wei Dai"
 venue: "INDOCRYPT 2020"
 date: 2026-04-15
 last_updated: 2026-10-14
-label: "paper"
 ---
 
 This note records the proof page for [Theorem 4.1 in chapter 4]({{ "/research/papers/BD20/BD20-4/" | relative_url }}) of [the paper]({{ "/research/papers/BD20/" | relative_url }})<a class="cite" href="#bib-bd20">BD20</a>. Related chapters include:

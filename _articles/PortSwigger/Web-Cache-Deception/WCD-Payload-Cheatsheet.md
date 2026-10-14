@@ -3,7 +3,6 @@ layout: page
 title: Web Cache Deception Payload Cheatsheet
 date: 2026-02-02
 last_updated: 2026-02-02
-label: "cheatsheet"
 ---
 
 ## How to use

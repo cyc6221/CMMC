@@ -7,7 +7,6 @@ author3: "Antoine Plouviez"
 venue: "Journal of Cryptology, 2003"
 date: 2026-03-05
 last_updated: 2026-03-05
-label: "paper"
 ---
 
 ## Abstract

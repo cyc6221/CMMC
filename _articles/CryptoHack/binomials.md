@@ -3,7 +3,6 @@ layout: page
 title: "Modular Binomials"
 date: 2026-03-01
 last_updated: 2026-03-01
-label: "Solution"
 redirect_from:
   - /articles/CryptoHack/bionomials/
 ---

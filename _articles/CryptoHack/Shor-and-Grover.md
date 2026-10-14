@@ -3,7 +3,6 @@ layout: page
 title: Shor's Algorithm and Grover's Algorithm
 date: 2026-04-15
 last_updated: 2026-05-06
-label:
 ---
 
 > [CryptoHack aes1: Resisting Bruteforce](https://cryptohack.org/courses/symmetric/aes1/)
