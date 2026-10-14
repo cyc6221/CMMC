@@ -6,7 +6,6 @@ venue: "EUROCRYPT 1997"
 date: 2026-03-05
 last_updated: 2026-03-05
 label: "paper"
-tags: [square-root-barrier, paper]
 ---
 
 ## Abstract

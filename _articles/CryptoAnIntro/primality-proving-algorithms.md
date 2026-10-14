@@ -3,7 +3,6 @@ layout: page
 title: Primality Proving Algorithms
 date: 2026-03-29
 last_updated: 2026-03-31
-tags: [primality-testing, primality-proving]
 ---
 
 **Primality Proving Algorithm** 的目標，是對一個整數是否為 prime 給出可被獨立驗證的證明。也就是說，它不只是輸出判定結果，而是進一步產生一份 certificate，使第三方也能確認該整數確實為 prime。

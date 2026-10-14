@@ -3,7 +3,6 @@ layout: page
 title: Security of DL-based Signature
 date: 2026-03-26
 last_updated: 2026-04-08
-tags: [signature, Schnorr, DSA, EC-DSA, forking-lemma, random-oracle]
 ---
 
 數位簽章安全性的證明，在 [random oracle model]({{ "/articles/Cryptology/ROM/" | relative_url }}) 中常透過 [forking lemma]({{ "/articles/Cryptology/forking-lemma/" | relative_url }}) 來進行。其核心想法是：若一個 adversary 能在某個 hash-query 的回答下產生合法 forgery，則 reduction 可以在相同 random tape 下重跑 adversary，並只改動那個關鍵 hash-query 的回覆，從而得到兩個彼此相關、但 challenge 不同的偽造簽章。接著再利用這兩份輸出之間的代數關係，恢復底層 hard problem 的解。

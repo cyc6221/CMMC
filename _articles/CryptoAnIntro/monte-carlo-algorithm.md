@@ -3,7 +3,6 @@ layout: page
 title: Monte Carlo Algorithm
 date: 2026-03-25
 last_updated: 2026-03-25
-tags: [randomized-algorithm, RP]
 ---
 
 Monte Carlo algorithm 是 randomized algorithm 中最基本也最常見的一種模型。它的核心特徵是：演算法一定會在 polynomial time 內停止，但允許以小機率輸出錯誤答案。隨機性影響的不是是否能在有限時間內完成，而是答案是否可能在某些情況下失敗。

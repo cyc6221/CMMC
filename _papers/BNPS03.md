@@ -9,7 +9,6 @@ venue: "Journal of Cryptology, 2003"
 date: 2026-03-08
 last_updated: 2026-03-08
 label: "paper"
-tags: [square-root-barrier, one-more, paper]
 ---
 
 ## Abstract

@@ -3,7 +3,6 @@ layout: page
 title: Difference of Two Squares and Relations
 date: 2026-03-30
 last_updated: 2026-03-30
-tags: [difference-of-two-squares, relations, factor-base, linear-algebra, congruence-of-squares]
 ---
 
 許多整數分解演算法的核心都可歸結為同一個目標：找出兩個整數 $x,y$，使得

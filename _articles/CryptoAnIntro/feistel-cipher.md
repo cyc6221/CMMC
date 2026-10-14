@@ -3,7 +3,6 @@ layout: page
 title: Feistel Cipher
 date: 2026-03-31
 last_updated: 2026-03-31
-tags: [block-cipher, DES]
 ---
 
 Feistel cipher 是一種重要的 block cipher 結構。其核心做法是先把輸入區塊分成左右兩半，然後重複進行多輪更新。若第 $i-1$ 輪的輸入為 $(L_{i-1}, R_{i-1})$，第 $i$ 輪定義為

@@ -3,7 +3,6 @@ layout: page
 title: Fiat–Shamir Transformation
 date: 2026-04-08
 last_updated: 2026-04-08
-tags: [square-root-barrier]
 ---
 
 Fiat–Shamir transformation 是密碼學中非常重要的一個技巧。它的核心想法是：把原本需要 verifier 送出隨機 challenge 的三步驟互動式識別協定，轉換成不需要互動的簽章機制。這個轉換使得許多以 $\Sigma$-protocol 為基礎的識別協定，都可以自然地導出對應的數位簽章方案。

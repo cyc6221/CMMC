@@ -3,7 +3,6 @@ layout: page
 title: Security of RSA
 date: 2026-02-11
 last_updated: 2026-03-10
-tags: [RSA, semantic-security, IND-CPA, CCA2]
 ---
 
 ## Semantic Security and IND-CPA

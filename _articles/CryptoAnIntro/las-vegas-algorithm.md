@@ -3,7 +3,6 @@ layout: page
 title: Las Vegas Algorithm
 date: 2026-03-25
 last_updated: 2026-03-25
-tags: [randomized-algorithm, ZPP]
 ---
 
 Las Vegas algorithm 是 randomized algorithm 中一種非常重要的模型。它的核心特徵是：**只要演算法輸出答案，該答案就一定正確**。因此，隨機性影響的不是 correctness，而是演算法是否能在某一次執行中順利終止，以及需要花多少時間才成功完成。

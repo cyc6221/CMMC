@@ -3,7 +3,6 @@ layout: page
 title: Prime Numbers and Primality Testing
 date: 2026-03-29
 last_updated: 2026-03-31
-tags: [prime, primality-testing]
 ---
 
 **質數**在公鑰密碼中扮演核心角色，許多密碼系統的參數生成都需要大質數，這使得**如何有效找到質數**成為實作密碼系統時的基礎問題。

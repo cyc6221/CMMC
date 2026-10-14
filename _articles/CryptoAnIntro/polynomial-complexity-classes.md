@@ -3,7 +3,6 @@ layout: page
 title: Polynomial Complexity Classes
 date: 2026-03-22
 last_updated: 2026-03-23
-tags: [complexity-theory, decision-problems, P vs NP]
 ---
 
 在〈[Decision Problems]({{ "/articles/CryptoAnIntro/decision-problems/" | relative_url }})〉中，將計算問題表述成只有 yes 或 no 兩種答案的 decision problem。這樣的表述方式提供了一個統一的框架，使不同問題之間的計算難度得以比較。

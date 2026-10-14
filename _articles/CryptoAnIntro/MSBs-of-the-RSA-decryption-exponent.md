@@ -3,7 +3,6 @@ layout: page
 title: Partial Exposure of the MSBs of the RSA Decryption Exponent
 date: 2026-02-06
 last_updated: 2026-02-06
-tags: [RSA, partial-key-exposure, MSB, private-exponent, small-exponent]
 ---
 
 在 RSA 中，若使用常見的 **small public exponent** $e$（例如 $e = 3$），攻擊者即使不知道質數 $p, q$，也可能相對「容易」地恢復 private key $d$ 的 **MSBs (most significant bits)** 中約一半。

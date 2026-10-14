@@ -3,7 +3,6 @@ layout: page
 title: Factoring Algorithms
 date: 2026-03-30
 last_updated: 2026-03-30
-tags: [factoring, integer-factorization, sub-exponential-time, trial-division, factoring-methods]
 ---
 
 整數分解問題的目標是：給定一個合數 $N$，找出它的非平凡因數。若 $N=pq$，其中 $p,q$ 是大質數，則從 $N$ 回推出 $p,q$ 在一般情況下並不容易。這也是 RSA 等公鑰密碼系統安全性的重要背景之一。

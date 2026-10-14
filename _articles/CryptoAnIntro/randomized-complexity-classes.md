@@ -3,7 +3,6 @@ layout: page
 title: Randomized Complexity Classes
 date: 2026-03-25
 last_updated: 2026-03-25
-tags: [complexity-theory, randomized-algorithm, RP, BPP, ZPP]
 ---
 
 隨機化複雜度類別描述的是：當演算法允許使用 randomness 時，哪些 decision problems 仍可在 polynomial time 內有效處理。與 deterministic complexity classes 相比，這裡除了執行時間之外，還必須考慮錯誤的型態與演算法是否保證終止。

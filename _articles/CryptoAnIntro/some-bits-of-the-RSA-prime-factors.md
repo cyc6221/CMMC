@@ -3,7 +3,6 @@ layout: page
 title: Partial Exposure of some bits of the RSA Prime Factors
 date: 2026-02-06
 last_updated: 2026-02-06
-tags: [RSA, partial-key-exposure, prime-factor, LSB, Coppersmith]
 ---
 
 如果攻擊者不是拿到 private exponent，而是拿到 RSA 質因數 $p$ 的部分 bits。若已知 $p$ 的一段 bits（例如最低位的一段），在某些參數下可以用 **Coppersmith** 類的方法在 polynomial time 內把 $p, q$ 找回來，等同直接 factor $N$。

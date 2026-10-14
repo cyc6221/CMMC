@@ -3,7 +3,6 @@ layout: page
 title: Rijndael
 date: 2026-03-31
 last_updated: 2026-03-31
-tags: [block-cipher, rijndael, AES]
 ---
 
 **Rijndael** 是一種不採用 [Feistel]({{ "/articles/CryptoAnIntro/feistel-cipher/" | relative_url }}) 結構的 [Block Cipher]({{ "/articles/CryptoAnIntro/block-cipher/" | relative_url }})。它與 [DES]({{ "/articles/CryptoAnIntro/des/" | relative_url }}) 一樣，都是透過多輪反覆運算來累積安全性，但每一輪的操作形式不同。Rijndael 的設計建立在明確的代數結構上，多數運算可用 $\mathbb{F}_{2^8}$ 上的運算來描述。

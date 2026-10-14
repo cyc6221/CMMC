@@ -3,7 +3,6 @@ layout: page
 title: Security of Signatures
 date: 2026-03-20
 last_updated: 2026-03-21
-tags: [digital-signature, signature-security, RSA]
 ---
 
 數位簽章的安全性在於防止攻擊者為未經授權的訊息產生有效簽章。對簽章機制而言，攻擊成功不必然意味著私鑰被恢復；只要攻擊者能偽造合法簽章，系統便已失去安全性。

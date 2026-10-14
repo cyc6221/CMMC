@@ -3,7 +3,6 @@ layout: page
 title: Lattice Reduction and Continued Fractions
 date: 2026-02-03
 last_updated: 2026-02-03
-tags: [lattice, LLL, SVP, continued-fractions]
 ---
 
 ## Before reading

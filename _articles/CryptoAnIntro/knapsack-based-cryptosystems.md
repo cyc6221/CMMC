@@ -5,7 +5,6 @@ date: 2026-03-24
 last_updated: 2026-03-24
 redirect_from:
   - /articles/CryptoAnIntro/knapsack-bnased-cryptosystems/
-tags: [knapsack, Merkle-Hellman, LLL, lattice]
 ---
 
 Knapsack-based cryptosystems 是早期 public-key cryptography 的一類構造，其核心想法是：選擇一個看似困難的 **subset sum problem** 作為公開金鑰，並保留某些 private trapdoor information，使得合法接收者可以有效率地解出對應的 knapsack instance。

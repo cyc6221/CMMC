@@ -3,7 +3,6 @@ layout: page
 title: Snoop Dogg
 date: 2026-03-25
 last_updated: 2026-03-25
-tags: [blog]
 ---
 
 ## Snoop Dogg - USC Marshall 2025 Commencement Guest Speaker

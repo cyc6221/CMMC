@@ -3,7 +3,6 @@ layout: page
 title: Freshman's Dream
 date: 2026-03-02
 last_updated: 2026-03-03
-tags: [algebra]
 ---
 
 **Freshman’s dream** 指一個常見的初學者直覺：將冪次「錯誤地」分配到加法上，誤以為

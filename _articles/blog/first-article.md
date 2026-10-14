@@ -3,7 +3,6 @@ layout: page
 title: My First Article
 date: 2026-01-25
 last_updated: 2026-01-25
-tags: [blog]
 ---
 
 Hello World!

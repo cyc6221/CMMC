@@ -3,7 +3,6 @@ layout: page
 title: Franklin–Reiter Attack
 date: 2026-03-11
 last_updated: 2026-03-11
-tags: [RSA, Coppersmith, related-message-attack]
 ---
 
 Franklin–Reiter attack 是 **textbook RSA** 上的經典 **related-message attack**。若兩個 plaintext 之間存在已知的公開關係，並且使用相同的 RSA public key $(N,e)$ 加密，則攻擊者可將 ciphertext 對應成 polynomial equation，利用共同 root 直接 recover plaintext。這個 attack 最典型的情況是兩個 message 滿足線性關係

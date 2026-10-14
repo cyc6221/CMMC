@@ -3,7 +3,6 @@ layout: page
 title: Atlantic City Algorithm
 date: 2026-03-25
 last_updated: 2026-03-25
-tags: [randomized-algorithm, BPP]
 ---
 
 Atlantic City algorithm 是 randomized algorithm 的一種典型模型。它要求演算法在 polynomial time 內停止，但允許演算法在 yes-instance 與 no-instance 上都以小機率輸出錯誤答案，因此屬於 **two-sided error** 的隨機化計算模型。

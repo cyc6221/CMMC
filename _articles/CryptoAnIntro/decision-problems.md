@@ -3,7 +3,6 @@ layout: page
 title: Decision Problems
 date: 2026-03-22
 last_updated: 2026-03-23
-tags: [complexity-theory, decision-problems, knapsack]
 ---
 
 在密碼學與複雜度理論中，討論「一個問題是否困難」之前，首先需要明確問題是如何被表述的。最基本的表述方式之一，就是 **Decision Problem**。

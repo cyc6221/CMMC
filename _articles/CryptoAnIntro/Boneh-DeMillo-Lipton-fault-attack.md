@@ -3,7 +3,6 @@ layout: page
 title: Boneh–DeMillo–Lipton Fault Attack
 date: 2026-03-11
 last_updated: 2026-03-11
-tags: [RSA]
 ---
 
 Boneh–DeMillo–Lipton Fault Attack 是針對 **CRT-based RSA implementation** 的經典 **fault attack** <a class="cite" href="#bib-bdl01">BDL01</a>。此攻擊說明：若 attacker 能在 RSA signature 的計算過程中使其中一部分運算發生錯誤，則只要取得一個 faulted signature，就可能直接分解 RSA modulus $N$，進而 recover private key。

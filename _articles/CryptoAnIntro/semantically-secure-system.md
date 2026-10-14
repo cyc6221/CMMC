@@ -3,7 +3,6 @@ layout: page
 title: Semantically Secure System
 date: 2026-03-21
 last_updated: 2026-03-22
-tags: [Goldwasser-Micali, semantic-security, QUADRES, quadratic-residue, CCA2]
 ---
 
 RSA 即使在被動攻擊下也不具備 semantic security，因此自然會希望找到一個真正語意安全，且安全性建立在 factoring-like assumption 上的公鑰系統。歷史上第一個達成這個目標的重要例子，就是 **Goldwasser-Micali encryption scheme**。

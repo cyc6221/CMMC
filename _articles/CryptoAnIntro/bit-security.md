@@ -3,7 +3,6 @@ layout: page
 title: Bit Security
 date: 2026-03-24
 last_updated: 2026-03-24
-tags: [bit-security, hard-predicate, DL, RSA]
 ---
 
 在密碼學中，攻擊者未必想恢復全部秘密資訊，而可能只想知道其中某一個 bit。此時自然會問：**從函數輸出中計算輸入的單一 bit，是否仍然是困難的**。

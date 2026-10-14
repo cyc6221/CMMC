@@ -4,7 +4,6 @@ title: AES
 date: 2026-03-08
 last_updated: 2026-05-06
 label:
-tags: [CryptoHack, Symmetric Cryptography, AES]
 ---
 
 > [Symmetric Cryptography Overview](https://cryptohack.org/courses/symmetric/course_details/)
