@@ -12,9 +12,27 @@
         {%- for path in page_paths -%}
           {%- assign my_page = site.pages | where: "path", path | first -%}
           {%- if my_page.title -%}
-            <a class="page-link" href="{{ my_page.url | relative_url }}">
-              {{ my_page.nav_title | default: my_page.title | escape }}
-            </a>
+            {%- assign children = site.pages | where: "nav_parent", path -%}
+            {%- if children.size > 0 -%}
+              <div class="nav-item has-dropdown">
+                <a class="page-link" href="{{ my_page.url | relative_url }}" aria-haspopup="true">
+                  {{ my_page.nav_title | default: my_page.title | escape }}
+                </a>
+                <ul class="nav-dropdown">
+                  {%- for child in children -%}
+                    <li>
+                      <a class="page-link" href="{{ child.url | relative_url }}">
+                        {{ child.nav_title | default: child.title | escape }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- else -%}
+              <a class="page-link" href="{{ my_page.url | relative_url }}">
+                {{ my_page.nav_title | default: my_page.title | escape }}
+              </a>
+            {%- endif -%}
           {%- endif -%}
         {%- endfor -%}
       </nav>
