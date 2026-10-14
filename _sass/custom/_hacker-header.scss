@@ -101,7 +101,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  align-self: stretch;  // 讓 hover 區域涵蓋整個 header 高度，滑鼠往下移時不會中斷
+  align-self: stretch;  // 與同列其他項目等高；下拉選單緊貼文字下方，滑鼠往下移時不會中斷
 }
 
 .site-nav .has-dropdown > .page-link::after {
