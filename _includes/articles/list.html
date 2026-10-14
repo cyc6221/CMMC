@@ -36,11 +36,6 @@
           <span class="note-date">📅 {{ a.date | date: "%Y-%m-%d" }}</span>
         {% endif %}
 
-        {% if a.label %}
-          {% if a.date %}<span class="sep">·</span>{% endif %}
-          <span class="a-tag">{{ a.label | escape }}</span>
-        {% endif %}
-
         {% if a.notes_url %}
           <span class="notes-row"><a class="notes-link" href="{{ a.notes_url | relative_url }}">→ {{ a.notes_title | default: "細節筆記" | escape }}</a></span>
         {% endif %}

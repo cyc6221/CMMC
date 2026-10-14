@@ -3,7 +3,6 @@ layout: page
 title: Biclique Attack
 date: 2026-03-08
 last_updated: 2026-03-08
-label:
 ---
 
 Biclique attack 是一種針對區塊密碼的密碼分析方法。2011 年，Bogdanov 等人將此技巧應用到 **full AES**，提出了第一個在**理論上略優於 brute force** 的 key-recovery attack。以 **AES-128** 為例，其時間複雜度約為 **$2^{126.1}$**，相比暴力破解的 **$2^{128}$**，確實稍微降低了理論安全強度。<a class="cite" href="#bib-bog11">Bog11</a>

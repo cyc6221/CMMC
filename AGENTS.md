@@ -117,9 +117,7 @@ layout: page
 title: <title>
 date: YYYY-MM-DD
 last_updated: YYYY-MM-DD
-label: "<paper | prime | LAB | cheatsheet | ...>"
 ---
 ```
 
 - Paper notes also set `author1` to `author5` and `venue`.
-- Match the `label` already used by neighboring notes in the same folder.

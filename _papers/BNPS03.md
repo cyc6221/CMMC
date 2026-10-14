@@ -8,7 +8,6 @@ author4: "Michael Semanko"
 venue: "Journal of Cryptology, 2003"
 date: 2026-03-08
 last_updated: 2026-03-08
-label: "paper"
 ---
 
 ## Abstract

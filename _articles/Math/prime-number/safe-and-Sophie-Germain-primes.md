@@ -3,7 +3,6 @@ layout: page
 title: Safe and Sophie Germain Primes
 date: 2026-03-04
 last_updated: 2026-03-04
-label: "prime"
 ---
 
 ## Definition

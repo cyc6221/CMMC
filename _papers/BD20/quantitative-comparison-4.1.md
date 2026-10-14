@@ -6,7 +6,6 @@ author2: "Wei Dai"
 venue: "INDOCRYPT 2020"
 date: 2026-04-17
 last_updated: 2026-04-17
-label: "paper"
 ---
 
 This note records the quantitative comparison for [4.1 Schnorr Identification from MBDL]({{ "/research/papers/BD20/BD20-4.1/" | relative_url }}) in [chapter 4 Schnorr Identification and Signatures from MBDL]({{ "/research/papers/BD20/BD20-4/" | relative_url }}) of [the paper]({{ "/research/papers/BD20/" | relative_url }})<a class="cite" href="#bib-bd20">BD20</a>. Related notes include [Proof of Theorem 4.1]({{ "/research/papers/BD20/proof-of-thm-4.1/" | relative_url }}) and [4.2 Schnorr Signature from MBDL]({{ "/research/papers/BD20/BD20-4.2/" | relative_url }}).
