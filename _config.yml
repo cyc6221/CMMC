@@ -21,6 +21,9 @@ collections:
   articles:
     output: true
     permalink: /articles/:path/
+  papers:
+    output: true
+    permalink: /research/papers/:path/
 
 # Overrides Jekyll's default exclude list, so the defaults are repeated here
 exclude:

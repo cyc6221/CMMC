@@ -10,15 +10,15 @@ label: "paper"
 tags: [square-root-barrier, paper, MBDL]
 ---
 
-This note records the quantitative comparison for 4.3 in [chapter 4 Schnorr Identification and Signatures from MBDL]({{ "/articles/paper/BD20/BD20-4/" | relative_url }}) of [the paper]({{ "/articles/paper/BD20/" | relative_url }})<a class="cite" href="#bib-bd20">BD20</a>. Related notes include [4.1 Schnorr Identification from MBDL]({{ "/articles/paper/BD20/BD20-4.1/" | relative_url }}), [Proof of Theorem 4.1]({{ "/articles/paper/BD20/proof-of-thm-4.1/" | relative_url }}), and [Quantitative Comparison for 4.1]({{ "/articles/paper/BD20/quantitative-comparison-4.1/" | relative_url }}).
+This note records the quantitative comparison for 4.3 in [chapter 4 Schnorr Identification and Signatures from MBDL]({{ "/research/papers/BD20/BD20-4/" | relative_url }}) of [the paper]({{ "/research/papers/BD20/" | relative_url }})<a class="cite" href="#bib-bd20">BD20</a>. Related notes include [4.1 Schnorr Identification from MBDL]({{ "/research/papers/BD20/BD20-4.1/" | relative_url }}), [Proof of Theorem 4.1]({{ "/research/papers/BD20/proof-of-thm-4.1/" | relative_url }}), and [Quantitative Comparison for 4.1]({{ "/research/papers/BD20/quantitative-comparison-4.1/" | relative_url }}).
 
-- [1 Introduction]({{ "/articles/paper/BD20/BD20-1/" | relative_url }})
-- [2 Preliminaries]({{ "/articles/paper/BD20/BD20-2/" | relative_url }})
-- [3 The Multi-Base Discrete Logarithm Problem]({{ "/articles/paper/BD20/BD20-3/" | relative_url }})
-- [4 Schnorr Identification and Signatures from MBDL]({{ "/articles/paper/BD20/BD20-4/" | relative_url }})
-- [5 MBDL hardness in the Generic Group Model]({{ "/articles/paper/BD20/BD20-5/" | relative_url }})
-- [A Okamoto Identification and Signature from MBDL]({{ "/articles/paper/BD20/BD20-A/" | relative_url }})
-- [B Ratio-based tightness]({{ "/articles/paper/BD20/BD20-B/" | relative_url }})
+- [1 Introduction]({{ "/research/papers/BD20/BD20-1/" | relative_url }})
+- [2 Preliminaries]({{ "/research/papers/BD20/BD20-2/" | relative_url }})
+- [3 The Multi-Base Discrete Logarithm Problem]({{ "/research/papers/BD20/BD20-3/" | relative_url }})
+- [4 Schnorr Identification and Signatures from MBDL]({{ "/research/papers/BD20/BD20-4/" | relative_url }})
+- [5 MBDL hardness in the Generic Group Model]({{ "/research/papers/BD20/BD20-5/" | relative_url }})
+- [A Okamoto Identification and Signature from MBDL]({{ "/research/papers/BD20/BD20-A/" | relative_url }})
+- [B Ratio-based tightness]({{ "/research/papers/BD20/BD20-B/" | relative_url }})
 
 ---
 

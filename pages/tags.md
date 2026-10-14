@@ -5,8 +5,9 @@ permalink: /tags/
 toc: false
 ---
 
-{% comment %} 只掃 _articles => site.articles {% endcomment %}
-{% assign docs = site.articles | where_exp: "d", "d.tags" %}
+{% comment %} 掃 _articles 與 _papers => site.articles + site.papers {% endcomment %}
+{% assign all_docs = site.articles | concat: site.papers %}
+{% assign docs = all_docs | where_exp: "d", "d.tags" %}
 
 {% assign all_tags = "" | split: "" %}
 {% for d in docs %}
@@ -33,7 +34,7 @@ toc: false
   </div>
 
   <ul id="articlesList" class="articles-list is-hidden">
-    {% for a in site.articles %}
+    {% for a in all_docs %}
       {% assign atags = "" | split: "" %}
       {% if a.tags %}
         {% for t in a.tags %}
