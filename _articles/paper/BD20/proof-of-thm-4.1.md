@@ -48,7 +48,25 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
 
 ## Proof of Theorem 4.1
 
-在將 Schnorr 的 IMP-PA 安全性歸約到 DL 時，所構造的 dl 對手 $\mathcal{B}$ 會將目標點 $Y$ 設為公鑰 $X$。對 Theorem 4.1 而言，沿用相同思路看似自然；然而問題在於，如何使用離散對數 oracle $\mathrm{DLO}$ 來避免 rewinding 並得到緊的歸約。作者指出，這一路線其實並不明確，而且 $\mathrm{DLO}$ oracle 本身似乎也無法直接幫助完成這件事。
+### Idea of the Reduction
+
+Schnorr 的 IMP-PA 安全性歸約到 DL 時，dl 對手將目標點 $Y$ 設為公鑰 $X$。Theorem 4.1 若沿用同一做法，問題在於如何用離散對數 oracle $\mathrm{DLO}$ 避免 rewinding 並得到緊的歸約。這條路線並不明確，$\mathrm{DLO}$ 看起來也無法直接提供幫助。
+
+此處的歸約不把目標點 $Y$ 設為公鑰，改為分析 $\mathcal{A}$ 的一次成功冒充。$\mathrm{Tr}$ 的模擬仍透過該方案的 honest-verifier zero-knowledge 性質完成。
+
+$\mathcal{A}$ 提供 $R_\ast$，收到 $c_\ast$ 後回傳 $z_\ast$，滿足 $g^{z_\ast} = R_\ast X^{c_\ast}$，其中 $X$ 是公鑰。因此 $\mathcal{A}$ 實際上算出了 $R_\ast X^{c_\ast}$ 的離散對數。若 $\mathcal{B}$ 收到 mbdl challenge $Y$ 後能安排 $Y = R_\ast X^{c_\ast}$，則 $z_\ast = \mathrm{DL}_{G,g}(Y)$，$\mathcal{B}$ 直接輸出 $z_\ast$ 即獲勝。
+
+安排 $Y = R_\ast X^{c_\ast}$ 的步驟用到 $\mathrm{DLO}$。$\mathcal{B}$ 把 $X$ 當作公鑰交給 $\mathcal{A}$，也就是公鑰被設成 $\mathcal{B}$ 可以相對於它計算離散對數的那個底。$\mathcal{A}$ 給出 $R_\ast$ 後，$\mathcal{B}$ 回傳
+
+$$
+c_\ast = \mathrm{DL}_{G,X}\!\left(Y R_\ast^{-1}\right),
+$$
+
+即可保證 $Y = R_\ast X^{c_\ast}$，而這個值可由 $\mathrm{DLO}$ 算出。
+
+還有兩個分布層面的細節。$\mathrm{Init}$ 回傳的 $X$ 是生成元，而真實的公鑰是群中的隨機元素，兩者分布不同；另外，經由 $\mathrm{DLO}$ 算出的挑戰也必須具有正確分布。這兩點在 Formal Proof 中處理。
+
+### Adversary B
 
 <div class="algorithm">
   <div class="algorithm-title">Adversary $\mathcal{B}^{\mathrm{DLO}}$</div>
@@ -58,23 +76,23 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
     <li>
       <code>Set</code>
       $(Y, X) \xleftarrow{\$} \mathrm{Init}()$; <code>Run</code>
-      $z^\ast \xleftarrow{\$} \mathcal{A}^{\mathrm{Ch}, \mathrm{Tr}}(X)$
+      $z_\ast \xleftarrow{\$} \mathcal{A}^{\mathrm{Ch}, \mathrm{Tr}}(X)$
     </li>
     <li>
       <code>Return</code>
-      $z^\ast$
+      $z_\ast$
     </li>
   </ol>
 
-  <p><strong>Ch($R^\ast$):</strong></p>
+  <p><strong>Ch($R_\ast$):</strong></p>
   <ol>
     <li>
       <code>Set</code>
-      $W \leftarrow (R^\ast)^{-1} \cdot Y$; $c^\ast \leftarrow \mathrm{DLO}(1, W)$
+      $W \leftarrow R_\ast^{-1} \cdot Y$; $c_\ast \leftarrow \mathrm{DLO}(1, W)$
     </li>
     <li>
       <code>Return</code>
-      $c^\ast$
+      $c_\ast$
     </li>
   </ol>
 
@@ -91,99 +109,9 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
   </ol>
 </div>
 
-作者採取的歸約與先前方法的關鍵差異，在於**不**將目標點 $Y$ 設為公鑰。相反地，分析改為觀察對手 $\mathcal{A}$ 的一次成功冒充。（$\mathcal{A}$ 的 transcript oracle $\mathrm{Tr}$ 的模擬，仍透過該方案的誠實驗證者零知識性質完成。）
+此處的 $\mathrm{Init}$ 是 MBDL 遊戲 $\mathrm{G}^{\mathrm{mbdl}}_{G,g,1}$ 的 $\mathrm{Init}$，回傳要求離散對數的挑戰 $Y$ 以及底 $X$。$\mathrm{Ch}$ 與 $\mathrm{Tr}$ 是 $\mathcal{B}$ 定義的子程序，用來為 $\mathcal{A}$ 模擬同名的 oracle。
 
-對手 $\mathcal{A}$ 提供 $R_\ast$，收到 $c_\ast$，然後回傳 $z_\ast$，滿足 $g^{z_\ast}=R_\ast X^{c_\ast}$，其中 $X$ 是公鑰。
-
-因此，$\mathcal{A}$ 實際上計算出了 $R_\ast X^{c_\ast}$ 的離散對數。此處的安排是令該值恰好等於 mbdl challenge $Y$；也就是說，當 $\mathcal{B}$ 收到輸入 $Y$ 時，會設法使 $Y=R_\ast X^{c_\ast}$。
-
-若此安排成功，則 $\mathcal{A}$ 回傳的 $z_\ast$ 就是 $\mathrm{DL}_{G,g}(Y)$，因此 $\mathcal{B}$ 可直接輸出該值並獲勝。
-
-接下來的問題是，應如何安排 $Y=R_\ast X^{c_\ast}$。這正是 $\mathrm{DLO}$ oracle 發揮作用的地方。
-
-對手 $\mathcal{B}$ 將 $X$ 作為輸入提供給 $\mathcal{A}$，也就是說，公鑰相對於群生成元被設成 $\mathcal{B}$ 可以計算離散對數的那個底。
-
-之後，當 $\mathcal{A}$ 提供 $R_\ast$ 時，$\mathcal{B}$ 便回傳一個挑戰 $c_\ast$，以保證 $Y=R_\ast X^{c_\ast}$。
-
-這表示 $$c_\ast = \mathrm{DL}_{G,X}\!\left(YR_\ast^{-1}\right)$$，而這正是 $\mathcal{B}$ 可以透過其 $\mathrm{DLO}$ oracle 計算的。
-
-還有一些分布層面的細節需要處理。例如，$\mathrm{Init}$ 所回傳的 $X$ 是一個生成元，而公鑰則是群中的一個隨機元素，因此兩者的分布並不完全相同；此外，透過 $\mathrm{DLO}$ 計算出的挑戰也必須具有正確分布。這些問題都會在後續分析中處理。
-
-### Formal Proof
-
-遊戲 $\mathrm{Gm}_1$ 在 $\mathrm{Init}$ 的第 2 步多了 $x = 0$ 時設定 $\mathrm{bad}$ 並重新取樣 $x$ 的處理，而 $\mathrm{Gm}_0$ 沒有。這兩個遊戲都透過零知識模擬來實作 transcript oracle，而不是使用秘密金鑰。
-
-除此之外，$\mathrm{Gm}_0$ 與遊戲 $$\mathrm{Gm}^{\mathrm{imp\mbox{-}pa}}_{\mathrm{ID}}$$ 相同，因此可得
-
-$$
-\begin{aligned}
-\mathrm{Adv}^{\mathrm{imp\mbox{-}pa}}_{\mathrm{ID}}(\mathcal{A})
-&=
-\Pr[\mathrm{Gm}_0(\mathcal{A})] \\
-&=\Pr[\mathrm{Gm}_1(\mathcal{A})]+\bigl(\Pr[\mathrm{Gm}_0(\mathcal{A})]-\Pr[\mathrm{Gm}_1(\mathcal{A})]\bigr).
-\end{aligned}
-$$
-
-遊戲 $\mathrm{Gm}_0,\mathrm{Gm}_1$ 是 identical-until-bad，因此根據 Game Playing 的基本引理 <a class="cite" href="#bib-br06">BR06</a>，可得
-
-$$
-\Pr[\mathrm{Gm}_0(\mathcal{A})]-\Pr[\mathrm{Gm}_1(\mathcal{A})]\le \Pr[\mathrm{Gm}_1(\mathcal{A}) \text{ sets bad}] .
-$$
-
-顯然，
-$$
-\Pr[\mathrm{Gm}_1(\mathcal{A}) \text{ sets bad}] \le 1/p.
-$$
-接著可改在 $\mathrm{Gm}_1$ 中工作，其中公鑰 $X$ 是 $G^\ast$ 中的一個隨機元素，而不是 $G$ 中的一個元素。作者主張
-
-$$
-\Pr[\mathrm{Gm}_1(\mathcal{A})] = \Pr[\mathrm{Gm}_2(\mathcal{A})]
-\tag{9}
-$$
-
-以下說明這一點。在 $\mathrm{Init}$ 中，遊戲 $\mathrm{Gm}_2$ 直接從 $\mathbb{Z}_p^\ast$ 中選取 $x$，就像 $\mathrm{Gm}_1$ 一樣，並且也以不同但等價的方式重寫了 $\mathrm{Fin}$。
-
-主要需要檢查的是，$$\mathrm{Gm}_2$$ 中的 $$\mathrm{Ch}$$ 與 $$\mathrm{Gm}_1$$ 中的對應程式是等價的，也就是說 $\mathrm{Gm}_2$ 的 $\mathrm{Ch}$ 會使得 $$c_\ast$$ 在 $$\mathbb{Z}_p$$ 中均勻分布。
-
-為此，固定 $R_\ast,X$，並定義函數
-$$f_{R_\ast,X} : G\rightarrow \mathbb{Z}_p$$ 為
-$$f_{R_\ast,X}(Y) = \mathrm{DL}_{G,X}(R_\ast^{-1}Y)$$。
-
-在 $\mathrm{Ch}$ 回傳 $c_\ast$ 之前，對手對 $Y$ 沒有任何資訊，因此只要證明 $f_{R_\ast,X}$ 是雙射，該主張便成立。
-
-這確實如此，因為 $X\in G^\ast$ 是一個生成元，這表示函數
-$$h_{R_\ast,X} : \mathbb{Z}_p \rightarrow G$$，定義為
-$$h_{R_\ast,X}(c_\ast) = R_\ast X^{c_\ast}$$，
-就是 $f_{R_\ast,X}$ 的反函數。這就證明了式 (9)。
-
-接著主張，上方所示的對手 $\mathcal{B}^{\mathrm{DLO}}$ 滿足
-
-$$
-\Pr[\mathrm{Gm}_2(\mathcal{A})]
-\le
-\mathrm{Adv}^{\mathrm{mbdl}}_{G,g,1}(\mathcal{B})
-\tag{10}
-$$
-
-將上述結果合併後，證明便告完成；因此剩下只需證明式 (10)。
-
-對手 $\mathcal{B}$ 依照遊戲 $\mathrm{G}^{\mathrm{mbdl}}_{G,g,1}$ 的規則存取 oracle $\mathrm{DLO}$。
-
-在程式中，$\mathrm{Ch}$ 與 $\mathrm{Tr}$ 是由 $\mathcal{B}$ 定義的子程序，並用來為 $\mathcal{A}$ 模擬同名的 oracle。
-
-對手 $\mathcal{B}$ 的輸入是 challenge $Y$，其需要計算相對於底 $g$ 的離散對數；同時它還得到底 $X$，相對於此底它可以執行一次離散對數運算。
-
-它在輸入 $X$ 下執行 $\mathcal{A}$，因此後者將其視為公鑰，這與 $\mathrm{Gm}_2$ 一致。
-
-子程序 $\mathrm{Ch}$ 使用 $\mathrm{DLO}$ 以與 $\mathrm{Gm}_2$ 的 $\mathrm{Ch}$ 相同的方式產生 $$c_\ast$$。它依照 $\mathrm{Gm}_2$ 的 $\mathrm{Tr}$ 模擬 $\mathrm{Tr}$。
-
-若 $\mathrm{Gm}_2$ 的 $\mathrm{Fin}$ 回傳 true，則可得
-
-$$
-g^{z_\ast}=X^{c_\ast}R_\ast=YR_\ast^{-1}R_\ast=Y
-$$
-
-，因此 $\mathcal{B}$ 獲勝。
+下方三個遊戲共用同一組介面 $\mathrm{Init}$、$\mathrm{Ch}$、$\mathrm{Tr}$、$\mathrm{Fin}$。
 
 ### Game 0
 
@@ -341,6 +269,79 @@ $$
       $(z_\ast = \mathrm{DL}_{G,g}\!\left(X^{c_\ast} R_\ast\right))$
     </li>
   </ol>
+</div>
+
+### Formal Proof
+
+<div class="proof">
+<strong>Proof.</strong>
+
+The games implement the transcript oracle via the zero-knowledge simulation rather than the secret key. Game $\mathrm{Gm}_1$ differs from $\mathrm{Gm}_0$ only in step 2 of $\mathrm{Init}$, where it sets $\mathrm{bad}$ and resamples $x$ if $x = 0$. Otherwise $\mathrm{Gm}_0$ is the same as game $\mathrm{Gm}^{\mathrm{imp\text{-}pa}}_{\mathrm{ID}}$, so
+
+$$
+\begin{aligned}
+\mathbf{Adv}^{\mathrm{imp\text{-}pa}}_{\mathrm{ID}}(\mathcal{A})
+&= \Pr[\mathrm{Gm}_0(\mathcal{A})] \\
+&= \Pr[\mathrm{Gm}_1(\mathcal{A})] + \bigl(\Pr[\mathrm{Gm}_0(\mathcal{A})] - \Pr[\mathrm{Gm}_1(\mathcal{A})]\bigr).
+\end{aligned}
+$$
+
+Games $\mathrm{Gm}_0$ and $\mathrm{Gm}_1$ are identical-until-bad, so by the Fundamental Lemma of Game Playing <a class="cite" href="#bib-br06">BR06</a>,
+
+$$
+\Pr[\mathrm{Gm}_0(\mathcal{A})] - \Pr[\mathrm{Gm}_1(\mathcal{A})] \le \Pr[\mathrm{Gm}_1(\mathcal{A}) \text{ sets } \mathrm{bad}].
+$$
+
+Clearly $\Pr[\mathrm{Gm}_1(\mathcal{A}) \text{ sets } \mathrm{bad}] \le 1/p$. Now we can work with $\mathrm{Gm}_1$, where the public key $X$ is a random element of $G^\ast$ rather than of $G$. We claim that
+
+$$
+\Pr[\mathrm{Gm}_1(\mathcal{A})] = \Pr[\mathrm{Gm}_2(\mathcal{A})].
+\tag{9}
+$$
+
+In $\mathrm{Init}$, game $\mathrm{Gm}_2$ picks $x$ directly from $\mathbb{Z}_p^\ast$, just like $\mathrm{Gm}_1$, and also rewrites $\mathrm{Fin}$ in a different but equivalent way. The main thing to check is that $\mathrm{Ch}$ in $\mathrm{Gm}_2$ is equivalent to that in $\mathrm{Gm}_1$, meaning that $\mathrm{Ch}$ in $\mathrm{Gm}_2$ results in $c_\ast$ being uniformly distributed in $\mathbb{Z}_p$.
+
+For this, regard $R_\ast, X$ as fixed and define the function $f_{R_\ast,X} : G \to \mathbb{Z}_p$ by $f_{R_\ast,X}(Y) = \mathrm{DL}_{G,X}(R_\ast^{-1} Y)$. The adversary has no information about $Y$ prior to receiving $c_\ast$ from $\mathrm{Ch}$, so the claim is established if we show that $f_{R_\ast,X}$ is a bijection. This is true because $X \in G^\ast$ is a generator, which means that the function $h_{R_\ast,X} : \mathbb{Z}_p \to G$ defined by $h_{R_\ast,X}(c_\ast) = R_\ast X^{c_\ast}$ is the inverse of $f_{R_\ast,X}$. This establishes Eq. (9).
+
+We now claim that adversary $\mathcal{B}$ satisfies
+
+$$
+\Pr[\mathrm{Gm}_2(\mathcal{A})] \le \mathbf{Adv}^{\mathrm{mbdl}}_{G,g,1}(\mathcal{B}).
+\tag{10}
+$$
+
+Adversary $\mathcal{B}$ has access to oracle $\mathrm{DLO}$ as per game $\mathrm{G}^{\mathrm{mbdl}}_{G,g,1}$. In the code, $\mathrm{Ch}$ and $\mathrm{Tr}$ are subroutines defined by $\mathcal{B}$ and used to simulate the oracles of the same names for $\mathcal{A}$. Adversary $\mathcal{B}$ has input the challenge $Y$ whose discrete logarithm in base $g$ it needs to compute, as well as the base $X$ relative to which it may make one discrete logarithm query. It runs $\mathcal{A}$ on input $X$, so $\mathcal{A}$ regards it as the public key, consistent with $\mathrm{Gm}_2$.
+
+Subroutine $\mathrm{Ch}$ uses $\mathrm{DLO}$ to produce $c_\ast$ in the same way as $\mathrm{Ch}$ of $\mathrm{Gm}_2$, and $\mathrm{Tr}$ is simulated as in $\mathrm{Tr}$ of $\mathrm{Gm}_2$. If $\mathrm{Fin}$ of $\mathrm{Gm}_2$ returns true, then
+
+$$
+g^{z_\ast} = X^{c_\ast} R_\ast = Y R_\ast^{-1} R_\ast = Y,
+$$
+
+so $\mathcal{B}$ wins. This establishes Eq. (10).
+
+Combining the above,
+
+$$
+\mathbf{Adv}^{\mathrm{imp\text{-}pa}}_{\mathrm{ID}}(\mathcal{A})
+= \Pr[\mathrm{Gm}_0(\mathcal{A})]
+\le \Pr[\mathrm{Gm}_1(\mathcal{A})] + \frac{1}{p}
+= \Pr[\mathrm{Gm}_2(\mathcal{A})] + \frac{1}{p}
+\le \mathbf{Adv}^{\mathrm{mbdl}}_{G,g,1}(\mathcal{B}) + \frac{1}{p},
+$$
+
+which is the claimed bound.
+</div>
+
+<div class="remark">
+<strong>Remark.</strong>
+上述證明中幾個省略的細節補充如下。
+
+- **$\mathrm{Gm}_1$ 中 $x$ 的分布。** $x$ 先在 $\mathbb{Z}_p$ 中均勻取樣，若 $x = 0$ 則在 $\mathbb{Z}_p^\ast$ 中均勻重抽。任一 $a \in \mathbb{Z}_p^\ast$ 最終被取到的機率為 $\frac{1}{p} + \frac{1}{p} \cdot \frac{1}{p-1} = \frac{1}{p-1}$，所以最終的 $x$ 在 $\mathbb{Z}_p^\ast$ 上均勻，與 $\mathrm{Gm}_2$ 的 $\mathrm{Init}$ 一致。同時 $\Pr[x = 0] = 1/p$，即 $\Pr[\mathrm{Gm}_1(\mathcal{A}) \text{ sets } \mathrm{bad}] = 1/p$。
+- **Eq. (9) 中 $f_{R_\ast,X}$ 的定義域。** $R_\ast$ 是 $\mathcal{A}$ 輸出的群元素，屬於 $G$，所以對任意 $Y \in G$ 都有 $R_\ast^{-1} Y \in G$，$\mathrm{DL}_{G,X}$ 有定義。$X$ 是 $G$ 的生成元，因此 $f_{R_\ast,X}$ 與 $h_{R_\ast,X}$ 互為反函數。
+- **$Y$ 與 $\mathcal{A}$ 的視角獨立。** 在 $\mathrm{Gm}_2$ 中 $Y = g^y$，$y$ 在 $\mathbb{Z}_p$ 中均勻且 $g$ 是生成元，所以 $Y$ 在 $G$ 上均勻。在 $\mathrm{Ch}$ 回傳 $c_\ast$ 之前，$\mathcal{A}$ 看到的只有 $X$（只取決於 $x$）以及 $\mathrm{Tr}$ 的輸出（只取決於 $z, c, X$），它們都不依賴 $Y$。因此對固定的 $R_\ast, X$，$c_\ast = f_{R_\ast,X}(Y)$ 在 $\mathbb{Z}_p$ 中均勻且與 $\mathcal{A}$ 的視角獨立，與 $\mathrm{Gm}_1$ 中獨立均勻取樣的 $c_\ast$ 同分布。
+- **$\mathrm{Fin}$ 的等價性。** $g$ 是生成元，所以 $z_\ast \in \mathbb{Z}_p$ 滿足 $g^{z_\ast} = X^{c_\ast} R_\ast$ 若且唯若 $z_\ast = \mathrm{DL}_{G,g}(X^{c_\ast} R_\ast)$。
+- **時間界。** $\mathcal{B}$ 只執行 $\mathcal{A}$ 一次。$\mathrm{Ch}$ 被呼叫一次，需要一次 $\mathrm{DLO}$ 查詢和常數個群運算。每次 $\mathrm{Tr}$ 查詢計算 $R = g^z X^{-c}$，需要常數個指數運算。共有 $Q^{\mathrm{Tr}}_{\mathcal{A}}$ 次 $\mathrm{Tr}$ 查詢，所以 $\mathrm{T}_{\mathcal{B}}$ 約為 $\mathrm{T}_{\mathcal{A}} + \mathcal{O}(Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_G)$。
 </div>
 
 ## References
