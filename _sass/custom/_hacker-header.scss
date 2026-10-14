@@ -92,3 +92,48 @@
   padding: 0;
   list-style: none;
 }
+
+// -----------------------------------------------
+// Nav dropdown (Research -> Papers)
+// -----------------------------------------------
+
+.site-nav .nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: stretch;  // 與同列其他項目等高；下拉選單緊貼文字下方，滑鼠往下移時不會中斷
+}
+
+.site-nav .has-dropdown > .page-link::after {
+  content: "▾";
+  margin-left: 6px;
+  font-size: 0.8em;
+}
+
+.site-header .site-nav .nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 100%;
+  padding: 6px 0;
+  background: #111;
+  border: 1px solid #33ff33;
+  border-top: 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+.site-nav .has-dropdown:hover > .nav-dropdown,
+.site-nav .has-dropdown:focus-within > .nav-dropdown {
+  display: block;
+}
+
+.site-nav .nav-dropdown .page-link {
+  padding: 8px 18px;
+  white-space: nowrap;
+}
+
+.site-nav .nav-dropdown .page-link:hover {
+  background: rgba(51, 255, 51, 0.08);
+}
