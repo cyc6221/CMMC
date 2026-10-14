@@ -197,3 +197,7 @@
 }
 
 .pill[role="button"]{ color: inherit; }
+/* — Notes link: 論文卡片上通往細節筆記列表的連結（獨占一行） */
+.articles-meta .notes-link{
+  flex-basis: 100%;
+}

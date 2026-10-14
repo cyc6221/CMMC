@@ -1,6 +1,13 @@
+{% comment %}
+  include.top_only : 只列 collection 根目錄下的文件（不含子資料夾）
+  include.dir      : 只列 collection 下指定子資料夾的文件
+{% endcomment %}
 {% assign col = include.collection | default: "articles" %}
 <ul id="articlesList" class="articles-list">
   {% for a in site[col] %}
+    {% assign parts = a.relative_path | split: "/" %}
+    {% if include.dir and parts[1] != include.dir %}{% continue %}{% endif %}
+    {% if include.top_only and parts.size > 2 %}{% continue %}{% endif %}
     <li
       class="articles-item"
       data-title="{{ a.title | escape }}"
@@ -32,6 +39,10 @@
         {% if a.label %}
           {% if a.date %}<span class="sep">·</span>{% endif %}
           <span class="a-tag">{{ a.label | escape }}</span>
+        {% endif %}
+
+        {% if a.notes_url %}
+          <a class="notes-link" href="{{ a.notes_url | relative_url }}">→ {{ a.notes_title | default: "細節筆記" | escape }}</a>
         {% endif %}
       </div>
     </li>
