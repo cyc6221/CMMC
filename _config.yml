@@ -48,6 +48,7 @@ plugins:
   - jekyll-github-metadata
   - jekyll-sitemap
   - jekyll-remote-theme
+  - jekyll-redirect-from
 
 sitemap:
   path: sitemap.xml
