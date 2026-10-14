@@ -5,7 +5,7 @@ author1: "Mihir Bellare"
 author2: "Wei Dai"
 venue: "INDOCRYPT 2020"
 date: 2026-04-15
-last_updated: 2026-04-15
+last_updated: 2026-10-14
 label: "paper"
 tags: [square-root-barrier, paper, MBDL]
 ---
@@ -57,8 +57,8 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
   <ol>
     <li>
       <code>Set</code>
-      $(Y, X) \leftarrow^{\$} \mathrm{Init}()$; <code>Run</code>
-      $z^\ast \leftarrow^{\$} \mathcal{A}^{\mathrm{Ch}, \mathrm{Tr}}(X)$
+      $(Y, X) \xleftarrow{\$} \mathrm{Init}()$; <code>Run</code>
+      $z^\ast \xleftarrow{\$} \mathcal{A}^{\mathrm{Ch}, \mathrm{Tr}}(X)$
     </li>
     <li>
       <code>Return</code>
@@ -82,7 +82,7 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
   <ol>
     <li>
       <code>Set</code>
-      $z \leftarrow^{\$} \mathbb{Z}_p$; $c \leftarrow^{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
+      $z \xleftarrow{\$} \mathbb{Z}_p$; $c \xleftarrow{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
     </li>
     <li>
       <code>Return</code>
@@ -111,7 +111,7 @@ $\mathcal{O} (Q^{\mathrm{Tr}}_{\mathcal{A}} \cdot \mathrm{T}^{\mathrm{exp}}_\mat
 
 ### Formal Proof
 
-各過程會透過註解指出它們出現於哪些遊戲中。遊戲 $\mathrm{Gm}_1$ 包含第 2 行中的方框程式碼，而 $\mathrm{Gm}_0$ 不包含。這兩個遊戲都透過零知識模擬來實作 transcript oracle，而不是使用秘密金鑰。
+遊戲 $\mathrm{Gm}_1$ 在 $\mathrm{Init}$ 的第 2 步多了 $x = 0$ 時設定 $\mathrm{bad}$ 並重新取樣 $x$ 的處理，而 $\mathrm{Gm}_0$ 沒有。這兩個遊戲都透過零知識模擬來實作 transcript oracle，而不是使用秘密金鑰。
 
 除此之外，$\mathrm{Gm}_0$ 與遊戲 $$\mathrm{Gm}^{\mathrm{imp\mbox{-}pa}}_{\mathrm{ID}}$$ 相同，因此可得
 
@@ -137,26 +137,26 @@ $$
 接著可改在 $\mathrm{Gm}_1$ 中工作，其中公鑰 $X$ 是 $G^\ast$ 中的一個隨機元素，而不是 $G$ 中的一個元素。作者主張
 
 $$
-\Pr[\mathrm{Gm}_1(\mathcal{A}) = \Pr[\mathrm{Gm}_2(\mathcal{A})]
+\Pr[\mathrm{Gm}_1(\mathcal{A})] = \Pr[\mathrm{Gm}_2(\mathcal{A})]
 \tag{9}
 $$
 
-以下說明這一點。在第 4 行，遊戲 $\mathrm{Gm}_2$ 直接從 $\mathbb{Z}_p^\ast$ 中選取 $x$，就像 $\mathrm{Gm}_1$ 一樣，並且也以不同但等價的方式重寫了 $\mathrm{FIN}$。
+以下說明這一點。在 $\mathrm{Init}$ 中，遊戲 $\mathrm{Gm}_2$ 直接從 $\mathbb{Z}_p^\ast$ 中選取 $x$，就像 $\mathrm{Gm}_1$ 一樣，並且也以不同但等價的方式重寫了 $\mathrm{Fin}$。
 
-主要需要檢查的是，$$\mathrm{Gm}_2$$ 中的 $$\mathrm{Ch}$$ 與 $$\mathrm{Gm}_1$$ 中的對應程式是等價的，也就是說第 6 行會使得 $$c_\ast$$ 在 $$\mathbb{Z}_p$$ 中均勻分布。
+主要需要檢查的是，$$\mathrm{Gm}_2$$ 中的 $$\mathrm{Ch}$$ 與 $$\mathrm{Gm}_1$$ 中的對應程式是等價的，也就是說 $\mathrm{Gm}_2$ 的 $\mathrm{Ch}$ 會使得 $$c_\ast$$ 在 $$\mathbb{Z}_p$$ 中均勻分布。
 
 為此，固定 $R_\ast,X$，並定義函數
 $$f_{R_\ast,X} : G\rightarrow \mathbb{Z}_p$$ 為
 $$f_{R_\ast,X}(Y) = \mathrm{DL}_{G,X}(R_\ast^{-1}Y)$$。
 
-在第 6 行收到 $c_\ast$ 之前，對手對 $Y$ 沒有任何資訊，因此只要證明 $f_{R_\ast,X}$ 是雙射，該主張便成立。
+在 $\mathrm{Ch}$ 回傳 $c_\ast$ 之前，對手對 $Y$ 沒有任何資訊，因此只要證明 $f_{R_\ast,X}$ 是雙射，該主張便成立。
 
 這確實如此，因為 $X\in G^\ast$ 是一個生成元，這表示函數
 $$h_{R_\ast,X} : \mathbb{Z}_p \rightarrow G$$，定義為
 $$h_{R_\ast,X}(c_\ast) = R_\ast X^{c_\ast}$$，
 就是 $f_{R_\ast,X}$ 的反函數。這就證明了式 (9)。
 
-接著主張，圖 5 中所示的對手 $\mathcal{B}$ 滿足
+接著主張，上方所示的對手 $\mathcal{B}^{\mathrm{DLO}}$ 滿足
 
 $$
 \Pr[\mathrm{Gm}_2(\mathcal{A})]
@@ -175,9 +175,9 @@ $$
 
 它在輸入 $X$ 下執行 $\mathcal{A}$，因此後者將其視為公鑰，這與 $\mathrm{Gm}_2$ 一致。
 
-子程序 $\mathrm{Ch}$ 使用 $\mathrm{DLO}$ 以與 $\mathrm{Gm}_2$ 第 6 行相同的方式產生 $$c_\ast$$。它依照 $\mathrm{Gm}_2$ 第 7 行模擬 $\mathrm{Tr}$。
+子程序 $\mathrm{Ch}$ 使用 $\mathrm{DLO}$ 以與 $\mathrm{Gm}_2$ 的 $\mathrm{Ch}$ 相同的方式產生 $$c_\ast$$。它依照 $\mathrm{Gm}_2$ 的 $\mathrm{Tr}$ 模擬 $\mathrm{Tr}$。
 
-若 $\mathrm{Gm}_2$ 在第 9 行回傳 true，則可得
+若 $\mathrm{Gm}_2$ 的 $\mathrm{Fin}$ 回傳 true，則可得
 
 $$
 g^{z_\ast}=X^{c_\ast}R_\ast=YR_\ast^{-1}R_\ast=Y
@@ -194,7 +194,7 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $p \leftarrow \lvert G \rvert$; $y \leftarrow^{\$} \mathbb{Z}_p$; $Y \leftarrow g^y$; $x \leftarrow^{\$} \mathbb{Z}_p$; $X \leftarrow g^x$
+      $p \leftarrow \lvert G \rvert$; $y \xleftarrow{\$} \mathbb{Z}_p$; $Y \leftarrow g^y$; $x \xleftarrow{\$} \mathbb{Z}_p$; $X \leftarrow g^x$
     </li>
     <li>
       <code>Return</code>
@@ -206,7 +206,7 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $c_\ast \leftarrow^{\$} \mathbb{Z}_p$
+      $c_\ast \xleftarrow{\$} \mathbb{Z}_p$
     </li>
     <li>
       <code>Return</code>
@@ -214,11 +214,11 @@ $$
     </li>
   </ol>
 
-  <p><strong>Tr($W$):</strong></p>
+  <p><strong>Tr:</strong></p>
   <ol>
     <li>
       <code>Set</code>
-      $z \leftarrow^{\$} \mathbb{Z}_p$; $c \leftarrow^{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
+      $z \xleftarrow{\$} \mathbb{Z}_p$; $c \xleftarrow{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
     </li>
     <li>
       <code>Return</code>
@@ -244,11 +244,11 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $p \leftarrow \lvert G \rvert$; $y \leftarrow^{\$} \mathbb{Z}_p$; $Y \leftarrow g^y$; $x \leftarrow^{\$} \mathbb{Z}_p$
+      $p \leftarrow \lvert G \rvert$; $y \xleftarrow{\$} \mathbb{Z}_p$; $Y \leftarrow g^y$; $x \xleftarrow{\$} \mathbb{Z}_p$
     </li>
     <li>
       <code>If</code>
-      $(x = 0)$ then set $\mathrm{bad} \leftarrow \mathrm{true}$ and sample $x \leftarrow^{\$} \mathbb{Z}_p^\ast$
+      $(x = 0)$ then set $\mathrm{bad} \leftarrow \mathrm{true}$ and sample $x \xleftarrow{\$} \mathbb{Z}_p^\ast$
     </li>
     <li>
       <code>Set</code>
@@ -264,7 +264,7 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $c_\ast \leftarrow^{\$} \mathbb{Z}_p$
+      $c_\ast \xleftarrow{\$} \mathbb{Z}_p$
     </li>
     <li>
       <code>Return</code>
@@ -272,11 +272,11 @@ $$
     </li>
   </ol>
 
-  <p><strong>Tr($W$):</strong></p>
+  <p><strong>Tr:</strong></p>
   <ol>
     <li>
       <code>Set</code>
-      $z \leftarrow^{\$} \mathbb{Z}_p$; $c \leftarrow^{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
+      $z \xleftarrow{\$} \mathbb{Z}_p$; $c \xleftarrow{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
     </li>
     <li>
       <code>Return</code>
@@ -302,7 +302,7 @@ $$
   <ol>
     <li>
       <code>Set</code>
-      $p \leftarrow \lvert G \rvert$; $y \leftarrow^{\$} \mathbb{Z}_p$; $Y \leftarrow g^y$; $x \leftarrow^{\$} \mathbb{Z}_p^\ast$; $X \leftarrow g^x$
+      $p \leftarrow \lvert G \rvert$; $y \xleftarrow{\$} \mathbb{Z}_p$; $Y \leftarrow g^y$; $x \xleftarrow{\$} \mathbb{Z}_p^\ast$; $X \leftarrow g^x$
     </li>
     <li>
       <code>Return</code>
@@ -322,11 +322,11 @@ $$
     </li>
   </ol>
 
-  <p><strong>Tr($W$):</strong></p>
+  <p><strong>Tr:</strong></p>
   <ol>
     <li>
       <code>Set</code>
-      $z \leftarrow^{\$} \mathbb{Z}_p$; $c \leftarrow^{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
+      $z \xleftarrow{\$} \mathbb{Z}_p$; $c \xleftarrow{\$} \mathbb{Z}_p$; $R \leftarrow g^z \cdot X^{-c}$
     </li>
     <li>
       <code>Return</code>
