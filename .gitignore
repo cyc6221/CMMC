@@ -20,10 +20,6 @@ Modular Arithmetic
 
 Kobe.txt
 
-# minima theme
-assets/main_minima.scss
-_includes/header_minima.html
-
 # not used scss for now
 _sass/nouse/_page-tags_nouse.scss
 _sass/nouse/_toc_nouse.scss
