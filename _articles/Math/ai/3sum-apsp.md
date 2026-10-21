@@ -27,7 +27,7 @@ Given $n\times n$ matrices $A$ and $B$, compute the matrix $C$ with $C_{ij}=\min
 
 <div class="definition">
 <strong>APSP</strong>
-Given a weighted directed graph on $n$ vertices, compute the shortest-path distance between every pair of vertices.
+Given a weighted directed graph on $n$ vertices with no negative cycles, compute the shortest-path distance between every pair of vertices.
 </div>
 
 Floyd–Warshall 在 $O(n^3)$ 時間內解出 APSP。此前最好的演算法只省下 subpolynomial 因子。APSP 與 $(\min,+)$-product 在 truly subcubic 時間的意義下等價，兩者的 exponent 相同。
@@ -58,24 +58,25 @@ There is no constant $\epsilon>0$ such that APSP can be solved in $O(n^{3-\epsil
 2026 年 10 月 5 日，Alman 與 Vassilevska Williams 在 arXiv 公開（[arXiv:2610.06783](https://arxiv.org/abs/2610.06783)）這兩個問題的第一個 polynomial improvement：存在 $\epsilon>0$，使得 $\mathrm{3SUM}=O(n^{2-\epsilon})$ 且 $\mathrm{APSP}=O(n^{3-\epsilon})$，兩個演算法皆為 deterministic。具體的時間界為
 
 - $\mathrm{3SUM}$：$O(n^{1.9992})$
-- $(\min,+)$-product 與 $\mathrm{APSP}$：$O(n^{2.99942})$，摘要寫作 $O(n^{2.9995})$
+- $(\min,+)$-product 與 $\mathrm{APSP}$：$O(n^{2.99942})$
 - Exact Triangle：$O(n^{3-0.0017})$
 
 作者指出 3SUM Hypothesis 與 APSP Hypothesis 因此不再成立，經由已知的 reduction，數個相關的 hypothesis 也一併被反駁。依賴它們的 conditional lower bound，證明本身沒有錯，但前提已不可信，需要重新理解。
 
 ### 方法
 
-演算法不直接針對 3SUM 或 APSP 設計，而是先把問題轉換成 sparse lopsided graph 上的 triangle detection / exact triangle，再用 thin / selected-entry matrix multiplication 取得 polynomial improvement。整條歸約鏈為
+3SUM 與 APSP 先歸約到 Exact Triangle，再歸約到 Lopsided All-Edges Sparse Triangle。後者要求對每條指定邊判斷是否屬於三角形，最後透過只計算 thin matrix product 中指定的 entries 取得 polynomial improvement。歸約鏈為
 
 $$
 \begin{array}{c}
-\mathrm{3SUM} \\
+\mathrm{3SUM},\quad\mathrm{APSP} \\
 \downarrow \\
 \text{Exact Triangle} \\
 \downarrow \\
-\text{Sparse Lopsided Triangle} \\
+\text{Lopsided All-Edges Sparse Triangle} \\
 \downarrow \\
-\text{Thin Matrix Multiplication}
+\text{Thin Matrix Product} \\
+\text{(Selected Entries)}
 \end{array}
 $$
 
@@ -95,10 +96,12 @@ $$
 主要的 deterministic 結果另外用 Lean 4 形式化，收錄於 [anthropics/formal-math](https://github.com/anthropics/formal-math/tree/main/3sum-apsp)：
 
 - `EndStatement.lean` 只用 Lean core library，定義有九條指令的 word RAM 與各個問題，並陳述五個主要結果：Exact Triangle、3SUM、$(\min,+)$-product、APSP 與 zero-weight $k$-clique。
-- `PaperStatements.lean` 使用 Mathlib，依論文編號陳述 25 個結果。
+- `PaperStatements.lean` 使用 Mathlib，包含依論文編號列出的 25 個 word RAM program 時間界陳述，以及其他數學陳述。
 - 演算法先以小型 imperative language 寫成並驗證，再由 compiler 轉成 word RAM program，每一步至多增加常數倍的開銷。
 
-形式化並未涵蓋所有結果。時間界中的常數與部分參數只證明存在而未算出，Theorem 17、21、33–35 等結果沒有針對 program 的敘述，不在驗證範圍內。細節見 [MACHINE.md](https://github.com/anthropics/formal-math/blob/main/3sum-apsp/docs/MACHINE.md)。
+形式化範圍需區分數學證明與 program 的執行時間保證：Theorem 17、21、34、35 的部分正確性、計數與時間界算術已有數學形式化，但這些定理沒有對應的 program 執行時間陳述；Theorem 33 則未在此形式化中證明，只作為假設出現。細節見 [README](https://github.com/anthropics/formal-math/blob/main/3sum-apsp/README.md)。
+
+時間界中的常數多未給出具體數值；部分一般化結果的程式參數也只證明存在，五個主要結果不依賴這些未算出的程式參數。細節見 [MACHINE.md](https://github.com/anthropics/formal-math/blob/main/3sum-apsp/docs/MACHINE.md)。
 
 ## Karingula & Lovett
 
@@ -114,17 +117,12 @@ $$
 
 ## 目前狀態
 
-這些結果仍是 preprint，尚未通過 STOC、FOCS、SODA 或期刊的正式同行審查。目前已有的驗證包括：
+截至 2026 年 10 月 21 日，這些結果以 preprint 公開。目前可查證的相關工作包括：
 
 - Alman 與 Vassilevska Williams 的人工檢查與重建
 - Lean formal verification
 - Karingula 與 Lovett 的獨立簡化證明
 - Majdoddin 建立在原框架上的 exponent 改進
-
-<div class="remark remark--note">
-<strong>Remark.</strong>
-正式同行審查尚未完成，但「3SUM 可以 truly subquadratic、APSP 可以 truly subcubic」這個核心結果已有相當強的外部支持。
-</div>
 
 ### 時間界比較
 
@@ -155,13 +153,13 @@ $$
   </tbody>
 </table>
 
-### 外部討論
+## 外部討論
 
-#### Oded Goldreich
+### Oded Goldreich
 
 Oded Goldreich 將 Alman 與 Vassilevska Williams 的論文列入 [Oded's Choices](https://www.wisdom.weizmann.ac.il/~oded/my-choice.html)。
 
-#### University of Michigan Theory Seminar
+### University of Michigan Theory Seminar
 
 Josh Alman 排定於 2026 年 10 月 23 日在 [University of Michigan Theory Seminar](https://cse.engin.umich.edu/event/truly-subquadratic-3sum-and-truly-subcubic-apsp-via-triangles-in-sparse-lopsided-graphs) 報告這項工作。
 
@@ -176,6 +174,7 @@ Josh Alman 排定於 2026 年 10 月 23 日在 [University of Michigan Theory Se
 ### Formalization
 
 - [anthropics/formal-math: 3sum-apsp](https://github.com/anthropics/formal-math/tree/main/3sum-apsp)
+- [3sum-apsp/README.md](https://github.com/anthropics/formal-math/blob/main/3sum-apsp/README.md)
 - [3sum-apsp/docs/MACHINE.md](https://github.com/anthropics/formal-math/blob/main/3sum-apsp/docs/MACHINE.md)
 
 ### Discussion
