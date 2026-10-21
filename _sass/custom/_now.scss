@@ -207,7 +207,10 @@ header.now-head::after {
 
 /* GitHub link after a heading */
 
-.now-body h4 .gh-link {
+.now-body h4 .gh-link,
+.now-body li .gh-link,
+.now-body p .gh-link,
+.page-content .gh-link {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -217,7 +220,10 @@ header.now-head::after {
   border-bottom: 0;
 }
 
-.now-body h4 .gh-link .ico {
+.now-body h4 .gh-link .ico,
+.now-body li .gh-link .ico,
+.now-body p .gh-link .ico,
+.page-content .gh-link .ico {
   width: 14px;
   height: 14px;
   fill: currentColor;
@@ -225,7 +231,8 @@ header.now-head::after {
 
 /* live repo stats under a heading (filled by assets/js/repo-stats.js) */
 
-.now-body p.repo-stats {
+.now-body p.repo-stats,
+.page-content p.repo-stats {
   margin: -4px 0 8px;
   color: #8b949e;
   font-size: 12px;
