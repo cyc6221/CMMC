@@ -1,2 +1,9 @@
 {%- assign s = site.data.repo_stats | where: "repo", include.repo | first -%}
-<p class="repo-stats" data-repo="{{ include.repo }}">{% if s %}{{ s.count }} {% if s.count == 1 %}commit{% else %}commits{% endif %} · last commit {{ s.date }}{% endif %}</p>
+{%- capture count -%}
+  {%- if s.count >= 1000 -%}
+    {{ s.count | divided_by: 1000 }},{{ s.count | modulo: 1000 | plus: 1000 | append: "" | slice: 1, 3 }}
+  {%- else -%}
+    {{ s.count }}
+  {%- endif -%}
+{%- endcapture -%}
+<p class="repo-stats" data-repo="{{ include.repo }}">{% if s %}{{ count }} {% if s.count == 1 %}commit{% else %}commits{% endif %} · last commit {{ s.date }}{% endif %}</p>
