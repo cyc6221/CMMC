@@ -41,3 +41,12 @@ html { scroll-behavior: smooth; }
 
 /* Hover: 懸停時提升顯著度 */
 .back-to-top:hover{ opacity: 1; }
+
+/* -----------------------------------------------
+   Utilities（取代文章內的行內 style）
+----------------------------------------------- */
+
+/* 次要文字（作者、出處等） */
+.text-muted {
+  opacity: 0.66;
+}
