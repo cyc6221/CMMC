@@ -13,3 +13,5 @@ toc: false
 {% include math/ai/AnthropicsFormalMath.html %}
 {% include math/ai/DeepSeekProverV2.html %}
 </section>
+
+<script defer src="{{ '/assets/js/repo-stats.js' | relative_url }}"></script>
