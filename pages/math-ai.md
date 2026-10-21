@@ -2,6 +2,8 @@
 layout: page
 title: Math / AI
 permalink: /math/ai/
+nav_parent: pages/math.md
+nav_title: AI
 toc: false
 ---
 
