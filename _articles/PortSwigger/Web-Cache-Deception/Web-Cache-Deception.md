@@ -60,13 +60,13 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
 
   <ol>
     <li>
-      鎖定一個<span style="font-weight: bold;">動態且含敏感資料</span>的端點（如 <code>/my-account</code>、訂單頁、API key 頁），確認「不同登入者」回應內容確實不同。
+      鎖定一個<b>動態且含敏感資料</b>的端點（如 <code>/my-account</code>、訂單頁、API key 頁），確認「不同登入者」回應內容確實不同。
     </li>
     <li>
-      找出一種可造成<span style="font-weight: bold;">cache 與 origin 解析不一致</span>的 URL 變形方式，目標是讓：
+      找出一種可造成<b>cache 與 origin 解析不一致</b>的 URL 變形方式，目標是讓：
       <ul>
-        <li><span style="font-weight: bold;">Origin</span>：仍路由到同一個動態端點並回傳個人化內容</li>
-        <li><span style="font-weight: bold;">Cache</span>：把它當成可快取資源（常見：看起來像靜態副檔名、或含特殊分隔符）</li>
+        <li><b>Origin</b>：仍路由到同一個動態端點並回傳個人化內容</li>
+        <li><b>Cache</b>：把它當成可快取資源（常見：看起來像靜態副檔名、或含特殊分隔符）</li>
       </ul>
       例：<code>/my-account/anything.css</code>、<code>/my-account;anything.css</code>、<code>/my-account%23anything.css</code>（依實際站點規則調整）。
     </li>
@@ -74,10 +74,10 @@ Web Cache Deception (WCD) 是指快取欺騙——讓「動態/敏感內容」�
       用 Burp 反覆請求該變形 URL，觀察是否出現快取跡象（如 <code>X-Cache: hit</code>、<code>Age</code> 增加、回應時間明顯變快），以確認「此 URL 會被快取」。
     </li>
     <li>
-      觸發<span style="font-weight: bold;">受害者在登入狀態</span>下請求該 URL，使其個人化回應被 cache 以該 URL 的 cache key 寫入共享快取（即完成 cache poisoning/priming）。
+      觸發<b>受害者在登入狀態</b>下請求該 URL，使其個人化回應被 cache 以該 URL 的 cache key 寫入共享快取（即完成 cache poisoning/priming）。
     </li>
     <li>
-      攻擊者再以<span style="font-weight: bold;">完全相同的 URL</span>（同一路徑、同樣的變形字串）請求一次，若 cache 命中則直接回傳先前被存下的受害者回應，進而取得敏感資料。
+      攻擊者再以<b>完全相同的 URL</b>（同一路徑、同樣的變形字串）請求一次，若 cache 命中則直接回傳先前被存下的受害者回應，進而取得敏感資料。
     </li>
   </ol>
 
