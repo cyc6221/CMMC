@@ -1,6 +1,7 @@
 (function () {
   const TTL = 60 * 60 * 1000;
-  const KEY_PREFIX = 'repo-stats:';
+  const RETRY_AFTER = 10 * 60 * 1000;
+  const KEY_PREFIX = 'repo-stats:v1:';
   const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
   const UNITS = [
     ['year', 365 * 24 * 3600],
@@ -10,20 +11,19 @@
     ['minute', 60],
   ];
 
-  function readCache(repo) {
+  /* entry: { time, data, failedAt } -- data is kept after it expires so it can be shown when a request fails */
+  function readEntry(repo) {
     try {
       const raw = localStorage.getItem(KEY_PREFIX + repo);
-      if (!raw) return null;
-      const entry = JSON.parse(raw);
-      return Date.now() - entry.time < TTL ? entry.data : null;
+      return raw ? JSON.parse(raw) : null;
     } catch (e) {
       return null;
     }
   }
 
-  function writeCache(repo, data) {
+  function writeEntry(repo, entry) {
     try {
-      localStorage.setItem(KEY_PREFIX + repo, JSON.stringify({ time: Date.now(), data: data }));
+      localStorage.setItem(KEY_PREFIX + repo, JSON.stringify(entry));
     } catch (e) {
       /* storage unavailable: skip caching */
     }
@@ -45,6 +45,25 @@
     };
   }
 
+  /* fresh data, else the last successful data when the request fails, else null (the page keeps its snapshot) */
+  async function load(repo) {
+    const entry = readEntry(repo);
+    const now = Date.now();
+    const data = entry && entry.data ? entry.data : null;
+
+    if (data && now - entry.time < TTL) return data;
+    if (entry && entry.failedAt && now - entry.failedAt < RETRY_AFTER) return data;
+
+    try {
+      const fresh = await fetchStats(repo);
+      writeEntry(repo, { time: now, data: fresh });
+      return fresh;
+    } catch (e) {
+      writeEntry(repo, { time: entry ? entry.time : 0, data: data, failedAt: now });
+      return data;
+    }
+  }
+
   function ago(iso) {
     const seconds = (Date.parse(iso) - Date.now()) / 1000;
     for (const [unit, size] of UNITS) {
@@ -55,24 +74,18 @@
 
   function render(el, data) {
     el.textContent =
-      data.count.toLocaleString('en') + ' commits · last commit ' + data.date.slice(0, 10) + ' (' + ago(data.date) + ')';
+      data.count + (data.count === 1 ? ' commit' : ' commits') +
+      ' · last commit ' + data.date.slice(0, 10) + ' (' + ago(data.date) + ')';
     el.title = 'Latest commit: ' + data.date;
   }
 
   document.querySelectorAll('.repo-stats[data-repo]').forEach(function (el) {
-    const repo = el.dataset.repo;
-    const cached = readCache(repo);
-    if (cached) {
-      render(el, cached);
-      return;
-    }
-    fetchStats(repo)
+    load(el.dataset.repo)
       .then(function (data) {
-        writeCache(repo, data);
-        render(el, data);
+        if (data) render(el, data);
       })
       .catch(function () {
-        /* leave the line empty; CSS hides it */
+        /* keep the snapshot already in the page */
       });
   });
 })();
