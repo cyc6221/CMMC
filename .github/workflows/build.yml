@@ -9,9 +9,14 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   jekyll-build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     env:
       JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PAGES_REPO_NWO: ${{ github.repository }}
