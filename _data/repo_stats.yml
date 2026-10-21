@@ -1,0 +1,28 @@
+# Snapshot of commit count and last commit date for the repos on /math/ai/.
+# Shown until assets/js/repo-stats.js replaces it with fresh data, and kept
+# when the GitHub API request fails. Refresh it now and then, e.g.:
+#   gh api "repos/OWNER/REPO/commits?per_page=1" -i   (Link header: last page = count)
+- repo: openai/math
+  count: 5
+  date: "2026-10-12"
+- repo: google-deepmind/alphaevolve_results
+  count: 39
+  date: "2026-01-05"
+- repo: google-deepmind/alphaevolve_repository_of_problems
+  count: 61
+  date: "2026-07-11"
+- repo: google-deepmind/formal-conjectures
+  count: 2931
+  date: "2026-10-21"
+- repo: google-deepmind/funsearch
+  count: 14
+  date: "2024-02-05"
+- repo: google-deepmind/alphadev
+  count: 3
+  date: "2023-06-20"
+- repo: anthropics/formal-math
+  count: 31
+  date: "2026-10-06"
+- repo: deepseek-ai/DeepSeek-Prover-V2
+  count: 2
+  date: "2025-07-18"
