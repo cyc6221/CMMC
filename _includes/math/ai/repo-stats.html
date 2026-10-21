@@ -1,0 +1,2 @@
+{%- assign s = site.data.repo_stats | where: "repo", include.repo | first -%}
+<p class="repo-stats" data-repo="{{ include.repo }}">{% if s %}{{ s.count }} {% if s.count == 1 %}commit{% else %}commits{% endif %} · last commit {{ s.date }}{% endif %}</p>
