@@ -50,3 +50,9 @@ html { scroll-behavior: smooth; }
 .text-muted {
   opacity: 0.66;
 }
+
+/* 表格內容置中 */
+.table-center th,
+.table-center td {
+  text-align: center;
+}

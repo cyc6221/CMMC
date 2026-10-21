@@ -68,57 +68,57 @@ Consider the field $\mathbb{F}_{607}$ and the element $g=64$ of order $q=101$. W
 
 Using the algorithm above, we obtain the following table:
 
-<table>
+<table class="table-center">
   <thead>
     <tr>
-      <th style="text-align:center;">$h$</th>
-      <th style="text-align:center;">$O(h,g)$</th>
-      <th style="text-align:center;">$z$</th>
-      <th style="text-align:center;">$y$</th>
+      <th>$h$</th>
+      <th>$O(h,g)$</th>
+      <th>$z$</th>
+      <th>$y$</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:center;">56</td>
-      <td style="text-align:center;">0</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">0</td>
+      <td>56</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
-      <td style="text-align:center;">451</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">2</td>
-      <td style="text-align:center;">2</td>
+      <td>451</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
     </tr>
     <tr>
-      <td style="text-align:center;">201</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">4</td>
-      <td style="text-align:center;">6</td>
+      <td>201</td>
+      <td>1</td>
+      <td>4</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td style="text-align:center;">288</td>
-      <td style="text-align:center;">0</td>
-      <td style="text-align:center;">8</td>
-      <td style="text-align:center;">6</td>
+      <td>288</td>
+      <td>0</td>
+      <td>8</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td style="text-align:center;">100</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">16</td>
-      <td style="text-align:center;">22</td>
+      <td>100</td>
+      <td>1</td>
+      <td>16</td>
+      <td>22</td>
     </tr>
     <tr>
-      <td style="text-align:center;">454</td>
-      <td style="text-align:center;">0</td>
-      <td style="text-align:center;">32</td>
-      <td style="text-align:center;">22</td>
+      <td>454</td>
+      <td>0</td>
+      <td>32</td>
+      <td>22</td>
     </tr>
     <tr>
-      <td style="text-align:center;">64</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">64</td>
-      <td style="text-align:center;">86</td>
+      <td>64</td>
+      <td>1</td>
+      <td>64</td>
+      <td>86</td>
     </tr>
   </tbody>
 </table>
@@ -170,99 +170,99 @@ $$
 
 設公開資訊為 $N=10403$，$e=7$，並考慮密文 $c=3$。利用 oracle $O_h(y,N)$，可逐步得到下表：
 
-<table>
+<table class="table-center">
   <thead>
     <tr>
-      <th style="text-align:center;">$y$</th>
-      <th style="text-align:center;">$O_h(y,N)$</th>
-      <th style="text-align:center;">$l$</th>
-      <th style="text-align:center;">$h$</th>
+      <th>$y$</th>
+      <th>$O_h(y,N)$</th>
+      <th>$l$</th>
+      <th>$h$</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:center;">$3$</td>
-      <td style="text-align:center;">0</td>
-      <td style="text-align:center;">0</td>
-      <td style="text-align:center;">10403</td>
+      <td>$3$</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10403</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 2^7$</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">0</td>
-      <td style="text-align:center;">5201.5</td>
+      <td>$3 \cdot 2^7$</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5201.5</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 4^7$</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">2600.75</td>
-      <td style="text-align:center;">5201.5</td>
+      <td>$3 \cdot 4^7$</td>
+      <td>1</td>
+      <td>2600.75</td>
+      <td>5201.5</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 8^7$</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">3901.125</td>
-      <td style="text-align:center;">5201.5</td>
+      <td>$3 \cdot 8^7$</td>
+      <td>1</td>
+      <td>3901.125</td>
+      <td>5201.5</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 16^7$</td>
-      <td style="text-align:center;">0</td>
-      <td style="text-align:center;">4551.3125</td>
-      <td style="text-align:center;">5201.5</td>
+      <td>$3 \cdot 16^7$</td>
+      <td>0</td>
+      <td>4551.3125</td>
+      <td>5201.5</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 32^7$</td>
-      <td style="text-align:center;">0</td>
-      <td style="text-align:center;">4551.3125</td>
-      <td style="text-align:center;">4876.40625</td>
+      <td>$3 \cdot 32^7$</td>
+      <td>0</td>
+      <td>4551.3125</td>
+      <td>4876.40625</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 64^7$</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">4551.3125</td>
-      <td style="text-align:center;">4713.859375</td>
+      <td>$3 \cdot 64^7$</td>
+      <td>1</td>
+      <td>4551.3125</td>
+      <td>4713.859375</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 128^7$</td>
-      <td style="text-align:center;">0</td>
-      <td style="text-align:center;">4632.5859375</td>
-      <td style="text-align:center;">4713.859375</td>
+      <td>$3 \cdot 128^7$</td>
+      <td>0</td>
+      <td>4632.5859375</td>
+      <td>4713.859375</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 256^7$</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">4632.5859375</td>
-      <td style="text-align:center;">4673.22265625</td>
+      <td>$3 \cdot 256^7$</td>
+      <td>1</td>
+      <td>4632.5859375</td>
+      <td>4673.22265625</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 512^7$</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">4652.904296875</td>
-      <td style="text-align:center;">4673.22265625</td>
+      <td>$3 \cdot 512^7$</td>
+      <td>1</td>
+      <td>4652.904296875</td>
+      <td>4673.22265625</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 1024^7$</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">4663.0634765625</td>
-      <td style="text-align:center;">4673.22265625</td>
+      <td>$3 \cdot 1024^7$</td>
+      <td>1</td>
+      <td>4663.0634765625</td>
+      <td>4673.22265625</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 2048^7$</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">4668.14306640625</td>
-      <td style="text-align:center;">4673.22265625</td>
+      <td>$3 \cdot 2048^7$</td>
+      <td>1</td>
+      <td>4668.14306640625</td>
+      <td>4673.22265625</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 4096^7$</td>
-      <td style="text-align:center;">1</td>
-      <td style="text-align:center;">4670.682861328125</td>
-      <td style="text-align:center;">4673.22265625</td>
+      <td>$3 \cdot 4096^7$</td>
+      <td>1</td>
+      <td>4670.682861328125</td>
+      <td>4673.22265625</td>
     </tr>
     <tr>
-      <td style="text-align:center;">$3 \cdot 8192^7$</td>
-      <td style="text-align:center;">0</td>
-      <td style="text-align:center;">4671.9527587890625</td>
-      <td style="text-align:center;">4673.22265625</td>
+      <td>$3 \cdot 8192^7$</td>
+      <td>0</td>
+      <td>4671.9527587890625</td>
+      <td>4673.22265625</td>
     </tr>
   </tbody>
 </table>
