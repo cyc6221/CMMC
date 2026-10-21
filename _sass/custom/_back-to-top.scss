@@ -1,27 +1,33 @@
 // -----------------------------------------------
 // Back to top
+// 固定在視窗右下的小圓按鈕，預設隱藏；滾動超過門檻時
+// 由 _layouts/default.html 的 script 加上 .is-visible 顯示
 // -----------------------------------------------
 
 .back-to-top {
   position: fixed;
   right: 18px;
   bottom: 18px;
+  z-index: 1200;
   width: 42px;
   height: 42px;
   display: grid;
   place-items: center;
   border: 1px solid #33ff33;
+  border-radius: 999px;
   background: #111;
   color: #33ff33;
   text-decoration: none;
   opacity: 0;
   pointer-events: none;
+  transform: translateY(8px);
   transition: opacity 0.2s ease;
 }
 
 .back-to-top.is-visible {
   opacity: 1;
   pointer-events: auto;
+  transform: translateY(0);
 }
 
 .back-to-top:hover {

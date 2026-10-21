@@ -103,6 +103,13 @@ These rules apply whenever Claude Code, Codex, or any other agent writes or reor
 - Write derivations step by step; do not skip steps.
 - Put supplementary explanations in a `<div class="remark">` block.
 - Available block classes (see `_sass/custom/_math-blocks.scss`): `definition`, `theorem`, `lemma`, `proof`, `example`, `remark`, `algorithm`.
+- Color variants of `remark` use modifier classes: `remark--info`, `remark--success`, `remark--note`, `remark--neutral`.
+
+### Styling
+
+- Do not use inline `style="..."` in notes or includes; put the style in `_sass/custom/` and use a class.
+- Use `.text-muted` for secondary text and `.table-center` on a `<table>` to center its cells.
+- Inline styles are only acceptable for values computed by Liquid (e.g. `width: {{ pct }}%`, `--pct`).
 
 ### Math
 

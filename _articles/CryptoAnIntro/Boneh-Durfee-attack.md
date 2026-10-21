@@ -170,11 +170,11 @@ $$
 
 ## Remarks
 
-<div class="remark" style="border-left:4px solid #4f46e5; background:#eef2ff; padding:12px 14px; border-radius:8px; margin:14px 0; line-height:1.6;">
+<div class="remark remark--info">
 <b>Remark.</b> Boneh-Durfee attack 的重點不在直接求 $\varphi(N)$ 或直接分解 $N$，而是在利用 RSA key equation 所隱含的 small-parameter structure。當 $d$ 足夠小時，相關變數會落在 small root method 可處理的範圍內，因此可透過 lattice reduction 間接 recover secret exponent。
 </div>
 
-<div class="remark" style="border-left:4px solid #4f46e5; background:#eef2ff; padding:12px 14px; border-radius:8px; margin:14px 0; line-height:1.6;">
+<div class="remark remark--info">
 <b>Remark.</b> 雖然它常被放在 “Extension to Wiener’s Attack” 的脈絡下介紹，但 Boneh-Durfee 與 Wiener’s attack 並不是同一種技巧的單純加強版。前者屬於 lattice-based attack，後者則是 continued-fraction attack。
 </div>
 

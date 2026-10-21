@@ -129,6 +129,35 @@
   color: #fbbf24;
 }
 
+/* Remark 變體：依內容語意換色，只改邊框與標題色 */
+.remark--info {
+  border-left-color: #60a5fa;
+}
+.remark--info strong {
+  color: #60a5fa;
+}
+
+.remark--success {
+  border-left-color: #34d399;
+}
+.remark--success strong {
+  color: #34d399;
+}
+
+.remark--note {
+  border-left-color: #2dd4bf;
+}
+.remark--note strong {
+  color: #2dd4bf;
+}
+
+.remark--neutral {
+  border-left-color: #9ca3af;
+}
+.remark--neutral strong {
+  color: #d1d5db;
+}
+
 /* Algorithm */
 .algorithm {
   border-left-color: #2dd4bf;

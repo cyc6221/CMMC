@@ -47,7 +47,7 @@ $$
 
 ## Definition of Security for Signatures
 
-<div class="definition" style="border-left:4px solid #0f766e; background:#ecfeff; padding:12px 14px; border-radius:8px; margin:14px 0; line-height:1.7;">
+<div class="definition">
 
 <strong>Definition.</strong>
 

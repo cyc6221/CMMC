@@ -99,7 +99,7 @@ $$
 
 得到 $m_1$。
 
-<div class="remark" style="border-left:4px solid #2563eb; background:#eff6ff; padding:12px 14px; border-radius:8px; margin:14px 0; line-height:1.7;">
+<div class="remark remark--info">
 <b>Remark.</b>
 若 Euclidean algorithm 在計算過程中失敗，這種失敗本身也可能洩漏 $N$ 的非平凡因數，因而導致 factorization of $N$。
 </div>
