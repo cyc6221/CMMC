@@ -205,6 +205,24 @@ header.now-head::after {
   border-bottom-color: #33ff33;
 }
 
+/* GitHub link after a heading */
+
+.now-body h4 .gh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  border-bottom: 0;
+}
+
+.now-body h4 .gh-link .ico {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
 /* lists */
 
 .now-list {
