@@ -223,6 +223,18 @@ header.now-head::after {
   fill: currentColor;
 }
 
+/* live repo stats under a heading (filled by assets/js/repo-stats.js) */
+
+.now-body p.repo-stats {
+  margin: -4px 0 8px;
+  color: #8b949e;
+  font-size: 12px;
+}
+
+.repo-stats:empty {
+  display: none;
+}
+
 /* lists */
 
 .now-list {
