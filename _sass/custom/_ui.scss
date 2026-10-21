@@ -1,46 +1,14 @@
 /*
 用途 / 使用位置:
-- 用於全站 UI 小元件（回到頂端按鈕等）
-- 具體使用：在 `_layouts/default.html` 中作為 "back-to-top" 按鈕的樣式；按鈕由 inline script 控制顯示狀態
+- 用於全站 UI 小元件與 utility class（.text-muted、.table-center）
+- 回到頂端按鈕的樣式在 _back-to-top.scss
 
 說明:
-- 提供平滑滾動行為、以及回到頂端按鈕的外觀、互動（顯示/隱藏、hover）
+- 提供平滑滾動行為，以及取代文章內行內 style 的 utility class
 */
 
 /* Smooth scrolling: 使頁內連結滾動平滑 (影響整個 document) */
 html { scroll-behavior: smooth; }
-
-/* Back-to-top: 固定在視窗右下的小圓按鈕，預設隱藏 */
-.back-to-top{
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 1200;
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border-radius: 999px;
-  background: #111;
-  color: #fff;
-  text-decoration: none;
-
-  /* 預設隱藏，使用 .is-visible 顯示 */
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(8px);
-  transition: opacity .2s ease, transform .2s ease;
-}
-
-/* Visible state: 當滾動超過門檻時（由 default.html 的 script toggles）顯示按鈕 */
-.back-to-top.is-visible{
-  opacity: .85;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-/* Hover: 懸停時提升顯著度 */
-.back-to-top:hover{ opacity: 1; }
 
 /* -----------------------------------------------
    Utilities（取代文章內的行內 style）
