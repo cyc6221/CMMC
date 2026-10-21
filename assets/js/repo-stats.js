@@ -74,7 +74,7 @@
 
   function render(el, data) {
     el.textContent =
-      data.count + (data.count === 1 ? ' commit' : ' commits') +
+      data.count.toLocaleString('en') + (data.count === 1 ? ' commit' : ' commits') +
       ' · last commit ' + data.date.slice(0, 10) + ' (' + ago(data.date) + ')';
     el.title = 'Latest commit: ' + data.date;
   }
