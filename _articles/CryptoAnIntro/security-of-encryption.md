@@ -80,7 +80,7 @@ $$
 
 其基本遊戲如下：
 
-<div class="remark" style="border-left: 4px solid #2563eb; background: #eff6ff; padding: 12px 14px; border-radius: 8px; margin: 14px 0; line-height: 1.75;">
+<div class="remark remark--info">
 
 <ul>
   <li>

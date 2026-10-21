@@ -115,7 +115,7 @@ Goldwasser-Micali 一次只加密一個 bit $b \in \{0,1\}$。
 
 所以 ciphertext 所承載的 bit，本質上是藏在「平方」與「pseudo-square」這兩類元素之間。
 
-<div class="remark" style="background:#fff8e1;border-left:4px solid #d4a017;padding:0.8rem 1rem;">
+<div class="remark">
 這個系統的效率非常差，因為一個 bit 的 plaintext 需要傳送一個模 $N$ 的元素作為 ciphertext，因此它的重要性主要在理論上，而非實務應用。
 </div>
 
