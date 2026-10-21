@@ -8,4 +8,5 @@ toc: false
 <section class="now-grid">
 {% include math/ai/OpenAIMath.html %}
 {% include math/ai/GoogleDeepMind.html %}
+{% include math/ai/AnthropicsFormalMath.html %}
 </section>
