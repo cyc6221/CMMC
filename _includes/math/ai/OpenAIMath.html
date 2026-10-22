@@ -31,13 +31,13 @@
 
         <ul class="now-list">
             <li>CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/CrocSwap/integer-mult-bounds" label="repo" aria_label="repo: CrocSwap/integer-mult-bounds on GitHub" %}: a community effort to optimize the construction and push $\kappa$ higher. It is conditional on the #109 framework and is not an official OpenAI release.</li>
-            <li>Status (updated 2026-10-23):
+            <li>Status (updated {{ site.data.crocswap_status.as_of }}):
                 <ul>
                     <li>Earlier selected: <a href="https://github.com/CrocSwap/integer-mult-bounds/pull/1094" target="_blank" rel="noopener noreferrer">#1094</a>, $\kappa\approx 0.00167$ (about $2^{-9.2}$).</li>
                     <li>Previous selected: <a href="https://github.com/CrocSwap/integer-mult-bounds/pull/4359" target="_blank" rel="noopener noreferrer">#4359</a>, $\kappa=0.0023$ (above $2^{-9}$).</li>
                     <li>Reviewed checkpoint: <a href="https://github.com/CrocSwap/integer-mult-bounds/pull/4416" target="_blank" rel="noopener noreferrer">#4416</a>, $\kappa=0.00268647$ (merged, maintainer-reviewed, not selected).</li>
-                    <li>Selected: <a href="https://github.com/CrocSwap/integer-mult-bounds/pull/4470" target="_blank" rel="noopener noreferrer">#4470</a>, $\kappa=0.00302015$, maintainer-reviewed but not a complete Lean multiplication theorem.</li>
-                    <li>Highest open claim: <a href="https://github.com/CrocSwap/integer-mult-bounds/pull/4610" target="_blank" rel="noopener noreferrer">#4610</a>, $\kappa=0.0030217758$ (open, no maintainer review yet).</li>
+                    <li>Selected: <a href="https://github.com/CrocSwap/integer-mult-bounds/pull/{{ site.data.crocswap_status.selected.pr }}" target="_blank" rel="noopener noreferrer">#{{ site.data.crocswap_status.selected.pr }}</a>, $\kappa={{ site.data.crocswap_status.selected.kappa }}$, maintainer-reviewed but not a complete Lean multiplication theorem.</li>
+                    <li>Highest open claim: <a href="https://github.com/CrocSwap/integer-mult-bounds/pull/{{ site.data.crocswap_status.open_claim.pr }}" target="_blank" rel="noopener noreferrer">#{{ site.data.crocswap_status.open_claim.pr }}</a>, $\kappa={{ site.data.crocswap_status.open_claim.kappa }}$ (open, no maintainer review yet).</li>
                 </ul>
             </li>
             <li>Notes: <a href="{{ '/articles/Math/ai/openai/integer-mult-bounds/' | relative_url }}">CrocSwap integer-mult-bounds</a></li>

@@ -4,7 +4,7 @@ title: CrocSwap integer-mult-bounds
 date: 2026-10-21
 last_updated: 2026-10-23
 ---
-
+{% assign crocswap = site.data.crocswap_status %}
 CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/CrocSwap/integer-mult-bounds" label="repo" aria_label="repo: CrocSwap/integer-mult-bounds on GitHub" %}
 
 {% include math/ai/repo-stats.html repo="CrocSwap/integer-mult-bounds" %}
@@ -12,7 +12,7 @@ CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/Cr
 
 它是改進 OpenAI Math Result #109 的社群專案。#109 給出整數乘法的 deterministic 時間界 $O(n(\log n)^{1-\kappa})$，其中 $\kappa=2^{-182}$。專案保留 #109 的框架，優化其中的有限建構、遞迴成本帳與 packing 等環節，把 $\kappa$ 往上推。專案於 2026 年 10 月 7 日建立，由 Douglas Colkitt 維護，成果以 PR 形式由社群貢獻，經 maintainer review 後整合。
 
-多數進展不是全新的整數乘法演算法，而是在同一個框架內改善個別瓶頸。專案進展很快，本文內容更新至 2026 年 10 月 23 日，其中的狀態與 $\kappa$ 以此為準。
+多數進展不是全新的整數乘法演算法，而是在同一個框架內改善個別瓶頸。專案進展很快，本文內容更新至 {{ crocswap.as_of | date: "%Y 年 %-m 月 %-d 日" }}，其中的狀態與 $\kappa$ 以此為準。
 
 ## OpenAI #109
 
@@ -69,12 +69,12 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
       <td>$0.00268647$</td>
     </tr>
     <tr>
-      <td>Selected：#4470<br>（merged，maintainer-reviewed）</td>
-      <td>$0.00302015$</td>
+      <td>Selected：#{{ crocswap.selected.pr }}<br>（merged，maintainer-reviewed）</td>
+      <td>${{ crocswap.selected.kappa }}$</td>
     </tr>
     <tr>
-      <td>最高 open claim：#4610<br>（open，尚無 maintainer review）</td>
-      <td>$0.0030217758$</td>
+      <td>最高 open claim：#{{ crocswap.open_claim.pr }}<br>（open，尚無 maintainer review）</td>
+      <td>${{ crocswap.open_claim.kappa }}$</td>
     </tr>
   </tbody>
 </table>
