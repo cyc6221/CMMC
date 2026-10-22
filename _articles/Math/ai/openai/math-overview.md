@@ -37,7 +37,7 @@ openai/math
 - Catalog 共 719 份 manuscripts，分為 372 個 families。
   - 一個 family 把相關論文放在一起，可能包含主要結果、輔助論證、推論或替代證明。
 - 條目編號依 catalog 順序排列；編號到 377，未使用的號碼為 045、061、070、123、163。
-- 主要結果（top-line results）約 42% 已形式化（300 / 719）。
+- 已形式化的主要結果（top-line results）：300 / 719。
 
 ## 領域分佈
 
