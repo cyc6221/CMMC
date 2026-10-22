@@ -20,13 +20,13 @@ openai/math {% include gh-link.html href="https://github.com/openai/math" label=
 ```text
 openai/math
 ├── README.md
-├── overview.pdf               # 依領域分類的 372 個論文群組
-├── overview.tex               # overview.pdf 的 LaTeX 原始檔
+├── overview.pdf               # 依領域分類的 372 個 families
+├── overview.tex
 ├── CONTENTS.md                # 手稿索引
 ├── history.md                 # 撤回、修訂與新增形式化證明的紀錄
 ├── LICENSE                    # Apache-2.0
 ├── preprints/                 # 手稿與各版本材料，包含舊版及撤回稿
-├── lean/                      # Lean 證明庫
+├── lean/
 │   ├── OAI/                   # 依領域分類的形式化證明
 │   └── formalization.yaml     # 手稿、Lean 證明與驗證設定的對照
 └── reasoning_traces/          # 推理過程摘要（10 份 PDF）
