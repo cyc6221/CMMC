@@ -356,8 +356,8 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
     <tr>
       <th>PR</th>
       <th>$\kappa$</th>
-      <th>內容</th>
-      <th>狀態</th>
+      <th>Description</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
@@ -365,103 +365,103 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
       <td>#1094</td>
       <td>0.001672660197</td>
       <td>T16 rare-pattern packing</td>
-      <td>Merged，更早的 selected</td>
+      <td>Merged, past selected</td>
     </tr>
     <tr>
       <td>#2848</td>
       <td>0.001718658508</td>
       <td>T248 cross-replica residue exchange</td>
-      <td>Merged，candidate</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4088</td>
       <td>0.001730979116</td>
       <td>mixed fourth staged entry</td>
-      <td>Merged，candidate</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4100</td>
       <td>0.001730979116</td>
-      <td>proposed unconditional batched-CRT 建構</td>
-      <td>Merged，未經獨立接受</td>
+      <td>proposed unconditional batched-CRT construction</td>
+      <td>Merged, not independently accepted</td>
     </tr>
     <tr>
       <td>#4181</td>
       <td>0.001730980256</td>
-      <td>達到 fixed-word pooled packing ceiling</td>
-      <td>Merged，comparison checkpoint</td>
+      <td>reaches the fixed-word pooled packing ceiling</td>
+      <td>Merged, comparison checkpoint</td>
     </tr>
     <tr>
       <td>#4359</td>
       <td>0.0023</td>
-      <td>productive jobs 與 mixed-to-uniform compiler</td>
-      <td>Merged，前一個 selected</td>
+      <td>productive jobs and mixed-to-uniform compiler</td>
+      <td>Merged, past selected</td>
     </tr>
     <tr>
       <td>#4405</td>
       <td>0.00230509</td>
-      <td>補足 mixed root 的餘裕，縮小 template rank</td>
-      <td>Merged，candidate</td>
+      <td>closes the mixed-root slack, smaller template rank</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4412</td>
       <td>0.00247755</td>
       <td>native tensor strictification</td>
-      <td>Merged，candidate</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4414</td>
       <td>0.00267987</td>
-      <td>完整的 p6 native controller</td>
-      <td>Merged，candidate</td>
+      <td>complete p6 native controller</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4416</td>
       <td>0.00268647</td>
-      <td>p7 controller 與 paid target padding</td>
-      <td>Merged，reviewed checkpoint</td>
+      <td>p7 controller with paid target padding</td>
+      <td>Merged, reviewed checkpoint</td>
     </tr>
     <tr>
       <td>#4440</td>
       <td>0.00296</td>
       <td>query-thinned productive controllers</td>
-      <td>Merged，candidate</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4441</td>
       <td>0.00300105</td>
-      <td>query thinning 加 helper retiming</td>
-      <td>Merged，candidate</td>
+      <td>query thinning plus helper retiming</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4447</td>
       <td>0.00300123</td>
-      <td>補上一個 contact span</td>
-      <td>Merged，candidate</td>
+      <td>adds a missing contact span</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4470</td>
       <td>0.00302015</td>
-      <td>joint helper boundaries 與 p16 controller</td>
-      <td>Selected（10 月 22 日），maintainer-reviewed</td>
+      <td>joint helper boundaries and p16 controller</td>
+      <td>Current selected (Oct 22), maintainer-reviewed</td>
     </tr>
     <tr>
       <td>#4535</td>
       <td>0.003020165</td>
-      <td>critical-root compiler 接在 #4470 的 supplier 上</td>
+      <td>critical-root compiler on #4470's supplier</td>
       <td>Open</td>
     </tr>
     <tr>
       <td>#4568</td>
       <td>0.00302016597</td>
-      <td>較小的 outer slack，rank 重設為 $2^{10^{14}}$</td>
+      <td>smaller outer slack, rank reset to $2^{10^{14}}$</td>
       <td>Open</td>
     </tr>
     <tr>
       <td>#4610</td>
       <td>0.0030217758</td>
-      <td>joint helper interface 與 native map，compiler reserve 收緊</td>
-      <td>Open，最高 open claim</td>
+      <td>joint helper interfaces and native maps, tighter compiler reserve</td>
+      <td>Open, highest open claim</td>
     </tr>
   </tbody>
 </table>
