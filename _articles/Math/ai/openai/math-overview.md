@@ -6,7 +6,7 @@ date: 2026-10-22
 last_updated: 2026-10-22
 ---
 
-openai/math {% include gh-link.html href="https://github.com/openai/math" label="GitHub" aria_label="openai/math on GitHub" %}
+openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %}
 
 {% include math/ai/repo-stats.html repo="openai/math" %}
 <script defer src="{{ '/assets/js/repo-stats.js' | relative_url }}"></script>
