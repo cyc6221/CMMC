@@ -105,17 +105,17 @@ Selected result 為 Rohan Arun 的 [#1094](https://github.com/CrocSwap/integer-m
       <td>Avi Eisenberg<br>eumemic<br>Alejandro Zarzuelo Urdiales</td>
     </tr>
     <tr>
-      <td>stopped product-ring</td>
+      <td>#104 stopped product-ring</td>
       <td>$7.7948\times10^{-5}$</td>
       <td>icekylinx</td>
     </tr>
     <tr>
-      <td>partial-gauge（延伸 #104）</td>
+      <td>#115 partial-gauge</td>
       <td>$9.2634\times10^{-5}$</td>
       <td>icekylinx</td>
     </tr>
     <tr>
-      <td>three-stage cover（延伸 #115）</td>
+      <td>#130 three-stage cover</td>
       <td>$3.1460\times10^{-4}$</td>
       <td>icekylinx</td>
     </tr>
