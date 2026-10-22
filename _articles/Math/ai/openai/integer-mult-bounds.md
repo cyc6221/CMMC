@@ -5,7 +5,7 @@ date: 2026-10-21
 last_updated: 2026-10-22
 ---
 
-CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/CrocSwap/integer-mult-bounds" label="GitHub" aria_label="CrocSwap/integer-mult-bounds on GitHub" %}
+CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/CrocSwap/integer-mult-bounds" label="repo" aria_label="repo: CrocSwap/integer-mult-bounds on GitHub" %}
 
 {% include math/ai/repo-stats.html repo="CrocSwap/integer-mult-bounds" %}
 <script defer src="{{ '/assets/js/repo-stats.js' | relative_url }}"></script>
