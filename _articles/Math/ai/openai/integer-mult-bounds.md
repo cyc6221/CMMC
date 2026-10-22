@@ -2,7 +2,7 @@
 layout: page
 title: CrocSwap integer-mult-bounds
 date: 2026-10-21
-last_updated: 2026-10-22
+last_updated: 2026-10-23
 ---
 
 CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/CrocSwap/integer-mult-bounds" label="repo" aria_label="repo: CrocSwap/integer-mult-bounds on GitHub" %}
@@ -12,7 +12,7 @@ CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/Cr
 
 它是改進 OpenAI Math Result #109 的社群專案。#109 給出整數乘法的 deterministic 時間界 $O(n(\log n)^{1-\kappa})$，其中 $\kappa=2^{-182}$。專案保留 #109 的框架，優化其中的有限建構、遞迴成本帳與 packing 等環節，把 $\kappa$ 往上推。專案於 2026 年 10 月 7 日建立，由 Douglas Colkitt 維護，成果以 PR 形式由社群貢獻，經 maintainer review 後整合。
 
-多數進展不是全新的整數乘法演算法，而是在同一個框架內改善個別瓶頸。專案進展很快，本文內容更新至 2026 年 10 月 22 日，其中的狀態與 $\kappa$ 以此為準。
+多數進展不是全新的整數乘法演算法，而是在同一個框架內改善個別瓶頸。專案進展很快，本文內容更新至 2026 年 10 月 23 日，其中的狀態與 $\kappa$ 以此為準。
 
 ## OpenAI #109
 
@@ -73,8 +73,8 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
       <td>$0.00302015$</td>
     </tr>
     <tr>
-      <td>最高 open claim：#4568<br>（open，尚無 maintainer review）</td>
-      <td>$0.00302016597$</td>
+      <td>最高 open claim：#4610<br>（open，尚無 maintainer review）</td>
+      <td>$0.0030217758$</td>
     </tr>
   </tbody>
 </table>
@@ -93,7 +93,7 @@ Selected result 為 Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-
 
 PR #4359 之後，#4405、#4412、#4414、#4416 與 #4440 至 #4470 都已 merge 進 `main`。除 #4470 外它們都不是 selected result，在專案 ledger 中的狀態是 partially reviewed（範圍有限的 review 與 triage）；ledger 的 PR 表也仍把 #4470 列為 partially reviewed，selected 身分以 selected-result.json 與 integration receipt 為準。其中 #4416 另有 maintainer 的 AI 協助 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md)（與 #4433 一起），支持 $\kappa=0.00268647$，現在是 #4470 重用的 foundation 之一。#4483 與 #4507 這類 compiler 大小的改進不是 selection 的前提，另案 review。
 
-尚未 merge 的 [#4535](https://github.com/CrocSwap/integer-mult-bounds/pull/4535) 與 [#4568](https://github.com/CrocSwap/integer-mult-bounds/pull/4568) 再把 $\kappa$ 推到 $0.00302016597$，目前沒有 maintainer review。Selected、candidate 與 open claim 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
+尚未 merge 的 [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610) 把 $\kappa$ 推到 $0.0030217758$，是目前最高的 open claim；較早的 [#4535](https://github.com/CrocSwap/integer-mult-bounds/pull/4535) 與 [#4568](https://github.com/CrocSwap/integer-mult-bounds/pull/4568) 為 $0.003020165$ 與 $0.00302016597$。它們都沒有 maintainer review。Selected、candidate 與 open claim 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
 
 ## $\kappa$ 的里程碑
 
@@ -331,7 +331,15 @@ Ryanson Jonathan 的 [#4563](https://github.com/CrocSwap/integer-mult-bounds/pul
 
 兩個 PR 都明說：巨大的 word 只由演算法定義、沒有實體化，繼承的 native、physical、analytic 與 recovery 假設仍是前提，不主張實用加速，也不主張變更 selected record。
 
-另一條線是 Dugongue 的 [#4538](https://github.com/CrocSwap/integer-mult-bounds/pull/4538) 與 [#4541](https://github.com/CrocSwap/integer-mult-bounds/pull/4541)（open）。它們把 Turing machine 的乘法界轉移到 bounded-word RAM：若 Turing machine 的時間為 $O(n(\log n)^{1-\kappa})$，則 RAM operation 數為 $O(n/(\log n)^{\kappa})$。這不提高 Turing machine 的 $\kappa$。
+### #4610：尚未 merge 的 joint helper claim
+
+[#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)（Cao Yifan，open，沒有 maintainer review，$\kappa=15108879/5000000000=0.0030217758$，比 #4535 高 $1.6108\times10^{-6}$）：沿用 #4470 的 p16 controller，同時調整 helper 的 entrance、scalar contact 與 native map。Paid profile（rank:個數）由 `{1:2201,2:412,3:506,4:135,5:36,8:8}` 改為 `{1:2201,2:412,3:510,4:127,5:40,8:8}`，四組 rank-four 的 paid job 換成 rank-three 與 rank-five 的 pair，改善來自 $4(2\cdot4^t-3^t-5^t)>0$（$0<t<1$）的嚴格凹性。完整 controller 有 64,404 個 paid call 與 10,928 個 productive field。
+
+最近一次更新保留 native word 與 profile，只把 compiler 的 finite contraction reserve 由 $10^{-9}$ 降到 $10^{-11}$，需要的 frozen rank 為 $N=2^{38569300000000000}$。PR 自述為 conditional construction 的 scoped Lean certificate，不是完整的 Lean 乘法定理，不主張實用加速、獨立的人類 review 或 hosted-CI 重放，也不主張變更 selected record。
+
+同一條線上較低的 open claim 有 hexapode 的 [#4626](https://github.com/CrocSwap/integer-mult-bounds/pull/4626)（$\kappa=0.003021569$，結合 #4610 的 warp geometry 與 helper621 的新 entrance chart），以及 Cinna Davis 的 [#4672](https://github.com/CrocSwap/integer-mult-bounds/pull/4672)（$\kappa=0.00302166$，作者明說不是 frontier advance）。
+
+Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/CrocSwap/integer-mult-bounds/pull/4538) 與 [#4541](https://github.com/CrocSwap/integer-mult-bounds/pull/4541)（open）把 Turing machine 的乘法界轉移到 bounded-word RAM：若 Turing machine 的時間為 $O(n(\log n)^{1-\kappa})$，則 RAM operation 數為 $O(n/(\log n)^{\kappa})$。[#4630](https://github.com/CrocSwap/integer-mult-bounds/pull/4630)、[#4635](https://github.com/CrocSwap/integer-mult-bounds/pull/4635) 與 [#4713](https://github.com/CrocSwap/integer-mult-bounds/pull/4713)（open）改為直接以 native Word RAM 執行，不經 Turing machine 模擬，$\kappa$ 依序為 $0.0030201655$、$0.0030217754$ 與 $0.0030217758$，後兩者轉移 #4610 的 profile，#4713 另證明可以不用 unit-cost DIV。這些都不提高 Turing machine 的 $\kappa$。
 
 ### 追蹤的 PR
 
@@ -441,6 +449,12 @@ Ryanson Jonathan 的 [#4563](https://github.com/CrocSwap/integer-mult-bounds/pul
       <td>較小的 outer slack，rank 重設為 $2^{10^{14}}$</td>
       <td>Open</td>
     </tr>
+    <tr>
+      <td>#4610</td>
+      <td>0.0030217758</td>
+      <td>joint helper interface 與 native map，compiler reserve 收緊</td>
+      <td>Open，最高 open claim</td>
+    </tr>
   </tbody>
 </table>
 
@@ -465,6 +479,7 @@ Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示�
 - **Native 組合與 paid completion**：#4412、#4414、#4416 把 helper 的 native program 依時間順序組合，並對過小的 productive transform 付費補足，讓 compiler 的 strict 條件成立，也使更強的 controller（p6、p7）可以使用。
 - **Query shear 與 retiming**：#4440 起，用 copied rank-one query shear 取代 full transform，再以 helper retiming、contact span 與 joint helper boundary 逐步減少 paid job。
 - **Critical-root compiler**：#4535 起，native supplier 與 paid invoice 沿用 #4470，改在恰好的 crossing exponent 取得 leaf-count 界，並收緊 outer 參數。
+- **Native map 與 compiler reserve**：#4610 回頭調整 helper 的 entrance、scalar contact 與 native map，並縮小 compiler 的 finite reserve。
 
 ### 瓶頸
 
@@ -475,7 +490,7 @@ Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示�
 
 兩者中 complex 一側較小，是綁住 $\kappa$ 的一側。要讓 $\kappa>0.01$，兩個 effective primitive budget 都需要超過約 $1/99$。這描述的是目前建構的瓶頸，不是整數乘法的下界。
 
-PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。#4440 起的 candidate 保留一條支撐 $0.0034$ 的 BIT word，$\kappa$ 的提高來自 complex controller 的改進。#4535 與 #4568 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。
+PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。#4440 起的 candidate 保留一條支撐 $0.0034$ 的 BIT word，$\kappa$ 的提高來自 complex controller 的改進。#4535 與 #4568 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。#4610 則改動 helper 與 native map，$\kappa$ 再提高到 $0.0030217758$。
 
 ### 可能的改進方向
 
