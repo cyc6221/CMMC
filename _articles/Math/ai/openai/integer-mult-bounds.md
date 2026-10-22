@@ -65,11 +65,11 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
       <td>$0.0023>2^{-9}$</td>
     </tr>
     <tr>
-      <td>已 merge 的最高 candidate：#4416<br>（merged，未升為 selected）</td>
+      <td>已 merge 的 candidate：#4416<br>（merged，未升為 selected）</td>
       <td>$0.00268647$</td>
     </tr>
     <tr>
-      <td>Open 中最高的 claim：#4470<br>（open，作者自行檢查）</td>
+      <td>已 merge 的最高 candidate：#4470<br>（merged，未升為 selected，作者自行檢查）</td>
       <td>$0.00302015$</td>
     </tr>
   </tbody>
@@ -81,7 +81,7 @@ Selected result 為 zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bou
 
 驗證方面，maintainer 以全新的 23-stage sequential replay 比對 59 個重新產生的 artifact，並對變動的 compiler、native lift、delayed BIT cover 與 outer-transfer 介面做 AI 協助的 mathematical review。Ryanson Jonathan 的 [#4404](https://github.com/CrocSwap/integer-mult-bounds/pull/4404) 另以獨立實作做了 exact flow / rank audit。
 
-PR #4359 之後，#4405、#4412、#4414、#4416 已 merge 進 `main`，把 conditional $\kappa$ 推到 $0.00268647$；Open 的 #4440 至 #4470 再推到 $0.00302015$。它們都不是 selected result，Open 的部分尚待 maintainer review。Selected 與 candidate 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
+PR #4359 之後，#4405、#4412、#4414、#4416 已 merge 進 `main`，把 conditional $\kappa$ 推到 $0.00268647$；#4440 至 #4470 也已 merge，再推到 $0.00302015$。它們都不是 selected result，在專案 ledger 中的狀態是 partially reviewed（範圍有限的 review 與 triage）。Selected 與 candidate 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
 
 ## $\kappa$ 的里程碑
 
@@ -275,9 +275,9 @@ PR 列出的後續問題包括：把整條論證當作一個整體做外部 revi
 
 [#4420](https://github.com/CrocSwap/integer-mult-bounds/pull/4420) 與 [#4428](https://github.com/CrocSwap/integer-mult-bounds/pull/4428) 獨立檢查 #4416 的 moment、paid-tail 與 paid-completion 不等式，結論為成立。
 
-### #4440 至 #4470：Open 的 candidate
+### #4440 至 #4470：p16 / p17 candidate
 
-以下都標示為 author-checked conditional，尚待 maintainer review。
+以下都已 merge，在 ledger 中是 partially reviewed，但 $\kappa$ 仍是 author-checked 的 conditional 宣稱，selected 不變。
 
 - [#4440](https://github.com/CrocSwap/integer-mult-bounds/pull/4440)（$\kappa=0.00296$，比 #4416 高 10.18%）：p7 controller 在只需要一份 copied rank-one query shear 的地方，付了完整的 stage 與 idle transform。#4440 把這些 call 換成 query shear，並扣掉因此失去的 productive helper。Complex word 有 17 組 pair、19 個 full native call 與 16 個 query shear；另有一條 16-pair 的 BIT word，ordinary saving 為 $0.0034$。
 - [#4441](https://github.com/CrocSwap/integer-mult-bounds/pull/4441)（$\kappa=0.00300105$）：對 #4440 的 19 個 full native call 套用 helper retiming，paid call 由 72,902 降為 69,273。
@@ -285,7 +285,9 @@ PR 列出的後續問題包括：把整條論證當作一個整體做外部 revi
 - [#4453](https://github.com/CrocSwap/integer-mult-bounds/pull/4453)（zxv，$\kappa=0.00300120$）：同一條 p17 鏈，$\kappa$ 與 #4447 相近，重點是把 uniform-rank exponent 縮小 71.9 倍。
 - [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)（$\kappa=0.00302015$，比 #4447 高 0.6304%）：同時調整 helper 的 entrance、exit 與中間 scalar contact frame，並把 productive helper 的非線性 credit 一起放進優化。使用 18 個 full native call 與 15 個 query shear 的 p16 controller，invoice 有 10,928 個 productive field 與 64,620 個 paid job。
 
-[#4455](https://github.com/CrocSwap/integer-mult-bounds/pull/4455) 與 [#4478](https://github.com/CrocSwap/integer-mult-bounds/pull/4478) 分別獨立檢查 p17 這條 PR 鏈與 #4470 的算術，結論為成立，兩者也都尚未 merge。這些 $\kappa$ 都是 conditional construction 的宣稱，不是新的 root 數值。
+- [#4479](https://github.com/CrocSwap/integer-mult-bounds/pull/4479)（$\kappa$ 維持 $0.00302015$）：不改 controller 與 invoice，把 #4470 的 sufficient uniform rank 由 $2^{64215200000000}$ 縮小到 $2^{558100005581}$。
+
+[#4455](https://github.com/CrocSwap/integer-mult-bounds/pull/4455) 與 [#4478](https://github.com/CrocSwap/integer-mult-bounds/pull/4478) 分別獨立檢查 p17 這條 PR 鏈與 #4470 的算術，結論為成立。這些 $\kappa$ 都是 conditional construction 的宣稱，不是新的 root 數值。
 
 ### 追蹤的 PR
 
@@ -363,30 +365,30 @@ PR 列出的後續問題包括：把整條論證當作一個整體做外部 revi
       <td>#4440</td>
       <td>0.00296</td>
       <td>query-thinned productive controllers</td>
-      <td>Open candidate</td>
+      <td>Merged，candidate</td>
     </tr>
     <tr>
       <td>#4441</td>
       <td>0.00300105</td>
       <td>query thinning 加 helper retiming</td>
-      <td>Open candidate</td>
+      <td>Merged，candidate</td>
     </tr>
     <tr>
       <td>#4447</td>
       <td>0.00300123</td>
       <td>補上一個 contact span</td>
-      <td>Open candidate</td>
+      <td>Merged，candidate</td>
     </tr>
     <tr>
       <td>#4470</td>
       <td>0.00302015</td>
       <td>joint helper boundaries 與 p16 controller</td>
-      <td>Open candidate</td>
+      <td>Merged，candidate</td>
     </tr>
   </tbody>
 </table>
 
-Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Candidate 是尚未升為 selected 的更大 $\kappa$ 宣稱；Open 表示尚未進入 `main`。
+Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Candidate 是尚未升為 selected 的更大 $\kappa$ 宣稱。
 
 ## 技術
 
@@ -478,6 +480,7 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 23-s
 - [#4447 Conditional kappa = 0.00300123 via a missing three-dimensional contact span](https://github.com/CrocSwap/integer-mult-bounds/pull/4447)
 - [#4453 Conditional κ = 0.00300120 (71.9× smaller uniform-rank exponent)](https://github.com/CrocSwap/integer-mult-bounds/pull/4453)
 - [#4470 Conditional kappa = 0.00302015 (+0.6304% over #4447): joint helper boundaries](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)
+- [#4479 Reduce #4470 local compiler rank 115× at unchanged conditional κ](https://github.com/CrocSwap/integer-mult-bounds/pull/4479)
 - [#4455 Independently check the p17 chain #4440, #4441, #4446, #4447, #4453 (kappa 0.00296..0.0030012): invoices, strictification, roots and compiler ranks hold (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4455)
 - [#4478 Independently check #4470's arithmetic (κ = 0.00302015): invoice, local change, root bracket, tails (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4478)
 
