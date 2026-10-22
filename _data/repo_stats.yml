@@ -32,3 +32,15 @@
 - repo: openai/ten-proofs
   count: 1
   date: "2026-08-02"
+- repo: openai/NavierStokesAndEuler
+  count: 2
+  date: "2026-09-10"
+- repo: openai/cdc-lean
+  count: 8
+  date: "2026-07-09"
+- repo: openai/PrimeGaps186
+  count: 1
+  date: "2026-09-02"
+- repo: openai/LongGapsBetweenPrimes
+  count: 2
+  date: "2026-09-03"
