@@ -81,21 +81,27 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
   </tbody>
 </table>
 
-更早的 selected 為 Rohan Arun 的 [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)，狀態是 maintainer-reviewed conditional finite construction。它建立在 Jeremy Kothe 的 #1087 packing 與累積的 k8 / slot / T16 建構上，bit supplier 是 DreamingOfClouds 的 #589（建立在 eumemic 的 #555 上）。重放指令為 `make frontier1094-verify`。
+### #1094
 
-前一個 selected 為 zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359)，狀態是 maintainer-reviewed conditional productive-helper construction。它讓 helper 結束時已完成的 transform 成為有用的輸出，並以 Jacob Alan Sussman 的 mixed-target recursion 為直接的概念前驅，承接先前的 complex / native、binary word 與 outer / precision 工作（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-productive4359-contributors.md)）。$\kappa$ 比 #1094 高 37.51%，重放指令為 `make frontier4359-verify`，現在保留為 historical checkpoint。
+Past selected：Rohan Arun 的 [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)，狀態是 maintainer-reviewed conditional finite construction。它建立在 Jeremy Kothe 的 #1087 packing 與累積的 k8 / slot / T16 建構上，bit supplier 是 DreamingOfClouds 的 #589（建立在 eumemic 的 #555 上）。重放指令為 `make frontier1094-verify`。
+
+### #4359
+
+Past selected：zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359)，狀態是 maintainer-reviewed conditional productive-helper construction。它讓 helper 結束時已完成的 transform 成為有用的輸出，並以 Jacob Alan Sussman 的 mixed-target recursion 為直接的概念前驅，承接先前的 complex / native、binary word 與 outer / precision 工作（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-productive4359-contributors.md)）。$\kappa$ 比 #1094 高 37.51%，重放指令為 `make frontier4359-verify`，現在保留為 historical checkpoint。
 
 #4359 的驗證方面，maintainer 以全新的 23-stage sequential replay 比對 59 個重新產生的 artifact，並對變動的 compiler、native lift、delayed BIT cover 與 outer-transfer 介面做 AI 協助的 mathematical review。Ryanson Jonathan 的 [#4404](https://github.com/CrocSwap/integer-mult-bounds/pull/4404) 另以獨立實作做了 exact flow / rank audit。
 
-Selected result 為 Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)，於 2026 年 10 月 22 日升為 selected，狀態是 maintainer-reviewed conditional joint-helper construction。它同時調整 helper 的 entrance、exit 與 contact frame，再用 query-thinned 的 16-pair controller。它承接 Cinna 自己的 #4416、#4440、#4441、#4447，以及 zxv 的 productive-helper native / compiler 與 Jacob Alan Sussman 的 mixed-target recursion（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-joint4470-contributors.md)）。$\kappa=60403/20000000$，其 exponent saving 比 #4359 的 $0.0023$ 大 31.31%，比 #4416 的 $0.00268647$ 大 12.42%。這些百分比比較的是 exponent saving，不是實測的執行時間。重放指令為 `make frontier4470-verify`。
+### #4470
+
+Current selected：Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)，於 2026 年 10 月 22 日升為 selected，狀態是 maintainer-reviewed conditional joint-helper construction。它同時調整 helper 的 entrance、exit 與 contact frame，再用 query-thinned 的 16-pair controller。它承接 Cinna 自己的 #4416、#4440、#4441、#4447，以及 zxv 的 productive-helper native / compiler 與 Jacob Alan Sussman 的 mixed-target recursion（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-joint4470-contributors.md)）。$\kappa=60403/20000000$，其 exponent saving 比 #4359 的 $0.0023$ 大 31.31%，比 #4416 的 $0.00268647$ 大 12.42%。這些百分比比較的是 exponent saving，不是實測的執行時間。重放指令為 `make frontier4470-verify`。
 
 驗證方面，maintainer 對變動的建構做八個 scoped、serial 的重放（範圍見 #4470 一節）。Source 完全相同的 #4359 與 #4416 foundation review 被明確重用，不重跑。Linux（Python 3.12）上的 hosted CI 通過了 selected 的八段重放，見 [integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/INTEGRATION.json)。
 
 #4470 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md) 先完成，selection 隨後在同一天（10 月 22 日）完成。Archive 合併、conditional review 與 selection 是三件不同的事；selection 另需一致的 source closure、重放指令與公開狀態更新。
 
-PR #4359 之後，#4405、#4412、#4414、#4416 與 #4440 至 #4470 都已 merge 進 `main`。其中只有 #4470 是 selected result；#4416 是已有 maintainer review 的 checkpoint，其餘是 candidate。專案 ledger 把 #4359、#4416 與 #4470 等 PR 的 intake 狀態都記為 partially reviewed，指範圍有限的 review 與 triage，與是否 selected 無關。#4483 與 #4507 這類 compiler 大小的改進不是 selection 的前提，另案 review。
+### open claim
 
-尚未 merge 的 [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610) 把 $\kappa$ 推到 $0.0030217758$，是目前最高的 open claim；較早的 [#4535](https://github.com/CrocSwap/integer-mult-bounds/pull/4535) 與 [#4568](https://github.com/CrocSwap/integer-mult-bounds/pull/4568) 為 $0.003020165$ 與 $0.00302016597$。它們都沒有 maintainer review。Selected、candidate 與 open claim 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
+目前最高的 open claim 是尚未 merge 的 [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)，$\kappa=0.0030217758$，沒有 maintainer review。
 
 ## $\kappa$ 的里程碑
 
