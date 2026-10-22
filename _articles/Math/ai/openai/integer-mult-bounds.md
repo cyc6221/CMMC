@@ -73,7 +73,7 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
       <td>$0.00302015$</td>
     </tr>
     <tr>
-      <td>最高 open claim：#4568<br>（open，尚未 review）</td>
+      <td>最高 open claim：#4568<br>（open，尚無 maintainer review）</td>
       <td>$0.00302016597$</td>
     </tr>
   </tbody>
