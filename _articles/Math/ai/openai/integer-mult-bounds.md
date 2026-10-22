@@ -79,7 +79,7 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
   </tbody>
 </table>
 
-前一個 selected 為 Rohan Arun 的 [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)，狀態是 maintainer-reviewed conditional finite construction。它建立在 Jeremy Kothe 的 #1087 packing 與累積的 k8 / slot / T16 建構上，bit supplier 是 DreamingOfClouds 的 #589（建立在 eumemic 的 #555 上）。重放指令為 `make frontier1094-verify`。
+更早的 selected 為 Rohan Arun 的 [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)，狀態是 maintainer-reviewed conditional finite construction。它建立在 Jeremy Kothe 的 #1087 packing 與累積的 k8 / slot / T16 建構上，bit supplier 是 DreamingOfClouds 的 #589（建立在 eumemic 的 #555 上）。重放指令為 `make frontier1094-verify`。
 
 前一個 selected 為 zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359)，狀態是 maintainer-reviewed conditional productive-helper construction。它讓 helper 結束時已完成的 transform 成為有用的輸出，並以 Jacob Alan Sussman 的 mixed-target recursion 為直接的概念前驅，承接先前的 complex / native、binary word 與 outer / precision 工作（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-productive4359-contributors.md)）。$\kappa$ 比 #1094 高 37.51%，重放指令為 `make frontier4359-verify`，現在保留為 historical checkpoint。
 
@@ -294,9 +294,9 @@ PR 列出的後續問題包括：把整條論證當作一個整體做外部 revi
 
 Maintainer 隨後在 2026 年 10 月 21 日完成 #4416 與 zxv 的 [#4433](https://github.com/CrocSwap/integer-mult-bounds/pull/4433)（p7 的 tensor power 與 uniform-rank exponent 縮小）的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md)。在保留的 #4359 native / physical 與 outer 假設下，結論是 $\kappa=0.00268647$ 成立，#4433 較小的 sufficient construction 支持同一個值；native controller、chronological product、paid completion、splitting、compiler 估計與 outer substitution 都沒有 blocking defect。這是 AI 協助的 review 與有限重放，不是形式化驗證。當時 selected record 仍是 $0.0023$，這份 review 後來成為 #4470 selection 重用的 foundation 之一。
 
-### #4440 至 #4470：p16 / p17 candidate
+### #4440 至 #4470：p16 / p17 controller
 
-以下都已 merge，在 ledger 中是 partially reviewed。#4470 另有 maintainer 的 proof review（見該項），涵蓋它累積的 #4440、#4441 與 #4447 建構，但不單獨認可各前驅 PR 自己的 $\kappa$ 數值；其餘的 $\kappa$ 是作者自行檢查的 conditional 宣稱。#4470 已於 10 月 22 日升為 selected，其餘不是。
+以下都已 merge。#4470 已於 10 月 22 日升為 selected，另有 maintainer 的 proof review（見該項），涵蓋它累積的 #4440、#4441 與 #4447 建構，但不單獨認可各前驅 PR 自己的 $\kappa$ 數值；其餘的 $\kappa$ 是作者自行檢查的 conditional 宣稱，不是 selected。
 
 - [#4440](https://github.com/CrocSwap/integer-mult-bounds/pull/4440)（$\kappa=0.00296$，比 #4416 高 10.18%）：p7 controller 在只需要一份 copied rank-one query shear 的地方，付了完整的 stage 與 idle transform。#4440 把這些 call 換成 query shear，並扣掉因此失去的 productive helper。Complex word 有 17 組 pair、19 個 full native call 與 16 個 query shear；另有一條 16-pair 的 BIT word，ordinary saving 為 $0.0034$。
 - [#4441](https://github.com/CrocSwap/integer-mult-bounds/pull/4441)（$\kappa=0.00300105$）：對 #4440 的 19 個 full native call 套用 helper retiming，paid call 由 72,902 降為 69,273。
@@ -411,7 +411,7 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
       <td>#4416</td>
       <td>0.00268647</td>
       <td>p7 controller 與 paid target padding</td>
-      <td>Merged，candidate，已有 maintainer review</td>
+      <td>Merged，reviewed checkpoint</td>
     </tr>
     <tr>
       <td>#4440</td>
@@ -458,7 +458,7 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
   </tbody>
 </table>
 
-Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Open 表示尚未進入 `main`。Candidate 是 merge 後但未升為 selected 的更大 $\kappa$ 宣稱。Maintainer review 是專案維護者的 AI 協助 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。
+Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Open 表示尚未進入 `main`。Candidate 是 merge 後但未升為 selected 的 conditional 宣稱，merge 時 $\kappa$ 高於當時的 selected，現在都不高於 #4470。Reviewed checkpoint 是已有 maintainer review、但未升為 selected 的 candidate。Maintainer review 是專案維護者的 AI 協助 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。
 
 ## 技術
 
@@ -490,7 +490,7 @@ Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示�
 
 兩者中 complex 一側較小，是綁住 $\kappa$ 的一側。要讓 $\kappa>0.01$，兩個 effective primitive budget 都需要超過約 $1/99$。這描述的是目前建構的瓶頸，不是整數乘法的下界。
 
-PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。#4440 起的 candidate 保留一條支撐 $0.0034$ 的 BIT word，$\kappa$ 的提高來自 complex controller 的改進。#4535 與 #4568 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。#4610 則改動 helper 與 native map，$\kappa$ 再提高到 $0.0030217758$。
+PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。#4440 起的建構保留一條支撐 $0.0034$ 的 BIT word，$\kappa$ 的提高來自 complex controller 的改進。#4535 與 #4568 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。#4610 則改動 helper 與 native map，$\kappa$ 再提高到 $0.0030217758$。
 
 ### 可能的改進方向
 
