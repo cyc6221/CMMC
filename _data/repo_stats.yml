@@ -5,6 +5,9 @@
 - repo: openai/math
   count: 5
   date: "2026-10-12"
+- repo: CrocSwap/integer-mult-bounds
+  count: 6112
+  date: "2026-10-21"
 - repo: google-deepmind/alphaevolve_results
   count: 39
   date: "2026-01-05"

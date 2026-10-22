@@ -213,4 +213,6 @@ mjx-container[jax="CHTML"]:not([display="true"]) {
   background: rgba(0, 255, 65, 0.18);
   padding: 0.02em 0.22em;
   border-radius: 4px;
+  /* keep the padding on the same line as the formula in narrow table cells */
+  white-space: nowrap;
 }
