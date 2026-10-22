@@ -1,4 +1,4 @@
-# Snapshot of commit count and last commit date for the repos on /math/ai/.
+# Snapshot of commit count and last commit date for repos on /math/ai/ and related notes.
 # Shown until assets/js/repo-stats.js replaces it with fresh data, and kept
 # when the GitHub API request fails. Refresh it now and then, e.g.:
 #   gh api "repos/OWNER/REPO/commits?per_page=1" -i   (Link header: last page = count)
@@ -29,3 +29,18 @@
 - repo: deepseek-ai/DeepSeek-Prover-V2
   count: 2
   date: "2025-07-18"
+- repo: openai/ten-proofs
+  count: 1
+  date: "2026-08-02"
+- repo: openai/NavierStokesAndEuler
+  count: 2
+  date: "2026-09-10"
+- repo: openai/cdc-lean
+  count: 8
+  date: "2026-07-09"
+- repo: openai/PrimeGaps186
+  count: 1
+  date: "2026-09-02"
+- repo: openai/LongGapsBetweenPrimes
+  count: 2
+  date: "2026-09-03"
