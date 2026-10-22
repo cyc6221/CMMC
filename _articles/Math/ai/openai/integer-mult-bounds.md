@@ -59,23 +59,23 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
       <td>$2^{-182}$</td>
     </tr>
     <tr>
-      <td>更早的 selected：#1094<br>（maintainer-reviewed）</td>
+      <td>Past selected：#1094<br>（maintainer-reviewed）</td>
       <td>$0.001672660197076918\approx 2^{-9.22}$</td>
     </tr>
     <tr>
-      <td>前一個 selected：#4359<br>（maintainer-reviewed）</td>
+      <td>Past selected：#4359<br>（maintainer-reviewed）</td>
       <td>$0.0023>2^{-9}$</td>
     </tr>
     <tr>
-      <td>中間的 reviewed checkpoint：#4416<br>（merged，maintainer 已 review，未升為 selected）</td>
+      <td>#4416<br>（intermediate reviewed checkpoint）</td>
       <td>$0.00268647$</td>
     </tr>
     <tr>
-      <td>Selected：#{{ crocswap.selected.pr }}<br>（merged，maintainer-reviewed）</td>
+      <td>Current selected：#{{ crocswap.selected.pr }}<br>（merged，maintainer-reviewed）</td>
       <td>${{ crocswap.selected.kappa }}$</td>
     </tr>
     <tr>
-      <td>最高 open claim：#{{ crocswap.open_claim.pr }}<br>（open，尚無 maintainer review）</td>
+      <td>Highest open claim：#{{ crocswap.open_claim.pr }}<br>（open, no maintainer review）</td>
       <td>${{ crocswap.open_claim.kappa }}$</td>
     </tr>
   </tbody>
