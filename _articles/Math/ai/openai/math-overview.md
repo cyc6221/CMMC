@@ -72,7 +72,7 @@ openai/math
 - 修訂 14 份 manuscripts：包含 proof repairs、statement 修正與依賴關係的釐清。
 - 另有 13 份 manuscripts 更新引用與版本日期，以引用修訂後的相關論文。
 - 新增 6 個 formalizations。
-- 另新增 5 項支持性結果的形式化材料。
+- 另新增 5 項支持性結果的補充。
 
 ## 相關筆記
 
