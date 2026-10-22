@@ -498,7 +498,7 @@ PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform sa
 - call 之間的邊界：去掉下一個 call 重複做的 restoration 或 conversion。
 - supplier interface lemma：放寬目前 contract 排除的 word。
 - complex controller：減少 paid job 或提高 productive credit，這是 #4359 之後多數 PR 的方向。
-- template rank：#4359 的 winning template 是 algorithm-defined 而未實體化，縮小它的 rank 是後續 PR 的另一個目標，例如 #4479、#4483 與 #4563 至 #4565。
+- template rank：#4359 與 #4470 的 winning template 都是 algorithm-defined 而未實體化，縮小 rank 是 #4359 之後 PR 的另一個目標，例如 #4411、#4413（#4359）、#4479、#4483（#4470）與 #4563 至 #4565（#4535）。
 
 ### 前提與限制
 
@@ -512,6 +512,7 @@ $\kappa$ 衡量的是漸近 exponent saving，不是實測的執行時間。
 - native / all-column movement：native operator、phase 慣例、spectator 與 whole-job adapter 在每個正的 column multiplicity 下都成立
 - owned erasure：owned stream 與 suspended center 遵守保留的 allocation、erasure 與 ownership 規則
 - compiler closure：finite mixed-target compiler 與 chronological product、completion、splitting 滿足保留的 uniform closure
+- outer transfer：保留的 outer cost 估計與 outer substitution 適用於新的 finite template
 - precision 與 fixed-tape：保留的 fixed-tape movement 與 precision / storage 規定適用於新的 finite template
 - analytic decomposition、fine-prime avoidance 與 exact recovery
 
