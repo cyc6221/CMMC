@@ -1,4 +1,4 @@
-# Snapshot of commit count and last commit date for the repos on /math/ai/.
+# Snapshot of commit count and last commit date for repos on /math/ai/ and related notes.
 # Shown until assets/js/repo-stats.js replaces it with fresh data, and kept
 # when the GitHub API request fails. Refresh it now and then, e.g.:
 #   gh api "repos/OWNER/REPO/commits?per_page=1" -i   (Link header: last page = count)

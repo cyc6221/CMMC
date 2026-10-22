@@ -9,7 +9,7 @@ last_updated: 2026-10-22
 
 <script defer src="{{ '/assets/js/repo-stats.js' | relative_url }}"></script>
 
-## 2026-05-20
+## 2026-05-20 單位距離猜想
 
 **An OpenAI model has disproved a central conjecture in discrete geometry** [原文](https://openai.com/index/model-disproves-discrete-geometry-conjecture/)
 
@@ -30,11 +30,11 @@ Erdős 在 1946 年提出這個問題。方格點構造給出 $u(n)\ge n^{1+c/\l
 - 證明由一組外部數學家檢查；他們另撰 [Remarks on the disproof of the unit distance conjecture](https://cdn.openai.com/pdf/74c24085-19b0-4534-9c90-465b8e29ad73/unit-distance-remarks.pdf)，說明論證與意義。
 - 證明來自一個新的 general-purpose reasoning model。OpenAI 說明它不是專為數學訓練的模型，沒有針對證明策略搜尋做 scaffolding，也不是針對這個問題設計。
 
-## 2026-07
+## 2026-07 Cycle double cover
 
 **A Proof of the Cycle Double Cover Conjecture** [原文](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf)
 
-openai/cdc-lean <a class="gh-link" href="https://github.com/openai/cdc-lean" target="_blank" rel="noopener noreferrer" aria-label="openai/cdc-lean on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>GitHub</a>
+openai/cdc-lean <a class="gh-link" href="https://github.com/openai/cdc-lean" target="_blank" rel="noopener noreferrer" aria-label="repo: openai/cdc-lean on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>repo</a>
 
 {% include math/ai/repo-stats.html repo="openai/cdc-lean" %}
 
@@ -85,7 +85,7 @@ OpenAI 另外公開了給模型的完整 prompt。Prompt 要求完整解決這�
 - `openai/cdc-lean` 以 Lean 對有限、無 loop、無 bridge 的 multigraph 做 kernel check，終點是 `CDCLean.cycleDoubleCover_of_bridgeless`，其中也形式化了 Jaeger–Kilpatrick 的 eight-flow theorem。`CDCLean/Audit.lean` 的審計應只列出 `propext`、`Classical.choice` 與 `Quot.sound`。
 - Jim Geelen（arXiv:2607.15399，7 月 16 日）與 Sang-il Oum（arXiv:2607.16356，7 月 17 日）各自寫了說明。Johannes Carmesin 在 Matroid Union 的文章中表示證明正確，並提到除了 OpenAI 的版本，還有獨立的 Lean 形式化。
 
-## 2026-07-29
+## 2026-07-29 學術研究支援
 
 **Accelerating scientific discovery with ChatGPT for Academic Researchers** [原文](https://openai.com/index/chatgpt-for-academic-researchers/)
 
@@ -95,22 +95,22 @@ OpenAI 讓學術研究者使用 frontier models，並指出數學研究已快速
 
 - 對象是選定學術機構的研究者，涵蓋科學、數學與工程，用途從 grant preparation 到 hypothesis testing。
 - 首批 10,000 人，機構包括 Institute for Advanced Study 與 École normale supérieure；計畫持續擴展，於 2027 年內達到 100,000 人。
-- 起始提供 GPT‑5.6 Sol Pro。每位參與者可以邀請最多四位同機構的合作者。
+- 起始提供 GPT-5.6 Sol Pro。每位參與者可以邀請最多四位同機構的合作者。
 - 資料預設不用於訓練模型。
 
 ### 8 月 10 日更新
 
 新申請者改為進入 waitlist。首輪有超過 13,000 份申請在審核，首批 10,000 個名額從符合資格的申請者中抽籤決定。未被選上的申請者，在秋季重新開放申請時仍可被選入。[官方更新](https://openai.com/index/chatgpt-for-academic-researchers/)
 
-## 2026-08-01
+## 2026-08-01 十項數學進展
 
 **Ten advances in mathematics and theoretical computer science** [原文](https://openai.com/index/ten-advances-in-mathematics/)
 
-openai/ten-proofs <a class="gh-link" href="https://github.com/openai/ten-proofs" target="_blank" rel="noopener noreferrer" aria-label="openai/ten-proofs on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>GitHub</a>
+openai/ten-proofs <a class="gh-link" href="https://github.com/openai/ten-proofs" target="_blank" rel="noopener noreferrer" aria-label="repo: openai/ten-proofs on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>repo</a>
 
 {% include math/ai/repo-stats.html repo="openai/ten-proofs" %}
 
-OpenAI 一次公布 10 項數學與理論資工成果，每項都解決或大幅推進一個 long-standing open problem。結果來自 Astra 的一個內部版本，OpenAI 稱 Astra 為 next major model，尚未釋出。這是 10 月 `openai/math` 大規模公開之前的一次集中發布。
+OpenAI 一次公布 10 項數學與理論資工成果，每項都解決或大幅推進一個 long-standing open problem。結果來自 Astra 的一個內部版本，OpenAI 當時稱 Astra 為下一個主要模型，尚未釋出。這是 10 月 `openai/math` 大規模公開之前的一次集中發布。
 
 ### The results
 
@@ -134,7 +134,7 @@ OpenAI 一次公布 10 項數學與理論資工成果，每項都解決或大幅
 - 數學論證由模型產生，人類與同一個模型合作，把論證整理成手稿。
 - OpenAI 估計，以 Sol API 價格計，找出這十個解的 token 成本約 2,000 美元，不含訓練成本。
 
-## 2026-09-03
+## 2026-09-03 質數間隔
 
 **GPT-6 Astra: A new generation of intelligence** [原文](https://openai.com/index/gpt-6-astra/)
 
@@ -144,7 +144,7 @@ OpenAI 一次公布 10 項數學與理論資工成果，每項都解決或大幅
 
 **Improved Short Gaps Between Primes** [論文](https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/short_gaps.pdf)
 
-openai/PrimeGaps186 <a class="gh-link" href="https://github.com/openai/PrimeGaps186" target="_blank" rel="noopener noreferrer" aria-label="openai/PrimeGaps186 on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>GitHub</a>
+openai/PrimeGaps186 <a class="gh-link" href="https://github.com/openai/PrimeGaps186" target="_blank" rel="noopener noreferrer" aria-label="repo: openai/PrimeGaps186 on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>repo</a>
 
 {% include math/ai/repo-stats.html repo="openai/PrimeGaps186" %}
 
@@ -172,7 +172,7 @@ We have $H_1\le 186$.
 
 **Improved Long Gaps Between Primes** [論文](https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/long_gaps.pdf)
 
-openai/LongGapsBetweenPrimes <a class="gh-link" href="https://github.com/openai/LongGapsBetweenPrimes" target="_blank" rel="noopener noreferrer" aria-label="openai/LongGapsBetweenPrimes on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>GitHub</a>
+openai/LongGapsBetweenPrimes <a class="gh-link" href="https://github.com/openai/LongGapsBetweenPrimes" target="_blank" rel="noopener noreferrer" aria-label="repo: openai/LongGapsBetweenPrimes on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>repo</a>
 
 {% include math/ai/repo-stats.html repo="openai/LongGapsBetweenPrimes" %}
 
@@ -192,7 +192,7 @@ $$G(X)\ge c\,\frac{\log X\,(\log_2 X)^2\log_4 X}{(\log_3 X)^2}.$$
 - 證明的主要輸入是 Proposition 1.2（short translates），再套用 Erdős–Rankin 的構造。
 - repo 含有 Theorem 1.1 的完整 Lean 證明 `LongGapsBetweenPrimes.lean`，沒有標示為 conditional。
 
-## 2026-09-06
+## 2026-09-06 研究加速
 
 **Research acceleration: The view inside OpenAI** [原文](https://openai.com/index/research-acceleration-view-inside-openai/)
 
@@ -209,15 +209,15 @@ OpenAI 說明內部研究如何被 automated AI researcher 與 coding agents 加
 
 OpenAI 指出，AI 研究是有許多瓶頸的複雜過程，整體進展不一定跟上這些指標。研究優先序、要追哪些想法與結果，以及是否擴大、暫停或部署系統，仍由人決定。
 
-## 2026-09-08
+## 2026-09-08 Navier–Stokes 與 Euler
 
 **On the Navier–Stokes Millennium Prize Problem** [原文](https://openai.com/index/navier-stokes-solution/)
 
-openai/NavierStokesAndEuler <a class="gh-link" href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener noreferrer" aria-label="openai/NavierStokesAndEuler on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>GitHub</a>
+openai/NavierStokesAndEuler <a class="gh-link" href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener noreferrer" aria-label="repo: openai/NavierStokesAndEuler on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>repo</a>
 
 {% include math/ai/repo-stats.html repo="openai/NavierStokesAndEuler" %}
 
-OpenAI 宣布內部模型給出一個證明，顯示三維 Navier–Stokes 方程描述的流體運動可以在有限時間內產生 singularity。OpenAI 同時公開證明的 writeup 與 Lean formalization。
+OpenAI 宣布內部模型提出三維 Navier–Stokes 方程的證明，其論文主張流體運動可以在有限時間內產生 singularity，並同時公開證明的 writeup 與 Lean formalization。
 
 ### 宣稱的內容
 
@@ -225,12 +225,12 @@ OpenAI 宣布內部模型給出一個證明，顯示三維 Navier–Stokes 方�
 <strong>Navier–Stokes</strong>
 For every positive viscosity, we prove two results:
 <ul>
-<li><strong>Whole space $\mathbb{R}^3$:</strong> There exist smooth initial data and forcing for which no global smooth solution with uniformly bounded kinetic energy exists.</li>
-<li><strong>Periodic torus $\mathbb{R}^3/\mathbb{Z}^3$:</strong> There exist smooth periodic initial data and forcing for which no global smooth solution exists.</li>
+<li><em>Whole space $\mathbb{R}^3$:</em> There exist smooth initial data and forcing for which no global smooth solution with uniformly bounded kinetic energy exists.</li>
+<li><em>Periodic torus $\mathbb{R}^3/\mathbb{Z}^3$:</em> There exist smooth periodic initial data and forcing for which no global smooth solution exists.</li>
 </ul>
 </div>
 
-這兩個結果證明有光滑外力時可發生有限時間 breakdown，分別對應 Clay 問題陳述中的 (C) 與 (D)。
+OpenAI 主張，這兩個結果證明有光滑外力時可發生有限時間 breakdown，分別對應 Clay 問題陳述中的 (C) 與 (D)。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -256,7 +256,7 @@ We construct smooth, compactly supported, divergence-free initial velocity on $\
 - 兩篇論文的結果都以 Lean 4 形式化，用 Lake 與 Mathlib 編譯。
 - 獨立檢查可用 Comparator，說明在 repo 的 `ComparatorChallenges/README.md`。
 
-## 2026-09-21
+## 2026-09-21 數學與 AI 顧問團體
 
 **Advisory Group on Mathematics and Artificial Intelligence** [原文](https://openai.com/index/advisory-group-on-mathematics-and-ai/)
 
@@ -285,11 +285,11 @@ Advisory Group on Mathematics and Artificial Intelligence 由 Institute for Adva
 
 這項公告出現在 9 月稍早 25 位 Fields 獎得主聯署公開信之後。公開信的論點是，AI 公司競相解決著名問題，威脅了數學家的智識工作。
 
-## 2026-10-06
+## 2026-10-06 數學成果公開
 
 **Sharing AI progress in mathematics** [原文](https://openai.com/index/sharing-ai-progress-in-mathematics/)
 
-openai/math <a class="gh-link" href="https://github.com/openai/math" target="_blank" rel="noopener noreferrer" aria-label="openai/math on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>GitHub</a>
+openai/math <a class="gh-link" href="https://github.com/openai/math" target="_blank" rel="noopener noreferrer" aria-label="repo: openai/math on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>repo</a>
 
 {% include math/ai/repo-stats.html repo="openai/math" %}
 
@@ -297,13 +297,13 @@ OpenAI 正式大規模釋出 `openai/math`，內容是內部模型產生的數�
 
 ### 釋出內容
 
-- Catalog 共 719 份 manuscripts，分為 372 個 families。一個 family 把相關論文放在一起，可能包含主要結果、輔助論證、推論或替代證明。每個 family 依數學領域分類。
+- 截至 2026 年 10 月 22 日，目錄統計為 719 份 manuscripts，分為 372 個 families。一個 family 把相關論文放在一起，可能包含主要結果、輔助論證、推論或替代證明。每個 family 依數學領域分類。[目錄統計](https://github.com/openai/math/blob/main/README.md)
 - 目錄有 overview PDF、manuscript map（`CONTENTS.md`）、`preprints/`（PDF、原始檔與引用、編譯說明）、Lean library 與 formalization catalogue，以及更新歷史。
 - 授權為 Apache-2.0。
 
 ### 驗證狀態
 
-- 約 42% 的 top-line results 已有 Lean formalization，其餘會在取得後陸續補上。
+- 部分結果已有 Lean formalization，其餘會在取得後陸續補上；截至 10 月 7 日的比例見下方更新。
 - 沒有 formalization 的結果可能有問題，OpenAI 表示會盡快修正。
 - 另提供 Comparator 的檢查說明。
 
@@ -337,6 +337,20 @@ OpenAI 正式大規模釋出 `openai/math`，內容是內部模型產生的數�
 - 目前以 GitHub repository 發布，同時評估符合顧問團體準則的社群代管方案。
 - OpenAI 將持續更新公開重大科學進展的標準。
 - 產生這些成果的模型尚未釋出，OpenAI 表示正在研究如何負責任地釋出。
+
+### 10 月 7 日更新
+
+這次更新包含撤回、修訂與新增形式化。[更新紀錄](https://github.com/openai/math/blob/main/history.md)
+
+*Algebraicity of Weil classes on split abelian eightfolds* 的符號錯誤使 stabilization-trace cancellation 論證失效，也影響兩篇相依手稿使用的構造，因此撤回三篇：
+
+- *Algebraicity of Weil classes on split abelian eightfolds*
+- *Algebraicity of Kuga–Satake Correspondences for K3 Surfaces*
+- *The rational Hodge conjecture for products of K3 surfaces*
+
+另有 14 篇手稿修訂證明、陳述、假設、相依結果或引用；13 篇其他手稿則更新對修訂版本的引用與版本日期。撤回的手稿保留問題說明與封存版本，修訂的手稿也保留舊版。
+
+新增 6 項形式化及 5 項支援結果的補充後，官方統計有 300 個主要結果（top-line results）完成形式化，以目錄的 719 份手稿為分母，比例為 $300/719\approx 42\%$。
 
 ### 10 月 15 日更新
 
