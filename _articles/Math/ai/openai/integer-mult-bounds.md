@@ -388,7 +388,7 @@ PR 列出的後續問題包括：把整條論證當作一個整體做外部 revi
   </tbody>
 </table>
 
-Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Candidate 是尚未升為 selected 的更大 $\kappa$ 宣稱；Open 表示尚未進入 `main`。
+Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Candidate 是尚未升為 selected 的更大 $\kappa$ 宣稱。
 
 ## 技術
 
