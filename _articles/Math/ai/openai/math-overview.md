@@ -27,8 +27,6 @@ openai/math
 ├── LICENSE                    # Apache-2.0
 ├── preprints/                 # 手稿與各版本材料，包含舊版及撤回稿
 ├── lean/
-│   ├── OAI/                   # 依領域分類的形式化證明
-│   └── formalization.yaml     # 手稿、Lean 證明與驗證設定的對照
 └── reasoning_traces/          # 推理過程摘要（10 份 PDF）
 ```
 
