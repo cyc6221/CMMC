@@ -1,6 +1,7 @@
 ---
 layout: page
 title: openai/math Overview
+description: 整理 openai/math 的目錄結構、手稿與形式化統計、領域分佈及更新紀錄。
 date: 2026-10-22
 last_updated: 2026-10-22
 ---
@@ -14,27 +15,31 @@ openai/math {% include gh-link.html href="https://github.com/openai/math" label=
 
 ## 結構
 
+以下列出主要目錄與檔案。
+
 ```text
 openai/math
 ├── README.md
-├── overview.pdf               # 372 families, grouped by discipline
-├── overview.tex               # LaTeX source of overview.pdf
-├── CONTENTS.md                # manuscript map
-├── history.md                 # withdrawals, fixes, new formalizations
+├── overview.pdf               # 依領域分類的 372 個論文群組
+├── overview.tex               # overview.pdf 的 LaTeX 原始檔
+├── CONTENTS.md                # 手稿索引
+├── history.md                 # 撤回、修訂與新增形式化證明的紀錄
 ├── LICENSE                    # Apache-2.0
-├── preprints/                 # one directory per manuscript
-├── lean/                      # Lean library
-│   ├── OAI/                   # formalizations, by subject
-│   └── formalization.yaml     # manuscript <-> Lean <-> verification config
-└── reasoning_traces/          # abridged reasoning summaries (10 PDFs)
+├── preprints/                 # 手稿與各版本材料，包含舊版及撤回稿
+├── lean/                      # Lean 證明庫
+│   ├── OAI/                   # 依領域分類的形式化證明
+│   └── formalization.yaml     # 手稿、Lean 證明與驗證設定的對照
+└── reasoning_traces/          # 推理過程摘要（10 份 PDF）
 ```
+
+## 手稿與形式化統計
 
 以下統計截至 2026-10-22。
 
 - Catalog 共 719 份 manuscripts，分為 372 個 families。
   - 一個 family 把相關論文放在一起，可能包含主要結果、輔助論證、推論或替代證明。
 - 條目編號依 catalog 順序排列；編號到 377，未使用的號碼為 045、061、070、123、163。
-- 約 42% 的 top-line results 已有 Lean formalization（300 / 719）。
+- 主要結果（top-line results）的形式化比例為 300 / 719，約 42%；分母是 719 份手稿，分子是已形式化的主要結果數，不是以 372 個 families 或所有輔助引理為單位。
 
 ## 領域分佈
 
