@@ -5,7 +5,7 @@ date: 2026-10-22
 last_updated: 2026-10-22
 ---
 
-OpenAI 官方在「AI 做數學」這條線上的主要公告，按時間排列。2026 年 5 月是第一次公開宣布模型解決 open problem，10 月 6 日則集中釋出 `openai/math` 中的全部成果。
+本文按時間整理 OpenAI 在 2026 年 5 月至 10 月的主要數學成果公告，並補充研究工具、顧問團體與成果公開方式的背景。5 月公布 unit-distance 猜想的反例，10 月 6 日則集中釋出 `openai/math` 的數學成果。
 
 <script defer src="{{ '/assets/js/repo-stats.js' | relative_url }}"></script>
 
@@ -13,7 +13,7 @@ OpenAI 官方在「AI 做數學」這條線上的主要公告，按時間排列�
 
 **An OpenAI model has disproved a central conjecture in discrete geometry** [原文](https://openai.com/index/model-disproves-discrete-geometry-conjecture/)
 
-OpenAI 首次公開宣布內部模型推翻一個離散幾何的核心猜想：平面上的 unit distance problem。
+OpenAI 宣布內部模型推翻平面 unit distance problem 中的 Erdős 猜想，即單位距離點對數的最大值滿足 $u(n)=n^{1+o(1)}$。
 
 ### Problem
 
@@ -22,15 +22,15 @@ OpenAI 首次公開宣布內部模型推翻一個離散幾何的核心猜想：�
 If you place $n$ points in the plane, how many pairs of points can be exactly distance $1$ apart? Write $u(n)$ for the maximum.
 </div>
 
-Erdős 在 1946 年提出這個問題。方格點構造給出 $u(n)\ge n^{1+c/\log\log n}$，已知最佳上界是 $u(n)=O(n^{4/3})$（Spencer–Szemerédi–Trotter）。長期的看法是方格構造本質上已是最佳，即 $u(n)=n^{1+O(1/\log\log n)}$。
+Erdős 在 1946 年提出這個問題。方格點構造給出 $u(n)\ge n^{1+c/\log\log n}$，其中 $c>0$ 為常數；已知最佳上界是 $u(n)=O(n^{4/3})$（Spencer–Szemerédi–Trotter）。Erdős 猜想 $u(n)=n^{1+o(1)}$，也就是其成長速度低於任何固定次方 $n^{1+\varepsilon}$（$\varepsilon>0$）。
 
 ### 公告內容
 
-- 模型給出 "an infinite family of examples that yield a polynomial improvement"，即下界相對 Erdős 的原始下界有 polynomial 量級的改進。這與 $u(n)=n^{1+O(1/\log\log n)}$ 相矛盾，表示方格構造並非最佳。
-- 證明由一組外部數學家檢查，他們另外寫了一篇 companion paper 說明論證與意義。
+- 模型構造出一族反例：存在固定常數 $\delta>0$，使得無限多個 $n$ 滿足 $u(n)\ge n^{1+\delta}$。這與 $u(n)=n^{1+o(1)}$ 相矛盾，並在原有方格構造的下界上取得 polynomial 量級的改進。
+- 證明由一組外部數學家檢查；他們另撰 [Remarks on the disproof of the unit distance conjecture](https://cdn.openai.com/pdf/74c24085-19b0-4534-9c90-465b8e29ad73/unit-distance-remarks.pdf)，說明論證與意義。
 - 證明來自一個新的 general-purpose reasoning model。OpenAI 說明它不是專為數學訓練的模型，沒有針對證明策略搜尋做 scaffolding，也不是針對這個問題設計。
 
-## 2026-07-10
+## 2026-07
 
 **A Proof of the Cycle Double Cover Conjecture** [原文](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf)
 
@@ -39,6 +39,11 @@ openai/cdc-lean <a class="gh-link" href="https://github.com/openai/cdc-lean" tar
 {% include math/ai/repo-stats.html repo="openai/cdc-lean" %}
 
 OpenAI 發表 cycle double cover conjecture 的證明。這個猜想由 Tutte、Itai 與 Rodeh、Szekeres、Seymour 先後提出，長期懸而未決。這次發表的形式是一篇三頁的論文加上 Lean 形式化，不是部落格文章。
+
+<div class="remark remark--note">
+<strong>日期註記.</strong>
+公開時間為 2026 年 7 月，確切日期尚待確認（<a href="https://arxiv.org/abs/2607.16356">日期依據</a>）。
+</div>
 
 ### Statement
 
@@ -89,13 +94,13 @@ OpenAI 讓學術研究者使用 frontier models，並指出數學研究已快速
 ### 計畫內容
 
 - 對象是選定學術機構的研究者，涵蓋科學、數學與工程，用途從 grant preparation 到 hypothesis testing。
-- 首批 10,000 人，機構包括 Institute for Advanced Study 與 École normale supérieure；計畫在 2027 年前擴大到 100,000 人。
+- 首批 10,000 人，機構包括 Institute for Advanced Study 與 École normale supérieure；計畫持續擴展，於 2027 年內達到 100,000 人。
 - 起始提供 GPT‑5.6 Sol Pro。每位參與者可以邀請最多四位同機構的合作者。
 - 資料預設不用於訓練模型。
 
 ### 8 月 10 日更新
 
-新申請者改為進入 waitlist。首輪有超過 13,000 份申請在審核，初始名單以抽籤決定。未被選上的申請者，在秋季重新開放申請時仍可被選入。
+新申請者改為進入 waitlist。首輪有超過 13,000 份申請在審核，首批 10,000 個名額從符合資格的申請者中抽籤決定。未被選上的申請者，在秋季重新開放申請時仍可被選入。[官方更新](https://openai.com/index/chatgpt-for-academic-researchers/)
 
 ## 2026-08-01
 
@@ -158,8 +163,8 @@ The assertion $\mathrm{DHL}[40,2]$ holds.
 We have $H_1\le 186$.
 </div>
 
-- 論文的 abstract 寫成 $\liminf_{n\to\infty}(p_{n+1}-p_n)\le 186$。論文所附的 40 個元素的 admissible set 直徑為 186，所以 Theorem 1.1 推出 Corollary 1.2。孿生質數猜想是 $H_1=2$，仍未解決。
-- 先前的 unconditional 紀錄是 Polymath 8b 的 $H_1\le 246$。論文提到同時期 Stadlmann 獨立證明了 $H_1\le 240$。
+- 結果為 $\liminf_{n\to\infty}(p_{n+1}-p_n)\le 186$。取一個直徑為 186、含 40 個元素的 admissible set，由 Theorem 1.1 可得無限多個平移各含至少兩個質數，因此 $H_1\le 186$，即 Corollary 1.2。孿生質數猜想是 $H_1=2$，仍未解決。
+- 先前的 unconditional 紀錄是 Polymath 8b 的 $H_1\le 246$。同時期 Stadlmann 獨立證明了 $H_1\le 240$。
 - 方法：結合 Polymath 8a 與 Stadlmann 的 equidistribution estimates，再用互補的 factorization conditions，使相關的乘積成為 triply densely divisible。這讓 multidimensional Selberg sieve 可以用更大的 support，配合更好的數值最佳化，得到 $\mathrm{DHL}[40,2]$。
 - Lean 形式化是 **conditional**：依賴數值的 integral 與 cap bounds，以及最終來自 Deligne 的有限體 Riemann hypothesis 結果的 finite-field exponential-sum estimates，共三條明列的 axiom。repo 另附 Python-FLINT 程式，驗證其中的數值界。
 
@@ -183,7 +188,7 @@ $$G(X)\ge c\,\frac{\log X\,(\log_2 X)^2\log_4 X}{(\log_3 X)^2}.$$
 </div>
 
 - 這比 Rankin 的界 $G(X)\gg \log X\log_2 X\log_4 X/(\log_3 X)^2$ 多了 $\log_2 X$ 的因子。
-- 論文回顧的脈絡：Westzynthius、Erdős、Rankin 依序推進；Erdős 問 Rankin 界的常數能否任意大，並為此開出 10,000 美元的獎金，Maynard 與 Ford–Green–Konyagin–Tao 各自獨立證明；之後 Ford–Green–Konyagin–Maynard–Tao 給出定量的界；GPT 5.6 Sol 在 Erdős Problems 網站（Problem #4）上貼出的論證給出更強的界。這篇論文再往前推進。
+- 歷史進展：Westzynthius、Erdős、Rankin 依序推進；Erdős 問 Rankin 界的常數能否任意大，並為此開出 10,000 美元的獎金，Maynard 與 Ford–Green–Konyagin–Tao 各自獨立證明；之後 Ford–Green–Konyagin–Maynard–Tao 給出定量的界；GPT 5.6 Sol 在 Erdős Problems 網站（Problem #4）上貼出的論證給出更強的界。上述 Theorem 1.1 再往前推進。
 - 證明的主要輸入是 Proposition 1.2（short translates），再套用 Erdős–Rankin 的構造。
 - repo 含有 Theorem 1.1 的完整 Lean 證明 `LongGapsBetweenPrimes.lean`，沒有標示為 conditional。
 
@@ -197,7 +202,7 @@ OpenAI 說明內部研究如何被 automated AI researcher 與 coding agents 加
 
 - 2025 年秋季，OpenAI 公開的目標是：2026 年 9 月前做出 automated research intern，2028 年 3 月前做出 automated AI researcher。
 - Research intern 的定義是：在人類指導下，執行定義明確的研究任務，包括熟練研究者需要數天才能完成的任務。
-- 依 OpenAI 的量測，intern 的目標已經達成。研究組織在 8 月中旬，每一個人類工作日對應約 3.1 個 agent 工作日。
+- 依 OpenAI 的量測，intern 的目標已經達成。以 8 小時為一個標準工作日，研究組織在 8 月中旬的總 agent 執行時間相當於每一個人類工作日對應約 3.1 個 agent 工作日。[官方量測](https://openai.com/index/research-acceleration-view-inside-openai/)
 - OpenAI 表示正朝 2028 年 3 月的 automated AI researcher 穩定推進。
 
 ### 限制
@@ -225,7 +230,7 @@ For every positive viscosity, we prove two results:
 </ul>
 </div>
 
-這是對全域光滑性的否定，不是證明。兩個結果分別對應 Clay 問題陳述中的 (C) 與 (D)。
+這兩個結果證明有光滑外力時可發生有限時間 breakdown，分別對應 Clay 問題陳述中的 (C) 與 (D)。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -330,8 +335,12 @@ OpenAI 正式大規模釋出 `openai/math`，內容是內部模型產生的數�
 - OpenAI 諮詢了 Institute for Advanced Study 的 Advisory Group，以擬定公開這些成果的 best practices。
 - 修正與修訂以新版本發布，舊版本保持可取得；每份手稿附 BibTeX。
 - 目前以 GitHub repository 發布，同時評估符合顧問團體準則的社群代管方案。
-- OpenAI 計畫資助 workshops、conferences 與 special programs，協助理解重大的 AI 成果，並更新未來公開重大科學進展的標準。
+- OpenAI 將持續更新公開重大科學進展的標準。
 - 產生這些成果的模型尚未釋出，OpenAI 表示正在研究如何負責任地釋出。
+
+### 10 月 15 日更新
+
+OpenAI 宣布提供 500 萬美元，支持 Simons Foundation 的新計畫，協助數學家檢查、理解並延伸 AI 產生的成果。資金由 Simons Foundation 管理與分配，用於 workshops、conferences 與 special programs；OpenAI 也將向該基金會支持的研究者提供模型與運算資源。[官方更新](https://openai.com/index/sharing-ai-progress-in-mathematics/)
 
 ## References
 
@@ -348,6 +357,7 @@ OpenAI 正式大規模釋出 `openai/math`，內容是內部模型產生的數�
 
 ### Papers
 
+- Noga Alon et al. [Remarks on the disproof of the unit distance conjecture](https://cdn.openai.com/pdf/74c24085-19b0-4534-9c90-465b8e29ad73/unit-distance-remarks.pdf)
 - [A Proof of the Cycle Double Cover Conjecture](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf)
 - [Prompt used for "A Proof of the Cycle Double Cover Conjecture"](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_prompt.pdf)
 - [Ten advances in mathematics and theoretical computer science](https://cdn.openai.com/pdf/ten-proofs-oai.pdf), [reasoning walkthroughs](https://cdn.openai.com/pdf/reasoning-walkthroughs.pdf)
