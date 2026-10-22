@@ -41,7 +41,7 @@ openai/math
 
 ## 領域分佈
 
-把 372 個 families 分成 17 個領域，以下依目錄順序列出。
+把 372 個 families 分成 17 個領域，以下依 catalog 順序列出。
 
 | 領域 | Families | 編號範圍 |
 |---|---|---|
