@@ -78,8 +78,7 @@ openai/math
 
 ### Theoretical computer science
 
-- #109 Integer multiplication below $n\log n$
-  - [preprint](https://github.com/openai/math/tree/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026)
+- #109 Integer multiplication below $n\log n$ {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026" label="preprint" aria_label="preprint: Integer multiplication below n log n on GitHub" %}
   - [CrocSwap integer-mult-bounds]({{ '/articles/Math/ai/openai/integer-mult-bounds/' | relative_url }})
 
 ## References
