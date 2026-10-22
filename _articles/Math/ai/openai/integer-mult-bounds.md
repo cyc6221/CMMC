@@ -10,9 +10,11 @@ CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/Cr
 {% include math/ai/repo-stats.html repo="CrocSwap/integer-mult-bounds" %}
 <script defer src="{{ '/assets/js/repo-stats.js' | relative_url }}"></script>
 
-它是改進 OpenAI Math Result #109 的社群專案。#109 給出整數乘法的 deterministic 時間界 $O(n(\log n)^{1-\kappa})$，其中 $\kappa=2^{-182}$。專案保留 #109 的框架，優化其中的有限建構、遞迴成本帳與 packing 等環節，把 $\kappa$ 往上推。專案於 2026 年 10 月 7 日建立，由 Douglas Colkitt 維護，成果以 PR 形式由社群貢獻，經 maintainer review 後整合。
+integer-mult-bounds 是改進 openai/math Result #109 的社群專案，建立於 2026 年 10 月 7 日。
 
-多數進展不是全新的整數乘法演算法，而是在同一個框架內改善個別瓶頸。專案進展很快，本文內容更新至 {{ crocswap.as_of | date: "%Y 年 %-m 月 %-d 日" }}，其中的狀態與 $\kappa$ 以此為準。
+#109 給出整數乘法的 deterministic 時間界 $O(n(\log n)^{1-\kappa})$，其中 $\kappa=2^{-182}$。專案保留 #109 的框架，優化其中的有限建構、遞迴成本帳與 packing 等環節，把 $\kappa$ 往上推。
+
+本文內容更新至 {{ crocswap.as_of | date: "%Y 年 %-m 月 %-d 日" }}，其中的狀態與 $\kappa$ 以此為準。
 
 ## OpenAI #109
 
