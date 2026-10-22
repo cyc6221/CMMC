@@ -466,7 +466,16 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
   </tbody>
 </table>
 
-Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Open 表示尚未進入 `main`。Candidate 是 merge 後但未升為 selected 的 conditional 宣稱，merge 時 $\kappa$ 高於當時的 selected，現在都不高於 #4470。Reviewed checkpoint 是已有 maintainer review、但未升為 selected 的 candidate。Maintainer review 是專案維護者的 AI 協助 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。
+<div class="remark">
+<strong>Remark.</strong>
+<ul>
+<li><strong>Merged</strong>：PR 已進入 <code>main</code>。不表示升為 selected，也不表示數學上已被獨立驗證。</li>
+<li><strong>Open</strong>：尚未進入 <code>main</code>。</li>
+<li><strong>Candidate</strong>：merge 後但未升為 selected 的 conditional 宣稱。merge 時 $\kappa$ 高於當時的 selected，現在都不高於 #4470。</li>
+<li><strong>Reviewed checkpoint</strong>：已有 maintainer review、但未升為 selected 的 candidate。</li>
+<li><strong>Maintainer review</strong>：專案維護者的 AI 協助 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。</li>
+</ul>
+</div>
 
 ## 技術
 
