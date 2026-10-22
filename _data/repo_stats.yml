@@ -29,3 +29,6 @@
 - repo: deepseek-ai/DeepSeek-Prover-V2
   count: 2
   date: "2025-07-18"
+- repo: openai/ten-proofs
+  count: 1
+  date: "2026-08-02"
