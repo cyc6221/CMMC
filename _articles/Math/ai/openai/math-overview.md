@@ -16,18 +16,16 @@ openai/math <a class="gh-link" href="https://github.com/openai/math" target="_bl
 
 ```text
 openai/math
-├── README.md                  
+├── README.md
 ├── overview.pdf               # 372 families, grouped by discipline
 ├── overview.tex               # LaTeX source of overview.pdf
 ├── CONTENTS.md                # manuscript map
 ├── history.md                 # withdrawals, fixes, new formalizations
 ├── LICENSE                    # Apache-2.0
 ├── preprints/                 # one directory per manuscript
-│   └── <title>-<date>/        # paper.pdf, README.md, build/
 ├── lean/                      # Lean library
 │   ├── OAI/                   # formalizations, by subject
-│   ├── formalization.yaml     # manuscript <-> Lean <-> verification config
-│   └── ComparatorChallenges/  # Comparator checking instructions
+│   └── formalization.yaml     # manuscript <-> Lean <-> verification config
 └── reasoning_traces/          # abridged reasoning summaries (10 PDFs)
 ```
 
@@ -66,7 +64,9 @@ openai/math
 
 - 撤回 3 份 manuscripts：其中一篇有 sign error，另兩篇依賴它的構造。
 - 修訂 14 份 manuscripts：包含 proof repairs、statement 修正與依賴關係的釐清。
+- 另有 13 份 manuscripts 更新引用與版本日期，以引用修訂後的相關論文。
 - 新增 6 個 formalizations。
+- 另新增 5 項支持性結果的形式化材料。
 
 ## family
 
