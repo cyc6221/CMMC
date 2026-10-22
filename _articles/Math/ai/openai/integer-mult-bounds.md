@@ -81,7 +81,7 @@ Selected result 為 zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bou
 
 驗證方面，maintainer 以全新的 23-stage sequential replay 比對 59 個重新產生的 artifact，並對變動的 compiler、native lift、delayed BIT cover 與 outer-transfer 介面做 AI 協助的 mathematical review。Ryanson Jonathan 的 [#4404](https://github.com/CrocSwap/integer-mult-bounds/pull/4404) 另以獨立實作做了 exact flow / rank audit。
 
-PR #4359 之後，#4405、#4412、#4414、#4416 已 merge 進 `main`，把 conditional $\kappa$ 推到 $0.00268647$；#4440 至 #4470 也已 merge，再推到 $0.00302015$。它們都不是 selected result，仍待 maintainer review。Selected 與 candidate 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
+PR #4359 之後，#4405、#4412、#4414、#4416 已 merge 進 `main`，把 conditional $\kappa$ 推到 $0.00268647$；#4440 至 #4470 也已 merge，再推到 $0.00302015$。它們都不是 selected result，在專案 ledger 中的狀態是 partially reviewed（範圍有限的 review 與 triage）。Selected 與 candidate 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
 
 ## $\kappa$ 的里程碑
 
@@ -277,7 +277,7 @@ PR 列出的後續問題包括：把整條論證當作一個整體做外部 revi
 
 ### #4440 至 #4470：p16 / p17 candidate
 
-以下都已 merge，但仍標示為 author-checked conditional，selected 不變，尚待 maintainer review。
+以下都已 merge，在 ledger 中是 partially reviewed，但 $\kappa$ 仍是 author-checked 的 conditional 宣稱，selected 不變。
 
 - [#4440](https://github.com/CrocSwap/integer-mult-bounds/pull/4440)（$\kappa=0.00296$，比 #4416 高 10.18%）：p7 controller 在只需要一份 copied rank-one query shear 的地方，付了完整的 stage 與 idle transform。#4440 把這些 call 換成 query shear，並扣掉因此失去的 productive helper。Complex word 有 17 組 pair、19 個 full native call 與 16 個 query shear；另有一條 16-pair 的 BIT word，ordinary saving 為 $0.0034$。
 - [#4441](https://github.com/CrocSwap/integer-mult-bounds/pull/4441)（$\kappa=0.00300105$）：對 #4440 的 19 個 full native call 套用 helper retiming，paid call 由 72,902 降為 69,273。
