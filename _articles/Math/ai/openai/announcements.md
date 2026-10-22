@@ -15,15 +15,70 @@ OpenAI 官方在「AI 做數學」這條線上的主要公告，按時間排列�
 
 OpenAI 首次公開宣布內部模型推翻一個離散幾何的核心猜想：平面上的 unit distance problem。
 
-### 問題
+### Problem
 
-Erdős 在 1946 年提出：平面上 $n$ 個點中，距離恰為 $1$ 的點對最多有幾個？把最大值記為 $u(n)$。方格點構造給出 $u(n)\ge n^{1+c/\log\log n}$，已知最佳上界是 $u(n)=O(n^{4/3})$（Spencer–Szemerédi–Trotter）。長期的看法是方格構造本質上已是最佳，即 $u(n)=n^{1+O(1/\log\log n)}$。
+<div class="definition">
+<strong>Planar unit distance problem</strong>
+If you place $n$ points in the plane, how many pairs of points can be exactly distance $1$ apart? Write $u(n)$ for the maximum.
+</div>
+
+Erdős 在 1946 年提出這個問題。方格點構造給出 $u(n)\ge n^{1+c/\log\log n}$，已知最佳上界是 $u(n)=O(n^{4/3})$（Spencer–Szemerédi–Trotter）。長期的看法是方格構造本質上已是最佳，即 $u(n)=n^{1+O(1/\log\log n)}$。
 
 ### 公告內容
 
-- 模型給出無窮多組例子，使下界相對 Erdős 的原始下界有 polynomial 量級的改進。這與 $u(n)=n^{1+O(1/\log\log n)}$ 相矛盾，表示方格構造並非最佳。
+- 模型給出 "an infinite family of examples that yield a polynomial improvement"，即下界相對 Erdős 的原始下界有 polynomial 量級的改進。這與 $u(n)=n^{1+O(1/\log\log n)}$ 相矛盾，表示方格構造並非最佳。
 - 證明由一組外部數學家檢查，他們另外寫了一篇 companion paper 說明論證與意義。
 - 證明來自一個新的 general-purpose reasoning model。OpenAI 說明它不是專為數學訓練的模型，沒有針對證明策略搜尋做 scaffolding，也不是針對這個問題設計。
+
+## 2026-07-10
+
+**A Proof of the Cycle Double Cover Conjecture** [原文](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf)
+
+openai/cdc-lean <a class="gh-link" href="https://github.com/openai/cdc-lean" target="_blank" rel="noopener noreferrer" aria-label="openai/cdc-lean on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>GitHub</a>
+
+{% include math/ai/repo-stats.html repo="openai/cdc-lean" %}
+
+OpenAI 發表 cycle double cover conjecture 的證明。這個猜想由 Tutte、Itai 與 Rodeh、Szekeres、Seymour 先後提出，長期懸而未決。這次發表的形式是一篇三頁的論文加上 Lean 形式化，不是部落格文章。
+
+### Statement
+
+<div class="definition">
+<strong>Cycle double cover</strong>
+A cycle double cover of a graph is a multiset of cycles in which every edge occurs exactly twice.
+</div>
+
+<div class="theorem">
+<strong>Theorem 1.1</strong>
+Every finite bridgeless undirected graph has a cycle double cover.
+</div>
+
+圖允許平行邊，兩條平行邊視為一個 cycle。
+
+### 證明概要
+
+- 先化約到 loopless cubic graphs（Jaeger）。
+- 由 8-flow theorem（Kilpatrick、Jaeger）與 Tutte 的 group-flow theorem，每個 bridgeless graph 都有 nowhere-zero $\Gamma=\mathbb{F}_2^3$-flow。
+- 關鍵的化約是下面的引理，它是 proper 3-edge-colouring 的放寬版本。
+
+<div class="lemma">
+<strong>Lemma 2.1</strong>
+Let $G$ be a loopless cubic multigraph. Suppose that every edge $e$ is assigned a two-element set $P_e\subseteq\Gamma$ such that, for every $v\in V(G)$ and $s\in\Gamma$, $\#\{e\ni v: s\in P_e\}\in\{0,2\}$. Then $G$ has a cycle double cover.
+</div>
+
+- 要構造這些 $P_e$，等價於解一個 $\mathbb{F}_2$ 上的線性方程組。證明用對偶性說明方程組必有解，是一個初等的線性代數論證。
+
+### 產生方式
+
+論文中的 statement of AI use：
+
+> The proof in this note is entirely due to GPT 5.6 Sol Ultra and the writeup with Codex (with GPT 5.6 Sol).
+
+OpenAI 另外公開了給模型的完整 prompt。Prompt 要求完整解決這個猜想，不接受部分進展，指示以多個 agents 搜尋（最多 64 個並行），並至少花 8 小時才可返回。
+
+### 驗證
+
+- `openai/cdc-lean` 以 Lean 對有限、無 loop、無 bridge 的 multigraph 做 kernel check，終點是 `CDCLean.cycleDoubleCover_of_bridgeless`，其中也形式化了 Jaeger–Kilpatrick 的 eight-flow theorem。`CDCLean/Audit.lean` 的審計應只列出 `propext`、`Classical.choice` 與 `Quot.sound`。
+- Jim Geelen（arXiv:2607.15399，7 月 16 日）與 Sang-il Oum（arXiv:2607.16356，7 月 17 日）各自寫了說明。Johannes Carmesin 在 Matroid Union 的文章中表示證明正確，並提到除了 OpenAI 的版本，還有獨立的 Lean 形式化。
 
 ## 2026-07-29
 
@@ -52,27 +107,85 @@ openai/ten-proofs <a class="gh-link" href="https://github.com/openai/ten-proofs"
 
 OpenAI 一次公布 10 項數學與理論資工成果，每項都解決或大幅推進一個 long-standing open problem。結果來自 Astra 的一個內部版本，OpenAI 稱 Astra 為 next major model，尚未釋出。這是 10 月 `openai/math` 大規模公開之前的一次集中發布。
 
-### 十項成果
+### The results
 
-| 領域 | 結果 | Lean 檔案 |
+| Topic | Result | Lean file |
 |---|---|---|
-| Sphere packing | 高維球填充密度的新上界，達到 Cohn–Elkies threshold | `SpherePacking.lean` |
-| Coding theory | Binary codes 在每個最小距離下的上界有指數級改進，spherical codes 有對應的界 | `MetricCodes.lean` |
-| Group theory | 構造出 non-sofic group，回答是否每個群都有 finite permutation approximations | `NonSoficGroup.lean` |
-| Operator algebras | Connes's rigidity conjecture 的反例：某些群並不由其 group von Neumann algebra 決定 | `ConnesRigidity.lean` |
-| Arithmetic circuit complexity | Permanent 在 arithmetic circuits 與 formulas 上的新下界，包括 $n^4/\log n$ 的 formula 下界 | `Permanent.lean` |
-| Quantum information | 任意有限兩人量子遊戲的 exponential parallel repetition | `QuantumParallelRepetition.lean` |
-| Lattices | Closest vector problem 的 polynomial-factor hardness of approximation | `GapCVP.lean` |
-| Convex and lattice geometry | Ehrhart's volume conjecture：質心是唯一內部格點的凸體，其最大體積在每個維度下的 sharp 值 | `EhrhartVolumeInequality.lean` |
-| Combinatorics | Multicolor triangle Ramsey numbers 的 superexponential 下界，解決 Erdős problem 183 | `MulticolorTriangleRamsey.lean` |
-| Extremal graph theory | Compactness 與 degeneracy 猜想的反例，解決 Erdős problems 146 與 180 | `CompactnessAndDegeneracy.lean` |
+| High-dimensional sphere packing | Improved asymptotic upper bounds on sphere-packing density, reaching the Cohn–Elkies threshold. | `SpherePacking.lean` |
+| Binary and spherical codes | Exponentially stronger upper bounds for binary codes at every minimum distance, together with corresponding bounds for spherical codes. | `MetricCodes.lean` |
+| Non-sofic groups | A construction of a non-sofic group, resolving whether every group admits finite permutation approximations. | `NonSoficGroup.lean` |
+| Connes's rigidity conjecture | A counterexample to the conjecture that certain groups are determined by their group von Neumann algebras. | `ConnesRigidity.lean` |
+| Arithmetic circuit complexity | New lower bounds for computing the permanent with arithmetic circuits and formulas, including an $n^4 / \log n$ formula lower bound. | `Permanent.lean` |
+| Quantum parallel repetition | Exponential parallel repetition for arbitrary finite, two-player quantum games. | `QuantumParallelRepetition.lean` |
+| Closest vector problem | Polynomial-factor hardness of approximation for the closest vector problem, with related consequences for decoding and lattice problems. | `GapCVP.lean` |
+| Ehrhart's volume conjecture | The sharp maximum volume in every dimension for a convex body whose centroid is its only interior lattice point. | `EhrhartVolumeInequality.lean` |
+| Multicolor Ramsey numbers | A superexponential lower bound for multicolor triangle Ramsey numbers, resolving Erdős problem 183. | `MulticolorTriangleRamsey.lean` |
+| Extremal number conjectures | Counterexamples to the compactness and degeneracy conjectures in extremal graph theory, resolving Erdős problems 146 and 180. | `CompactnessAndDegeneracy.lean` |
 
 ### 驗證與成本
 
 - 每項結果都附 Lean 證明，收錄於 `openai/ten-proofs`，每項一個 `.lean` 檔，`lake build All` 可一次編譯全部。
-- 另外公布手稿與模型推理過程的敘述。
+- 另外公布論文與模型推理過程的 walkthroughs。
 - 數學論證由模型產生，人類與同一個模型合作，把論證整理成手稿。
 - OpenAI 估計，以 Sol API 價格計，找出這十個解的 token 成本約 2,000 美元，不含訓練成本。
+
+## 2026-09-03
+
+**GPT-6 Astra: A new generation of intelligence** [原文](https://openai.com/index/gpt-6-astra/)
+
+這是 GPT-6 Astra 的發表，不是數學專文。發表同時公布兩篇質數間隔的論文，證明都歸給 GPT 6 Astra，各有一個 Lean repo。以下只整理數學的部分。
+
+### Short gaps
+
+**Improved Short Gaps Between Primes** [論文](https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/short_gaps.pdf)
+
+openai/PrimeGaps186 <a class="gh-link" href="https://github.com/openai/PrimeGaps186" target="_blank" rel="noopener noreferrer" aria-label="openai/PrimeGaps186 on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>GitHub</a>
+
+{% include math/ai/repo-stats.html repo="openai/PrimeGaps186" %}
+
+<div class="definition">
+<strong>Admissible tuples and DHL</strong>
+A set of distinct integers is admissible if it omits a residue class modulo every prime. Write $\mathrm{DHL}[k,j]$ for the assertion that every admissible $k$-tuple has infinitely many translates containing at least $j$ primes. Write $H_m:=\liminf_{n\to\infty}(p_{n+m}-p_n)$, where $p_n$ is the $n$th prime.
+</div>
+
+<div class="theorem">
+<strong>Theorem 1.1</strong>
+The assertion $\mathrm{DHL}[40,2]$ holds.
+</div>
+
+<div class="theorem">
+<strong>Corollary 1.2</strong>
+We have $H_1\le 186$.
+</div>
+
+- 論文的 abstract 寫成 $\liminf_{n\to\infty}(p_{n+1}-p_n)\le 186$。論文所附的 40 個元素的 admissible set 直徑為 186，所以 Theorem 1.1 推出 Corollary 1.2。孿生質數猜想是 $H_1=2$，仍未解決。
+- 先前的 unconditional 紀錄是 Polymath 8b 的 $H_1\le 246$。論文提到同時期 Stadlmann 獨立證明了 $H_1\le 240$。
+- 方法：結合 Polymath 8a 與 Stadlmann 的 equidistribution estimates，再用互補的 factorization conditions，使相關的乘積成為 triply densely divisible。這讓 multidimensional Selberg sieve 可以用更大的 support，配合更好的數值最佳化，得到 $\mathrm{DHL}[40,2]$。
+- Lean 形式化是 **conditional**：依賴數值的 integral 與 cap bounds，以及最終來自 Deligne 的有限體 Riemann hypothesis 結果的 finite-field exponential-sum estimates，共三條明列的 axiom。repo 另附 Python-FLINT 程式，驗證其中的數值界。
+
+### Long gaps
+
+**Improved Long Gaps Between Primes** [論文](https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/long_gaps.pdf)
+
+openai/LongGapsBetweenPrimes <a class="gh-link" href="https://github.com/openai/LongGapsBetweenPrimes" target="_blank" rel="noopener noreferrer" aria-label="openai/LongGapsBetweenPrimes on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>GitHub</a>
+
+{% include math/ai/repo-stats.html repo="openai/LongGapsBetweenPrimes" %}
+
+<div class="definition">
+<strong>Largest prime gap</strong>
+Let $p_n$ denote the $n$th prime and let $G(X)=\max_{p_{n+1}\le X}(p_{n+1}-p_n)$. Write $\log_j$ for the $j$-fold iterated logarithm.
+</div>
+
+<div class="theorem">
+<strong>Theorem 1.1</strong>
+There is an absolute constant $c>0$ such that, for all sufficiently large $X$,
+$$G(X)\ge c\,\frac{\log X\,(\log_2 X)^2\log_4 X}{(\log_3 X)^2}.$$
+</div>
+
+- 這比 Rankin 的界 $G(X)\gg \log X\log_2 X\log_4 X/(\log_3 X)^2$ 多了 $\log_2 X$ 的因子。
+- 論文回顧的脈絡：Westzynthius、Erdős、Rankin 依序推進；Erdős 問 Rankin 界的常數能否任意大，並為此開出 10,000 美元的獎金，Maynard 與 Ford–Green–Konyagin–Tao 各自獨立證明；之後 Ford–Green–Konyagin–Maynard–Tao 給出定量的界；GPT 5.6 Sol 在 Erdős Problems 網站（Problem #4）上貼出的論證給出更強的界。這篇論文再往前推進。
+- 證明的主要輸入是 Proposition 1.2（short translates），再套用 Erdős–Rankin 的構造。
+- repo 含有 Theorem 1.1 的完整 Lean 證明 `LongGapsBetweenPrimes.lean`，沒有標示為 conditional。
 
 ## 2026-09-06
 
@@ -95,12 +208,24 @@ OpenAI 指出，AI 研究是有許多瓶頸的複雜過程，整體進展不一�
 
 **On the Navier–Stokes Millennium Prize Problem** [原文](https://openai.com/index/navier-stokes-solution/)
 
+openai/NavierStokesAndEuler <a class="gh-link" href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener noreferrer" aria-label="openai/NavierStokesAndEuler on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>GitHub</a>
+
+{% include math/ai/repo-stats.html repo="openai/NavierStokesAndEuler" %}
+
 OpenAI 宣布內部模型給出一個證明，顯示三維 Navier–Stokes 方程描述的流體運動可以在有限時間內產生 singularity。OpenAI 同時公開證明的 writeup 與 Lean formalization。
 
 ### 宣稱的內容
 
-- 初始狀態是靜止的光滑流體，外力為光滑函數，能量有限；解在有限時間內 blow up。
-- 這是對全域光滑性的否定，不是證明。OpenAI 說明結果對應 Clay 問題陳述中的 (C)，也對應 (D)。
+<div class="theorem">
+<strong>Navier–Stokes</strong>
+For every positive viscosity, we prove two results:
+<ul>
+<li><strong>Whole space $\mathbb{R}^3$:</strong> There exist smooth initial data and forcing for which no global smooth solution with uniformly bounded kinetic energy exists.</li>
+<li><strong>Periodic torus $\mathbb{R}^3/\mathbb{Z}^3$:</strong> There exist smooth periodic initial data and forcing for which no global smooth solution exists.</li>
+</ul>
+</div>
+
+這是對全域光滑性的否定，不是證明。兩個結果分別對應 Clay 問題陳述中的 (C) 與 (D)。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -111,6 +236,20 @@ Clay 的官方問題有四個版本：(A)、(B) 是無外力時，$\mathbb{R}^3$
 <strong>Remark.</strong>
 Lean 檢查的是形式化之後的陳述。形式化的陳述是否忠實對應 Clay 問題，需要另外對照。
 </div>
+
+### Euler 方程
+
+`openai/NavierStokesAndEuler` 另外收錄第二篇論文 *Finite time blowup for the Euler equation* 的 Lean formalization。
+
+<div class="theorem">
+<strong>Euler</strong>
+We construct smooth, compactly supported, divergence-free initial velocity on $\mathbb{R}^3$ whose solution to the unforced incompressible Euler equations develops a singularity in finite time. The velocity's $C^1$ norm becomes unbounded near that time, and the time integral of the vorticity's $L^\infty$ norm diverges.
+</div>
+
+### 驗證
+
+- 兩篇論文的結果都以 Lean 4 形式化，用 Lake 與 Mathlib 編譯。
+- 獨立檢查可用 Comparator，說明在 repo 的 `ComparatorChallenges/README.md`。
 
 ## 2026-09-21
 
@@ -167,24 +306,24 @@ OpenAI 正式大規模釋出 `openai/math`，內容是內部模型產生的數�
 
 - 絕大多數結果用同一套流程，由尚未釋出的內部模型產生。平均每項結果使用三小時的 ChatGPT Pro thinking compute。
 - 評測期間模型被問了約 4,000 個問題，整理成 families 與 manuscripts，並要求達到一定的重要性，得到上述 catalog。
-- 例外是 Riemann zeta function 的 zero-free region，以及 CM abelian varieties 上的 Hodge Conjecture 的證明。其中 $\operatorname{Re}(s)>11/12$ 的 zero-free region 的 writeup 經人工編輯，以提升可讀性。
+- 例外是 a zero-free region for the Riemann zeta function，以及 the Hodge Conjecture for CM abelian varieties 的證明。其中 $\operatorname{Re}(s)>11/12$ 的 zero-free region 的 writeup 經人工編輯，以提升可讀性。
 
 ### Reasoning summaries
 
 另外釋出十個 families 的 abridged reasoning summaries：
 
-| Family | 主題 |
+| Family | Subject |
 |---|---|
-| 007 | Multiplicative functions 的 ordinary two-point correlations |
-| 017 | $\pi$ 的 irrationality exponent |
-| 087 | Symmetric 與 general Mahler conjectures |
-| 102 | 基本 semidefinite threshold 處的 ordinary NP-hardness |
-| 159 | Arithmetic progressions 的 quasipolynomial bounds |
-| 197 | 特徵 2 下的 Kaplansky direct-finiteness conjecture |
-| 221 | Diluted spin glasses 的 Mézard–Parisi formula |
-| 271 | Quantum Heisenberg ferromagnet 的 spontaneous magnetization |
-| 287 | Free group factors 的 isomorphism |
-| 362 | 三維 relativistic Vlasov–Maxwell system |
+| 007 | Ordinary two-point correlations of multiplicative functions |
+| 017 | The irrationality exponent of $\pi$ |
+| 087 | Symmetric and general Mahler conjectures |
+| 102 | Ordinary NP-hardness at the basic semidefinite threshold |
+| 159 | Quasipolynomial bounds for arithmetic progressions |
+| 197 | Kaplansky's direct-finiteness conjecture in characteristic two |
+| 221 | The Mézard–Parisi formula for diluted spin glasses |
+| 271 | Spontaneous magnetization in the quantum Heisenberg ferromagnet |
+| 287 | Isomorphism of free group factors |
+| 362 | The three-dimensional relativistic Vlasov–Maxwell system |
 
 ### 公開方式
 
@@ -201,15 +340,36 @@ OpenAI 正式大規模釋出 `openai/math`，內容是內部模型產生的數�
 - [An OpenAI model has disproved a central conjecture in discrete geometry](https://openai.com/index/model-disproves-discrete-geometry-conjecture/)
 - [Accelerating scientific discovery with ChatGPT for Academic Researchers](https://openai.com/index/chatgpt-for-academic-researchers/)
 - [Ten advances in mathematics and theoretical computer science](https://openai.com/index/ten-advances-in-mathematics/)
+- [GPT-6 Astra: A new generation of intelligence](https://openai.com/index/gpt-6-astra/)
 - [Research acceleration: The view inside OpenAI](https://openai.com/index/research-acceleration-view-inside-openai/)
 - [On the Navier–Stokes Millennium Prize Problem](https://openai.com/index/navier-stokes-solution/)
 - [Advisory Group on Mathematics and Artificial Intelligence](https://openai.com/index/advisory-group-on-mathematics-and-ai/)
 - [Sharing AI progress in mathematics](https://openai.com/index/sharing-ai-progress-in-mathematics/)
 
+### Papers
+
+- [A Proof of the Cycle Double Cover Conjecture](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf)
+- [Prompt used for "A Proof of the Cycle Double Cover Conjecture"](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_prompt.pdf)
+- [Ten advances in mathematics and theoretical computer science](https://cdn.openai.com/pdf/ten-proofs-oai.pdf), [reasoning walkthroughs](https://cdn.openai.com/pdf/reasoning-walkthroughs.pdf)
+- [Improved Short Gaps Between Primes](https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/short_gaps.pdf), [abridged chain of thought](https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/short_gaps_abridged_cot.pdf)
+- [Improved Long Gaps Between Primes](https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/long_gaps.pdf), [abridged chain of thought](https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/long_gaps_abridged_cot.pdf)
+- [Finite time blowup for Navier–Stokes](https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf)
+- [Finite time blowup for the Euler equation](https://cdn.openai.com/pdf/315b36cd-ec98-4023-8342-93345194ece1/euler.pdf)
+
 ### Repositories
 
 - [openai/math](https://github.com/openai/math)
 - [openai/ten-proofs](https://github.com/openai/ten-proofs)
+- [openai/NavierStokesAndEuler](https://github.com/openai/NavierStokesAndEuler)
+- [openai/cdc-lean](https://github.com/openai/cdc-lean)
+- [openai/PrimeGaps186](https://github.com/openai/PrimeGaps186)
+- [openai/LongGapsBetweenPrimes](https://github.com/openai/LongGapsBetweenPrimes)
+
+### Cycle double cover
+
+- Jim Geelen. *OpenAI's proof of the Cycle Double Cover Theorem*. [arXiv:2607.15399](https://arxiv.org/abs/2607.15399)
+- Sang-il Oum. *A proof of the cycle double cover conjecture by OpenAI: An exposition*. [arXiv:2607.16356](https://arxiv.org/abs/2607.16356)
+- Johannes Carmesin. [The cycle double cover theorem](https://matroidunion.org/?p=6255). Matroid Union
 
 ### Advisory group
 
