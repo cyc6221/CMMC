@@ -93,7 +93,7 @@ Selected result 為 Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-
 
 PR #4359 之後，#4405、#4412、#4414、#4416、#4440 至 #4470，以及 10 月 22 日 merge 的 #4535、#4568、#4610、#4626 與 #4672 都已進入 `main`。其中只有 #4470 是 selected result；#4416 是已有 maintainer review 的 checkpoint，其餘是 candidate。專案 ledger 把 #4359、#4416、#4470 與 #4610 等 PR 的 intake 狀態都記為 partially reviewed，指範圍有限的 review 與 triage，與是否 selected 無關。#4610 的範圍是檢查 Git inventory、語法與宣告的 source pin，作者的科學證據沒有被獨立重放，所以這個狀態不等於 maintainer review。#4483 與 #4507 這類 compiler 大小的改進不是 selection 的前提，另案 review。
 
-[#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610) 把 $\kappa$ 推到 $0.0030217758$，已於 10 月 22 日 merge，是目前最高的 candidate；較早的 [#4535](https://github.com/CrocSwap/integer-mult-bounds/pull/4535) 與 [#4568](https://github.com/CrocSwap/integer-mult-bounds/pull/4568) 為 $0.003020165$ 與 $0.00302016597$。它們都沒有 maintainer review，也都沒有升為 selected。目前沒有 $\kappa$ 更高的 open claim。Selected 與 candidate 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
+[#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610) 把 $\kappa$ 推到 $0.0030217758$，已於 10 月 22 日 merge，是目前 Turing machine 的 $\kappa$ 最高的 candidate；較早的 [#4535](https://github.com/CrocSwap/integer-mult-bounds/pull/4535) 與 [#4568](https://github.com/CrocSwap/integer-mult-bounds/pull/4568) 為 $0.003020165$ 與 $0.00302016597$。它們都沒有 maintainer review，也都沒有升為 selected。目前沒有 $\kappa$ 更高的 open claim。Selected 與 candidate 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
 
 ## $\kappa$ 的里程碑
 
@@ -468,7 +468,7 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
   </tbody>
 </table>
 
-Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Candidate 是 merge 後但未升為 selected 的 conditional 宣稱，merge 時 $\kappa$ 高於當時的 selected。#4535 起的 candidate 的 $\kappa$ 已高於 #4470，但都沒有 maintainer review。Reviewed checkpoint 是已有 maintainer review、但未升為 selected 的 candidate。Maintainer review 是專案維護者的 AI 協助 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。
+Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Open 表示尚未進入 `main`。Candidate 是 merge 後但未升為 selected 的 conditional 宣稱，merge 時 $\kappa$ 高於當時的 selected。#4535 起的 candidate 的 $\kappa$ 已高於 #4470，但都沒有 maintainer review。Reviewed checkpoint 是已有 maintainer review、但未升為 selected 的 candidate。Maintainer review 是專案維護者的 AI 協助 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。
 
 ## 技術
 
