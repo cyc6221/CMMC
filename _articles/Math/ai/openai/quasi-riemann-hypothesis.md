@@ -49,7 +49,9 @@ Every finite-order Hecke $L$-function over $K$ has no zeros in the half-plane $\
 
 <div class="remark">
 <strong>Remark.</strong>
-Theorem 1.1 是 $\mathrm{Re}(s)>7/8$ 證明中的一個中間步驟，另外單獨成文。“Additionally, the writeup for the Re(s) > 11/12 zero-free region for the Riemann zeta function was human edited for readability.”
+“Theorem 1.1 is a natural intermediate step toward the stronger zero-free region Re s > 7/8 established in [36, Theorem 1.1]. For simplicity, we have isolated Theorem 1.1 and its proof here.”
+
+“Additionally, the writeup for the Re(s) > 11/12 zero-free region for the Riemann zeta function was human edited for readability.”
 </div>
 
 ### Landau–Siegel zeros
@@ -64,7 +66,34 @@ $$(1-\beta)\log q\ge c.$$
 
 ## 驗證狀態
 
-openai/math 的結果處於不同的驗證階段，沒有 formalization 的結果可能有問題。#003 在 repo 中有對應的 Lean formalization {% include gh-link.html href="https://github.com/openai/math/blob/main/lean/docs/003.md" label="docs" aria_label="Lean docs: 003 on GitHub" %}，涵蓋 7/8 的結果（Dirichlet 與 Hecke $L$-function）與 Landau–Siegel zeros，不含 11/12 的證明。
+openai/math 的結果處於不同的驗證階段，沒有 formalization 的結果可能有問題。#003 在 repo 中有對應的 Lean formalization {% include gh-link.html href="https://github.com/openai/math/blob/main/lean/docs/003.md" label="docs" aria_label="Lean docs: 003 on GitHub" %}，對應的論文是 7/8 主文與 Landau–Siegel zeros 的 preprint。下表為 repo 給的 Comparator statement。
+
+<table class="table-center">
+  <thead>
+    <tr>
+      <th>Result</th>
+      <th>Comparator statement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Riemann zeta $7/8$ bound</td>
+      <td><a href="https://github.com/openai/math/blob/main/lean/ComparatorChallenges/QuasiRiemannHypothesis.lean">QuasiRiemannHypothesis.lean</a></td>
+    </tr>
+    <tr>
+      <td>Dirichlet $L$-function $7/8$ bound</td>
+      <td><a href="https://github.com/openai/math/blob/main/lean/ComparatorChallenges/DirichletSevenEighths.lean">DirichletSevenEighths.lean</a></td>
+    </tr>
+    <tr>
+      <td>Finite-order Hecke $L$-function $7/8$ bound</td>
+      <td><a href="https://github.com/openai/math/blob/main/lean/ComparatorChallenges/HeckeSevenEighths.lean">HeckeSevenEighths.lean</a></td>
+    </tr>
+    <tr>
+      <td>Uniform real-zero gap</td>
+      <td><a href="https://github.com/openai/math/blob/main/lean/ComparatorChallenges/SiegelZeros.lean">SiegelZeros.lean</a></td>
+    </tr>
+  </tbody>
+</table>
 
 ## References
 
