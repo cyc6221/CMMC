@@ -71,6 +71,18 @@
   margin-bottom: 0;
 }
 
+/* 清單項目裡的 strong 是行內詞條，不當區塊標題 */
+.definition li strong,
+.theorem li strong,
+.lemma li strong,
+.proof li strong,
+.example li strong,
+.remark li strong,
+.algorithm li strong {
+  display: inline;
+  margin-bottom: 0;
+}
+
 /* -----------------------------------------------
    個別色系
 ----------------------------------------------- */

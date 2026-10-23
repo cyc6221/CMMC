@@ -10,9 +10,11 @@ CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/Cr
 {% include math/ai/repo-stats.html repo="CrocSwap/integer-mult-bounds" %}
 <script defer src="{{ '/assets/js/repo-stats.js' | relative_url }}"></script>
 
-它是改進 OpenAI Math Result #109 的社群專案。#109 給出整數乘法的 deterministic 時間界 $O(n(\log n)^{1-\kappa})$，其中 $\kappa=2^{-182}$。專案保留 #109 的框架，優化其中的有限建構、遞迴成本帳與 packing 等環節，把 $\kappa$ 往上推。專案於 2026 年 10 月 7 日建立，由 Douglas Colkitt 維護，成果以 PR 形式由社群貢獻，經 maintainer review 後整合。
+integer-mult-bounds 是改進 openai/math Result #109 的社群專案，建立於 2026 年 10 月 7 日，由 Douglas Colkitt 維護。成果以 PR 形式由社群貢獻，經 maintainer review 後整合。
 
-多數進展不是全新的整數乘法演算法，而是在同一個框架內改善個別瓶頸。專案進展很快，本文內容更新至 {{ crocswap.as_of | date: "%Y 年 %-m 月 %-d 日" }}，其中的狀態與 $\kappa$ 以此為準。
+#109 給出整數乘法的 deterministic 時間界 $O(n(\log n)^{1-\kappa})$，其中 $\kappa=2^{-182}$。專案保留 #109 的框架，優化其中的有限建構、遞迴成本帳與 packing 等環節，把 $\kappa$ 往上推。多數進展不是全新的整數乘法演算法，而是在同一個框架內改善個別瓶頸。
+
+本文內容更新至 {{ crocswap.as_of | date: "%Y 年 %-m 月 %-d 日" }}，其中的狀態與 $\kappa$ 以此為準。
 
 ## OpenAI #109
 
@@ -57,43 +59,49 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
       <td>$2^{-182}$</td>
     </tr>
     <tr>
-      <td>更早的 selected：#1094<br>（maintainer-reviewed）</td>
+      <td>Past selected：#1094<br>（maintainer-reviewed）</td>
       <td>$0.001672660197076918\approx 2^{-9.22}$</td>
     </tr>
     <tr>
-      <td>前一個 selected：#4359<br>（maintainer-reviewed）</td>
+      <td>Past selected：#4359<br>（maintainer-reviewed）</td>
       <td>$0.0023>2^{-9}$</td>
     </tr>
     <tr>
-      <td>中間的 reviewed checkpoint：#4416<br>（merged，maintainer 已 review，未升為 selected）</td>
+      <td>#4416<br>（intermediate reviewed checkpoint）</td>
       <td>$0.00268647$</td>
     </tr>
     <tr>
-      <td>Selected：#{{ crocswap.selected.pr }}<br>（merged，maintainer-reviewed）</td>
+      <td>Current selected：#{{ crocswap.selected.pr }}<br>（merged, maintainer-reviewed）</td>
       <td>${{ crocswap.selected.kappa }}$</td>
     </tr>
     <tr>
-      <td>{% if crocswap.highest_claim.state == "open" %}最高 open claim{% else %}最高 candidate{% endif %}：#{{ crocswap.highest_claim.pr }}<br>（{{ crocswap.highest_claim.state }}，尚無 maintainer review）</td>
+      <td>{% if crocswap.highest_claim.state == "open" %}Highest open claim{% else %}Highest candidate{% endif %}：#{{ crocswap.highest_claim.pr }}<br>（{{ crocswap.highest_claim.state }}, no maintainer review）</td>
       <td>${{ crocswap.highest_claim.kappa }}$</td>
     </tr>
   </tbody>
 </table>
 
-更早的 selected 為 Rohan Arun 的 [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)，狀態是 maintainer-reviewed conditional finite construction。它建立在 Jeremy Kothe 的 #1087 packing 與累積的 k8 / slot / T16 建構上，bit supplier 是 DreamingOfClouds 的 #589（建立在 eumemic 的 #555 上）。重放指令為 `make frontier1094-verify`。
+### #1094
 
-前一個 selected 為 zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359)，狀態是 maintainer-reviewed conditional productive-helper construction。它讓 helper 結束時已完成的 transform 成為有用的輸出，並以 Jacob Alan Sussman 的 mixed-target recursion 為直接的概念前驅，承接先前的 complex / native、binary word 與 outer / precision 工作（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-productive4359-contributors.md)）。$\kappa$ 比 #1094 高 37.51%，重放指令為 `make frontier4359-verify`，現在保留為 historical checkpoint。
+Past selected：Rohan Arun 的 [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)，狀態是 maintainer-reviewed conditional finite construction。它建立在 Jeremy Kothe 的 #1087 packing 與累積的 k8 / slot / T16 建構上，bit supplier 是 DreamingOfClouds 的 #589（建立在 eumemic 的 #555 上）。重放指令為 `make frontier1094-verify`。
+
+### #4359
+
+Past selected：zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359)，狀態是 maintainer-reviewed conditional productive-helper construction。它讓 helper 結束時已完成的 transform 成為有用的輸出，並以 Jacob Alan Sussman 的 mixed-target recursion 為直接的概念前驅，承接先前的 complex / native、binary word 與 outer / precision 工作（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-productive4359-contributors.md)）。$\kappa$ 比 #1094 高 37.51%，重放指令為 `make frontier4359-verify`，現在保留為 historical checkpoint。
 
 #4359 的驗證方面，maintainer 以全新的 23-stage sequential replay 比對 59 個重新產生的 artifact，並對變動的 compiler、native lift、delayed BIT cover 與 outer-transfer 介面做 AI 協助的 mathematical review。Ryanson Jonathan 的 [#4404](https://github.com/CrocSwap/integer-mult-bounds/pull/4404) 另以獨立實作做了 exact flow / rank audit。
 
-Selected result 為 Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)，於 2026 年 10 月 22 日升為 selected，狀態是 maintainer-reviewed conditional joint-helper construction。它同時調整 helper 的 entrance、exit 與 contact frame，再用 query-thinned 的 16-pair controller。它承接 Cinna 自己的 #4416、#4440、#4441、#4447，以及 zxv 的 productive-helper native / compiler 與 Jacob Alan Sussman 的 mixed-target recursion（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-joint4470-contributors.md)）。$\kappa=60403/20000000$，其 exponent saving 比 #4359 的 $0.0023$ 大 31.31%，比 #4416 的 $0.00268647$ 大 12.42%。這些百分比比較的是 exponent saving，不是實測的執行時間。重放指令為 `make frontier4470-verify`。
+### #4470
 
-驗證方面，maintainer 對變動的建構做八個 scoped、serial 的重放（範圍見 #4470 一節）。Source 完全相同的 #4359 與 #4416 foundation review 被明確重用，不重跑。Linux（Python 3.12）上的 hosted CI 通過了 selected 的八段重放，見 [integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/INTEGRATION.json)。
+Current selected：Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)，於 2026 年 10 月 22 日升為 selected，狀態是 maintainer-reviewed conditional joint-helper construction。它同時調整 helper 的 entrance、exit 與 contact frame，再用 query-thinned 的 16-pair controller。它承接 Cinna 自己的 #4416、#4440、#4441、#4447，以及 zxv 的 productive-helper native / compiler 與 Jacob Alan Sussman 的 mixed-target recursion（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-joint4470-contributors.md)）。$\kappa=60403/20000000$，其 exponent saving 比 #4359 的 $0.0023$ 大 31.31%，比 #4416 的 $0.00268647$ 大 12.42%。這些百分比比較的是 exponent saving，不是實測的執行時間。重放指令為 `make frontier4470-verify`。
+
+驗證方面，maintainer 對變動的建構做八個 scoped、serial 的重放（範圍見「近期發展」的「#4440 至 #4470」一節）。Source 完全相同的 #4359 與 #4416 foundation review 被明確重用，不重跑。Linux（Python 3.12）上的 hosted CI 通過了 selected 的八段重放，見 [integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/INTEGRATION.json)。
 
 #4470 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md) 先完成，selection 隨後在同一天（10 月 22 日）完成。Archive 合併、conditional review 與 selection 是三件不同的事；selection 另需一致的 source closure、重放指令與公開狀態更新。
 
-PR #4359 之後，#4405、#4412、#4414、#4416、#4440 至 #4470，以及 10 月 22 日 merge 的 #4535、#4568、#4610、#4626 與 #4672 都已進入 `main`。其中只有 #4470 是 selected result；#4416 是已有 maintainer review 的 checkpoint，其餘是 candidate。專案 ledger 把 #4359、#4416、#4470 與 #4610 等 PR 的 intake 狀態都記為 partially reviewed，指範圍有限的 review 與 triage，與是否 selected 無關。#4610 的範圍是檢查 Git inventory、語法與宣告的 source pin，作者的科學證據沒有被獨立重放，所以這個狀態不等於 maintainer review。#4483 與 #4507 這類 compiler 大小的改進不是 selection 的前提，另案 review。
+### highest candidate: #4610
 
-[#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610) 把 $\kappa$ 推到 $0.0030217758$，已於 10 月 22 日 merge，是目前 Turing machine 的 $\kappa$ 最高的 candidate；較早的 [#4535](https://github.com/CrocSwap/integer-mult-bounds/pull/4535) 與 [#4568](https://github.com/CrocSwap/integer-mult-bounds/pull/4568) 為 $0.003020165$ 與 $0.00302016597$。它們都沒有 maintainer review，也都沒有升為 selected。目前沒有 $\kappa$ 更高的 open claim。Selected 與 candidate 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
+目前 Turing machine 的 $\kappa$ 最高的 candidate 是已於 10 月 22 日 merge 的 [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)，$\kappa=0.0030217758$，沒有 maintainer review。ledger 把它的 intake 狀態記為 partially reviewed，範圍只有 Git inventory、語法與宣告的 source pin，不等於 maintainer review。
 
 ## $\kappa$ 的里程碑
 
@@ -358,8 +366,8 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
     <tr>
       <th>PR</th>
       <th>$\kappa$</th>
-      <th>內容</th>
-      <th>狀態</th>
+      <th>Description</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
@@ -367,108 +375,117 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
       <td>#1094</td>
       <td>0.001672660197</td>
       <td>T16 rare-pattern packing</td>
-      <td>Merged，更早的 selected</td>
+      <td>Merged, past selected</td>
     </tr>
     <tr>
       <td>#2848</td>
       <td>0.001718658508</td>
       <td>T248 cross-replica residue exchange</td>
-      <td>Merged，candidate</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4088</td>
       <td>0.001730979116</td>
       <td>mixed fourth staged entry</td>
-      <td>Merged，candidate</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4100</td>
       <td>0.001730979116</td>
-      <td>proposed unconditional batched-CRT 建構</td>
-      <td>Merged，未經獨立接受</td>
+      <td>proposed unconditional batched-CRT construction</td>
+      <td>Merged, not independently accepted</td>
     </tr>
     <tr>
       <td>#4181</td>
       <td>0.001730980256</td>
-      <td>達到 fixed-word pooled packing ceiling</td>
-      <td>Merged，comparison checkpoint</td>
+      <td>reaches the fixed-word pooled packing ceiling</td>
+      <td>Merged, comparison checkpoint</td>
     </tr>
     <tr>
       <td>#4359</td>
       <td>0.0023</td>
-      <td>productive jobs 與 mixed-to-uniform compiler</td>
-      <td>Merged，前一個 selected</td>
+      <td>productive jobs and mixed-to-uniform compiler</td>
+      <td>Merged, past selected</td>
     </tr>
     <tr>
       <td>#4405</td>
       <td>0.00230509</td>
-      <td>補足 mixed root 的餘裕，縮小 template rank</td>
-      <td>Merged，candidate</td>
+      <td>closes the mixed-root slack, smaller template rank</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4412</td>
       <td>0.00247755</td>
       <td>native tensor strictification</td>
-      <td>Merged，candidate</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4414</td>
       <td>0.00267987</td>
-      <td>完整的 p6 native controller</td>
-      <td>Merged，candidate</td>
+      <td>complete p6 native controller</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4416</td>
       <td>0.00268647</td>
-      <td>p7 controller 與 paid target padding</td>
-      <td>Merged，reviewed checkpoint</td>
+      <td>p7 controller with paid target padding</td>
+      <td>Merged, reviewed checkpoint</td>
     </tr>
     <tr>
       <td>#4440</td>
       <td>0.00296</td>
       <td>query-thinned productive controllers</td>
-      <td>Merged，candidate</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4441</td>
       <td>0.00300105</td>
-      <td>query thinning 加 helper retiming</td>
-      <td>Merged，candidate</td>
+      <td>query thinning plus helper retiming</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4447</td>
       <td>0.00300123</td>
-      <td>補上一個 contact span</td>
-      <td>Merged，candidate</td>
+      <td>adds a missing contact span</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4470</td>
       <td>0.00302015</td>
-      <td>joint helper boundaries 與 p16 controller</td>
-      <td>Selected（10 月 22 日），maintainer-reviewed</td>
+      <td>joint helper boundaries and p16 controller</td>
+      <td>Current selected (Oct 22), maintainer-reviewed</td>
     </tr>
     <tr>
       <td>#4535</td>
       <td>0.003020165</td>
-      <td>critical-root compiler 接在 #4470 的 supplier 上</td>
-      <td>Merged，candidate</td>
+      <td>critical-root compiler on #4470's supplier</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4568</td>
       <td>0.00302016597</td>
-      <td>較小的 outer slack，rank 重設為 $2^{10^{14}}$</td>
-      <td>Merged，candidate</td>
+      <td>smaller outer slack, rank reset to $2^{10^{14}}$</td>
+      <td>Merged, candidate</td>
     </tr>
     <tr>
       <td>#4610</td>
       <td>0.0030217758</td>
-      <td>joint helper interface 與 native map，compiler reserve 收緊</td>
-      <td>Merged，最高 candidate</td>
+      <td>joint helper interfaces and native maps, tighter compiler reserve</td>
+      <td>Merged, highest candidate</td>
     </tr>
   </tbody>
 </table>
 
-Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Open 表示尚未進入 `main`。Candidate 是 merge 後但未升為 selected 的 conditional 宣稱，merge 時 $\kappa$ 高於當時的 selected。#4535 起的 candidate 的 $\kappa$ 已高於 #4470，但都沒有 maintainer review。Reviewed checkpoint 是已有 maintainer review、但未升為 selected 的 candidate。Maintainer review 是專案維護者的 AI 協助 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。
+<div class="remark">
+<strong>Remark.</strong>
+<ul>
+<li><strong>Merged</strong>：PR 已進入 <code>main</code>。不表示升為 selected，也不表示數學上已被獨立驗證。</li>
+<li><strong>Open</strong>：尚未進入 <code>main</code>。</li>
+<li><strong>Candidate</strong>：merge 後但未升為 selected 的 conditional 宣稱。merge 時 $\kappa$ 高於當時的 selected；#4535 起的 candidate 的 $\kappa$ 已高於 #4470，但都沒有 maintainer review。</li>
+<li><strong>Reviewed checkpoint</strong>：已有 maintainer review、但未升為 selected 的 candidate。</li>
+<li><strong>Maintainer review</strong>：專案維護者的 AI 協助 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。</li>
+</ul>
+</div>
 
 ## 技術
 
