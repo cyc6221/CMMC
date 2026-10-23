@@ -10,9 +10,9 @@ CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/Cr
 {% include math/ai/repo-stats.html repo="CrocSwap/integer-mult-bounds" %}
 <script defer src="{{ '/assets/js/repo-stats.js' | relative_url }}"></script>
 
-integer-mult-bounds 是改進 openai/math Result #109 的社群專案，建立於 2026 年 10 月 7 日。
+integer-mult-bounds 是改進 openai/math Result #109 的社群專案，建立於 2026 年 10 月 7 日，由 Douglas Colkitt 維護。成果以 PR 形式由社群貢獻，經 maintainer review 後整合。
 
-#109 給出整數乘法的 deterministic 時間界 $O(n(\log n)^{1-\kappa})$，其中 $\kappa=2^{-182}$。專案保留 #109 的框架，優化其中的有限建構、遞迴成本帳與 packing 等環節，把 $\kappa$ 往上推。
+#109 給出整數乘法的 deterministic 時間界 $O(n(\log n)^{1-\kappa})$，其中 $\kappa=2^{-182}$。專案保留 #109 的框架，優化其中的有限建構、遞迴成本帳與 packing 等環節，把 $\kappa$ 往上推。多數進展不是全新的整數乘法演算法，而是在同一個框架內改善個別瓶頸。
 
 本文內容更新至 {{ crocswap.as_of | date: "%Y 年 %-m 月 %-d 日" }}，其中的狀態與 $\kappa$ 以此為準。
 
@@ -71,7 +71,7 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
       <td>$0.00268647$</td>
     </tr>
     <tr>
-      <td>Current selected：#{{ crocswap.selected.pr }}<br>（merged，maintainer-reviewed）</td>
+      <td>Current selected：#{{ crocswap.selected.pr }}<br>（merged, maintainer-reviewed）</td>
       <td>${{ crocswap.selected.kappa }}$</td>
     </tr>
     <tr>
@@ -95,11 +95,11 @@ Past selected：zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bounds/
 
 Current selected：Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)，於 2026 年 10 月 22 日升為 selected，狀態是 maintainer-reviewed conditional joint-helper construction。它同時調整 helper 的 entrance、exit 與 contact frame，再用 query-thinned 的 16-pair controller。它承接 Cinna 自己的 #4416、#4440、#4441、#4447，以及 zxv 的 productive-helper native / compiler 與 Jacob Alan Sussman 的 mixed-target recursion（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-joint4470-contributors.md)）。$\kappa=60403/20000000$，其 exponent saving 比 #4359 的 $0.0023$ 大 31.31%，比 #4416 的 $0.00268647$ 大 12.42%。這些百分比比較的是 exponent saving，不是實測的執行時間。重放指令為 `make frontier4470-verify`。
 
-驗證方面，maintainer 對變動的建構做八個 scoped、serial 的重放（範圍見 #4470 一節）。Source 完全相同的 #4359 與 #4416 foundation review 被明確重用，不重跑。Linux（Python 3.12）上的 hosted CI 通過了 selected 的八段重放，見 [integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/INTEGRATION.json)。
+驗證方面，maintainer 對變動的建構做八個 scoped、serial 的重放（範圍見「近期發展」的「#4440 至 #4470」一節）。Source 完全相同的 #4359 與 #4416 foundation review 被明確重用，不重跑。Linux（Python 3.12）上的 hosted CI 通過了 selected 的八段重放，見 [integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/INTEGRATION.json)。
 
 #4470 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md) 先完成，selection 隨後在同一天（10 月 22 日）完成。Archive 合併、conditional review 與 selection 是三件不同的事；selection 另需一致的 source closure、重放指令與公開狀態更新。
 
-### open claim
+### open claim: #4610
 
 目前最高的 open claim 是尚未 merge 的 [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)，$\kappa=0.0030217758$，沒有 maintainer review。
 
