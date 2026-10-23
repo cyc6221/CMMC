@@ -91,9 +91,9 @@ Selected result 為 Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-
 
 #4470 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md) 先完成，selection 隨後在同一天（10 月 22 日）完成。Archive 合併、conditional review 與 selection 是三件不同的事；selection 另需一致的 source closure、重放指令與公開狀態更新。
 
-PR #4359 之後，#4405、#4412、#4414、#4416 與 #4440 至 #4470 都已 merge 進 `main`。其中只有 #4470 是 selected result；#4416 是已有 maintainer review 的 checkpoint，其餘是 candidate。專案 ledger 把 #4359、#4416 與 #4470 等 PR 的 intake 狀態都記為 partially reviewed，指範圍有限的 review 與 triage，與是否 selected 無關。#4483 與 #4507 這類 compiler 大小的改進不是 selection 的前提，另案 review。
+PR #4359 之後，#4405、#4412、#4414、#4416、#4440 至 #4470，以及 10 月 22 日 merge 的 #4535、#4568、#4610、#4626 與 #4672 都已進入 `main`。其中只有 #4470 是 selected result；#4416 是已有 maintainer review 的 checkpoint，其餘是 candidate。專案 ledger 把 #4359、#4416、#4470 與 #4610 等 PR 的 intake 狀態都記為 partially reviewed，指範圍有限的 review 與 triage，與是否 selected 無關。#4483 與 #4507 這類 compiler 大小的改進不是 selection 的前提，另案 review。
 
-尚未 merge 的 [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610) 把 $\kappa$ 推到 $0.0030217758$，是目前最高的 open claim；較早的 [#4535](https://github.com/CrocSwap/integer-mult-bounds/pull/4535) 與 [#4568](https://github.com/CrocSwap/integer-mult-bounds/pull/4568) 為 $0.003020165$ 與 $0.00302016597$。它們都沒有 maintainer review。Selected、candidate 與 open claim 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
+[#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610) 把 $\kappa$ 推到 $0.0030217758$，已於 10 月 22 日 merge，是目前最高的 candidate；較早的 [#4535](https://github.com/CrocSwap/integer-mult-bounds/pull/4535) 與 [#4568](https://github.com/CrocSwap/integer-mult-bounds/pull/4568) 為 $0.003020165$ 與 $0.00302016597$。它們都沒有 maintainer review，也都沒有升為 selected。目前沒有 $\kappa$ 更高的 open claim。Selected 與 candidate 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
 
 ## $\kappa$ 的里程碑
 
@@ -314,11 +314,11 @@ Maintainer 隨後在 2026 年 10 月 21 日完成 #4416 與 zxv 的 [#4433](http
 
 [#4455](https://github.com/CrocSwap/integer-mult-bounds/pull/4455) 與 [#4478](https://github.com/CrocSwap/integer-mult-bounds/pull/4478) 分別獨立檢查 p17 這條 PR 鏈與 #4470 的算術，結論為成立。這些 $\kappa$ 都是 conditional construction 的宣稱，不是新的 root 數值。
 
-### #4535 與 #4568：尚未 merge 的 critical-root claim
+### #4535 與 #4568：critical-root claim
 
-兩者皆為 open，沒有 maintainer review。它們不改 #4470 的 native word 與 paid invoice，只換掉 compiler 的 leaf-count 估計，並重設 outer 參數點。
+兩者皆已 merge，沒有 maintainer review。它們不改 #4470 的 native word 與 paid invoice，只換掉 compiler 的 leaf-count 估計，並重設 outer 參數點。
 
-Dillon 的 [#4532](https://github.com/CrocSwap/integer-mult-bounds/pull/4532)（open，no new $\kappa$）證明一個 adaptive gate 的充分條件：moment 有交叉點，且 mirror 在每一點都有嚴格餘裕，就能在恰好的 crossing exponent 處得到 leaf-count 界
+Dillon 的 [#4532](https://github.com/CrocSwap/integer-mult-bounds/pull/4532)（merged，no new $\kappa$）證明一個 adaptive gate 的充分條件：moment 有交叉點，且 mirror 在每一點都有嚴格餘裕，就能在恰好的 crossing exponent 處得到 leaf-count 界
 
 $$L(n)\le A\,n^{\theta}(c+\log n)^p,\qquad n\ge1.$$
 
@@ -331,15 +331,25 @@ Ryanson Jonathan 的 [#4563](https://github.com/CrocSwap/integer-mult-bounds/pul
 
 兩個 PR 都明說：巨大的 word 只由演算法定義、沒有實體化，繼承的 native、physical、analytic 與 recovery 假設仍是前提，不主張實用加速，也不主張變更 selected record。
 
-### #4610：尚未 merge 的 joint helper claim
+### #4610：joint helper claim
 
-[#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)（Cao Yifan，open，沒有 maintainer review，$\kappa=15108879/5000000000=0.0030217758$，比 #4535 高 $1.6108\times10^{-6}$）：沿用 #4470 的 p16 controller，同時調整 helper 的 entrance、scalar contact 與 native map。Paid profile（rank:個數）由 `{1:2201,2:412,3:506,4:135,5:36,8:8}` 改為 `{1:2201,2:412,3:510,4:127,5:40,8:8}`，四組 rank-four 的 paid job 換成 rank-three 與 rank-five 的 pair，改善來自 $4(2\cdot4^t-3^t-5^t)>0$（$0<t<1$）的嚴格凹性。完整 controller 有 64,404 個 paid call 與 10,928 個 productive field。
+[#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)（Cao Yifan，merged，沒有 maintainer review，$\kappa=15108879/5000000000=0.0030217758$，比 #4535 高 $1.6108\times10^{-6}$）：沿用 #4470 的 p16 controller，同時調整 helper 的 entrance、scalar contact 與 native map。Paid profile（rank:個數）由 `{1:2201,2:412,3:506,4:135,5:36,8:8}` 改為 `{1:2201,2:412,3:510,4:127,5:40,8:8}`，四組 rank-four 的 paid job 換成 rank-three 與 rank-five 的 pair，改善來自 $4(2\cdot4^t-3^t-5^t)>0$（$0<t<1$）的嚴格凹性。完整 controller 有 64,404 個 paid call 與 10,928 個 productive field。
 
 最近一次更新保留 native word 與 profile，只把 compiler 的 finite contraction reserve 由 $10^{-9}$ 降到 $10^{-11}$，需要的 frozen rank 為 $N=2^{38569300000000000}$。PR 自述為 conditional construction 的 scoped Lean certificate，不是完整的 Lean 乘法定理，不主張實用加速、獨立的人類 review 或 hosted-CI 重放，也不主張變更 selected record。
 
-同一條線上較低的 open claim 有 hexapode 的 [#4626](https://github.com/CrocSwap/integer-mult-bounds/pull/4626)（$\kappa=0.003021569$，結合 #4610 的 warp geometry 與 helper621 的新 entrance chart），以及 Cinna Davis 的 [#4672](https://github.com/CrocSwap/integer-mult-bounds/pull/4672)（$\kappa=0.00302166$，作者明說不是 frontier advance）。
+同一條線上較低的 candidate 有 hexapode 的 [#4626](https://github.com/CrocSwap/integer-mult-bounds/pull/4626)（$\kappa=0.003021569$，結合 #4610 的 warp geometry 與 helper621 的新 entrance chart），以及 Cinna Davis 的 [#4672](https://github.com/CrocSwap/integer-mult-bounds/pull/4672)（$\kappa=0.00302166$，作者明說不是 frontier advance）。
 
-Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/CrocSwap/integer-mult-bounds/pull/4538) 與 [#4541](https://github.com/CrocSwap/integer-mult-bounds/pull/4541)（open）把 Turing machine 的乘法界轉移到 bounded-word RAM：若 Turing machine 的時間為 $O(n(\log n)^{1-\kappa})$，則 RAM operation 數為 $O(n/(\log n)^{\kappa})$。[#4630](https://github.com/CrocSwap/integer-mult-bounds/pull/4630)、[#4635](https://github.com/CrocSwap/integer-mult-bounds/pull/4635) 與 [#4713](https://github.com/CrocSwap/integer-mult-bounds/pull/4713)（open）改為直接以 native Word RAM 執行，不經 Turing machine 模擬，$\kappa$ 依序為 $0.0030201655$、$0.0030217754$ 與 $0.0030217758$，後兩者轉移 #4610 的 profile，#4713 另證明可以不用 unit-cost DIV。這些都不提高 Turing machine 的 $\kappa$。
+Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/CrocSwap/integer-mult-bounds/pull/4538) 與 [#4541](https://github.com/CrocSwap/integer-mult-bounds/pull/4541)把 Turing machine 的乘法界轉移到 bounded-word RAM：若 Turing machine 的時間為 $O(n(\log n)^{1-\kappa})$，則 RAM operation 數為 $O(n/(\log n)^{\kappa})$。[#4630](https://github.com/CrocSwap/integer-mult-bounds/pull/4630)、[#4635](https://github.com/CrocSwap/integer-mult-bounds/pull/4635) 與 [#4713](https://github.com/CrocSwap/integer-mult-bounds/pull/4713) 改為直接以 native Word RAM 執行，不經 Turing machine 模擬，$\kappa$ 依序為 $0.0030201655$、$0.0030217754$ 與 $0.0030217758$，後兩者轉移 #4610 的 profile，#4713 另證明可以不用 unit-cost DIV。這些都已 merge，都不提高 Turing machine 的 $\kappa$。
+
+### #4610 之後的上界與 coded reverse stage
+
+#4610 之後沒有更高的 $\kappa$，後續 PR 轉向上界與尚未計價的建構，都明說 no new $\kappa$。
+
+- Cinna Davis 的 [#4658](https://github.com/CrocSwap/integer-mult-bounds/pull/4658)：對 #4470、#4610 與 #4626 的 profile，native / thin 的 path-family controller（1 至 64 個 pair、所有 split 與 native stage 子集）在 $C\ge0.003022$ 時全部失敗。這是精確的 complete-invoice 拒絕證明，只涵蓋這個 word 與 interface，不是 controller 的全域上界。
+- [#4696](https://github.com/CrocSwap/integer-mult-bounds/pull/4696)：證明在 #4610 保留的 graph 上，付費的 symmetric-phase 改動無法改善它的 moment。
+- Dugongue 的 [#4929](https://github.com/CrocSwap/integer-mult-bounds/pull/4929) 建構 center-free 的 native producer，以 rank-8 port code $A=I-14P$ 去掉 owned center 上的八個 rank-8 child，paid profile 為 `{1:2201,2:412,3:510,4:127,5:40}`（相對 #4610 少了 `8:8`）；$A$ 的特徵值為 $1$（104 次）與 $-13$（8 次），逆為 $I+(A-I)/13$。[#4933](https://github.com/CrocSwap/integer-mult-bounds/pull/4933) 把它接成 phase-correct 的 coded p16 caller，去掉 144 個 center call；[#4932](https://github.com/CrocSwap/integer-mult-bounds/pull/4932) 證明單一 bank 的 adapter 在 scoped 範圍內有上界。
+- SethBurkart123 的 [#4940](https://github.com/CrocSwap/integer-mult-bounds/pull/4940)：把 controller 以 $A$ 共軛，使所有 reverse stage 成為 center-free 的 backward word，forward stage 成為先經 $A^{-1}$ 混合 source 的 query shear，即 $\text{Coded}=A\cdot\text{Standard}\cdot A^{-1}$，只有 controller 邊界的 x-role 與 thin stage 的 source 需要重新編碼。Repo 的 outer ledger（54 個 strict predicate 與四個 functional guard）接受到 $\kappa=0.0033999971$ 為止，$0.0034$ 時只有 `actual_bit_above_effective` 失敗。若這些重新編碼可被接受，BIT supplier 會把 conditional $\kappa$ 限制在約 $0.0034$（比 $0.0030217758$ 高 12.5%）。
+  - 未建立的部分：thin stage 的 $A^{-1}$ 混合與 x-role 輸入輸出轉換在實際 frame 上的 physical admission、$\times1/13$ 的計價，以及 ambient rank 153 的 compiler 常數（已發表的 tensor power 1024 在 $0.0034$ 附近違反 capacity inequality）與 integer-height 檢驗。PR 不主張任何 $\kappa$，沒有 hosted CI、Lean 或獨立 review。
 
 ### 追蹤的 PR
 
@@ -441,24 +451,24 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
       <td>#4535</td>
       <td>0.003020165</td>
       <td>critical-root compiler 接在 #4470 的 supplier 上</td>
-      <td>Open</td>
+      <td>Merged，candidate</td>
     </tr>
     <tr>
       <td>#4568</td>
       <td>0.00302016597</td>
       <td>較小的 outer slack，rank 重設為 $2^{10^{14}}$</td>
-      <td>Open</td>
+      <td>Merged，candidate</td>
     </tr>
     <tr>
       <td>#4610</td>
       <td>0.0030217758</td>
       <td>joint helper interface 與 native map，compiler reserve 收緊</td>
-      <td>Open，最高 open claim</td>
+      <td>Merged，最高 candidate</td>
     </tr>
   </tbody>
 </table>
 
-Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Open 表示尚未進入 `main`。Candidate 是 merge 後但未升為 selected 的 conditional 宣稱，merge 時 $\kappa$ 高於當時的 selected，現在都不高於 #4470。Reviewed checkpoint 是已有 maintainer review、但未升為 selected 的 candidate。Maintainer review 是專案維護者的 AI 協助 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。
+Merged 只表示 PR 已進入 `main`，不表示升為 selected，也不表示數學上已被獨立驗證。Candidate 是 merge 後但未升為 selected 的 conditional 宣稱，merge 時 $\kappa$ 高於當時的 selected。#4535 起的 candidate 的 $\kappa$ 已高於 #4470，但都沒有 maintainer review。Reviewed checkpoint 是已有 maintainer review、但未升為 selected 的 candidate。Maintainer review 是專案維護者的 AI 協助 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。
 
 ## 技術
 
@@ -516,7 +526,7 @@ $\kappa$ 衡量的是漸近 exponent saving，不是實測的執行時間。
 - precision 與 fixed-tape：保留的 fixed-tape movement 與 precision / storage 規定適用於新的 finite template
 - analytic decomposition、fine-prime avoidance 與 exact recovery
 
-Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上八個 scoped、serial 的變動建構重放，並明確重用 #4359 與 #4416 的 foundation review，並非完整的 Lean multiplication theorem，也不是獨立的人類 review。Winning uniform template 由演算法定義，沒有實體化，專案不主張實用上的加速。其餘 candidate 與 open claim 則各自附帶作者提交的證據與獨立檢查，狀態見上方各 PR。
+Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上八個 scoped、serial 的變動建構重放，並明確重用 #4359 與 #4416 的 foundation review，並非完整的 Lean multiplication theorem，也不是獨立的人類 review。Winning uniform template 由演算法定義，沒有實體化，專案不主張實用上的加速。其餘 candidate 則各自附帶作者提交的證據與獨立檢查，狀態見上方各 PR。
 
 ## References
 
