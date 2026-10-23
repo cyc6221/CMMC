@@ -3,7 +3,7 @@ layout: page
 title: openai/math Overview
 description: 整理 openai/math 的目錄結構、手稿與形式化統計、領域分佈及更新紀錄。
 date: 2026-10-22
-last_updated: 2026-10-22
+last_updated: 2026-10-23
 ---
 
 openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %}
