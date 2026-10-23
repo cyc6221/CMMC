@@ -20,6 +20,8 @@ openai/math {% include gh-link.html href="https://github.com/openai/math" label=
 
 ## OpenAI #003
 
+*The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\mathrm{Re}(s)>7/8$* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (7/8) on GitHub" %}
+
 ### Abstract
 
 > We prove that all finite-order Hecke $L$-functions over $\mathbb{Q}(\sqrt{-3})$ and all Dirichlet $L$-functions are zero-free in the half-plane $\mathrm{Re}(s)>7/8$, with the principal pole at $s=1$ allowed. In particular, the Riemann zeta function is zero-free in this half-plane, proving the quasi-Riemann hypothesis.
@@ -36,11 +38,13 @@ Every finite-order Hecke $L$-function over $F=\mathbb{Q}(\sqrt{-3})$ has no zero
 定理說明 $\zeta(s)$ 的 nontrivial zeros（位於 $0<\mathrm{Re}(s)<1$ 的零點）的實部上確界至多為 $7/8$。邊界 $\mathrm{Re}(s)=7/8$ 不包含在內，$(7/8,1)$ 內的 exceptional real zero 則被排除。定理沒有證明 Riemann hypothesis 或其推廣，後者要求 nontrivial zeros 位於 $\mathrm{Re}(s)=1/2$，目前仍是 open problem。
 </div>
 
-論證分兩步。先對 $\mathbb{Q}(\sqrt{-3})$ 上的 Hecke $L$-function 證明半平面，再用 quadratic factorization 把 Hecke 的結果轉到所有 Dirichlet character：Dirichlet character $\chi$ 與 ideal norm 合成後得到 $F$ 上的 Hecke character，除了有限多個 Euler factor 外，它的 $L$-function 等於 $L(s,\chi)L(s,\chi\chi_{-3})$，其中 $\chi_{-3}$ 是 $F/\mathbb{Q}$ 的 quadratic character。被略去的 Euler factor 在 $\mathrm{Re}(s)>0$ 不為零，principal pole 另外處理。
+論證分兩步。先對 $\mathbb{Q}(\sqrt{-3})$ 上的 Hecke $L$-function 證明半平面，再用 quadratic factorization 把 Hecke 的結果轉到所有 Dirichlet character（主文 Introduction 的 “Transfer to Dirichlet $L$-functions” 一段）：Dirichlet character $\chi$ 與 ideal norm 合成後得到 $F$ 上的 Hecke character，除了有限多個 Euler factor 外，它的 $L$-function 等於 $L(s,\chi)L(s,\chi\chi_{-3})$，其中 $\chi_{-3}$ 是 $F/\mathbb{Q}$ 的 quadratic character。被略去的有限個 Euler factor 在 $\mathrm{Re}(s)>0$ 不為零，principal pole 另外處理。
 
 ## Companion preprints
 
 ### 11/12 的另一個證明
+
+*The Quasi-Riemann Hypothesis* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (alternate 11/12 proof) on GitHub" %}
 
 > We establish the quasi-Riemann hypothesis by proving that every Dirichlet $L$-function, including Riemann's zeta function, has no zeros in the half-plane $\mathrm{Re}(s)>11/12$. More generally, we prove the same zero-free half-plane for every finite-order Hecke $L$-function over $K=\mathbb{Q}(\sqrt{-3})$. In particular, this rules out the existence of Landau–Siegel zeros.
 
@@ -51,7 +55,7 @@ Every finite-order Hecke $L$-function over $K$ has no zeros in the half-plane $\
 
 <div class="remark">
 <strong>Remark.</strong>
-這份 preprint 自述 Theorem 1.1 是通往 $\mathrm{Re}(s)>7/8$ 的自然中間步驟，為了簡潔而單獨寫成。OpenAI 說明，這份 writeup 經人工編輯以提升可讀性，其餘手稿則由模型直接產生。
+這份 preprint 自述 Theorem 1.1 是通往 $\mathrm{Re}(s)>7/8$ 的自然中間步驟，為了簡潔而單獨寫成。openai/math 的 README 對這份 writeup 的說明：“Additionally, the writeup for the Re(s) > 11/12 zero-free region for the Riemann zeta function was human edited for readability.”
 </div>
 
 ### Landau–Siegel zeros
