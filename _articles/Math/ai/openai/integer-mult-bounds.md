@@ -343,7 +343,7 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
 
 ### #4610 之後的上界與 coded reverse stage
 
-#4610 之後沒有更高的 $\kappa$，後續 PR 轉向上界與尚未計價的建構，都明說 no new $\kappa$。
+#4610 之後沒有更高的 $\kappa$，後續 PR 轉向上界與尚未計價的建構，都明說 no new $\kappa$。以下 PR 都已 merge 進 `main`，都沒有 maintainer 的 proof review。
 
 - Cinna Davis 的 [#4658](https://github.com/CrocSwap/integer-mult-bounds/pull/4658)：對 #4470、#4610 與 #4626 的 profile，native / thin 的 path-family controller（1 至 64 個 pair、所有 split 與 native stage 子集）在 $C\ge0.003022$ 時全部失敗。這是精確的 complete-invoice 拒絕證明，只涵蓋這個 word 與 interface，不是 controller 的全域上界。
 - [#4696](https://github.com/CrocSwap/integer-mult-bounds/pull/4696)：證明在 #4610 保留的 graph 上，付費的 symmetric-phase 改動無法改善它的 moment。
