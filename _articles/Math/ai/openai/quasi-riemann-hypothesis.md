@@ -34,11 +34,6 @@ openai/math {% include gh-link.html href="https://github.com/openai/math" label=
 Every finite-order Hecke $L$-function over $F=\mathbb{Q}(\sqrt{-3})$ has no zero in $\mathrm{Re}(s)>7/8$. The same holds for every Dirichlet $L$-function, including $\zeta(s)$. A pole at $s=1$ for a principal character is allowed.
 </div>
 
-<div class="remark">
-<strong>Remark.</strong>
-定理說明 $\zeta(s)$ 的 nontrivial zeros（位於 $0<\mathrm{Re}(s)<1$ 的零點）的實部上確界至多為 $7/8$。邊界 $\mathrm{Re}(s)=7/8$ 不包含在內，$(7/8,1)$ 內的 exceptional real zero 則被排除。定理沒有證明 Riemann hypothesis 或其推廣，後者要求 nontrivial zeros 位於 $\mathrm{Re}(s)=1/2$，目前仍是 open problem。
-</div>
-
 ## Companion preprints
 
 ### 11/12 的證明
@@ -54,7 +49,7 @@ Every finite-order Hecke $L$-function over $K$ has no zeros in the half-plane $\
 
 <div class="remark">
 <strong>Remark.</strong>
-Theorem 1.1 是 $\mathrm{Re}(s)>7/8$ 證明中的一個中間步驟，另外單獨成文。這份 writeup 經人工編輯以提升可讀性（human edited for readability）。
+Theorem 1.1 是 $\mathrm{Re}(s)>7/8$ 證明中的一個中間步驟，另外單獨成文。“Additionally, the writeup for the Re(s) > 11/12 zero-free region for the Riemann zeta function was human edited for readability.”
 </div>
 
 ### Landau–Siegel zeros
@@ -66,6 +61,10 @@ Theorem 1.1 是 $\mathrm{Re}(s)>7/8$ 證明中的一個中間步驟，另外單�
 There is an absolute constant $c>0$ such that every real zero $\beta\in(0,1)$ of every primitive nonprincipal real Dirichlet $L$-function of conductor $q\ge3$ satisfies
 $$(1-\beta)\log q\ge c.$$
 </div>
+
+## 驗證狀態
+
+openai/math 的結果處於不同的驗證階段，沒有 formalization 的結果可能有問題。#003 在 repo 中有對應的 Lean formalization {% include gh-link.html href="https://github.com/openai/math/blob/main/lean/docs/003.md" label="docs" aria_label="Lean docs: 003 on GitHub" %}，涵蓋 7/8 的結果（Dirichlet 與 Hecke $L$-function）與 Landau–Siegel zeros，不含 11/12 的證明。
 
 ## References
 
