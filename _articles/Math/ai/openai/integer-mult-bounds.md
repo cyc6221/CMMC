@@ -479,6 +479,18 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
       <td>joint helper interfaces and native maps, tighter compiler reserve</td>
       <td>Merged, highest candidate</td>
     </tr>
+    <tr>
+      <td>#4626</td>
+      <td>0.003021569</td>
+      <td>#4610's warp geometry with helper621's entrance chart</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#4672</td>
+      <td>0.00302166</td>
+      <td>coordinated contact and helper frames on the round-two supplier</td>
+      <td>Merged, candidate</td>
+    </tr>
   </tbody>
 </table>
 
@@ -594,9 +606,27 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上八�
 - [#4507 Reduce direct-flow batch widths while preserving chronological calls](https://github.com/CrocSwap/integer-mult-bounds/pull/4507)
 - [#4532 Prove adaptive gate criterion and critical-root leaf bounds (no κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4532)
 - [#4535 Improve conditional multiplication kappa to 0.003020165 via critical-root transfer](https://github.com/CrocSwap/integer-mult-bounds/pull/4535)
-- [#4568 Conditional κ = 0.00302016597 (+9.7e-10 over #4535)](https://github.com/CrocSwap/integer-mult-bounds/pull/4568)
 - [#4538 Word RAM transfer: finite TM compiler, checked logarithmic-width bridge and native kernels](https://github.com/CrocSwap/integer-mult-bounds/pull/4538)
 - [#4541 Packed Word RAM transfer: conditional O(n / log^κ n) multiplication (no new TM κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4541)
+- [#4568 Conditional κ = 0.00302016597 (+9.7e-10 over #4535)](https://github.com/CrocSwap/integer-mult-bounds/pull/4568)
+- [#4610 Conditional κ = 0.0030217758: joint helper interfaces and Lean compiler tightening](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)
+- [#4626 Improve conditional kappa to 0.003021569 with helper621 and a funded compiler gap](https://github.com/CrocSwap/integer-mult-bounds/pull/4626)
+- [#4630 Conditional native Word RAM κ = 0.0030201655: fused execution without TM simulation](https://github.com/CrocSwap/integer-mult-bounds/pull/4630)
+- [#4635 Conditional Word RAM κ = 0.0030217754 (+0.0000016099 over #4630)](https://github.com/CrocSwap/integer-mult-bounds/pull/4635)
+- [#4658 Certify the native/thin path-family ceiling C < 0.003022 and price H repair headroom](https://github.com/CrocSwap/integer-mult-bounds/pull/4658)
+- [#4672 Coordinate contact/helper frames on the round-two supplier (conditional kappa 0.00302166; not frontier)](https://github.com/CrocSwap/integer-mult-bounds/pull/4672)
+- [#4696 Prove paid symmetric-phase changes cannot improve PR4610’s moment (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4696)
+- [#4713 Conditional DIV-free Word RAM κ = 0.0030217758 (+4e-10 over #4635)](https://github.com/CrocSwap/integer-mult-bounds/pull/4713)
+- [#4929 Construct a center-free native producer with an explicit rank-8 port code (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4929)
+- [#4932 Prove a scoped one-bank ceiling for the #4929 coded-port adapter (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4932)
+- [#4933 Emit a phase-correct coded p16 caller removing 144 center calls (no κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4933)
+- [#4940 Consume the #4929 center-free word with coded reverse stages and A⁻¹-mixed query shears (no κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4940)
+
+#### Independent checks
+
+- [#4420 Independently check #4416's moment and paid-tail inequalities at κ = 0.00268647: all hold; the tested saving sits 9.05e-9 below this invoice's limit (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4420)
+- [#4428 Independently check #4416's paid-completion tensor bound at kappa 0.00268647: proof steps and arithmetic hold; gamma margin 8e-6; least v 5745 (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4428)
+- [#4446 Independent retimed p17 certificate: conditional kappa = 0.003001053](https://github.com/CrocSwap/integer-mult-bounds/pull/4446)
 - [#4455 Independently check the p17 chain #4440, #4441, #4446, #4447, #4453 (kappa 0.00296..0.0030012): invoices, strictification, roots and compiler ranks hold (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4455)
 - [#4478 Independently check #4470's arithmetic (κ = 0.00302015): invoice, local change, root bracket, tails (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4478)
 - [#4504 Independently audit #4470 chronological frames and paid invoice (no new kappa)](https://github.com/CrocSwap/integer-mult-bounds/pull/4504)
