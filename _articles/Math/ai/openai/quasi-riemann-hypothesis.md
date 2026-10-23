@@ -64,52 +64,12 @@ There is an absolute constant $c>0$ such that every real zero $\beta\in(0,1)$ of
 $$(1-\beta)\log q\ge c.$$
 </div>
 
-## Lean formalization
-
-repo 的 [Lean 文件](https://github.com/openai/math/blob/main/lean/docs/003.md)說明形式化的範圍：
-
-- 對 $\zeta(s)$ 與所有 Dirichlet $L$-function，在所有正整數 modulus 與所有 character 上一致地取得 $\theta=7/8$。
-- 對 $\mathbb{Q}(\sqrt{-3})$ 上的 finite-order Hecke $L$-function 取得同一個界。
-- Dirichlet 與 Hecke 的敘述都排除 principal character 在 $s=1$ 的 pole。
-- Landau–Siegel zeros 的結果：存在常數 $c>0$，使每個 conductor $q\ge3$ 的 primitive nonprincipal real Dirichlet character，其 $L$-function 的每個實零點 $0<\beta<1$ 都滿足 $1-\beta\ge c/\log q$。兩種 parity 都包含，沒有給出 $c$ 的明確數值。
-- 這排除了 $1-c/\log q<\beta<1$ 內的實零點，但沒有排除 $(0,1)$ 內其他位置的實零點。
-- Preprint 後段的應用不在形式化範圍內。
-
-<table class="table-center">
-  <thead>
-    <tr>
-      <th>Result</th>
-      <th>Comparator statement</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Riemann zeta $7/8$ bound</td>
-      <td><a href="https://github.com/openai/math/blob/main/lean/ComparatorChallenges/QuasiRiemannHypothesis.lean">QuasiRiemannHypothesis.lean</a></td>
-    </tr>
-    <tr>
-      <td>Dirichlet $L$-function $7/8$ bound</td>
-      <td><a href="https://github.com/openai/math/blob/main/lean/ComparatorChallenges/DirichletSevenEighths.lean">DirichletSevenEighths.lean</a></td>
-    </tr>
-    <tr>
-      <td>Finite-order Hecke $L$-function $7/8$ bound</td>
-      <td><a href="https://github.com/openai/math/blob/main/lean/ComparatorChallenges/HeckeSevenEighths.lean">HeckeSevenEighths.lean</a></td>
-    </tr>
-    <tr>
-      <td>Uniform real-zero gap</td>
-      <td><a href="https://github.com/openai/math/blob/main/lean/ComparatorChallenges/SiegelZeros.lean">SiegelZeros.lean</a></td>
-    </tr>
-  </tbody>
-</table>
-
 ## References
 
 ### openai/math
 
 - [openai/math](https://github.com/openai/math)
 - [CONTENTS.md](https://github.com/openai/math/blob/main/CONTENTS.md)：manuscript map，#003 的條目與摘要。
-- [Lean docs: 003](https://github.com/openai/math/blob/main/lean/docs/003.md)：形式化範圍與 Comparator 連結。
-- [Comparator instructions](https://github.com/openai/math/blob/main/lean/ComparatorChallenges/README.md)
 - [openai/math Overview]({{ '/articles/Math/ai/openai/math-overview/' | relative_url }})
 - [OpenAI Math Announcements]({{ '/articles/Math/ai/openai/announcements/' | relative_url }})
 
