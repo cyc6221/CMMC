@@ -229,6 +229,48 @@ header.now-head::after {
   fill: currentColor;
 }
 
+/* in-site notes row at the end of a card section (see _includes/note-link.html) */
+
+.now-notes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin: 0 0 14px;
+}
+
+.now-notes__label {
+  color: #8b949e;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.now-card .note-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 1px 10px;
+  border: 1px solid #245c24;
+  border-radius: 999px;
+  background: rgba(51, 255, 51, 0.06);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.now-card .note-link:hover {
+  border-color: #33ff33;
+  background: rgba(51, 255, 51, 0.14);
+}
+
+.note-link .ico {
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
 /* live repo stats under a heading (filled by assets/js/repo-stats.js) */
 
 .now-body p.repo-stats,
