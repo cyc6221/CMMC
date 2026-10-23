@@ -229,7 +229,7 @@ header.now-head::after {
   fill: currentColor;
 }
 
-/* in-site notes row at the end of a card section (see _includes/note-link.html) */
+/* in-site notes row under a heading (see _includes/note-link.html) */
 
 .now-notes {
   display: flex;
@@ -247,7 +247,10 @@ header.now-head::after {
   text-transform: uppercase;
 }
 
-.now-card .note-link {
+/* in-site note link pill; usable inside cards and in articles */
+
+a.note-link,
+a.note-link:visited {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -255,13 +258,19 @@ header.now-head::after {
   border: 1px solid #245c24;
   border-radius: 999px;
   background: rgba(51, 255, 51, 0.06);
+  color: #7ee787;
   font-size: 13px;
   line-height: 1.6;
+  text-decoration: none;
 }
 
-.now-card .note-link:hover {
+a.note-link:hover,
+a.note-link:focus-visible {
   border-color: #33ff33;
   background: rgba(51, 255, 51, 0.14);
+  color: #33ff33;
+  text-decoration: none;
+  text-shadow: none;
 }
 
 .note-link .ico {
