@@ -66,7 +66,9 @@ $$(1-\beta)\log q\ge c.$$
 
 ## 驗證狀態
 
-openai/math 的結果處於不同的驗證階段，沒有 formalization 的結果可能有問題。#003 在 repo 中有對應的 Lean formalization {% include gh-link.html href="https://github.com/openai/math/blob/main/lean/docs/003.md" label="docs" aria_label="Lean docs: 003 on GitHub" %}，對應的論文是 7/8 主文與 Landau–Siegel zeros 的 preprint。下表為 repo 給的 Comparator statement。
+openai/math 的結果處於不同的驗證階段，沒有 formalization 的結果可能有問題。#003 在 repo 中有對應的 Lean formalization {% include gh-link.html href="https://github.com/openai/math/blob/main/lean/docs/003.md" label="docs" aria_label="Lean docs: 003 on GitHub" %}，對應的論文是 7/8 主文與 Landau–Siegel zeros 的 preprint。
+
+### Comparator statement
 
 <table class="table-center">
   <thead>
