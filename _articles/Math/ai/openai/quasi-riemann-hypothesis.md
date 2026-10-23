@@ -1,16 +1,17 @@
 ---
 layout: page
 title: The Quasi-Riemann Hypothesis
+description: 整理 openai/math 第 003 項結果：所有 Dirichlet L-function 在 Re(s)>7/8 沒有零點，並收錄 11/12 與 Landau–Siegel zeros 的相關 preprint。
 date: 2026-10-23
 last_updated: 2026-10-23
 ---
 openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %} 的第 003 項結果，證明所有 Dirichlet $L$-function（包含 Riemann zeta function $\zeta(s)$）在半平面 $\mathrm{Re}(s)>7/8$ 沒有零點。同一個半平面對 $\mathbb{Q}(\sqrt{-3})$ 上的每個 finite-order Hecke $L$-function 也成立。
 
-結果由三份 OpenAI preprint 組成：
+相關的 OpenAI preprint 有三份：
 
 - 主文：*The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\mathrm{Re}(s)>7/8$* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (7/8) on GitHub" %}（2026-09-30）
 - Landau–Siegel zeros：*Uniform exclusion of Landau–Siegel zeros* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" label="preprint" aria_label="preprint: Uniform exclusion of Landau–Siegel zeros on GitHub" %}（2026-10-01）
-- 另一種方法證明 $\mathrm{Re}(s)>11/12$：*The Quasi-Riemann Hypothesis* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (alternate 11/12 proof) on GitHub" %}（2026-10-05）
+- $\mathrm{Re}(s)>11/12$ 的證明：*The Quasi-Riemann Hypothesis* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (11/12) on GitHub" %}（2026-10-05）
 
 ## Quasi-Riemann hypothesis
 
@@ -38,13 +39,13 @@ Every finite-order Hecke $L$-function over $F=\mathbb{Q}(\sqrt{-3})$ has no zero
 定理說明 $\zeta(s)$ 的 nontrivial zeros（位於 $0<\mathrm{Re}(s)<1$ 的零點）的實部上確界至多為 $7/8$。邊界 $\mathrm{Re}(s)=7/8$ 不包含在內，$(7/8,1)$ 內的 exceptional real zero 則被排除。定理沒有證明 Riemann hypothesis 或其推廣，後者要求 nontrivial zeros 位於 $\mathrm{Re}(s)=1/2$，目前仍是 open problem。
 </div>
 
-論證分兩步。先對 $\mathbb{Q}(\sqrt{-3})$ 上的 Hecke $L$-function 證明半平面，再用 quadratic factorization 把 Hecke 的結果轉到所有 Dirichlet character（主文 Introduction 的 “Transfer to Dirichlet $L$-functions” 一段）：Dirichlet character $\chi$ 與 ideal norm 合成後得到 $F$ 上的 Hecke character，除了有限多個 Euler factor 外，它的 $L$-function 等於 $L(s,\chi)L(s,\chi\chi_{-3})$，其中 $\chi_{-3}$ 是 $F/\mathbb{Q}$ 的 quadratic character。被略去的有限個 Euler factor 在 $\mathrm{Re}(s)>0$ 不為零，principal pole 另外處理。
+論證分兩步。先對 $\mathbb{Q}(\sqrt{-3})$ 上的 Hecke $L$-function 證明半平面，再用 quadratic factorization 把 Hecke 的結果轉到所有 Dirichlet character：Dirichlet character $\chi$ 與 ideal norm 合成後得到 $F$ 上的 Hecke character，除了有限多個 Euler factor 外，它的 $L$-function 等於 $L(s,\chi)L(s,\chi\chi_{-3})$，其中 $\chi_{-3}$ 是 $F/\mathbb{Q}$ 的 quadratic character。被略去的有限個 Euler factor 在 $\mathrm{Re}(s)>0$ 不為零，principal pole 另外處理。
 
 ## Companion preprints
 
-### 11/12 的另一個證明
+### 11/12 的證明
 
-*The Quasi-Riemann Hypothesis* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (alternate 11/12 proof) on GitHub" %}
+*The Quasi-Riemann Hypothesis* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (11/12) on GitHub" %}
 
 > We establish the quasi-Riemann hypothesis by proving that every Dirichlet $L$-function, including Riemann's zeta function, has no zeros in the half-plane $\mathrm{Re}(s)>11/12$. More generally, we prove the same zero-free half-plane for every finite-order Hecke $L$-function over $K=\mathbb{Q}(\sqrt{-3})$. In particular, this rules out the existence of Landau–Siegel zeros.
 
@@ -55,7 +56,7 @@ Every finite-order Hecke $L$-function over $K$ has no zeros in the half-plane $\
 
 <div class="remark">
 <strong>Remark.</strong>
-這份 preprint 自述 Theorem 1.1 是通往 $\mathrm{Re}(s)>7/8$ 的自然中間步驟，為了簡潔而單獨寫成。openai/math 的 README 對這份 writeup 的說明：“Additionally, the writeup for the Re(s) > 11/12 zero-free region for the Riemann zeta function was human edited for readability.”
+Theorem 1.1 是通往 $\mathrm{Re}(s)>7/8$ 的中間步驟，為了簡潔而單獨寫成。openai/math 的 README 對這份 writeup 的說明：“Additionally, the writeup for the Re(s) > 11/12 zero-free region for the Riemann zeta function was human edited for readability.”
 </div>
 
 ### Landau–Siegel zeros
@@ -80,7 +81,7 @@ $$(1-\beta)\log q\ge c.$$
 ### Preprints
 
 - [The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\mathrm{Re}(s)>7/8$](https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026)
-- [The Quasi-Riemann Hypothesis (alternate 11/12 proof)](https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026)
+- [The Quasi-Riemann Hypothesis (11/12)](https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026)
 - [Uniform exclusion of Landau–Siegel zeros](https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026)
 
 ### OpenAI announcement
