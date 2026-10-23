@@ -8,9 +8,9 @@ openai/math {% include gh-link.html href="https://github.com/openai/math" label=
 
 結果由三份 OpenAI preprint 組成：
 
-- 主文：*The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\mathrm{Re}(s)>7/8$* {% include gh-link.html href="https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (7/8) on GitHub" %}（2026-09-30）
-- Landau–Siegel zeros：*Uniform exclusion of Landau–Siegel zeros* {% include gh-link.html href="https://github.com/openai/math/blob/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf" label="preprint" aria_label="preprint: Uniform exclusion of Landau–Siegel zeros on GitHub" %}（2026-10-01）
-- 另一種方法證明 $\mathrm{Re}(s)>11/12$：*The Quasi-Riemann Hypothesis* {% include gh-link.html href="https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/paper2.pdf" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (alternate 11/12 proof) on GitHub" %}（2026-10-05）
+- 主文：*The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\mathrm{Re}(s)>7/8$* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (7/8) on GitHub" %}（2026-09-30）
+- Landau–Siegel zeros：*Uniform exclusion of Landau–Siegel zeros* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" label="preprint" aria_label="preprint: Uniform exclusion of Landau–Siegel zeros on GitHub" %}（2026-10-01）
+- 另一種方法證明 $\mathrm{Re}(s)>11/12$：*The Quasi-Riemann Hypothesis* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (alternate 11/12 proof) on GitHub" %}（2026-10-05）
 
 ## Quasi-Riemann hypothesis
 
@@ -115,9 +115,9 @@ repo 的 [Lean 文件](https://github.com/openai/math/blob/main/lean/docs/003.md
 
 ### Preprints
 
-- [The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\mathrm{Re}(s)>7/8$](https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf)
-- [The Quasi-Riemann Hypothesis (alternate 11/12 proof)](https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/paper2.pdf)
-- [Uniform exclusion of Landau–Siegel zeros](https://github.com/openai/math/blob/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf)
+- [The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\mathrm{Re}(s)>7/8$](https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026)
+- [The Quasi-Riemann Hypothesis (alternate 11/12 proof)](https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026)
+- [Uniform exclusion of Landau–Siegel zeros](https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026)
 
 ### OpenAI announcement
 
