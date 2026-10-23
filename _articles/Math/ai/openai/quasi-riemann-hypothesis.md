@@ -39,8 +39,6 @@ Every finite-order Hecke $L$-function over $F=\mathbb{Q}(\sqrt{-3})$ has no zero
 定理說明 $\zeta(s)$ 的 nontrivial zeros（位於 $0<\mathrm{Re}(s)<1$ 的零點）的實部上確界至多為 $7/8$。邊界 $\mathrm{Re}(s)=7/8$ 不包含在內，$(7/8,1)$ 內的 exceptional real zero 則被排除。定理沒有證明 Riemann hypothesis 或其推廣，後者要求 nontrivial zeros 位於 $\mathrm{Re}(s)=1/2$，目前仍是 open problem。
 </div>
 
-論證分兩步。先對 $\mathbb{Q}(\sqrt{-3})$ 上的 Hecke $L$-function 證明半平面，再用 quadratic factorization 把 Hecke 的結果轉到所有 Dirichlet character：Dirichlet character $\chi$ 與 ideal norm 合成後得到 $F$ 上的 Hecke character，除了有限多個 Euler factor 外，它的 $L$-function 等於 $L(s,\chi)L(s,\chi\chi_{-3})$，其中 $\chi_{-3}$ 是 $F/\mathbb{Q}$ 的 quadratic character。被略去的有限個 Euler factor 在 $\mathrm{Re}(s)>0$ 不為零，principal pole 另外處理。
-
 ## Companion preprints
 
 ### 11/12 的證明
@@ -56,7 +54,7 @@ Every finite-order Hecke $L$-function over $K$ has no zeros in the half-plane $\
 
 <div class="remark">
 <strong>Remark.</strong>
-Theorem 1.1 是通往 $\mathrm{Re}(s)>7/8$ 的中間步驟，為了簡潔而單獨寫成。openai/math 的 README 對這份 writeup 的說明：“Additionally, the writeup for the Re(s) > 11/12 zero-free region for the Riemann zeta function was human edited for readability.”
+Theorem 1.1 是 $\mathrm{Re}(s)>7/8$ 證明中的一個中間步驟，另外單獨成文。這份 writeup 經人工編輯以提升可讀性（human edited for readability）。
 </div>
 
 ### Landau–Siegel zeros
@@ -75,8 +73,6 @@ $$(1-\beta)\log q\ge c.$$
 
 - [openai/math](https://github.com/openai/math)
 - [CONTENTS.md](https://github.com/openai/math/blob/main/CONTENTS.md)：manuscript map，#003 的條目與摘要。
-- [openai/math Overview]({{ '/articles/Math/ai/openai/math-overview/' | relative_url }})
-- [OpenAI Math Announcements]({{ '/articles/Math/ai/openai/announcements/' | relative_url }})
 
 ### Preprints
 
