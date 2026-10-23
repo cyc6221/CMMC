@@ -97,3 +97,24 @@ repo 的 [Lean 文件](https://github.com/openai/math/blob/main/lean/docs/003.md
     </tr>
   </tbody>
 </table>
+
+## References
+
+### openai/math
+
+- [openai/math](https://github.com/openai/math)
+- [CONTENTS.md](https://github.com/openai/math/blob/main/CONTENTS.md)：manuscript map，#003 的條目與摘要。
+- [Lean docs: 003](https://github.com/openai/math/blob/main/lean/docs/003.md)：形式化範圍與 Comparator 連結。
+- [Comparator instructions](https://github.com/openai/math/blob/main/lean/ComparatorChallenges/README.md)
+- [openai/math Overview]({{ '/articles/Math/ai/openai/math-overview/' | relative_url }})
+- [OpenAI Math Announcements]({{ '/articles/Math/ai/openai/announcements/' | relative_url }})
+
+### Preprints
+
+- [The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\operatorname{Re}s>7/8$](https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf)
+- [The Quasi-Riemann Hypothesis (alternate 11/12 proof)](https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/paper2.pdf)
+- [Uniform exclusion of Landau–Siegel zeros](https://github.com/openai/math/blob/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf)
+
+### OpenAI announcement
+
+- [Sharing AI progress in mathematics](https://openai.com/index/sharing-ai-progress-in-mathematics/)
