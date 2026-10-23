@@ -128,15 +128,3 @@ last_updated: YYYY-MM-DD
 ```
 
 - Paper notes also set `author1` to `author5` and `venue`.
-
-### CrocSwap status updates
-
-The status of `_articles/Math/ai/openai/integer-mult-bounds.md` is written by hand in several places. When the selected PR or the highest candidate changes, update all of them together; the build does not catch a missed one.
-
-- Note body: the date line (`本文內容更新至 …`), the status table under `## 目前狀態`, and front matter `last_updated`.
-- Note sections: the `### #<selected>` and `### highest candidate: #<PR>` sections (a new selected PR gets its own section and the previous one becomes `Past selected`), plus the `Selected result #…` line under 前提與限制.
-- Note tables: the milestone table (`（目前 selected）`) and the tracking table (`Current selected`, `Highest candidate`).
-- Card: the Status list in `_includes/math/ai/OpenAIMath.html`, including `(updated YYYY-MM-DD)`.
-- Wording: after updating, search the note for the old selected PR number and fix every sentence that still calls it the current selected (for example `現已由 #… 取代`, `除 #… 外`, `Past selected` / `Highest candidate` labels in the tracking table).
-- Promotion: when the highest candidate becomes selected, keep only the selected section and label for it, and name a new highest candidate (or drop that section, table label and card line if there is none).
-- Label: use `Highest open claim` with state `open` while the highest PR is unmerged, and `Highest candidate` with state `merged` once it is merged.
