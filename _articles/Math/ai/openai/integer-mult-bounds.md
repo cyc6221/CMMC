@@ -73,7 +73,7 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
       <td>${{ crocswap.selected.kappa }}$</td>
     </tr>
     <tr>
-      <td>最高 candidate：#{{ crocswap.highest_claim.pr }}<br>（merged，尚無 maintainer review）</td>
+      <td>{% if crocswap.highest_claim.state == "open" %}最高 open claim{% else %}最高 candidate{% endif %}：#{{ crocswap.highest_claim.pr }}<br>（{{ crocswap.highest_claim.state }}，尚無 maintainer review）</td>
       <td>${{ crocswap.highest_claim.kappa }}$</td>
     </tr>
   </tbody>
