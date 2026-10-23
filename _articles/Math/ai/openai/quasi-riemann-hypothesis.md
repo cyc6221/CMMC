@@ -6,7 +6,11 @@ last_updated: 2026-10-23
 ---
 [openai/math](https://github.com/openai/math) 的第 003 項結果，證明所有 Dirichlet $L$-function（包含 Riemann zeta function $\zeta(s)$）在半平面 $\operatorname{Re}s>7/8$ 沒有零點。同一個半平面對 $\mathbb{Q}(\sqrt{-3})$ 上的每個 finite-order Hecke $L$-function 也成立。
 
-結果由三份 OpenAI preprint 組成：主文 [*The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\operatorname{Re}s>7/8$*](https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf)（2026 年 9 月 30 日）、[*Uniform exclusion of Landau–Siegel zeros*](https://github.com/openai/math/blob/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf)（10 月 1 日），以及以另一種方法證明 $\operatorname{Re}s>11/12$ 的 [*The Quasi-Riemann Hypothesis*](https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/paper2.pdf)（10 月 5 日）。以下 Abstract 與定理為原文。
+結果由三份 OpenAI preprint 組成：
+
+- 主文：[*The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\operatorname{Re}s>7/8$*](https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf)（2026-09-30）
+- Landau–Siegel zeros：[*Uniform exclusion of Landau–Siegel zeros*](https://github.com/openai/math/blob/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf)（2026-10-01）
+- 另一種方法證明 $\operatorname{Re}s>11/12$：[*The Quasi-Riemann Hypothesis*](https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/paper2.pdf)（2026-10-05）
 
 ## Quasi-Riemann hypothesis
 
