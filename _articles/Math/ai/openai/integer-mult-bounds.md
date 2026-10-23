@@ -479,6 +479,18 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
       <td>joint helper interfaces and native maps, tighter compiler reserve</td>
       <td>Merged, highest candidate</td>
     </tr>
+    <tr>
+      <td>#4626</td>
+      <td>0.003021569</td>
+      <td>#4610's warp geometry with helper621's entrance chart and a funded compiler gap</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#4672</td>
+      <td>0.00302166</td>
+      <td>contact and helper frames coordinated on the round-two supplier (not frontier)</td>
+      <td>Merged, candidate</td>
+    </tr>
   </tbody>
 </table>
 
