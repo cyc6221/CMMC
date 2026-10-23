@@ -620,6 +620,9 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上八�
 - [#4932 Prove a scoped one-bank ceiling for the #4929 coded-port adapter (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4932)
 - [#4933 Emit a phase-correct coded p16 caller removing 144 center calls (no κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4933)
 - [#4940 Consume the #4929 center-free word with coded reverse stages and A⁻¹-mixed query shears (no κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4940)
+
+#### Independent checks
+
 - [#4455 Independently check the p17 chain #4440, #4441, #4446, #4447, #4453 (kappa 0.00296..0.0030012): invoices, strictification, roots and compiler ranks hold (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4455)
 - [#4478 Independently check #4470's arithmetic (κ = 0.00302015): invoice, local change, root bracket, tails (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4478)
 - [#4504 Independently audit #4470 chronological frames and paid invoice (no new kappa)](https://github.com/CrocSwap/integer-mult-bounds/pull/4504)
