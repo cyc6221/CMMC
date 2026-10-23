@@ -6,6 +6,7 @@ _site/
 vendor/bundle/
 
 .markdownlint.json
+.cspell.json
 
 book-to-read.md
 
