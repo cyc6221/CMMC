@@ -78,6 +78,8 @@ openai/math
 
 - #003 The quasi-Riemann hypothesis {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis on GitHub" %}
   - [The Quasi-Riemann Hypothesis]({{ '/articles/Math/ai/openai/quasi-riemann-hypothesis/' | relative_url }})
+  - The Quasi-Riemann Hypothesis (11/12) {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (11/12) on GitHub" %}
+  - Uniform exclusion of Landau–Siegel zeros {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" label="preprint" aria_label="preprint: Uniform exclusion of Landau–Siegel zeros on GitHub" %}
 
 ### Theoretical computer science
 
