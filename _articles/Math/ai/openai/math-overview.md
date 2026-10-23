@@ -3,7 +3,7 @@ layout: page
 title: openai/math Overview
 description: 整理 openai/math 的目錄結構、手稿與形式化統計、領域分佈及更新紀錄。
 date: 2026-10-22
-last_updated: 2026-10-22
+last_updated: 2026-10-23
 ---
 
 openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %}
@@ -73,6 +73,13 @@ openai/math
 - 另新增 5 項支持性結果的補充。
 
 ## 相關筆記
+
+### Number theory
+
+- #003 The quasi-Riemann hypothesis {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (7/8) on GitHub" %}
+  - [The Quasi-Riemann Hypothesis]({{ '/articles/Math/ai/openai/quasi-riemann-hypothesis/' | relative_url }})
+  - The Quasi-Riemann Hypothesis (11/12) {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (11/12) on GitHub" %}
+  - Uniform exclusion of Landau–Siegel zeros {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" label="preprint" aria_label="preprint: Uniform exclusion of Landau–Siegel zeros on GitHub" %}
 
 ### Theoretical computer science
 
