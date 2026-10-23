@@ -91,7 +91,7 @@ Selected result 為 Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-
 
 #4470 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md) 先完成，selection 隨後在同一天（10 月 22 日）完成。Archive 合併、conditional review 與 selection 是三件不同的事；selection 另需一致的 source closure、重放指令與公開狀態更新。
 
-PR #4359 之後，#4405、#4412、#4414、#4416、#4440 至 #4470，以及 10 月 22 日 merge 的 #4535、#4568、#4610、#4626 與 #4672 都已進入 `main`。其中只有 #4470 是 selected result；#4416 是已有 maintainer review 的 checkpoint，其餘是 candidate。專案 ledger 把 #4359、#4416、#4470 與 #4610 等 PR 的 intake 狀態都記為 partially reviewed，指範圍有限的 review 與 triage，與是否 selected 無關。#4483 與 #4507 這類 compiler 大小的改進不是 selection 的前提，另案 review。
+PR #4359 之後，#4405、#4412、#4414、#4416、#4440 至 #4470，以及 10 月 22 日 merge 的 #4535、#4568、#4610、#4626 與 #4672 都已進入 `main`。其中只有 #4470 是 selected result；#4416 是已有 maintainer review 的 checkpoint，其餘是 candidate。專案 ledger 把 #4359、#4416、#4470 與 #4610 等 PR 的 intake 狀態都記為 partially reviewed，指範圍有限的 review 與 triage，與是否 selected 無關。#4610 的範圍是檢查 Git inventory、語法與宣告的 source pin，作者的科學證據沒有被獨立重放，所以這個狀態不等於 maintainer review。#4483 與 #4507 這類 compiler 大小的改進不是 selection 的前提，另案 review。
 
 [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610) 把 $\kappa$ 推到 $0.0030217758$，已於 10 月 22 日 merge，是目前最高的 candidate；較早的 [#4535](https://github.com/CrocSwap/integer-mult-bounds/pull/4535) 與 [#4568](https://github.com/CrocSwap/integer-mult-bounds/pull/4568) 為 $0.003020165$ 與 $0.00302016597$。它們都沒有 maintainer review，也都沒有升為 selected。目前沒有 $\kappa$ 更高的 open claim。Selected 與 candidate 都仍繼承 #109 框架中 analytic、exact recovery、native movement 與 fixed-tape 等假設。
 
