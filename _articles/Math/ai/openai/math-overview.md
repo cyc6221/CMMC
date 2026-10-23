@@ -74,6 +74,11 @@ openai/math
 
 ## 相關筆記
 
+### Number theory
+
+- #003 The quasi-Riemann hypothesis {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis on GitHub" %}
+  - [The Quasi-Riemann Hypothesis]({{ '/articles/Math/ai/openai/quasi-riemann-hypothesis/' | relative_url }})
+
 ### Theoretical computer science
 
 - #109 Integer multiplication below $n\log n$ {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026" label="preprint" aria_label="preprint: Integer multiplication below n log n on GitHub" %}
