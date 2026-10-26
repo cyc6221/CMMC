@@ -76,7 +76,7 @@ openai/math
 
 ### Number theory
 
-#### #003
+#### {% include math/ai/openai-result.html num="003" %}
 
 <div class="now-notes">
   <span class="now-notes__label">notes</span>
@@ -89,7 +89,7 @@ openai/math
 
 ### Theoretical computer science
 
-#### #109
+#### {% include math/ai/openai-result.html num="109" %}
 
 <div class="now-notes">
   <span class="now-notes__label">notes</span>

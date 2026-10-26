@@ -16,7 +16,7 @@ integer-mult-bounds 是改進 openai/math Result #109 的社群專案，建立�
 
 本文內容更新至 2026 年 10 月 26 日，其中的狀態與 $\kappa$ 以此為準。文中的日期與時間以 UTC 計。
 
-## OpenAI #109
+## OpenAI {% include math/ai/openai-result.html num="109" %}
 
 [openai/math](https://github.com/openai/math) 的第 109 項結果是 OpenAI 於 2026 年 9 月 23 日發表的 preprint [*Integer multiplication below $n\log n$*](https://github.com/openai/math/tree/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026)。以下為原文。
 
