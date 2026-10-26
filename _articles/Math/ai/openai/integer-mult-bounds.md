@@ -45,9 +45,7 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
 
 ## 目前狀態
 
-這一節只回答目前的 selected 是什麼。演進過程見「主要演進」，完整的 $\kappa$ 數字見「歷史 $\kappa$ 里程碑」。
-
-目前的 selected 是 Ali Romman 的 [#5599](https://github.com/CrocSwap/integer-mult-bounds/pull/5599)，於 2026 年 10 月 26 日升為 selected：
+目前的 selected 是 Ali Romman 的 [#5599](https://github.com/CrocSwap/integer-mult-bounds/pull/5599)，於 2026 年 10 月 26 日升為 selected，$\kappa$ 為
 
 $$
 \boxed{\kappa=0.00310045}
@@ -75,25 +73,13 @@ $$
   </tbody>
 </table>
 
-- 狀態：merged，maintainer-reviewed conditional P104 helper-subspace construction。
-- 做法：在 P104 word 上做 13 個 helper-subspace split。
-- Complete caller：13,048 個 productive field 與 66,726 個 paid call。
-- 重放指令：`make frontier5599-verify`。
-- 與 #5413 相比，exponent saving 約大 2.41674%。這個比較不是實測的 running-time improvement。
-- Selected result 仍保留既有的 conditional 假設（見「前提與限制」）。它不是完整的 Lean multiplication theorem，也不是 independent human proof review。
+#5599 已 merge，是 maintainer-reviewed 的 conditional P104 helper-subspace construction。它在 P104 word 上做 13 個 helper-subspace split，完整的 caller 有 13,048 個 productive field 與 66,726 個 paid call，重放指令為 `make frontier5599-verify`。
+
+與前一個 selected #5413 相比，exponent saving 約大 2.41674%，這個比較不是實測的 running-time improvement。Selected result 仍保留既有的 conditional 假設，不是完整的 Lean multiplication theorem，也不是 independent human proof review。
 
 ## 主要演進
 
-以下以 selected result 為主線，整理 $\kappa$ 的幾次主要技術轉折。從未成為 selected 的 PR，只有在代表重要的機制轉折時才會出現，例如 #4416。沒有升為 selected 的 PR 不逐一列出，完整清單見 repo 的 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。
-
-幾個通用的說明：
-
-- Selected 一定經過 maintainer review；merged 只表示 PR 進入 `main`，不表示升為 selected，也不表示已被獨立驗證。
-- Archive 合併、conditional review 與 selection 是三件不同的事；selection 另需一致的 source closure、重放指令與公開狀態更新。
-- 各 selected result 的重放指令為 `make frontier<PR>-verify`，例如 `make frontier4359-verify`。
-- 以百分比比較 $\kappa$ 時，比較的是 exponent saving，不是實測的執行時間。
-
-下表依階段列出主線上的節點。#4416 通過 maintainer review，但從未成為 selected，不在 selected progression 中。
+從 #1094 到 #5599，selected $\kappa$ 經過四次主要的技術轉折。#4359 讓 helper 完成的 transform 成為 productive output，改變了遞迴的帳；#4416 到 #4470 在這個 framework 上大幅減少 paid job；#4610 到 #5413 持續壓低 recursive cost；#5544 到 #5599 則轉向 P104 word。其中 #4416 通過 maintainer review，但從未成為 selected，不在 selected progression 中。
 
 <table class="table-center">
   <thead>
@@ -148,6 +134,10 @@ $$
   </tbody>
 </table>
 
+Selected 一定經過 maintainer review；merged 只表示 PR 進入 `main`，不代表升為 selected，也不代表已被獨立驗證。Archive 合併、conditional review 與 selection 是三件不同的事，selection 另需一致的 source closure、重放指令與公開狀態更新。各 selected result 以 `make frontier<PR>-verify` 重放，例如 `make frontier4359-verify`。以百分比比較 $\kappa$ 時，比較的是 exponent saving，不是實測的執行時間。
+
+沒有升為 selected 的 PR 不在此逐一列出，完整清單在 repo 的 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。
+
 ### #1094：packing / owner allocation 的起點
 
 Rohan Arun 的 [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)，$\kappa=0.001672660197076918\approx 2^{-9.22}$，狀態是 maintainer-reviewed conditional finite construction。它建立在 Jeremy Kothe 的 #1087 packing 與累積的 k8 / slot / T16 建構上，bit supplier 是 DreamingOfClouds 的 #589（建立在 eumemic 的 #555 上）。
@@ -179,7 +169,7 @@ $$
 - **#4416（historical reviewed checkpoint）**：Cinna Davis 的 [#4416](https://github.com/CrocSwap/integer-mult-bounds/pull/4416)，$\kappa=0.00268647$，比 #4359 大 16.80%。它在 tensor composition 之後，對過小的 productive transform 另付費補足（paid completion），讓 paid 與 productive target 嚴格分離，使更強的 p7 controller 能通過 #4359 的 strict compiler 條件。它是 merged、maintainer-reviewed，但從未升為 selected：當時 selected 仍是 #4359 的 $0.0023$，隨後出現更強的 #4470。[#4420](https://github.com/CrocSwap/integer-mult-bounds/pull/4420) 與 [#4428](https://github.com/CrocSwap/integer-mult-bounds/pull/4428) 獨立檢查 moment、paid-tail 與 paid-completion 不等式；maintainer 在 10 月 21 日完成 #4416 與 zxv 的 #4433 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md)，限於保留的 #4359 假設。這份 review 後來被 #4470 的 selection 重用為 foundation。
 - **#4470（selected）**：Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)，於 10 月 22 日升為 selected，狀態是 maintainer-reviewed conditional joint-helper construction，$\kappa=60403/20000000=0.00302015$，比 #4359 大 31.31%，比 #4416 大 12.42%。它累積 #4416 與中間的 #4440、#4441、#4447（依序引入 copied rank-one query shear、helper retiming 與缺漏的 contact span，三者都沒有單獨升為 selected），同時調整 helper 的 entrance、exit 與 contact frame，再配上 query-thinned 的 16-pair controller。它也承接 zxv 的 productive-helper native / compiler 與 Jacob Alan Sussman 的 mixed-target recursion（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-joint4470-contributors.md)）。
 
-因此 selected 的順序是 $\#4359\ (\text{selected})\rightarrow\#4416\ (\text{reviewed only})\rightarrow\#4470\ (\text{selected})$，#4416 不在 selected progression 中。
+因此 selected 的順序是 #4359（selected）→ #4416（reviewed only）→ #4470（selected），#4416 不在 selected progression 中。
 
 #4470 的驗證方面，maintainer 對變動的建構做八個 scoped、serial 的重放。Source 完全相同的 #4359 與 #4416 foundation review 被明確重用，不重跑。Linux（Python 3.12）上的 hosted CI 通過了 selected 的八段重放，見 [integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/INTEGRATION.json) 與 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md)。
 
@@ -225,7 +215,7 @@ $$
 
 ## 歷史 $\kappa$ 里程碑
 
-下表依 $\kappa$ 由小到大列出 selected result 的主要節點，貢獻欄只列主要作者，供查詢用。
+$\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$。下表依 $\kappa$ 由小到大列出 selected result 的主要節點，並標出各節點的代表性機制與主要作者。
 
 <table class="table-center">
   <thead>
