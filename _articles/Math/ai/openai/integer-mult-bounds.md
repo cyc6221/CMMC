@@ -140,7 +140,7 @@ Current selected：Ali Romman 的 [#5599](https://github.com/CrocSwap/integer-mu
 
 目前 $\kappa$ 最高的 open claim 是 DaysSky 的 [#5440](https://github.com/CrocSwap/integer-mult-bounds/pull/5440)，$\kappa=951999/280000000=0.0033999964$，尚未 merge，沒有 maintainer review。以下是作者的宣稱：它把 p19 coded-reverse chain 實體化並計價，complex supplier 為 $0.007578535$，BIT supplier 為 $17/5000$，BIT 一側綁住 $0.0034$：在 $0.0034$ 時 outer ledger 的 `actual_bit_above_effective` 失敗，所以取在 $0.0034$ 下方約 $3.6\times10^{-9}$ 處。同一個值的 [#5270](https://github.com/CrocSwap/integer-mult-bounds/pull/5270) 不用 coded overlay，作者自述為 draft。
 
-在 #5599 的 P104 線上，最高的 open claim 是 Ali Romman 的 [#5678](https://github.com/CrocSwap/integer-mult-bounds/pull/5678)，$\kappa=0.00310815849$，比 #5660 高 $1.39516\times10^{-6}$。
+在 #5599 的 P104 線上，最高的 open claim 是 GamingPuzzled 的 [#5684](https://github.com/CrocSwap/integer-mult-bounds/pull/5684)，$\kappa=0.00310871312$，比 #5678 高 $5.546\times10^{-7}$。
 
 ## $\kappa$ 的里程碑
 
@@ -455,6 +455,7 @@ Chris R 的 [#5384](https://github.com/CrocSwap/integer-mult-bounds/pull/5384)�
   - zxv 的 [#5643](https://github.com/CrocSwap/integer-mult-bounds/pull/5643)（$0.00310458$，比 #5627 高 $1.7454\times10^{-7}$，paid A2 rank exchange）與 Ali Romman 的 [#5644](https://github.com/CrocSwap/integer-mult-bounds/pull/5644)（$0.00310626335$，比 #5627 高 $1.85789\times10^{-6}$，三個 helper cleanup）。
   - zxv 的 [#5650](https://github.com/CrocSwap/integer-mult-bounds/pull/5650)（$0.00310644468$，比 #5644 高 $1.8133\times10^{-7}$）結合 #5644 的 helper cleanup 與 #5643 的 A2 exchange。
   - Ali Romman 的 [#5660](https://github.com/CrocSwap/integer-mult-bounds/pull/5660)（$0.00310676333$）接在 #5650 的 composition 上，[#5678](https://github.com/CrocSwap/integer-mult-bounds/pull/5678)（$0.00310815849$，比 #5660 高 $1.39516\times10^{-6}$，四個 temporary public-register basis 移除內部 contact）再接在 #5660 上。
+  - GamingPuzzled 的 [#5684](https://github.com/CrocSwap/integer-mult-bounds/pull/5684)（$0.00310871312$，比 #5678 高 $5.546\times10^{-7}$）接在 #5678 上，對 helper 473 與 733 做 exact reorder 與 re-frame 的最佳化。它取代同一作者的 [#5666](https://github.com/CrocSwap/integer-mult-bounds/pull/5666)（$0.00310680117$，比 #5660 高 $3.784\times10^{-8}$，只調整 helper 473 的起點）。
 - P104 線 B：flyingviper 的 [#5608](https://github.com/CrocSwap/integer-mult-bounds/pull/5608)（$0.00310184$，比 #5599 高 $1.39\times10^{-6}$，結合 #5605 的 relay、#5565 的 commuting contact 與 #5599 的 helper split）、[#5612](https://github.com/CrocSwap/integer-mult-bounds/pull/5612)（$0.00310299$）與 [#5613](https://github.com/CrocSwap/integer-mult-bounds/pull/5613)（$0.00310440$），依序各接在前一個上。
 - Scratch-net 的 [#5606](https://github.com/CrocSwap/integer-mult-bounds/pull/5606)（$\kappa=0.00309871$，prepared P104 split helper）：它比較的是 #5599 較早的版本（$0.00309839$），低於現在 selected 的 $0.00310045$。
 
@@ -676,6 +677,12 @@ Chris R 的 [#5384](https://github.com/CrocSwap/integer-mult-bounds/pull/5384)�
       <td>paid interior bases</td>
       <td>Open</td>
     </tr>
+    <tr>
+      <td>#5684</td>
+      <td>0.00310871312</td>
+      <td>exact reorder and re-frame optimum on #5678</td>
+      <td>Open</td>
+    </tr>
   </tbody>
 </table>
 
@@ -845,7 +852,9 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scop
 - [#5644 Conditional κ = 0.00310626335 (+1.85789e-6 over #5627): three helper cleanups](https://github.com/CrocSwap/integer-mult-bounds/pull/5644)
 - [#5650 Conditional κ = 0.00310644468 (+1.8133e-7, +0.00583756% over #5644): combine helper cleanup with the A2 exchange](https://github.com/CrocSwap/integer-mult-bounds/pull/5650)
 - [#5660 Improve conditional κ to 0.00310676333 with a four-gate contact rewrite](https://github.com/CrocSwap/integer-mult-bounds/pull/5660)
+- [#5666 Conditional κ .00310680117 (+3.784e-8 over #5660): exact reorder lowers helper 473's start](https://github.com/CrocSwap/integer-mult-bounds/pull/5666)
 - [#5678 Conditional κ = 0.00310815849 (+1.39516e-6 over #5660): paid interior bases](https://github.com/CrocSwap/integer-mult-bounds/pull/5678)
+- [#5684 Conditional κ .00310871312 (+5.546e-7 over #5678): exact reorder+re-frame optimum (helpers 473, 733)](https://github.com/CrocSwap/integer-mult-bounds/pull/5684)
 
 #### Independent checks
 
