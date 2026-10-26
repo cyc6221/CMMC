@@ -144,7 +144,7 @@ Rohan Arun 的 [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094
 
 主要手段是在十六個 bin 之間重複做 whole-helper repacking，並以 rare full-bin pattern 為起點。Helper 的位置被重排，idle rank 的分布因此改善，而 scalar word、role width 與 source-event 時間都不變。它是 productive-helper framework 出現之前，packing 與 owner allocation 路線的 selected checkpoint。
 
-#1094 被選定之後，maintainer 完成 19 批 review（efficient100 至 efficient1900），#2848、#4088、#4181 等 PR 也在同一個框架內繼續調整，但都沒有升為 selected。#4181 顯示，在固定的四個 word 上，重新 packing 已達 pooled ceiling（$\kappa\approx0.00173098$），再往上需要改變 word 或 inventory。Selected $\kappa$ 因此停在 #1094，直到 #4359。
+#1094 被選定之後，maintainer 完成 19 批 review（efficient100 至 efficient1900），#2848、#4088、#4181 等 PR 也在同一個框架內繼續調整，但都沒有升為 selected。#4181 顯示，在固定的四個 word 上，重新 packing 已達 pooled ceiling（$\kappa\approx0.00173098$），再往上需要改變 word 或 inventory。這個 ceiling 只限於這四個固定的 word，不是整個框架的上限。這段期間 selected $\kappa$ 維持在 #1094，直到 #4359。
 
 ### #4359：productive helper
 
@@ -179,10 +179,10 @@ $$
 
 - native map 與 helper 的 entrance、scalar contact（#4610）
 - helper relation：以 owned relation 去掉 backward call 的 rank-eight center（#5377、#5383）
-- backward caller：circuit transposition 與 direct backward caller，讓全部 full call 使用縮減後的 supplier（#5392、#5398）
+- backward caller：#5392 以 circuit transposition 讓兩個 forward call 改用縮減後的 backward supplier，#5398 的 direct backward caller 則讓全部 18 個 full call 使用完成的 backward supplier
 - caller 的建構：以 coupled-output caller 補完 eight-mode coupled helper provider（#5402、#5413）
-- paid-rank 的分布：依嚴格凹性，把 rank-four 的 job 換成 rank-three 與 rank-five 的 pair
-- compiler 與 outer 的 headroom
+- paid-rank 的分布：依嚴格凹性，把 rank-four 的 job 換成 rank-three 與 rank-five 的 pair（#4610）
+- compiler 與 outer 的 headroom（#5413）
 
 其間許多 candidate 各自只改其中一項，沒有升為 selected。#5413 比 #4470 只高約 $7.14\times10^{-6}$，增幅遠小於 #4359 與 #4470 的跳躍。
 
@@ -197,10 +197,10 @@ P104 word 來自 David Arias、Cinna Davis 與 Gareth Davidson 的 #2152、#2219
 
 之後的 PR 在 P104 word 上累積改進，$\kappa$ 升到 $0.00308534$（hexapode 的 [#5565](https://github.com/CrocSwap/integer-mult-bounds/pull/5565)），主要手段是：
 
-- helper endpoint retiming
-- contact / frame rewrite：把一個減法或 ADD 移到維度較高的 frame
-- helper reuse：把 helper 交給後繼的 call
-- caller scheduling
+- coupled frame itinerary：改寫兩個 coupled frame 的路徑（[#5551](https://github.com/CrocSwap/integer-mult-bounds/pull/5551)）
+- helper endpoint retiming：重排 helper 的 endpoint 與 stop frame（[#5561](https://github.com/CrocSwap/integer-mult-bounds/pull/5561)）
+- helper reuse：把 helper 交給後繼的 call（[#5569](https://github.com/CrocSwap/integer-mult-bounds/pull/5569)）
+- contact / frame rewrite：把一個減法或 ADD 移到維度較高的 frame（[#5545](https://github.com/CrocSwap/integer-mult-bounds/pull/5545)、[#5580](https://github.com/CrocSwap/integer-mult-bounds/pull/5580)）
 - commuting-contact cascade（#5565）
 
 最後 Ali Romman 的 [#5599](https://github.com/CrocSwap/integer-mult-bounds/pull/5599) 在 P104 word 上做 13 個 helper-subspace split，產生真正獨立的輸入並切開 productive target，不增加 paid Gaussian call，於 10 月 26 日成為 current selected：
@@ -400,7 +400,7 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$
 - **Query shear 與 retiming**：#4440 起，用 copied rank-one query shear 取代 full transform，再以 helper retiming、contact span 與 joint helper boundary 逐步減少 paid job。
 - **Critical-root compiler**：#4535 起，native supplier 與 paid invoice 沿用 #4470，改在恰好的 crossing exponent 取得 leaf-count 界，並收緊 outer 參數。
 - **Native map 與 compiler reserve**：#4610 回頭調整 helper 的 entrance、scalar contact 與 native map，並縮小 compiler 的 finite reserve。
-- **Owned helper relation 與 backward caller**：#5377 起，用 owned relation 去掉 backward call 的 rank-eight center，再以 circuit transposition 或 direct backward caller 讓全部 full call 使用縮減後的 supplier（#5383、#5392、#5398、#5413）。
+- **Owned helper relation 與 backward caller**：#5377 起，用 owned relation 去掉 backward call 的 rank-eight center（#5377、#5383），再讓 backward call 改用縮減後的 supplier：#5392 以 circuit transposition 轉換兩個 forward call，#5398 的 direct backward caller 涵蓋全部 18 個 full call，#5413 補完 coupled-output caller。
 - **P104 word 與 helper-subspace split**：#5544 起改用 P104 word 的 literal caller，再以 contact 重排、helper retiming 與 helper-subspace split 減少 paid call 或增加獨立輸入（#5544 至 #5599）。
 
 ### 瓶頸
