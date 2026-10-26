@@ -10,23 +10,28 @@
     <div class="now-body">
         <h4>anthropics/formal-math <a class="gh-link" href="https://github.com/anthropics/formal-math" target="_blank" rel="noopener noreferrer" aria-label="repo: anthropics/formal-math on GitHub"><svg viewBox="0 0 16 16" class="ico" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>repo</a></h4>
         {% include math/ai/repo-stats.html repo="anthropics/formal-math" %}
+        <p class="now-primary">
+            Machine-checked Lean 4 formalizations published by Anthropic. Each project is a self-contained Lake project following the Palomar submission layout.
+        </p>
+
+        <h4>zeta23</h4>
+        <p class="now-primary">
+            More than two thirds of the zeros of the Riemann zeta function are simple and on the critical line.
+        </p>
+
+        <h4>3sum-apsp</h4>
         <div class="now-notes">
             <span class="now-notes__label">notes</span>
             {% include note-link.html href="/articles/Math/ai/anthropic/3sum-apsp/" label="3sum-apsp" %}
         </div>
         <p class="now-primary">
-            Machine-checked Lean 4 formalizations published by Anthropic. Each project is a self-contained Lake project following the Palomar submission layout.
+            The first polynomial improvements over the textbook $O(n^2)$ 3SUM and $O(n^3)$ APSP algorithms on a word RAM, followed by a simplified proof and smaller exponents.
         </p>
 
         <ul class="now-list">
-            <li>zeta23: more than two thirds of the zeros of the Riemann zeta function are simple and on the critical line.</li>
-            <li>3sum-apsp: the first polynomial improvements over the textbook $O(n^2)$ 3SUM and $O(n^3)$ APSP algorithms on a word RAM, followed by a simplified proof and smaller exponents.
-                <ul class="now-list">
-                    <li>Alman and Vassilevska Williams: $O(n^{1.9992})$ for 3SUM and $O(n^{2.99942})$ for APSP, via triangles in sparse lopsided graphs. <a href="https://arxiv.org/abs/2610.06783" target="_blank" rel="noopener noreferrer">arXiv:2610.06783</a></li>
-                    <li>Karingula and Lovett: a simplified proof of the polynomial improvements, with weaker exponents. <a href="https://arxiv.org/abs/2610.15663" target="_blank" rel="noopener noreferrer">arXiv:2610.15663</a></li>
-                    <li>Majdoddin: improved exponents $n^{1.99450+o(1)}$ for 3SUM and $n^{2.99450+o(1)}$ for APSP. <a href="https://arxiv.org/abs/2610.17420" target="_blank" rel="noopener noreferrer">arXiv:2610.17420</a></li>
-                </ul>
-            </li>
+            <li>Alman and Vassilevska Williams: $O(n^{1.9992})$ for 3SUM and $O(n^{2.99942})$ for APSP, via triangles in sparse lopsided graphs. <a href="https://arxiv.org/abs/2610.06783" target="_blank" rel="noopener noreferrer">arXiv:2610.06783</a></li>
+            <li>Karingula and Lovett: a simplified proof of the polynomial improvements, with weaker exponents. <a href="https://arxiv.org/abs/2610.15663" target="_blank" rel="noopener noreferrer">arXiv:2610.15663</a></li>
+            <li>Majdoddin: improved exponents $n^{1.99450+o(1)}$ for 3SUM and $n^{2.99450+o(1)}$ for APSP. <a href="https://arxiv.org/abs/2610.17420" target="_blank" rel="noopener noreferrer">arXiv:2610.17420</a></li>
         </ul>
     </div>
 </article>
