@@ -115,7 +115,11 @@ $\zeta(1+it)\neq 0$ for all real $t$.
 
 ## Videos
 
-### 黎曼猜想（一）為什麼全體自然數的和等於 -1/12
+### 李永乐老师
+
+- [【李永乐老师】黎曼猜想（一）为什么全体自然数的和等于-1/12](https://www.youtube.com/watch?v=lsBcU-IrmpE)
+- [【李永乐老师】黎曼猜想（二）什么是质数？质数的分布有什么规律？](https://www.youtube.com/watch?v=IVn3mKCTjI0)
+- [【李永乐老师】黎曼猜想（三）世界上最难赚的100万美元](https://www.youtube.com/watch?v=e-w1gZP2zfE)
 
 <div class="video-window">
   <div class="video-window__title">NOW PLAYING: 【李永乐老师】黎曼猜想（一）为什么全体自然数的和等于-1/12</div>
@@ -129,8 +133,6 @@ $\zeta(1+it)\neq 0$ for all real $t$.
     </iframe>
   </div>
 </div>
-
-- [【李永乐老师】黎曼猜想（一）为什么全体自然数的和等于-1/12](https://www.youtube.com/watch?v=lsBcU-IrmpE)
 
 ### 黎曼猜想（二）什麼是質數？質數的分布有什麼規律？
 
@@ -147,8 +149,6 @@ $\zeta(1+it)\neq 0$ for all real $t$.
   </div>
 </div>
 
-- [【李永乐老师】黎曼猜想（二）什么是质数？质数的分布有什么规律？](https://www.youtube.com/watch?v=IVn3mKCTjI0)
-
 ### 黎曼猜想（三）世界上最難賺的 100 萬美元
 
 <div class="video-window">
@@ -163,8 +163,6 @@ $\zeta(1+it)\neq 0$ for all real $t$.
     </iframe>
   </div>
 </div>
-
-- [【李永乐老师】黎曼猜想（三）世界上最难赚的100万美元](https://www.youtube.com/watch?v=e-w1gZP2zfE)
 
 ## References
 
