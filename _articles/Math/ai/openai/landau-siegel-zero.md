@@ -54,22 +54,21 @@ mathcommunity/oai-math-revised {% include gh-link.html href="https://github.com/
 
 {% include math/ai/repo-stats.html repo="mathcommunity/oai-math-revised" %}
 
-oai-math-revised 收錄了 *Uniform exclusion of Landau–Siegel zeros* 的 revised manuscript。
+oai-math-revised 收錄了 *Uniform exclusion of Landau–Siegel zeros* 的 revised manuscript。後續的 exposition 與 variant 以沒有編號的 remark 列在 introduction，原有的 theorem 編號不變。
 
 ### PR {% include pr-link.html num=2 %}
 
-2026-10-18 merge，由 `teorth` 提交。把 Banks、Kerr、Green 三個後續版本加入 revised manuscript，作者欄從 OpenAI 改為 OpenAI (with community contributions)。原本一次性的 AI manuscript 變成由社群維護的數學文件。
+2026-10-18 merge，由 `teorth` 提交。在 introduction 加入 remark，指向 Banks、Kerr、Green 三份後續 exposition，並更新 byline 與日期。
 
 ### PR {% include pr-link.html num=3 %}
 
-已 merge。收進以下內容：
+2026-10-20 merge，由 `teorth` 提交，延伸 PR {% include pr-link.html num=2 %} 的 remark，新增：
 
-- Tao 的 Green-proof exposition：[A sketch of the proof of non-existence of Siegel zeroes](https://terrytao.wordpress.com/2026/10/19/a-sketch-of-the-proof-of-non-existence-of-siegel-zeroes/)
-- Pascadi observation
-- Barreto variant：[An elementary proof of the non-existence of Landau–Siegel zeros](https://x.com/acerfur/status/2112239827077026128)
-- Pescador variant
+- Tao 對 Green 論證的 sketch，同時記錄 Pascadi 的觀察：[A sketch of the proof of non-existence of Siegel zeroes](https://terrytao.wordpress.com/2026/10/19/a-sketch-of-the-proof-of-non-existence-of-siegel-zeroes/)
+- Barreto variant，以 Wronskian 取代 resultant：[An elementary proof of the non-existence of Landau–Siegel zeros](https://x.com/acerfur/status/2112239827077026128)
+- Pescador variant（private communication）
 
-討論的問題從 OpenAI 的證明是否正確，轉為這個 argument 能推到多遠。
+Green 的引用同時改指向沒有版本號的 Hexagon 頁面。
 
 ## 改進 bound
 
@@ -167,12 +166,12 @@ Banks 把 argument 從 $\mathbb{Q}$ 推廣到一般 number field，進而得到 
     <tr>
       <td>社群整合</td>
       <td>PR {% include pr-link.html num=2 %}</td>
-      <td>合併 Banks、Kerr、Green 的版本，附 Tao 的 proof sketch</td>
+      <td>在 introduction 加入指向 Banks、Kerr、Green 三份 exposition 的 remark</td>
     </tr>
     <tr>
       <td>社群整合</td>
       <td>PR {% include pr-link.html num=3 %}</td>
-      <td>合併 Tao 的 Green-proof exposition 與 Pascadi、Barreto、Pescador 的後續結果</td>
+      <td>新增 Tao 的 sketch（含 Pascadi 的觀察）、Barreto 與 Pescador 的 variant</td>
     </tr>
     <tr>
       <td>改進 bound</td>
