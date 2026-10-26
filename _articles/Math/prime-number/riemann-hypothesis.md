@@ -134,8 +134,6 @@ $\zeta(1+it)\neq 0$ for all real $t$.
   </div>
 </div>
 
-### 黎曼猜想（二）什麼是質數？質數的分布有什麼規律？
-
 <div class="video-window">
   <div class="video-window__title">NOW PLAYING: 【李永乐老师】黎曼猜想（二）什么是质数？质数的分布有什么规律？</div>
   <div class="video-window__body">
@@ -148,8 +146,6 @@ $\zeta(1+it)\neq 0$ for all real $t$.
     </iframe>
   </div>
 </div>
-
-### 黎曼猜想（三）世界上最難賺的 100 萬美元
 
 <div class="video-window">
   <div class="video-window__title">NOW PLAYING: 【李永乐老师】黎曼猜想（三）世界上最难赚的100万美元</div>
