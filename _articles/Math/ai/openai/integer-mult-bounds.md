@@ -450,7 +450,7 @@ Chris R 的 [#5384](https://github.com/CrocSwap/integer-mult-bounds/pull/5384)�
 以下都沒有 maintainer review。
 
 - P19 線：DaysSky 的 [#5270](https://github.com/CrocSwap/integer-mult-bounds/pull/5270) 與 [#5440](https://github.com/CrocSwap/integer-mult-bounds/pull/5440)，$\kappa=0.0033999964$。
-- P104 線 A（各 PR 接在前一個上）：
+- P104 線 A（各 PR 接在其基礎 PR 上）：
   - Ali Romman 的 [#5627](https://github.com/CrocSwap/integer-mult-bounds/pull/5627)（$\kappa=0.00310440546$，比 #5599 高 $3.95546\times10^{-6}$）：composed helper splits。
   - zxv 的 [#5643](https://github.com/CrocSwap/integer-mult-bounds/pull/5643)（$0.00310458$，比 #5627 高 $1.7454\times10^{-7}$，paid A2 rank exchange）與 Ali Romman 的 [#5644](https://github.com/CrocSwap/integer-mult-bounds/pull/5644)（$0.00310626335$，比 #5627 高 $1.85789\times10^{-6}$，三個 helper cleanup）。
   - zxv 的 [#5650](https://github.com/CrocSwap/integer-mult-bounds/pull/5650)（$0.00310644468$，比 #5644 高 $1.8133\times10^{-7}$）結合 #5644 的 helper cleanup 與 #5643 的 A2 exchange。
