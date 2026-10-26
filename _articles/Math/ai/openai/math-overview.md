@@ -81,6 +81,7 @@ openai/math
 <div class="now-notes">
   <span class="now-notes__label">notes</span>
   {% include note-link.html href="/articles/Math/ai/openai/quasi-riemann-hypothesis/" label="The Quasi-Riemann Hypothesis" %}
+  {% include note-link.html href="/articles/Math/prime-number/riemann-hypothesis/" label="Riemann Hypothesis" %}
   {% include note-link.html href="/articles/Math/ai/openai/landau-siegel-zero/" label="Landau–Siegel Zero" %}
 </div>
 
