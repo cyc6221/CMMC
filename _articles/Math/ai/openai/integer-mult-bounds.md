@@ -139,10 +139,7 @@ $$
 <ul>
 <li><strong>Merged</strong>：PR 已進入 <code>main</code>，不表示升為 selected，也不表示已被獨立驗證。</li>
 <li><strong>Selected</strong>：曾經或目前是專案的 selected result，一定經過 maintainer review。Archive 合併、conditional review 與 selection 是三件不同的事，selection 另需一致的 source closure、重放指令與公開狀態更新。</li>
-<li><strong>Candidate</strong>：merge 後但未升為 selected 的 conditional 宣稱，其 $\kappa$ 是作者提交的數值，除非另外註明已有 maintainer review。</li>
-<li><strong>Reviewed checkpoint</strong>：有 maintainer review、但從未升為 selected，例如 #4416。</li>
-<li><strong>Maintainer review</strong>：AI 協助的 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。</li>
-<li><strong>百分比比較</strong>：比較的是 exponent saving，不是實測的執行時間。</li>
+<li><strong>Candidate</strong>：merge 後但未升為 selected 的 conditional 宣稱，其 $\kappa$ 是作者提交的數值。其中已有 maintainer review 的稱為 reviewed checkpoint，目前只有 #4416。</li>
 </ul>
 </div>
 
