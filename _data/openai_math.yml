@@ -1,0 +1,413 @@
+# Catalog numbers and titles of the openai/math result families.
+# Source: https://github.com/openai/math/blob/main/CONTENTS.md (titles, without the
+# trailing period) and overview.pdf (subject sections), as of 2026-10-26.
+# The catalog skips 045, 061, 070, 123 and 163, so 372 families span 001-377.
+# Look one up by its three-digit number so every note shows the same name:
+#   {%- assign r = site.data.openai_math | where: "num", "109" | first -%}
+#   {{ r.title }}
+
+# Number theory (31, 001-031)
+- {num: "001", section: Number theory, title: 'Milne’s rationality conjecture and algebraic specialization'}
+- {num: "002", section: Number theory, title: 'The full BSD formula from low Selmer corank'}
+- {num: "003", section: Number theory, title: 'The quasi-Riemann hypothesis'}
+- {num: "004", section: Number theory, title: 'Hilbert’s tenth problem over ℚ'}
+- {num: "005", section: Number theory, title: 'Irrationality of Catalan’s constant'}
+- {num: "006", section: Number theory, title: 'Goldfeld’s conjecture: densities and mean analytic rank'}
+- {num: "007", section: Number theory, title: 'Ordinary two-point correlations and the corrected Elliott conjecture'}
+- {num: "008", section: Number theory, title: 'The Deligne–Drinfeld conjecture'}
+- {num: "009", section: Number theory, title: 'Function-field reconstruction from Milnor K-theory and Galois data'}
+- {num: "010", section: Number theory, title: 'Unrestricted pro-modularity at the prime two'}
+- {num: "011", section: Number theory, title: 'Prime-factor statistics of $p-1$'}
+- {num: "012", section: Number theory, title: 'Independent largest prime factors of consecutive integers'}
+- {num: "013", section: Number theory, title: 'Ostmann’s inverse Goldbach conjecture'}
+- {num: "014", section: Number theory, title: 'Restricted geometric Langlands, global Arthur enhancements, and generic Ramanujan'}
+- {num: "015", section: Number theory, title: 'Torus-packet equidistribution in prime, quartic, and sextic degrees'}
+- {num: "016", section: Number theory, title: 'Zilber–Pink in abelian varieties and the Siegel threefold'}
+- {num: "017", section: Number theory, title: 'The irrationality exponent of π is 2'}
+- {num: "018", section: Number theory, title: 'The Margulis–Platonov conjecture over global fields'}
+- {num: "019", section: Number theory, title: 'The local p-adic section conjecture and global consequences'}
+- {num: "020", section: Number theory, title: 'Squarefree quartics and power-free polynomial values'}
+- {num: "021", section: Number theory, title: 'A quadratic bound for Jacobsthal’s function'}
+- {num: "022", section: Number theory, title: 'The weak inhomogeneous Duffin–Schaeffer conjecture'}
+- {num: "023", section: Number theory, title: 'Patterson''s first moment for cubic Gauss sums'}
+- {num: "024", section: Number theory, title: 'An asymptotic formula for the number of totients'}
+- {num: "025", section: Number theory, title: 'Short Egyptian fractions'}
+- {num: "026", section: Number theory, title: 'Positive lower density of large prime gaps'}
+- {num: "027", section: Number theory, title: 'Potential integral density on curve character varieties'}
+- {num: "028", section: Number theory, title: 'Uniformly bounded components of Gaussian-prime graphs'}
+- {num: "029", section: Number theory, title: 'Primitive roots for every admissible integer base'}
+- {num: "030", section: Number theory, title: 'Modularity of elliptic curves over imaginary quadratic fields'}
+- {num: "031", section: Number theory, title: 'Uchida’s conjecture for open homomorphisms of Galois groups'}
+
+# Algebraic and complex geometry (36, 032-069)
+- {num: "032", section: Algebraic and complex geometry, title: 'The rational Hodge conjecture for CM abelian varieties'}
+- {num: "033", section: Algebraic and complex geometry, title: 'Iitaka subadditivity, variation, and logarithmic additivity'}
+- {num: "034", section: Algebraic and complex geometry, title: 'Log abundance for compact Kähler spaces under logarithmic Iitaka subadditivity'}
+- {num: "035", section: Algebraic and complex geometry, title: 'Log-canonical threefold abundance in numerical dimension one'}
+- {num: "036", section: Algebraic and complex geometry, title: 'Numerical semiampleness and generalized minimal models'}
+- {num: "037", section: Algebraic and complex geometry, title: 'The ordinary-double-point volume gap'}
+- {num: "038", section: Algebraic and complex geometry, title: 'Fujita’s freeness conjecture'}
+- {num: "039", section: Algebraic and complex geometry, title: 'Nagata’s conjecture and maximal Seshadri constants'}
+- {num: "040", section: Algebraic and complex geometry, title: 'Bloch’s conjecture for complex surfaces'}
+- {num: "041", section: Algebraic and complex geometry, title: 'Hyperkähler SYZ and projective-space bases'}
+- {num: "042", section: Algebraic and complex geometry, title: 'Oka classification for minimal compact complex surfaces: Kodaira dimension zero and class VII'}
+- {num: "043", section: Algebraic and complex geometry, title: 'P = W for fixed-determinant SLₙ moduli spaces'}
+- {num: "044", section: Algebraic and complex geometry, title: 'The equivariant cohomological Hikita conjecture'}
+- {num: "046", section: Algebraic and complex geometry, title: 'Shafarevich counterexamples in dimension two and with large fundamental group'}
+- {num: "047", section: Algebraic and complex geometry, title: 'Zariski cancellation and affine fibrations over the complex numbers'}
+- {num: "048", section: Algebraic and complex geometry, title: 'A characteristic-zero counterexample to Lipman–Zariski'}
+- {num: "049", section: Algebraic and complex geometry, title: 'A stable-coordinate counterexample in four variables'}
+- {num: "050", section: Algebraic and complex geometry, title: 'A counterexample to Griffiths’ positivity conjecture'}
+- {num: "051", section: Algebraic and complex geometry, title: 'Kobayashi’s canonical-ampleness conjecture'}
+- {num: "052", section: Algebraic and complex geometry, title: 'Tangent splittings and product decompositions'}
+- {num: "053", section: Algebraic and complex geometry, title: 'A counterexample to Pixton completeness in Chow'}
+- {num: "054", section: Algebraic and complex geometry, title: 'Irrational cubic fourfolds with Hodge-theoretic and categorical K3 associations'}
+- {num: "055", section: Algebraic and complex geometry, title: 'Gepner symmetry and large-volume stability on threefolds'}
+- {num: "056", section: Algebraic and complex geometry, title: 'Termination of projective and Kähler fourfold minimal model programs'}
+- {num: "057", section: Algebraic and complex geometry, title: 'Fundamental groups of special complex varieties and root orbifolds'}
+- {num: "058", section: Algebraic and complex geometry, title: 'Semialgebraic universal covers and bounded domains'}
+- {num: "059", section: Algebraic and complex geometry, title: 'Counterexamples to Zariski’s multiplicity conjecture'}
+- {num: "060", section: Algebraic and complex geometry, title: 'The Global Spherical Shell conjecture'}
+- {num: "062", section: Algebraic and complex geometry, title: 'Projective contact classification and the LeBrun–Salamon conjecture'}
+- {num: "063", section: Algebraic and complex geometry, title: 'The generalized Mukai conjecture'}
+- {num: "064", section: Algebraic and complex geometry, title: 'Topological triviality of μ-constant surface singularities'}
+- {num: "065", section: Algebraic and complex geometry, title: 'Virasoro constraints for complete intersections and projective-bundle towers'}
+- {num: "066", section: Algebraic and complex geometry, title: 'Bounded klt complements for Fano contractions'}
+- {num: "067", section: Algebraic and complex geometry, title: 'The Campana–Peternell conjecture in dimension six'}
+- {num: "068", section: Algebraic and complex geometry, title: 'Anticanonical nonvanishing in every dimension'}
+- {num: "069", section: Algebraic and complex geometry, title: 'Global quantum geometric Langlands at irrational level'}
+
+# Real and complex analysis (16, 071-086)
+- {num: "071", section: Real and complex analysis, title: 'Koebe’s circle-domain conjecture'}
+- {num: "072", section: Real and complex analysis, title: 'Brennan''s conjecture and the integral-means spectrum'}
+- {num: "073", section: Real and complex analysis, title: 'The Falconer distance conjecture'}
+- {num: "074", section: Real and complex analysis, title: 'Kakeya in three and four dimensions'}
+- {num: "075", section: Real and complex analysis, title: 'The $L\log L$ Fourier-convergence conjecture'}
+- {num: "076", section: Real and complex analysis, title: 'Real ultraflat Littlewood polynomials and unbounded binary merit factors'}
+- {num: "077", section: Real and complex analysis, title: 'Fourier restriction for positively curved surfaces'}
+- {num: "078", section: Real and complex analysis, title: 'The three-dimensional Bochner–Riesz conjecture'}
+- {num: "079", section: Real and complex analysis, title: 'Local smoothing in three dimensions'}
+- {num: "080", section: Real and complex analysis, title: 'The exact Sobolev endpoint for Schrödinger convergence'}
+- {num: "081", section: Real and complex analysis, title: 'Riesz transforms and rectifiability in higher codimension'}
+- {num: "082", section: Real and complex analysis, title: 'Annular variation and dyadic absolute bounds for the triangular Hilbert transform'}
+- {num: "083", section: Real and complex analysis, title: 'Hilbert transforms along Lipschitz directions'}
+- {num: "084", section: Real and complex analysis, title: 'The geometric case of the Erdős similarity conjecture'}
+- {num: "085", section: Real and complex analysis, title: 'Endpoint Sobolev regularity of centered disk averages'}
+- {num: "086", section: Real and complex analysis, title: 'An L³ bound for the trilinear Hilbert transform'}
+
+# Convex and metric geometry (15, 087-101)
+- {num: "087", section: Convex and metric geometry, title: 'The Mahler conjectures, functional inequalities and polar-product symplectic width'}
+- {num: "088", section: Convex and metric geometry, title: 'Sharp projection-body inequalities and a counterexample to simplex maximization'}
+- {num: "089", section: Convex and metric geometry, title: 'Bounded-distortion L₁ embeddings of planar and bounded-treewidth graphs'}
+- {num: "090", section: Convex and metric geometry, title: 'Triangular-lattice optimality, long-range Riesz and Coulomb energies, and spherical logarithmic energy'}
+- {num: "091", section: Convex and metric geometry, title: 'Logarithmic and Lₚ Brunn–Minkowski inequalities and the B-conjecture'}
+- {num: "092", section: Convex and metric geometry, title: 'The optimal order of convex-body covering density'}
+- {num: "093", section: Convex and metric geometry, title: 'Dimension-free logarithmic Sobolev inequality for subgaussian log-concave measures'}
+- {num: "094", section: Convex and metric geometry, title: 'Subpolynomial dimension reduction in Lₚ'}
+- {num: "095", section: Convex and metric geometry, title: 'Hyperbolicity cones without semidefinite lifts'}
+- {num: "096", section: Convex and metric geometry, title: 'The Gaussian propeller conjecture in every dimension'}
+- {num: "097", section: Convex and metric geometry, title: 'The Euclidean Steinitz–Bergström bound'}
+- {num: "098", section: Convex and metric geometry, title: 'Compact counterexamples to bi-Lipschitz dimension reduction'}
+- {num: "099", section: Convex and metric geometry, title: 'The sharp exponential scale of edit-distance distortion'}
+- {num: "100", section: Convex and metric geometry, title: 'Cylinder coverings below the half-area bound'}
+- {num: "101", section: Convex and metric geometry, title: 'The sharp simplex conjecture for isotropic constants'}
+
+# Theoretical computer science (40, 102-142)
+- {num: "102", section: Theoretical computer science, title: 'The Unique Games Conjecture and optimal approximation thresholds'}
+- {num: "103", section: Theoretical computer science, title: 'Exact derandomization of logarithmic space: $\mathsf L=\mathsf{RL}=\mathsf{BPL}$'}
+- {num: "104", section: Theoretical computer science, title: 'Quasipolynomial algorithms for mean-payoff, stochastic and parity games'}
+- {num: "105", section: Theoretical computer science, title: 'Perfect completeness for 2-to-1 games'}
+- {num: "106", section: Theoretical computer science, title: 'Hardness of coloring three-colorable graphs'}
+- {num: "107", section: Theoretical computer science, title: 'Matrix multiplication with exponent at most 9/4'}
+- {num: "108", section: Theoretical computer science, title: 'A cubic permanent–determinant lower bound'}
+- {num: "109", section: Theoretical computer science, title: 'Integer multiplication below $n\log n$'}
+- {num: "110", section: Theoretical computer science, title: 'Optimal-order randomized k-server on arbitrary metrics'}
+- {num: "111", section: Theoretical computer science, title: 'One-sample matroid prophet inequalities against an almighty adversary'}
+- {num: "112", section: Theoretical computer science, title: 'Beyond the square-root exponent for depth-three circuits'}
+- {num: "113", section: Theoretical computer science, title: 'Approximate counting and entropy of perfect matchings'}
+- {num: "114", section: Theoretical computer science, title: 'Approximate counting of common integer polymatroid bases'}
+- {num: "115", section: Theoretical computer science, title: 'Sampling and counting contingency tables with arbitrary margins'}
+- {num: "116", section: Theoretical computer science, title: 'Uniform black-box noncommutative identity testing across characteristics'}
+- {num: "117", section: Theoretical computer science, title: 'Uniform sparsest cut: hardness and semidefinite gaps'}
+- {num: "118", section: Theoretical computer science, title: 'Bin packing and unbounded configuration-LP gaps'}
+- {num: "119", section: Theoretical computer science, title: 'The Courtade–Kumar and Hellinger conjectures'}
+- {num: "120", section: Theoretical computer science, title: 'Almost-linear-time exact matching and prescribed-degree factors in general graphs'}
+- {num: "121", section: Theoretical computer science, title: 'Almost-linear approximation of edit distance'}
+- {num: "122", section: Theoretical computer science, title: 'Quantitative trace-reconstruction bounds with a uniform decoder'}
+- {num: "124", section: Theoretical computer science, title: 'Polynomial-time scheduling on three identical machines'}
+- {num: "125", section: Theoretical computer science, title: 'The metric k-median approximation threshold and recovery'}
+- {num: "126", section: Theoretical computer science, title: 'Exponential semidefinite complexity of perfect matching'}
+- {num: "127", section: Theoretical computer science, title: 'Average sensitivity of polynomial threshold functions'}
+- {num: "128", section: Theoretical computer science, title: 'A factor-two approximation for shortest common superstring'}
+- {num: "129", section: Theoretical computer science, title: 'Exponential state costs for two-way automata'}
+- {num: "130", section: Theoretical computer science, title: 'Exact Fourier transforms below $n\log n$'}
+- {num: "131", section: Theoretical computer science, title: 'Rapid mixing of graph switches for every degree sequence'}
+- {num: "132", section: Theoretical computer science, title: 'A superquadratic separation of sensitivity and block sensitivity'}
+- {num: "133", section: Theoretical computer science, title: 'The computational complexity of Weisfeiler–Leman refinement'}
+- {num: "134", section: Theoretical computer science, title: 'Generalized star height at most three'}
+- {num: "135", section: Theoretical computer science, title: 'Homogeneous depth-five lower bounds for iterated matrix multiplication'}
+- {num: "136", section: Theoretical computer science, title: 'A quasilinear PCP theorem for PPAD'}
+- {num: "137", section: Theoretical computer science, title: 'One-tape time simulation in two-fifths-power space'}
+- {num: "138", section: Theoretical computer science, title: 'Subset Sum in $O(2^{0.49n})$ time'}
+- {num: "139", section: Theoretical computer science, title: 'Subpolynomial query complexity for log-concave sampling'}
+- {num: "140", section: Theoretical computer science, title: 'Memory–sample lower bounds for noiseless Gaussian regression'}
+- {num: "141", section: Theoretical computer science, title: 'Existential–universal real sentences in the counting hierarchy'}
+- {num: "142", section: Theoretical computer science, title: 'Deterministic polynomial factorization over prime fields'}
+
+# Dynamical systems and ergodic theory (12, 143-154)
+- {num: "143", section: Dynamical systems and ergodic theory, title: 'Hilbert''s sixteenth problem: uniform bounds for limit cycles'}
+- {num: "144", section: Dynamical systems and ergodic theory, title: 'Banach’s simple Lebesgue-spectrum problem'}
+- {num: "145", section: Dynamical systems and ergodic theory, title: 'Rokhlin’s multiple-mixing problem'}
+- {num: "146", section: Dynamical systems and ergodic theory, title: 'Positive metric entropy for the standard map'}
+- {num: "147", section: Dynamical systems and ergodic theory, title: 'The near-boundary Birkhoff conjecture'}
+- {num: "148", section: Dynamical systems and ergodic theory, title: 'The entropy-rate dimension formula for self-similar measures'}
+- {num: "149", section: Dynamical systems and ergodic theory, title: 'Classwise permanence for weakly reversible mass-action systems'}
+- {num: "150", section: Dynamical systems and ergodic theory, title: 'Weak mixing of triangular billiards with an irrational angle'}
+- {num: "151", section: Dynamical systems and ergodic theory, title: 'A C¹ counterexample to the entropy conjecture'}
+- {num: "152", section: Dynamical systems and ergodic theory, title: 'Zero entropy does not guarantee a smooth positive-volume model'}
+- {num: "153", section: Dynamical systems and ergodic theory, title: 'Arithmetic classification and non-Pisot singularity for Bernoulli convolutions'}
+- {num: "154", section: Dynamical systems and ergodic theory, title: 'Pointwise multiple ergodic averages for mixing transformations'}
+
+# Combinatorics (37, 155-192)
+- {num: "155", section: Combinatorics, title: 'A counterexample to periodic tiling in dimension three'}
+- {num: "156", section: Combinatorics, title: 'Borsuk''s conjecture fails in dimension nine'}
+- {num: "157", section: Combinatorics, title: 'Graph coloring, clique minors, and Colin de Verdière invariants'}
+- {num: "158", section: Combinatorics, title: 'The Euclidean plane cannot be colored with five colors'}
+- {num: "159", section: Combinatorics, title: 'Erdős’s reciprocal-sum conjecture and quasipolynomial Szemerédi bounds'}
+- {num: "160", section: Combinatorics, title: 'Superexponential van der Waerden numbers'}
+- {num: "161", section: Combinatorics, title: 'Counterexamples to Sidorenko’s conjecture and the forcing conjecture'}
+- {num: "162", section: Combinatorics, title: 'Counterexamples to Ryser’s covering conjecture'}
+- {num: "164", section: Combinatorics, title: 'Hindman’s finite sums and products conjecture'}
+- {num: "165", section: Combinatorics, title: 'The Harary–Hill and Zarankiewicz crossing-number formulas'}
+- {num: "166", section: Combinatorics, title: 'The higher-dimensional Erdős distinct-distances conjecture'}
+- {num: "167", section: Combinatorics, title: 'Planar distinct distances and unit-distance bounds'}
+- {num: "168", section: Combinatorics, title: 'Combinatorial invariance of Kazhdan–Lusztig polynomials'}
+- {num: "169", section: Combinatorics, title: 'Shareshian–Wachs elementary positivity'}
+- {num: "170", section: Combinatorics, title: 'Sharp logarithmic exponents for off-diagonal Ramsey numbers'}
+- {num: "171", section: Combinatorics, title: 'The hypercube Ramsey conjecture'}
+- {num: "172", section: Combinatorics, title: 'Classification of finite Euclidean Ramsey configurations'}
+- {num: "173", section: Combinatorics, title: 'Seymour’s second-neighborhood conjecture'}
+- {num: "174", section: Combinatorics, title: 'Deterministic construction of strong thin spanning trees'}
+- {num: "175", section: Combinatorics, title: 'Talagrand’s expectation thresholds, discrete convexity, and graph decompositions'}
+- {num: "176", section: Combinatorics, title: 'The second Kahn–Kalai conjecture with an edge-count bound'}
+- {num: "177", section: Combinatorics, title: 'Bounded-degree coboundary expanders'}
+- {num: "178", section: Combinatorics, title: 'Deterministic nonbipartite Ramanujan graphs in every fixed degree'}
+- {num: "179", section: Combinatorics, title: 'The circulant Hadamard and Barker-sequence conjectures'}
+- {num: "180", section: Combinatorics, title: 'Barnette’s Hamiltonian-cycle conjecture'}
+- {num: "181", section: Combinatorics, title: 'The Erdős–Gallai cycle-decomposition conjecture'}
+- {num: "182", section: Combinatorics, title: 'Power savings for intersective polynomial differences and prime arguments'}
+- {num: "183", section: Combinatorics, title: 'Power savings for planar halving lines and k-sets'}
+- {num: "184", section: Combinatorics, title: 'Correspondence coloring with a fixed forbidden subgraph'}
+- {num: "185", section: Combinatorics, title: 'Counterexamples to infinite matroid intersection and packing/covering'}
+- {num: "186", section: Combinatorics, title: 'Uniform influence and sharp thresholds for graph and hypergraph properties'}
+- {num: "187", section: Combinatorics, title: 'Snaky in 21 Maker moves'}
+- {num: "188", section: Combinatorics, title: 'The sharp terminal leave in random triangle removal'}
+- {num: "189", section: Combinatorics, title: 'Cycle–clique Ramsey numbers'}
+- {num: "190", section: Combinatorics, title: 'Polynomial removal fails for ordered binary matrices'}
+- {num: "191", section: Combinatorics, title: 'A power improvement in the Heilbronn triangle lower bound'}
+- {num: "192", section: Combinatorics, title: 'Boolean functions violate the square-root degree bound by arbitrary factors'}
+
+# Algebra (18, 193-210)
+- {num: "193", section: Algebra, title: 'Serre’s intersection-multiplicity conjecture'}
+- {num: "194", section: Algebra, title: 'Lech’s multiplicity conjecture'}
+- {num: "195", section: Algebra, title: 'A counterexample to the small Cohen–Macaulay module conjecture'}
+- {num: "196", section: Algebra, title: 'A counterexample to Kaplansky’s zero-divisor conjecture'}
+- {num: "197", section: Algebra, title: 'A torsion-free group algebra that is not directly finite'}
+- {num: "198", section: Algebra, title: 'A counterexample to finitistic-dimension finiteness'}
+- {num: "199", section: Algebra, title: 'Counterexamples to Auslander–Reiten, Tachikawa and related homological conjectures'}
+- {num: "200", section: Algebra, title: 'Eisenbud–Green–Harris and lex-plus-powers'}
+- {num: "201", section: Algebra, title: 'A counterexample to Kurosh’s division-ring problem'}
+- {num: "202", section: Algebra, title: 'The blockwise Alperin weight conjecture'}
+- {num: "203", section: Algebra, title: 'Donovan''s conjecture over fields and complete mixed-characteristic DVRs'}
+- {num: "204", section: Algebra, title: 'Tensor saturation for even spin groups'}
+- {num: "205", section: Algebra, title: 'Saxl’s conjecture and universal tensor squares'}
+- {num: "206", section: Algebra, title: 'Finite lattice representation and undecidability'}
+- {num: "207", section: Algebra, title: 'The ℓ¹-Bass conjecture for all discrete groups'}
+- {num: "208", section: Algebra, title: 'Finite symmetric tensor categories and the Verlinde tower'}
+- {num: "209", section: Algebra, title: 'Integral counterexamples to Gersten’s conjecture'}
+- {num: "210", section: Algebra, title: 'Foulkes'' conjecture for sixth powers and quadratic stabilization'}
+
+# Probability and statistical mechanics (29, 211-239)
+- {num: "211", section: Probability and statistical mechanics, title: 'The geometric phase diagram, diffusion, and spectra of random planar maps'}
+- {num: "212", section: Probability and statistical mechanics, title: 'Planar first-passage geometry and the absence of bigeodesics'}
+- {num: "213", section: Probability and statistical mechanics, title: 'Critical percolation on every quasi-transitive graph'}
+- {num: "214", section: Probability and statistical mechanics, title: 'The Benjamini–Schramm nonuniqueness conjecture'}
+- {num: "215", section: Probability and statistical mechanics, title: 'Canonical $O(3)$ continuum limit and exact $O(4)$ mass asymptotics'}
+- {num: "216", section: Probability and statistical mechanics, title: 'Critical and near-critical XY scaling and BKT universality'}
+- {num: "217", section: Probability and statistical mechanics, title: 'The low-temperature Sherrington–Kirkpatrick fluctuation law'}
+- {num: "218", section: Probability and statistical mechanics, title: 'Conformal universality for weakly interacting and random-bond Ising models'}
+- {num: "219", section: Probability and statistical mechanics, title: 'GOE bulk universality for regular graphs with weak Anderson disorder'}
+- {num: "220", section: Probability and statistical mechanics, title: 'Directional zero–one laws beyond iid environments and iid ballisticity'}
+- {num: "221", section: Probability and statistical mechanics, title: 'The Mézard–Parisi formula for diluted spin glasses'}
+- {num: "222", section: Probability and statistical mechanics, title: 'Perceptron free energies and microscopic jamming exponents'}
+- {num: "223", section: Probability and statistical mechanics, title: 'Random-cluster interfaces: critical, disordered, thermal, and natural-time scaling'}
+- {num: "224", section: Probability and statistical mechanics, title: 'Critical and quenched near-critical universality for Poisson–Voronoi percolation'}
+- {num: "225", section: Probability and statistical mechanics, title: 'Gaussian free field limits throughout the balanced six-vertex regime'}
+- {num: "226", section: Probability and statistical mechanics, title: 'The double-dimer loop ensemble converges to CLE₄'}
+- {num: "227", section: Probability and statistical mechanics, title: 'Critical SK autocorrelation processes and dynamics across the temperature transition'}
+- {num: "228", section: Probability and statistical mechanics, title: 'Continuum phase transitions for radial pair potentials'}
+- {num: "229", section: Probability and statistical mechanics, title: 'Exact three- and four-state reconstruction thresholds and four-state tree capacity'}
+- {num: "230", section: Probability and statistical mechanics, title: 'Exact Hausdorff gauges for SLE'}
+- {num: "231", section: Probability and statistical mechanics, title: 'The free uniform spanning forest is a factor of IID'}
+- {num: "232", section: Probability and statistical mechanics, title: 'Gaussian fields and interfaces for triangular-lattice Lipschitz heights'}
+- {num: "233", section: Probability and statistical mechanics, title: 'The joint critical Ashkin–Teller current limit'}
+- {num: "234", section: Probability and statistical mechanics, title: 'All-temperature pressure of orthogonally invariant Ising spin glasses'}
+- {num: "235", section: Probability and statistical mechanics, title: 'Limiting random SAT thresholds, sharp variance and computability'}
+- {num: "236", section: Probability and statistical mechanics, title: 'The exact factor-of-IID threshold for free Ising spins on trees'}
+- {num: "237", section: Probability and statistical mechanics, title: 'The three-quarter exponent for honeycomb self-avoiding walk'}
+- {num: "238", section: Probability and statistical mechanics, title: 'Optimal logarithmic mixing of the Thorp shuffle'}
+- {num: "239", section: Probability and statistical mechanics, title: 'Sharp singularity rates for symmetric random sign matrices'}
+
+# Mathematical logic (6, 240-245)
+- {num: "240", section: Mathematical logic, title: 'Shelah''s eventual categoricity and the prescribed-threshold obstruction'}
+- {num: "241", section: Mathematical logic, title: 'Rigidity of the Turing degrees'}
+- {num: "242", section: Mathematical logic, title: 'Single-fold Diophantine representations and undecidability under an at-most-one-solution promise'}
+- {num: "243", section: Mathematical logic, title: 'Separating choiceless counting from polynomial time and witnessed choice'}
+- {num: "244", section: Mathematical logic, title: 'The Partition Principle does not imply Choice'}
+- {num: "245", section: Mathematical logic, title: 'Weak normalization implies strong normalization in pure type systems'}
+
+# Group theory (14, 246-259)
+- {num: "246", section: Group theory, title: 'Cannon''s conjecture'}
+- {num: "247", section: Group theory, title: 'An infinite finitely presented residually finite 2-group and a finitely presented nil algebra'}
+- {num: "248", section: Group theory, title: 'Thompson''s group F is nonamenable'}
+- {num: "249", section: Group theory, title: 'A finitely generated Eilenberg–Ganea counterexample'}
+- {num: "250", section: Group theory, title: 'Boone–Higman embeddings with higher finiteness'}
+- {num: "251", section: Group theory, title: 'Amenability, unitarizability, and strong Ulam stability'}
+- {num: "252", section: Group theory, title: 'A torsion-free hyperbolic group that is neither residually finite nor linear over any field'}
+- {num: "253", section: Group theory, title: 'An infinite finitely presented simple amenable group'}
+- {num: "254", section: Group theory, title: 'Classifying spaces and geometric obstructions for Artin groups'}
+- {num: "255", section: Group theory, title: 'Quasi-isometric recognition of virtually polycyclic groups'}
+- {num: "256", section: Group theory, title: 'Nonsingular systems of equations over arbitrary groups'}
+- {num: "257", section: Group theory, title: 'A hyperbolic group without a geometric CAT(0) action'}
+- {num: "258", section: Group theory, title: 'Gersten’s conjecture and virtual compact specialness of one-relator groups'}
+- {num: "259", section: Group theory, title: 'A group without fixed price'}
+
+# Mathematical physics (25, 260-284)
+- {num: "260", section: Mathematical physics, title: 'Spacetime Penrose inequalities: enclosing area, charge, rotation, and anti-de Sitter extensions'}
+- {num: "261", section: Mathematical physics, title: 'Localization and delocalization in the Anderson model'}
+- {num: "262", section: Mathematical physics, title: 'Sharp finite-matrix Lieb–Thirring inequalities and all equality cases'}
+- {num: "263", section: Mathematical physics, title: 'The ionization and generalized ionization conjectures'}
+- {num: "264", section: Mathematical physics, title: 'Strong cosmic censorship near two-ended Kerr data'}
+- {num: "265", section: Mathematical physics, title: 'Area laws and tensor networks for two-dimensional gapped systems'}
+- {num: "266", section: Mathematical physics, title: 'Exactly three mutually unbiased bases in dimension six'}
+- {num: "267", section: Mathematical physics, title: 'Positive-temperature Bose–Einstein condensation and exact quantum depletion'}
+- {num: "268", section: Mathematical physics, title: 'The spin-one Haldane gap'}
+- {num: "269", section: Mathematical physics, title: 'Uniform Laughlin gap and stability under bounded scalar disorder'}
+- {num: "270", section: Mathematical physics, title: 'Threshold and positive-energy bound states of the BFSS matrix model'}
+- {num: "271", section: Mathematical physics, title: 'Bloch''s law, its lattice correction, and the spherical magnetization law'}
+- {num: "272", section: Mathematical physics, title: 'Entanglement without distillable secret key'}
+- {num: "273", section: Mathematical physics, title: 'The entropy photon-number inequality'}
+- {num: "274", section: Mathematical physics, title: 'Parity is not in QAC⁰'}
+- {num: "275", section: Mathematical physics, title: 'QMA-hardness of continuum Coulomb energy'}
+- {num: "276", section: Mathematical physics, title: 'Classical capacity of generalized amplitude damping'}
+- {num: "277", section: Mathematical physics, title: 'Threshold repetition for entangled games'}
+- {num: "278", section: Mathematical physics, title: 'Failure of Kohn–Sham ensemble representation'}
+- {num: "279", section: Mathematical physics, title: 'Exact quantum factoring over a fixed finite gate set'}
+- {num: "280", section: Mathematical physics, title: 'Unitary vertex operator algebras and conformal nets'}
+- {num: "281", section: Mathematical physics, title: 'QAOA attains the SK optimum in the thermodynamic-first limit'}
+- {num: "282", section: Mathematical physics, title: 'From scale symmetry to local conformal symmetry in four-dimensional QFT'}
+- {num: "283", section: Mathematical physics, title: 'Polynomial-time unitary synthesis from a Boolean oracle'}
+- {num: "284", section: Mathematical physics, title: 'The optimal quartic separation between randomized and quantum queries'}
+
+# Operator algebras (19, 285-303)
+- {num: "285", section: Operator algebras, title: 'Counterexamples to Baum–Connes and Kadison–Kaplansky'}
+- {num: "286", section: Operator algebras, title: 'Rigidity and arithmetic of lattice von Neumann algebras'}
+- {num: "287", section: Operator algebras, title: 'Isomorphism of the free group factors'}
+- {num: "288", section: Operator algebras, title: 'Kadison''s similarity conjecture'}
+- {num: "289", section: Operator algebras, title: 'Strong Kadison–Kastler stability and its spatial boundaries'}
+- {num: "290", section: Operator algebras, title: 'Relative bicentralizers and modular spectral recovery'}
+- {num: "291", section: Operator algebras, title: 'Cuntz comparison, nuclear dimension, and equivariant Jiang–Su stability'}
+- {num: "292", section: Operator algebras, title: 'Kirchberg''s $\mathcal O_2$ norm-ultrapower embedding problem'}
+- {num: "293", section: Operator algebras, title: 'Invariant projections, hyperinvariant subspaces, and transitive algebras'}
+- {num: "294", section: Operator algebras, title: 'Kaplansky''s quasitrace conjecture and failure of tensor-product stable finiteness'}
+- {num: "295", section: Operator algebras, title: 'The Kadison–Ringrose cohomology conjecture'}
+- {num: "296", section: Operator algebras, title: 'The generator problem for finite factors'}
+- {num: "297", section: Operator algebras, title: 'A ZFC counterexample to Naimark''s problem'}
+- {num: "298", section: Operator algebras, title: 'Two notions of free entropy differ even when both are finite'}
+- {num: "299", section: Operator algebras, title: 'The Kirchberg–Rørdam character criterion and infinite tensor-power Jiang–Su stability'}
+- {num: "300", section: Operator algebras, title: 'Approximation and quadratic strong-operator paving'}
+- {num: "301", section: Operator algebras, title: 'Trace cones and Razak–Jacelon stabilization'}
+- {num: "302", section: Operator algebras, title: 'Radius of comparison equals half the mean dimension'}
+- {num: "303", section: Operator algebras, title: 'Weak pure infiniteness and Cuntz-algebra absorption'}
+
+# Topology (18, 304-321)
+- {num: "304", section: Topology, title: 'The Hilbert–Smith conjecture in every dimension'}
+- {num: "305", section: Topology, title: 'Four-dimensional disk embedding and Wall''s conjecture'}
+- {num: "306", section: Topology, title: 'The purely cosmetic surgery conjecture'}
+- {num: "307", section: Topology, title: 'Failure of rational injectivity for maximal coarse assembly'}
+- {num: "308", section: Topology, title: 'Finite Smith–Toda complexes at every height'}
+- {num: "309", section: Topology, title: 'The Kervaire invariant problem at the prime three'}
+- {num: "310", section: Topology, title: 'Quillen''s conjecture in rational homology'}
+- {num: "311", section: Topology, title: 'The Hovey–Strickland and Chai conjectures'}
+- {num: "312", section: Topology, title: 'The Grothendieck homotopy hypothesis'}
+- {num: "313", section: Topology, title: 'Finite generation for the $K(n)$-local sphere'}
+- {num: "314", section: Topology, title: 'Cyclic length and chromatic fixed-point loss'}
+- {num: "315", section: Topology, title: 'The four-dimensional Singer conjecture'}
+- {num: "316", section: Topology, title: 'Curtis’s conjecture'}
+- {num: "317", section: Topology, title: 'Thomason model structures in all strict higher dimensions'}
+- {num: "318", section: Topology, title: 'Chromatic splitting: filtrations and counterexamples'}
+- {num: "319", section: Topology, title: 'Counterexamples to finite generation at chromatic height two'}
+- {num: "320", section: Topology, title: 'Nonhomeomorphic closed aspherical four-manifolds'}
+- {num: "321", section: Topology, title: 'A counterexample to Wall''s finite D(2) problem'}
+
+# Functional analysis (11, 322-332)
+- {num: "322", section: Functional analysis, title: 'Tingley’s sphere-isometry problem'}
+- {num: "323", section: Functional analysis, title: 'Independence of the separable quotient problem'}
+- {num: "324", section: Functional analysis, title: 'Lipschitz equivalent Banach spaces need not be linearly isomorphic'}
+- {num: "325", section: Functional analysis, title: 'The complete Crouzeix conjecture'}
+- {num: "326", section: Functional analysis, title: 'The cotype–cotype conjecture under the approximation property'}
+- {num: "327", section: Functional analysis, title: 'Markov type characterizes superreflexivity'}
+- {num: "328", section: Functional analysis, title: 'Nonexpansive fixed points in reflexive Banach spaces'}
+- {num: "329", section: Functional analysis, title: 'A counterexample to metric-entropy duality'}
+- {num: "330", section: Functional analysis, title: 'A uniformly discrete counterexample to bounded approximation in Lipschitz-free spaces'}
+- {num: "331", section: Functional analysis, title: 'Reflexive midpoint convexity and diamond distortion'}
+- {num: "332", section: Functional analysis, title: 'Metric Markov cotype of ℓ₁ and Hilbert-space Lipschitz extension'}
+
+# Differential geometry (29, 333-361)
+- {num: "333", section: Differential geometry, title: 'Smooth isometric immersions of surfaces into ℝ⁴'}
+- {num: "334", section: Differential geometry, title: 'A smooth surface metric with no local isometric immersion in ℝ³'}
+- {num: "335", section: Differential geometry, title: 'Gromov’s integral scalar-curvature bound for simplicial volume'}
+- {num: "336", section: Differential geometry, title: 'Spectral scalar curvature, Urysohn width, and macroscopic dimension'}
+- {num: "337", section: Differential geometry, title: 'Sharp Cartan–Hadamard isoperimetry and rigidity'}
+- {num: "338", section: Differential geometry, title: 'Yau''s uniformization conjecture'}
+- {num: "339", section: Differential geometry, title: 'Katok''s entropy rigidity conjecture'}
+- {num: "340", section: Differential geometry, title: 'A counterexample to the nearby Lagrangian conjecture'}
+- {num: "341", section: Differential geometry, title: 'Donaldson''s hypersymplectic deformation conjecture'}
+- {num: "342", section: Differential geometry, title: 'Donaldson''s tamed-to-compatible conjecture'}
+- {num: "343", section: Differential geometry, title: 'Symplectic ball packing in higher dimensions'}
+- {num: "344", section: Differential geometry, title: 'The metric Blaschke conjecture'}
+- {num: "345", section: Differential geometry, title: 'Infinitely many closed geodesics on Riemannian spheres and closed three-manifolds'}
+- {num: "346", section: Differential geometry, title: 'Sharp singular-set bounds for stationary integral varifolds'}
+- {num: "347", section: Differential geometry, title: 'Counterexamples to stable-Morse and strong Arnold fixed-point bounds'}
+- {num: "348", section: Differential geometry, title: 'Nonnegative-curvature Einstein classification and an L² topological gap'}
+- {num: "349", section: Differential geometry, title: 'The Solomon–Yau least-volume conjecture'}
+- {num: "350", section: Differential geometry, title: 'Yau’s nodal bounds: surfaces and higher dimensions'}
+- {num: "351", section: Differential geometry, title: 'Scalar curvature and finite-time Ricci-flow singularities'}
+- {num: "352", section: Differential geometry, title: 'A finite-time singularity of Calabi flow'}
+- {num: "353", section: Differential geometry, title: 'Affine Bernstein rigidity through dimension nine and a smooth dimension-ten counterexample'}
+- {num: "354", section: Differential geometry, title: 'The isoperimetric profile of the cubic three-torus'}
+- {num: "355", section: Differential geometry, title: 'Unique tangent flows at the first surface singularity'}
+- {num: "356", section: Differential geometry, title: 'Gigli’s characterization of Alexandrov curvature'}
+- {num: "357", section: Differential geometry, title: 'Bi-Lipschitz coordinates at every regular RCD point'}
+- {num: "358", section: Differential geometry, title: 'A three-manifold without conjugate points or nonpositive curvature'}
+- {num: "359", section: Differential geometry, title: 'Negative Kähler curvature without bounded holomorphic coordinates'}
+- {num: "360", section: Differential geometry, title: 'Weak MTW curvature gives convexity and regular optimal transport'}
+- {num: "361", section: Differential geometry, title: 'Failure of integer-degree harmonic dimension comparison'}
+
+# Partial differential equations (16, 362-377)
+- {num: "362", section: Partial differential equations, title: 'Global smoothness for relativistic Vlasov–Maxwell'}
+- {num: "363", section: Partial differential equations, title: 'Nonuniqueness with local conservation for the hard-sphere Boltzmann equation'}
+- {num: "364", section: Partial differential equations, title: 'Kinetic limits and fluctuations over the Boltzmann lifespan'}
+- {num: "365", section: Partial differential equations, title: 'Joint metric and connection recovery from one boundary patch'}
+- {num: "366", section: Partial differential equations, title: 'The planar Mumford–Shah regularity conjecture and local weak-L⁴ gradient bounds'}
+- {num: "367", section: Partial differential equations, title: 'The critical dimension for the one-phase Bernoulli problem'}
+- {num: "368", section: Partial differential equations, title: 'The three-dimensional Ball–Evans approximation problem'}
+- {num: "369", section: Partial differential equations, title: 'The hot spots conjecture for simply connected planar domains'}
+- {num: "370", section: Partial differential equations, title: 'The Lane–Emden and Hénon–Lane–Emden conjectures'}
+- {num: "371", section: Partial differential equations, title: 'Stable blowup for the defocusing Schrödinger equation'}
+- {num: "372", section: Partial differential equations, title: 'Global uniqueness in smooth isotropic elasticity'}
+- {num: "373", section: Partial differential equations, title: 'Nonattainment of the three-marginal Coulomb Monge problem'}
+- {num: "374", section: Partial differential equations, title: 'Sharp one-third stability of Brenier maps'}
+- {num: "375", section: Partial differential equations, title: 'De Giorgi''s conjecture in dimension eight'}
+- {num: "376", section: Partial differential equations, title: 'Universal computation in forced Navier–Stokes flows'}
+- {num: "377", section: Partial differential equations, title: 'Interior $C^{1,\alpha}$ regularity for infinity-harmonic functions'}
