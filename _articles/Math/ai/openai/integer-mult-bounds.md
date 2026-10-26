@@ -705,6 +705,8 @@ Chris R 的 [#5384](https://github.com/CrocSwap/integer-mult-bounds/pull/5384)�
 - **Query shear 與 retiming**：#4440 起，用 copied rank-one query shear 取代 full transform，再以 helper retiming、contact span 與 joint helper boundary 逐步減少 paid job。
 - **Critical-root compiler**：#4535 起，native supplier 與 paid invoice 沿用 #4470，改在恰好的 crossing exponent 取得 leaf-count 界，並收緊 outer 參數。
 - **Native map 與 compiler reserve**：#4610 回頭調整 helper 的 entrance、scalar contact 與 native map，並縮小 compiler 的 finite reserve。
+- **Owned helper relation 與 backward caller**：#5377 起，用 owned relation 去掉 backward call 的 rank-eight center，再以 circuit transposition 或 direct backward caller 讓全部 full call 使用縮減後的 supplier（#5383、#5392、#5398、#5413）。
+- **P104 word 與 helper-subspace split**：#5544 起改用 P104 word 的 literal caller，再以 contact 重排、helper retiming 與 helper-subspace split 減少 paid call 或增加獨立輸入（#5544 至 #5599）。
 
 ### 瓶頸
 
@@ -715,7 +717,7 @@ Chris R 的 [#5384](https://github.com/CrocSwap/integer-mult-bounds/pull/5384)�
 
 兩者中 complex 一側較小，是綁住 $\kappa$ 的一側。要讓 $\kappa>0.01$，兩個 effective primitive budget 都需要超過約 $1/99$。這描述的是目前建構的瓶頸，不是整數乘法的下界。
 
-PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。#4440 起的建構保留一條支撐 $0.0034$ 的 BIT word，$\kappa$ 的提高來自 complex controller 的改進。#4535 與 #4568 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。#4610 則改動 helper 與 native map，$\kappa$ 再提高到 $0.0030217758$。
+PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。#4440 起的建構保留一條支撐 $0.0034$ 的 BIT word，$\kappa$ 的提高來自 complex controller 的改進。#4535 與 #4568 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。#4610 則改動 helper 與 native map，$\kappa$ 再提高到 $0.0030217758$。#4940 的計算指出，若 coded 重新編碼可被接受，BIT supplier 會把 conditional $\kappa$ 限制在約 $0.0034$；目前 selected 的 $0.00310045$ 仍低於這個值，open 的 #5440 宣稱 $0.0033999964$。
 
 ### 可能的改進方向
 
@@ -732,7 +734,7 @@ PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform sa
 $\kappa$ 衡量的是漸近 exponent saving，不是實測的執行時間。
 </div>
 
-所有結果都以 #109 的框架與一般歸約為前提，專案不是 OpenAI 的官方釋出或背書。Selected result #4470 的 scope 保留以下 conditional 假設：
+所有結果都以 #109 的框架與一般歸約為前提，專案不是 OpenAI 的官方釋出或背書。Selected result 的 scope 保留以下 conditional 假設（#4470 起的五個框架假設，#4610、#5413 與 #5599 沿用）：
 
 - native / all-column movement：native operator、phase 慣例、spectator 與 whole-job adapter 在每個正的 column multiplicity 下都成立
 - owned erasure：owned stream 與 suspended center 遵守保留的 allocation、erasure 與 ownership 規則
@@ -741,7 +743,7 @@ $\kappa$ 衡量的是漸近 exponent saving，不是實測的執行時間。
 - precision 與 fixed-tape：保留的 fixed-tape movement 與 precision / storage 規定適用於新的 finite template
 - analytic decomposition、fine-prime avoidance 與 exact recovery
 
-Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上八個 scoped、serial 的變動建構重放，並明確重用 #4359 與 #4416 的 foundation review，並非完整的 Lean multiplication theorem，也不是獨立的人類 review。Winning uniform template 由演算法定義，沒有實體化，專案不主張實用上的加速。其餘 candidate 則各自附帶作者提交的證據與獨立檢查，狀態見上方各 PR。
+Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scoped、serial 的變動建構重放（#4470 為八段，#5599 在 Linux 上以 1 GiB 取樣記憶體上限通過），並明確重用前一個 selected 的 foundation，並非完整的 Lean multiplication theorem，也不是獨立的人類 review。Winning uniform template 由演算法定義，沒有實體化，專案不主張實用上的加速。其餘 candidate 則各自附帶作者提交的證據與獨立檢查，狀態見上方各 PR。
 
 ## References
 
