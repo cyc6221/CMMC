@@ -44,3 +44,6 @@
 - repo: openai/LongGapsBetweenPrimes
   count: 2
   date: "2026-09-03"
+- repo: mathcommunity/oai-math-revised
+  count: 123
+  date: "2026-10-26"

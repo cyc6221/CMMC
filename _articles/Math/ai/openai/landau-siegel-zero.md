@@ -8,6 +8,8 @@ pr_repo: mathcommunity/oai-math-revised
 ---
 2026 年 10 月，openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %} 的 Family 003 宣稱排除了 Landau–Siegel zero。結果發布後不久，陸續出現獨立的重新證明、簡化、定量化、形式驗證與推廣。這份筆記追蹤 003 發布之後這個問題的發展。
 
+<script defer src="{{ '/assets/js/repo-stats.js' | relative_url }}"></script>
+
 ## 起點：OpenAI/math {% include math/ai/openai-result.html num="003" %}
 
 2026-10-06 OpenAI 公開 research catalog，Family 003 包含三條結果：
@@ -43,6 +45,8 @@ Green 的 formulation 後來由 Tao 寫成 proof sketch。
 ## 社群版本的 manuscript
 
 mathcommunity/oai-math-revised {% include gh-link.html href="https://github.com/mathcommunity/oai-math-revised" label="repo" aria_label="repo: mathcommunity/oai-math-revised on GitHub" %}
+
+{% include math/ai/repo-stats.html repo="mathcommunity/oai-math-revised" %}
 
 oai-math-revised 收錄了 *Uniform exclusion of Landau–Siegel zeros* 的 revised manuscript。
 
