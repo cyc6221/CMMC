@@ -8,25 +8,13 @@ pr_repo: mathcommunity/oai-math-revised
 ---
 2026 年 10 月，openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %} 的 Family 003 宣稱排除了 Landau–Siegel zero。結果發布後不久，陸續出現獨立的重新證明、簡化、定量化、形式驗證與推廣。這份筆記追蹤 003 發布之後這個問題的發展。
 
-```text
-OpenAI/math 003
-  → independent expositions
-  → simplifications
-  → explicit constants
-  → stronger bounds
-  → formal verification
-  → applications / generalizations
-```
-
 ## 起點：OpenAI/math {% include math/ai/openai-result.html num="003" %}
 
 2026-10-06 OpenAI 公開 research catalog，Family 003 包含三條結果：
 
-- Quasi-RH：$\mathrm{Re}(s)>7/8$
-- alternate Quasi-RH：$\mathrm{Re}(s)>11/12$
-- *Uniform exclusion of Landau–Siegel zeros* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" label="preprint" aria_label="preprint: Uniform exclusion of Landau–Siegel zeros on GitHub" %}
-
-本篇只追第三條。前兩條見 [The Quasi-Riemann Hypothesis]({{ '/articles/Math/ai/openai/quasi-riemann-hypothesis/' | relative_url }})。
+- *The Quasi-Riemann Hypothesis*：$\mathrm{Re}(s)>7/8$ {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (7/8) on GitHub" %}（2026-09-30）
+- *The Quasi-Riemann Hypothesis*：$\mathrm{Re}(s)>11/12$ {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (11/12) on GitHub" %}（2026-10-05）
+- *Uniform exclusion of Landau–Siegel zeros* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" label="preprint" aria_label="preprint: Uniform exclusion of Landau–Siegel zeros on GitHub" %}（2026-10-01）
 
 核心結論是存在 absolute constant $c>0$，使得
 
@@ -54,7 +42,9 @@ Green 的 formulation 後來由 Tao 寫成 proof sketch。
 
 ## 社群版本的 manuscript
 
-`mathcommunity/oai-math-revised` 收錄了 *Uniform exclusion of Landau–Siegel zeros* 的 revised manuscript。
+mathcommunity/oai-math-revised {% include gh-link.html href="https://github.com/mathcommunity/oai-math-revised" label="repo" aria_label="repo: mathcommunity/oai-math-revised on GitHub" %}
+
+oai-math-revised 收錄了 *Uniform exclusion of Landau–Siegel zeros* 的 revised manuscript。
 
 ### PR {% include pr-link.html num=2 %}
 
@@ -138,38 +128,64 @@ Kimura 把 Landau–Siegel zero 的排除用於 imaginary quadratic class number
 
 Banks 把 argument 從 $\mathbb{Q}$ 推廣到一般 number field，進而得到 effective Brauer–Siegel 類型的結果。
 
-## 時間線
+## 各階段整理
 
-```text
-2026/10
-OpenAI/math 003
-Uniform exclusion of Landau–Siegel zeros
-        │
-        ├── Banks
-        │     └─ explicit constants / detailed proof
-        │
-        ├── Kerr
-        │     └─ simpler proof
-        │
-        ├── Green
-        │     └─ quadratic-field / Gram determinant proof
-        │
-        ├── Community revision
-        │     ├─ PR #2
-        │     └─ Tao proof sketch
-        │
-        ├── Pascadi
-        │     └─ improved structural observation
-        │
-        ├── Barreto / Pescador
-        │     └─ stronger asymptotic bound
-        │
-        ├── Kimura
-        │     └─ explicit + formalized + class-number application
-        │
-        └── Banks / others
-              └─ general number fields / Brauer–Siegel
-```
+<table class="table-center">
+  <thead>
+    <tr>
+      <th>階段</th>
+      <th>工作</th>
+      <th>內容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>重新證明</td>
+      <td>Banks</td>
+      <td>explicit constant、完整證明</td>
+    </tr>
+    <tr>
+      <td>重新證明</td>
+      <td>Kerr</td>
+      <td>較簡單的證明</td>
+    </tr>
+    <tr>
+      <td>重新證明</td>
+      <td>Green</td>
+      <td>quadratic field 與 Gram determinant 的證明</td>
+    </tr>
+    <tr>
+      <td>社群整合</td>
+      <td>PR {% include pr-link.html num=2 %}</td>
+      <td>合併 Banks、Kerr、Green 的版本，附 Tao 的 proof sketch</td>
+    </tr>
+    <tr>
+      <td>社群整合</td>
+      <td>PR {% include pr-link.html num=3 %}</td>
+      <td>合併 Tao 的 Green-proof exposition 與 Pascadi、Barreto、Pescador 的後續結果</td>
+    </tr>
+    <tr>
+      <td>改進 bound</td>
+      <td>Pascadi</td>
+      <td>對證明結構的新觀察</td>
+    </tr>
+    <tr>
+      <td>改進 bound</td>
+      <td>Barreto / Pescador</td>
+      <td>漸近上更強的 bound</td>
+    </tr>
+    <tr>
+      <td>應用</td>
+      <td>Kimura</td>
+      <td>explicit gap、formalization、class-number 的應用</td>
+    </tr>
+    <tr>
+      <td>應用</td>
+      <td>Banks</td>
+      <td>推廣到一般 number field、Brauer–Siegel 類型的結果</td>
+    </tr>
+  </tbody>
+</table>
 
 ## References
 
@@ -180,6 +196,8 @@ Uniform exclusion of Landau–Siegel zeros
 
 ### Preprints
 
+- [The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\mathrm{Re}(s)>7/8$](https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026)
+- [The Quasi-Riemann Hypothesis (11/12)](https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026)
 - [Uniform exclusion of Landau–Siegel zeros](https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026)
 
 ### Community
