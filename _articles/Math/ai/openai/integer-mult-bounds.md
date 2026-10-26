@@ -45,239 +45,55 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
 
 ## 目前狀態
 
+這一節只回答目前的 selected 是什麼。演進過程見「主要演進」，完整的 $\kappa$ 數字見「歷史 $\kappa$ 里程碑」。
+
+目前的 selected 是 Ali Romman 的 [#5599](https://github.com/CrocSwap/integer-mult-bounds/pull/5599)，於 2026 年 10 月 26 日升為 selected：
+
+$$
+\boxed{\kappa=0.00310045}
+$$
+
 <table class="table-center">
   <thead>
     <tr>
       <th>項目</th>
+      <th>PR</th>
       <th>$\kappa$</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>OpenAI #109</td>
-      <td>$2^{-182}$</td>
-    </tr>
-    <tr>
-      <td>Past selected：#1094<br>（maintainer-reviewed）</td>
-      <td>$0.001672660197076918\approx 2^{-9.22}$</td>
-    </tr>
-    <tr>
-      <td>Past selected：#4359<br>（maintainer-reviewed）</td>
-      <td>$0.0023>2^{-9}$</td>
-    </tr>
-    <tr>
-      <td>#4416<br>（intermediate reviewed checkpoint）</td>
-      <td>$0.00268647$</td>
-    </tr>
-    <tr>
-      <td>Past selected：#4470<br>（maintainer-reviewed）</td>
-      <td>$0.00302015$</td>
-    </tr>
-    <tr>
-      <td>Past selected：#4610<br>（maintainer-reviewed）</td>
-      <td>$0.0030217758$</td>
-    </tr>
-    <tr>
-      <td>Past selected：#5413<br>（maintainer-reviewed）</td>
+      <td>Previous selected</td>
+      <td>#5413</td>
       <td>$0.003027288235$</td>
     </tr>
     <tr>
-      <td>Current selected：#5599<br>（merged, maintainer-reviewed）</td>
+      <td>Current selected</td>
+      <td>#5599</td>
       <td>$0.00310045$</td>
     </tr>
   </tbody>
 </table>
 
-### #1094
-
-Past selected：Rohan Arun 的 [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)，狀態是 maintainer-reviewed conditional finite construction。它建立在 Jeremy Kothe 的 #1087 packing 與累積的 k8 / slot / T16 建構上，bit supplier 是 DreamingOfClouds 的 #589（建立在 eumemic 的 #555 上）。重放指令為 `make frontier1094-verify`。
-
-### #4359
-
-Past selected：zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359)，狀態是 maintainer-reviewed conditional productive-helper construction。它讓 helper 結束時已完成的 transform 成為有用的輸出，並以 Jacob Alan Sussman 的 mixed-target recursion 為直接的概念前驅，承接先前的 complex / native、binary word 與 outer / precision 工作（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-productive4359-contributors.md)）。$\kappa$ 比 #1094 高 37.51%，重放指令為 `make frontier4359-verify`，現在保留為 historical checkpoint。
-
-#4359 的驗證方面，maintainer 以全新的 23-stage sequential replay 比對 59 個重新產生的 artifact，並對變動的 compiler、native lift、delayed BIT cover 與 outer-transfer 介面做 AI 協助的 mathematical review。Ryanson Jonathan 的 [#4404](https://github.com/CrocSwap/integer-mult-bounds/pull/4404) 另以獨立實作做了 exact flow / rank audit。
-
-### #4416
-
-Reviewed checkpoint：Cinna Davis 的 [#4416](https://github.com/CrocSwap/integer-mult-bounds/pull/4416)，$\kappa=0.00268647$，狀態是 merged、maintainer-reviewed，但未升為 selected。它在 tensor composition 之後，對過小的 productive transform 另付費補足（paid completion），讓 paid 與 target 嚴格分離，使 p7 controller 能通過 #4359 的 strict compiler 條件。其 exponent saving 比 #4359 的 $0.0023$ 大 16.80%，這個比較不是實測的執行時間。
-
-驗證方面，[#4420](https://github.com/CrocSwap/integer-mult-bounds/pull/4420) 與 [#4428](https://github.com/CrocSwap/integer-mult-bounds/pull/4428) 獨立檢查 moment、paid-tail 與 paid-completion 不等式；maintainer 在 10 月 21 日完成 #4416 與 zxv 的 #4433 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md)，限於保留的 #4359 假設。Selected record 當時仍是 $0.0023$，所以它是 intermediate checkpoint；這份 review 後來被 #4470 的 selection 重用為 foundation。
-
-### #4470
-
-Past selected：Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)，於 2026 年 10 月 22 日升為 selected，狀態是 maintainer-reviewed conditional joint-helper construction。它同時調整 helper 的 entrance、exit 與 contact frame，再用 query-thinned 的 16-pair controller。它承接 Cinna 自己的 #4416、#4440、#4441、#4447，以及 zxv 的 productive-helper native / compiler 與 Jacob Alan Sussman 的 mixed-target recursion（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-joint4470-contributors.md)）。$\kappa=60403/20000000$，其 exponent saving 比 #4359 的 $0.0023$ 大 31.31%，比 #4416 的 $0.00268647$ 大 12.42%。這些百分比比較的是 exponent saving，不是實測的執行時間。重放指令為 `make frontier4470-verify`，現在保留為 historical checkpoint。
-
-驗證方面，maintainer 對變動的建構做八個 scoped、serial 的重放。Source 完全相同的 #4359 與 #4416 foundation review 被明確重用，不重跑。Linux（Python 3.12）上的 hosted CI 通過了 selected 的八段重放，見 [integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/INTEGRATION.json)。
-
-#4470 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md) 先完成，selection 隨後在同一天（10 月 22 日）完成。Archive 合併、conditional review 與 selection 是三件不同的事；selection 另需一致的 source closure、重放指令與公開狀態更新。
-
-### #4610
-
-Past selected：Cao Yifan 的 [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)，於 2026 年 10 月 23 日升為 selected，狀態是 maintainer-reviewed conditional native-map construction。它沿用 #4470 的 p16 controller，同時調整 helper 的 entrance、scalar contact 與 native map。$\kappa=15108879/5000000000=0.0030217758$，比 #4470 高 $1.6258\times10^{-6}$。重放指令為 `make frontier4610-verify`，現在保留為 historical checkpoint。
-
-Selection 以 Chris R 的 [#5241](https://github.com/CrocSwap/integer-mult-bounds/pull/5241) 為依據：它對 #4610 做獨立的 source-bound audit，涵蓋 phase、任意輸入、invoice、compiler 與 outer 各階段。Maintainer 以完整的 independent admission replay 重放，並明確重用前一個 selected 的 controller、ordinary BIT 與 physical / compiler foundation。被接受的是凍結的 native word 與 compiler point，不是 PR 內每個探索性結果；#4470 的五個框架假設不變。
-
-### #5413
-
-Past selected：Chris R 的 [#5413](https://github.com/CrocSwap/integer-mult-bounds/pull/5413)，於 2026 年 10 月 24 日升為 selected，狀態是 maintainer-reviewed conditional neutral-caller construction。它補完 Dillon Amburgey 的 [#5402](https://github.com/CrocSwap/integer-mult-bounds/pull/5402)（保留全部 632 個 native input 的 eight-mode coupled helper provider）的輸出，接在 Ali Romman 的 [#5398](https://github.com/CrocSwap/integer-mult-bounds/pull/5398)（direct backward caller）上。$\kappa=605457647/200000000000=0.003027288235$，比 #4610 高約 0.182424%。重放指令為 `make frontier5413-verify`，現在保留為 historical checkpoint。
-
-相對 #5398 與 #5400 只多 $5\times10^{-12}$，這是 compiler / outer headroom，不是新的 recursive-price saving。Selection 納入 #5407（provider audit）與 [#5414](https://github.com/CrocSwap/integer-mult-bounds/pull/5414)（獨立檢查 neutrality 與必要的 pricing），並明確重用 #4610 的 foundation。
-
-### #5599
-
-Current selected：Ali Romman 的 [#5599](https://github.com/CrocSwap/integer-mult-bounds/pull/5599)，於 2026 年 10 月 26 日升為 selected，狀態是 maintainer-reviewed conditional P104 helper-subspace construction。它在 P104 word 上做 13 個 helper-subspace split，產生真正獨立的輸入並切開 productive target，不增加 paid Gaussian call。完整 caller 有 13,048 個 productive field 與 66,726 個 paid call。$\kappa=62009/20000000=0.00310045$，其 exponent saving 比 #5413 的 $0.003027288235$ 大約 2.41674%，這個比較不是實測的執行時間。重放指令為 `make frontier5599-verify`。
-
-它承接 hexapode 的 [#5565](https://github.com/CrocSwap/integer-mult-bounds/pull/5565)（commuting-contact cascade）、Joel Pulikkan 的 [#5569](https://github.com/CrocSwap/integer-mult-bounds/pull/5569)、DreamingOfClouds 的 [#5561](https://github.com/CrocSwap/integer-mult-bounds/pull/5561)、thu-nmrc 的 [#5551](https://github.com/CrocSwap/integer-mult-bounds/pull/5551) 與 Ali Romman 自己的 #5544、#5545、#5580（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-p1045599-contributors.md)）。
-
-驗證方面，完整 construction、原本的獨立 caller positive control、adapted caller 與 optimized construction 的重放，都在 Linux 上以 1 GiB 的取樣記憶體上限 serial 通過，positive control 與凍結的輸出完全一致。前一個 foundation 被明確重用，五個 conditional 框架假設不變。這不是完整的 Lean 定理或獨立的人類驗證，超大的 uniform word 與 rounded multiplier 沒有實體化。細節見 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md)。
-
-## $\kappa$ 的里程碑
-
-下表依 $\kappa$ 由小到大列出 selected result 的主要節點，貢獻欄只列主要作者。第一個 reviewed community checkpoint（round two）的 $\kappa=5.1017\times10^{-5}$ 首次超過 $2^{-15}$。
-
-<table class="table-center">
-  <thead>
-    <tr>
-      <th>里程碑</th>
-      <th>$\kappa$</th>
-      <th>主要貢獻</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>OpenAI #109</td>
-      <td>$2^{-182}$</td>
-      <td>OpenAI</td>
-    </tr>
-    <tr>
-      <td>frozen-154</td>
-      <td>$2^{-154}$</td>
-      <td>原 network 與 recurrence exponent 的 patch</td>
-    </tr>
-    <tr>
-      <td>ternary-30</td>
-      <td>$2^{-30}$</td>
-      <td>ternary five-subset circuit</td>
-    </tr>
-    <tr>
-      <td>round two（#62）</td>
-      <td>$5.1017\times10^{-5}$</td>
-      <td>Avi Eisenberg<br>eumemic<br>Alejandro Zarzuelo Urdiales</td>
-    </tr>
-    <tr>
-      <td>#104 stopped product-ring</td>
-      <td>$7.7948\times10^{-5}$</td>
-      <td>icekylinx</td>
-    </tr>
-    <tr>
-      <td>#115 partial-gauge</td>
-      <td>$9.2634\times10^{-5}$</td>
-      <td>icekylinx</td>
-    </tr>
-    <tr>
-      <td>#130 three-stage cover</td>
-      <td>$3.1460\times10^{-4}$</td>
-      <td>icekylinx</td>
-    </tr>
-    <tr>
-      <td>paired-cube（#144）</td>
-      <td>$4.6092\times10^{-4}$</td>
-      <td>icekylinx</td>
-    </tr>
-    <tr>
-      <td>recycled bit registers（#146–#148、#150）</td>
-      <td>$4.7215\times10^{-4}$</td>
-      <td>William Porter<br>DaysSky<br>Thomas Marchand<br>Rohan Gupta</td>
-    </tr>
-    <tr>
-      <td>#186</td>
-      <td>$6.6189\times10^{-4}$</td>
-      <td>Dugongue</td>
-    </tr>
-    <tr>
-      <td>#210</td>
-      <td>$7.1005\times10^{-4}$</td>
-      <td>eumemic</td>
-    </tr>
-    <tr>
-      <td>gen4（#276、#279）</td>
-      <td>$7.2357\times10^{-4}$</td>
-      <td>DreamingOfClouds<br>Rohan Arun</td>
-    </tr>
-    <tr>
-      <td>#531</td>
-      <td>$1.5178\times10^{-3}$</td>
-      <td>icekylinx</td>
-    </tr>
-    <tr>
-      <td>#535</td>
-      <td>$1.5849\times10^{-3}$</td>
-      <td>icekylinx<br>DreamingOfClouds</td>
-    </tr>
-    <tr>
-      <td>#588</td>
-      <td>$1.6023\times10^{-3}$</td>
-      <td>Jeremy Kothe</td>
-    </tr>
-    <tr>
-      <td>#617</td>
-      <td>$1.6352\times10^{-3}$</td>
-      <td>Jeremy Kothe</td>
-    </tr>
-    <tr>
-      <td>#626</td>
-      <td>$1.6355\times10^{-3}$</td>
-      <td>Chafik Boukhalfa</td>
-    </tr>
-    <tr>
-      <td>#942</td>
-      <td>$1.6620\times10^{-3}$</td>
-      <td>Jonathan Capalbo</td>
-    </tr>
-    <tr>
-      <td>#1042</td>
-      <td>$1.6722\times10^{-3}$</td>
-      <td>Jeremy Kothe</td>
-    </tr>
-    <tr>
-      <td>#1094</td>
-      <td>$1.6727\times10^{-3}$</td>
-      <td>Rohan Arun</td>
-    </tr>
-    <tr>
-      <td>#4359</td>
-      <td>$2.3\times10^{-3}$</td>
-      <td>zxv</td>
-    </tr>
-    <tr>
-      <td>#4470</td>
-      <td>$3.02015\times10^{-3}$</td>
-      <td>Cinna Davis</td>
-    </tr>
-    <tr>
-      <td>#4610</td>
-      <td>$3.02178\times10^{-3}$</td>
-      <td>Cao Yifan</td>
-    </tr>
-    <tr>
-      <td>#5413</td>
-      <td>$3.02729\times10^{-3}$</td>
-      <td>Chris R<br>Dillon Amburgey<br>Ali Romman</td>
-    </tr>
-    <tr>
-      <td>#5599（目前 selected）</td>
-      <td>$3.10045\times10^{-3}$</td>
-      <td>Ali Romman<br>hexapode</td>
-    </tr>
-  </tbody>
-</table>
+- 狀態：merged，maintainer-reviewed conditional P104 helper-subspace construction。
+- 做法：在 P104 word 上做 13 個 helper-subspace split。
+- Complete caller：13,048 個 productive field 與 66,726 個 paid call。
+- 重放指令：`make frontier5599-verify`。
+- 與 #5413 相比，exponent saving 約大 2.41674%。這個比較不是實測的 running-time improvement。
+- Selected result 仍保留既有的 conditional 假設（見「前提與限制」）。它不是完整的 Lean multiplication theorem，也不是 independent human proof review。
 
 ## 主要演進
 
-以下整理 #1094 之後 selected $\kappa$ 的幾次主要轉折，各 selected result 的細節見上方「目前狀態」。Selected 一定經過 maintainer review；merged 只表示 PR 進入 `main`，不表示升為 selected，也不表示已被獨立驗證。沒有升為 selected 的 PR 不逐一列出，完整清單見 repo 的 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。
+以下以 selected result 為主線，整理 $\kappa$ 的幾次主要技術轉折。從未成為 selected 的 PR，只有在代表重要的機制轉折時才會出現，例如 #4416。沒有升為 selected 的 PR 不逐一列出，完整清單見 repo 的 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。
 
-下表依階段列出這些節點。#4416 通過 maintainer review，但從未成為 selected，不在 selected progression 中。
+幾個通用的說明：
+
+- Selected 一定經過 maintainer review；merged 只表示 PR 進入 `main`，不表示升為 selected，也不表示已被獨立驗證。
+- Archive 合併、conditional review 與 selection 是三件不同的事；selection 另需一致的 source closure、重放指令與公開狀態更新。
+- 各 selected result 的重放指令為 `make frontier<PR>-verify`，例如 `make frontier4359-verify`。
+- 以百分比比較 $\kappa$ 時，比較的是 exponent saving，不是實測的執行時間。
+
+下表依階段列出主線上的節點。#4416 通過 maintainer review，但從未成為 selected，不在 selected progression 中。
 
 <table class="table-center">
   <thead>
@@ -332,13 +148,19 @@ Current selected：Ali Romman 的 [#5599](https://github.com/CrocSwap/integer-mu
   </tbody>
 </table>
 
-起點是 #1094 的 $\kappa=0.00167\ldots$，它屬於 packing 與 owner allocation 的改進。#1094 之後，maintainer 完成 19 批 review（efficient100 至 efficient1900），#2848、#4088 等 PR 也在同一個框架內繼續調整，但都沒有更動 selected $\kappa$，直到 #4359 被選定。#4181 顯示，在固定的四個 word 上，重新 packing 已達 pooled ceiling（$\kappa\approx0.00173098$），再往上需要改變 word 或 inventory。
+### #1094：packing / owner allocation 的起點
+
+Rohan Arun 的 [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)，$\kappa=0.001672660197076918\approx 2^{-9.22}$，狀態是 maintainer-reviewed conditional finite construction。它建立在 Jeremy Kothe 的 #1087 packing 與累積的 k8 / slot / T16 建構上，bit supplier 是 DreamingOfClouds 的 #589（建立在 eumemic 的 #555 上）。
+
+主要手段是在十六個 bin 之間重複做 whole-helper repacking，並以 rare full-bin pattern 為起點。Helper 的位置被重排，idle rank 的分布因此改善，而 scalar word、role width 與 source-event 時間都不變。它是 productive-helper framework 出現之前，packing 與 owner allocation 路線的 selected checkpoint。
+
+#1094 被選定之後，maintainer 完成 19 批 review（efficient100 至 efficient1900），#2848、#4088、#4181 等 PR 也在同一個框架內繼續調整，但都沒有升為 selected。#4181 顯示，在固定的四個 word 上，重新 packing 已達 pooled ceiling（$\kappa\approx0.00173098$），再往上需要改變 word 或 inventory。Selected $\kappa$ 因此停在 #1094，直到 #4359。
 
 ### #4359：productive helper
 
-Selected $\kappa$ 由 $0.00167\ldots$ 升到 $0.0023$。這次改變的是 accounting model，不是 packing 的調整。
+zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359) 不是單純的 packing improvement，而是 recursive accounting framework 的質變。Selected $\kappa$ 由 $0.00167\ldots$ 升到 $0.0023>2^{-9}$。
 
-Uniform supplier 的介面原本要求每個 local unit 把 helper 還原。然而 helper 結束時常常已握有一份對自身任意輸入的 completed transform，還原等於為同一份工作付兩次。zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359) 讓這份 completed transform 成為 productive output，按它自己的 rank 計價，於是一個 local unit 可以產出多種 rank 的 job。Mixed saving $C$ 由下式決定：
+Uniform supplier 的介面原本要求每個 local unit 把 helper 還原。然而 helper 結束時常常已握有一份對自身任意輸入的 completed transform，還原等於為同一份工作付兩次。#4359 讓這份 completed transform 成為 productive output，按它自己的 rank 計價，於是一個 local unit 可以產出多種 rank 的 job。遞迴的帳同時計入 paid call 與 productive target，mixed saving $C$ 由下式決定：
 
 $$
 \sum_r p_r\, r^{1-C}=\sum_k W_k\, k^{1-C},
@@ -346,32 +168,42 @@ $$
 
 其中 $p_r$ 是 rank 為 $r$ 的 paid recursive call 數，$W_k$ 是 rank 為 $k$ 的 productive output 數。再用 finite integer compiler 把這個 mixed 結構編譯回 uniform supplier，#109 繼承的 outer theorem 才能使用。
 
-$\kappa=0.0023$，比 #1094 的 exponent saving 大 37.51%，這個比較不是實測的執行時間。之後所有 selected result 都建立在這個 productive-helper framework 上。
+#4359 的狀態是 maintainer-reviewed conditional productive-helper construction。它以 Jacob Alan Sussman 的 mixed-target recursion 為直接的概念前驅，承接先前的 complex / native、binary word 與 outer / precision 工作（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-productive4359-contributors.md)）。$\kappa$ 比 #1094 高 37.51%。之後所有 selected result 都建立在這個 productive-helper framework 上。
+
+驗證方面，maintainer 以全新的 23-stage sequential replay 比對 59 個重新產生的 artifact，並對變動的 compiler、native lift、delayed BIT cover 與 outer-transfer 介面做 AI 協助的 mathematical review。Ryanson Jonathan 的 [#4404](https://github.com/CrocSwap/integer-mult-bounds/pull/4404) 另以獨立實作做了 exact flow / rank audit。
 
 ### #4416 至 #4470：productive framework 的下一次跳躍
 
 在 #4359 之後，PR 沿用同一個 framework，先讓 controller 的 native 組合更強，再逐步減少 paid job。
 
-- **#4416（historical reviewed checkpoint）**：Cinna Davis 的 [#4416](https://github.com/CrocSwap/integer-mult-bounds/pull/4416)，$\kappa=0.00268647$。它在 tensor composition 之後，對過小的 productive transform 另付費補足，讓 paid 與 target 嚴格分離，使 p7 controller 通過 #4359 的 strict compiler 條件。Maintainer 在 10 月 21 日完成 proof review，但它從未升為 selected：當時 selected 仍是 #4359 的 $0.0023$，隨後出現更強的 #4470。這份 review 後來被 #4470 的 selection 重用為 foundation。
-- **#4470（selected）**：Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)，10 月 22 日升為 selected，$\kappa=0.00302015$。中間的 #4440、#4441、#4447 先後引入 copied rank-one query shear、helper retiming 與缺漏的 contact span，這些都沒有單獨升為 selected。#4470 累積這些建構，同時調整 helper 的 entrance、exit 與 contact frame，再配上 query-thinned 的 p16 controller，invoice 有 10,928 個 productive field 與 64,620 個 paid job。
+- **#4416（historical reviewed checkpoint）**：Cinna Davis 的 [#4416](https://github.com/CrocSwap/integer-mult-bounds/pull/4416)，$\kappa=0.00268647$，比 #4359 大 16.80%。它在 tensor composition 之後，對過小的 productive transform 另付費補足（paid completion），讓 paid 與 productive target 嚴格分離，使更強的 p7 controller 能通過 #4359 的 strict compiler 條件。它是 merged、maintainer-reviewed，但從未升為 selected：當時 selected 仍是 #4359 的 $0.0023$，隨後出現更強的 #4470。[#4420](https://github.com/CrocSwap/integer-mult-bounds/pull/4420) 與 [#4428](https://github.com/CrocSwap/integer-mult-bounds/pull/4428) 獨立檢查 moment、paid-tail 與 paid-completion 不等式；maintainer 在 10 月 21 日完成 #4416 與 zxv 的 #4433 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md)，限於保留的 #4359 假設。這份 review 後來被 #4470 的 selection 重用為 foundation。
+- **#4470（selected）**：Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)，於 10 月 22 日升為 selected，狀態是 maintainer-reviewed conditional joint-helper construction，$\kappa=60403/20000000=0.00302015$，比 #4359 大 31.31%，比 #4416 大 12.42%。它累積 #4416 與中間的 #4440、#4441、#4447（依序引入 copied rank-one query shear、helper retiming 與缺漏的 contact span，三者都沒有單獨升為 selected），同時調整 helper 的 entrance、exit 與 contact frame，再配上 query-thinned 的 16-pair controller。它也承接 zxv 的 productive-helper native / compiler 與 Jacob Alan Sussman 的 mixed-target recursion（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-joint4470-contributors.md)）。
 
-因此 selected 的順序是 $\#4359\ (\text{selected})\rightarrow\#4416\ (\text{reviewed only})\rightarrow\#4470\ (\text{selected})$，#4416 不在 selected progression 中。#4470 的 exponent saving 比 #4359 大 31.31%，比 #4416 大 12.42%，這些比較不是實測的執行時間。
+因此 selected 的順序是 $\#4359\ (\text{selected})\rightarrow\#4416\ (\text{reviewed only})\rightarrow\#4470\ (\text{selected})$，#4416 不在 selected progression 中。
+
+#4470 的驗證方面，maintainer 對變動的建構做八個 scoped、serial 的重放。Source 完全相同的 #4359 與 #4416 foundation review 被明確重用，不重跑。Linux（Python 3.12）上的 hosted CI 通過了 selected 的八段重放，見 [integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/INTEGRATION.json) 與 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md)。
 
 ### #4610 至 #5413：在同一 framework 上持續壓低 recursive cost
 
-在 #4470 之後，selected 先後換成 Cao Yifan 的 [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)（10 月 23 日，$\kappa=0.0030217758$）與 Chris R 的 [#5413](https://github.com/CrocSwap/integer-mult-bounds/pull/5413)（10 月 24 日，$\kappa=0.003027288235$）。這一階段沒有像 #4359 那樣改變 accounting model，而是沿用 #4470 的 p16 controller，逐項壓低 recursive cost：
+在 #4470 之後，selected 先後換成 Cao Yifan 的 [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)（10 月 23 日，$\kappa=15108879/5000000000=0.0030217758$）與 Chris R 的 [#5413](https://github.com/CrocSwap/integer-mult-bounds/pull/5413)（10 月 24 日，$\kappa=605457647/200000000000=0.003027288235$）。這一階段沒有像 #4359 那樣改變 accounting model，而是沿用 #4470 的 p16 controller，逐項壓低 recursive cost：
 
-- native map 與 helper 的 entrance、contact 排程
-- helper relation：以 owned relation 去掉 backward call 的 rank-eight center
-- caller 的建構：direct backward caller 與 coupled-output caller
-- paid rank 的分布：依嚴格凹性，把 rank-four 的 job 換成 rank-three 與 rank-five 的 pair
+- native map 與 helper 的 entrance、scalar contact（#4610）
+- helper relation：以 owned relation 去掉 backward call 的 rank-eight center（#5377、#5383）
+- backward caller：circuit transposition 與 direct backward caller，讓全部 full call 使用縮減後的 supplier（#5392、#5398）
+- caller 的建構：以 coupled-output caller 補完 eight-mode coupled helper provider（#5402、#5413）
+- paid-rank 的分布：依嚴格凹性，把 rank-four 的 job 換成 rank-three 與 rank-five 的 pair
 - compiler 與 outer 的 headroom
 
 其間許多 candidate 各自只改其中一項，沒有升為 selected。#5413 比 #4470 只高約 $7.14\times10^{-6}$，增幅遠小於 #4359 與 #4470 的跳躍。
 
+兩者的 selection 依據：
+
+- **#4610**：比 #4470 高 $1.6258\times10^{-6}$。Selection 以 Chris R 的 [#5241](https://github.com/CrocSwap/integer-mult-bounds/pull/5241) 為依據，它對 #4610 做獨立的 source-bound audit，涵蓋 phase、任意輸入、invoice、compiler 與 outer 各階段。Maintainer 以完整的 independent admission replay 重放，並明確重用前一個 selected 的 controller、ordinary BIT 與 physical / compiler foundation。被接受的是凍結的 native word 與 compiler point，不是 PR 內每個探索性結果。
+- **#5413**：比 #4610 高約 0.182424%。它補完 Dillon Amburgey 的 [#5402](https://github.com/CrocSwap/integer-mult-bounds/pull/5402)（保留全部 632 個 native input 的 eight-mode coupled helper provider）的輸出，接在 Ali Romman 的 [#5398](https://github.com/CrocSwap/integer-mult-bounds/pull/5398)（direct backward caller）上。相對 #5398 與 #5400 只多 $5\times10^{-12}$，這是 compiler / outer headroom，不是新的 recursive-price saving。Selection 納入 #5407（provider audit）與 [#5414](https://github.com/CrocSwap/integer-mult-bounds/pull/5414)（獨立檢查 neutrality 與必要的 pricing），並明確重用 #4610 的 foundation。
+
 ### #5544 至 #5599：P104 路線
 
-P104 word 來自 David Arias、Cinna Davis 與 Gareth Davidson 的 #2152、#2219 與 #2305，具有 527 個獨立的 helper output。Ali Romman 的 [#5544](https://github.com/CrocSwap/integer-mult-bounds/pull/5544) 把 P104 的實際 native Gaussian rank 綁到 mixed-target recursion，$\kappa=0.00304057$，比 #5413 高 $1.33\times10^{-5}$，這條路線因此有了新的改善空間。
+P104 word 來自 David Arias、Cinna Davis 與 Gareth Davidson 的 #2152、#2219 與 #2305，具有 527 個獨立的 helper output。Ali Romman 的 [#5544](https://github.com/CrocSwap/integer-mult-bounds/pull/5544) 把 P104 的 literal caller 與實際的 native Gaussian rank 接進 mixed-target recursion，$\kappa=0.00304057$，比 #5413 高 $1.33\times10^{-5}$，這條路線因此有了新的改善空間。
 
 之後的 PR 在 P104 word 上累積改進，$\kappa$ 升到 $0.00308534$（hexapode 的 [#5565](https://github.com/CrocSwap/integer-mult-bounds/pull/5565)），主要手段是：
 
@@ -379,14 +211,184 @@ P104 word 來自 David Arias、Cinna Davis 與 Gareth Davidson 的 #2152、#2219
 - contact / frame rewrite：把一個減法或 ADD 移到維度較高的 frame
 - helper reuse：把 helper 交給後繼的 call
 - caller scheduling
+- commuting-contact cascade（#5565）
 
-最後 Ali Romman 的 [#5599](https://github.com/CrocSwap/integer-mult-bounds/pull/5599)（10 月 26 日）在 P104 word 上做 13 個 helper-subspace split，產生真正獨立的輸入並切開 productive target，不增加 paid Gaussian call。完整 caller 有 13,048 個 productive field 與 66,726 個 paid call，selected frontier 升到
+最後 Ali Romman 的 [#5599](https://github.com/CrocSwap/integer-mult-bounds/pull/5599) 在 P104 word 上做 13 個 helper-subspace split，產生真正獨立的輸入並切開 productive target，不增加 paid Gaussian call，於 10 月 26 日成為 current selected：
 
 $$
 \boxed{\kappa=0.00310045}.
 $$
 
-其 exponent saving 比 #5413 大約 2.41674%，這個比較不是實測的執行時間。這條路線的貢獻者名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-p1045599-contributors.md)。
+#5599 承接 hexapode 的 #5565、Joel Pulikkan 的 [#5569](https://github.com/CrocSwap/integer-mult-bounds/pull/5569)、DreamingOfClouds 的 [#5561](https://github.com/CrocSwap/integer-mult-bounds/pull/5561)、thu-nmrc 的 [#5551](https://github.com/CrocSwap/integer-mult-bounds/pull/5551) 與 Ali Romman 自己的 #5544、#5545、#5580（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-p1045599-contributors.md)）。
+
+驗證方面，完整 construction、原本的獨立 caller positive control、adapted caller 與 optimized construction 的重放，都在 Linux 上以 1 GiB 的取樣記憶體上限 serial 通過，positive control 與凍結的輸出完全一致。前一個 foundation 被明確重用，超大的 uniform word 與 rounded multiplier 沒有實體化。細節見 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md)。
+
+## 歷史 $\kappa$ 里程碑
+
+下表依 $\kappa$ 由小到大列出 selected result 的主要節點，貢獻欄只列主要作者，供查詢用。
+
+<table class="table-center">
+  <thead>
+    <tr>
+      <th>Checkpoint</th>
+      <th>$\kappa$</th>
+      <th>代表性機制</th>
+      <th>主要貢獻</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OpenAI #109</td>
+      <td>$2^{-182}$</td>
+      <td>original result</td>
+      <td>OpenAI</td>
+    </tr>
+    <tr>
+      <td>frozen-154</td>
+      <td>$2^{-154}$</td>
+      <td>原 network 與 recurrence exponent 的 patch</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>ternary-30</td>
+      <td>$2^{-30}$</td>
+      <td>ternary five-subset circuit</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>round two（#62）</td>
+      <td>$5.1017\times10^{-5}$</td>
+      <td>interval strips、core-aware pair assembly（第一個 reviewed community checkpoint，首次超過 $2^{-15}$）</td>
+      <td>Avi Eisenberg<br>eumemic<br>Alejandro Zarzuelo Urdiales</td>
+    </tr>
+    <tr>
+      <td>#104</td>
+      <td>$7.7948\times10^{-5}$</td>
+      <td>stopped product-ring interchange</td>
+      <td>icekylinx</td>
+    </tr>
+    <tr>
+      <td>#115</td>
+      <td>$9.2634\times10^{-5}$</td>
+      <td>partial-gauge、cube producers</td>
+      <td>icekylinx</td>
+    </tr>
+    <tr>
+      <td>#130</td>
+      <td>$3.1460\times10^{-4}$</td>
+      <td>three-stage cover</td>
+      <td>icekylinx</td>
+    </tr>
+    <tr>
+      <td>paired-cube（#144）</td>
+      <td>$4.6092\times10^{-4}$</td>
+      <td>paired cubes、shared completed cores</td>
+      <td>icekylinx</td>
+    </tr>
+    <tr>
+      <td>recycled bit registers（#146–#148、#150）</td>
+      <td>$4.7215\times10^{-4}$</td>
+      <td>recycled bit registers</td>
+      <td>William Porter<br>DaysSky<br>Thomas Marchand<br>Rohan Gupta</td>
+    </tr>
+    <tr>
+      <td>#186</td>
+      <td>$6.6189\times10^{-4}$</td>
+      <td>shared-edge supplier、coordinated frames、entrance banks</td>
+      <td>Dugongue</td>
+    </tr>
+    <tr>
+      <td>#210</td>
+      <td>$7.1005\times10^{-4}$</td>
+      <td>five-stage banks、F₂ movement fusion</td>
+      <td>eumemic</td>
+    </tr>
+    <tr>
+      <td>gen4（#276、#279）</td>
+      <td>$7.2357\times10^{-4}$</td>
+      <td>paired-cube bit word、concave-descent retiming</td>
+      <td>DreamingOfClouds<br>Rohan Arun</td>
+    </tr>
+    <tr>
+      <td>#531</td>
+      <td>$1.5178\times10^{-3}$</td>
+      <td>direct delivery</td>
+      <td>icekylinx</td>
+    </tr>
+    <tr>
+      <td>#535</td>
+      <td>$1.5849\times10^{-3}$</td>
+      <td>post-center rank-four kernels</td>
+      <td>icekylinx<br>DreamingOfClouds</td>
+    </tr>
+    <tr>
+      <td>#588</td>
+      <td>$1.6023\times10^{-3}$</td>
+      <td>gate-move frame coalescence</td>
+      <td>Jeremy Kothe</td>
+    </tr>
+    <tr>
+      <td>#617</td>
+      <td>$1.6352\times10^{-3}$</td>
+      <td>second dim-4 cold end per factory block</td>
+      <td>Jeremy Kothe</td>
+    </tr>
+    <tr>
+      <td>#626</td>
+      <td>$1.6355\times10^{-3}$</td>
+      <td>coordinated owner repair</td>
+      <td>Chafik Boukhalfa</td>
+    </tr>
+    <tr>
+      <td>#942</td>
+      <td>$1.6620\times10^{-3}$</td>
+      <td>T37 whole-owner packing</td>
+      <td>Jonathan Capalbo</td>
+    </tr>
+    <tr>
+      <td>#1042</td>
+      <td>$1.6722\times10^{-3}$</td>
+      <td>T16 owner packing on the seven-slot k8 word</td>
+      <td>Jeremy Kothe</td>
+    </tr>
+    <tr>
+      <td>#1094</td>
+      <td>$1.6727\times10^{-3}$</td>
+      <td>packing / owner allocation（rare-pattern T16 exchanges）</td>
+      <td>Rohan Arun</td>
+    </tr>
+    <tr>
+      <td>#4359</td>
+      <td>$2.3\times10^{-3}$</td>
+      <td>productive helper</td>
+      <td>zxv</td>
+    </tr>
+    <tr>
+      <td>#4470</td>
+      <td>$3.02015\times10^{-3}$</td>
+      <td>joint helper boundaries</td>
+      <td>Cinna Davis</td>
+    </tr>
+    <tr>
+      <td>#4610</td>
+      <td>$3.02178\times10^{-3}$</td>
+      <td>native-map refinement</td>
+      <td>Cao Yifan</td>
+    </tr>
+    <tr>
+      <td>#5413</td>
+      <td>$3.02729\times10^{-3}$</td>
+      <td>caller / helper relation</td>
+      <td>Chris R<br>Dillon Amburgey<br>Ali Romman</td>
+    </tr>
+    <tr>
+      <td>#5599（目前 selected）</td>
+      <td>$3.10045\times10^{-3}$</td>
+      <td>P104 helper-subspace split</td>
+      <td>Ali Romman<br>hexapode</td>
+    </tr>
+  </tbody>
+</table>
 
 ## 技術
 
