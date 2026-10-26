@@ -425,7 +425,7 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$
 
 兩者中 complex 一側較小，是綁住 $\kappa$ 的一側。要讓 $\kappa>0.01$，兩個 effective primitive budget 都需要超過約 $1/99$。這描述的是目前建構的瓶頸，不是整數乘法的下界。
 
-PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。#4440 起的建構保留一條支撐 $0.0034$ 的 BIT word，$\kappa$ 的提高來自 complex controller 的改進。#4535 與 #4568 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。#4610 則改動 helper 與 native map，$\kappa$ 再提高到 $0.0030217758$。[#4940](https://github.com/CrocSwap/integer-mult-bounds/pull/4940) 另做了一項不主張 $\kappa$ 的計算：它以 #4929 的 center-free port code $A$ 共軛 controller，即 $\text{Coded}=A\cdot\text{Standard}\cdot A^{-1}$，使 reverse stage 成為 center-free，只有 controller 邊界需要重新編碼。若這些重新編碼可被接受，BIT supplier 會把 conditional $\kappa$ 限制在約 $0.0034$，目前 selected 的 $0.00310045$ 低於這個值。這不是已建立的上界：重新編碼在實際 frame 上的 physical admission、計價與 compiler 常數都未建立，#4940 也沒有 maintainer 的 proof review。
+PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。[#4440](https://github.com/CrocSwap/integer-mult-bounds/pull/4440) 起的建構保留一條 16-pair 的 BIT word，其 ordinary saving 為 $0.0034$，$\kappa$ 的提高來自 complex controller 的改進。#4535 與 #4568 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。#4610 則改動 helper 與 native map，$\kappa$ 再提高到 $0.0030217758$。[#4940](https://github.com/CrocSwap/integer-mult-bounds/pull/4940) 另做了一項不主張 $\kappa$ 的計算：它以 [#4929](https://github.com/CrocSwap/integer-mult-bounds/pull/4929) 的 center-free port code $A$ 共軛 controller，即 $\text{Coded}=A\cdot\text{Standard}\cdot A^{-1}$，使 reverse stage 成為 center-free，只有 controller 邊界需要重新編碼。若這些重新編碼可被接受，BIT supplier 會把 conditional $\kappa$ 限制在約 $0.0034$，目前 selected 的 $0.00310045$ 低於這個值。這不是已建立的上界：重新編碼在實際 frame 上的 physical admission、計價與 compiler 常數都未建立，#4940 也沒有 maintainer 的 proof review。
 
 ### 可能的改進方向
 
@@ -497,6 +497,7 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scop
 - [#4535 Improve conditional multiplication kappa to 0.003020165 via critical-root transfer](https://github.com/CrocSwap/integer-mult-bounds/pull/4535)
 - [#4568 Conditional κ = 0.00302016597 (+9.7e-10 over #4535)](https://github.com/CrocSwap/integer-mult-bounds/pull/4568)
 - [#4610 Conditional κ = 0.0030217758: joint helper interfaces and Lean compiler tightening](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)
+- [#4929 Construct a center-free native producer with an explicit rank-8 port code (no new κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4929)
 - [#4940 Consume the #4929 center-free word with coded reverse stages and A⁻¹-mixed query shears (no κ)](https://github.com/CrocSwap/integer-mult-bounds/pull/4940)
 - [#5377 Conditional κ = 0.00302235 (+5.742e-7 over #4610): one owned helper relation](https://github.com/CrocSwap/integer-mult-bounds/pull/5377)
 - [#5383 Conditional κ = 0.00302666 (+4.31e-6 over #5377): eight joint helper relations](https://github.com/CrocSwap/integer-mult-bounds/pull/5383)
