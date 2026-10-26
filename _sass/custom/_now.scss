@@ -190,6 +190,33 @@ header.now-head::after {
   overflow-wrap: anywhere;
 }
 
+/* h4 sections inside a card: tinted block with a colored left bar, hue cycles per section */
+
+.now-section {
+  --sec: 255, 123, 114;
+  margin: 0 0 14px;
+  padding: 2px 14px 12px;
+  background: rgba(var(--sec), 0.07);
+  border-left: 3px solid rgba(var(--sec), 0.75);
+  border-radius: 0 6px 6px 0;
+}
+
+.now-section:nth-of-type(3n + 2) { --sec: 227, 179, 65; }
+.now-section:nth-of-type(3n + 3) { --sec: 210, 153, 255; }
+
+.now-section:last-child {
+  margin-bottom: 0;
+}
+
+.now-section > h4 {
+  margin-top: 12px;
+  color: rgb(var(--sec));
+}
+
+.now-section > :last-child {
+  margin-bottom: 0;
+}
+
 /* links */
 
 .now-card a,
@@ -368,7 +395,7 @@ a.note-link:focus-visible {
 }
 
 .primality-column h4 {
-    margin-top: 0;
+    margin-top: 12px;
     margin-bottom: 0.75rem;
 }
 
