@@ -420,7 +420,8 @@ Word RAM 是另一條線，由 Dugongue 提出。[#4538](https://github.com/Croc
 - [#5241](https://github.com/CrocSwap/integer-mult-bounds/pull/5241)（Chris R，no new $\kappa$）：對 #4610 做獨立的 source-bound audit，是 #4610 升為 selected 的依據。
 - [#5377](https://github.com/CrocSwap/integer-mult-bounds/pull/5377)（Ali Romman，$\kappa=0.00302235$，比 #4610 高 $5.742\times10^{-7}$）：在每個 backward call 讓 L230 變成 private，用四個任意的 cold helper 組出 $h_{230}=h_{324}-h_{326}-h_{328}+h_{333}$，並扣掉因此失去的 rank-nine productive 輸出。
 - [#5383](https://github.com/CrocSwap/integer-mult-bounds/pull/5383)（Ali Romman，$\kappa=0.00302666$，比 #5377 高 $4.31\times10^{-6}$）：八個獨立的 helper relation 同時去掉八個 backward rank-eight center 與八個之後的 rank-one job，失去的八個 rank-nine helper target 全部計價。
-- [#5387](https://github.com/CrocSwap/integer-mult-bounds/pull/5387) 與 [#5390](https://github.com/CrocSwap/integer-mult-bounds/pull/5390)（Dugongue，$\kappa=0.003026674765$）：以較小的 completion reserve 與 direct tail 的 matched compiler 收緊 #5383 的值。
+- [#5387](https://github.com/CrocSwap/integer-mult-bounds/pull/5387)（Dugongue，$\kappa=0.003026674765$，比 #5383 高 $1.4765\times10^{-8}$）：把 completion reserve 縮小到 $10^{-12}$，paid profile 不變，只是 compiler 餘裕的小幅改善。
+- [#5390](https://github.com/CrocSwap/integer-mult-bounds/pull/5390)（Dugongue，$\kappa=0.0030266747680744$，比 #5387 高 $3.0744\times10^{-12}$）：在 #5387 的 $\kappa$ 下，用 direct tail 選出較小的 matched compiler，tensor power 由 1024 降為 505，sufficient exponent 約縮小 2.1 倍。這不是實測的執行時間。
 - [#5392](https://github.com/CrocSwap/integer-mult-bounds/pull/5392)（Ali Romman，$\kappa=0.00302725$，比 #5387 高 $5.75235\times10^{-7}$）：owned circuit transposition，兩個 forward call 改用縮減後的 backward supplier。
 - [#5398](https://github.com/CrocSwap/integer-mult-bounds/pull/5398)（Ali Romman，$\kappa=0.00302728823$，比 #5392 高 $3.823\times10^{-8}$）：direct backward caller，不轉置 circuit，讓全部 18 個 full call 使用完成的 backward supplier。它與 #5392 的 paid profile 上限相同，多出的部分來自 compiler headroom。
 - [#5402](https://github.com/CrocSwap/integer-mult-bounds/pull/5402)（Dillon Amburgey，no new $\kappa$）：eight-mode coupled helper provider，保留全部 632 個 native input；八個 coupled 輸出在補完之前不得到獨立的 Gaussian target credit。
@@ -437,8 +438,8 @@ Chris R 的 [#5384](https://github.com/CrocSwap/integer-mult-bounds/pull/5384)�
 - [#5545](https://github.com/CrocSwap/integer-mult-bounds/pull/5545)（Ali Romman，$\kappa=0.00304117$，比 #5544 高 $6.0\times10^{-7}$）：把 P104 register 341 與 345 上的一個減法從四維 frame 移到九維 frame，每個 full call 的 paid 由 $H_1+2H_5$ 換成 $H_5+H_6$，改善來自 $6^t<1+5^t$（$0<t<1$）。
 - [#5551](https://github.com/CrocSwap/integer-mult-bounds/pull/5551)（thu-nmrc，$\kappa=0.00304153$）：改兩個 coupled frame itinerary，每個 supplier invocation 的 paid delta 為 $+2H_1-3H_2+H_3-H_4+H_5$，嚴格凹性證明對 $(0,1)$ 內每個 exponent 都有淨改善。
 - [#5561](https://github.com/CrocSwap/integer-mult-bounds/pull/5561)（DreamingOfClouds，$\kappa=0.0030814243$）：重新安排 #5551 的 word 的 helper endpoint 與 stop frame，paid call 由 69,912 降為 66,852。
-- [#5569](https://github.com/CrocSwap/integer-mult-bounds/pull/5569)（Joel Pulikkan，$\kappa=0.00308181$，比 #5561 高 $3.94\times10^{-7}$）：priced successor hand-off of helper 706。
-- [#5580](https://github.com/CrocSwap/integer-mult-bounds/pull/5580)（Ali Romman，$\kappa=0.00308189$，比 #5569 高 $7.6453\times10^{-8}$）：把一個 ADD 由三維 chart 移到四維 chart，18 個 forward call 各把兩個 rank-three paid transport 換成一個 rank-two 與一個 rank-four。
+- [#5569](https://github.com/CrocSwap/integer-mult-bounds/pull/5569)（Joel Pulikkan，$\kappa=0.00308181$，raw crossing 比 #5561 高 $3.94\times10^{-7}$）：priced successor hand-off of helper 706。
+- [#5580](https://github.com/CrocSwap/integer-mult-bounds/pull/5580)（Ali Romman，$\kappa=0.00308189$，raw crossing 比 #5569 高 $7.6453\times10^{-8}$）：把一個 ADD 由三維 chart 移到四維 chart，18 個 forward call 各把兩個 rank-three paid transport 換成一個 rank-two 與一個 rank-four。
 - [#5565](https://github.com/CrocSwap/integer-mult-bounds/pull/5565)（hexapode，$\kappa=0.00308534$，比 #5580 高 $3.45\times10^{-6}$）：three-stage commuting-contact cascade，complete paid call 由 66,852 降為 66,744。
 - [#5599](https://github.com/CrocSwap/integer-mult-bounds/pull/5599)（Ali Romman，$\kappa=0.00310045$，比 #5565 高 $1.511\times10^{-5}$）：13 個 helper-subspace split，已升為 selected（見「目前狀態」）。
 
@@ -457,7 +458,7 @@ Chris R 的 [#5384](https://github.com/CrocSwap/integer-mult-bounds/pull/5384)�
 - P104 線 B：flyingviper 的 [#5608](https://github.com/CrocSwap/integer-mult-bounds/pull/5608)（$0.00310184$，比 #5599 高 $1.39\times10^{-6}$，結合 #5605 的 relay、#5565 的 commuting contact 與 #5599 的 helper split）、[#5612](https://github.com/CrocSwap/integer-mult-bounds/pull/5612)（$0.00310299$）與 [#5613](https://github.com/CrocSwap/integer-mult-bounds/pull/5613)（$0.00310440$），依序各接在前一個上。
 - Scratch-net 的 [#5606](https://github.com/CrocSwap/integer-mult-bounds/pull/5606)（$\kappa=0.00309871$，prepared P104 split helper）：它比較的是 #5599 較早的版本（$0.00309839$），低於現在 selected 的 $0.00310045$。
 
-上面兩條線在 #5599 之上的增量大多是 $10^{-6}$ 量級。
+上面兩條線在各自前一個 PR 之上的增量，落在 $10^{-7}$ 到 $10^{-6}$ 量級。
 
 ### 追蹤的 PR
 
