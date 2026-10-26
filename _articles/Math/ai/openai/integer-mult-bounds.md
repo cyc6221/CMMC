@@ -61,7 +61,7 @@ $$
   </thead>
   <tbody>
     <tr>
-      <td>Previous selected</td>
+      <td>Past selected</td>
       <td>#5413</td>
       <td>$0.003027288235$</td>
     </tr>
@@ -134,7 +134,19 @@ $$
   </tbody>
 </table>
 
-Selected 一定經過 maintainer review；merged 只表示 PR 進入 `main`，不代表升為 selected，也不代表已被獨立驗證。Archive 合併、conditional review 與 selection 是三件不同的事，selection 另需一致的 source closure、重放指令與公開狀態更新。各 selected result 以 `make frontier<PR>-verify` 重放，例如 `make frontier4359-verify`。以百分比比較 $\kappa$ 時，比較的是 exponent saving，不是實測的執行時間。
+<div class="remark">
+<strong>Remark.</strong>
+<ul>
+<li><strong>Merged</strong>：PR 已進入 <code>main</code>，不表示升為 selected，也不表示已被獨立驗證。</li>
+<li><strong>Selected</strong>：曾經或目前是專案的 selected result，一定經過 maintainer review。Archive 合併、conditional review 與 selection 是三件不同的事，selection 另需一致的 source closure、重放指令與公開狀態更新。</li>
+<li><strong>Candidate</strong>：merge 後但未升為 selected 的 conditional 宣稱，其 $\kappa$ 是作者提交的數值，除非另外註明已有 maintainer review。</li>
+<li><strong>Reviewed checkpoint</strong>：有 maintainer review、但從未升為 selected，例如 #4416。</li>
+<li><strong>Maintainer review</strong>：AI 協助的 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。</li>
+<li><strong>百分比比較</strong>：比較的是 exponent saving，不是實測的執行時間。</li>
+</ul>
+</div>
+
+各 selected result 以 `make frontier<PR>-verify` 重放，例如 `make frontier4359-verify`。
 
 沒有升為 selected 的 PR 不在此逐一列出，完整清單在 repo 的 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。
 
@@ -172,10 +184,10 @@ PR 給出的兩個 winning template 的 rank 分別為 $2^{276540184361}$（comp
 
 在 #4359 之後，PR 沿用同一個 framework，先讓 controller 的 native 組合更強，再逐步減少 paid job。
 
-- **#4416（historical reviewed checkpoint）**：Cinna Davis 的 [#4416](https://github.com/CrocSwap/integer-mult-bounds/pull/4416)，$\kappa=0.00268647$，比 #4359 大 16.80%。它在 tensor composition 之後，對過小的 productive transform 另付費補足（paid completion），讓 paid 與 productive target 嚴格分離，使更強的 p7 controller 能通過 #4359 的 strict compiler 條件。它是 merged、maintainer-reviewed，但從未升為 selected：當時 selected 仍是 #4359 的 $0.0023$，隨後出現更強的 #4470。[#4420](https://github.com/CrocSwap/integer-mult-bounds/pull/4420) 與 [#4428](https://github.com/CrocSwap/integer-mult-bounds/pull/4428) 獨立檢查 moment、paid-tail 與 paid-completion 不等式；maintainer 在 10 月 21 日完成 #4416 與 zxv 的 #4433 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md)，限於保留的 #4359 假設。這份 review 後來被 #4470 的 selection 重用為 foundation。
+- **#4416（reviewed checkpoint）**：Cinna Davis 的 [#4416](https://github.com/CrocSwap/integer-mult-bounds/pull/4416)，$\kappa=0.00268647$，比 #4359 大 16.80%。它在 tensor composition 之後，對過小的 productive transform 另付費補足（paid completion），讓 paid 與 productive target 嚴格分離，使更強的 p7 controller 能通過 #4359 的 strict compiler 條件。它是 merged、maintainer-reviewed，但從未升為 selected：當時 selected 仍是 #4359 的 $0.0023$，隨後出現更強的 #4470。[#4420](https://github.com/CrocSwap/integer-mult-bounds/pull/4420) 與 [#4428](https://github.com/CrocSwap/integer-mult-bounds/pull/4428) 獨立檢查 moment、paid-tail 與 paid-completion 不等式；maintainer 在 10 月 21 日完成 #4416 與 zxv 的 #4433 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md)，限於保留的 #4359 假設。這份 review 後來被 #4470 的 selection 重用為 foundation。
 - **#4470（selected）**：Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)，於 10 月 22 日升為 selected，狀態是 maintainer-reviewed conditional joint-helper construction，$\kappa=60403/20000000=0.00302015$，比 #4359 大 31.31%，比 #4416 大 12.42%。它累積 #4416 與中間的 #4440、#4441、#4447（依序引入 copied rank-one query shear、helper retiming 與缺漏的 contact span，三者都沒有單獨升為 selected），同時調整 helper 的 entrance、exit 與 contact frame，再配上 query-thinned 的 16-pair controller。它也承接 zxv 的 productive-helper native / compiler 與 Jacob Alan Sussman 的 mixed-target recursion（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-joint4470-contributors.md)）。
 
-因此 selected 的順序是 #4359（selected）→ #4416（reviewed only）→ #4470（selected），#4416 不在 selected progression 中。
+因此 selected 的順序是 #4359（selected）→ #4416（reviewed checkpoint）→ #4470（selected），#4416 不在 selected progression 中。
 
 #4470 的驗證方面，maintainer 對變動的建構做八個 scoped、serial 的重放。Source 完全相同的 #4359 與 #4416 foundation review 被明確重用，不重跑。Linux（Python 3.12）上的 hosted CI 通過了 selected 的八段重放，見 [integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/INTEGRATION.json) 與 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md)。
 
@@ -201,7 +213,7 @@ PR 給出的兩個 winning template 的 rank 分別為 $2^{276540184361}$（comp
 
 P104 word 來自 David Arias、Cinna Davis 與 Gareth Davidson 的 #2152、#2219 與 #2305，具有 527 個獨立的 helper output。Ali Romman 的 [#5544](https://github.com/CrocSwap/integer-mult-bounds/pull/5544) 把 P104 的 literal caller 與實際的 native Gaussian rank 接進 mixed-target recursion，$\kappa=0.00304057$，比 #5413 高 $1.33\times10^{-5}$，這條路線因此有了新的改善空間。
 
-之後的 PR 在 P104 word 上累積改進，$\kappa$ 升到 $0.00308534$（hexapode 的 [#5565](https://github.com/CrocSwap/integer-mult-bounds/pull/5565)），主要手段是：
+之後的 PR 在 P104 word 上累積改進，$\kappa$ 升到 $0.00308534$（hexapode 的 [#5565](https://github.com/CrocSwap/integer-mult-bounds/pull/5565)）。#5544 起的這些 PR 都是 candidate：$\kappa$ 是作者提交的 conditional 宣稱，upstream ledger 標為 partially reviewed（scoped review 與 triage），不會因為後繼的 #5599 通過 review 而被追認。主要手段是：
 
 - coupled frame itinerary：改寫兩個 coupled frame 的路徑（[#5551](https://github.com/CrocSwap/integer-mult-bounds/pull/5551)）
 - helper endpoint retiming：重排 helper 的 endpoint 與 stop frame（[#5561](https://github.com/CrocSwap/integer-mult-bounds/pull/5561)）
@@ -466,6 +478,8 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scop
 - [Discussions](https://github.com/CrocSwap/integer-mult-bounds/discussions)
 
 ### Pull requests
+
+標題照 repo 原文。除 #1094、#4359、#4470、#4610、#5413 與 #5599 曾是 selected 外，標題中的 $\kappa$ 都是作者的宣稱，不代表已被 maintainer 認可，各 PR 的處置見 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。
 
 - [#1094 Conditional kappa 0.001672660197076918: rare-pattern T16 exchanges](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)
 - [#2848 T248 residue exchange: conditional κ ≈ 0.00171865850830493](https://github.com/CrocSwap/integer-mult-bounds/pull/2848)
