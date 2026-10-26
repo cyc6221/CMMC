@@ -81,6 +81,7 @@ openai/math
 <div class="now-notes">
   <span class="now-notes__label">notes</span>
   {% include note-link.html href="/articles/Math/ai/openai/quasi-riemann-hypothesis/" label="The Quasi-Riemann Hypothesis" %}
+  {% include note-link.html href="/articles/Math/prime-number/riemann-hypothesis/" label="Riemann Hypothesis" %}
 </div>
 
 - The Quasi-Riemann Hypothesis (7/8) {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (7/8) on GitHub" %}
