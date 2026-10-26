@@ -1,0 +1,4 @@
+{%- assign key = include.num | append: "" -%}
+{%- if key.size == 1 -%}{%- assign key = key | prepend: "00" -%}{%- elsif key.size == 2 -%}{%- assign key = key | prepend: "0" -%}{%- endif -%}
+{%- assign r = site.data.openai_math | where: "num", key | first -%}
+<span class="openai-result">#{{ key }} {% if r %}{{ r.title }}{% else %}(not in catalog){% endif %}</span>{%- comment -%}Inline openai/math result label: "#NNN" plus the fixed title from _data/openai_math.yml. Pass num as 109, "109" or "009"; short numbers are zero-padded. Numbers missing from the catalog (e.g. 045) render as "(not in catalog)".{%- endcomment -%}
