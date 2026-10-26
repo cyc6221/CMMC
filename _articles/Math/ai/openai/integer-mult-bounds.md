@@ -139,7 +139,7 @@ $$
 <ul>
 <li><strong>Merged</strong>：PR 已進入 <code>main</code>，不表示升為 selected，也不表示已被獨立驗證。</li>
 <li><strong>Selected</strong>：曾經或目前是專案的 selected result，一定經過 maintainer review。Archive 合併、conditional review 與 selection 是三件不同的事，selection 另需一致的 source closure、重放指令與公開狀態更新。</li>
-<li><strong>Candidate</strong>：merge 後但未升為 selected 的 conditional 宣稱，其 $\kappa$ 是作者提交的數值。其中已有 maintainer review 的稱為 reviewed checkpoint，目前只有 #4416。</li>
+<li><strong>Candidate</strong>：merge 後但未升為 selected 的 conditional 宣稱，其 $\kappa$ 是作者提交的數值，未經 maintainer 單獨認可。例外是 #4416 與 #4433 的 joint p7 reviewed checkpoint：它通過 maintainer 的 proof review，但從未升為 selected。</li>
 </ul>
 </div>
 
@@ -476,7 +476,7 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scop
 
 ### Pull requests
 
-標題照 repo 原文。除 #1094、#4359、#4470、#4610、#5413 與 #5599 曾是 selected 外，標題中的 $\kappa$ 都是作者的宣稱，不代表已被 maintainer 認可，各 PR 的處置見 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。
+除 #1094、#4359、#4470、#4610、#5413 與 #5599 曾是 selected，以及 #4416 / #4433 的 joint p7 reviewed checkpoint 外，標題中的 $\kappa$ 都是作者的宣稱，不代表已被 maintainer 認可，各 PR 的處置見 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。
 
 - [#1094 Conditional kappa 0.001672660197076918: rare-pattern T16 exchanges](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)
 - [#2848 T248 residue exchange: conditional κ ≈ 0.00171865850830493](https://github.com/CrocSwap/integer-mult-bounds/pull/2848)
