@@ -106,13 +106,13 @@ Past selected：zxv 的 [#4359](https://github.com/CrocSwap/integer-mult-bounds/
 
 Reviewed checkpoint：Cinna Davis 的 [#4416](https://github.com/CrocSwap/integer-mult-bounds/pull/4416)，$\kappa=0.00268647$，狀態是 merged、maintainer-reviewed，但未升為 selected。它在 tensor composition 之後，對過小的 productive transform 另付費補足（paid completion），讓 paid 與 target 嚴格分離，使 p7 controller 能通過 #4359 的 strict compiler 條件。其 exponent saving 比 #4359 的 $0.0023$ 大 16.80%，這個比較不是實測的執行時間。
 
-驗證方面，[#4420](https://github.com/CrocSwap/integer-mult-bounds/pull/4420) 與 [#4428](https://github.com/CrocSwap/integer-mult-bounds/pull/4428) 獨立檢查 moment、paid-tail 與 paid-completion 不等式；maintainer 在 10 月 21 日完成 #4416 與 zxv 的 #4433 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md)，限於保留的 #4359 假設。Selected record 當時仍是 $0.0023$，所以它是 intermediate checkpoint；這份 review 後來被 #4470 的 selection 重用為 foundation。細節見「近期發展」的「#4405 至 #4416」一節。
+驗證方面，[#4420](https://github.com/CrocSwap/integer-mult-bounds/pull/4420) 與 [#4428](https://github.com/CrocSwap/integer-mult-bounds/pull/4428) 獨立檢查 moment、paid-tail 與 paid-completion 不等式；maintainer 在 10 月 21 日完成 #4416 與 zxv 的 #4433 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md)，限於保留的 #4359 假設。Selected record 當時仍是 $0.0023$，所以它是 intermediate checkpoint；這份 review 後來被 #4470 的 selection 重用為 foundation。
 
 ### #4470
 
 Past selected：Cinna Davis 的 [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)，於 2026 年 10 月 22 日升為 selected，狀態是 maintainer-reviewed conditional joint-helper construction。它同時調整 helper 的 entrance、exit 與 contact frame，再用 query-thinned 的 16-pair controller。它承接 Cinna 自己的 #4416、#4440、#4441、#4447，以及 zxv 的 productive-helper native / compiler 與 Jacob Alan Sussman 的 mixed-target recursion（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-joint4470-contributors.md)）。$\kappa=60403/20000000$，其 exponent saving 比 #4359 的 $0.0023$ 大 31.31%，比 #4416 的 $0.00268647$ 大 12.42%。這些百分比比較的是 exponent saving，不是實測的執行時間。重放指令為 `make frontier4470-verify`，現在保留為 historical checkpoint。
 
-驗證方面，maintainer 對變動的建構做八個 scoped、serial 的重放（範圍見「近期發展」的「#4440 至 #4470」一節）。Source 完全相同的 #4359 與 #4416 foundation review 被明確重用，不重跑。Linux（Python 3.12）上的 hosted CI 通過了 selected 的八段重放，見 [integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/INTEGRATION.json)。
+驗證方面，maintainer 對變動的建構做八個 scoped、serial 的重放。Source 完全相同的 #4359 與 #4416 foundation review 被明確重用，不重跑。Linux（Python 3.12）上的 hosted CI 通過了 selected 的八段重放，見 [integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/INTEGRATION.json)。
 
 #4470 的 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md) 先完成，selection 隨後在同一天（10 月 22 日）完成。Archive 合併、conditional review 與 selection 是三件不同的事；selection 另需一致的 source closure、重放指令與公開狀態更新。
 
@@ -340,7 +340,7 @@ $$
 
 PR 給出的兩個 winning template 的 rank 分別為 $2^{276540184361}$（complex）與 $2^{6552928412}$（BIT），完整的 word 與常數尚未生成，所以這是 asymptotic existence result，不是實用演算法。Compiler、native adapters、common-weight BIT interface 與 support-local outer transfer 等新論證，經過 maintainer 的 AI 協助 proof review 與有限檢查，尚未形式化，也未經獨立的人類 review。
 
-PR 列出的後續問題包括：把整條論證當作一個整體做外部 review、縮小 template 的 rank，以及改善 complex 一側的 tariff。Complex 已是綁住的一側，單獨增加 BIT 的 saving 無法再推進。後兩項在 #4359 之後都有 PR 接手，見下節。
+PR 列出的後續問題包括：把整條論證當作一個整體做外部 review、縮小 template 的 rank，以及改善 complex 一側的 tariff。Complex 已是綁住的一側，單獨增加 BIT 的 saving 無法再推進。後兩項在 #4359 之後都有 PR 接手。
 
 ### #4405 至 #4416：#4359 之後 merge 的 candidate
 
@@ -749,7 +749,7 @@ $\kappa$ 衡量的是漸近 exponent saving，不是實測的執行時間。
 - precision 與 fixed-tape：保留的 fixed-tape movement 與 precision / storage 規定適用於新的 finite template
 - analytic decomposition、fine-prime avoidance 與 exact recovery
 
-Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scoped、serial 的變動建構重放（#4470 為八段，#5599 在 Linux 上以 1 GiB 取樣記憶體上限通過），並明確重用前一個 selected 的 foundation，並非完整的 Lean multiplication theorem，也不是獨立的人類 review。Winning uniform template 由演算法定義，沒有實體化，專案不主張實用上的加速。其餘 candidate 則各自附帶作者提交的證據與獨立檢查，狀態見上方各 PR。
+Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scoped、serial 的變動建構重放（#4470 為八段，#5599 在 Linux 上以 1 GiB 取樣記憶體上限通過），並明確重用前一個 selected 的 foundation，並非完整的 Lean multiplication theorem，也不是獨立的人類 review。Winning uniform template 由演算法定義，沒有實體化，專案不主張實用上的加速。其餘 candidate 則各自附帶作者提交的證據與獨立檢查。
 
 ## References
 
