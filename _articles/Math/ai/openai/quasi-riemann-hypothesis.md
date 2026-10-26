@@ -19,7 +19,7 @@ openai/math {% include gh-link.html href="https://github.com/openai/math" label=
 
 古典的 zero-free region 隨 conductor 或高度增大而逼近 $\mathrm{Re}(s)=1$，且可能允許一個單一的 real exceptional zero，因此無法給出固定半平面的一致排除。Zero-density estimate 則是估計位於某條垂直線右側的零點個數，並不排除所有零點。
 
-## OpenAI #003
+## OpenAI {% include math/ai/openai-result.html num="003" %}
 
 *The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $\mathrm{Re}(s)>7/8$* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (7/8) on GitHub" %}
 
