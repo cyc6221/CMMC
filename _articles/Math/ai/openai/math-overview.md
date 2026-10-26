@@ -76,15 +76,27 @@ openai/math
 
 ### Number theory
 
-- #003 The quasi-Riemann hypothesis {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (7/8) on GitHub" %}
-  - [The Quasi-Riemann Hypothesis]({{ '/articles/Math/ai/openai/quasi-riemann-hypothesis/' | relative_url }})
-  - The Quasi-Riemann Hypothesis (11/12) {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (11/12) on GitHub" %}
-  - Uniform exclusion of Landau–Siegel zeros {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" label="preprint" aria_label="preprint: Uniform exclusion of Landau–Siegel zeros on GitHub" %}
+#### #003
+
+<div class="now-notes">
+  <span class="now-notes__label">notes</span>
+  {% include note-link.html href="/articles/Math/ai/openai/quasi-riemann-hypothesis/" label="The Quasi-Riemann Hypothesis" %}
+</div>
+
+- The Quasi-Riemann Hypothesis (7/8) {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (7/8) on GitHub" %}
+- The Quasi-Riemann Hypothesis (11/12) {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (11/12) on GitHub" %}
+- Uniform exclusion of Landau–Siegel zeros {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" label="preprint" aria_label="preprint: Uniform exclusion of Landau–Siegel zeros on GitHub" %}
 
 ### Theoretical computer science
 
-- #109 Integer multiplication below $n\log n$ {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026" label="preprint" aria_label="preprint: Integer multiplication below n log n on GitHub" %}
-  - [CrocSwap integer-mult-bounds]({{ '/articles/Math/ai/openai/integer-mult-bounds/' | relative_url }})
+#### #109
+
+<div class="now-notes">
+  <span class="now-notes__label">notes</span>
+  {% include note-link.html href="/articles/Math/ai/openai/integer-mult-bounds/" label="CrocSwap integer-mult-bounds" %}
+</div>
+
+- Integer multiplication below $n\log n$ {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026" label="preprint" aria_label="preprint: Integer multiplication below n log n on GitHub" %}
 
 ## References
 
