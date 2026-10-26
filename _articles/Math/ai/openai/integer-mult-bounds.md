@@ -548,7 +548,7 @@ Chris R 的 [#5384](https://github.com/CrocSwap/integer-mult-bounds/pull/5384)�
       <td>#4470</td>
       <td>0.00302015</td>
       <td>joint helper boundaries and p16 controller</td>
-      <td>Current selected (Oct 22), maintainer-reviewed</td>
+      <td>Past selected (Oct 22), maintainer-reviewed</td>
     </tr>
     <tr>
       <td>#4535</td>
@@ -566,7 +566,7 @@ Chris R 的 [#5384](https://github.com/CrocSwap/integer-mult-bounds/pull/5384)�
       <td>#4610</td>
       <td>0.0030217758</td>
       <td>joint helper interfaces and native maps, tighter compiler reserve</td>
-      <td>Merged, highest candidate</td>
+      <td>Past selected (Oct 23), maintainer-reviewed</td>
     </tr>
     <tr>
       <td>#4626</td>
@@ -580,6 +580,96 @@ Chris R 的 [#5384](https://github.com/CrocSwap/integer-mult-bounds/pull/5384)�
       <td>coordinated contact and helper frames on the round-two supplier</td>
       <td>Merged, candidate</td>
     </tr>
+    <tr>
+      <td>#5377</td>
+      <td>0.00302235</td>
+      <td>one owned helper relation</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#5383</td>
+      <td>0.00302666</td>
+      <td>eight joint helper relations</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#5392</td>
+      <td>0.00302725</td>
+      <td>owned circuit transposition</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#5398</td>
+      <td>0.00302728823</td>
+      <td>direct backward caller</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#5413</td>
+      <td>0.003027288235</td>
+      <td>complete coupled-output caller</td>
+      <td>Past selected (Oct 24), maintainer-reviewed</td>
+    </tr>
+    <tr>
+      <td>#5440</td>
+      <td>0.0033999964</td>
+      <td>p19 coded-reverse chain</td>
+      <td>Open, highest open claim</td>
+    </tr>
+    <tr>
+      <td>#5544</td>
+      <td>0.00304057</td>
+      <td>literal p16/a7 caller on the P104 word</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#5545</td>
+      <td>0.00304117</td>
+      <td>one subtraction moved to the full frame</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#5551</td>
+      <td>0.00304153</td>
+      <td>coupled P104 contacts</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#5561</td>
+      <td>0.0030814243</td>
+      <td>retimed helper endpoints of #5551</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#5565</td>
+      <td>0.00308534</td>
+      <td>three-stage commuting-contact cascade</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#5569</td>
+      <td>0.00308181</td>
+      <td>priced hand-off of helper 706</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#5580</td>
+      <td>0.00308189</td>
+      <td>event-contact step</td>
+      <td>Merged, candidate</td>
+    </tr>
+    <tr>
+      <td>#5599</td>
+      <td>0.00310045</td>
+      <td>thirteen helper-subspace splits</td>
+      <td>Current selected (Oct 26), maintainer-reviewed</td>
+    </tr>
+    <tr>
+      <td>#5678</td>
+      <td>0.00310815849</td>
+      <td>paid interior bases</td>
+      <td>Open</td>
+    </tr>
   </tbody>
 </table>
 
@@ -588,7 +678,8 @@ Chris R 的 [#5384](https://github.com/CrocSwap/integer-mult-bounds/pull/5384)�
 <ul>
 <li><strong>Merged</strong>：PR 已進入 <code>main</code>。不表示升為 selected，也不表示數學上已被獨立驗證。</li>
 <li><strong>Open</strong>：尚未進入 <code>main</code>。</li>
-<li><strong>Candidate</strong>：merge 後但未升為 selected 的 conditional 宣稱。merge 時 $\kappa$ 高於當時的 selected；#4535 起的 candidate 的 $\kappa$ 已高於 #4470，但都沒有 maintainer review。</li>
+<li><strong>Past / Current selected</strong>：曾經或目前是專案的 selected result，一定經過 maintainer review。</li>
+<li><strong>Candidate</strong>：merge 後但未升為 selected 的 conditional 宣稱，merge 時 $\kappa$ 高於當時的 selected。</li>
 <li><strong>Reviewed checkpoint</strong>：已有 maintainer review、但未升為 selected 的 candidate。</li>
 <li><strong>Maintainer review</strong>：專案維護者的 AI 協助 proof review，限於保留的假設，不是形式化驗證或獨立的人類 review。</li>
 </ul>
