@@ -156,7 +156,13 @@ $$
 \sum_r p_r\, r^{1-C}=\sum_k W_k\, k^{1-C},
 $$
 
-其中 $p_r$ 是 rank 為 $r$ 的 paid recursive call 數，$W_k$ 是 rank 為 $k$ 的 productive output 數。再用 finite integer compiler 把這個 mixed 結構編譯回 uniform supplier，#109 繼承的 outer theorem 才能使用。
+其中 $p_r$ 是 rank 為 $r$ 的 paid recursive call 數，$W_k$ 是 rank 為 $k$ 的 productive output 數。再用 finite integer compiler 把這個 mixed 結構編譯回 uniform supplier（由演算法定義的 finite template），#109 繼承的 outer theorem 才能使用。從 $C$ 到 $\kappa=0.0023$ 的步驟如下：
+
+- Complex 的 mixed root 約為 $C\approx0.00230509$。
+- 編譯後在 explicit rank 處的 uniform saving 為 $0.002304$，是綁住的一側；BIT 一側為 $0.0027$。
+- Outer bill 的每一項 saving 都嚴格高於 $0.0023$，最小餘裕為 $1.97698\times10^{-6}$，因此宣稱 $\kappa=0.0023$。
+
+PR 給出的兩個 winning template 的 rank 分別為 $2^{276540184361}$（complex）與 $2^{6552928412}$（BIT），完整的 word 與常數尚未生成，所以這是 asymptotic existence result，不是實用演算法。
 
 #4359 的狀態是 maintainer-reviewed conditional productive-helper construction。它以 Jacob Alan Sussman 的 mixed-target recursion 為直接的概念前驅，承接先前的 complex / native、binary word 與 outer / precision 工作（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-productive4359-contributors.md)）。$\kappa$ 比 #1094 高 37.51%。之後所有 selected result 都建立在這個 productive-helper framework 上。
 
@@ -412,7 +418,7 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$
 
 兩者中 complex 一側較小，是綁住 $\kappa$ 的一側。要讓 $\kappa>0.01$，兩個 effective primitive budget 都需要超過約 $1/99$。這描述的是目前建構的瓶頸，不是整數乘法的下界。
 
-PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。#4440 起的建構保留一條支撐 $0.0034$ 的 BIT word，$\kappa$ 的提高來自 complex controller 的改進。#4535 與 #4568 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。#4610 則改動 helper 與 native map，$\kappa$ 再提高到 $0.0030217758$。#4940 的計算指出，若 coded 重新編碼可被接受，BIT supplier 會把 conditional $\kappa$ 限制在約 $0.0034$；目前 selected 的 $0.00310045$ 仍低於這個值。
+PR #4359 之後 complex 仍是綁住的一側：#4359 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。#4440 起的建構保留一條支撐 $0.0034$ 的 BIT word，$\kappa$ 的提高來自 complex controller 的改進。#4535 與 #4568 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。#4610 則改動 helper 與 native map，$\kappa$ 再提高到 $0.0030217758$。[#4940](https://github.com/CrocSwap/integer-mult-bounds/pull/4940) 另做了一項不主張 $\kappa$ 的計算：它以 #4929 的 center-free port code $A$ 共軛 controller，即 $\text{Coded}=A\cdot\text{Standard}\cdot A^{-1}$，使 reverse stage 成為 center-free，只有 controller 邊界需要重新編碼。若這些重新編碼可被接受，BIT supplier 會把 conditional $\kappa$ 限制在約 $0.0034$，目前 selected 的 $0.00310045$ 低於這個值。這不是已建立的上界：重新編碼在實際 frame 上的 physical admission、計價與 compiler 常數都未建立，#4940 也沒有 maintainer 的 proof review。
 
 ### 可能的改進方向
 
