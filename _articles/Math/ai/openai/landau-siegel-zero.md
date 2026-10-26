@@ -30,17 +30,23 @@ $$(1-\beta)\log q\ge c.$$
 
 ### William Banks
 
+*On the OpenAI proof that Landau–Siegel zeros do not exist* [arXiv:2610.15483](https://arxiv.org/abs/2610.15483)
+
 給出完整的人類 exposition，並把 OpenAI 原本只寫成 $c>0$ 的常數換成 explicit numerical constant。結果從 qualitative theorem 變成 quantitative theorem。
 
 ### Bryce Kerr
+
+*A simpler proof that there are no Landau–Siegel zeros* [arXiv:2610.21099](https://arxiv.org/abs/2610.21099)
 
 把 OpenAI 證明中較重的 interpolation 與 determinant machinery 換成較簡單的 pigeonhole construction 加上 Masser zero estimate。
 
 ### Ben Green
 
+*On Landau–Siegel zeros* [hexagon:2610.00311](https://hexagonmath.org/2610.00311)
+
 OpenAI 的證明使用較大的 biquadratic field $\mathbb{Q}(\sqrt d,\sqrt2)$。Green 發現可以直接在 $\mathbb{Q}(\sqrt d)$ 中進行，並把關鍵的 determinant 換成 explicit Gram determinant。
 
-Green 的 formulation 後來由 Tao 寫成 proof sketch。
+Green 的 formulation 後來由 Tao 寫成 proof sketch：*[A sketch of the proof of non-existence of Siegel zeroes](https://terrytao.wordpress.com/2026/10/19/a-sketch-of-the-proof-of-non-existence-of-siegel-zeroes/)*。
 
 ## 社群版本的 manuscript
 
@@ -58,9 +64,9 @@ oai-math-revised 收錄了 *Uniform exclusion of Landau–Siegel zeros* 的 revi
 
 已 merge。收進以下內容：
 
-- Tao 的 Green-proof exposition
+- Tao 的 Green-proof exposition：[A sketch of the proof of non-existence of Siegel zeroes](https://terrytao.wordpress.com/2026/10/19/a-sketch-of-the-proof-of-non-existence-of-siegel-zeroes/)
 - Pascadi observation
-- Barreto variant
+- Barreto variant：[An elementary proof of the non-existence of Landau–Siegel zeros](https://x.com/acerfur/status/2112239827077026128)
 - Pescador variant
 
 討論的問題從 OpenAI 的證明是否正確，轉為這個 argument 能推到多遠。
@@ -204,6 +210,20 @@ Banks 把 argument 從 $\mathbb{Q}$ 推廣到一般 number field，進而得到 
 - [The Quasi-Riemann Hypothesis (11/12)](https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026)
 - [Uniform exclusion of Landau–Siegel zeros](https://github.com/openai/math/tree/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026)
 
+### Expositions
+
+- W. D. Banks, [On the OpenAI proof that Landau–Siegel zeros do not exist](https://arxiv.org/abs/2610.15483)
+- B. Kerr, [A simpler proof that there are no Landau–Siegel zeros](https://arxiv.org/abs/2610.21099)
+- B. Green, [On Landau–Siegel zeros](https://hexagonmath.org/2610.00311)
+- T. Tao, [A sketch of the proof of non-existence of Siegel zeroes](https://terrytao.wordpress.com/2026/10/19/a-sketch-of-the-proof-of-non-existence-of-siegel-zeroes/)
+- K. Barreto, [An elementary proof of the non-existence of Landau–Siegel zeros](https://x.com/acerfur/status/2112239827077026128)
+
+### Cited in the preprint
+
+- R. F. Lu, A. Zaman, H. Zhao, [arXiv:2602.03626](https://arxiv.org/abs/2602.03626)
+- D. W. Masser, [doi:10.1007/BF01389194](https://doi.org/10.1007/BF01389194)
+
 ### Community
 
 - [mathcommunity/oai-math-revised](https://github.com/mathcommunity/oai-math-revised)
+- PR {% include pr-link.html num=2 %}、{% include pr-link.html num=3 %}
