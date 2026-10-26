@@ -61,7 +61,7 @@ $$
   </thead>
   <tbody>
     <tr>
-      <td>Past selected</td>
+      <td>Previous selected</td>
       <td>#5413</td>
       <td>$0.003027288235$</td>
     </tr>
@@ -73,7 +73,7 @@ $$
   </tbody>
 </table>
 
-#5599 已 merge，是 maintainer-reviewed 的 conditional P104 helper-subspace construction。它在 P104 word 上做 13 個 helper-subspace split，完整的 caller 有 13,048 個 productive field 與 66,726 個 paid call，重放指令為 `make frontier5599-verify`。
+#5599 已 merge，是 maintainer-reviewed（維護者的 AI 協助 proof review，限於保留的假設）的 conditional P104 helper-subspace construction。它在 P104 word 上做 13 個 helper-subspace split，完整的 caller 有 13,048 個 productive field 與 66,726 個 paid call，重放指令為 `make frontier5599-verify`。
 
 與前一個 selected #5413 相比，exponent saving 約大 2.41674%，這個比較不是實測的 running-time improvement。Selected result 仍保留既有的 conditional 假設，不是完整的 Lean multiplication theorem，也不是 independent human proof review。
 
