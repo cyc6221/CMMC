@@ -228,7 +228,7 @@ $$
 
 ## 歷史 $\kappa$ 里程碑
 
-$\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$。下表依 $\kappa$ 由小到大列出 selected result 的主要節點，並標出各節點的代表性機制與主要作者。
+$\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$。下表依 $\kappa$ 由小到大列出 selected result 的主要節點，並標出各節點的代表性機制與主要作者。其中 round two（#62）是第一個 reviewed community checkpoint，$\kappa=5.1017\times10^{-5}$ 首次超過 $2^{-15}$。
 
 <table class="table-center">
   <thead>
@@ -261,7 +261,7 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$
     <tr>
       <td>round two（#62）</td>
       <td>$5.1017\times10^{-5}$</td>
-      <td>interval strips、core-aware pair assembly（第一個 reviewed community checkpoint，首次超過 $2^{-15}$）</td>
+      <td>interval strips、core-aware pair assembly</td>
       <td>Avi Eisenberg<br>eumemic<br>Alejandro Zarzuelo Urdiales</td>
     </tr>
     <tr>
@@ -289,7 +289,7 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$
       <td>icekylinx</td>
     </tr>
     <tr>
-      <td>recycled bit registers（#146–#148、#150）</td>
+      <td>#146–#148、#150</td>
       <td>$4.7215\times10^{-4}$</td>
       <td>recycled bit registers</td>
       <td>William Porter<br>DaysSky<br>Thomas Marchand<br>Rohan Gupta</td>
