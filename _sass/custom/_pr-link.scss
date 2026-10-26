@@ -16,6 +16,14 @@ a.pr-link:visited {
   text-decoration: none;
 }
 
+/* a mouse click leaves the chip in :focus; restore the idle look (the theme's default link glow) over the a:focus underline and glow */
+
+a.pr-link:focus {
+  color: #4dd0e1;
+  text-decoration: none;
+  text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
+}
+
 a.pr-link:hover,
 a.pr-link:focus-visible {
   border-color: #80deea;
