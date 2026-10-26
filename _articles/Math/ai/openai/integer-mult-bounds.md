@@ -196,9 +196,9 @@ PR 給出的兩個 winning template 的 rank 分別為 $2^{276540184361}$（comp
 在 #4470 之後，selected 先後換成 Cao Yifan 的 [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610)（10 月 23 日，$\kappa=15108879/5000000000=0.0030217758$）與 Chris R 的 [#5413](https://github.com/CrocSwap/integer-mult-bounds/pull/5413)（10 月 24 日，$\kappa=605457647/200000000000=0.003027288235$）。這一階段沒有像 #4359 那樣改變 accounting model，而是沿用 #4470 的 p16 controller，逐項壓低 recursive cost：
 
 - native map 與 helper 的 entrance、scalar contact（#4610）
-- helper relation：以 owned relation 去掉 backward call 的 rank-eight center（#5377、#5383）
-- backward caller：#5392 以 circuit transposition 讓兩個 forward call 改用縮減後的 backward supplier，#5398 的 direct backward caller 則讓全部 18 個 full call 使用完成的 backward supplier
-- caller 的建構：以 coupled-output caller 補完 eight-mode coupled helper provider（#5402、#5413）
+- helper relation：以 owned relation 去掉 backward call 的 rank-eight center（[#5377](https://github.com/CrocSwap/integer-mult-bounds/pull/5377)、[#5383](https://github.com/CrocSwap/integer-mult-bounds/pull/5383)）
+- backward caller：[#5392](https://github.com/CrocSwap/integer-mult-bounds/pull/5392) 以 circuit transposition 讓兩個 forward call 改用縮減後的 backward supplier，#5398 的 direct backward caller 則讓全部 18 個 full call 使用完成的 backward supplier
+- caller 的建構：以 coupled-output caller 補完 eight-mode coupled helper provider（[#5402](https://github.com/CrocSwap/integer-mult-bounds/pull/5402)、#5413）
 - paid-rank 的分布：依嚴格凹性，把 rank-four 的 job 換成 rank-three 與 rank-five 的 pair（#4610）
 - compiler 與 outer 的 headroom（#5413）
 
@@ -207,7 +207,7 @@ PR 給出的兩個 winning template 的 rank 分別為 $2^{276540184361}$（comp
 兩者的 selection 依據：
 
 - **#4610**：比 #4470 高 $1.6258\times10^{-6}$。Selection 以 Chris R 的 [#5241](https://github.com/CrocSwap/integer-mult-bounds/pull/5241) 為依據，它對 #4610 做獨立的 source-bound audit，涵蓋 phase、任意輸入、invoice、compiler 與 outer 各階段。Maintainer 以完整的 independent admission replay 重放，並明確重用前一個 selected 的 controller、ordinary BIT 與 physical / compiler foundation。被接受的是凍結的 native word 與 compiler point，不是 PR 內每個探索性結果。
-- **#5413**：比 #4610 高約 0.182424%。它補完 Dillon Amburgey 的 [#5402](https://github.com/CrocSwap/integer-mult-bounds/pull/5402)（保留全部 632 個 native input 的 eight-mode coupled helper provider）的輸出，接在 Ali Romman 的 [#5398](https://github.com/CrocSwap/integer-mult-bounds/pull/5398)（direct backward caller）上。相對 #5398 與 #5400 只多 $5\times10^{-12}$，這是 compiler / outer headroom，不是新的 recursive-price saving。Selection 納入 #5407（provider audit）與 [#5414](https://github.com/CrocSwap/integer-mult-bounds/pull/5414)（獨立檢查 neutrality 與必要的 pricing），並明確重用 #4610 的 foundation。
+- **#5413**：比 #4610 高約 0.182424%。它補完 Dillon Amburgey 的 [#5402](https://github.com/CrocSwap/integer-mult-bounds/pull/5402)（保留全部 632 個 native input 的 eight-mode coupled helper provider）的輸出，接在 Ali Romman 的 [#5398](https://github.com/CrocSwap/integer-mult-bounds/pull/5398)（direct backward caller）上。相對 #5398 與 #5400 只多 $5\times10^{-12}$，這是 compiler / outer headroom，不是新的 recursive-price saving。Selection 納入 [#5407](https://github.com/CrocSwap/integer-mult-bounds/pull/5407)（provider audit）與 [#5414](https://github.com/CrocSwap/integer-mult-bounds/pull/5414)（獨立檢查 neutrality 與必要的 pricing），並明確重用 #4610 的 foundation。
 
 ### #5544 至 #5599：P104 路線
 
