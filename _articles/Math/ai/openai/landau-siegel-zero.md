@@ -2,7 +2,7 @@
 layout: page
 title: Landau–Siegel Zero
 description: 追蹤 openai/math 第 003 項 Landau–Siegel zeros 的 uniform exclusion 發布之後的發展：重新證明、簡化、explicit constant、更強的 bound、formal verification 與推廣。
-date: 2026-10-27
+date: 2026-10-26
 last_updated: 2026-10-27
 pr_repo: mathcommunity/oai-math-revised
 ---
