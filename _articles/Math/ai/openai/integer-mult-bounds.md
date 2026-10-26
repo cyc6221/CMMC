@@ -439,8 +439,7 @@ $\kappa$ 衡量的是漸近 exponent saving，不是實測的執行時間。
 
 - native / all-column movement：native operator、phase 慣例、spectator 與 whole-job adapter 在每個正的 column multiplicity 下都成立
 - owned erasure：owned stream 與 suspended center 遵守保留的 allocation、erasure 與 ownership 規則
-- compiler closure：finite mixed-target compiler 與 chronological product、completion、splitting 滿足保留的 uniform closure
-- outer transfer：保留的 outer cost 估計與 outer substitution 適用於新的 finite template
+- compiler closure：finite mixed-target compiler 與 chronological product、completion、splitting 滿足保留的 uniform closure，保留的 outer cost 估計與 outer substitution 也適用於新的 finite template
 - precision 與 fixed-tape：保留的 fixed-tape movement 與 precision / storage 規定適用於新的 finite template
 - analytic decomposition、fine-prime avoidance 與 exact recovery
 
