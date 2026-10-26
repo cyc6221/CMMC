@@ -111,6 +111,14 @@ These rules apply whenever Claude Code, Codex, or any other agent writes or reor
 - Use `.text-muted` for secondary text and `.table-center` on a `<table>` to center its cells.
 - Inline styles are only acceptable for values computed by Liquid (e.g. `width: {{ pct }}%`, `--pct`).
 
+### PR links
+
+- Link a pull request with `{% include pr-link.html num=1094 %}` instead of a bare `#1094` or a hand-written `<a href=".../pull/1094">`.
+- Set `pr_repo: owner/name` in the page front matter so `repo` can be omitted; pass `repo="owner/name"` to override it for a PR in another repo.
+- Pass `title="..."` to show the PR title as a hover tooltip.
+- Keep a bare `#N` for identifiers that are not pull requests (e.g. openai/math Result `#109`).
+- The chip style lives in `_sass/custom/_pr-link.scss`.
+
 ### Math
 
 - Use inline `$...$` by default; use `$$...$$` only for equations that deserve their own line.
