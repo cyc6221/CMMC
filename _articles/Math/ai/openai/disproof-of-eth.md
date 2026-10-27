@@ -21,20 +21,20 @@ bit operations and $(n+m)^{O_k(1)}$ bits of space. For each fixed $D>0$, its run
 $$(n+m)^{O_{k,D}(1)}2^{O_{k,D}(n/\sqrt{\log n})}.$$
 </div>
 
-- 輸出是滿足賦值的個數 $\#F$。$\#F>0$ 即判定 $F$ 可滿足。取 $k=3$，時間 $2^{o(n)}$ 與 ETH 的 $2^{\Omega(n)}$ 矛盾。
+- 輸出是滿足賦值的個數 $\\#F$。$\\#F>0$ 即判定 $F$ 可滿足。取 $k=3$，時間 $2^{o(n)}$ 與 ETH 的 $2^{\Omega(n)}$ 矛盾。
 - 指數 $n\log\log n/\sqrt{\log n}$ 是 $o(n)$；clause 數 $m\le Dn$ 時進一步降為 $n/\sqrt{\log n}$。摘要把一般情形寫成 $2^{n/(\log n)^{1/2+o(1)}}$。
 - rational interpolation 論證只得到較弱的指數 $O_k(\rho(n))$，其中 $\rho(n)=n(\log\log n)^2/\sqrt{\log n}$。定理中的兩個界由 tensor contraction 證明。
-- 演算法確定性，空間為多項式。$\#F>0$ 時，逐一固定變數可以找出滿足賦值。
+- 演算法確定性，空間為多項式。$\\#F>0$ 時，逐一固定變數可以找出滿足賦值。
 - 時間界是 $2^{o(n)}$，不是多項式。$2^{o(n)}$ 在一般的多項式時間 reduction 下不會保持（需要 $2^{n^{o(1)}}$），所以這個結果不表示一般的 NP 問題有次指數演算法。
 
 ## 被反駁的假設
 
-計數 $\#F>0$ 同時判定 satisfiability 與 unsatisfiability，所以 $2^{o(n)}$ 時間的計數演算法反駁：
+計數 $\\#F>0$ 同時判定 satisfiability 與 unsatisfiability，所以 $2^{o(n)}$ 時間的計數演算法反駁：
 
 - ETH 與 SETH：每個固定的 $k$ 都有 $(n+m)^{O_k(1)}2^{o(n)}$ 時間的確定性演算法。
 - Gap-ETH：判定 satisfiability 同時解決它的 promise problem。
 - NSETH：同一個演算法判定 unsatisfiability。
-- #ETH：$\#3$-SAT 在 $2^{o(n)}\mathrm{poly}(n,m)$ 時間內解出。
+- \#ETH：$\\#3$-SAT 在 $2^{o(n)}\mathrm{poly}(n,m)$ 時間內解出。
 - 上述假設的 bounded-error 隨機化版本：確定性演算法同樣反駁它們。
 
 這個結果不與受限證明系統（例如 regular resolution）的無條件指數下界衝突。
@@ -57,13 +57,13 @@ $$\#F=\sum_{x\in\{0,1\}^n}\prod_{e}\Phi_e\bigl((x_v)_{v\in I_e}\bigr).$$
 
 ### 分組與線性測量
 
-若變數可以分成 $r$ 組 $S_1,\dots,S_r$，每組至多 $2n/r$ 個變數，且每個 clause 的變數都在同一組內，則 $\#F=\prod_g N_g$，其中 $N_g$ 是只看第 $g$ 組的計數。逐組窮舉的成本至多 $r\,2^{2n/r}$，遠小於 $2^n$。一般的公式沒有這樣的分割。
+若變數可以分成 $r$ 組 $S_1,\dots,S_r$，每組至多 $2n/r$ 個變數，且每個 clause 的變數都在同一組內，則 $\\#F=\prod_g N_g$，其中 $N_g$ 是只看第 $g$ 組的計數。逐組窮舉的成本至多 $r\,2^{2n/r}$，遠小於 $2^n$。一般的公式沒有這樣的分割。
 
 演算法引入參數 $T$，把 clause $e$ 中的 $X_v$ 換成線性式 $\langle\vec P_{e,v}(T),\vec X\rangle$，並要求 $T=0$ 時還原為 $X_v$，係數的次數至多 $R$。令
 
 $$H(T)=\sum_{x\in\{0,1\}^n}\prod_{e}\Phi_e\bigl((\langle\vec P_{e,v}(T),x\rangle)_{v\in I_e}\bigr),$$
 
-則 $H(0)=\#F$，$\deg H\le 3nR$。在選定的點 $T=1,\dots,Q$，替換後的 clause 只透過少量整數線性測量 $y_g=C_gx_g$ 依賴其他組。固定所有測量值 $\vec y$ 之後，各組可以獨立求和：
+則 $H(0)=\\#F$，$\deg H\le 3nR$。在選定的點 $T=1,\dots,Q$，替換後的 clause 只透過少量整數線性測量 $y_g=C_gx_g$ 依賴其他組。固定所有測量值 $\vec y$ 之後，各組可以獨立求和：
 
 $$H(t)=\sum_{\vec y}\prod_{g=1}^{r}\Bigl(\sum_{u:\,C_gu=y_g}A_{t,g}(u;\vec y)\Bigr),$$
 
@@ -71,7 +71,7 @@ $$H(t)=\sum_{\vec y}\prod_{g=1}^{r}\Bigl(\sum_{u:\,C_gu=y_g}A_{t,g}(u;\vec y)\Bi
 
 ### 由 Taylor 係數還原計數
 
-$H$ 的次數至多 $3nR$，只知道 $H(1),\dots,H(Q)$ 不足以決定 $H$。改為在每個點取 $H(t+z)$ 的 $z^0,\dots,z^q$ 係數，其中 $q=\lfloor 3nR/Q\rfloor$。兩個次數至多 $3nR$ 的多項式若有相同的資料，差能被 $\prod_{t=1}^{Q}(T-t)^{q+1}$ 整除，而這個乘積的次數 $Q(q+1)>3nR$，所以差為零。解有理線性方程組即可還原 $H$，取常數項得 $H(0)=\#F$。
+$H$ 的次數至多 $3nR$，只知道 $H(1),\dots,H(Q)$ 不足以決定 $H$。改為在每個點取 $H(t+z)$ 的 $z^0,\dots,z^q$ 係數，其中 $q=\lfloor 3nR/Q\rfloor$。兩個次數至多 $3nR$ 的多項式若有相同的資料，差能被 $\prod_{t=1}^{Q}(T-t)^{q+1}$ 整除，而這個乘積的次數 $Q(q+1)>3nR$，所以差為零。解有理線性方程組即可還原 $H$，取常數項得 $H(0)=\\#F$。
 
 每個點需要 $O(1+nR/Q)$ 個係數，因此目標是讓 $R$ 相對於 $Q$ 夠小。這些 Taylor 係數經由 inclusion–exclusion 化為固定 formal input $\vec X=\mathbf 1_U$ 的和，每一項仍可用上一節的分離演算法計算。
 
