@@ -3,8 +3,8 @@
 # when the GitHub API request fails. Refresh it now and then, e.g.:
 #   gh api "repos/OWNER/REPO/commits?per_page=1" -i   (Link header: last page = count)
 - repo: openai/math
-  count: 5
-  date: "2026-10-12"
+  count: 7
+  date: "2026-10-26"
 - repo: CrocSwap/integer-mult-bounds
   count: 7806
   date: "2026-10-26"
