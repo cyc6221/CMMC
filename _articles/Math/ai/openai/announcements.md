@@ -2,7 +2,7 @@
 layout: page
 title: OpenAI Math Announcements
 date: 2026-10-22
-last_updated: 2026-10-22
+last_updated: 2026-10-27
 ---
 
 本文按時間整理 OpenAI 在 2026 年 5 月至 10 月的主要數學成果公告，並補充研究工具、顧問團體與成果公開方式的背景。5 月公布 unit-distance 猜想的反例，10 月 6 日則集中釋出 `openai/math` 的數學成果。
@@ -297,7 +297,7 @@ OpenAI 正式大規模釋出 `openai/math`，內容是內部模型產生的數�
 
 ### 釋出內容
 
-- 截至 2026 年 10 月 22 日，目錄統計為 719 份 manuscripts，分為 372 個 families。一個 family 把相關論文放在一起，可能包含主要結果、輔助論證、推論或替代證明。每個 family 依數學領域分類。[目錄統計](https://github.com/openai/math/blob/main/README.md)
+- 截至 2026 年 10 月 26 日，目錄統計為 721 份 manuscripts，分為 373 個 families。一個 family 把相關論文放在一起，可能包含主要結果、輔助論證、推論或替代證明。每個 family 依數學領域分類。[目錄統計](https://github.com/openai/math/blob/main/README.md)
 - 目錄有 overview PDF、manuscript map（`CONTENTS.md`）、`preprints/`（PDF、原始檔與引用、編譯說明）、Lean library 與 formalization catalogue，以及更新歷史。
 - 授權為 Apache-2.0。
 
@@ -355,6 +355,17 @@ OpenAI 正式大規模釋出 `openai/math`，內容是內部模型產生的數�
 ### 10 月 15 日更新
 
 OpenAI 宣布提供 500 萬美元，支持 Simons Foundation 的新計畫，協助數學家檢查、理解並延伸 AI 產生的成果。資金由 Simons Foundation 管理與分配，用於 workshops、conferences 與 special programs；OpenAI 也將向該基金會支持的研究者提供模型與運算資源。[官方更新](https://openai.com/index/sharing-ai-progress-in-mathematics/)
+
+### 10 月 26 日更新
+
+新增兩份 manuscripts，均附 Lean formalization，目錄因此增至 721 份、373 個 families。[更新紀錄](https://github.com/openai/math/blob/main/history.md)
+
+- *Local smoothing for the Euclidean wave equation*（family 079）：以輔助偏微分方程證明任意空間維度 $n\ge2$ 的 Sogge local smoothing conjecture，並推出 Kakeya maximal 與維度猜想，以及 Stein 球面 restriction 估計在猜想範圍內部的結果。與 10 月 6 日的釋出相同，OpenAI 直接公開模型輸出。
+- *The Exponential Time Hypothesis is False*（新 family 378）：給出在次指數時間與多項式空間內精確計數固定寬度 CNF 滿足賦值的確定性演算法，3-SAT 的情形反駁 Exponential Time Hypothesis。Russell Impagliazzo、Ramamohan Paturi 與 Ryan Williams 領導的獨立電腦科學家小組將檢驗並說明這個證明；應小組要求，材料立即公開。
+
+形式化方面，*The rational Hodge conjecture for CM abelian varieties* 新增 Lean formalization，部分 Comparator 設定與 Lean formalizations 也經修正。*The maximum number of mutually unbiased bases in dimension six* 補回排除第四組 mutually unbiased basis 的 C++ 原始碼與數值紀錄，並附 Python checker 驗證紀錄的一致性與覆蓋範圍。
+
+README 同日改稱這些手稿由 unnamed internal OpenAI model 產生，並表示它們較適合視為原始研究資料，而非整理完成的學術論文；credit、優先權與同期工作完全交由數學社群判斷。
 
 ## References
 

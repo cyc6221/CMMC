@@ -1,7 +1,8 @@
 # Catalog numbers and titles of the openai/math result families.
 # Source: https://github.com/openai/math/blob/main/CONTENTS.md (titles, without the
-# trailing period) and overview.pdf (subject sections), as of 2026-10-26.
-# The catalog skips 045, 061, 070, 123 and 163, so 372 families span 001-377.
+# trailing period) and overview.pdf (subject sections), as of 2026-10-26 (PR #3).
+# The catalog skips 045, 061, 070, 123 and 163, so 373 families span 001-378.
+# 378 is listed last in CONTENTS.md but belongs to Theoretical computer science.
 # Look one up by its three-digit number so every note shows the same name:
 #   {%- assign r = site.data.openai_math | where: "num", "109" | first -%}
 #   {{ r.title }}
@@ -86,7 +87,7 @@
 - {num: "076", section: Real and complex analysis, title: 'Real ultraflat Littlewood polynomials and unbounded binary merit factors'}
 - {num: "077", section: Real and complex analysis, title: 'Fourier restriction for positively curved surfaces'}
 - {num: "078", section: Real and complex analysis, title: 'The three-dimensional Bochner–Riesz conjecture'}
-- {num: "079", section: Real and complex analysis, title: 'Local smoothing in three dimensions'}
+- {num: "079", section: Real and complex analysis, title: 'Local smoothing for the Euclidean wave equation'}
 - {num: "080", section: Real and complex analysis, title: 'The exact Sobolev endpoint for Schrödinger convergence'}
 - {num: "081", section: Real and complex analysis, title: 'Riesz transforms and rectifiability in higher codimension'}
 - {num: "082", section: Real and complex analysis, title: 'Annular variation and dyadic absolute bounds for the triangular Hilbert transform'}
@@ -112,7 +113,7 @@
 - {num: "100", section: Convex and metric geometry, title: 'Cylinder coverings below the half-area bound'}
 - {num: "101", section: Convex and metric geometry, title: 'The sharp simplex conjecture for isotropic constants'}
 
-# Theoretical computer science (40, 102-142)
+# Theoretical computer science (41, 102-142 and 378)
 - {num: "102", section: Theoretical computer science, title: 'The Unique Games Conjecture and optimal approximation thresholds'}
 - {num: "103", section: Theoretical computer science, title: 'Exact derandomization of logarithmic space: $\mathsf L=\mathsf{RL}=\mathsf{BPL}$'}
 - {num: "104", section: Theoretical computer science, title: 'Quasipolynomial algorithms for mean-payoff, stochastic and parity games'}
@@ -153,6 +154,7 @@
 - {num: "140", section: Theoretical computer science, title: 'Memory–sample lower bounds for noiseless Gaussian regression'}
 - {num: "141", section: Theoretical computer science, title: 'Existential–universal real sentences in the counting hierarchy'}
 - {num: "142", section: Theoretical computer science, title: 'Deterministic polynomial factorization over prime fields'}
+- {num: "378", section: Theoretical computer science, title: 'Disproof of the Exponential Time Hypothesis'}
 
 # Dynamical systems and ergodic theory (12, 143-154)
 - {num: "143", section: Dynamical systems and ergodic theory, title: 'Hilbert''s sixteenth problem: uniform bounds for limit cycles'}
