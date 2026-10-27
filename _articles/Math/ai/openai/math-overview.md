@@ -3,7 +3,7 @@ layout: page
 title: openai/math Overview
 description: 整理 openai/math 的目錄結構、手稿與形式化統計、領域分佈及更新紀錄。
 date: 2026-10-22
-last_updated: 2026-10-23
+last_updated: 2026-10-27
 ---
 
 openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %}
@@ -20,7 +20,7 @@ openai/math {% include gh-link.html href="https://github.com/openai/math" label=
 ```text
 openai/math
 ├── README.md
-├── overview.pdf               # 依領域分類的 372 個 families
+├── overview.pdf               # 依領域分類的 373 個 families
 ├── overview.tex
 ├── CONTENTS.md                # 手稿索引
 ├── history.md                 # 撤回、修訂與新增形式化證明的紀錄
@@ -32,14 +32,15 @@ openai/math
 
 ## 手稿與形式化統計
 
-- Catalog 共 719 份 manuscripts，分為 372 個 families。
+- Catalog 共 721 份 manuscripts，分為 373 個 families。
   - 一個 family 把相關論文放在一起，可能包含主要結果、輔助論證、推論或替代證明。
-- 條目編號依 catalog 順序排列；編號到 377，未使用的號碼為 045、061、070、123、163。
-- 已形式化的主要結果（top-line results）：300 / 719。
+- 條目編號依 catalog 順序排列；編號到 378，未使用的號碼為 045、061、070、123、163。
+  - 378 是最後新增的 family，屬 Theoretical computer science，在 `CONTENTS.md` 中排在 377 之後。
+- 已形式化的主要結果（top-line results）：10 月 7 日的統計為 300 / 719；README 現寫約 42%。
 
 ## 領域分佈
 
-把 372 個 families 分成 17 個領域，以下依 catalog 順序列出。
+把 373 個 families 分成 17 個領域，以下依 catalog 順序列出。
 
 | 領域 | Families | 編號範圍 |
 |---|---|---|
@@ -47,7 +48,7 @@ openai/math
 | Algebraic and complex geometry | 36 | 032–069 |
 | Real and complex analysis | 16 | 071–086 |
 | Convex and metric geometry | 15 | 087–101 |
-| Theoretical computer science | 40 | 102–142 |
+| Theoretical computer science | 41 | 102–142、378 |
 | Dynamical systems and ergodic theory | 12 | 143–154 |
 | Combinatorics | 37 | 155–192 |
 | Algebra | 18 | 193–210 |
@@ -71,6 +72,15 @@ openai/math
 - 另有 13 份 manuscripts 更新引用與版本日期，以引用修訂後的相關論文。
 - 新增 6 個 formalizations。
 - 另新增 5 項支持性結果的補充。
+
+### 2026-10-26
+
+- 新增 2 份 manuscripts，均附 Lean formalization。
+  - 079 *Local smoothing for the Euclidean wave equation*：把原本三維的 local smoothing 推廣到任意空間維度 $n\ge2$，並推出 Bochner–Riesz、Kakeya 與 Nikodym maximal conjectures。family 079 的標題與描述隨之改寫，三維論文仍在其中。
+  - 新 family 378 *The Exponential Time Hypothesis is False*：給出計數 $k$-CNF 滿足賦值的次指數時間確定性演算法，反駁 Exponential Time Hypothesis。
+- 為 032 *The rational Hodge conjecture for CM abelian varieties* 新增 Lean formalization。
+- 修正部分 Comparator 設定並改進部分 Lean formalizations。
+- 補回 *The maximum number of mutually unbiased bases in dimension six* 的 C++ 原始碼與數值紀錄，並附 Python checker。
 
 ## 相關筆記
 
@@ -109,7 +119,7 @@ openai/math
 ### Catalog
 
 - [README](https://github.com/openai/math/blob/main/README.md)：repo 的導覽、產生方式與引用方式。
-- [overview.pdf](https://github.com/openai/math/blob/main/overview.pdf)：372 個 families 的說明，依領域分類。
+- [overview.pdf](https://github.com/openai/math/blob/main/overview.pdf)：373 個 families 的說明，依領域分類。
 - [CONTENTS.md](https://github.com/openai/math/blob/main/CONTENTS.md)：manuscript map，用來找個別論文與支持材料。
 - [preprints/](https://github.com/openai/math/tree/main/preprints)：PDF、原始檔，以及各手稿的引用與編譯說明。
 
