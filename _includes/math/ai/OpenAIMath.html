@@ -112,6 +112,11 @@
 
         <section class="now-section">
             <h4>{% include math/ai/openai-result.html num="378" %} {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026" label="preprint" aria_label="preprint: The Exponential Time Hypothesis is False on GitHub" %}</h4>
+            <div class="now-notes">
+                <span class="now-notes__label">notes</span>
+                {% include note-link.html href="/articles/Math/ai/openai/disproof-of-eth/" label="Disproof of the Exponential Time Hypothesis" %}
+                {% include note-link.html href="/articles/Math/others/exponential-time-hypothesis/" label="Exponential Time Hypothesis" %}
+            </div>
             <p class="now-primary">
                 For every fixed $k\ge2$, a deterministic algorithm counts the satisfying assignments of a $k$-CNF with $n$ variables and $m$ clauses in time $(n+m)^{O_k(1)}2^{n/(\log n)^{1/2+o(1)}}$ and polynomial space. It yields superlinear circuit lower bounds for a language in $\mathsf{E}^{\mathsf{NP}}$ on infinitely many input lengths.
             </p>

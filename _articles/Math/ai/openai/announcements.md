@@ -361,7 +361,7 @@ OpenAI 宣布提供 500 萬美元，支持 Simons Foundation 的新計畫，協�
 新增兩份 manuscripts，均附 Lean formalization，目錄因此增至 721 份、373 個 families。[更新紀錄](https://github.com/openai/math/blob/main/history.md)
 
 - *Local smoothing for the Euclidean wave equation*（family 079）：以輔助偏微分方程證明任意空間維度 $n\ge2$ 的 Sogge local smoothing conjecture，並推出 Kakeya maximal 與維度猜想，以及 Stein 球面 restriction 估計在猜想範圍內部的結果。與 10 月 6 日的釋出相同，OpenAI 直接公開模型輸出。
-- *The Exponential Time Hypothesis is False*（新 family 378）：給出在次指數時間與多項式空間內精確計數固定寬度 CNF 滿足賦值的確定性演算法，3-SAT 的情形反駁 Exponential Time Hypothesis。Russell Impagliazzo、Ramamohan Paturi 與 Ryan Williams 領導的獨立電腦科學家小組將檢驗並說明這個證明；應小組要求，材料立即公開。
+- *The Exponential Time Hypothesis is False*（新 family 378）：給出在次指數時間與多項式空間內精確計數固定寬度 CNF 滿足賦值的確定性演算法，3-SAT 的情形反駁 Exponential Time Hypothesis，整理見 [Disproof of the Exponential Time Hypothesis]({{ '/articles/Math/ai/openai/disproof-of-eth/' | relative_url }})，ETH 本身的說明見 [Exponential Time Hypothesis]({{ '/articles/Math/others/exponential-time-hypothesis/' | relative_url }})。Russell Impagliazzo、Ramamohan Paturi 與 Ryan Williams 領導的獨立電腦科學家小組將檢驗並說明這個證明；應小組要求，材料立即公開。
 
 形式化方面，*The rational Hodge conjecture for CM abelian varieties* 新增 Lean formalization，部分 Comparator 設定與 Lean formalizations 也經修正。*The maximum number of mutually unbiased bases in dimension six* 補回排除第四組 mutually unbiased basis 的 C++ 原始碼與數值紀錄，並附 Python checker 驗證紀錄的一致性與覆蓋範圍。
 
