@@ -293,7 +293,7 @@ openai/math <a class="gh-link" href="https://github.com/openai/math" target="_bl
 
 {% include math/ai/repo-stats.html repo="openai/math" %}
 
-OpenAI 正式大規模釋出 `openai/math`，內容是內部模型產生的數學手稿與支持證明的材料。OpenAI 說明，模型在既有數學評測飽和之後，改在 open research problems 上評測，這些成果即來自這些評測。其中第 109 項的後續整理見 [CrocSwap integer-mult-bounds]({{ '/articles/Math/ai/openai/integer-mult-bounds/' | relative_url }})。
+OpenAI 正式大規模釋出 `openai/math`，內容是內部模型產生的數學手稿與支持證明的材料。OpenAI 說明，模型在既有數學評測飽和之後，改在 open research problems 上評測，這些成果即來自這些評測。
 
 ### 釋出內容
 

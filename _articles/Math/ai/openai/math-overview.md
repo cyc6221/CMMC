@@ -110,6 +110,16 @@ openai/math
 
 - Integer multiplication below $n\log n$ {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026" label="preprint" aria_label="preprint: Integer multiplication below n log n on GitHub" %}
 
+#### {% include math/ai/openai-result.html num="378" %}
+
+<div class="now-notes">
+  <span class="now-notes__label">notes</span>
+  {% include note-link.html href="/articles/Math/ai/openai/disproof-of-eth/" label="Disproof of the Exponential Time Hypothesis" %}
+  {% include note-link.html href="/articles/Math/others/exponential-time-hypothesis/" label="Exponential Time Hypothesis" %}
+</div>
+
+- The Exponential Time Hypothesis is False {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026" label="preprint" aria_label="preprint: The Exponential Time Hypothesis is False on GitHub" %}
+
 ## References
 
 ### OpenAI announcement
