@@ -32,17 +32,60 @@ Deciding $3$-SAT on $n$ variables requires $2^{\Omega(n)}$ time in the worst cas
 
 ## 相關假設
 
-| 假設 | 內容 | 代表性用途 |
-|---|---|---|
-| ETH | 3-SAT 需要 $2^{\Omega(n)}$ 的確定性時間 | Clique 對解大小的依賴；constraint satisfaction 與 partitioned subgraph isomorphism 對 treewidth 的依賴 |
-| SETH | 對每個 $\varepsilon\in(0,1)$，存在固定的 $k$，使 $k$-SAT 沒有 $2^{(1-\varepsilon)n}(n+m)^{O(1)}$ 時間的確定性演算法 | Hitting Set、Set Splitting 的指數界；P 內問題的二次下界 |
-| Gap-ETH | 存在常數 $\delta,\gamma>0$，使 $m=O(n)$ 時沒有 $O(2^{\gamma n})$ 時間的演算法能區分可滿足的 3-CNF 與每個賦值至少違反 $\delta$ 比例 clause 的 3-CNF | Label Cover 與 dense CSP 的近似困難性；排除 Clique 與 Dominating Set 的 fixed-parameter 近似 |
-| NSETH | 對每個 $\varepsilon>0$，存在固定的 $k$，使 $k$-CNF 的 unsatisfiability 沒有 $2^{(1-\varepsilon)n}(n+m)^{O(1)}$ 時間的非確定性演算法 | 確定性 fine-grained reduction（例如從 SAT 到 3SUM 或 All-Pairs Shortest Paths）的障礙 |
-| #ETH | 精確計數 3-CNF 的滿足賦值需要 $2^{\Omega(n)}$ 的確定性時間 | 排除無權二分圖（$v$ 個頂點、$O(v)$ 條邊）上計數 perfect matching 的 $2^{o(v)}$ 時間演算法 |
+以下是 ETH 的強化版本與變體。
+
+### SETH
+
+<div class="definition">
+<strong>Strong Exponential Time Hypothesis (SETH).</strong>
+For every $\varepsilon\in(0,1)$, there is a fixed $k$ for which no deterministic algorithm solves $k$-SAT in $2^{(1-\varepsilon)n}(n+m)^{O(1)}$ time.
+</div>
+
+$k$ 增大時，$k$-SAT 所需的時間趨近窮舉的 $2^n$。
+
+- 代表性用途：Hitting Set、Set Splitting 的指數界；P 內問題的二次下界。
+
+### Gap-ETH
+
+<div class="definition">
+<strong>Gap Exponential Time Hypothesis (Gap-ETH).</strong>
+There are constants $\delta,\gamma>0$ for which no $O(2^{\gamma n})$-time algorithm can distinguish a satisfiable $3$-CNF from one in which every assignment violates at least a $\delta$ fraction of the clauses, even when $m=O(n)$.
+</div>
+
+ETH 的強化版本：連區分「可滿足」與「每個賦值都違反一定比例 clause」這個近似問題，也需要指數時間。
+
+- 代表性用途：Label Cover 與 dense CSP 的近似困難性；排除 Clique 與 Dominating Set 的 fixed-parameter 近似。
+
+### NSETH
+
+<div class="definition">
+<strong>Nondeterministic Strong Exponential Time Hypothesis (NSETH).</strong>
+For every $\varepsilon>0$, some fixed $k$ admits no nondeterministic $2^{(1-\varepsilon)n}(n+m)^{O(1)}$-time algorithm for deciding whether a $k$-CNF is unsatisfiable, or equivalently whether a $k$-DNF is a tautology.
+</div>
+
+SETH 的非確定性版本，針對 unsatisfiability。
+
+- 代表性用途：確定性 fine-grained reduction（例如從 SAT 到 3SUM 或 All-Pairs Shortest Paths）的障礙。
+
+### #ETH
+
+<div class="definition">
+<strong>Counting Exponential Time Hypothesis (#ETH).</strong>
+Exactly counting the satisfying assignments of a $3$-CNF requires $2^{\Omega(n)}$ deterministic time.
+</div>
+
+ETH 的計數版本。
+
+- 代表性用途：排除無權二分圖（$v$ 個頂點、$O(v)$ 條邊）上計數 perfect matching 的 $2^{o(v)}$ 時間演算法。
+
+### MA-SETH 與隨機化版本
 
 - SETH 的 Merlin–Arthur 版本 MA-SETH 已在 2016 年被 Williams 反駁。他給出在 $2^{n/2}\mathrm{poly}(n,m)$ 時間內驗證 $k$-CNF unsatisfiability 的協定。
 - ETH、SETH 與 Gap-ETH 另有 bounded-error 隨機化版本，排除同樣時間內的隨機化演算法。
-- 這些假設限制的是演算法的時間，與受限證明系統（例如 regular resolution）的無條件指數下界是不同層次的陳述。
+
+### 與證明系統下界的關係
+
+這些假設限制的是演算法的時間，與受限證明系統（例如 regular resolution）的無條件指數下界是不同層次的陳述。
 
 ## 以 ETH 與 SETH 為前提的下界
 
@@ -68,7 +111,7 @@ SETH 被用來排除 P 內問題的多項式因子加速：
 
 ## 近期發展
 
-2026-10-26，openai/math 公開第 378 項結果，宣稱給出 $2^{o(n)}$ 時間的 $k$-CNF 計數演算法，反駁 ETH 及上表的其他假設。整理見 [Disproof of the Exponential Time Hypothesis]({{ '/articles/Math/ai/openai/disproof-of-eth/' | relative_url }})。
+2026-10-26，openai/math 公開第 378 項結果，宣稱給出 $2^{o(n)}$ 時間的 $k$-CNF 計數演算法，反駁 ETH 及上述的其他假設。整理見 [Disproof of the Exponential Time Hypothesis]({{ '/articles/Math/ai/openai/disproof-of-eth/' | relative_url }})。
 
 ## References
 
