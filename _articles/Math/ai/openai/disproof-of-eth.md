@@ -1,13 +1,11 @@
 ---
 layout: page
 title: Disproof of the Exponential Time Hypothesis
-description: 整理 openai/math 第 378 項結果：以次指數時間、多項式空間精確計數 k-CNF 的滿足賦值，反駁 Exponential Time Hypothesis；說明主要結果、方法概要、推論與驗證狀態。
+description: 整理 openai/math 第 378 項結果：以次指數時間、多項式空間精確計數 k-CNF 的滿足賦值，反駁 Exponential Time Hypothesis。
 date: 2026-10-27
 last_updated: 2026-10-27
 ---
-openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %} 的第 378 項結果 {% include math/ai/openai-result.html num="378" %}：對每個固定的 $k\ge2$，給出確定性演算法，在次指數時間與多項式空間內精確計算 $k$-CNF 的滿足賦值個數。取 $k=3$ 時，3-SAT 可在 $2^{o(n)}$ 時間內判定，與 Exponential Time Hypothesis（ETH）矛盾。ETH 的定義、相關假設與以它們為前提的下界見 [Exponential Time Hypothesis]({{ '/articles/Math/others/exponential-time-hypothesis/' | relative_url }})。
-
-*The Exponential Time Hypothesis is False* {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026" label="preprint" aria_label="preprint: The Exponential Time Hypothesis is False on GitHub" %} 初稿日期為 2026-10-17，2026-10-25 修訂，於 2026-10-26 隨 openai/math 的更新公開。
+openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %} 的第 378 項結果 {% include math/ai/openai-result.html num="378" %}：對每個固定的 $k\ge2$，給出確定性演算法，在次指數時間與多項式空間內精確計算 $k$-CNF 的滿足賦值個數。取 $k=3$ 時，3-SAT 可在 $2^{o(n)}$ 時間內判定，與 Exponential Time Hypothesis（ETH）矛盾。
 
 ## 主要結果
 
@@ -21,11 +19,11 @@ bit operations and $(n+m)^{O_k(1)}$ bits of space. For each fixed $D>0$, its run
 $$(n+m)^{O_{k,D}(1)}2^{O_{k,D}(n/\sqrt{\log n})}.$$
 </div>
 
-- 輸出是滿足賦值的個數 $\\#F$。$\\#F>0$ 即判定 $F$ 可滿足。取 $k=3$，時間 $2^{o(n)}$ 與 ETH 的 $2^{\Omega(n)}$ 矛盾。
-- 指數 $n\log\log n/\sqrt{\log n}$ 是 $o(n)$；clause 數 $m\le Dn$ 時進一步降為 $n/\sqrt{\log n}$。摘要把一般情形寫成 $2^{n/(\log n)^{1/2+o(1)}}$。
-- rational interpolation 論證只得到較弱的指數 $O_k(\rho(n))$，其中 $\rho(n)=n(\log\log n)^2/\sqrt{\log n}$。定理中的兩個界由 tensor contraction 證明。
+- 輸出是滿足賦值的個數 $\\#F$。$\\#F>0$ 即判定 $F$ 可滿足。
+- 指數 $n\log\log n/\sqrt{\log n}$ 是 $o(n)$，一般情形的時間可寫成 $2^{n/(\log n)^{1/2+o(1)}}$。clause 數 $m\le Dn$ 時，指數降為 $n/\sqrt{\log n}$。
+- 只用 rational interpolation 得到較弱的指數 $O_k(\rho(n))$，其中 $\rho(n)=n(\log\log n)^2/\sqrt{\log n}$。定理中的兩個界由 tensor contraction 得到。
 - 演算法確定性，空間為多項式。$\\#F>0$ 時，逐一固定變數可以找出滿足賦值。
-- 時間界是 $2^{o(n)}$，不是多項式。$2^{o(n)}$ 在一般的多項式時間 reduction 下不會保持（需要 $2^{n^{o(1)}}$），所以這個結果不表示一般的 NP 問題有次指數演算法。
+- 時間界是 $2^{o(n)}$，不是多項式。$2^{o(n)}$ 在一般的多項式時間 reduction 下不會保持（需要 $2^{n^{o(1)}}$），因此不能推出一般的 NP 問題有次指數演算法。
 
 ## 被反駁的假設
 
@@ -90,7 +88,7 @@ $H$ 的次數至多 $3nR$，只知道 $H(1),\dots,H(Q)$ 不足以決定 $H$。�
 For every fixed $k\ge2$ and $\varepsilon>0$, there exists a randomized algorithm that, given a $k$-CNF $F$ on $n\ge20$ variables with $m$ clauses, finds an assignment satisfying at least $\operatorname{OPT}(F)-\varepsilon m$ clauses with probability $1-2^{-\Omega(n)}$, in $(n+m)^{O_{k,\varepsilon}(1)}2^{O_{k,\varepsilon}(\rho(n))}$ time and $(n+m)^{O_{k,\varepsilon}(1)}$ space, where $\rho(n)=n(\log\log n)^2/\sqrt{\log n}$.
 </div>
 
-作法是隨機抽樣 $O(n/\varepsilon^2)$ 個 clause，Hoeffding 不等式與 union bound 保證所有賦值的滿足比例誤差至多 $\varepsilon/2$；再用定理 1.1、對門檻的二分搜尋與自我歸約，找出樣本上的最佳賦值。
+先隨機抽樣 $O(n/\varepsilon^2)$ 個 clause。Hoeffding 不等式與 union bound 使所有賦值的滿足比例誤差至多 $\varepsilon/2$。再用定理 1.1、對門檻的二分搜尋與自我歸約，找出樣本上的最佳賦值。
 
 ### 圖的計數
 
@@ -111,28 +109,26 @@ Let $C_L(n)$ be the minimum number of noninput gates in a circuit computing $L$ 
 $$C_L(n)>c\,n\sqrt{\log n}\qquad\text{for infinitely many }n.$$
 </div>
 
-這個結果不是 NP 的超多項式電路下界。
+這是 $\mathrm E^{\mathrm{NP}}$ 的下界，不是 NP 的超多項式電路下界。
 
 ## 對既有下界的影響
 
-以 ETH 或 SETH 為前提的下界（見 [Exponential Time Hypothesis]({{ '/articles/Math/others/exponential-time-hypothesis/' | relative_url }}) 的下界一節）失去這個前提。其中部分下界只需要較弱的假設，可能仍然成立：
+以 ETH 或 SETH 為前提的下界失去這個前提。其中部分下界只需要較弱的假設，可能仍然成立：
 
 - longest common subsequence 與 regular-expression matching 的下界由 Orthogonal Vectors Conjecture 導出。
 - Fréchet distance、graph diameter 近似，以及 Independent Set 與 Dominating Set 對 treewidth 的依賴，由無限制的 CNF-SAT 假設導出。這個假設允許 clause 寬度隨 $n$ 增長，而定理 1.1 只對每個固定的寬度 $k$ 成立。
 
-要從這個 SAT 演算法得到某個問題的更快演算法，需要一個從該問題到固定寬度 SAT、且控制變數個數的 reduction。clause 大小至多 $k$ 的 Set Splitting 有這樣的 reduction：每個元素一個 Boolean 變數，表示它在哪一側。因此對固定的 $k$，它在全集大小上有次指數時間（略去輸入大小的多項式因子）。
-
-預印本也提到，定理 1.1 使那些硬度結果依賴 ETH 或 SETH 的問題，值得重新尋找演算法。
+要從這個 SAT 演算法得到某個問題的更快演算法，需要一個從該問題到固定寬度 SAT、且控制變數個數的 reduction。clause 大小至多 $k$ 的 Set Splitting 有這樣的 reduction：每個元素一個 Boolean 變數，表示它在哪一側。因此對固定的 $k$，它在全集大小上有次指數時間（略去輸入大小的多項式因子）。硬度結果依賴 ETH 或 SETH 的其他問題，也值得重新尋找演算法。
 
 ## 驗證狀態
 
-OpenAI 在 2026-10-26 的更新紀錄中說明，Russell Impagliazzo、Ramamohan Paturi 與 Ryan Williams 領導的獨立電腦科學家小組將檢驗並說明這個證明。應小組要求，材料立即公開。
+OpenAI 表示，由 Russell Impagliazzo、Ramamohan Paturi 與 Ryan Williams 領導的獨立電腦科學家小組將檢驗並說明這個證明，材料應小組要求立即公開。
 
-第 378 項在 repo 中有對應的 Lean formalization {% include gh-link.html href="https://github.com/openai/math/blob/main/lean/docs/378.md" label="docs" aria_label="Lean docs: 378 on GitHub" %}。Lean 證明的範圍：對固定的 $k\ge2$，確定性機器對 canonically encoded 的 $k$-CNF（$n$ 個變數，encoding 的 bit 長度為 $L$）精確計數，時間為
+第 378 項有對應的 Lean formalization {% include gh-link.html href="https://github.com/openai/math/blob/main/lean/docs/378.md" label="docs" aria_label="Lean docs: 378 on GitHub" %}。對固定的 $k\ge2$，Lean 證明確定性機器對 canonically encoded 的 $k$-CNF（$n$ 個變數，encoding 的 bit 長度為 $L$）精確計數，時間為
 
 $$(L+1)^{O_k(1)}2^{O_k(n(\log\log n)^2/\sqrt{\log n})},$$
 
-且任一步驟中已走訪的 tape cell 總數至多 $(L+1)^{O_k(1)}$。這是較弱的指數 $\rho(n)$；manuscript 對 $m$ 個 clause 的界 $(n+m)^{O_k(1)}2^{O_k(n\log\log n/\sqrt{\log n})}$ 較強。
+且任一步驟中已走訪的 tape cell 總數至多 $(L+1)^{O_k(1)}$。這是較弱的指數 $\rho(n)$。對 $m$ 個 clause 的較強界 $(n+m)^{O_k(1)}2^{O_k(n\log\log n/\sqrt{\log n})}$ 由論文給出。
 
 ### Comparator statement
 
