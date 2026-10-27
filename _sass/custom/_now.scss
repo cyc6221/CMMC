@@ -217,6 +217,15 @@ header.now-head::after {
   margin-bottom: 0;
 }
 
+/* horizontal rule between groups of sections inside a card */
+
+.now-divider {
+  height: 0;
+  margin: 18px 0;
+  border: 0;
+  border-top: 1px solid #3a3f44;
+}
+
 /* links */
 
 .now-card a,
