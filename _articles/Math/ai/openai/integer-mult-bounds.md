@@ -224,7 +224,7 @@ P104 word 來自 David Arias、Cinna Davis 與 Gareth Davidson 的 {% include pr
 - contact / frame rewrite：把一個減法或 ADD 移到維度較高的 frame（{% include pr-link.html num=5545 %}、{% include pr-link.html num=5580 %}）
 - commuting-contact cascade（{% include pr-link.html num=5565 %}）
 
-最後 Ali Romman 的 {% include pr-link.html num=5599 %} 在 P104 word 上做 13 個 helper-subspace split，產生真正獨立的輸入並切開 productive target，不增加 paid Gaussian call，於 10 月 26 日升為 selected：
+接著 Ali Romman 的 {% include pr-link.html num=5599 %} 在 P104 word 上做 13 個 helper-subspace split，產生真正獨立的輸入並切開 productive target，不增加 paid Gaussian call，於 10 月 26 日升為 selected：
 
 $$
 \boxed{\kappa=0.00310045}.
@@ -236,7 +236,7 @@ $$
 
 ### {% include pr-link.html num=5599 %} 至 {% include pr-link.html num=6030 %}：P104 word 上的累積改進
 
-{% include pr-link.html num=5599 %} 之後，PR 一個接一個地在前一個 PR 的 word 上修改，$\kappa$ 由 $0.00310045$ 升到 $0.003125282$（{% include pr-link.html num=5907 %}）。這些 PR 都是 candidate，upstream ledger 標為 partially reviewed。每一步的增幅多在 $10^{-7}$ 到 $10^{-6}$ 之間，最大的一步是 {% include pr-link.html num=5774 %} 的 $+8.9\times10^{-6}$。主要手段依序是：
+{% include pr-link.html num=5599 %} 之後，PR 一個接一個地在前一個 PR 的 word 上修改，$\kappa$ 由 $0.00310045$ 升到 $0.003125282$（{% include pr-link.html num=5907 %}）。這些 PR 都是 candidate，upstream ledger 標為 partially reviewed。每一步的增幅在 $10^{-7}$ 到 $10^{-5}$ 之間，最大的一步是 {% include pr-link.html num=5774 %} 的 $+8.9\times10^{-6}$。主要手段依序是：
 
 - helper split 的組合與清理：{% include pr-link.html num=5627 %} 組合 helper-subspace split，{% include pr-link.html num=5644 %} 以三個 exact helper relation 去掉 main field 上較晚的 scalar contact（Ali Romman）
 - contact 重排：{% include pr-link.html num=5660 %} 的 four-gate contact rewrite、{% include pr-link.html num=5678 %} 的 paid interior basis、{% include pr-link.html num=5713 %} 以分散的 scalar update 取代一次 owned center 的讀取（Ali Romman）
@@ -245,7 +245,7 @@ $$
 - owned buffer：{% include pr-link.html num=5786 %} 的 asynchronous helper hub 讓 helper 在不同時間退出；{% include pr-link.html num=5802 %} 讓三個 pending sum 共用 native conversion，Mason Hale 的 {% include pr-link.html num=5811 %} 再加上第四個 accumulated update
 - path 與 rung：{% include pr-link.html num=5827 %} 把一條 paid rank-4 / rank-1 path 改成一個 rank-5 query；DreamingOfClouds 的 {% include pr-link.html num=5907 %} 移除 helper 468 在 frame 593 的 rung，並重新導向相關的讀取
 
-DreamingOfClouds 的 {% include pr-link.html num=6030 %} 是 {% include pr-link.html num=5907 %} 的 twin：helper 470 的路徑 $3\to593\to714\to875\to1001\to131\to127$ 去掉 frame 593，helper 704 改在 frame 714 供 helper 470 讀取，其餘 ordinary event（ADD 與 SCALE）在值不變的前提下重寫，word 由 25,998 個 event 降到 22,803 個。Paid call 由 66,852 降到 66,834，productive field 維持 13,444，rank-mass surplus 維持 760。每個 local call 的 paid 變化為 $-2H_1+H_2-2H_3+H_4+H_6-H_7+H_8$，helper 變化為 $-H_1+H_2-H_3+H_6-H_7+H_8$，兩者相減得到 signed moment gain $H_1+H_3-H_4$，對 $0<t<1$ 由 $x^t$ 的嚴格次可加性為正。於 10 月 28 日成為 current selected：
+DreamingOfClouds 的 {% include pr-link.html num=6030 %} 是 {% include pr-link.html num=5907 %} 的 twin：helper 470 的路徑 $3\to593\to714\to875\to1001\to131\to127$ 去掉 frame 593，helper 704 的路徑由 $3\to593\to612\to127$ 改為 $3\to593\to714\to127$，在 frame 714 供 helper 470 讀取。Helper 560 不再於 frame 612 讀取 704，原本經由 560 取得這份內容的 helper 268 改在 frame 714 直接讀取 $2\cdot704$。另有四處 itinerary 變動：helper 115 的終點由 frame 105 改為 189，helper 713 的起點由 frame 3 改為 76，helper 736 的起點由 frame 424 改為 749，Y main 127 的第二個 chart 由 602 改為 595。其餘 ordinary event（ADD 與 SCALE）在值不變的前提下重寫，word 由 25,998 個 event 降到 22,803 個。Paid call 由 66,852 降到 66,834，productive field 維持 13,444，rank-mass surplus 維持 760。每個 local call 的 paid 變化為 $-2H_1+H_2-2H_3+H_4+H_6-H_7+H_8$，helper 變化為 $-H_1+H_2-H_3+H_6-H_7+H_8$，helper 變化減去 paid 變化得到 signed moment gain $H_1+H_3-H_4$，對 $0<t<1$ 由 $x^t$ 的嚴格次可加性為正。於 10 月 28 日成為 current selected：
 
 $$
 \boxed{\kappa=0.003125804}.
