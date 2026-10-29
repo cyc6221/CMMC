@@ -253,7 +253,7 @@ $$
 
 {% include pr-link.html num=6030 %} 承接 {% include pr-link.html num=5907 %}、Ali Romman 的 {% include pr-link.html num=5827 %} 與其後的 pricing / compiler chain、Mason Hale 的 {% include pr-link.html num=5811 %}、hexapode 的 {% include pr-link.html num=5565 %}，以及 flyingviper、Scratch-net、Joel Pulikkan、Dugongue、unpaidmoon、zxv、thu-nmrc 的修正（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-p1046030-contributors.md)）。
 
-驗證方面，Matarener 的 {% include pr-link.html num=5960 %} 以不匯入作者 replay 與 pricing routine 的獨立 interpreter 檢查完整的 word 與全部 799 個 endpoint row，七個新的 native task 以 Chris R 的 exact dense Gaussian-dyadic interpreter 檢查。沿用自 {% include pr-link.html num=5550 %} / {% include pr-link.html num=5599 %} 的獨立 caller checker 先逐 byte 重現原本的 positive control，再檢查 candidate caller。兩個獨立的計數與 primary invoice 一致，兩個 exact rational engine 把 crossing 夾在 $(0.00312581155791,0.00312581155792)$。所有新跑的 job 都在 600 秒與 1 GiB 取樣記憶體上限內 serial 通過，細節見 [application review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr6030-audit/PROOF-REVIEW.md)。Selection 之後，JosieElliston 的 {% include pr-link.html num=6043 %} 另做了完整的 dense replay 作為佐證。
+驗證方面，maintainer 的 application review 沿用 Matarener 在 {% include pr-link.html num=5960 %}（原本 audit {% include pr-link.html num=5827 %} 與 {% include pr-link.html num=5907 %}）的獨立 interpreter，它不匯入作者的 replay 與 pricing routine，用來檢查 {% include pr-link.html num=6030 %} 完整的 word 與全部 799 個 endpoint row；七個新的 native task 以 Chris R 的 exact dense Gaussian-dyadic interpreter 檢查。沿用自 {% include pr-link.html num=5550 %} / {% include pr-link.html num=5599 %} 的獨立 caller checker 先逐 byte 重現原本的 positive control，再檢查 candidate caller。兩個獨立的計數與 primary invoice 一致，兩個 exact rational engine 把 crossing 夾在 $(0.00312581155791,0.00312581155792)$。所有新跑的 job 都在 600 秒與 1 GiB 取樣記憶體上限內 serial 通過，細節見 [application review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr6030-audit/PROOF-REVIEW.md)。Selection 之後，JosieElliston 的 {% include pr-link.html num=6043 %} 另做了完整的 dense replay 作為佐證。
 
 ## 歷史 $\kappa$ 里程碑
 
@@ -486,7 +486,7 @@ $\kappa$ 衡量的是漸近 exponent saving，不是實測的執行時間。
 - precision 與 fixed-tape：保留的 fixed-tape movement 與 precision / storage 規定適用於新的 finite template
 - analytic decomposition、fine-prime avoidance 與 exact recovery
 
-Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scoped、serial 的變動建構重放（{% include pr-link.html num=4470 %} 為八段，{% include pr-link.html num=5599 %} 在 Linux 上以 1 GiB 取樣記憶體上限通過，{% include pr-link.html num=6030 %} 另有 {% include pr-link.html num=5960 %} 的獨立 word / invoice / native audit），並明確重用前一個 selected 的 foundation，並非完整的 Lean multiplication theorem，也不是獨立的人類 review。Winning uniform template 由演算法定義，沒有實體化，專案不主張實用上的加速。其餘 candidate 則各自附帶作者提交的證據與獨立檢查。
+Selected result 的驗證是 maintainer 的 AI 協助 proof review（{% include pr-link.html num=6030 %} 為 application review），加上 scoped、serial 的變動建構重放（{% include pr-link.html num=4470 %} 為八段，{% include pr-link.html num=5599 %} 在 Linux 上以 1 GiB 取樣記憶體上限通過，{% include pr-link.html num=6030 %} 沿用 {% include pr-link.html num=5960 %} 的獨立 interpreter 檢查 word / invoice / native map），並明確重用前一個 selected 的 foundation，並非完整的 Lean multiplication theorem，也不是獨立的人類 review。Winning uniform template 由演算法定義，沒有實體化，專案不主張實用上的加速。其餘 candidate 則各自附帶作者提交的證據與獨立檢查。
 
 ## References
 
