@@ -2,7 +2,7 @@
 layout: page
 title: CrocSwap integer-mult-bounds
 date: 2026-10-21
-last_updated: 2026-10-26
+last_updated: 2026-10-29
 pr_repo: CrocSwap/integer-mult-bounds
 ---
 CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/CrocSwap/integer-mult-bounds" label="repo" aria_label="repo: CrocSwap/integer-mult-bounds on GitHub" %}
@@ -14,7 +14,7 @@ integer-mult-bounds 是改進 openai/math Result #109 的社群專案，建立�
 
 #109 給出整數乘法的 deterministic 時間界 $O(n(\log n)^{1-\kappa})$，其中 $\kappa=2^{-182}$。專案保留 #109 的框架，優化其中的有限建構、遞迴成本帳與 packing 等環節，把 $\kappa$ 往上推。多數進展不是全新的整數乘法演算法，而是在同一個框架內改善個別瓶頸。
 
-本文內容更新至 2026 年 10 月 26 日，其中的狀態與 $\kappa$ 以此為準。文中的日期與時間以 UTC 計。
+本文內容更新至 2026 年 10 月 29 日，其中的狀態與 $\kappa$ 以此為準。文中的日期與時間以 UTC 計。
 
 ## OpenAI {% include math/ai/openai-result.html num="109" %}
 
@@ -46,10 +46,10 @@ $\kappa$ 越大，$(\lg n)^{1-\kappa}$ 越小，所以改進這個結果等同�
 
 ## 目前狀態
 
-目前的 selected 是 Ali Romman 的 {% include pr-link.html num=5599 %}，於 2026 年 10 月 26 日升為 selected，$\kappa$ 為
+目前的 selected 是 DreamingOfClouds 的 {% include pr-link.html num=6030 %}，於 2026 年 10 月 28 日升為 selected，$\kappa$ 為
 
 $$
-\boxed{\kappa=0.00310045}
+\boxed{\kappa=781451/250000000=0.003125804}
 $$
 
 <table class="table-center">
@@ -63,24 +63,26 @@ $$
   <tbody>
     <tr>
       <td>Previous selected</td>
-      <td>{% include pr-link.html num=5413 %}</td>
-      <td>$0.003027288235$</td>
+      <td>{% include pr-link.html num=5599 %}</td>
+      <td>$0.00310045$</td>
     </tr>
     <tr>
       <td>Current selected</td>
-      <td>{% include pr-link.html num=5599 %}</td>
-      <td>$0.00310045$</td>
+      <td>{% include pr-link.html num=6030 %}</td>
+      <td>$0.003125804$</td>
     </tr>
   </tbody>
 </table>
 
-{% include pr-link.html num=5599 %} 已 merge，是 maintainer-reviewed（維護者的 AI 協助 proof review，限於保留的假設）的 conditional P104 helper-subspace construction。它在 P104 word 上做 13 個 helper-subspace split，完整的 caller 有 13,048 個 productive field 與 66,726 個 paid call，重放指令為 `make frontier5599-verify`。
+{% include pr-link.html num=6030 %} 已 merge，是 maintainer-reviewed（維護者的 AI 協助 application review，限於保留的假設）的 conditional P104 twin-rung construction。它在 {% include pr-link.html num=5599 %} 之後累積的 P104 word 上移除 helper 470 在 frame 593 的 rung，完整的 caller 有 13,444 個 productive field 與 66,834 個 paid call，重放指令為 `make frontier6030-verify`。
 
-與前一個 selected {% include pr-link.html num=5413 %} 相比，exponent saving 約大 2.41674%，這個比較不是實測的 running-time improvement。Selected result 仍保留既有的 conditional 假設，不是完整的 Lean multiplication theorem，也不是 independent human proof review。
+與前一個 selected {% include pr-link.html num=5599 %} 相比，exponent saving 約大 0.81775%，這個比較不是實測的 running-time improvement。Selected result 仍保留既有的 conditional 假設，不是完整的 Lean multiplication theorem，也不是 independent human proof review。
+
+{% include pr-link.html num=6030 %} 之後已有更高 $\kappa$ 的 merged candidate，例如 CubeJerry 的 {% include pr-link.html num=6145 %}（$\kappa=0.003127804$），upstream ledger 標為 partially reviewed，尚未升為 selected。
 
 ## 主要演進
 
-從 {% include pr-link.html num=1094 %} 到 {% include pr-link.html num=5599 %}，selected $\kappa$ 經過四次主要的技術轉折。{% include pr-link.html num=4359 %} 讓 helper 完成的 transform 成為 productive output，改變了遞迴的帳；{% include pr-link.html num=4416 %} 到 {% include pr-link.html num=4470 %} 在這個 framework 上大幅減少 paid job；{% include pr-link.html num=4610 %} 到 {% include pr-link.html num=5413 %} 持續壓低 recursive cost；{% include pr-link.html num=5544 %} 到 {% include pr-link.html num=5599 %} 則轉向 P104 word。其中 {% include pr-link.html num=4416 %} 通過 maintainer review，但從未成為 selected，不在 selected progression 中。
+從 {% include pr-link.html num=1094 %} 到 {% include pr-link.html num=6030 %}，selected $\kappa$ 經過四次主要的技術轉折。{% include pr-link.html num=4359 %} 讓 helper 完成的 transform 成為 productive output，改變了遞迴的帳；{% include pr-link.html num=4416 %} 到 {% include pr-link.html num=4470 %} 在這個 framework 上大幅減少 paid job；{% include pr-link.html num=4610 %} 到 {% include pr-link.html num=5413 %} 持續壓低 recursive cost；{% include pr-link.html num=5544 %} 起則轉向 P104 word，{% include pr-link.html num=5599 %} 與 {% include pr-link.html num=6030 %} 都在這條路線上。其中 {% include pr-link.html num=4416 %} 通過 maintainer review，但從未成為 selected，不在 selected progression 中。
 
 <table class="table-center">
   <thead>
@@ -127,9 +129,14 @@ $$
       <td>Past selected</td>
     </tr>
     <tr>
-      <td>P104 路線</td>
+      <td rowspan="2">P104 路線</td>
       <td>{% include pr-link.html num=5599 %}</td>
       <td>$0.00310045$</td>
+      <td>Past selected</td>
+    </tr>
+    <tr>
+      <td>{% include pr-link.html num=6030 %}</td>
+      <td>$0.003125804$</td>
       <td>Current selected</td>
     </tr>
   </tbody>
@@ -386,10 +393,16 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$
       <td>Chris R<br>Dillon Amburgey<br>Ali Romman</td>
     </tr>
     <tr>
-      <td>{% include pr-link.html num=5599 %}（目前 selected）</td>
+      <td>{% include pr-link.html num=5599 %}</td>
       <td>$3.10045\times10^{-3}$</td>
       <td>P104 helper-subspace split</td>
       <td>Ali Romman<br>hexapode</td>
+    </tr>
+    <tr>
+      <td>{% include pr-link.html num=6030 %}（目前 selected）</td>
+      <td>$3.125804\times10^{-3}$</td>
+      <td>P104 twin-rung removal</td>
+      <td>DreamingOfClouds<br>Ali Romman<br>Mason Hale</td>
     </tr>
   </tbody>
 </table>
@@ -416,6 +429,7 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$
 - **Native map 與 compiler reserve**：{% include pr-link.html num=4610 %} 回頭調整 helper 的 entrance、scalar contact 與 native map，並縮小 compiler 的 finite reserve。
 - **Owned helper relation 與 backward caller**：{% include pr-link.html num=5377 %} 起，用 owned relation 去掉 backward call 的 rank-eight center（{% include pr-link.html num=5377 %}、{% include pr-link.html num=5383 %}），再讓 backward call 改用縮減後的 supplier：{% include pr-link.html num=5392 %} 以 circuit transposition 轉換兩個 forward call，{% include pr-link.html num=5398 %} 的 direct backward caller 涵蓋全部 18 個 full call，{% include pr-link.html num=5413 %} 補完 coupled-output caller。
 - **P104 word 與 helper-subspace split**：{% include pr-link.html num=5544 %} 起改用 P104 word 的 literal caller，再以 contact 重排、helper retiming 與 helper-subspace split 減少 paid call 或增加獨立輸入（{% include pr-link.html num=5544 %} 至 {% include pr-link.html num=5599 %}）。
+- **Retained native copy、owned buffer 與 rung removal**：{% include pr-link.html num=5774 %} 起，在 P104 word 上以 paid native conversion 保留 source 值、以 owned buffer 累積 pending sum，再移除 helper 多餘的 rung（{% include pr-link.html num=5907 %}、{% include pr-link.html num=6030 %}）。
 
 ### 瓶頸
 
@@ -426,7 +440,7 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$
 
 兩者中 complex 一側較小，是綁住 $\kappa$ 的一側。要讓 $\kappa>0.01$，兩個 effective primitive budget 都需要超過約 $1/99$。這描述的是目前建構的瓶頸，不是整數乘法的下界。
 
-PR {% include pr-link.html num=4359 %} 之後 complex 仍是綁住的一側：{% include pr-link.html num=4359 %} 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。{% include pr-link.html num=4440 %} 起的建構保留一條 16-pair 的 BIT word，其 ordinary saving 為 $0.0034$，$\kappa$ 的提高來自 complex controller 的改進。{% include pr-link.html num=4535 %} 與 {% include pr-link.html num=4568 %} 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。{% include pr-link.html num=4610 %} 則改動 helper 與 native map，$\kappa$ 再提高到 $0.0030217758$。{% include pr-link.html num=4940 %} 另做了一項不主張 $\kappa$ 的計算：它以 {% include pr-link.html num=4929 %} 的 center-free port code $A$ 共軛 controller，即 $\text{Coded}=A\cdot\text{Standard}\cdot A^{-1}$，使 reverse stage 成為 center-free，只有 controller 邊界需要重新編碼。若這些重新編碼可被接受，BIT supplier 會把 conditional $\kappa$ 限制在約 $0.0034$，目前 selected 的 $0.00310045$ 低於這個值。這不是已建立的上界：重新編碼在實際 frame 上的 physical admission、計價與 compiler 常數都未建立，{% include pr-link.html num=4940 %} 也沒有 maintainer 的 proof review。
+PR {% include pr-link.html num=4359 %} 之後 complex 仍是綁住的一側：{% include pr-link.html num=4359 %} 中 complex 的 uniform saving 為 $0.002304$，BIT 為 $0.0027$。{% include pr-link.html num=4440 %} 起的建構保留一條 16-pair 的 BIT word，其 ordinary saving 為 $0.0034$，$\kappa$ 的提高來自 complex controller 的改進。{% include pr-link.html num=4535 %} 與 {% include pr-link.html num=4568 %} 沒有再動 controller，提高的幅度只有 $1.5\times10^{-8}$ 與 $9.7\times10^{-10}$，來自 compiler 與 outer 參數的收緊。{% include pr-link.html num=4610 %} 則改動 helper 與 native map，$\kappa$ 再提高到 $0.0030217758$。{% include pr-link.html num=4940 %} 另做了一項不主張 $\kappa$ 的計算：它以 {% include pr-link.html num=4929 %} 的 center-free port code $A$ 共軛 controller，即 $\text{Coded}=A\cdot\text{Standard}\cdot A^{-1}$，使 reverse stage 成為 center-free，只有 controller 邊界需要重新編碼。若這些重新編碼可被接受，BIT supplier 會把 conditional $\kappa$ 限制在約 $0.0034$，目前 selected 的 $0.003125804$ 低於這個值。這不是已建立的上界：重新編碼在實際 frame 上的 physical admission、計價與 compiler 常數都未建立，{% include pr-link.html num=4940 %} 也沒有 maintainer 的 proof review。
 
 ### 可能的改進方向
 
@@ -443,7 +457,7 @@ PR {% include pr-link.html num=4359 %} 之後 complex 仍是綁住的一側：{%
 $\kappa$ 衡量的是漸近 exponent saving，不是實測的執行時間。
 </div>
 
-所有結果都以 #109 的框架與一般歸約為前提，專案不是 OpenAI 的官方釋出或背書。Selected result 的 scope 保留以下 conditional 假設（{% include pr-link.html num=4470 %} 起的五個框架假設，{% include pr-link.html num=4610 %}、{% include pr-link.html num=5413 %} 與 {% include pr-link.html num=5599 %} 沿用）：
+所有結果都以 #109 的框架與一般歸約為前提，專案不是 OpenAI 的官方釋出或背書。Selected result 的 scope 保留以下 conditional 假設（{% include pr-link.html num=4470 %} 起的五個框架假設，{% include pr-link.html num=4610 %}、{% include pr-link.html num=5413 %}、{% include pr-link.html num=5599 %} 與 {% include pr-link.html num=6030 %} 沿用）：
 
 - native / all-column movement：native operator、phase 慣例、spectator 與 whole-job adapter 在每個正的 column multiplicity 下都成立
 - owned erasure：owned stream 與 suspended center 遵守保留的 allocation、erasure 與 ownership 規則
@@ -451,7 +465,7 @@ $\kappa$ 衡量的是漸近 exponent saving，不是實測的執行時間。
 - precision 與 fixed-tape：保留的 fixed-tape movement 與 precision / storage 規定適用於新的 finite template
 - analytic decomposition、fine-prime avoidance 與 exact recovery
 
-Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scoped、serial 的變動建構重放（{% include pr-link.html num=4470 %} 為八段，{% include pr-link.html num=5599 %} 在 Linux 上以 1 GiB 取樣記憶體上限通過），並明確重用前一個 selected 的 foundation，並非完整的 Lean multiplication theorem，也不是獨立的人類 review。Winning uniform template 由演算法定義，沒有實體化，專案不主張實用上的加速。其餘 candidate 則各自附帶作者提交的證據與獨立檢查。
+Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scoped、serial 的變動建構重放（{% include pr-link.html num=4470 %} 為八段，{% include pr-link.html num=5599 %} 在 Linux 上以 1 GiB 取樣記憶體上限通過，{% include pr-link.html num=6030 %} 另有 {% include pr-link.html num=5960 %} 的獨立 word / invoice / native audit），並明確重用前一個 selected 的 foundation，並非完整的 Lean multiplication theorem，也不是獨立的人類 review。Winning uniform template 由演算法定義，沒有實體化，專案不主張實用上的加速。其餘 candidate 則各自附帶作者提交的證據與獨立檢查。
 
 ## References
 
