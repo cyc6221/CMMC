@@ -502,6 +502,8 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scop
 - {% include pr-link.html num=5413 %} [promotion](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr5413-promotion/PROMOTION.md)
 - {% include pr-link.html num=5599 %} [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md)
 - {% include pr-link.html num=5599 %} [selection / integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr5599-completion/INTEGRATION.json)
+- {% include pr-link.html num=6030 %} [application review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr6030-audit/PROOF-REVIEW.md)
+- {% include pr-link.html num=6030 %} [selection / integration receipt](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr6030-audit/INTEGRATION.json)
 - [current-status.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/current-status.md)
 - [bottleneck-brief.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/bottleneck-brief.md)
 - [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)
@@ -510,7 +512,7 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scop
 
 ### Pull requests
 
-除 {% include pr-link.html num=1094 %}、{% include pr-link.html num=4359 %}、{% include pr-link.html num=4470 %}、{% include pr-link.html num=4610 %}、{% include pr-link.html num=5413 %} 與 {% include pr-link.html num=5599 %} 曾是 selected，以及 {% include pr-link.html num=4416 %} / {% include pr-link.html num=4433 %} 的 joint p7 reviewed checkpoint 外，標題中的 $\kappa$ 都是作者的宣稱，不代表已被 maintainer 認可，各 PR 的處置見 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。
+除 {% include pr-link.html num=1094 %}、{% include pr-link.html num=4359 %}、{% include pr-link.html num=4470 %}、{% include pr-link.html num=4610 %}、{% include pr-link.html num=5413 %}、{% include pr-link.html num=5599 %} 與 {% include pr-link.html num=6030 %} 曾是 selected，以及 {% include pr-link.html num=4416 %} / {% include pr-link.html num=4433 %} 的 joint p7 reviewed checkpoint 外，標題中的 $\kappa$ 都是作者的宣稱，不代表已被 maintainer 認可，各 PR 的處置見 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。
 
 - {% include pr-link.html num=1094 %} Conditional kappa 0.001672660197076918: rare-pattern T16 exchanges
 - {% include pr-link.html num=2848 %} T248 residue exchange: conditional κ ≈ 0.00171865850830493
@@ -549,6 +551,21 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scop
 - {% include pr-link.html num=5569 %} Conditional κ .00308181 (+3.94e-7 over #5561): priced successor hand-off of helper 706 on the P104 word
 - {% include pr-link.html num=5580 %} Conditional κ = 0.00308189 (+7.6453e-8 raw over #5569)
 - {% include pr-link.html num=5599 %} Raise conditional kappa to 0.00310045 with independent helper splits
+- {% include pr-link.html num=5627 %} Raise conditional kappa to 0.00310440546 with composed helper splits
+- {% include pr-link.html num=5644 %} Conditional κ = 0.00310626335 (+1.85789e-6 over #5627): three helper cleanups
+- {% include pr-link.html num=5660 %} Improve conditional κ to 0.00310676333 with a four-gate contact rewrite
+- {% include pr-link.html num=5678 %} Conditional κ = 0.00310815849 (+1.39516e-6 over #5660): paid interior bases
+- {% include pr-link.html num=5713 %} Conditional kappa .00310915222: distributed scalar updates
+- {% include pr-link.html num=5718 %} Improve P104 helper split with distinct input and output bases
+- {% include pr-link.html num=5751 %} Conditional κ 0.00311301600 (+2.77030e-6 over #5718): paid intermediate meetings
+- {% include pr-link.html num=5774 %} Raise conditional κ to 0.00312192127 with retained native copies
+- {% include pr-link.html num=5786 %} Raise conditional κ to 0.00312265044 with asynchronous helper hubs
+- {% include pr-link.html num=5802 %} Raise conditional κ to 0.00312336057 with accumulated native updates
+- {% include pr-link.html num=5811 %} Raise conditional κ to 0.00312418633064 with a fourth accumulated update
+- {% include pr-link.html num=5827 %} Conditional κ = 0.00312476680 (+5.8046936e-7 over #5811): unread path
+- {% include pr-link.html num=5907 %} Conditional κ .003125282 (+5.22e-7 over #5827): remove helper 468's frame-593 rung with rerouted reads
+- {% include pr-link.html num=6030 %} Conditional κ .003125804 (+5.22e-7 over #5907): remove helper 470's frame-593 rung, the twin of #5907's removal
+- {% include pr-link.html num=6145 %} Conditional κ = 0.003127804 (+6.67e-7 over #6143): remove the 772/731 relay
 
 #### Independent checks
 
@@ -561,6 +578,9 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review，加上 scop
 - {% include pr-link.html num=5400 %} Independently validate κ = 0.00302728823 for the direct backward caller
 - {% include pr-link.html num=5407 %} Independently audit the coupled provider and conditional closure budget (no new κ)
 - {% include pr-link.html num=5414 %} Independently verify PR5413 neutrality, necessary pricing and source application
+- {% include pr-link.html num=5550 %} Independently verify the P104 forward caller and target bindings (no new κ)
+- {% include pr-link.html num=5960 %} Independent replay, invoice, native and funding audit of #5827 and #5907 (no new κ)
+- {% include pr-link.html num=6043 %} Corroborating audit of PR6030: fresh full dense replay, itinerary delta, invoice and crossing (no new κ)
 
 ### Original result
 
