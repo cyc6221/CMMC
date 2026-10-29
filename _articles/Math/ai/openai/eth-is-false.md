@@ -1,9 +1,11 @@
 ---
 layout: page
-title: Disproof of the Exponential Time Hypothesis
+title: The Exponential Time Hypothesis is False
 description: 整理 openai/math 第 378 項結果：以次指數時間、多項式空間精確計數 k-CNF 的滿足賦值，反駁 Exponential Time Hypothesis。
 date: 2026-10-27
-last_updated: 2026-10-27
+last_updated: 2026-10-29
+redirect_from:
+  - /articles/Math/ai/openai/disproof-of-eth/
 ---
 openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %} 的第 378 項結果 {% include math/ai/openai-result.html num="378" %}：對每個固定的 $k\ge2$，給出確定性演算法，在次指數時間與多項式空間內精確計算 $k$-CNF 的滿足賦值個數。取 $k=3$ 時，3-SAT 可在 $2^{o(n)}$ 時間內判定，與 Exponential Time Hypothesis（ETH）矛盾。
 
