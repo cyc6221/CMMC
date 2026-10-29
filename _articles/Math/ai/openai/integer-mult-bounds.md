@@ -224,7 +224,7 @@ P104 word 來自 David Arias、Cinna Davis 與 Gareth Davidson 的 {% include pr
 - contact / frame rewrite：把一個減法或 ADD 移到維度較高的 frame（{% include pr-link.html num=5545 %}、{% include pr-link.html num=5580 %}）
 - commuting-contact cascade（{% include pr-link.html num=5565 %}）
 
-最後 Ali Romman 的 {% include pr-link.html num=5599 %} 在 P104 word 上做 13 個 helper-subspace split，產生真正獨立的輸入並切開 productive target，不增加 paid Gaussian call，於 10 月 26 日成為 current selected：
+最後 Ali Romman 的 {% include pr-link.html num=5599 %} 在 P104 word 上做 13 個 helper-subspace split，產生真正獨立的輸入並切開 productive target，不增加 paid Gaussian call，於 10 月 26 日升為 selected：
 
 $$
 \boxed{\kappa=0.00310045}.
@@ -234,9 +234,30 @@ $$
 
 驗證方面，完整 construction、原本的獨立 caller positive control、adapted caller 與 optimized construction 的重放，都在 Linux 上以 1 GiB 的取樣記憶體上限 serial 通過，positive control 與凍結的輸出完全一致。前一個 foundation 被明確重用，超大的 uniform word 與 rounded multiplier 沒有實體化。細節見 [proof review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md)。
 
+### {% include pr-link.html num=5599 %} 至 {% include pr-link.html num=6030 %}：P104 word 上的累積改進
+
+{% include pr-link.html num=5599 %} 之後，PR 一個接一個地在前一個 PR 的 word 上修改，$\kappa$ 由 $0.00310045$ 升到 $0.003125282$（{% include pr-link.html num=5907 %}）。這些 PR 都是 candidate，upstream ledger 標為 partially reviewed。每一步的增幅多在 $10^{-7}$ 到 $10^{-6}$ 之間，最大的一步是 {% include pr-link.html num=5774 %} 的 $+8.9\times10^{-6}$。主要手段依序是：
+
+- helper split 的組合與清理：{% include pr-link.html num=5627 %} 組合 helper-subspace split，{% include pr-link.html num=5644 %} 以三個 exact helper relation 去掉 main field 上較晚的 scalar contact（Ali Romman）
+- contact 重排：{% include pr-link.html num=5660 %} 的 four-gate contact rewrite、{% include pr-link.html num=5678 %} 的 paid interior basis、{% include pr-link.html num=5713 %} 以分散的 scalar update 取代一次 owned center 的讀取（Ali Romman）
+- helper split 的延伸：flyingviper 的 {% include pr-link.html num=5718 %} 在輸入與輸出邊界用不同的組合切出新的獨立 helper；{% include pr-link.html num=5751 %} 在 paid intermediate meeting 之後再切出 23 個 helper
+- retained native copy：{% include pr-link.html num=5774 %} 以 13 個 paid native conversion 保留 source 的當前值，供之後的 scalar contact 使用，paid call 與 target 數不變
+- owned buffer：{% include pr-link.html num=5786 %} 的 asynchronous helper hub 讓 helper 在不同時間退出；{% include pr-link.html num=5802 %} 讓三個 pending sum 共用 native conversion，Mason Hale 的 {% include pr-link.html num=5811 %} 再加上第四個 accumulated update
+- path 與 rung：{% include pr-link.html num=5827 %} 把一條 paid rank-4 / rank-1 path 改成一個 rank-5 query；DreamingOfClouds 的 {% include pr-link.html num=5907 %} 移除 helper 468 在 frame 593 的 rung，並重新導向相關的讀取
+
+DreamingOfClouds 的 {% include pr-link.html num=6030 %} 是 {% include pr-link.html num=5907 %} 的 twin：helper 470 的路徑 $3\to593\to714\to875\to1001\to131\to127$ 去掉 frame 593，helper 704 改在 frame 714 供 helper 470 讀取，其餘 ordinary event（ADD 與 SCALE）在值不變的前提下重寫，word 由 25,998 個 event 降到 22,803 個。Paid call 由 66,852 降到 66,834，productive field 維持 13,444，rank-mass surplus 維持 760。每個 local call 的 paid 變化為 $-2H_1+H_2-2H_3+H_4+H_6-H_7+H_8$，helper 變化為 $-H_1+H_2-H_3+H_6-H_7+H_8$，兩者相減得到 signed moment gain $H_1+H_3-H_4$，對 $0<t<1$ 由 $x^t$ 的嚴格次可加性為正。於 10 月 28 日成為 current selected：
+
+$$
+\boxed{\kappa=0.003125804}.
+$$
+
+{% include pr-link.html num=6030 %} 承接 {% include pr-link.html num=5907 %}、Ali Romman 的 {% include pr-link.html num=5827 %} 與其後的 pricing / compiler chain、Mason Hale 的 {% include pr-link.html num=5811 %}、hexapode 的 {% include pr-link.html num=5565 %}，以及 flyingviper、Scratch-net、Joel Pulikkan、Dugongue、unpaidmoon、zxv、thu-nmrc 的修正（完整名單見 [contributors](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-p1046030-contributors.md)）。
+
+驗證方面，Matarener 的 {% include pr-link.html num=5960 %} 以不匯入作者 replay 與 pricing routine 的獨立 interpreter 檢查完整的 word 與全部 799 個 endpoint row，七個新的 native task 以 Chris R 的 exact dense Gaussian-dyadic interpreter 檢查。沿用自 {% include pr-link.html num=5550 %} / {% include pr-link.html num=5599 %} 的獨立 caller checker 先逐 byte 重現原本的 positive control，再檢查 candidate caller。兩個獨立的計數與 primary invoice 一致，兩個 exact rational engine 把 crossing 夾在 $(0.00312581155791,0.00312581155792)$。所有新跑的 job 都在 600 秒與 1 GiB 取樣記憶體上限內 serial 通過，細節見 [application review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-intake-evidence/pr6030-audit/PROOF-REVIEW.md)。Selection 之後，JosieElliston 的 {% include pr-link.html num=6043 %} 另做了完整的 dense replay 作為佐證。
+
 ## 歷史 $\kappa$ 里程碑
 
-$\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.00310045$。下表依 $\kappa$ 由小到大列出 selected result 的主要節點，並標出各節點的代表性機制與主要作者。其中 round two（{% include pr-link.html num=62 %}）是第一個 reviewed community checkpoint，$\kappa=5.1017\times10^{-5}$ 首次超過 $2^{-15}$。
+$\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.003125804$。下表依 $\kappa$ 由小到大列出 selected result 的主要節點，並標出各節點的代表性機制與主要作者。其中 round two（{% include pr-link.html num=62 %}）是第一個 reviewed community checkpoint，$\kappa=5.1017\times10^{-5}$ 首次超過 $2^{-15}$。
 
 <table class="table-center">
   <thead>
