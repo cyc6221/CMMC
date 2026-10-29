@@ -74,9 +74,9 @@ For all $\delta>0$ and $k\ge3$ there are deterministic algorithms that, given a 
 
 $$Z=\sum_z\prod_aW_a(z_a)\prod_{\{a,b\}}\Psi_{a,b}(z_a,z_b).$$
 
-一個變數出現在 $d$ 個 clause 時，只需沿一條鏈比較相鄰的出現，所以所有邊上的位元總數少於 $3m$。
+這些比較有冗餘：一個變數出現在 $d$ 個 clause 時，兩兩比較用到 $d(d-1)/2$ 條邊，但相等具有遞移性，只沿一條鏈比較相鄰的出現就得到同一個 $Z$，該變數只剩 $d-1$ 個邊位元。因此所有邊上的位元總數少於 $3m$。
 
-合併一組節點時，組內的 $W$ 與 $\Psi$ 乘進新節點的 $W$，$Z$ 不變。若函數 $F(z_a,z_b)=\sum_{\theta\in\{0,1\}^c}f(z_a,\theta)f'(z_b,\theta)$，稱它 cost $c$ 個位元；對一條 cost $c$ 位元的邊，把對 $\theta$ 的求和移到最外層，兩側就可以分開求和。
+合併一組節點時，組內的 $W$ 與 $\Psi$ 乘進新節點的 $W$，$Z$ 不變。若函數 $F(z_a,z_b)=\sum_{\theta\in\\{0,1\\}^c}f(z_a,\theta)f'(z_b,\theta)$，稱它 cost $c$ 個位元；對一條 cost $c$ 位元的邊，把對 $\theta$ 的求和移到最外層，兩側就可以分開求和。
 
 這樣的分治不足以得到次指數時間：稀疏 expander（例如隨機公式）上每個平衡切割都被 $\Omega(n)$ 位元跨越，事先固定一棵切割樹並枚舉跨越的位元，時間是 $2^{\Omega(n)}$，只能改進指數中的常數。
 
@@ -103,7 +103,7 @@ Let $\sigma(p,q)=(-1)^{\phi(p,q)}$ with $\phi(p,q)=\sum_{k\le k'}p_kq_{k'}+q_1p_
 
 第 $\ell$ 層有 $K_\ell=g^2$ 個節點，$g=3K_{\ell-1}^8$。一層的步驟為：
 
-1. 把節點放在 $g\times g$ 的 grid 上。兩個 row 與兩個 column 決定一個 rectangle，每條對角線恰屬於一個 rectangle。對每個 rectangle 的兩條對角線，以 3 位元為一塊套用上面的恆等式，$Z$ 展開成 $(t+1)\lvert R\rvert$ 項，其中 $t=\lceil\lambda/3\rceil$，$R$ 為 rectangle 的集合。
+1. 把節點放在 $g\times g$ 的 grid 上。兩個 row 與兩個 column 決定一個 rectangle，每條對角線恰屬於一個 rectangle。對每個 rectangle 的兩條對角線，以 3 位元為一塊套用上面的恆等式，$Z$ 展開成 $(t+1)^{\lvert R\rvert}$ 項，其中 $t=\lceil\lambda/3\rceil$，$R$ 為 rectangle 的集合。
 2. 每一項中合併所有 row 或所有 column（取較便宜的一種），得到 $g$ 個節點，邊上的位元總數至多約 $(11/12+1/g)S$，$S$ 為原本的位元總數。
 3. 把這 $g$ 個節點平衡地合併成 $K_{\ell-1}$ 組，使任兩組之間至多 $L$ 個位元，成為第 $\ell-1$ 層的問題。平衡的分組由隨機分組的機率論證保證存在，演算法嘗試所有分組，因此仍是確定性的。
 4. 遞迴求出每一項，相加後除以 $2^{t\lvert R\rvert}$。
@@ -116,7 +116,7 @@ Let $\sigma(p,q)=(-1)^{\phi(p,q)}$ with $\phi(p,q)=\sum_{k\le k'}p_kq_{k'}+q_1p_
 
 $$e_0=1,\qquad e_\ell=\Bigl(\frac{11}{12}+\frac{2}{K_{\ell-1}}\Bigr)e_{\ell-1}+\frac{5}{K_{\ell-1}}.$$
 
-$K_0=64$ 時 $e_1\approx1.03$，比 $e_0$ 大；從第 2 層起 $K_\ell=9K_{\ell-1}^{16}$ 以雙指數成長，$2/K_{\ell-1}$ 與 $5/K_{\ell-1}$ 可以忽略，因此 $e_\ell\le1.12(11/12)^\ell\to0$。
+$K_\ell=9K_{\ell-1}^{16}$ 以雙指數成長。$K_0=64$ 時 $e_1\approx1.03$，比 $e_0$ 大；從第 2 層起 $K_{\ell-1}\ge K_1=9\cdot2^{96}$，$2/K_{\ell-1}$ 與 $5/K_{\ell-1}$ 可以忽略，因此 $e_\ell\le1.12(11/12)^\ell\to0$。
 
 對公式而言，把 clause 合併成 $3K_\ell^8$ 群再平衡，得到邊上位元總數約 $3m$ 的第 $\ell$ 層問題，時間為 $2^{3e_\ell m+O(m/K_\ell)}$ 乘上 $m$ 的多項式。取只依賴 $\delta$ 的常數層數 $\ell$，即得 $O(2^{\delta m})$。
 
@@ -131,7 +131,7 @@ README 附了一段濃縮描述，Claude Opus 5.5 在 high effort 下能由它�
 [MainResults.lean](https://github.com/anthropics/formal-math/blob/main/eth/MainResults.lean) 只含定義、只 import Mathlib，其中兩個定義是主張：
 
 - `ETHIsFalse`：$s_3=0$，以 Mathlib 的確定性 multi-stack Turing machine（`Turing.FinTM2`，stack alphabet 有限）計步數。
-- `MainTheorem`：存在一台機器與一個常數 $C$，兩者都在 $k$ 與公式之前選定，使得對每個 $k\ge1$、$n\ge4$，以及變數 $x_0,\dots,x_{n-1}$ 都出現、沒有重複 clause、$m\ge2$ 的 $k$-CNF，機器在 $2^{C\min\{km/\sqrt{\log m},\,k^2n\log\log n/\sqrt{\log n}\}}$ 步內輸出滿足賦值的個數。
+- `MainTheorem`：存在一台機器與一個常數 $C$，兩者都在 $k$ 與公式之前選定，使得對每個 $k\ge1$、$n\ge4$，以及變數 $x_0,\dots,x_{n-1}$ 都出現、沒有重複 clause、$m\ge2$ 的 $k$-CNF，機器在 $2^{C\min\\{km/\sqrt{\log m},\,k^2n\log\log n/\sqrt{\log n}\\}}$ 步內輸出滿足賦值的個數。
 
 檢查的範圍與限制：
 
