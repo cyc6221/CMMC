@@ -3,7 +3,7 @@ layout: page
 title: Disproof of the Exponential Time Hypothesis
 description: 整理 openai/math 第 378 項結果：以次指數時間、多項式空間精確計數 k-CNF 的滿足賦值，反駁 Exponential Time Hypothesis。
 date: 2026-10-27
-last_updated: 2026-10-29
+last_updated: 2026-10-27
 ---
 openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %} 的第 378 項結果 {% include math/ai/openai-result.html num="378" %}：對每個固定的 $k\ge2$，給出確定性演算法，在次指數時間與多項式空間內精確計算 $k$-CNF 的滿足賦值個數。取 $k=3$ 時，3-SAT 可在 $2^{o(n)}$ 時間內判定，與 Exponential Time Hypothesis（ETH）矛盾。
 
@@ -147,98 +147,6 @@ $$(L+1)^{O_k(1)}2^{O_k(n(\log\log n)^2/\sqrt{\log n})},$$
   </tbody>
 </table>
 
-## anthropics/formal-math 的結果
-
-anthropics/formal-math {% include gh-link.html href="https://github.com/anthropics/formal-math" label="repo" aria_label="repo: anthropics/formal-math on GitHub" %} 的 `eth` 專案 {% include gh-link.html href="https://github.com/anthropics/formal-math/tree/main/eth" label="eth" aria_label="eth project on GitHub" %} 收錄論文 *A $2^{o(n)}$ Time Algorithm for 3-SAT*（署名 Claude，Anthropic，2026-10-26）與其 Lean 4 形式化，於 2026-10-27 公開。核心演算法由 Anthropic 內部的 research Claude model 在 10 月 16 日找到，過程沒有人類輸入；論文註明 OpenAI 的內部模型獨立且同時期宣稱證明了類似結果。
-
-### 主要定理
-
-<div class="theorem">
-<strong>Theorem 1 (Main Theorem)</strong>
-There is a deterministic algorithm that, given a $k$-CNF with $m$ clauses in which $n$ variables occur, computes the number of satisfying assignments of these $n$ variables in time
-$$2^{O(\min\{k^2n\log\log n/\sqrt{\log n},\,km/\sqrt{\log m}\})},$$
-where the $O(\cdot)$ hides an absolute constant.
-</div>
-
-<div class="theorem">
-<strong>Theorem 2 (Simplified version of Theorem 1)</strong>
-For every $\delta>0$ there is a deterministic algorithm that computes the number of satisfying assignments of a 3-CNF on $n$ variables, with any number of clauses, in time $O(2^{\delta n})$.
-</div>
-
-- $\log=\log_2$。CNF 是 clause 的集合，不重複 clause；「$n$ 個變數 occur」指每個變數都出現在某個 clause 中。
-- 定理 1 的常數是絕對常數，不依賴 $k$，而且同一個演算法對所有 $k$ 適用。時間界同時以 clause 數 $m$ 與變數數 $n$ 表示；輸入本身已稀疏時，時間為 $2^{O(kn/\sqrt{\log n})}$，指數沒有 $\log\log n$ 因子。
-- 論文主體只證明定理 2，已足以反駁 ETH。定理 1 中 $m$ 的界在附錄 A、B 證明，$n$ 的界在附錄 D，用到附錄 C 的保持計數 sparsification。
-- 結果純屬漸近：$m=5n$ 的 3-CNF 要 $n>10^{10\,000}$，只以 $n$ 表示的界要 $n>10^{10^8}$，才比窮舉的 $2^n$ 快。
-
-### 被反駁的假設與推論
-
-$s_k$ 為所有使某個確定性演算法能在 $O(2^{\delta n})$ 時間內判定 $k$-SAT 的 $\delta\ge0$ 的下確界，$s_\infty=\sup_{k\ge3}s_k$。ETH 即 $s_3>0$，SETH 即 $s_\infty=1$。
-
-<div class="theorem">
-<strong>Corollary 5</strong>
-$s_k=0$ for every $k\ge3$. Hence $s_\infty=0$, and both ETH and SETH are false.
-</div>
-
-<div class="theorem">
-<strong>Corollary 6</strong>
-For every $k\ge3$ and $\delta>0$ there is a deterministic algorithm that computes the number of satisfying assignments of a $k$-CNF on $n$ variables in time $O(2^{\delta n})$. For $k=3$ this says that the counting version #ETH of ETH is false.
-</div>
-
-<div class="theorem">
-<strong>Corollary 7</strong>
-For all $\delta>0$ and $k\ge3$ there are deterministic algorithms that, given a graph on $n$ vertices, with any number of edges, and an integer $s$, compute in time $O(2^{\delta n})$ the number of its independent sets of size $s$, and likewise of its cliques, vertex covers and dominating sets of size $s$ and of its proper colorings with $k$ colors. In particular, they decide Independent Set, Clique, Vertex Cover, Dominating Set and $k$-Coloring, since subsets of independent sets and of cliques, and supersets of vertex covers and of dominating sets, are again such sets.
-</div>
-
-- NSETH 同樣不成立：$k$-DNF 是 tautology 若且唯若它的否定（一個 $k$-CNF）不可滿足，而確定性演算法也是非確定性演算法。
-- 由 Williams 的定理，$\mathrm E^{\mathrm{NP}}$ 中有語言不能由大小 $O(n)$ 的 Boolean 電路判定。
-- Orthogonal Vectors 假設不被定理 1 反駁。
-
-### 遞迴與 eight-square identity
-
-由保持計數的 sparsification，只需對 $m=O(n)$ 的公式在每個 $\delta>0$ 下達到 $O(2^{\delta m})$ 時間。
-
-把每個 clause 視為節點 $a$，帶局部變數 $z_a$ 與值 $W_a(z_a)$；共用變數的兩個 clause 以邊相連，$\Psi_{a,b}(z_a,z_b)$ 檢查兩邊對共用變數的取值一致。滿足賦值的個數為
-
-$$Z=\sum_z\prod_aW_a(z_a)\prod_{\{a,b\}}\Psi_{a,b}(z_a,z_b).$$
-
-合併一組節點時，組內的 $W$ 與 $\Psi$ 乘進新節點的 $W$，$Z$ 不變；對跨越切割的邊位元枚舉，即可把兩側分開求和。稀疏 expander 上每個平衡切割都被 $\Omega(n)$ 位元跨越，固定一棵切割樹只能改進指數中的常數。
-
-<div class="lemma">
-<strong>Lemma (Eight-square identity)</strong>
-There is a function $\sigma:\{0,1\}^3\times\{0,1\}^3\to\{-1,1\}$ such that for all $x,y,u,v\in\{0,1\}^3$, with $\oplus$ the bitwise exclusive or,
-$$2\,[x=v]\,[y=u]=[x\oplus y\oplus u\oplus v=0]\bigl(\sigma(x,y)\sigma(v,u)+\sigma(x,u)\sigma(v,y)\bigr).$$
-</div>
-
-<div class="remark">
-這個等式是關於 12 個位元的陳述，可以在全部 4096 種設定上逐一檢查。它的古典形式把 $(a_1^2+\cdots+a_8^2)(b_1^2+\cdots+b_8^2)$ 寫成八個平方和，由 Degen（1818）與 Graves（1843）各自找到。
-</div>
-
-遞迴處理的一般問題是：$K$ 個節點兩兩相連，每條邊 $\lambda$ 位元，每條邊是相等測試，$W_a$ 為任意整數值函數（可為負）。第 $\ell$ 層有 $K_\ell=g^2$ 個節點，$g=3K_{\ell-1}^8$，一層的步驟為：
-
-1. 把節點放在 $g\times g$ 的 grid 上。每個 rectangle 的兩條對角線以 3 位元為一塊套用上面的恆等式，$Z$ 展開成 $(t+1)\lvert R\rvert$ 項，其中 $t=\lceil\lambda/3\rceil$，$R$ 為 rectangle 的集合。
-2. 每一項中合併所有 row 或所有 column，得到 $g$ 個節點，邊上的位元總數至多約 $(11/12+1/g)S$，$S$ 為原本的位元總數。
-3. 再把這 $g$ 個節點平衡地合併成 $K_{\ell-1}$ 組，使任兩組間的位元數相同，成為第 $\ell-1$ 層的問題。
-4. 遞迴求出每一項，相加後除以 $2^{t\lvert R\rvert}$。
-
-第 $\ell$ 層的時間為 $2^{e_\ell S}$ 乘上多項式因子，其中
-
-$$e_0=1,\qquad e_\ell=\Bigl(\frac{11}{12}+\frac{2}{K_{\ell-1}}\Bigr)e_{\ell-1}+\frac{5}{K_{\ell-1}}.$$
-
-$K_\ell=9K_{\ell-1}^{16}$ 以雙指數成長，因此 $e_\ell\le1.12(11/12)^\ell\to0$。對公式而言，邊上的位元總數約 $3m$，取只依賴 $\delta$ 的常數層數 $\ell$ 即得 $O(2^{\delta m})$。
-
-### Lean 形式化
-
-[MainResults.lean](https://github.com/anthropics/formal-math/blob/main/eth/MainResults.lean) 只含定義、只 import Mathlib，其中兩個定義是主張：
-
-- `ETHIsFalse`：$s_3=0$，以 Mathlib 的確定性 multi-stack Turing machine（`Turing.FinTM2`，stack alphabet 有限）計步數。
-- `MainTheorem`：存在一台機器與一個常數 $C$，兩者都在 $k$ 與公式之前選定，使得對每個 $k\ge1$、$n\ge4$，以及變數 $x_0,\dots,x_{n-1}$ 都出現、沒有重複 clause、$m\ge2$ 的 $k$-CNF，機器在 $2^{C\min\{km/\sqrt{\log m},\,k^2n\log\log n/\sqrt{\log n}\}}$ 步內輸出滿足賦值的個數。
-
-與 openai/math 第 378 項的 Lean 不同，這裡形式化的是定理 1 的完整時間界。
-
-- `ETHIsFalse` 由 `MainTheorem` 推出。證明只用 Lean 的三個標準 axiom（`propext`、`Classical.choice`、`Quot.sound`），通過 Lean kernel、`leanchecker`，以及 Comparator 中獨立實作的 kernel `nanoda`。
-- 定義是否忠實表達論文的陳述，無法由機器檢查。論文附錄 E 列出 Lean 陳述與印刷版本的差異，[PaperIndex.lean](https://github.com/anthropics/formal-math/blob/main/eth/proof/PaperIndex.lean) 對照論文每個編號陳述的 Lean 版本。
-- Lean 開發由 AI 模型撰寫、由同一模型的其他 instance 審查；論文撰寫時沒有已知的人工檢查，常數 $C$ 沒有明確給出。
-
 ## References
 
 ### openai/math
@@ -250,13 +158,6 @@ $K_\ell=9K_{\ell-1}^{16}$ 以雙指數成長，因此 $e_\ell\le1.12(11/12)^\ell
 ### Preprint
 
 - [The Exponential Time Hypothesis is False](https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026)
-
-### anthropics/formal-math
-
-- [anthropics/formal-math: eth](https://github.com/anthropics/formal-math/tree/main/eth)
-- [eth/README.md](https://github.com/anthropics/formal-math/blob/main/eth/README.md)
-- [paper.pdf](https://github.com/anthropics/formal-math/blob/main/eth/paper.pdf)：A $2^{o(n)}$ Time Algorithm for 3-SAT。
-- [MainResults.lean](https://github.com/anthropics/formal-math/blob/main/eth/MainResults.lean)
 
 ### 引用的結果
 
