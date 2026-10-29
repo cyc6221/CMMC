@@ -114,7 +114,7 @@ openai/math
 
 <div class="now-notes">
   <span class="now-notes__label">notes</span>
-  {% include note-link.html href="/articles/Math/ai/openai/disproof-of-eth/" label="Disproof of the Exponential Time Hypothesis" %}
+  {% include note-link.html href="/articles/Math/ai/openai/eth-is-false/" label="The Exponential Time Hypothesis is False" %}
   {% include note-link.html href="/articles/Math/others/exponential-time-hypothesis/" label="Exponential Time Hypothesis" %}
 </div>
 
