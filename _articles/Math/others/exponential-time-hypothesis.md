@@ -113,7 +113,7 @@ SETH 被用來排除 P 內問題的多項式因子加速：
 
 2026-10-26，openai/math 公開第 378 項結果，宣稱給出 $2^{o(n)}$ 時間的 $k$-CNF 計數演算法，反駁 ETH 及上述的其他假設。整理見 [The Exponential Time Hypothesis is False]({{ '/articles/Math/ai/openai/eth-is-false/' | relative_url }})。
 
-2026-10-27，anthropics/formal-math 公開 `eth` 專案：由 Anthropic 內部的 research Claude model 找到的確定性演算法，在 $2^{O(\min\{k^2n\log\log n/\sqrt{\log n},\,km/\sqrt{\log m}\})}$ 時間內計數 $k$-CNF 的滿足賦值，常數不依賴 $k$。這個結果反駁 ETH、SETH、NSETH 與 #ETH，主要定理附有 Lean 4 形式化。論文註明它與 openai/math 的結果是各自獨立、同時期得到的。
+2026-10-27，anthropics/formal-math 公開 `eth` 專案：由 Anthropic 內部的 research Claude model 找到的確定性演算法，在 $2^{O(\min\{k^2n\log\log n/\sqrt{\log n},\,km/\sqrt{\log m}\})}$ 時間內計數 $k$-CNF 的滿足賦值，常數不依賴 $k$。這個結果反駁 ETH、SETH、NSETH 與 #ETH，主要定理附有 Lean 4 形式化。論文註明它與 openai/math 的結果是各自獨立、同時期得到的。整理見 [A $2^{o(n)}$ Time Algorithm for 3-SAT]({{ '/articles/Math/ai/anthropic/subexponential-3sat/' | relative_url }})。
 
 ## References
 
