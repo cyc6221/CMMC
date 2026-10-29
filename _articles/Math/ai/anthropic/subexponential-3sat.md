@@ -27,7 +27,6 @@ For every $\delta>0$ there is a deterministic algorithm that computes the number
 
 - 定理 1 是單一個演算法，常數不依賴 $k$，給出明確的 $o(n)$ 速率；反駁 ETH 只需要定理 2，即對每個 $\delta>0$ 各有一個 $O(2^{\delta n})$ 時間的演算法。
 - 演算法先得到以 clause 數表示的 $2^{O(km/\sqrt{\log m})}$，再結合 sparsification 得到以 $n$ 表示的界。輸入本身已稀疏時，時間為 $2^{O(kn/\sqrt{\log n})}$，指數沒有 $\log\log n$ 因子。
-- 論文主體只證明定理 2。定理 1 中 $m$ 的界在附錄 A、B 證明，$n$ 的界在附錄 D，用到附錄 C 的保持計數 sparsification。
 - 此前的紀錄：確定性 3-SAT 為 $O(1.328^n)$，隨機化 3-SAT 為 $O(1.308^n)$，\#3-SAT 為 $O(1.6423^n)$。
 
 <div class="remark">
@@ -52,7 +51,7 @@ For every $k\ge3$ and $\delta>0$ there is a deterministic algorithm that compute
 - 隨機化版本同樣不成立：確定性演算法是不使用隨機位元的隨機化演算法。
 - NSETH 不成立：$k$-DNF 是 tautology 若且唯若它的否定（一個 $k$-CNF）不可滿足，而確定性演算法也是非確定性演算法。
 - Orthogonal Vectors 假設不被定理 1 反駁。
-- 論文以 Claude 搜尋文獻，找到 800 多篇論文至少有一個自己的結果只在 ETH 或蘊含它的假設（例如 SETH、Gap-ETH）下證明；同時在未被反駁的假設下也成立的結果不計入。
+- 依 Claude 所做的文獻搜尋，有 800 多篇論文至少有一個自己的結果只在 ETH 或蘊含它的假設（例如 SETH、Gap-ETH）下證明；同時在未被反駁的假設下也成立的結果不計入。
 
 ## 推論
 
@@ -122,7 +121,7 @@ $K_\ell=9K_{\ell-1}^{16}$ 以雙指數成長。$K_0=64$ 時 $e_1\approx1.03$，�
 
 ### 濃縮描述
 
-README 附了一段濃縮描述，Claude Opus 5.5 在 high effort 下能由它重新推出：對每個 $\delta>0$，3-SAT 可在 $O(2^{\delta n})$ 時間內判定（不含定理 1 的較強界）。
+以下的濃縮描述足以讓 Claude Opus 5.5 在 high effort 下重新推出：對每個 $\delta>0$，3-SAT 可在 $O(2^{\delta n})$ 時間內判定（不含定理 1 的較強界）。
 
 > Let 2^{e(K)·K²λ}·poly(λ) be the time to contract tensor networks on K_K with λ bits per edge and arbitrary node tensors. Then e(9K^16) ≤ 0.9·e(K) + O(1/K). Put the nodes on a grid: the two diagonals of each rectangle form a swap. Per bit, SWAP = I − 2·singlet; grouping by the number of singlets gives λ+1 operators with (row rank)·(column rank) ≤ 12^λ. For each choice of operators, merge each row or each column into one node, whichever is cheaper, and regroup these into K balanced classes.
 
@@ -136,7 +135,7 @@ README 附了一段濃縮描述，Claude Opus 5.5 在 high effort 下能由它�
 檢查的範圍與限制：
 
 - `ETHIsFalse` 由 `MainTheorem` 推出。證明只用 Lean 的三個標準 axiom（`propext`、`Classical.choice`、`Quot.sound`），通過 Lean kernel、`leanchecker`，以及 Comparator 中獨立實作的 kernel `nanoda`。
-- 定義是否忠實表達論文的陳述，無法由機器檢查。論文附錄 E 列出 Lean 陳述與印刷版本的差異，[PaperIndex.lean](https://github.com/anthropics/formal-math/blob/main/eth/proof/PaperIndex.lean) 對照論文每個編號陳述的 Lean 版本。
+- 定義是否忠實表達論文的陳述，無法由機器檢查。[PaperIndex.lean](https://github.com/anthropics/formal-math/blob/main/eth/proof/PaperIndex.lean) 對照每個編號陳述的 Lean 版本，並註明 Lean 形式與印刷版本的差異。
 - Lean 開發由 AI 模型撰寫、由同一模型的其他 instance 審查；論文撰寫時沒有已知的人工檢查，常數 $C$ 沒有明確給出。
 
 ## References
