@@ -37,5 +37,20 @@
                 <li>Majdoddin: improved exponents $n^{1.99450+o(1)}$ for 3SUM and $n^{2.99450+o(1)}$ for APSP. <a href="https://arxiv.org/abs/2610.17420" target="_blank" rel="noopener noreferrer">arXiv:2610.17420</a></li>
             </ul>
         </section>
+        <section class="now-section">
+            <h4>eth {% include gh-link.html href="https://github.com/anthropics/formal-math/blob/main/eth/paper.pdf" label="paper" aria_label="paper: A 2^o(n) Time Algorithm for 3-SAT on GitHub" %}</h4>
+            <div class="now-notes">
+                <span class="now-notes__label">notes</span>
+                {% include note-link.html href="/articles/Math/others/exponential-time-hypothesis/" label="Exponential Time Hypothesis" %}
+            </div>
+            <p class="now-primary">
+                A deterministic algorithm counts the satisfying assignments of a 3-CNF on $n$ variables in time $2^{O(n\log\log n/\sqrt{\log n})}$, which refutes the Exponential Time Hypothesis. The result was discovered by an internal research Claude model.
+            </p>
+
+            <ul class="now-list">
+                <li>Lean: one deterministic Turing machine counts the satisfying assignments of every $k$-CNF with $m\ge2$ clauses on $n\ge4$ variables in $2^{O(\min\{k^2n\log\log n/\sqrt{\log n},\,km/\sqrt{\log m}\})}$ steps, and ETH is false, both on Mathlib's Turing machines.</li>
+                <li>Key idea: from a short condensed description, Claude Opus 5.5 at high effort rederives that 3-SAT can be decided in $O(2^{\delta n})$ time for every $\delta&gt;0$.</li>
+            </ul>
+        </section>
     </div>
 </article>
