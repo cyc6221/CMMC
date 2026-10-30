@@ -16,9 +16,9 @@
         </p>
         <!-- --- -->
         <div class="chap-strip" aria-label="Chapters 1 to 8">
-            <span class="chap">1</span>
-            <span class="chap">2</span>
-            <span class="chap">3</span>
+            <span class="chap reading">1</span>
+            <span class="chap reading">2</span>
+            <span class="chap reading">3</span>
             <span class="chap">4</span>
             <span class="chap">5</span>
             <span class="chap">6</span>
@@ -26,7 +26,7 @@
             <span class="chap">8</span>
         </div>
         <!-- --- -->
-        {% assign done = 0 %}
+        {% assign done = 3 %}
         {% assign total = 8 %}
         {% assign pct = done | times: 100 | divided_by: total %}
         <div class="now-progress" role="group" aria-label="Reading progress">
