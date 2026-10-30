@@ -1,7 +1,6 @@
 /*
   now.scss
   terminal / hacker style
-  for current Prime.html structure
 */
 
 .now-grid {
@@ -394,21 +393,3 @@ a.note-link:focus-visible {
   font-size: 13px;
 }
 
-/* specific to Prime.html */
-
-.primality-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    align-items: start;
-}
-
-.primality-column h4 {
-    margin-top: 12px;
-    margin-bottom: 0.75rem;
-}
-
-.primality-column .now-list {
-    margin: 0;
-    padding-left: 1.2rem;
-}
