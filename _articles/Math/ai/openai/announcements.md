@@ -2,7 +2,7 @@
 layout: page
 title: OpenAI Math Announcements
 date: 2026-10-22
-last_updated: 2026-10-27
+last_updated: 2026-10-30
 ---
 
 本文按時間整理 OpenAI 在 2026 年 5 月至 10 月的主要數學成果公告，並補充研究工具、顧問團體與成果公開方式的背景。5 月公布 unit-distance 猜想的反例，10 月 6 日則集中釋出 `openai/math` 的數學成果。
@@ -366,6 +366,10 @@ OpenAI 宣布提供 500 萬美元，支持 Simons Foundation 的新計畫，協�
 形式化方面，*The rational Hodge conjecture for CM abelian varieties* 新增 Lean formalization，部分 Comparator 設定與 Lean formalizations 也經修正。*The maximum number of mutually unbiased bases in dimension six* 補回排除第四組 mutually unbiased basis 的 C++ 原始碼與數值紀錄，並附 Python checker 驗證紀錄的一致性與覆蓋範圍。
 
 README 同日改稱這些手稿由 unnamed internal OpenAI model 產生，並表示它們較適合視為原始研究資料，而非整理完成的學術論文；credit、優先權與同期工作完全交由數學社群判斷。
+
+### 10 月 29 日更新
+
+*The rational Hodge conjecture for CM abelian varieties* 的 Comparator challenge 與 solution 的 namespace 不一致，已調整對齊。[更新紀錄](https://github.com/openai/math/blob/main/history.md)
 
 ## References
 

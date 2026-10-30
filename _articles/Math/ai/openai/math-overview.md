@@ -3,7 +3,7 @@ layout: page
 title: openai/math Overview
 description: 整理 openai/math 的目錄結構、手稿與形式化統計、領域分佈及更新紀錄。
 date: 2026-10-22
-last_updated: 2026-10-27
+last_updated: 2026-10-30
 ---
 
 openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %}
@@ -81,6 +81,10 @@ openai/math
 - 為 032 *The rational Hodge conjecture for CM abelian varieties* 新增 Lean formalization。
 - 修正部分 Comparator 設定並改進部分 Lean formalizations。
 - 補回 *The maximum number of mutually unbiased bases in dimension six* 的 C++ 原始碼與數值紀錄，並附 Python checker。
+
+### 2026-10-29
+
+- 032 *The rational Hodge conjecture for CM abelian varieties* 的 Comparator challenge 與 solution 的 namespace 不一致，已調整對齊。目錄統計不變。
 
 ## 相關筆記
 
