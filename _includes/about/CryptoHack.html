@@ -17,33 +17,39 @@
             <a class="now-link" href="https://cryptohack.org/courses/" target="_blank" rel="noopener">
                 CryptoHack Courses
             </a>
+            <a class="now-link" href="https://cryptohack.org/challenges/" target="_blank" rel="noopener">
+                CryptoHack Challenges
+            </a>
         </p>
         <!-- --- -->
         <ul class="now-list">
             <li><a href="{{ '/CryptoHack-all-problems/' | relative_url }}">CryptoHack All Problems</a></li>
         </ul>
         <!-- --- -->
-        <div class="chap-strip" aria-label="All learning paths">
-            <span class="chap-pill done">Introduction to CryptoHack</span>
-            <span class="chap-pill done">Modular Arithmetic</span>
-            <span class="chap-pill done">Symmetric Cryptography</span>
-            <span class="chap-pill done">Public-Key Cryptography</span>
-            <span class="chap-pill">Ellipic Curve</span>
-        </div>
-        <!-- --- -->
-        {% assign done = 4 %}
-        {% assign total = 5 %}
-        {% assign pct = done | times: 100 | divided_by: total %}
-        <div class="now-progress" role="group" aria-label="Reading progress">
-            <div class="now-progress__label">
-                <span class="now-progress__text">Progress</span>
-                <span class="now-progress__pct">{{ done }}/{{ total }} ({{ pct }}%)</span>
+        <section class="now-section">
+            <h4>Courses</h4>
+            <div class="chap-strip" aria-label="All learning paths">
+                <span class="chap-pill done">Introduction to CryptoHack</span>
+                <span class="chap-pill done">Modular Arithmetic</span>
+                <span class="chap-pill done">Symmetric Cryptography</span>
+                <span class="chap-pill done">Public-Key Cryptography</span>
+                <span class="chap-pill">Ellipic Curve</span>
             </div>
-            <div class="now-progress__track" aria-hidden="true">
-                <!-- <span class="now-progress__bar" style="width: {{ pct }}%;"></span> -->
-                <span class="now-progress__bar" style="--pct: {{ pct | default: 0 }};"></span>
+            <!-- --- -->
+            {% assign done = 4 %}
+            {% assign total = 5 %}
+            {% assign pct = done | times: 100 | divided_by: total %}
+            <div class="now-progress" role="group" aria-label="Reading progress">
+                <div class="now-progress__label">
+                    <span class="now-progress__text">Progress</span>
+                    <span class="now-progress__pct">{{ done }}/{{ total }} ({{ pct }}%)</span>
+                </div>
+                <div class="now-progress__track" aria-hidden="true">
+                    <!-- <span class="now-progress__bar" style="width: {{ pct }}%;"></span> -->
+                    <span class="now-progress__bar" style="--pct: {{ pct | default: 0 }};"></span>
+                </div>
             </div>
-        </div>
+        </section>
         <!-- --- -->
         {%- comment -%} --- Points bar (level + points) --- {%- endcomment -%}
         {% assign level = 9 %}
@@ -59,25 +65,46 @@
         {% if points_pct < 0 %}{% assign points_pct = 0 %}{% endif %}
         {% if points_pct > 100 %}{% assign points_pct = 100 %}{% endif %}
         <!-- --- -->
-        <div class="now-xp" role="group" aria-label="Level and points">
-            <div class="now-xp__meta">
-                <span class="now-xp__stat" title="Level">
-                    <span class="now-xp__icon" aria-hidden="true">⚡</span>
-                    <span class="now-xp__num">{{ level }}</span>
-                </span>
-                <span class="now-xp__stat" title="Points">
-                    <span class="now-xp__icon" aria-hidden="true">⭐</span>
-                    <span class="now-xp__num">{{ points_cur }}</span>
-                </span>
-                <span class="now-xp__pct">
-                    {{ points_cur }}/{{ points_total }} ({{ points_pct }}%)
-                </span>
+        <section class="now-section">
+            <h4>Challenges</h4>
+            <div class="now-xp" role="group" aria-label="Level and points">
+                <div class="now-xp__meta">
+                    <span class="now-xp__stat" title="Level">
+                        <span class="now-xp__icon" aria-hidden="true">⚡</span>
+                        <span class="now-xp__num">{{ level }}</span>
+                    </span>
+                    <span class="now-xp__stat" title="Points">
+                        <span class="now-xp__icon" aria-hidden="true">⭐</span>
+                        <span class="now-xp__num">{{ points_cur }}</span>
+                    </span>
+                    <span class="now-xp__pct">
+                        {{ points_cur }}/{{ points_total }} ({{ points_pct }}%)
+                    </span>
+                </div>
+                <div class="now-xp__track" aria-hidden="true">
+                    <!-- <span class="now-xp__bar" style="width: {{ points_pct }}%;"></span> -->
+                    <span class="now-xp__bar" style="--pct: {{ points_pct }};"></span>
+                </div>
             </div>
-            <div class="now-xp__track" aria-hidden="true">
-                <!-- <span class="now-xp__bar" style="width: {{ points_pct }}%;"></span> -->
-                <span class="now-xp__bar" style="--pct: {{ points_pct }};"></span>
+            <!-- --- -->
+            {%- comment -%} name|solved|total {%- endcomment -%}
+            {% assign categories = "Introduction|3|3,General|17|19,Symmetric Ciphers|14|29,Mathematics|7|16,RSA|11|29,Diffie-Hellman|7|14,Elliptic Curves|0|23,Hash Functions|0|16,Crypto on the Web|0|17,Lattices|0|18,Isogenies|0|23,ZKPs|0|17,Misc|0|16,CTF Archive|0|76" | split: "," %}
+            <div class="chap-strip" aria-label="Challenge categories">
+                {%- for cat in categories -%}
+                    {%- assign parts = cat | split: "|" -%}
+                    {%- assign solved = parts[1] | plus: 0 -%}
+                    {%- assign cat_total = parts[2] | plus: 0 -%}
+                    {%- if solved >= cat_total -%}
+                        {%- assign cat_class = " done" -%}
+                    {%- elsif solved > 0 -%}
+                        {%- assign cat_class = " reading" -%}
+                    {%- else -%}
+                        {%- assign cat_class = "" -%}
+                    {%- endif %}
+                <span class="chap-pill{{ cat_class }}">{{ parts[0] }} {{ solved }}/{{ cat_total }}</span>
+                {%- endfor %}
             </div>
-        </div>
+        </section>
     <!-- end of now-body -->
     </div>
 </article>
