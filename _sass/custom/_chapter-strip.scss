@@ -61,46 +61,6 @@
   border-color: #ffd33d;
 }
 
-/* — Hint: chap-hint（說明列） */
-.chap-hint{
-  margin: 10px 0 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  color: #8b949e;
-  font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-/* — Dot: chap-dot（legend） */
-.chap-dot{
-  width: 10px;
-  height: 10px;
-  display: inline-block;
-  margin-right: 6px;
-  border: 1px solid #2a2a2a;
-  border-radius: 999px;
-  background: #111;
-  vertical-align: -1px;
-}
-
-.chap-dot--done{
-  border-color: #1f6f1f;
-  background: #33ff33;
-}
-
-.chap-dot--reading{
-  border-color: #8a6d00;
-  background: #ffd33d;
-}
-
-.chap-dot--todo{
-  border-color: #7a2020;
-  background: #ff5f5f;
-}
-
 /* — Pill: chap-pill（文字形式） */
 .chap-pill{
   display: inline-flex;
