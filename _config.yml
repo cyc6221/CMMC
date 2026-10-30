@@ -44,6 +44,7 @@ header_pages:
   - pages/book.md
   - pages/math.md
   - pages/research.md
+  - pages/ctf.md
 
 plugins:
   - jekyll-github-metadata
