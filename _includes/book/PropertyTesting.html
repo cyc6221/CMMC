@@ -18,5 +18,35 @@
         <ul class="now-list">
             <li><a href="https://www.wisdom.weizmann.ac.il/~oded/PDF/pt-v3.pdf" target="_blank" rel="noopener">April 2017 (pdf)</a></li>
         </ul>
+        <!-- --- -->
+        <div class="chap-strip" aria-label="Chapters 1 to 13">
+            <span class="chap">1</span>
+            <span class="chap">2</span>
+            <span class="chap">3</span>
+            <span class="chap">4</span>
+            <span class="chap">5</span>
+            <span class="chap">6</span>
+            <span class="chap">7</span>
+            <span class="chap">8</span>
+            <span class="chap">9</span>
+            <span class="chap">10</span>
+            <span class="chap">11</span>
+            <span class="chap">12</span>
+            <span class="chap">13</span>
+        </div>
+        <!-- --- -->
+        {% assign done = 0 %}
+        {% assign total = 13 %}
+        {% assign pct = done | times: 100 | divided_by: total %}
+        <div class="now-progress" role="group" aria-label="Reading progress">
+            <div class="now-progress__label">
+                <span class="now-progress__text">Progress</span>
+                <span class="now-progress__pct">{{ done }}/{{ total }} ({{ pct }}%)</span>
+            </div>
+            <!-- --- -->
+            <div class="now-progress__track" aria-hidden="true">
+                <span class="now-progress__bar" style="--pct: {{ pct | default: 0 }};"></span>
+            </div>
+        </div>
     </div>
 </article>
