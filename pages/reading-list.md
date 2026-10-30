@@ -7,10 +7,6 @@ toc: false
 
 ## Currently
 
-- Rafael Pass and Abhi Shelat. [A Course in Cryptography](https://www.cs.cornell.edu/courses/cs4830/2010fa/lecnotes.pdf)
-
-- Nigel Smart. [Cryptography: An Introduction (Third Edition)](https://nigelsmart.github.io/Crypto_Book/book.pdf)
-
 - [PortSwigger](https://portswigger.net/)
 
 - [CryptoBook](https://cryptohack.gitbook.io/cryptobook)
@@ -48,11 +44,6 @@ toc: false
 - [CompTIA](https://www.comptia.org/) (vendor)
   - [Security+](https://www.comptia.org/certifications/security) (入門) (學生優惠)
   - [CySA+](https://www.comptia.org/certifications/cybersecurity-analyst) (藍隊) (學生優惠)
-
-## To Read
-
-- Steven Galbraith. [Mathematics of Public Key Cryptography](https://www.math.auckland.ac.nz/~sgal018/crypto-book/main.pdf)
-  - [ch22: Digital Signatures Based on Discrete Logarithms](https://www.math.auckland.ac.nz/~sgal018/crypto-book/ch22.pdf)
 
 ---
 

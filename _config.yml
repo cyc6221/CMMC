@@ -22,6 +22,9 @@ collections:
   papers:
     output: true
     permalink: /research/papers/:path/
+  notes:
+    output: true
+    permalink: /book/notes/:path/
 
 # Overrides Jekyll's default exclude list, so the defaults are repeated here
 exclude:
@@ -38,8 +41,9 @@ header_pages:
   # - index.md
   - pages/about.md
   - pages/articles.md
-  - pages/research.md
+  - pages/book.md
   - pages/math.md
+  - pages/research.md
 
 plugins:
   - jekyll-github-metadata

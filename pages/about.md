@@ -8,7 +8,6 @@ toc: false
 I am CY.
 
 <nav class="about-links" aria-label="About page sections">
-    <a class="about-links__item" href="#learning">Learning</a>
     <a class="about-links__item" href="#practice">Practice</a>
     <a class="about-links__item" href="#certificate">Certificate</a>
 </nav>
@@ -18,12 +17,6 @@ I am CY.
     <a class="about-links__item" href="{{ '/reading-list/' | relative_url }}">Reading List</a>
     <a class="about-links__item" href="{{ '/site-list/' | relative_url }}">Site List</a>
 </div>
-
-## Learning {#learning}
-
-<section class="now-grid">
-{% include about/CryptoAnIntro.html %}
-</section>
 
 ## Practice {#practice}
 
