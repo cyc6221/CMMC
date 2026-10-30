@@ -1,10 +1,10 @@
 /*
   Usage / 備註：
   - 使用於：
-    - _includes/about/PortSwigger.html  -> chap-strip 列出多個 learning paths（使用 chap-pill）
-    - _includes/about/CryptoHack.html   -> chap-strip（learning paths）
+    - _includes/ctf/PortSwigger.html    -> chap-strip 列出多個 learning paths（使用 chap-pill）
+    - _includes/ctf/CryptoHack.html     -> chap-strip（learning paths）
     - _includes/book/CryptoAnIntro.html -> chap-strip（章節編號 1~26）
-    - pages/about.md, pages/book.md     -> 透過 include 顯示在 About / Book 頁面（section.now-grid）
+    - pages/ctf.md, pages/book.md       -> 透過 include 顯示在 CTF / Book 頁面（section.now-grid）
 */
 
 /* — List: chap-strip 容器 */
