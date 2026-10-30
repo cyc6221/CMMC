@@ -8,5 +8,7 @@ toc: false
 ---
 
 <section class="now-grid">
-{% include math/prime/Prime.html %}
+{% include math/prime/Primality.html %}
+{% include math/prime/Distribution.html %}
+{% include math/prime/Patterns.html %}
 </section>
