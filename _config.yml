@@ -42,6 +42,7 @@ header_pages:
   - pages/about.md
   - pages/articles.md
   - pages/book.md
+  - pages/ctf.md
   - pages/math.md
   - pages/research.md
 
