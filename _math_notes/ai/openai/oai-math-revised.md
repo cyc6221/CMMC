@@ -1,7 +1,7 @@
 ---
 layout: page
 title: oai-math-revised
-description: 追蹤 mathcommunity/oai-math-revised 中已 merge 的 PR，依 openai/math 的 result family 整理：manuscript 修訂、follow-up works、評論與 AI-only 的調查。
+description: 追蹤 mathcommunity/oai-math-revised 中已 merge、且對 openai/math 的結果、驗證或理解有實質改善的 PR，依 result family 整理：manuscript 修訂、follow-up works 與獨立的 re-check。
 date: 2026-10-27
 last_updated: 2026-10-31
 pr_repo: mathcommunity/oai-math-revised
@@ -14,7 +14,7 @@ mathcommunity/oai-math-revised {% include gh-link.html href="https://github.com/
 
 oai-math-revised 是社群對 openai/math 論文的修訂計畫，獨立於 OpenAI，不是 OpenAI 認可或贊助的專案。
 
-目前追蹤的 result family：#003、#087、#095、#102、#103、#109、#124、#142、#151、#165、#179、#240、#246、#325、#378。
+目前追蹤的 result family：#003、#087、#095、#102、#103、#109、#142、#151、#165、#246。
 
 <div class="remark">
 <strong>Remark.</strong>
@@ -100,20 +100,6 @@ re-check 沒有顯示機器模型是 L、RL、BPL 的標準模型。OpenAI 在 1
 
 2026-10-24 merge，由 `mark-schultz-wu` 提交。建立 *Integer multiplication below n log n* 的 `NOTES.md`，在 Constructive comments / reviews 加入 David Harvey 的 [*On the recently proposed o(n log n) integer multiplication algorithm*](https://web.maths.unsw.edu.au/~davidharvey/research/subnlogn.pdf)（2026-10-20）。Harvey 是 2021 年 $O(n\log n)$ 演算法的共同作者，論文以該演算法為基礎。這份 note 逐步說明核心 gadget 與 tensor amplification，認為主結果 plausible，並列出尚未檢查的部分。
 
-## {% include math/ai/openai-result.html num="124" %}
-
-### PR {% include pr-link.html num=55 %}
-
-2026-10-29 merge，由 `ziangni-sys` 提交。在 *A polynomial-time algorithm for three-machine unit-job scheduling* 的 introduction 與參考文獻加入 16 筆經典文獻。這個問題 $P3\mid\mathrm{prec},p_j=1\mid C_{\max}$ 是 Garey–Johnson 的 OPEN8。theorem、section、equation 的編號不變。新增的文獻依用途分為：
-
-- 兩台機器：Gabow（1982）、Garey–Johnson（1976、1977）。
-- 機器數是輸入的一部分：Lenstra–Rinnooy Kan（1978）證明判定長度為 3 的排程是 NP-complete，因此除非 P = NP，否則沒有比 4/3 更好的近似比；Bodlaender–Fellows（1995）證明以機器數為參數時是 W[2]-hard。
-- 三台機器的 open 狀態：Lenstra–Rinnooy Kan（1984）、Schuurman–Woeginger（1999）、Johnson（2005）、Mnich–van Bevern（2018，Open Problem 6），以及 Lawler–Lenstra–Rinnooy Kan–Shmoys（1993）的 survey。
-- 特殊情形：Hu（1961，in-tree）、Papadimitriou–Yannakakis（1979，interval order）、Dolev–Warmuth（1985）。
-- 近似：Graham（1966），比值 $2-1/m$；Lam–Sethi（1977），Coffman–Graham 的比值 $2-2/m$，三台機器為 4/3。
-
-byline 改為 "OpenAI (with community contributions)"，日期改為 2026-10-27。重新編譯也把 PDF 中 lemma、proposition、definition 被印成 "Theorem" 的 cross-reference 名稱改正（例如 "Theorem 4.1" 變為 "Definition 4.1"）。參考文獻由 Claude Code 搜尋與起草，提交者確認 16 筆都存在。
-
 ## {% include math/ai/openai-result.html num="142" %}
 
 ### PR {% include pr-link.html num=33 %}
@@ -132,56 +118,9 @@ byline 改為 "OpenAI (with community contributions)"，日期改為 2026-10-27�
 
 2026-10-28 merge，由 `schmittj` 提交，來源是 `dimpase` 提交的 issue。建立 *The crossing number of complete bipartite graphs* 的 `NOTES.md`，在 Follow-up works 加入 Dima Pasechnik 的 [*Crossing-number forest*](https://dimpase.github.io/crossing-number-forest/)（[source](https://github.com/dimpase/crossing-number-forest)）。這是 Forester 網站，把論文的論證拆成帶標籤的 definition、lemma 與 proof account，標出相依關係，並對應到論文的編號結果與 Lean declaration。網站自述 proof account 是對論文證明的重建，且未在本機執行 Lean。
 
-## {% include math/ai/openai-result.html num="179" %}
-
-### PR {% include pr-link.html num=1 %}
-
-2026-10-18 merge，由 `nellore` 提交。在 *The circulant Hadamard conjecture* 的 introduction 加入一段，引用涵蓋 symmetric case 的早期結果，並同步更新 `references.bib` 與 PDF。
-
-## {% include math/ai/openai-result.html num="240" %}
-
-Family 240 有兩篇 manuscript：*Eventual Categoricity for Abstract Elementary Classes* 與 *A CH Obstruction to a Prescribed Categoricity Threshold*。兩者的 PR 都圍繞 Christian Espíndola 先前的 topos-theoretic 工作（[arXiv:1906.09169](https://arxiv.org/abs/1906.09169)、[arXiv:2301.13167](https://arxiv.org/abs/2301.13167)）。
-
-### PR {% include pr-link.html num=36 %}
-
-2026-10-25 merge，由 `schmittj` 提交。在 *Eventual Categoricity for Abstract Elementary Classes* 的 `NOTES.md` 加入 Jason Rute、Artem Chernikov 與 Espíndola 在 X 上的[討論](https://x.com/archernikov/status/2108219871213568342)（2026-10-08 至 2026-10-17），主題是 Espíndola 先前宣稱的證明（arXiv:1906.09169）的狀態。Chernikov 表示，依他的理解，該證明目前未被 small AEC 社群接受；Espíndola 回覆該社群沒有 topos theorist，且他的論文正在以 Lean formalize。論文在 Section 1 說明沒有引入那些 preprint 的內容。
-
-### PR {% include pr-link.html num=35 %}
-
-2026-10-25 merge，由 `schmittj` 提交。在 *A CH Obstruction to a Prescribed Categoricity Threshold* 的 `NOTES.md` 加入 Espíndola 在 X 上的[回覆](https://x.com/christianrubene/status/2111425004667572321)（2026-10-17）。論文的主定理與 arXiv:2301.13167 的 Theorem 4.1 結論相反，Section 7 描述了該證明某一步的 obstruction；Espíndola 的回覆表示論文的 Proposition 7.2 與他的某個結果矛盾。OpenAI 的 Lean formalization 涵蓋 Theorem 1.1，不涵蓋 Section 7。
-
-### PR {% include pr-link.html num=42 %}
-
-2026-10-25 merge，由 `solevillar` 提交。在同一份 `NOTES.md` 加入 AI-only 的調查報告 `espindola-investigation-by-agent-2026-10-25.pdf`，針對 Espíndola 提出的兩點：E1 是 Lemma 5.2 / Proposition 5.7 的 cardinal bound，E2 是 Proposition 7.2 與他的 Theorem 4.1。報告另用 Lean comparator 檢查 formalization，並校對 arXiv:2301.13167 的 Theorem 4.1，附上 GPT-6 Astra 與 Claude Opus 的八份底層報告。內容沒有經過任何人檢查，也沒有解決這個問題，仍需要專家判斷。
-
 ## {% include math/ai/openai-result.html num="246" %}
 
 ### PR {% include pr-link.html num=22 %}
 
 2026-10-24 merge，由 `schmittj` 提交。建立 *A Modulus Proof of Cannon's Conjecture* 的 `NOTES.md`，在 Follow-up works 加入 Mario Bonk 的演講 [*The AI Proof of Cannon's conjecture*](https://www.youtube.com/watch?v=L2DU0VupdlU&t=1896s)（Quasiworld online seminar，2026-10-22，影片）。演講介紹這篇論文給出的 Cannon's conjecture 證明。
 
-## {% include math/ai/openai-result.html num="325" %}
-
-Family 325 有兩篇 manuscript：*A direct proof of the complete Crouzeix inequality* 與 *The complete Crouzeix theorem*。
-
-### PR {% include pr-link.html num=29 %}
-
-2026-10-25 merge，由 `abhijit-c` 提交。從兩篇 manuscript 的 `AGENT_NOTES.md` 的 Comments and discussion 移除 `trostaft` 的一則 Hacker News 留言，提交者自述即該留言的作者。他指出留言有誤：Crouzeix 改進的是 rate 前面的常數，而不是 rate，相關討論可見 Embree 的 technical report [arXiv:2209.01231](https://arxiv.org/abs/2209.01231) Section 2.2。這個 PR 只修正 AI 收集的 notes，不是對證明的 review。
-
-## {% include math/ai/openai-result.html num="378" %}
-
-Family 378 是 *The Exponential Time Hypothesis is False*。
-
-### PR {% include pr-link.html num=60 %}
-
-2026-10-29 merge，由 `chelsinchaos`（Chelsea A. McElveen）提交。在該論文的資料夾加入 `NOTES.md` 與 `checks/`：Section 2.3–2.7 的 executable toy model、Section 2.7 construction 的結構性評論，以及兩項寫作建議。不改動 TeX 與論文的主張。實作與撰寫由 Claude 協助。
-
-### PR {% include pr-link.html num=68 %}
-
-2026-10-30 merge，由 `schmittj` 提交，修正 PR {% include pr-link.html num=60 %} 加入的 `NOTES.md`。review 發現該檔的結構性評論有數學上的問題，對 Lean 的敘述不準確，指令也無法重現表格，且不符合 `AGENTS.md` 的格式。處理方式：
-
-- `NOTES.md` 由約 1,100 字縮為約 210 字，移除 Commentary 各節（含評論 2(a)、2(b)、表格與對 $t$-dependence 的建議）。
-- 移除 `checks/`，script 仍在貢獻者的 repository。
-- 保留 Contributions 紀錄、$R=Q+1$ 的例子，以及貢獻者 repository 的連結。
-
-保留的連結是 McElveen 的 [*Measurement-Indexed Counting: An Executable Study of OpenAI's \#3-SAT Algorithm, Semiring Component Caches, and the Limits of Oblivious Sampling*](https://github.com/chelsinchaos/measurement-indexed-counting/tree/7a73e39b11c71d2b3c7209074e04e84208612b58)（manuscript、程式與資料集，2026-10-28）。其中的 Python 模型逐項對照 brute force（$n\le14$），使用 heuristic schedule 而非論文的 derandomized 版本。review 的細節在 PR {% include pr-link.html num=60 %} 的 comment。PR 沒有主張論文有錯。
