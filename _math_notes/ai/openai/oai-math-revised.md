@@ -16,6 +16,16 @@ oai-math-revised 是社群對 openai/math 論文的修訂計畫，獨立於 Open
 
 目前追蹤的 result family：#003、#087、#095、#102、#103、#109、#124、#142、#151、#165、#179、#240、#246、#325、#378。
 
+<div class="remark">
+<strong>Remark.</strong>
+本頁收錄對 openai/math 的結果有實質改善的 merged PR。依改善的性質分類：
+<ul>
+<li>改善結果或驗證：簡化或加強證明、補上驗證的缺口、釐清依賴關係。</li>
+<li>改善理解：重寫或逐步說明證明，或對應到 Lean declaration 的導讀。</li>
+<li>只補引用、修正自動收集的 notes，以及 repository 層級的同步，不收錄。</li>
+</ul>
+</div>
+
 <script defer src="{{ '/assets/js/repo-stats.js' | relative_url }}"></script>
 
 ## {% include math/ai/openai-result.html num="003" %}
