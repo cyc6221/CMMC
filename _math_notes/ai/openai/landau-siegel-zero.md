@@ -5,6 +5,8 @@ description: 追蹤 openai/math 第 003 項 Landau–Siegel zeros 的 uniform ex
 date: 2026-10-26
 last_updated: 2026-10-27
 pr_repo: mathcommunity/oai-math-revised
+redirect_from:
+  - /articles/Math/ai/openai/landau-siegel-zero/
 ---
 2026 年 10 月，openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %} 的 Family 003 宣稱排除了 Landau–Siegel zero。結果發布後不久，陸續出現獨立的重新證明、簡化、定量化、形式驗證與推廣。這份筆記追蹤 003 發布之後這個問題的發展。
 

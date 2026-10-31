@@ -4,6 +4,8 @@ title: The Quasi-Riemann Hypothesis
 description: 整理 openai/math 第 003 項結果：所有 Dirichlet L-function 在 Re(s)>7/8 沒有零點，並收錄 11/12 與 Landau–Siegel zeros 的相關 preprint。
 date: 2026-10-23
 last_updated: 2026-10-23
+redirect_from:
+  - /articles/Math/ai/openai/quasi-riemann-hypothesis/
 ---
 openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %} 的第 003 項結果，證明所有 Dirichlet $L$-function（包含 Riemann zeta function $\zeta(s)$）在半平面 $\mathrm{Re}(s)>7/8$ 沒有零點。同一個半平面對 $\mathbb{Q}(\sqrt{-3})$ 上的每個 finite-order Hecke $L$-function 也成立。
 

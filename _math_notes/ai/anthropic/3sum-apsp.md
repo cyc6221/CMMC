@@ -3,6 +3,8 @@ layout: page
 title: 3SUM and APSP
 date: 2026-10-21
 last_updated: 2026-10-21
+redirect_from:
+  - /articles/Math/ai/anthropic/3sum-apsp/
 ---
 
 3SUM 與 APSP（all-pairs shortest paths）是 fine-grained complexity 中兩個核心問題，教科書演算法分別需要 $O(n^2)$ 與 $O(n^3)$ 時間，長期被假設無法再有 polynomial improvement。2026 年 10 月，這兩個問題首次同時被突破，核心演算法方向由 Anthropic 的 Claude research model 找到，其 Lean 4 形式化收錄於 [anthropics/formal-math](https://github.com/anthropics/formal-math/tree/main/3sum-apsp)。

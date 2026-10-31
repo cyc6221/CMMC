@@ -5,6 +5,8 @@ description: 追蹤 mathcommunity/oai-math-revised 中已 merge 的 PR，依 ope
 date: 2026-10-27
 last_updated: 2026-10-27
 pr_repo: mathcommunity/oai-math-revised
+redirect_from:
+  - /articles/Math/ai/openai/oai-math-revised/
 ---
 mathcommunity/oai-math-revised {% include gh-link.html href="https://github.com/mathcommunity/oai-math-revised" label="repo" aria_label="repo: mathcommunity/oai-math-revised on GitHub" %}
 

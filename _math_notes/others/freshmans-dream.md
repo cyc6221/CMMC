@@ -3,6 +3,8 @@ layout: page
 title: Freshman's Dream
 date: 2026-03-02
 last_updated: 2026-03-03
+redirect_from:
+  - /articles/Math/others/freshmans-dream/
 ---
 
 **Freshman’s dream** 指一個常見的初學者直覺：將冪次「錯誤地」分配到加法上，誤以為
@@ -116,4 +118,4 @@ $$
 
 ## 參見
 
-- [Sophomore's Dream]({{ "/articles/Math/others/sophomores-dream/" | relative_url }})
+- [Sophomore's Dream]({{ "/math/notes/others/sophomores-dream/" | relative_url }})

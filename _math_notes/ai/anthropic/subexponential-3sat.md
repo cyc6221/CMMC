@@ -4,10 +4,12 @@ title: A $2^{o(n)}$ Time Algorithm for 3-SAT
 description: 整理 anthropics/formal-math 的 eth 專案：確定性演算法在次指數時間內計數 k-CNF 的滿足賦值，反駁 Exponential Time Hypothesis。
 date: 2026-10-29
 last_updated: 2026-10-29
+redirect_from:
+  - /articles/Math/ai/anthropic/subexponential-3sat/
 ---
 anthropics/formal-math {% include gh-link.html href="https://github.com/anthropics/formal-math" label="repo" aria_label="repo: anthropics/formal-math on GitHub" %} 的 `eth` 專案 {% include gh-link.html href="https://github.com/anthropics/formal-math/tree/main/eth" label="eth" aria_label="eth project on GitHub" %} 收錄論文 *A $2^{o(n)}$ Time Algorithm for 3-SAT*（署名 Claude，Anthropic，2026-10-26）與其 Lean 4 形式化，於 2026-10-27 公開。論文給出確定性演算法，在 $2^{o(n)}$ 時間內計數 $k$-CNF 的滿足賦值，反駁 Exponential Time Hypothesis（ETH）。
 
-核心演算法由 Anthropic 內部的 research Claude model 在 10 月 16 日找到，用了 1400 萬個 output token，過程沒有人類輸入；Anthropic 的研究人員再與 Claude 合作整理成論文。OpenAI 的內部模型獨立且同時期宣稱證明了類似結果，見 [The Exponential Time Hypothesis is False]({{ '/articles/Math/ai/openai/eth-is-false/' | relative_url }})。
+核心演算法由 Anthropic 內部的 research Claude model 在 10 月 16 日找到，用了 1400 萬個 output token，過程沒有人類輸入；Anthropic 的研究人員再與 Claude 合作整理成論文。OpenAI 的內部模型獨立且同時期宣稱證明了類似結果，見 [The Exponential Time Hypothesis is False]({{ '/math/notes/ai/openai/eth-is-false/' | relative_url }})。
 
 ## 主要結果
 
@@ -150,5 +152,5 @@ $K_\ell=9K_{\ell-1}^{16}$ 以雙指數成長。$K_0=64$ 時 $e_1\approx1.03$，�
 
 ### 相關筆記
 
-- [Exponential Time Hypothesis]({{ '/articles/Math/others/exponential-time-hypothesis/' | relative_url }})
-- [The Exponential Time Hypothesis is False]({{ '/articles/Math/ai/openai/eth-is-false/' | relative_url }})
+- [Exponential Time Hypothesis]({{ '/math/notes/others/exponential-time-hypothesis/' | relative_url }})
+- [The Exponential Time Hypothesis is False]({{ '/math/notes/ai/openai/eth-is-false/' | relative_url }})

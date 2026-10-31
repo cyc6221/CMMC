@@ -4,6 +4,8 @@ title: CrocSwap integer-mult-bounds
 date: 2026-10-21
 last_updated: 2026-10-29
 pr_repo: CrocSwap/integer-mult-bounds
+redirect_from:
+  - /articles/Math/ai/openai/integer-mult-bounds/
 ---
 CrocSwap/integer-mult-bounds {% include gh-link.html href="https://github.com/CrocSwap/integer-mult-bounds" label="repo" aria_label="repo: CrocSwap/integer-mult-bounds on GitHub" %}
 

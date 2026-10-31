@@ -4,6 +4,8 @@ title: openai/math Overview
 description: 整理 openai/math 的目錄結構、手稿與形式化統計、領域分佈及更新紀錄。
 date: 2026-10-22
 last_updated: 2026-10-30
+redirect_from:
+  - /articles/Math/ai/openai/math-overview/
 ---
 
 openai/math {% include gh-link.html href="https://github.com/openai/math" label="repo" aria_label="repo: openai/math on GitHub" %}
@@ -94,9 +96,9 @@ openai/math
 
 <div class="now-notes">
   <span class="now-notes__label">notes</span>
-  {% include note-link.html href="/articles/Math/ai/openai/quasi-riemann-hypothesis/" label="The Quasi-Riemann Hypothesis" %}
-  {% include note-link.html href="/articles/Math/prime-number/riemann-hypothesis/" label="Riemann Hypothesis" %}
-  {% include note-link.html href="/articles/Math/ai/openai/landau-siegel-zero/" label="Landau–Siegel Zero" %}
+  {% include note-link.html href="/math/notes/ai/openai/quasi-riemann-hypothesis/" label="The Quasi-Riemann Hypothesis" %}
+  {% include note-link.html href="/math/notes/prime-number/riemann-hypothesis/" label="Riemann Hypothesis" %}
+  {% include note-link.html href="/math/notes/ai/openai/landau-siegel-zero/" label="Landau–Siegel Zero" %}
 </div>
 
 - The Quasi-Riemann Hypothesis (7/8) {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026" label="preprint" aria_label="preprint: The Quasi-Riemann Hypothesis (7/8) on GitHub" %}
@@ -109,7 +111,7 @@ openai/math
 
 <div class="now-notes">
   <span class="now-notes__label">notes</span>
-  {% include note-link.html href="/articles/Math/ai/openai/integer-mult-bounds/" label="CrocSwap integer-mult-bounds" %}
+  {% include note-link.html href="/math/notes/ai/openai/integer-mult-bounds/" label="CrocSwap integer-mult-bounds" %}
 </div>
 
 - Integer multiplication below $n\log n$ {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026" label="preprint" aria_label="preprint: Integer multiplication below n log n on GitHub" %}
@@ -118,8 +120,8 @@ openai/math
 
 <div class="now-notes">
   <span class="now-notes__label">notes</span>
-  {% include note-link.html href="/articles/Math/ai/openai/eth-is-false/" label="The Exponential Time Hypothesis is False" %}
-  {% include note-link.html href="/articles/Math/others/exponential-time-hypothesis/" label="Exponential Time Hypothesis" %}
+  {% include note-link.html href="/math/notes/ai/openai/eth-is-false/" label="The Exponential Time Hypothesis is False" %}
+  {% include note-link.html href="/math/notes/others/exponential-time-hypothesis/" label="Exponential Time Hypothesis" %}
 </div>
 
 - The Exponential Time Hypothesis is False {% include gh-link.html href="https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026" label="preprint" aria_label="preprint: The Exponential Time Hypothesis is False on GitHub" %}

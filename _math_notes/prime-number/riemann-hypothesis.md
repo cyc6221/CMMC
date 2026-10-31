@@ -3,6 +3,8 @@ layout: page
 title: Riemann Hypothesis
 date: 2026-10-26
 last_updated: 2026-10-27
+redirect_from:
+  - /articles/Math/prime-number/riemann-hypothesis/
 ---
 
 **Riemann Hypothesis (RH)**，黎曼猜想：Riemann zeta function 所有非平凡零點的實部都是 $\frac12$。這個猜想等價於 $\pi(x)$ 與 $\operatorname{Li}(x)$ 之間的誤差界，也是 Clay Millennium Prize Problems 之一。
@@ -99,7 +101,7 @@ $$
 $$
 </div>
 
-[Prime Number Theorem]({{ '/articles/Math/prime-number/prime-number-theorem/' | relative_url }}) 只需要 $\zeta(1+it)\neq 0$，也就是零點不在 $\operatorname{Re}(s)=1$ 上，得到的是 $\pi(x)\sim\frac{x}{\log x}$。
+[Prime Number Theorem]({{ '/math/notes/prime-number/prime-number-theorem/' | relative_url }}) 只需要 $\zeta(1+it)\neq 0$，也就是零點不在 $\operatorname{Re}(s)=1$ 上，得到的是 $\pi(x)\sim\frac{x}{\log x}$。
 
 ## Known Results
 

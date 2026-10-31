@@ -3,6 +3,8 @@ layout: page
 title: OpenAI Math Announcements
 date: 2026-10-22
 last_updated: 2026-10-30
+redirect_from:
+  - /articles/Math/ai/openai/announcements/
 ---
 
 本文按時間整理 OpenAI 在 2026 年 5 月至 10 月的主要數學成果公告，並補充研究工具、顧問團體與成果公開方式的背景。5 月公布 unit-distance 猜想的反例，10 月 6 日則集中釋出 `openai/math` 的數學成果。
