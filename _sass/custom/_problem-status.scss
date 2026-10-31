@@ -1,0 +1,23 @@
+/* status chip after a problem title on the Math / Problems cards */
+
+.problem-solved {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 6px;
+  border: 1px solid rgba(51, 255, 51, 0.4);
+  border-radius: 4px;
+  background: rgba(51, 255, 51, 0.08);
+  color: #33ff33;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.72em;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: 0.1em;
+}
+
+.problem-solved::before {
+  content: "\2713\00a0";
+}
