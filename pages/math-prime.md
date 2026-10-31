@@ -2,6 +2,7 @@
 layout: page
 title: Math / Prime
 permalink: /math/prime/
+nav_kind: cards
 nav_parent: pages/math.md
 nav_title: Prime
 toc: false

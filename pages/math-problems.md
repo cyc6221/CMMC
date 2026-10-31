@@ -2,6 +2,7 @@
 layout: page
 title: Math / Problems
 permalink: /math/problems/
+nav_kind: cards
 nav_parent: pages/math.md
 nav_title: Problems
 toc: false
