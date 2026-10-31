@@ -19,10 +19,11 @@
             </a>
         </p>
         <!-- --- -->
-        <ul class="now-list">
-            <li><a href="{{ '/PortSwigger/' | relative_url }}">PortSwigger All Learning Paths — Contents</a></li>
-            <li><a href="{{ '/PortSwigger-all-labs/' | relative_url }}">PortSwigger All Labs</a></li>
-        </ul>
+        <div class="now-notes">
+            <span class="now-notes__label">notes</span>
+            {% include note-link.html href="/PortSwigger/" label="All Learning Paths" %}
+            {% include note-link.html href="/PortSwigger-all-labs/" label="All Labs" %}
+        </div>
         <!-- --- -->
         <div class="chap-strip" aria-label="All learning paths">
             <span class="chap-pill reading">API testing</span>
