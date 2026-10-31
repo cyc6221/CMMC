@@ -34,9 +34,10 @@
             </a>
         </p>
         <!-- --- -->
-        <ul class="now-list">
-            <li><a href="{{ '/CryptoHack-all-problems/' | relative_url }}">CryptoHack All Problems</a></li>
-        </ul>
+        <div class="now-notes">
+            <span class="now-notes__label">notes</span>
+            {% include note-link.html href="/CryptoHack-all-problems/" label="All Problems" %}
+        </div>
         <!-- --- -->
         <section class="now-section">
             <h4>Courses</h4>
