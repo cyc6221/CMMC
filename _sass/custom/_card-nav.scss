@@ -1,0 +1,121 @@
+// -----------------------------------------------
+// Card nav
+// 卡片頁上方的跳轉列，由 assets/js/card-nav.js 產生；
+// 外觀沿用 .now-card 的終端機視窗，每個連結是一列目錄項目
+// -----------------------------------------------
+
+.now-grid > .now-card {
+  scroll-margin-top: 90px;
+}
+
+.card-nav {
+  margin: 20px 0 0;
+  border: 1px solid #6a6f73;
+  background: #0d0d0d;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+/* terminal top bar, same as .now-card::before */
+
+.card-nav::before {
+  content: "$ ls";
+  display: block;
+  padding: 10px 14px;
+  border-bottom: 1px solid #6a6f73;
+  background: #111;
+  color: #33ff33;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.card-nav__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 12px;
+  list-style: none;
+}
+
+.card-nav__list li {
+  margin: 0;
+  min-width: 0;
+}
+
+/* one entry: index | title; hue cycles per entry like .now-section */
+
+.card-nav__list li {
+  --sec: 255, 123, 114;
+}
+
+.card-nav__list li:nth-child(3n + 2) { --sec: 227, 179, 65; }
+.card-nav__list li:nth-child(3n + 3) { --sec: 210, 153, 255; }
+
+a.card-nav__link,
+a.card-nav__link:visited {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: baseline;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px 8px 10px;
+  border: 1px solid rgba(var(--sec), 0.18);
+  border-left: 3px solid rgba(var(--sec), 0.75);
+  background: rgba(var(--sec), 0.07);
+  color: #cfcfcf;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.card-nav__index {
+  color: rgba(var(--sec), 0.6);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.card-nav__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgb(var(--sec));
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* hover / focus */
+
+a.card-nav__link:hover,
+a.card-nav__link:focus-visible {
+  border-color: rgba(var(--sec), 0.45);
+  border-left-color: rgb(var(--sec));
+  background: rgba(var(--sec), 0.14);
+  text-decoration: none;
+}
+
+a.card-nav__link:focus-visible {
+  outline: 2px solid rgb(var(--sec));
+  outline-offset: 2px;
+}
+
+/* the card currently in view */
+
+a.card-nav__link.is-active {
+  border-color: rgb(var(--sec));
+  border-left-color: rgb(var(--sec));
+  background: rgba(var(--sec), 0.2);
+}
+
+a.card-nav__link.is-active .card-nav__index {
+  color: rgb(var(--sec));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.card-nav__link {
+    transition: none;
+  }
+}
