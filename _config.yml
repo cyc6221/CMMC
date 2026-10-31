@@ -22,9 +22,15 @@ collections:
   papers:
     output: true
     permalink: /research/papers/:path/
-  notes:
+  book_notes:
     output: true
     permalink: /book/notes/:path/
+  math_notes:
+    output: true
+    permalink: /math/notes/:path/
+  ctf_notes:
+    output: true
+    permalink: /ctf/notes/:path/
 
 # Overrides Jekyll's default exclude list, so the defaults are repeated here
 exclude:

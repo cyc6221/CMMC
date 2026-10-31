@@ -4,6 +4,7 @@ title: Papers
 permalink: /research/papers/
 nav_parent: pages/research.md
 toc: false
+list_controls: true
 ---
 
 {% assign paper_count = 0 %}

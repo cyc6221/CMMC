@@ -127,7 +127,7 @@ layout: default
     </div>
   {% endif %}
 
-  {% if page.url == "/articles/" or page.url == "/book/notes/" or page.url == "/research/papers/" or page.url == "/research/papers/BD20-notes/" or page.url == "/research/papers/HM25-notes/" %}
+  {% if page.list_controls %}
     <script defer src="{{ '/assets/js/articles-sort.js' | relative_url }}"></script>
   {% endif %}
 

@@ -7,6 +7,6 @@ toc: false
 
 ## Web Cache Deception
 
-- [Web Cache Deception]({{ "/articles/PortSwigger/Web-Cache-Deception/Web-Cache-Deception/" | relative_url }})
+- [Web Cache Deception]({{ "/ctf/notes/PortSwigger/Web-Cache-Deception/Web-Cache-Deception/" | relative_url }})
 
 ## API Testing

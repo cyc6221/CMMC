@@ -81,7 +81,7 @@ When the user asks to merge a PR after review fixes:
 
 ## Note Writing Rules
 
-These rules apply whenever Claude Code, Codex, or any other agent writes or reorganizes a study note under `_articles/` or `_papers/`.
+These rules apply whenever Claude Code, Codex, or any other agent writes or reorganizes a study note under `_articles/`, `_papers/`, `_book_notes/`, `_math_notes/`, or `_ctf_notes/`.
 
 ### Language and tone
 

@@ -3,6 +3,7 @@ layout: page
 title: HM25 Notes
 permalink: /research/papers/HM25-notes/
 toc: false
+list_controls: true
 ---
 
 [← Papers]({{ "/research/papers/" | relative_url }}) · [HM25 論文頁]({{ "/research/papers/HM25/" | relative_url }})
