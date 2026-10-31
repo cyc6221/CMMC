@@ -216,6 +216,28 @@ header.now-head::after {
   margin-bottom: 0;
 }
 
+/* sub-problems inside a section, e.g. Hilbert's 8a-8d */
+
+.now-subsection {
+  margin: 0 0 12px;
+  padding: 0 0 0 12px;
+  border-left: 1px dashed rgba(var(--sec), 0.45);
+}
+
+.now-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.now-subsection > h5 {
+  margin: 10px 0 6px;
+  color: rgba(var(--sec), 0.9);
+  font-size: 13px;
+}
+
+.now-subsection > :last-child {
+  margin-bottom: 0;
+}
+
 /* horizontal rule between groups of sections inside a card */
 
 .now-divider {
