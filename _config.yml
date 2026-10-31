@@ -22,7 +22,7 @@ collections:
   papers:
     output: true
     permalink: /research/papers/:path/
-  notes:
+  book_notes:
     output: true
     permalink: /book/notes/:path/
 

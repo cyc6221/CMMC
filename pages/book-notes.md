@@ -6,7 +6,7 @@ nav_parent: pages/book.md
 toc: false
 ---
 
-<h2>總共有 {{ site.notes | size }} 篇 notes</h2>
+<h2>總共有 {{ site.book_notes | size }} 篇 notes</h2>
 
 {% include articles/controls.html %}
-{% include articles/list.html collection="notes" %}
+{% include articles/list.html collection="book_notes" %}
