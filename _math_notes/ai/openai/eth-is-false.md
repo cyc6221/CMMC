@@ -3,7 +3,7 @@ layout: page
 title: The Exponential Time Hypothesis is False
 description: 整理 openai/math 第 378 項結果：以次指數時間、多項式空間精確計數 k-CNF 的滿足賦值，反駁 Exponential Time Hypothesis。
 date: 2026-10-27
-last_updated: 2026-10-29
+last_updated: 2026-10-31
 redirect_from:
   - /articles/Math/ai/openai/disproof-of-eth/
   - /articles/Math/ai/openai/eth-is-false/
@@ -161,6 +161,15 @@ $$(L+1)^{O_k(1)}2^{O_k(n(\log\log n)^2/\sqrt{\log n})},$$
 ### Preprint
 
 - [The Exponential Time Hypothesis is False](https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026)
+
+### 社群檢驗與討論
+
+- [ETH: Community Examination and Discussion](https://ethdiscussion.blog/)：第 378 項結果的社群檢驗討論站，收錄 Lean 重現結果與外部整理的連結（[Links To Other Work](https://ethdiscussion.blog/2026/10/29/links-to-other-work/)）。
+- Ryan O'Donnell. [Some exposition of "The Exponential Time Hypothesis Is False"](https://www.cs.cmu.edu/~odonnell/some_eth_false_exposition.pdf). 2026-10-29.
+- Mark Sellke. [An Outline of OpenAI's $2^{o(n)}$-Time $k$-SAT Algorithm](https://msellke.com/Files/ETH-False-Slides.pdf). Slides, 2026-10.
+- Shiva Kintali. [A simplified proof of ETH is false](https://shivakintali.github.io/papers/ETH.pdf). 2026-10-26.
+- Lance Fortnow. [The Exponential Time Refutation](https://blog.computationalcomplexity.org/2026/10/the-exponential-time-refutation.html). Computational Complexity blog, 2026-10-28.
+- Carlos Toledo. [Two claimed refutations of the Exponential Time Hypothesis: what was decided, and what was only read](https://carlostoledo.co/eth/)：以多個 kernel 重跑 OpenAI 與 Anthropic 的 Lean 證明，並檢查兩者的 formal statement 與教科書 ETH 之間的 bridge。
 
 ### 引用的結果
 
