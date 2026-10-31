@@ -93,7 +93,7 @@ For every positive integer $n$, there is a prime $p$ with $n^2 < p < (n+1)^2$.
 
 ## Heuristic
 
-由 Prime Number Theorem，$x$ 附近質數的密度約為 $1/\ln x$。區間 $(n^2,(n+1)^2)$ 內的 $x$ 都滿足 $\ln x\approx 2\ln n$，因此區間內質數個數的期望值約為
+由 [Prime Number Theorem]({{ '/math/notes/prime-number/prime-number-theorem/' | relative_url }})，$x$ 附近質數的密度約為 $1/\ln x$。區間 $(n^2,(n+1)^2)$ 內的 $x$ 都滿足 $\ln x\approx 2\ln n$，因此區間內質數個數的期望值約為
 
 $$
 \frac{2n+1}{\ln n^2}\approx\frac{n}{\ln n}.
@@ -141,7 +141,7 @@ For all sufficiently large $x$, the interval $[x-x^{0.525},x]$ contains a prime.
 Assuming the Riemann Hypothesis, $g_k = O\!\left(\sqrt{p_k}\,\log p_k\right)$.
 </div>
 
-即使在 Riemann Hypothesis 之下，上界仍多出一個 $\log p_k$ 的因子，所以 RH 也不足以推出 Legendre's conjecture。
+即使在 [Riemann Hypothesis]({{ '/math/notes/prime-number/riemann-hypothesis/' | relative_url }}) 之下，上界仍多出一個 $\log p_k$ 的因子，所以 RH 也不足以推出 Legendre's conjecture。
 
 ### Cramér's Conjecture
 
