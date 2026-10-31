@@ -8,4 +8,5 @@ toc: false
 ---
 
 <section class="now-grid">
+{% include math/problems/ErdosProblem.html %}
 </section>
