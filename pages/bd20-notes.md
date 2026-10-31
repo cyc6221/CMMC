@@ -3,6 +3,7 @@ layout: page
 title: BD20 Notes
 permalink: /research/papers/BD20-notes/
 toc: false
+list_controls: true
 ---
 
 [← Papers]({{ "/research/papers/" | relative_url }}) · [BD20 論文頁]({{ "/research/papers/BD20/" | relative_url }})
