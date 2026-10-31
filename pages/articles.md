@@ -2,6 +2,7 @@
 layout: page
 title: Articles
 permalink: /articles/
+nav_kind: notes
 toc: false
 list_controls: true
 ---

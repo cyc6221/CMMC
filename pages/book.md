@@ -2,6 +2,7 @@
 layout: page
 title: Book
 permalink: /book/
+nav_kind: cards
 toc: false
 ---
 

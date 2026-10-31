@@ -2,6 +2,7 @@
 layout: page
 title: Math
 permalink: /math/
+nav_kind: cards
 toc: false
 ---
 

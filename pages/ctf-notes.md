@@ -2,6 +2,7 @@
 layout: page
 title: CTF / Notes
 permalink: /ctf/notes/
+nav_kind: notes
 nav_parent: pages/ctf.md
 nav_title: Notes
 toc: false

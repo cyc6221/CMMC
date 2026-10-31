@@ -2,6 +2,7 @@
 layout: page
 title: CTF
 permalink: /ctf/
+nav_kind: cards
 toc: false
 ---
 

@@ -2,6 +2,7 @@
 layout: page
 title: Research
 permalink: /research/
+nav_kind: cards
 toc: false
 ---
 

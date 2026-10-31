@@ -2,6 +2,7 @@
 layout: page
 title: Papers
 permalink: /research/papers/
+nav_kind: notes
 nav_parent: pages/research.md
 toc: false
 list_controls: true

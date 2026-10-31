@@ -2,6 +2,7 @@
 layout: page
 title: Math / AI
 permalink: /math/ai/
+nav_kind: cards
 nav_parent: pages/math.md
 nav_title: AI
 toc: false

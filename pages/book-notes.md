@@ -2,6 +2,7 @@
 layout: page
 title: Notes
 permalink: /book/notes/
+nav_kind: notes
 nav_parent: pages/book.md
 toc: false
 list_controls: true

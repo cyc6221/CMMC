@@ -1,0 +1,19 @@
+/* page-type marker after a nav link, set by `nav_kind` in the page front matter */
+
+.site-nav .nav-kind {
+  color: #777;
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+.site-nav .page-link:hover .nav-kind {
+  color: inherit;
+}
+
+.nav-kind--cards::before {
+  content: "/";
+}
+
+.nav-kind--notes::before {
+  content: ".md";
+}

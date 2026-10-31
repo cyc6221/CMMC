@@ -2,6 +2,7 @@
 layout: page
 title: Math / Notes
 permalink: /math/notes/
+nav_kind: notes
 nav_parent: pages/math.md
 nav_title: Notes
 toc: false
