@@ -3,6 +3,8 @@ layout: page
 title: Web Cache Deception Payload Cheatsheet
 date: 2026-02-02
 last_updated: 2026-02-02
+redirect_from:
+  - /articles/PortSwigger/Web-Cache-Deception/WCD-Payload-Cheatsheet/
 ---
 
 ## How to use

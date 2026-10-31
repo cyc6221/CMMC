@@ -5,6 +5,7 @@ date: 2026-03-01
 last_updated: 2026-03-01
 redirect_from:
   - /articles/CryptoHack/bionomials/
+  - /articles/CryptoHack/binomials/
 ---
 
 ## 題目敘述

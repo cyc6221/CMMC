@@ -28,6 +28,9 @@ collections:
   math_notes:
     output: true
     permalink: /math/notes/:path/
+  ctf_notes:
+    output: true
+    permalink: /ctf/notes/:path/
 
 # Overrides Jekyll's default exclude list, so the defaults are repeated here
 exclude:

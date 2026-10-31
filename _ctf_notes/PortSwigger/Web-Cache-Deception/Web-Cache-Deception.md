@@ -3,6 +3,8 @@ layout: page
 title: Web Cache Deception
 date: 2026-02-02
 last_updated: 2026-02-03
+redirect_from:
+  - /articles/PortSwigger/Web-Cache-Deception/Web-Cache-Deception/
 ---
 
 參考 PortSwigger 的 [Web cache deception（Learning path）](https://portswigger.net/web-security/learning-paths/web-cache-deception) 與 [Web cache deception](https://portswigger.net/web-security/web-cache-deception) 整理。

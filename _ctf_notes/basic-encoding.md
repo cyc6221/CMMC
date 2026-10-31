@@ -3,6 +3,8 @@ layout: page
 title: Basic Encoding (Python)
 date: 2026-01-28
 last_updated: 2026-01-28
+redirect_from:
+  - /articles/CTF/basic-encoding/
 ---
 
 - Hex ⇄ Bytes

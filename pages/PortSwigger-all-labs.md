@@ -10,7 +10,7 @@ toc: false
 <ul class="lab-table">
   <li class="lab-row">
     <span class="level level--apprentice">APPRENTICE</span>
-    <a href='{{ "/articles/PortSwigger/Web-Cache-Deception/labs/lab-wcd-exploiting-path-mapping/" | relative_url }}'>
+    <a href='{{ "/ctf/notes/PortSwigger/Web-Cache-Deception/labs/lab-wcd-exploiting-path-mapping/" | relative_url }}'>
       Exploiting path mapping for web cache deception
     </a>
     <span class="lab-status is-solved">Solved</span>
@@ -18,7 +18,7 @@ toc: false
 
   <li class="lab-row">
     <span class="level level--practitioner">PRACTITIONER</span>
-    <a href='{{ "/articles/PortSwigger/Web-Cache-Deception/labs/lab-wcd-exploiting-path-delimiters/" | relative_url }}'>
+    <a href='{{ "/ctf/notes/PortSwigger/Web-Cache-Deception/labs/lab-wcd-exploiting-path-delimiters/" | relative_url }}'>
       Exploiting path delimiters for web cache deception
     </a>
     <span class="lab-status is-solved">Solved</span>
@@ -48,7 +48,7 @@ toc: false
 <ul class="lab-table">
   <li class="lab-row">
     <span class="level level--apprentice">APPRENTICE</span>
-    <a href='{{ "/articles/PortSwigger/API-Testing/labs/lab-exploiting-api-endpoint-using-documentation/" | relative_url }}'>
+    <a href='{{ "/ctf/notes/PortSwigger/API-Testing/labs/lab-exploiting-api-endpoint-using-documentation/" | relative_url }}'>
       Exploiting an API endpoint using documentation
     </a>
     <span class="lab-status is-solved">Solved</span>
@@ -62,7 +62,7 @@ toc: false
 
   <li class="lab-row">
     <span class="level level--practitioner">PRACTITIONER</span>
-    <a href='{{ "/articles/PortSwigger/API-Testing/labs/lab-exploiting-unused-api-endpoint/" | relative_url }}'>
+    <a href='{{ "/ctf/notes/PortSwigger/API-Testing/labs/lab-exploiting-unused-api-endpoint/" | relative_url }}'>
       Finding and exploiting an unused API endpoint
     </a>
     <span class="lab-status is-solved">Solved</span>
