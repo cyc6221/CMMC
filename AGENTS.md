@@ -119,6 +119,15 @@ These rules apply whenever Claude Code, Codex, or any other agent writes or reor
 - Keep a bare `#N` for identifiers that are not pull requests (e.g. openai/math Result `#109`).
 - The chip style lives in `_sass/custom/_pr-link.scss`.
 
+### OEIS sequences
+
+- Mention an OEIS sequence inline with `{% include oeis.html id="A005384" %}` instead of a bare `OEIS [A005384](https://oeis.org/A005384)` link.
+- Use `{% include oeis-card.html id="A005384" %}` when a note presents the sequence itself (title plus initial terms); pass `show=N` to change how many terms the strip shows (default 12).
+- Add every sequence to `_data/oeis.yml` before using it: `name` is the OEIS title verbatim, `name_zh` an optional Traditional Chinese gloss, `offset` the OEIS offset, and `terms` the initial terms copied from OEIS or computed, never typed from memory.
+- Each entry in `_data/oeis.yml` appears automatically on the Math / OEIS page (`pages/math-oeis.md`), with the notes that mention it.
+- Plain links in a references list at the end of a note may stay as ordinary Markdown links.
+- The chip and card styles live in `_sass/custom/_oeis.scss`.
+
 ### Math
 
 - Use inline `$...$` by default; use `$$...$$` only for equations that deserve their own line.
