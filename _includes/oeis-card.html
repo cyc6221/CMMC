@@ -1,0 +1,40 @@
+{%- if include.id and site.data.oeis[include.id] -%}
+{%- assign oeis_show = include.show | default: 12 -%}
+<figure class="oeis-card">
+  <figcaption class="oeis-card__head">
+    <a class="oeis-card__id" href="https://oeis.org/{{ include.id | escape }}" target="_blank" rel="noopener noreferrer">{{ include.id | escape }}</a>
+    <span class="oeis-card__name">{{ site.data.oeis[include.id].name | escape }}</span>
+  </figcaption>
+  {%- if site.data.oeis[include.id].name_zh %}
+  <p class="oeis-card__gloss">{{ site.data.oeis[include.id].name_zh }}</p>
+  {%- endif %}
+  <ol class="oeis-card__terms" aria-label="initial terms">
+    {%- for oeis_term in site.data.oeis[include.id].terms limit: oeis_show %}
+    <li><span class="oeis-card__n">{{ forloop.index0 | plus: site.data.oeis[include.id].offset }}</span>{{ oeis_term }}</li>
+    {%- endfor %}
+    <li class="oeis-card__more" aria-hidden="true">&hellip;</li>
+  </ol>
+  {%- if site.data.oeis[include.id].terms.size > oeis_show %}
+  <details class="oeis-card__all">
+    <summary>first {{ site.data.oeis[include.id].terms.size }} terms</summary>
+    <p>{{ site.data.oeis[include.id].terms | join: ", " }}, &hellip;</p>
+  </details>
+  {%- endif %}
+  {%- if include.notes %}
+  {%- capture oeis_notes -%}
+    {%- for oeis_doc in site.documents -%}
+      {%- if oeis_doc.url != page.url and oeis_doc.content contains include.id -%}
+        {% include note-link.html href=oeis_doc.url label=oeis_doc.title %}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- assign oeis_notes = oeis_notes | strip -%}
+  {%- if oeis_notes != "" %}
+  <div class="now-notes oeis-card__notes">
+    <span class="now-notes__label">notes</span>
+    {{ oeis_notes }}
+  </div>
+  {%- endif %}
+  {%- endif %}
+</figure>
+{%- endif -%}{%- comment -%}OEIS sequence card: A-number, OEIS title, optional Chinese gloss, a strip of the first terms with their indices, and a toggle with every stored term. Pass id as the A-number; the sequence must have an entry in _data/oeis.yml. Optional show sets how many terms the strip shows (default 12). Optional notes=true adds a footer with every other document whose source mentions the id. The variables oeis_show, oeis_term, oeis_doc, and oeis_notes are prefixed because assign and for variables leak into the including page's scope.{%- endcomment -%}
