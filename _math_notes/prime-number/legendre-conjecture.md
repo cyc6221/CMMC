@@ -89,7 +89,7 @@ For every positive integer $n$, there is a prime $p$ with $n^2 < p < (n+1)^2$.
   </tbody>
 </table>
 
-區間內質數的個數記錄在 OEIS [A014085](https://oeis.org/A014085)。個數整體隨 $n$ 增加，但並非單調。
+區間內質數的個數記錄在 {% include oeis.html id="A014085" %}。個數整體隨 $n$ 增加，但並非單調。
 
 ## Heuristic
 
