@@ -2,10 +2,10 @@
 layout: page
 title: Legendre's Conjecture
 date: 2026-10-31
-last_updated: 2026-10-31
+last_updated: 2026-11-01
 ---
 
-**Legendre's conjecture**：任意兩個相鄰的完全平方數之間都至少有一個質數。這是 Landau 在 1912 年列出的四個質數問題之一，至今仍未被證明。
+**Legendre's conjecture**：任意兩個相鄰的完全平方數之間都至少有一個質數。這是 Landau 在 1912 年列出的四個質數問題（[Landau's problems]({{ '/math/notes/prime-number/landau-problems/' | relative_url }})）之一，至今仍未被證明。
 
 <div class="definition">
 <strong>Legendre's Conjecture</strong>
