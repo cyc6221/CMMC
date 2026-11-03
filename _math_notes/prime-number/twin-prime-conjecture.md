@@ -12,7 +12,7 @@ last_updated: 2026-11-01
 There are infinitely many primes $p$ such that $p+2$ is also prime.
 </div>
 
-滿足條件的 $(p,p+2)$ 稱為 **twin primes**。前幾對為 $(3,5),(5,7),(11,13),(17,19),(29,31),(41,43),(59,61),(71,73)$，較小者記錄在 OEIS [A001359](https://oeis.org/A001359)。
+滿足條件的 $(p,p+2)$ 稱為 **twin primes**。前幾對為 $(3,5),(5,7),(11,13),(17,19),(29,31),(41,43),(59,61),(71,73)$，較小者記錄在 {% include oeis.html id="A001359" %}。
 
 ## Form of Twin Primes
 

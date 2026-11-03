@@ -1,0 +1,45 @@
+# OEIS sequences referenced by notes; rendered by _includes/oeis.html (inline chip) and _includes/oeis-card.html (card).
+# name: the OEIS title, verbatim. name_zh: optional Traditional Chinese gloss, may contain $...$.
+# offset: index of the first term. terms: initial terms, used by the card.
+
+A001359:
+  name: "Lesser of twin primes."
+  name_zh: "孿生質數 $(p,p+2)$ 中較小的 $p$"
+  offset: 1
+  terms: [3, 5, 11, 17, 29, 41, 59, 71, 101, 107, 137, 149, 179, 191, 197, 227, 239, 269, 281, 311, 347, 419, 431, 461, 521, 569, 599, 617, 641, 659, 809, 821, 827, 857, 881, 1019, 1031, 1049, 1061, 1091]
+
+A002496:
+  name: "Primes of the form k^2 + 1."
+  name_zh: "形如 $k^2+1$ 的質數"
+  offset: 1
+  terms: [2, 5, 17, 37, 101, 197, 257, 401, 577, 677, 1297, 1601, 2917, 3137, 4357, 5477, 7057, 8101, 8837, 12101, 13457, 14401, 15377, 15877, 16901, 17957, 21317, 22501, 24337, 25601, 28901, 30977, 32401, 33857, 41617]
+
+A005384:
+  name: "Sophie Germain primes p: 2p+1 is also prime."
+  name_zh: "Sophie Germain 質數 $q$：$2q+1$ 也為質數"
+  offset: 1
+  terms: [2, 3, 5, 11, 23, 29, 41, 53, 83, 89, 113, 131, 173, 179, 191, 233, 239, 251, 281, 293, 359, 419, 431, 443, 491, 509, 593, 641, 653, 659, 683, 719, 743, 761, 809, 911, 953, 1013, 1019, 1031]
+
+A005385:
+  name: "Safe primes p: (p-1)/2 is also prime."
+  name_zh: 'Safe 質數 $p$：$(p-1)/2$ 也為質數'
+  offset: 1
+  terms: [5, 7, 11, 23, 47, 59, 83, 107, 167, 179, 227, 263, 347, 359, 383, 467, 479, 503, 563, 587, 719, 839, 863, 887, 983, 1019, 1187, 1283, 1307, 1319, 1367, 1439, 1487, 1523, 1619, 1823, 1907, 2027, 2039, 2063]
+
+A005574:
+  name: "Numbers k such that k^2 + 1 is prime."
+  name_zh: "使 $k^2+1$ 為質數的 $k$"
+  offset: 1
+  terms: [1, 2, 4, 6, 10, 14, 16, 20, 24, 26, 36, 40, 54, 56, 66, 74, 84, 90, 94, 110, 116, 120, 124, 126, 130, 134, 146, 150, 156, 160, 170, 176, 180, 184, 204, 206, 210, 224, 230, 236]
+
+A014085:
+  name: "Number of primes between n^2 and (n+1)^2."
+  name_zh: "區間 $(n^2,(n+1)^2)$ 內的質數個數"
+  offset: 0
+  terms: [0, 2, 2, 2, 3, 2, 4, 3, 4, 3, 5, 4, 5, 5, 4, 6, 7, 5, 6, 6, 7, 7, 7, 6, 9, 8, 7, 8, 9, 8, 8, 10, 9, 10, 9, 10, 9, 9, 12, 11, 12, 11, 9, 12, 11, 13, 10, 13, 15, 10]
+
+A045917:
+  name: "From Goldbach problem: number of decompositions of 2n into unordered sums of two odd primes."
+  name_zh: "$2n$ 寫成兩個奇質數之和的方法數（不計順序）"
+  offset: 1
+  terms: [0, 0, 1, 1, 2, 1, 2, 2, 2, 2, 3, 3, 3, 2, 3, 2, 4, 4, 2, 3, 4, 3, 4, 5, 4, 3, 5, 3, 4, 6, 3, 5, 6, 2, 5, 6, 5, 5, 7, 4, 5, 8, 5, 4, 9, 4, 5, 7, 3, 6]

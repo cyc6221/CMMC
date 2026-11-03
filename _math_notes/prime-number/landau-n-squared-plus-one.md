@@ -14,7 +14,7 @@ There are infinitely many integers $n$ such that $n^2+1$ is prime.
 
 ## Small Cases
 
-滿足條件的 $n$ 為 $1,2,4,6,10,14,16,20,24,26,\dots$（OEIS [A005574](https://oeis.org/A005574)），對應的質數為 $2,5,17,37,101,197,257,401,577,677,\dots$（OEIS [A002496](https://oeis.org/A002496)）。
+滿足條件的 $n$ 為 $1,2,4,6,10,14,16,20,24,26,\dots$（{% include oeis.html id="A005574" %}），對應的質數為 $2,5,17,37,101,197,257,401,577,677,\dots$（{% include oeis.html id="A002496" %}）。
 
 <div class="lemma">
 <strong>Lemma.</strong>

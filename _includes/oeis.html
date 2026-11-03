@@ -1,0 +1,3 @@
+{%- if include.id -%}
+<a class="oeis-link" href="https://oeis.org/{{ include.id | escape }}" target="_blank" rel="noopener noreferrer" aria-label="OEIS {{ include.id | escape }}"{% if site.data.oeis[include.id].name %} title="{{ site.data.oeis[include.id].name | escape }}"{% endif %}><span class="oeis-link__tag" aria-hidden="true">OEIS</span>{{ include.id | escape }}</a>
+{%- endif -%}{%- comment -%}Inline OEIS sequence chip. Pass id as the A-number (e.g. id="A005384"). When the id has an entry in _data/oeis.yml, its OEIS title becomes the hover tooltip. Do not assign variables here: assign leaks into the including page's scope.{%- endcomment -%}

@@ -1,0 +1,173 @@
+/* OEIS sequence chip and card (see _includes/oeis.html and _includes/oeis-card.html) */
+
+$oeis-accent: #ff8a65;
+$oeis-accent-hover: #ffab91;
+
+/* ---------- inline chip ---------- */
+
+a.oeis-link,
+a.oeis-link:visited {
+  display: inline-block;
+  margin: 0 2px;
+  padding: 0 6px 0 0;
+  border: 1px solid rgba(255, 138, 101, 0.35);
+  border-radius: 4px;
+  background: rgba(255, 138, 101, 0.06);
+  color: $oeis-accent;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.88em;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/* a mouse click leaves the chip in :focus; keep the idle look instead of the theme's a:focus underline */
+
+a.oeis-link:focus {
+  color: $oeis-accent;
+  text-decoration: none;
+}
+
+a.oeis-link:hover,
+a.oeis-link:focus-visible {
+  border-color: $oeis-accent-hover;
+  background: rgba(255, 138, 101, 0.14);
+  color: $oeis-accent-hover;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+a.oeis-link:focus-visible {
+  outline: 2px solid $oeis-accent-hover;
+  outline-offset: 2px;
+}
+
+.oeis-link__tag {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 0 4px;
+  border-right: 1px solid rgba(255, 138, 101, 0.35);
+  background: rgba(255, 138, 101, 0.12);
+  font-size: 0.78em;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  vertical-align: 0.06em;
+}
+
+/* ---------- card ---------- */
+
+/* hue cycles per card like .now-section (_now.scss) */
+
+.oeis-card {
+  --sec: 255, 123, 114;
+  margin: 1.4rem 0;
+  padding: 0.9rem 1.1rem 1rem;
+  border: 1px solid #2a2a2a;
+  border-left: 4px solid rgba(var(--sec), 0.75);
+  background: rgba(var(--sec), 0.05);
+  color: #e6e6e6;
+}
+
+.oeis-card:nth-of-type(3n + 2) { --sec: 227, 179, 65; }
+.oeis-card:nth-of-type(3n + 3) { --sec: 210, 153, 255; }
+
+.oeis-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+
+a.oeis-card__id,
+a.oeis-card__id:visited {
+  color: rgb(var(--sec));
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.05em;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+a.oeis-card__id:hover,
+a.oeis-card__id:focus-visible {
+  color: rgb(var(--sec));
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+a.oeis-card__id::after {
+  content: "\00a0\2197";
+  font-size: 0.8em;
+}
+
+.oeis-card__name {
+  flex: 1 1 16rem;
+  font-weight: 500;
+}
+
+.oeis-card__gloss {
+  margin: 4px 0 0;
+  color: #8b949e;
+  font-size: 0.92em;
+}
+
+/* term strip: each term sits over its index n */
+
+.oeis-card__terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oeis-card__terms > li {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  min-width: 2.6em;
+  margin: 0;
+  padding: 3px 6px 2px;
+  border: 1px solid rgba(var(--sec), 0.3);
+  border-radius: 4px;
+  background: #0d1117;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.92em;
+  line-height: 1.3;
+}
+
+.oeis-card__n {
+  color: #6e7681;
+  font-size: 0.7em;
+}
+
+.oeis-card__terms > li.oeis-card__more {
+  justify-content: center;
+  border-style: dashed;
+  color: #8b949e;
+}
+
+.oeis-card__all {
+  margin-top: 10px;
+}
+
+.oeis-card__all > summary {
+  color: #8b949e;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+
+.oeis-card__all > p {
+  margin: 6px 0 0;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.85em;
+  word-break: break-word;
+}
+
+/* "used in" footer on the OEIS index page (notes=true) */
+
+.oeis-card__notes {
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px dashed #30363d;
+}

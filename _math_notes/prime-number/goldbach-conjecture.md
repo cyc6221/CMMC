@@ -41,7 +41,7 @@ Every odd integer $N>5$ can be written as the sum of three primes.
   </tbody>
 </table>
 
-不計順序的分解個數記錄在 OEIS [A045917](https://oeis.org/A045917)。個數整體隨 $N$ 增加，但會隨 $N$ 的質因數而起伏。
+不計順序的分解個數記錄在 {% include oeis.html id="A045917" %}。個數整體隨 $N$ 增加，但會隨 $N$ 的質因數而起伏。
 
 ## Strong Implies Weak
 
