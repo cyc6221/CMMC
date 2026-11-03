@@ -8,7 +8,8 @@ nav_title: OEIS
 toc: false
 ---
 
-{% for oeis_entry in site.data.oeis -%}
+{% assign oeis_entries = site.data.oeis | sort -%}
+{% for oeis_entry in oeis_entries -%}
 {% assign oeis_id = oeis_entry[0] %}
 {% include oeis-card.html id=oeis_id notes=true %}
 {% endfor %}
