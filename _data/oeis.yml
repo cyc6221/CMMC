@@ -2,6 +2,12 @@
 # name: the OEIS title, verbatim. name_zh: optional Traditional Chinese gloss, may contain $...$.
 # offset: index of the first term. terms: initial terms, used by the card.
 
+A000796:
+  name: "Decimal expansion of Pi (or digits of Pi)."
+  name_zh: '圓周率 $\pi$ 的十進位展開'
+  offset: 1
+  terms: [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4, 6, 2, 6, 4, 3, 3, 8, 3, 2, 7, 9, 5, 0, 2, 8, 8, 4, 1, 9, 7, 1, 6, 9, 3, 9, 9, 3, 7, 5, 1, 0, 5, 8, 2, 0, 9, 7, 4, 9, 4]
+
 A001359:
   name: "Lesser of twin primes."
   name_zh: "孿生質數 $(p,p+2)$ 中較小的 $p$"
