@@ -112,6 +112,23 @@ html.toc-closed body.has-toc #page-toc {
   display: none;
 }
 
+/* Narrow screens: an open panel stacks above the content instead of squeezing it */
+
+@media (max-width: 899px) {
+  html:not(.toc-closed) body.has-toc .page-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  html:not(.toc-closed) body.has-toc .page-toc {
+    order: -1;
+    position: static;
+    max-height: none;
+    padding: 0;
+    border-left: 0;
+  }
+}
+
 /* Lists */
 
 body.has-toc .page-toc__list,
