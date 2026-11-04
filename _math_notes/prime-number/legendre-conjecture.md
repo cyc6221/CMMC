@@ -2,7 +2,7 @@
 layout: page
 title: Legendre's Conjecture
 date: 2026-10-31
-last_updated: 2026-11-01
+last_updated: 2026-11-05
 ---
 
 **Legendre's conjecture**：任意兩個相鄰的完全平方數之間都至少有一個質數。這是 Landau 在 1912 年列出的四個質數問題（[Landau's problems]({{ '/math/notes/prime-number/landau-problems/' | relative_url }})）之一，至今仍未被證明。
@@ -149,46 +149,9 @@ Cramér 依據隨機模型猜測 $g_k=O\!\left((\log p_k)^2\right)$。若此猜�
 
 ## Related Conjectures
 
-### Andrica's Conjecture
-
-<div class="definition">
-<strong>Andrica's Conjecture</strong>
-For every $k\ge 1$, $\sqrt{p_{k+1}}-\sqrt{p_k}<1$.
-</div>
-
-<div class="lemma">
-<strong>Lemma.</strong>
-Andrica's conjecture implies Legendre's conjecture.
-</div>
-
-<div class="proof">
-<strong>Proof.</strong>
-Suppose there is no prime in $(n^2,(n+1)^2)$ for some $n\ge 2$. As in the previous lemma, let $p_k$ be the largest prime less than $n^2$; then $p_{k+1}>(n+1)^2$. Therefore
-$$
-\sqrt{p_{k+1}}-\sqrt{p_k}>(n+1)-n=1,
-$$
-contradicting Andrica's conjecture.
-</div>
-
-Andrica's conjecture 也可以寫成 $g_k<2\sqrt{p_k}+1$，與前面 prime gap 的條件幾乎相同。
-
-### Oppermann's Conjecture
-
-<div class="definition">
-<strong>Oppermann's Conjecture</strong>
-For every integer $n>1$, there is at least one prime in $(n^2-n,\,n^2)$ and at least one prime in $(n^2,\,n^2+n)$.
-</div>
-
-因為 $(n^2,n^2+n)\subset(n^2,(n+1)^2)$，Oppermann's conjecture 直接推出 Legendre's conjecture。它把每個平方區間再切成兩半，要求兩半都有質數。
-
-### Brocard's Conjecture
-
-<div class="definition">
-<strong>Brocard's Conjecture</strong>
-For every $k\ge 2$, there are at least four primes between $p_k^2$ and $p_{k+1}^2$.
-</div>
-
-由於 $p_{k+1}-p_k\ge 2$（$k\ge 2$），$p_k^2$ 與 $p_{k+1}^2$ 之間至少包含兩個連續平方區間，Brocard's conjecture 可以看成 Legendre's conjecture 在相鄰質數平方之間的加強版。
+- [Andrica's conjecture]({{ '/math/notes/prime-number/andrica-conjecture/' | relative_url }})：$\sqrt{p_{k+1}}-\sqrt{p_k}<1$。等價於 $g_k<2\sqrt{p_k}+1$，可以推出 Legendre's conjecture。
+- [Oppermann's conjecture]({{ '/math/notes/prime-number/oppermann-conjecture/' | relative_url }})：$(n^2-n,n^2)$ 與 $(n^2,n^2+n)$ 都含有質數。可以推出 Legendre's conjecture，也可以推出 Andrica's conjecture 與 Brocard's conjecture。
+- [Brocard's conjecture]({{ '/math/notes/prime-number/brocard-conjecture/' | relative_url }})：$k\ge 2$ 時，$p_k^2$ 與 $p_{k+1}^2$ 之間至少有四個質數。
 
 ## Partial Results
 
