@@ -41,18 +41,75 @@ body.has-toc .page-toc {
 }
 
 body.has-toc .page-toc__title {
+  appearance: none;
   position: sticky;
   top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
   margin: 0 0 12px;
   padding: 0 0 8px;
+  border: 0;
+  border-radius: 0;
   background: #0d0d0d;
   color: #33ff33;
+  cursor: pointer;
   font-family: "Roboto Mono", monospace;
   font-size: 0.82rem;
   font-weight: 700;
+  line-height: inherit;
   letter-spacing: 0.06em;
+  text-align: left;
   text-transform: uppercase;
   z-index: 2;
+}
+
+body.has-toc .page-toc__title::after {
+  content: "[-]";
+  flex: 0 0 auto;
+  color: #8f8f8f;
+  transition: color 0.15s ease;
+}
+
+body.has-toc .page-toc__title:hover::after,
+body.has-toc .page-toc__title:focus-visible::after {
+  color: #33ff33;
+}
+
+body.has-toc .page-toc__title:focus-visible {
+  outline: 1px solid #33ff33;
+  outline-offset: 2px;
+}
+
+/* Closed: the panel shrinks to the [+] switch and the content takes the full width */
+
+html.toc-closed body.has-toc .page-layout {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+}
+
+html.toc-closed body.has-toc .page-toc {
+  overflow: visible;
+  padding: 0;
+  border-left: 0;
+}
+
+html.toc-closed body.has-toc .page-toc__title {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+html.toc-closed body.has-toc .page-toc__title::after {
+  content: "[+]";
+  color: #33ff33;
+}
+
+html.toc-closed body.has-toc .page-toc__label,
+html.toc-closed body.has-toc #page-toc {
+  display: none;
 }
 
 /* Lists */

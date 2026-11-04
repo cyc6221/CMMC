@@ -3,6 +3,41 @@
   const toc = document.querySelector("#page-toc");
   if (!content || !toc) return;
 
+  // $ CONTENTS 開關：狀態記在 <html class="toc-closed">，初始值由 default.html 的 head script 設定
+  const root = document.documentElement;
+  const tocSwitch = document.querySelector(".page-toc__title");
+
+  if (tocSwitch) {
+    const syncSwitch = () => {
+      const closed = root.classList.contains("toc-closed");
+      tocSwitch.setAttribute("aria-expanded", String(!closed));
+      tocSwitch.title = closed ? "Show contents" : "Hide contents";
+    };
+
+    tocSwitch.addEventListener("click", () => {
+      // 內文寬度改變會重新換行，以畫面最上方的區塊為錨點，維持閱讀位置
+      const anchor = Array.from(content.children).find(
+        (el) => el.getBoundingClientRect().bottom > 0
+      );
+      const topBefore = anchor ? anchor.getBoundingClientRect().top : 0;
+
+      const closed = root.classList.toggle("toc-closed");
+      try {
+        localStorage.setItem("page-toc-state", closed ? "closed" : "open");
+      } catch (e) {}
+
+      if (anchor) {
+        window.scrollBy({
+          top: anchor.getBoundingClientRect().top - topBefore,
+          behavior: "instant",
+        });
+      }
+      syncSwitch();
+    });
+
+    syncSwitch();
+  }
+
   const h2s = Array.from(content.querySelectorAll("h2"));
 
   if (h2s.length === 0) {
