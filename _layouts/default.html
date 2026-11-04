@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
 
     {% include mathjax.html %}
+
+    <script>
+      // Apply the saved TOC state before first paint; the toggle lives in page-toc.js.
+      (function () {
+        let saved = null;
+        try { saved = localStorage.getItem('page-toc-state'); } catch (e) {}
+        const closed = saved ? saved === 'closed' : window.innerWidth < 900;
+        if (closed) document.documentElement.classList.add('toc-closed');
+      })();
+    </script>
   </head>
 
   <body id="top" class="{% if page.toc != false and page.layout == 'page' %}has-toc{% endif %}">
