@@ -61,7 +61,7 @@ $$
 
 <div class="lemma">
 <strong>Lemma.</strong>
-Oppermann's conjecture implies Legendre's conjecture.
+Oppermann's conjecture implies <a href="{{ '/math/notes/prime-number/legendre-conjecture/' | relative_url }}">Legendre's conjecture</a>.
 </div>
 
 <div class="proof">
