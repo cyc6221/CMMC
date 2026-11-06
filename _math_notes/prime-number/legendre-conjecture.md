@@ -154,7 +154,7 @@ Cramér <a class="cite" href="#bib-cra36">Cra36</a> 依據隨機模型猜測 $g_
 ## Related Conjectures
 
 - [Andrica's conjecture]({{ '/math/notes/prime-number/andrica-conjecture/' | relative_url }})：$\sqrt{p_{k+1}}-\sqrt{p_k}<1$。等價於 $g_k<2\sqrt{p_k}+1$，可以推出 Legendre's conjecture。
-- [Oppermann's conjecture]({{ '/math/notes/prime-number/oppermann-conjecture/' | relative_url }})：$(n^2-n,n^2)$ 與 $(n^2,n^2+n)$ 都含有質數。可以推出 Legendre's conjecture，也可以推出 Andrica's conjecture 與 Brocard's conjecture。
+- [Oppermann's conjecture]({{ '/math/notes/prime-number/oppermann-conjecture/' | relative_url }})：對所有整數 $n\ge 2$，區間 $(n^2-n,n^2)$ 與 $(n^2,n^2+n)$ 都至少含有一個質數。可以推出 Legendre's conjecture、Andrica's conjecture 與 Brocard's conjecture。
 - [Brocard's conjecture]({{ '/math/notes/prime-number/brocard-conjecture/' | relative_url }})：$k\ge 2$ 時，$p_k^2$ 與 $p_{k+1}^2$ 之間至少有四個質數。
 
 ## Partial Results
