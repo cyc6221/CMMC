@@ -5,7 +5,7 @@ date: 2026-11-05
 last_updated: 2026-11-05
 ---
 
-**Brocard's conjecture**：從第二個質數開始，相鄰質數的平方之間至少有四個質數。以 Henri Brocard 命名，至今仍未被證明。
+**Brocard's conjecture**：從第二個質數開始，相鄰質數的平方之間至少有四個質數。Henri Brocard 在 1904 年提出 <a class="cite" href="#bib-wei">Wei</a>，至今仍未被證明。
 
 <div class="definition">
 <strong>Brocard's Conjecture</strong>
@@ -72,8 +72,25 @@ $p_k^2$ 與 $p_{k+1}^2$ 之間恰好有 $g_k$ 個連續的平方區間 $(m^2,(m+
 
 若 [Legendre's conjecture]({{ '/math/notes/prime-number/legendre-conjecture/' | relative_url }}) 成立，每個平方區間至少有一個質數，所以個數至少為 $g_k\ge 2$，還不足以推出 Brocard's conjecture。
 
-若 [Oppermann's conjecture]({{ '/math/notes/prime-number/oppermann-conjecture/' | relative_url }}) 成立，每個平方區間至少有兩個質數，所以個數至少為 $2g_k\ge 4$，這正是 Brocard's conjecture，證明見該篇。
+若 [Oppermann's conjecture]({{ '/math/notes/prime-number/oppermann-conjecture/' | relative_url }}) 成立，每個平方區間至少有兩個質數，所以個數至少為 $2g_k\ge 4$，這正是 Brocard's conjecture <a class="cite" href="#bib-wel05">Wel05</a>。
 
 ## Computational Verification
 
-Oppermann's conjecture 對 $n$ 至少到約 $2\cdot 10^9$ 都已驗證，因此由上面的推論，Brocard's conjecture 對 $p_{k+1}$ 至少到約 $2\cdot 10^9$ 都成立。
+由 prime gap 的計算 <a class="cite" href="#bib-ohp14">OHP14</a>，Oppermann's conjecture 對 $n$ 至少到約 $2\cdot 10^9$ 都已驗證，因此由上面的推論，Brocard's conjecture 對 $p_{k+1}$ 至少到約 $2\cdot 10^9$ 都成立。
+
+## References
+
+<ul class="bib">
+  <li id="bib-wei">
+    <span class="bib-key">Wei</span>
+    <span class="bib-body">E. W. Weisstein. <a href="https://mathworld.wolfram.com/BrocardsConjecture.html"><i>Brocard's Conjecture.</i></a> MathWorld.</span>
+  </li>
+  <li id="bib-wel05">
+    <span class="bib-key">Wel05</span>
+    <span class="bib-body">D. Wells. <i>Prime Numbers: The Most Mysterious Figures in Math.</i> John Wiley &amp; Sons, 2005.</span>
+  </li>
+  <li id="bib-ohp14">
+    <span class="bib-key">OHP14</span>
+    <span class="bib-body">T. Oliveira e Silva, S. Herzog, and S. Pardi. <i>Empirical verification of the even Goldbach conjecture and computation of prime gaps up to $4\cdot 10^{18}$.</i> Mathematics of Computation, 83(288):2033–2060, 2014.</span>
+  </li>
+</ul>
