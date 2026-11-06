@@ -2,7 +2,7 @@
 layout: page
 title: Oppermann's Conjecture
 date: 2026-11-05
-last_updated: 2026-11-05
+last_updated: 2026-11-06
 ---
 
 **Oppermann's conjecture**：對每個 $n>1$，$n^2$ 的左右兩側各有一段長度 $n$ 的區間，兩段都含有質數。Ludvig Oppermann 在 1877 年的演講中提出，1882 年發表 <a class="cite" href="#bib-opp82">Opp82</a>，至今仍未被證明。
@@ -117,6 +117,8 @@ Let $k\ge 2$. Then $p_k$ and $p_{k+1}$ are odd primes, so $p_{k+1}\ge p_k+2$. Th
 
 $4\cdot 10^{18}$ 以下的 prime gap 最大值為 $1476$ <a class="cite" href="#bib-ohp14">OHP14</a>，所以只要 $n+2>1476$，且區間落在 $4\cdot 10^{18}$ 以下，這段區間就必含質數；$n<1475$ 的情形可以直接檢查。因此 Oppermann's conjecture 對 $n$ 至少到約 $2\cdot 10^9$ 都成立。
 
+Sorenson 與 Webster <a class="cite" href="#bib-sw25">SW25</a> 用專門尋找短區間內質數的演算法，把驗證範圍擴大到 $n\le 7.05\cdot 10^{13}$。
+
 ## References
 
 <ul class="bib">
@@ -135,5 +137,9 @@ $4\cdot 10^{18}$ 以下的 prime gap 最大值為 $1476$ <a class="cite" href="#
   <li id="bib-ohp14">
     <span class="bib-key">OHP14</span>
     <span class="bib-body">T. Oliveira e Silva, S. Herzog, and S. Pardi. <i>Empirical verification of the even Goldbach conjecture and computation of prime gaps up to $4\cdot 10^{18}$.</i> Mathematics of Computation, 83(288):2033–2060, 2014.</span>
+  </li>
+  <li id="bib-sw25">
+    <span class="bib-key">SW25</span>
+    <span class="bib-body">J. Sorenson and J. Webster. <i>An algorithm and computation to verify Legendre's conjecture up to $7\cdot 10^{13}$.</i> Research in Number Theory, 11(1), Article 4, 2025.</span>
   </li>
 </ul>
