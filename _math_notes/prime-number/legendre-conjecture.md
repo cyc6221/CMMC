@@ -132,7 +132,7 @@ Since $p_k<n^2$, we have $\sqrt{p_k}<n$, so $2\sqrt{p_k}+1<2n+1<g_k$, contradict
 For all sufficiently large $x$, the interval $[x-x^{0.525},x]$ contains a prime.
 </div>
 
-取 $x=(n+1)^2$，這個結果保證區間 $[(n+1)^2-(n+1)^{1.05},(n+1)^2]$ 內有質數。但 $(n+1)^{1.05}$ 最終會大於 $2n+1$，區間左端會越過 $n^2$，因此不足以推出 Legendre's conjecture。要直接得到猜想，需要把指數 $0.525$ 降到 $\frac12$，且常數不超過 $2$。
+取 $x=(n+1)^2$，這個結果保證區間 $[(n+1)^2-(n+1)^{1.05},(n+1)^2]$ 內有質數。但 $(n+1)^{1.05}$ 最終會大於 $2n+1$，區間左端會越過 $n^2$，因此不足以推出 Legendre's conjecture。若能把指數 $0.525$ 改善到 $\frac12$，且對應的常數不超過 $2$，就能處理所有足夠大的 $n$；指數小於 $\frac12$ 的結果同樣足夠。
 
 <div class="remark">
 同樣的方法對立方數有效。Ingham (1937) <a class="cite" href="#bib-ing37">Ing37</a> 證明了 $[x,x+x^{5/8+\varepsilon}]$ 對足夠大的 $x$ 含有質數。取 $x=n^3$，區間長度 $(n+1)^3-n^3=3n^2+3n+1$ 約為 $x^{2/3}$，而 $\frac58<\frac23$，所以對足夠大的 $n$，$n^3$ 與 $(n+1)^3$ 之間必有質數。
@@ -166,7 +166,7 @@ Cramér <a class="cite" href="#bib-cra36">Cra36</a> 依據隨機模型猜測 $g_
 For all sufficiently large $n$, there is an integer $m$ with $n^2<m<(n+1)^2$ that is either a prime or a product of two primes.
 </div>
 
-這是目前最接近 Legendre's conjecture 的無條件結果：把「質數」放寬為「至多兩個質因數的乘積」後，結論成立。
+這是 Legendre's conjecture 的無條件弱化結果：把「質數」放寬為「至多兩個質因數的乘積」後，結論對所有足夠大的 $n$ 成立。
 
 ### Computational Verification
 
