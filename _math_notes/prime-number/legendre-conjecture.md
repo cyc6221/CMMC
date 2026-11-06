@@ -149,7 +149,7 @@ Assuming the Riemann Hypothesis, $g_k = O\!\left(\sqrt{p_k}\,\log p_k\right)$.
 
 ### Cramér's Conjecture
 
-Cramér <a class="cite" href="#bib-cra36">Cra36</a> 依據隨機模型猜測 $g_k=O\!\left((\log p_k)^2\right)$。若此猜想成立，則對足夠大的 $k$ 有 $g_k<2\sqrt{p_k}+1$，再搭配有限範圍的計算，即可推出 Legendre's conjecture。
+Cramér <a class="cite" href="#bib-cra36">Cra36</a> 依據隨機模型猜測 $g_k=O\left((\log p_k)^2\right)$。若此猜想成立，則對足夠大的 $k$ 有 $g_k<2\sqrt{p_k}+1$，再搭配有限範圍的計算，即可推出 Legendre's conjecture。
 
 ## Related Conjectures
 
