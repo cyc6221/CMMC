@@ -66,7 +66,8 @@ Oppermann's conjecture implies <a href="{{ '/math/notes/prime-number/legendre-co
 
 <div class="proof">
 <strong>Proof.</strong>
-For $n=1$, the interval $(1,4)$ contains the prime $2$. For $n\ge 2$, Oppermann's conjecture gives a prime in $(n^2,n^2+n)$, and $(n^2,n^2+n)\subset(n^2,(n+1)^2)$.
+For $n=1$, the interval $(1,4)$ contains the prime $2$. <br>
+For $n\ge 2$, Oppermann's conjecture gives a prime in $(n^2,n^2+n)$, and $(n^2,n^2+n)\subset(n^2,(n+1)^2)$.
 </div>
 
 同樣的論證可以拿到更多。區間 $(n^2,(n+1)^2)$ 在 $n^2+n$ 被切成 $(n^2,n^2+n)$ 與 $((n+1)^2-(n+1),(n+1)^2)$，兩段都含有質數，所以 $n\ge 2$ 時每個平方區間至少有兩個質數。
