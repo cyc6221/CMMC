@@ -2,7 +2,7 @@
 layout: page
 title: Legendre's Conjecture
 date: 2026-10-31
-last_updated: 2026-11-05
+last_updated: 2026-11-06
 ---
 
 **Legendre's conjecture**：任意兩個相鄰的完全平方數之間都至少有一個質數。這是 Landau 在 1912 年列出的四個質數問題（[Landau's problems]({{ '/math/notes/prime-number/landau-problems/' | relative_url }})）之一 <a class="cite" href="#bib-lan12">Lan12</a>，至今仍未被證明。
@@ -172,6 +172,8 @@ For all sufficiently large $n$, there is an integer $m$ with $n^2<m<(n+1)^2$ tha
 
 Oliveira e Silva、Herzog 與 Pardi 在 2014 年 <a class="cite" href="#bib-ohp14">OHP14</a> 驗證了 $4\cdot 10^{18}$ 以下的所有 prime gap，最大值為 $1476$。對 $(n+1)^2\le 4\cdot10^{18}$，若 $2n+1>1476$，即 $n\ge 738$，區間 $(n^2,(n+1)^2)$ 的長度超過這個範圍內的任何 prime gap，因此必含質數；$n<738$ 的情形可以直接檢查。由此 Legendre's conjecture 對 $n$ 至少到約 $2\cdot 10^9$ 都成立。
 
+Sorenson 與 Webster <a class="cite" href="#bib-sw25">SW25</a> 進一步驗證 [Oppermann's conjecture]({{ '/math/notes/prime-number/oppermann-conjecture/' | relative_url }}) 對 $n\le 7.05\cdot 10^{13}$ 成立。Oppermann's conjecture 可以推出 Legendre's conjecture，所以 Legendre's conjecture 在這個範圍內也成立。
+
 ## References
 
 <ul class="bib">
@@ -202,5 +204,9 @@ Oliveira e Silva、Herzog 與 Pardi 在 2014 年 <a class="cite" href="#bib-ohp1
   <li id="bib-ohp14">
     <span class="bib-key">OHP14</span>
     <span class="bib-body">T. Oliveira e Silva, S. Herzog, and S. Pardi. <i>Empirical verification of the even Goldbach conjecture and computation of prime gaps up to $4\cdot 10^{18}$.</i> Mathematics of Computation, 83(288):2033–2060, 2014.</span>
+  </li>
+  <li id="bib-sw25">
+    <span class="bib-key">SW25</span>
+    <span class="bib-body">J. Sorenson and J. Webster. <i>An algorithm and computation to verify Legendre's conjecture up to $7\cdot 10^{13}$.</i> Research in Number Theory, 11(1), Article 4, 2025.</span>
   </li>
 </ul>
