@@ -2,7 +2,7 @@
 layout: page
 title: Legendre's Conjecture
 date: 2026-10-31
-last_updated: 2026-11-05
+last_updated: 2026-11-06
 ---
 
 **Legendre's conjecture**：任意兩個相鄰的完全平方數之間都至少有一個質數。這是 Landau 在 1912 年列出的四個質數問題（[Landau's problems]({{ '/math/notes/prime-number/landau-problems/' | relative_url }})）之一 <a class="cite" href="#bib-lan12">Lan12</a>，至今仍未被證明。
@@ -112,10 +112,14 @@ If $g_k \le 2\sqrt{p_k}+1$ for every $k$, then Legendre's conjecture holds.
 
 <div class="proof">
 <strong>Proof.</strong>
-Suppose there is no prime in $(n^2,(n+1)^2)$ for some $n\ge 1$. Since $2\in(1,4)$, we have $n\ge 2$, so $n^2\ge 4>2$ and there is a largest prime $p_k$ less than $n^2$. Because $(n+1)^2$ is not prime and the interval contains no prime, the next prime satisfies $p_{k+1}>(n+1)^2$. Hence
+Suppose there is no prime in $(n^2,(n+1)^2)$ for some $n\ge 1$.<br>
+Since $2\in(1,4)$, we have $n\ge 2$, so $n^2\ge 4>2$ and there is a largest prime $p_k$ less than $n^2$.<br>
+Because $(n+1)^2$ is not prime and the interval contains no prime, the next prime satisfies $p_{k+1}>(n+1)^2$.<br>
+Hence
 $$
 g_k=p_{k+1}-p_k>(n+1)^2-n^2=2n+1.
 $$
+
 Since $p_k<n^2$, we have $\sqrt{p_k}<n$, so $2\sqrt{p_k}+1<2n+1<g_k$, contradicting the assumption.
 </div>
 
@@ -128,7 +132,11 @@ Since $p_k<n^2$, we have $\sqrt{p_k}<n$, so $2\sqrt{p_k}+1<2n+1<g_k$, contradict
 For all sufficiently large $x$, the interval $[x-x^{0.525},x]$ contains a prime.
 </div>
 
-取 $x=(n+1)^2$，這個結果保證區間 $[(n+1)^2-(n+1)^{1.05},(n+1)^2]$ 內有質數。但 $(n+1)^{1.05}$ 最終會大於 $2n+1$，區間左端會越過 $n^2$，因此不足以推出 Legendre's conjecture。要直接得到猜想，需要把指數 $0.525$ 降到 $\frac12$，且常數不超過 $2$。
+取 $x=(n+1)^2$，這個結果保證區間 $[(n+1)^2-(n+1)^{1.05},(n+1)^2]$ 內有質數。但 $(n+1)^{1.05}$ 最終會大於 $2n+1$，區間左端會越過 $n^2$，因此不足以推出 Legendre's conjecture。若能把指數 $0.525$ 改善到 $\frac12$，且對應的常數不超過 $2$，就能處理所有足夠大的 $n$；指數小於 $\frac12$ 的結果同樣足夠。
+
+<div class="remark">
+常數 $2$ 足夠的原因：區間 $[(n+1)^2-2(n+1),(n+1)^2]$ 的左端為 $n^2-1$。當 $n\ge 3$ 時，$n^2-1=(n-1)(n+1)$ 是合數，而 $n^2$ 與 $(n+1)^2$ 也不是質數，所以這個區間內的質數必定落在 $(n^2,(n+1)^2)$。
+</div>
 
 <div class="remark">
 同樣的方法對立方數有效。Ingham (1937) <a class="cite" href="#bib-ing37">Ing37</a> 證明了 $[x,x+x^{5/8+\varepsilon}]$ 對足夠大的 $x$ 含有質數。取 $x=n^3$，區間長度 $(n+1)^3-n^3=3n^2+3n+1$ 約為 $x^{2/3}$，而 $\frac58<\frac23$，所以對足夠大的 $n$，$n^3$ 與 $(n+1)^3$ 之間必有質數。
@@ -145,12 +153,12 @@ Assuming the Riemann Hypothesis, $g_k = O\!\left(\sqrt{p_k}\,\log p_k\right)$.
 
 ### Cramér's Conjecture
 
-Cramér <a class="cite" href="#bib-cra36">Cra36</a> 依據隨機模型猜測 $g_k=O\!\left((\log p_k)^2\right)$。若此猜想成立，則對足夠大的 $k$ 有 $g_k<2\sqrt{p_k}+1$，再搭配有限範圍的計算，即可推出 Legendre's conjecture。
+Cramér <a class="cite" href="#bib-cra36">Cra36</a> 依據隨機模型猜測 $g_k=O\left((\log p_k)^2\right)$。若此猜想成立，則對足夠大的 $k$ 有 $g_k<2\sqrt{p_k}+1$，再搭配有限範圍的計算，即可推出 Legendre's conjecture。
 
 ## Related Conjectures
 
 - [Andrica's conjecture]({{ '/math/notes/prime-number/andrica-conjecture/' | relative_url }})：$\sqrt{p_{k+1}}-\sqrt{p_k}<1$。等價於 $g_k<2\sqrt{p_k}+1$，可以推出 Legendre's conjecture。
-- [Oppermann's conjecture]({{ '/math/notes/prime-number/oppermann-conjecture/' | relative_url }})：$(n^2-n,n^2)$ 與 $(n^2,n^2+n)$ 都含有質數。可以推出 Legendre's conjecture，也可以推出 Andrica's conjecture 與 Brocard's conjecture。
+- [Oppermann's conjecture]({{ '/math/notes/prime-number/oppermann-conjecture/' | relative_url }})：對所有整數 $n\ge 2$，區間 $(n^2-n,n^2)$ 與 $(n^2,n^2+n)$ 都至少含有一個質數。可以推出 Legendre's conjecture、Andrica's conjecture 與 Brocard's conjecture。
 - [Brocard's conjecture]({{ '/math/notes/prime-number/brocard-conjecture/' | relative_url }})：$k\ge 2$ 時，$p_k^2$ 與 $p_{k+1}^2$ 之間至少有四個質數。
 
 ## Partial Results
@@ -162,11 +170,13 @@ Cramér <a class="cite" href="#bib-cra36">Cra36</a> 依據隨機模型猜測 $g_
 For all sufficiently large $n$, there is an integer $m$ with $n^2<m<(n+1)^2$ that is either a prime or a product of two primes.
 </div>
 
-這是目前最接近 Legendre's conjecture 的無條件結果：把「質數」放寬為「至多兩個質因數的乘積」後，結論成立。
+這是 Legendre's conjecture 的無條件弱化結果：把「質數」放寬為「至多兩個質因數的乘積」後，結論對所有足夠大的 $n$ 成立。
 
 ### Computational Verification
 
 Oliveira e Silva、Herzog 與 Pardi 在 2014 年 <a class="cite" href="#bib-ohp14">OHP14</a> 驗證了 $4\cdot 10^{18}$ 以下的所有 prime gap，最大值為 $1476$。對 $(n+1)^2\le 4\cdot10^{18}$，若 $2n+1>1476$，即 $n\ge 738$，區間 $(n^2,(n+1)^2)$ 的長度超過這個範圍內的任何 prime gap，因此必含質數；$n<738$ 的情形可以直接檢查。由此 Legendre's conjecture 對 $n$ 至少到約 $2\cdot 10^9$ 都成立。
+
+Sorenson 與 Webster <a class="cite" href="#bib-sw25">SW25</a> 進一步驗證 [Oppermann's conjecture]({{ '/math/notes/prime-number/oppermann-conjecture/' | relative_url }}) 對 $n\le 7.05\cdot 10^{13}$ 成立。Oppermann's conjecture 可以推出 Legendre's conjecture，所以 Legendre's conjecture 在這個範圍內也成立。
 
 ## References
 
@@ -198,5 +208,9 @@ Oliveira e Silva、Herzog 與 Pardi 在 2014 年 <a class="cite" href="#bib-ohp1
   <li id="bib-ohp14">
     <span class="bib-key">OHP14</span>
     <span class="bib-body">T. Oliveira e Silva, S. Herzog, and S. Pardi. <i>Empirical verification of the even Goldbach conjecture and computation of prime gaps up to $4\cdot 10^{18}$.</i> Mathematics of Computation, 83(288):2033–2060, 2014.</span>
+  </li>
+  <li id="bib-sw25">
+    <span class="bib-key">SW25</span>
+    <span class="bib-body">J. Sorenson and J. Webster. <i>An algorithm and computation to verify Legendre's conjecture up to $7\cdot 10^{13}$.</i> Research in Number Theory, 11(1), Article 4, 2025.</span>
   </li>
 </ul>
