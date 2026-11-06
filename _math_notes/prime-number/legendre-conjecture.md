@@ -112,10 +112,14 @@ If $g_k \le 2\sqrt{p_k}+1$ for every $k$, then Legendre's conjecture holds.
 
 <div class="proof">
 <strong>Proof.</strong>
-Suppose there is no prime in $(n^2,(n+1)^2)$ for some $n\ge 1$. Since $2\in(1,4)$, we have $n\ge 2$, so $n^2\ge 4>2$ and there is a largest prime $p_k$ less than $n^2$. Because $(n+1)^2$ is not prime and the interval contains no prime, the next prime satisfies $p_{k+1}>(n+1)^2$. Hence
+Suppose there is no prime in $(n^2,(n+1)^2)$ for some $n\ge 1$.<br>
+Since $2\in(1,4)$, we have $n\ge 2$, so $n^2\ge 4>2$ and there is a largest prime $p_k$ less than $n^2$.<br>
+Because $(n+1)^2$ is not prime and the interval contains no prime, the next prime satisfies $p_{k+1}>(n+1)^2$.<br>
+Hence
 $$
 g_k=p_{k+1}-p_k>(n+1)^2-n^2=2n+1.
 $$
+
 Since $p_k<n^2$, we have $\sqrt{p_k}<n$, so $2\sqrt{p_k}+1<2n+1<g_k$, contradicting the assumption.
 </div>
 
