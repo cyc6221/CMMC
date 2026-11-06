@@ -5,7 +5,7 @@ date: 2026-10-31
 last_updated: 2026-11-05
 ---
 
-**Legendre's conjecture**：任意兩個相鄰的完全平方數之間都至少有一個質數。這是 Landau 在 1912 年列出的四個質數問題（[Landau's problems]({{ '/math/notes/prime-number/landau-problems/' | relative_url }})）之一，至今仍未被證明。
+**Legendre's conjecture**：任意兩個相鄰的完全平方數之間都至少有一個質數。這是 Landau 在 1912 年列出的四個質數問題（[Landau's problems]({{ '/math/notes/prime-number/landau-problems/' | relative_url }})）之一 <a class="cite" href="#bib-lan12">Lan12</a>，至今仍未被證明。
 
 <div class="definition">
 <strong>Legendre's Conjecture</strong>
@@ -124,20 +124,20 @@ Since $p_k<n^2$, we have $\sqrt{p_k}<n$, so $2\sqrt{p_k}+1<2n+1<g_k$, contradict
 ### Unconditional Results
 
 <div class="theorem">
-<strong>Theorem (Baker–Harman–Pintz, 2001).</strong>
+<strong>Theorem (Baker–Harman–Pintz, 2001). <a class="cite" href="#bib-bhp01">BHP01</a></strong>
 For all sufficiently large $x$, the interval $[x-x^{0.525},x]$ contains a prime.
 </div>
 
 取 $x=(n+1)^2$，這個結果保證區間 $[(n+1)^2-(n+1)^{1.05},(n+1)^2]$ 內有質數。但 $(n+1)^{1.05}$ 最終會大於 $2n+1$，區間左端會越過 $n^2$，因此不足以推出 Legendre's conjecture。要直接得到猜想，需要把指數 $0.525$ 降到 $\frac12$，且常數不超過 $2$。
 
 <div class="remark">
-同樣的方法對立方數有效。Ingham (1937) 證明了 $[x,x+x^{5/8+\varepsilon}]$ 對足夠大的 $x$ 含有質數。取 $x=n^3$，區間長度 $(n+1)^3-n^3=3n^2+3n+1$ 約為 $x^{2/3}$，而 $\frac58<\frac23$，所以對足夠大的 $n$，$n^3$ 與 $(n+1)^3$ 之間必有質數。
+同樣的方法對立方數有效。Ingham (1937) <a class="cite" href="#bib-ing37">Ing37</a> 證明了 $[x,x+x^{5/8+\varepsilon}]$ 對足夠大的 $x$ 含有質數。取 $x=n^3$，區間長度 $(n+1)^3-n^3=3n^2+3n+1$ 約為 $x^{2/3}$，而 $\frac58<\frac23$，所以對足夠大的 $n$，$n^3$ 與 $(n+1)^3$ 之間必有質數。
 </div>
 
 ### Under the Riemann Hypothesis
 
 <div class="theorem">
-<strong>Theorem (Cramér, 1920).</strong>
+<strong>Theorem (Cramér, 1920). <a class="cite" href="#bib-cra20">Cra20</a></strong>
 Assuming the Riemann Hypothesis, $g_k = O\!\left(\sqrt{p_k}\,\log p_k\right)$.
 </div>
 
@@ -145,7 +145,7 @@ Assuming the Riemann Hypothesis, $g_k = O\!\left(\sqrt{p_k}\,\log p_k\right)$.
 
 ### Cramér's Conjecture
 
-Cramér 依據隨機模型猜測 $g_k=O\!\left((\log p_k)^2\right)$。若此猜想成立，則對足夠大的 $k$ 有 $g_k<2\sqrt{p_k}+1$，再搭配有限範圍的計算，即可推出 Legendre's conjecture。
+Cramér <a class="cite" href="#bib-cra36">Cra36</a> 依據隨機模型猜測 $g_k=O\!\left((\log p_k)^2\right)$。若此猜想成立，則對足夠大的 $k$ 有 $g_k<2\sqrt{p_k}+1$，再搭配有限範圍的計算，即可推出 Legendre's conjecture。
 
 ## Related Conjectures
 
@@ -158,7 +158,7 @@ Cramér 依據隨機模型猜測 $g_k=O\!\left((\log p_k)^2\right)$。若此猜�
 ### Chen's Theorem on $P_2$
 
 <div class="theorem">
-<strong>Theorem (Chen, 1975).</strong>
+<strong>Theorem (Chen, 1975). <a class="cite" href="#bib-che75">Che75</a></strong>
 For all sufficiently large $n$, there is an integer $m$ with $n^2<m<(n+1)^2$ that is either a prime or a product of two primes.
 </div>
 
@@ -166,4 +166,37 @@ For all sufficiently large $n$, there is an integer $m$ with $n^2<m<(n+1)^2$ tha
 
 ### Computational Verification
 
-Oliveira e Silva、Herzog 與 Pardi 在 2014 年驗證了 $4\cdot 10^{18}$ 以下的所有 prime gap，最大值為 $1476$。對 $(n+1)^2\le 4\cdot10^{18}$，若 $2n+1>1476$，即 $n\ge 738$，區間 $(n^2,(n+1)^2)$ 的長度超過這個範圍內的任何 prime gap，因此必含質數；$n<738$ 的情形可以直接檢查。由此 Legendre's conjecture 對 $n$ 至少到約 $2\cdot 10^9$ 都成立。
+Oliveira e Silva、Herzog 與 Pardi 在 2014 年 <a class="cite" href="#bib-ohp14">OHP14</a> 驗證了 $4\cdot 10^{18}$ 以下的所有 prime gap，最大值為 $1476$。對 $(n+1)^2\le 4\cdot10^{18}$，若 $2n+1>1476$，即 $n\ge 738$，區間 $(n^2,(n+1)^2)$ 的長度超過這個範圍內的任何 prime gap，因此必含質數；$n<738$ 的情形可以直接檢查。由此 Legendre's conjecture 對 $n$ 至少到約 $2\cdot 10^9$ 都成立。
+
+## References
+
+<ul class="bib">
+  <li id="bib-lan12">
+    <span class="bib-key">Lan12</span>
+    <span class="bib-body">E. Landau. <i>Gelöste und ungelöste Probleme aus der Theorie der Primzahlverteilung und der Riemannschen Zetafunktion.</i> Jahresbericht der Deutschen Mathematiker-Vereinigung, 21:208–228, 1912.</span>
+  </li>
+  <li id="bib-bhp01">
+    <span class="bib-key">BHP01</span>
+    <span class="bib-body">R. C. Baker, G. Harman, and J. Pintz. <i>The difference between consecutive primes, II.</i> Proceedings of the London Mathematical Society, 83(3):532–562, 2001.</span>
+  </li>
+  <li id="bib-ing37">
+    <span class="bib-key">Ing37</span>
+    <span class="bib-body">A. E. Ingham. <i>On the difference between consecutive primes.</i> The Quarterly Journal of Mathematics, 8(1):255–266, 1937.</span>
+  </li>
+  <li id="bib-cra20">
+    <span class="bib-key">Cra20</span>
+    <span class="bib-body">H. Cramér. <i>Some theorems concerning prime numbers.</i> Arkiv för Matematik, Astronomi och Fysik, 15(5):1–33, 1920.</span>
+  </li>
+  <li id="bib-cra36">
+    <span class="bib-key">Cra36</span>
+    <span class="bib-body">H. Cramér. <i>On the order of magnitude of the difference between consecutive prime numbers.</i> Acta Arithmetica, 2:23–46, 1936.</span>
+  </li>
+  <li id="bib-che75">
+    <span class="bib-key">Che75</span>
+    <span class="bib-body">J.-R. Chen. <i>On the distribution of almost primes in an interval.</i> Scientia Sinica, 18:611–627, 1975.</span>
+  </li>
+  <li id="bib-ohp14">
+    <span class="bib-key">OHP14</span>
+    <span class="bib-body">T. Oliveira e Silva, S. Herzog, and S. Pardi. <i>Empirical verification of the even Goldbach conjecture and computation of prime gaps up to $4\cdot 10^{18}$.</i> Mathematics of Computation, 83(288):2033–2060, 2014.</span>
+  </li>
+</ul>
