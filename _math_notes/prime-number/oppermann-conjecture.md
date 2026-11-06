@@ -5,14 +5,14 @@ date: 2026-11-05
 last_updated: 2026-11-05
 ---
 
-**Oppermann's conjecture**：對每個 $n>1$，$n^2$ 的左右兩側各有一段長度 $n$ 的區間，兩段都含有質數。Ludvig Oppermann 在 1877 年提出，至今仍未被證明。
+**Oppermann's conjecture**：對每個 $n>1$，$n^2$ 的左右兩側各有一段長度 $n$ 的區間，兩段都含有質數。Ludvig Oppermann 在 1877 年的演講中提出，1882 年發表 <a class="cite" href="#bib-opp82">Opp82</a>，至今仍未被證明。
 
 <div class="definition">
 <strong>Oppermann's Conjecture</strong>
 For every integer $n>1$, there is at least one prime in $(n^2-n,\,n^2)$ and at least one prime in $(n^2,\,n^2+n)$.
 </div>
 
-用質數計數函數可以寫成
+用質數計數函數可以寫成 <a class="cite" href="#bib-rib04">Rib04</a>
 
 $$
 \pi(n^2-n)<\pi(n^2)<\pi(n^2+n),\qquad n>1.
@@ -102,7 +102,7 @@ In both cases $g_k<2\sqrt{p_k}+1$.
 ### Brocard's Conjecture
 
 <div class="lemma">
-<strong>Lemma.</strong>
+<strong>Lemma. <a class="cite" href="#bib-wel05">Wel05</a></strong>
 Oppermann's conjecture implies <a href="{{ '/math/notes/prime-number/brocard-conjecture/' | relative_url }}">Brocard's conjecture</a>.
 </div>
 
@@ -115,4 +115,25 @@ Let $k\ge 2$. Then $p_k$ and $p_{k+1}$ are odd primes, so $p_{k+1}\ge p_k+2$. Th
 
 若 $n\ge 3$ 且 $(n^2-n,n^2)$ 或 $(n^2,n^2+n)$ 不含質數，因為區間端點都不是質數，包住這段區間的 prime gap 至少為 $n+2$。
 
-$4\cdot 10^{18}$ 以下的 prime gap 最大值為 $1476$，所以只要 $n+2>1476$，且區間落在 $4\cdot 10^{18}$ 以下，這段區間就必含質數；$n<1475$ 的情形可以直接檢查。因此 Oppermann's conjecture 對 $n$ 至少到約 $2\cdot 10^9$ 都成立。
+$4\cdot 10^{18}$ 以下的 prime gap 最大值為 $1476$ <a class="cite" href="#bib-ohp14">OHP14</a>，所以只要 $n+2>1476$，且區間落在 $4\cdot 10^{18}$ 以下，這段區間就必含質數；$n<1475$ 的情形可以直接檢查。因此 Oppermann's conjecture 對 $n$ 至少到約 $2\cdot 10^9$ 都成立。
+
+## References
+
+<ul class="bib">
+  <li id="bib-opp82">
+    <span class="bib-key">Opp82</span>
+    <span class="bib-body">L. Oppermann. <i>Om vor Kundskab om Primtallenes Mængde mellem givne Grændser.</i> Oversigt over Det Kongelige Danske Videnskabernes Selskabs Forhandlinger og Dets Medlemmers Arbejder, pages 169–179, 1882.</span>
+  </li>
+  <li id="bib-rib04">
+    <span class="bib-key">Rib04</span>
+    <span class="bib-body">P. Ribenboim. <i>The Little Book of Bigger Primes.</i> 2nd edition, Springer, 2004.</span>
+  </li>
+  <li id="bib-wel05">
+    <span class="bib-key">Wel05</span>
+    <span class="bib-body">D. Wells. <i>Prime Numbers: The Most Mysterious Figures in Math.</i> John Wiley &amp; Sons, 2005.</span>
+  </li>
+  <li id="bib-ohp14">
+    <span class="bib-key">OHP14</span>
+    <span class="bib-body">T. Oliveira e Silva, S. Herzog, and S. Pardi. <i>Empirical verification of the even Goldbach conjecture and computation of prime gaps up to $4\cdot 10^{18}$.</i> Mathematics of Computation, 83(288):2033–2060, 2014.</span>
+  </li>
+</ul>
