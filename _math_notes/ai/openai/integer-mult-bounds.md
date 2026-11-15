@@ -553,7 +553,7 @@ Selected result 的驗證是 maintainer 的 AI 協助 proof review（{% include 
 
 ### Pull requests
 
-除 {% include pr-link.html num=1094 %}、{% include pr-link.html num=4359 %}、{% include pr-link.html num=4470 %}、{% include pr-link.html num=4610 %}、{% include pr-link.html num=5413 %}、{% include pr-link.html num=5599 %}、{% include pr-link.html num=6030 %} 與 {% include pr-link.html num=7000 %} 曾是 selected，以及 {% include pr-link.html num=4416 %} / {% include pr-link.html num=4433 %} 的 joint p7 reviewed checkpoint 外，標題中的 $\kappa$ 都是作者的宣稱，不代表已被 maintainer 認可，各 PR 的處置見 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。
+除 {% include pr-link.html num=1094 %}、{% include pr-link.html num=4359 %}、{% include pr-link.html num=4470 %}、{% include pr-link.html num=4610 %}、{% include pr-link.html num=5413 %}、{% include pr-link.html num=5599 %}、{% include pr-link.html num=6030 %} 與 {% include pr-link.html num=7000 %} 曾是 selected，以及 {% include pr-link.html num=4416 %} / {% include pr-link.html num=4433 %} 的 joint p7 reviewed checkpoint 外，標題中的 $\kappa$ 都是作者的宣稱，不代表已被 maintainer 認可，各 PR 的處置見 [pr-ledger.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md)。{% include pr-link.html num=7001 %} 的 BIT dependency（ordinary saving $0.00385248$）已納入 {% include pr-link.html num=7000 %} 的 maintainer application review，但 {% include pr-link.html num=7001 %} 本身不是獨立的 selected checkpoint。
 
 - {% include pr-link.html num=1094 %} Conditional kappa 0.001672660197076918: rare-pattern T16 exchanges
 - {% include pr-link.html num=2848 %} T248 residue exchange: conditional κ ≈ 0.00171865850830493
