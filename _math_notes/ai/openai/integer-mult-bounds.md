@@ -316,7 +316,7 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.003630058
       <td>—</td>
     </tr>
     <tr>
-      <td>round two（{% include pr-link.html num=62 %}）</td>
+      <td>round two<br>（{% include pr-link.html num=62 %}）</td>
       <td>$5.1017\times10^{-5}$</td>
       <td>interval strips、core-aware pair assembly</td>
       <td>Avi Eisenberg<br>eumemic<br>Alejandro Zarzuelo Urdiales</td>
@@ -340,7 +340,7 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.003630058
       <td>icekylinx</td>
     </tr>
     <tr>
-      <td>paired-cube（{% include pr-link.html num=144 %}）</td>
+      <td>paired-cube<br>（{% include pr-link.html num=144 %}）</td>
       <td>$4.6092\times10^{-4}$</td>
       <td>paired cubes、shared completed cores</td>
       <td>icekylinx</td>
@@ -364,7 +364,7 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.003630058
       <td>eumemic</td>
     </tr>
     <tr>
-      <td>gen4（{% include pr-link.html num=276 %}、{% include pr-link.html num=279 %}）</td>
+      <td>gen4<br>（{% include pr-link.html num=276 %}、{% include pr-link.html num=279 %}）</td>
       <td>$7.2357\times10^{-4}$</td>
       <td>paired-cube bit word、concave-descent retiming</td>
       <td>DreamingOfClouds<br>Rohan Arun</td>
@@ -454,7 +454,7 @@ $\kappa$ 由 #109 的 $2^{-182}$ 逐步上升到目前 selected 的 $0.003630058
       <td>DreamingOfClouds<br>Ali Romman<br>Mason Hale</td>
     </tr>
     <tr>
-      <td>{% include pr-link.html num=7000 %}（目前 selected）</td>
+      <td>{% include pr-link.html num=7000 %}<br>（目前 selected）</td>
       <td>$3.63005817\times10^{-3}$</td>
       <td>shared wires、helper splits on the shared-native caller</td>
       <td>CubeJerry<br>DreamingOfClouds<br>Ali Romman</td>
