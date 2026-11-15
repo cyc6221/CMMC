@@ -153,7 +153,7 @@ $$
 <ul>
 <li><strong>Merged</strong>：PR 已進入 <code>main</code>，不表示升為 selected，也不表示已被獨立驗證。</li>
 <li><strong>Selected</strong>：曾經或目前是專案的 selected result，一定經過 maintainer review。Archive 合併、conditional review 與 selection 是三件不同的事，selection 另需一致的 source closure、重放指令與公開狀態更新。</li>
-<li><strong>Candidate</strong>：merge 後但未升為 selected 的 conditional 宣稱，其 $\kappa$ 是作者提交的數值，未經 maintainer 單獨認可。例外是 {% include pr-link.html num=4416 %} 與 {% include pr-link.html num=4433 %} 的 joint p7 reviewed checkpoint：它通過 maintainer 的 proof review，但從未升為 selected。</li>
+<li><strong>Candidate</strong>：尚未升為 selected 的 conditional 研究宣稱，不論 PR 是否已 merge。其 $\kappa$ 是作者提交的數值，審查狀態需個別確認；merge 不代表 maintainer 已接受該數學結果。例外是 {% include pr-link.html num=4416 %} 與 {% include pr-link.html num=4433 %} 的 joint p7 reviewed checkpoint：它通過 maintainer 的 proof review，但從未升為 selected。</li>
 </ul>
 </div>
 
